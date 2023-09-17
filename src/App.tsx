@@ -1,24 +1,36 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { QueryClientProvider } from 'react-query';
+import { QueryClient } from "react-query";
+import { RecoilRoot } from 'recoil';
+import Home from './pages/Home';
+import Notice from './pages/Notice';
+import Mentor from './pages/Mentor';
+import Hof from './pages/Hof';
+import Support from './pages/Support';
+import Header from './components/common/Header';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <RecoilRoot>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/notice' element={<Notice />} />
+              <Route path='/mentor' element={<Mentor />} />
+              <Route path='/hof' element={<Hof />} />
+              <Route path='/support' element={<Support />} />
+            </Routes>
+          </BrowserRouter>
+        </QueryClientProvider>
+      </RecoilRoot>
     </div>
   );
 }
