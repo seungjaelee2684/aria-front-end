@@ -7,6 +7,7 @@ import Image2 from '../assets/images/mainimage.jpg';
 import MentorList from '../components/MentorPage/MentorList';
 import LeftArrow from '../assets/icons/leftArrow.png';
 import RightArrow from '../assets/icons/rightArrow.png';
+import FilterButton from '../components/MentorPage/FilterButton';
 
 const Mentor = () => {
 
@@ -22,9 +23,6 @@ const Mentor = () => {
       imageRef.current.style.transition = "all 1.5s ease-in-out";
       imageRef.current.style.transform = `translateX(-${transX}%)`;
     };
-  }, [slideCurrent]);
-
-  useEffect(() => {
     setTimeout(() => {
       if (slideCurrent === 3) {
         setSlideCurrent(0);
@@ -33,6 +31,10 @@ const Mentor = () => {
       };
     }, 8000);
   }, [slideCurrent]);
+
+  // useEffect(() => {
+    
+  // }, [slideCurrent]);
 
   const prevButton = () => {
     if (slideCurrent === 0) {
@@ -55,12 +57,12 @@ const Mentor = () => {
       <LayoutInWrapper>
         <ImageOutContainer>
           <SlideButtonBox
-            style={{left: "10px"}}
+            style={{left: "30px"}}
             onClick={prevButton}>
             <SlideButton src={LeftArrow}/>
           </SlideButtonBox>
           <SlideButtonBox
-            style={{right: "10px"}}
+            style={{right: "30px"}}
             onClick={nextButton}>
             <SlideButton src={RightArrow}/>
           </SlideButtonBox>
@@ -111,8 +113,8 @@ const Mentor = () => {
             </MentorWrapper> 
           </ImageSlideContainer>
         </ImageOutContainer>
-        {japanese ? "講師ページ" : "강사페이지"}
       </LayoutInWrapper>
+      <FilterButton />
       <MentorList japanese={japanese} />
     </LayoutContainer>
   )
@@ -152,7 +154,7 @@ const MentorWrapper = styled.div`
 
 const ImageBox = styled.div<{ src : string }>`
   width: 45%;
-  height: 400px;
+  height: 550px;
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center center;
@@ -161,12 +163,12 @@ const ImageBox = styled.div<{ src : string }>`
 
 const IntroduceMentorContainer = styled.div`
   font-family: "Pretendard";
-  font-size: 20px;
+  font-size: 32px;
   color: #FCFCFC;
   font-weight: 800;
   line-height: 150%;
   max-width: 15%;
-  max-height: 400px;
+  max-height: 550px;
   display: grid;
   gap: 20px;
   user-select: none;
@@ -189,22 +191,22 @@ const SlideBtnWrapper = styled.div`
 `;
 
 const SlideButtonBox = styled.div`
-  width: 34px;
-  height: 34px;
+  width: 50px;
+  height: 50px;
   position: absolute;
-  top: 184px;
+  top: 250px;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #7e7e7e;
-  opacity: 0.3;
+  opacity: 0.4;
   z-index: 100;
   cursor: pointer;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 `;
 

@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
 import Image from '../../assets/images/surveimage.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const MentorCard = ({ item, japanese } : any) => {
+
+  const navigate = useNavigate();
+
   return (
-    <CardContainer>
+    <CardContainer onClick={() => navigate(`/mentor/detail/${item?.id}`)}>
       <CardImage src={item?.image}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
@@ -15,8 +19,8 @@ const MentorCard = ({ item, japanese } : any) => {
 };
 
 const CardContainer = styled.div`
-  width: 320px;
-  height: 390px;
+  width: 300px;
+  height: 360px;
   /* border: 1px solid; */
   /* border-radius: 10px; */
   background-color: #FFFFFF;
@@ -30,8 +34,8 @@ const CardContainer = styled.div`
 `;
 
 const CardImage = styled.div<{ src : string }>`
-  width: 320px;
-  height: 320px;
+  width: 300px;
+  height: 300px;
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center center;
@@ -42,11 +46,12 @@ const CardImage = styled.div<{ src : string }>`
 
 const ContentContainer = styled.div`
   display: grid;
-  margin-top: 10px;
+  margin-top: 5px;
   gap: 0px;
   font-family: "Pretendard";
   font-size: 16px;
   line-height: 140%;
+  color: #39373A;
 `;
 
 const NicknameContainer = styled.div`

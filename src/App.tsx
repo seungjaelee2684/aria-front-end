@@ -12,6 +12,7 @@ import Hof from './pages/Hof';
 import Support from './pages/Support';
 import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
+import MentorDetail from './pages/MentorDetail';
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/mentor' element={<Mentor />} />
                 <Route path='/hof' element={<Hof />} />
                 <Route path='/support' element={<Support />} />
+                <Route path='/mentor/detail/:id' element={<MentorDetail />} />
               {/* </Route> */}
             </Routes>
           </BrowserRouter>
