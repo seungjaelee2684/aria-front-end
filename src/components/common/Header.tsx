@@ -1,46 +1,115 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import logo from '../../assets/logos/logo.png'
+import logo from '../../assets/logos/logo.png';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { translate } from '../../store/Translation';
 
 const Header = () => {
+
+    const [japanese, setJapanese] = useRecoilState(translate);
+
+    const navigate = useNavigate();
+    const hoverRef = useRef<HTMLDivElement>(null);
+    const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (hoverRef.current) {
+            if (hoverEvent) {
+                hoverRef.current.style.transition = "all 0.2s ease-in-out"
+                hoverRef.current.style.opacity = "1"
+            } else {
+                hoverRef.current.style.transition = "all 0.2s ease-in-out"
+                hoverRef.current.style.opacity = "0.5"
+            };
+            
+        };
+    }, [hoverEvent]);
+
   return (
-    <HeaderLayoutContainer>
-        <HeaderLogo src={logo} alt="" />
-        <TapOutContainer>
-            <TapContainer>
-                Header
-            </TapContainer>
-            <TapContainer>
-                Header
-            </TapContainer>
-            <TapContainer>
-                Header
-            </TapContainer>
-            <TapContainer>
-                Header
-            </TapContainer>
-            <TapContainer>
-                Header
-            </TapContainer>
-        </TapOutContainer>
+    <div>
+    <HeaderHiddenContainer ref={hoverRef} />
+    <HeaderLayoutContainer
+        onMouseOver={() => setHoverEvent(true)} 
+        onMouseOut={() => setHoverEvent(false)} 
+    >
+        <HeaderOutWrapper>
+            <LogoContainer>
+                <HeaderLogo src={logo} alt="" onClick={() => navigate("/")} />
+                <TranslateText onClick={() => setJapanese(!japanese)}>{japanese ? "한국어" : "日本語"}</TranslateText>
+            </LogoContainer>
+            <TapOutContainer>
+                <TapContainer onClick={() => navigate("/")}>
+                    Home
+                </TapContainer>
+                <TapContainer>
+                    /
+                </TapContainer>
+                <TapContainer onClick={() => navigate("/mentor")}>
+                    Mentor
+                </TapContainer>
+                <TapContainer>
+                    /
+                </TapContainer>
+                <TapContainer onClick={() => navigate("/notice")}>
+                    Notice
+                </TapContainer>
+                <TapContainer>
+                    /
+                </TapContainer>
+                <TapContainer onClick={() => navigate("/hof")}>
+                    H.o.f
+                </TapContainer>
+                <TapContainer>
+                    /
+                </TapContainer>
+                <TapContainer onClick={() => navigate("/support")}>
+                    Support
+                </TapContainer>
+            </TapOutContainer>
+        </HeaderOutWrapper>
     </HeaderLayoutContainer>
+    </div>
   )
 };
 
-const HeaderLayoutContainer = styled.div`
+const HeaderHiddenContainer = styled.div`
     width: 100%;
-    height: 60px;
-    /* border-bottom: 1px solid gray; */
-    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+    height: 70px;
     position: fixed;
-    z-index: 1000;
     top: 0;
     left: 0;
+    z-index: 99;
+    background-color: #FFFFFF;
+    opacity: 0.5;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+`;
+
+const HeaderLayoutContainer = styled.div`
+    width: 100%;
+    height: 70px;
+    /* border-bottom: 1px solid gray; */
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    
+
+    /* opacity: 0.5; */
+`;
+
+const HeaderOutWrapper = styled.div`
+    padding: 0px 15% 0px 15%;
     display: flex;
-    gap: 50%;
+    justify-content: space-between;
     align-items: center;
-    background-color: #fcfcfc;
-    padding: 0px 280px;
+`;
+
+const LogoContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
 `;
 
 const HeaderLogo = styled.img`
@@ -50,24 +119,46 @@ const HeaderLogo = styled.img`
     cursor: pointer;
 
     &:hover {
-        width: 58px;
-        height: 58px;
-        transition: all 0.2s ease-in-out;
+        width: 56px;
+        height: 56px;
+        transition: all 0.3s ease-in-out;
+    }
+`;
+
+const TranslateText = styled.div`
+    font-family: "Pretendard";
+    font-size: 14px;
+    color: #222020;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: #3c3ad6;
+        font-size: 13.8px;
     }
 `;
 
 const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: end;
-    gap: 16px;
+    gap: 30px;
+    padding: 10px 5px;
+    border-bottom: 1px solid;
 `;
 
 const TapContainer = styled.div`
     font-family: "Pretendard";
-    font-size: 16px;
+    font-size: 20px;
     color: #222020;
     font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: #3c3ad6;
+        font-size: 19.8px;
+    }
 `;
 
 export default Header;

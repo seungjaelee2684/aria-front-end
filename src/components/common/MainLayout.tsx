@@ -1,9 +1,12 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
 import { styled } from "styled-components";
 
 const MainLayout = () => {
   return (
-    <div>MainLayout</div>
+    <MainLayoutContainer>
+      <Outlet />
+    </MainLayoutContainer>
   )
 };
 
