@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,6 +11,7 @@ import Mentor from './pages/Mentor';
 import Hof from './pages/Hof';
 import Support from './pages/Support';
 import Header from './components/common/Header';
+import MainLayout from './components/common/MainLayout';
 
 const queryClient = new QueryClient();
 
@@ -23,10 +24,12 @@ function App() {
             <Header />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/notice' element={<Notice />} />
-              <Route path='/mentor' element={<Mentor />} />
-              <Route path='/hof' element={<Hof />} />
-              <Route path='/support' element={<Support />} />
+              {/* <Route element={<MainLayout />}> */}
+                <Route path='/notice' element={<Notice />} />
+                <Route path='/mentor' element={<Mentor />} />
+                <Route path='/hof' element={<Hof />} />
+                <Route path='/support' element={<Support />} />
+              {/* </Route> */}
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>
