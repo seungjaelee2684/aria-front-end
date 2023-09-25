@@ -2,12 +2,15 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import logo from '../../assets/logos/logo.png';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
+import { nationFlag, nationKind } from '../../store/NationFilter';
 
 const Header = () => {
 
     const [japanese, setJapanese] = useRecoilState(translate);
+    const resetFilter = useResetRecoilState(nationKind);
+    const resetFlag = useResetRecoilState(nationFlag);
 
     const navigate = useNavigate();
     const hoverRef = useRef<HTMLDivElement>(null);
@@ -35,35 +38,62 @@ const Header = () => {
     >
         <HeaderOutWrapper>
             <LogoContainer>
-                <HeaderLogo src={logo} alt="" onClick={() => navigate("/")} />
+                <HeaderLogo
+                    src={logo}
+                    alt=""
+                    onClick={() => {
+                        navigate("/");
+                        resetFilter();
+                        resetFlag();
+                    }} />
                 <TranslateText onClick={() => setJapanese(!japanese)}>{japanese ? "한국어" : "日本語"}</TranslateText>
             </LogoContainer>
             <TapOutContainer>
-                <TapContainer onClick={() => navigate("/")}>
+                <TapContainer onClick={() => {
+                    navigate("/");
+                    resetFilter();
+                    resetFlag();
+                }}>
                     Home
                 </TapContainer>
                 <TapContainer>
                     /
                 </TapContainer>
-                <TapContainer onClick={() => navigate("/mentor")}>
+                <TapContainer onClick={() => {
+                    navigate("/mentor");
+                    resetFilter();
+                    resetFlag();
+                }}>
                     Mentor
                 </TapContainer>
                 <TapContainer>
                     /
                 </TapContainer>
-                <TapContainer onClick={() => navigate("/notice")}>
+                <TapContainer onClick={() => {
+                    navigate("/notice");
+                    resetFilter();
+                    resetFlag();
+                }}>
                     Notice
                 </TapContainer>
                 <TapContainer>
                     /
                 </TapContainer>
-                <TapContainer onClick={() => navigate("/hof")}>
+                <TapContainer onClick={() => {
+                    navigate("/hof");
+                    resetFilter();
+                    resetFlag();
+                }}>
                     H.o.f
                 </TapContainer>
                 <TapContainer>
                     /
                 </TapContainer>
-                <TapContainer onClick={() => navigate("/support")}>
+                <TapContainer onClick={() => {
+                    navigate("/support");
+                    resetFilter();
+                    resetFlag();
+                }}>
                     Support
                 </TapContainer>
             </TapOutContainer>
@@ -104,23 +134,28 @@ const HeaderOutWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto 0px;
+    height: 100%;
 `;
 
 const LogoContainer = styled.div`
     display: flex;
+    margin: auto 0px;
     align-items: center;
     gap: 16px;
+    height: 100%;
 `;
 
 const HeaderLogo = styled.img`
-    width: 55px;
-    height: 55px;
+    width: 140px;
+    height: 90px;
     object-fit: contain;
     cursor: pointer;
 
     &:hover {
-        width: 56px;
-        height: 56px;
+        /* width: 151px;
+        height: 81px; */
+        opacity: 0.8;
         transition: all 0.3s ease-in-out;
     }
 `;

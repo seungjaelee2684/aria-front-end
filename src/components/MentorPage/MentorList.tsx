@@ -2,25 +2,43 @@ import React from 'react'
 import styled from 'styled-components';
 import { mentorListData } from '../../data/MentorDate';
 import MentorCard from './MentorCard';
+import { useRecoilValue } from 'recoil';
+import { nationKind } from '../../store/NationFilter';
 
 interface MentorListProps {
     japanese: boolean;
 }
 
 const MentorList : React.FC<MentorListProps> = ({ japanese }) => {
+
+    const nationkind = useRecoilValue(nationKind);
+
+    const filterData = mentorListData?.filter((data) => data.nation === nationkind);
+
   return (
     <LayoutContainer>
         <ListContainer>
-            {mentorListData?.map((item : any) => {
-                return (
-                    <div key={item?.id}>
-                        <MentorCard
-                            item={item}
-                            japanese={japanese}
-                        />
-                    </div> 
-                )
-            })}
+            {(nationkind === "All")
+                ? mentorListData?.map((item : any) => {
+                    return (
+                        <div key={item?.id}>
+                            <MentorCard
+                                item={item}
+                                japanese={japanese}
+                            />
+                        </div> 
+                    )
+                })
+                : filterData?.map((item : any) => {    
+                    return (
+                        <div key={item?.id}>
+                            <MentorCard
+                                item={item}
+                                japanese={japanese}
+                            />
+                        </div> 
+                    )
+                })}
         </ListContainer>
     </LayoutContainer>
   )

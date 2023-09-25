@@ -58,7 +58,7 @@ const MainLayout = styled.div`
     position: relative;
     display: grid;
     justify-content: center;
-    z-index: 9;
+    z-index: 100;
 `;
 
 const MainImageContainer = styled.div`
