@@ -2,7 +2,7 @@ import React from 'react'
 import Koreaflag from '../../../assets/logos/koreaflag.png';
 import Japanflag from '../../../assets/logos/japanflag.png';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../../store/NationFilter';
 import './FilterModal.css';
 
@@ -17,8 +17,12 @@ interface FilterModalProps {
 
 const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
+    
     const [, setNationkind] = useRecoilState(nationKind);
     const [, setFlag] = useRecoilState(nationFlag);
+    const nationValue = useRecoilValue(nationKind);
+    const flagValue = useRecoilValue(nationFlag);
+
     const nationFilter : Nation[]  = [
         {nation: "All", flag: ""},
         {nation: "Japanese", flag: Japanflag},
@@ -27,6 +31,10 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
   return (
     <FilterModalContainer>
+        <DefaultBtn>
+            {flagValue && <NationFlag src={flagValue}/>}
+            {nationValue}
+        </DefaultBtn>
         {nationFilter?.map((item : Nation) => {
             return (
                 <FilterModalBtn
@@ -48,7 +56,7 @@ const FilterModalContainer = styled.div`
     border: 1px solid #e9e9e9;
     background-color: #FFFFFF;
     border-radius: 20px 0px 20px 20px;
-    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 3px 10px 0px;
     overflow: hidden;
 `;
 
@@ -71,6 +79,29 @@ const FilterModalBtn = styled.div`
         font-size: 16px;
         font-weight: 600;
     }
+`;
+
+const DefaultBtn = styled.div`
+    width: 170px;
+    height: 40px;
+    border-bottom: 1px solid #e9e9e9;
+    border-radius: 20px 20px 0px 0px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+    color: #222020;
+    background-color: #FFFFFF;
+`;
+
+const NationFlag = styled.img`
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 `;
 
 export default FilterModal;
