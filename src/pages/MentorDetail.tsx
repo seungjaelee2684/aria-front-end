@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { mentorListData } from '../data/MentorDate';
+import { mentorListData } from '../data/MentorData';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 
