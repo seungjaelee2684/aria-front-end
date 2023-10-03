@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { mentorListData } from '../../data/MentorDate';
+import { mentorListData } from '../../data/MentorData';
 import MentorCard from './MentorCard';
 import { useRecoilValue } from 'recoil';
 import { nationKind } from '../../store/NationFilter';
