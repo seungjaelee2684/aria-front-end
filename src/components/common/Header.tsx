@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
+import ScrollBar from './ScrollBar';
 
 const Header = () => {
 
@@ -99,6 +100,9 @@ const Header = () => {
             </TapOutContainer>
         </HeaderOutWrapper>
     </HeaderLayoutContainer>
+    {/* <ScrollBarContainer> */}
+        <ScrollBar />
+    {/* </ScrollBarContainer> */}
     </div>
   )
 };
@@ -193,6 +197,16 @@ const TapContainer = styled.div`
     &:hover {
         color: #3c3ad6;
         font-size: 19.8px;
+    }
+`;
+
+const ScrollBarContainer = styled.div`
+    width: 100%;
+    
+    @media screen and (max-width: 958px) {
+        position: absolute;
+        top: 75px;
+        left: 0;
     }
 `;
 
