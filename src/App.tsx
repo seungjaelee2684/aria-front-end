@@ -13,6 +13,7 @@ import Support from './pages/Support';
 import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
 import MentorDetail from './pages/MentorDetail';
+import ScrollBar from './components/common/ScrollBar';
 
 const queryClient = new QueryClient();
 
