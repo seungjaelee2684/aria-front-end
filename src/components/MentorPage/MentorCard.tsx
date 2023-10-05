@@ -24,12 +24,18 @@ const CardContainer = styled.div`
   /* border: 1px solid; */
   /* border-radius: 10px; */
   background-color: #FFFFFF;
-  box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 5px 2px;
+  
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 5px 2px;
+  }
+
+  @media screen and (max-width: 1272px) {
+    width: 136px;
+    height: 196px;
   }
 `;
 
@@ -42,6 +48,11 @@ const CardImage = styled.div<{ src : string }>`
   background-repeat: no-repeat;
   /* border-radius: 10px; */
   border: 1px solid #e9e9e9;
+
+  @media screen and (max-width: 1272px) {
+    width: 136px;
+    height: 136px;
+  }
 `;
 
 const ContentContainer = styled.div`

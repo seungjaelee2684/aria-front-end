@@ -38,12 +38,12 @@ const FilterButton = () => {
 };
 
 const FilterButtonContainer = styled.div`
-    width: 100%;
-    padding: 40px 15% 0px 15%;
+    max-width: 500px;
+    margin: 40px 15% 0px 15%;
 `;
 
 const FilterButtonWrapper = styled.div`
-    width: 100%;
+    max-width: 500px;
     display: flex;
     align-items: center;
     position: relative;
