@@ -17,6 +17,7 @@ const MentorList : React.FC<MentorListProps> = ({ japanese }) => {
 
   return (
     <LayoutContainer>
+        <ListOutContainer>
         <ListContainer>
             {(nationkind === "All")
                 ? mentorListData?.map((item : any) => {
@@ -40,6 +41,7 @@ const MentorList : React.FC<MentorListProps> = ({ japanese }) => {
                     )
                 })}
         </ListContainer>
+        </ListOutContainer>
     </LayoutContainer>
   )
 };
@@ -49,10 +51,21 @@ const LayoutContainer = styled.div`
     margin: 40px 0px;
 `;
 
+const ListOutContainer = styled.div`
+    margin: 0px auto;
+    min-width: 1272px;
+    max-width: 1272px;
+
+    @media screen and (max-width: 1272px) {
+        margin: 0px auto;
+        min-width: 300px;
+        max-width: 300px;
+    }
+`;
+
 const ListContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: 24px;
 `;
