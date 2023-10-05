@@ -34,8 +34,12 @@ const CardContainer = styled.div`
   }
 
   @media screen and (max-width: 1272px) {
-    width: 136px;
-    height: 196px;
+    width: 180px;
+    height: 240px;
+  }
+  @media screen and (max-width: 588px) {
+    width: 156px;
+    height: 216px;
   }
 `;
 
@@ -50,8 +54,12 @@ const CardImage = styled.div<{ src : string }>`
   border: 1px solid #e9e9e9;
 
   @media screen and (max-width: 1272px) {
-    width: 136px;
-    height: 136px;
+    width: 180px;
+    height: 180px;
+  }
+  @media screen and (max-width: 588px) {
+    width: 156px;
+    height: 156px;
   }
 `;
 
@@ -60,9 +68,14 @@ const ContentContainer = styled.div`
   margin-top: 5px;
   gap: 0px;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 14px;
   line-height: 140%;
   color: #39373A;
+
+  @media screen and (max-width: 1272px) {
+    font-size: 12px;
+    line-height: normal;
+  }
 `;
 
 const NicknameContainer = styled.div`
@@ -71,6 +84,11 @@ const NicknameContainer = styled.div`
   color: #222020;
   font-weight: 600;
   line-height: 150%;
+
+  @media screen and (max-width: 1272px) {
+    font-size: 16px;
+    line-height: normal;
+  }
 `;
 
 export default MentorCard;
