@@ -35,7 +35,7 @@ const ScrollBar = () => {
 const ScrollBarContainer = styled.div`
     position: fixed;
     z-index: 200;
-    top: 35%;
+    top: 25%;
     right: 20px;
     display: grid;
     justify-content: center;
@@ -63,7 +63,7 @@ const ScrollImage = styled.img`
 
 const ScrollBackground = styled.div`
     width: 5px;
-    height: 200px;
+    height: 450px;
     border-radius: 5px;
     background-color: #e9e9e950;
     margin: 0 auto;
@@ -82,13 +82,14 @@ const ScrollColorBar = styled.div<{ height : string, width : string }>`
     top: 0;
     left: 0;
     z-index: 201;
-    background-color: #6f63d470;
+    background-color: #002efd60;
     border-radius: 5px;
+    transition: all 0.08s ease-in-out;
 
     @media screen and (max-width: 958px) {
         width: ${(props) => props.width};
         height: 3px;
-        background-color: red;
+        background-color: #002efd;
     }
 `;
 
