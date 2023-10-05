@@ -6,6 +6,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
+import PageModal from './PageModal';
 
 const Header = () => {
 
@@ -16,6 +17,9 @@ const Header = () => {
     const navigate = useNavigate();
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+    const [pageModal, setPageModal] = useState<string>("");
+
+    console.log("모달 번호 => ", pageModal);
 
     useEffect(() => {
         if (hoverRef.current) {
@@ -34,8 +38,8 @@ const Header = () => {
     <div>
     <HeaderHiddenContainer ref={hoverRef} />
     <HeaderLayoutContainer
-        onMouseOver={() => setHoverEvent(true)} 
-        onMouseOut={() => setHoverEvent(false)} 
+        onMouseOver={() => setHoverEvent(true)}
+        onMouseOut={() => setHoverEvent(false)}
     >
         <HeaderOutWrapper>
             <LogoContainer>
@@ -50,51 +54,57 @@ const Header = () => {
                 <TranslateText onClick={() => setJapanese(!japanese)}>{japanese ? "한국어" : "日本語"}</TranslateText>
             </LogoContainer>
             <TapOutContainer>
-                <TapContainer onClick={() => {
-                    navigate("/");
-                    resetFilter();
-                    resetFlag();
-                }}>
+                <TapContainer
+                    onClick={() => {
+                        navigate("/");
+                        resetFilter();
+                        resetFlag();
+                    }}
+                    onMouseOver={() => setPageModal("Home")} 
+                    onMouseOut={() => setPageModal("")}>
                     Home
+                    {(pageModal === "Home")
+                        && <PageModal
+                            pageModal={pageModal}/>}
                 </TapContainer>
-                <TapContainer>
-                    /
-                </TapContainer>
-                <TapContainer onClick={() => {
-                    navigate("/mentor");
-                    resetFilter();
-                    resetFlag();
-                }}>
+                <TapContainer
+                    onClick={() => {
+                        navigate("/mentor");
+                        resetFilter();
+                        resetFlag();
+                    }}
+                    onMouseOver={() => setPageModal("Mentor")} 
+                    onMouseOut={() => setPageModal("")}>
                     Mentor
                 </TapContainer>
-                <TapContainer>
-                    /
-                </TapContainer>
-                <TapContainer onClick={() => {
-                    navigate("/notice");
-                    resetFilter();
-                    resetFlag();
-                }}>
+                <TapContainer
+                    onClick={() => {
+                        navigate("/notice");
+                        resetFilter();
+                        resetFlag();
+                    }}
+                    onMouseOver={() => setPageModal("Notice")} 
+                    onMouseOut={() => setPageModal("")}>
                     Notice
                 </TapContainer>
-                <TapContainer>
-                    /
-                </TapContainer>
-                <TapContainer onClick={() => {
-                    navigate("/hof");
-                    resetFilter();
-                    resetFlag();
-                }}>
+                <TapContainer
+                    onClick={() => {
+                        navigate("/hof");
+                        resetFilter();
+                        resetFlag();
+                    }}
+                    onMouseOver={() => setPageModal("Hof")} 
+                    onMouseOut={() => setPageModal("")}>
                     H.o.f
                 </TapContainer>
-                <TapContainer>
-                    /
-                </TapContainer>
-                <TapContainer onClick={() => {
-                    navigate("/support");
-                    resetFilter();
-                    resetFlag();
-                }}>
+                <TapContainer
+                    onClick={() => {
+                        navigate("/support");
+                        resetFilter();
+                        resetFlag();
+                    }}
+                    onMouseOver={() => setPageModal("Support")} 
+                    onMouseOut={() => setPageModal("")}>
                     Support
                 </TapContainer>
             </TapOutContainer>
@@ -147,20 +157,30 @@ const LogoContainer = styled.div`
     margin: auto 0px;
     align-items: center;
     gap: 16px;
-    height: 100%;
+    height: 90px;
+
+    @media screen and (max-width: 1140px) {
+        gap: 5px;
+        height: 70px;
+    }
 `;
 
 const HeaderLogo = styled.img`
     width: 140px;
     height: 90px;
     object-fit: contain;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
 
     &:hover {
         /* width: 151px;
         height: 81px; */
         opacity: 0.8;
-        transition: all 0.3s ease-in-out;
+    }
+
+    @media screen and (max-width: 1140px) {
+        width: 120px;
+        height: 70px;
     }
 `;
 
@@ -176,6 +196,15 @@ const TranslateText = styled.div`
         color: #3c3ad6;
         font-size: 13.8px;
     }
+
+    @media screen and (max-width: 1140px) {
+        font-size: 10px;
+
+        &:hover {
+            color: #3c3ad6;
+            font-size: 9.9px;
+        }
+    }
 `;
 
 const TapOutContainer = styled.div`
@@ -183,7 +212,10 @@ const TapOutContainer = styled.div`
     align-items: center;
     gap: 30px;
     padding: 10px 5px;
-    border-bottom: 1px solid;
+
+    @media screen and (max-width: 1140px) {
+        gap: 16px;
+    }
 `;
 
 const TapContainer = styled.div`
@@ -191,12 +223,21 @@ const TapContainer = styled.div`
     font-size: 20px;
     color: #222020;
     font-weight: 700;
+    height: 25px;
+    position: relative;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 
     &:hover {
         color: #3c3ad6;
-        font-size: 19.8px;
+        border-bottom: 2px solid #3c3ad6;
+    }
+
+    @media screen and (max-width: 1140px) {
+        font-size: 16px;
+    }
+    @media screen and (max-width: 836px) {
+        font-size: 14px;
     }
 `;
 
