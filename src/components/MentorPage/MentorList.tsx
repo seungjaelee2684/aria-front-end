@@ -58,8 +58,13 @@ const ListOutContainer = styled.div`
 
     @media screen and (max-width: 1272px) {
         margin: 0px auto;
-        min-width: 300px;
-        max-width: 300px;
+        min-width: 588px;
+        max-width: 588px;
+    }
+    @media screen and (max-width: 588px) {
+        margin: 0px auto;
+        min-width: 336px;
+        max-width: 336px;
     }
 `;
 

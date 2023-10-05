@@ -39,7 +39,7 @@ const FilterButton = () => {
 
 const FilterButtonContainer = styled.div`
     max-width: 500px;
-    margin: 40px 15% 0px 15%;
+    margin: 40px 10% 0px 10%;
 `;
 
 const FilterButtonWrapper = styled.div`
