@@ -151,12 +151,12 @@ const MentorWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-  background-color: #222020;
+  background-color: #f3f3f3;
 `;
 
 const ImageBox = styled.div<{ src : string }>`
   width: 45%;
-  height: 550px;
+  height: 700px;
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center center;
@@ -166,7 +166,7 @@ const ImageBox = styled.div<{ src : string }>`
 const IntroduceMentorContainer = styled.div`
   font-family: "Pretendard";
   font-size: 32px;
-  color: #FCFCFC;
+  color: #222020;
   font-weight: 800;
   line-height: 150%;
   max-width: 15%;
@@ -179,7 +179,7 @@ const IntroduceMentorContainer = styled.div`
 const IntroduceText = styled.div`
   font-family: "Pretendard";
   font-size: 16px;
-  color: #FCFCFC;
+  color: #222020;
   font-weight: 400;
   line-height: 140%;
 `
