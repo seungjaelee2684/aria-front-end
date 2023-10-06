@@ -23,18 +23,18 @@ const Mentor = () => {
       imageRef.current.style.transition = "all 1.5s ease-in-out";
       imageRef.current.style.transform = `translateX(-${transX}%)`;
     };
-    setTimeout(() => {
+    const intervalId = setInterval(() => {
       if (slideCurrent === 3) {
         setSlideCurrent(0);
       } else {
-        setSlideCurrent(slideCurrent + 1);
-      };
+        setSlideCurrent((prevSlideCurrent) => prevSlideCurrent + 1);
+      }
     }, 8000);
+  
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [slideCurrent]);
-
-  // useEffect(() => {
-    
-  // }, [slideCurrent]);
 
   const prevButton = () => {
     if (slideCurrent === 0) {
@@ -51,6 +51,8 @@ const Mentor = () => {
       setSlideCurrent(slideCurrent + 1);
     };
   };
+
+  console.log("슬라이드 번호", slideCurrent);
 
   return (
     <LayoutContainer>

@@ -43,8 +43,8 @@ const Home = () => {
             </ImageWrapper>
         </MainImageContainer>
         <ButtonWrapper>
-        <button onClick={() => navigate('/mentor')}>Mentor</button>
-        <button onClick={() => navigate('/notice')}>Notice</button>
+        {/* <button onClick={() => navigate('/mentor')}>Mentor</button>
+        <button onClick={() => navigate('/notice')}>Notice</button> */}
         </ButtonWrapper>
     </MainLayout>
   )
@@ -58,7 +58,7 @@ const MainLayout = styled.div`
     position: relative;
     display: grid;
     justify-content: center;
-    z-index: 100;
+    z-index: 98;
 `;
 
 const MainImageContainer = styled.div`
