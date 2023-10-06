@@ -6,7 +6,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
-import PageModal from './PageModal';
+import PageModal from './PageModal/PageModal';
 
 const Header = () => {
 
@@ -76,6 +76,9 @@ const Header = () => {
                     onMouseOver={() => setPageModal("Mentor")} 
                     onMouseOut={() => setPageModal("")}>
                     Mentor
+                    {(pageModal === "Mentor")
+                        && <PageModal
+                            pageModal={pageModal}/>}
                 </TapContainer>
                 <TapContainer
                     onClick={() => {
@@ -86,6 +89,9 @@ const Header = () => {
                     onMouseOver={() => setPageModal("Notice")} 
                     onMouseOut={() => setPageModal("")}>
                     Notice
+                    {(pageModal === "Notice")
+                        && <PageModal
+                            pageModal={pageModal}/>}
                 </TapContainer>
                 <TapContainer
                     onClick={() => {
@@ -96,6 +102,9 @@ const Header = () => {
                     onMouseOver={() => setPageModal("Hof")} 
                     onMouseOut={() => setPageModal("")}>
                     H.o.f
+                    {(pageModal === "Hof")
+                        && <PageModal
+                            pageModal={pageModal}/>}
                 </TapContainer>
                 <TapContainer
                     onClick={() => {
@@ -106,12 +115,15 @@ const Header = () => {
                     onMouseOver={() => setPageModal("Support")} 
                     onMouseOut={() => setPageModal("")}>
                     Support
+                    {(pageModal === "Support")
+                        && <PageModal
+                            pageModal={pageModal}/>}
                 </TapContainer>
             </TapOutContainer>
         </HeaderOutWrapper>
     </HeaderLayoutContainer>
     {/* <ScrollBarContainer> */}
-        <ScrollBar />
+        {/* <ScrollBar /> */}
     {/* </ScrollBarContainer> */}
     </div>
   )
