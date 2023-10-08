@@ -7,6 +7,7 @@ import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
 import PageModal from './PageModal/PageModal';
+import SupportLogo from './SupportLogo';
 
 const Header = () => {
 
@@ -120,6 +121,9 @@ const Header = () => {
                             pageModal={pageModal}/>}
                 </TapContainer>
             </TapOutContainer>
+            <SupportWrapper>
+                <SupportLogo />
+            </SupportWrapper>
         </HeaderOutWrapper>
     </HeaderLayoutContainer>
     {/* <ScrollBarContainer> */}
@@ -178,8 +182,8 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 140px;
-    height: 60px;
+    width: 120px;
+    height: 90px;
     object-fit: cover;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -222,7 +226,7 @@ const TranslateText = styled.div`
 const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 60px;
     padding: 10px 5px;
 
     @media screen and (max-width: 1140px) {
@@ -234,7 +238,7 @@ const TapContainer = styled.div`
     font-family: "Pretendard";
     font-size: 20px;
     color: #222020;
-    font-weight: 700;
+    font-weight: 400;
     height: 25px;
     position: relative;
     cursor: pointer;
@@ -261,6 +265,13 @@ const ScrollBarContainer = styled.div`
         top: 75px;
         left: 0;
     }
+`;
+
+const SupportWrapper = styled.div`
+    min-width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 `;
 
 export default Header;
