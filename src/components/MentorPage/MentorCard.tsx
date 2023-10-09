@@ -12,7 +12,7 @@ const MentorCard = ({ item, japanese } : any) => {
       <CardImage src={item?.image}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
-        {japanese ? "" : `(${item?.nickname})`}
+        {japanese ? "" : `${item?.nickname}`}
       </ContentContainer>
     </CardContainer>
   )
