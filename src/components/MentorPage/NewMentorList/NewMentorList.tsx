@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './NewMentorList.css';
 import styled from 'styled-components';
 import Image from '../../../assets/images/testImage.png';
@@ -12,12 +12,17 @@ interface NewMentorListProps {
 }
 
 const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slideCurrent }) => {
+
+    useEffect(() => {}, [slideCurrent]);
+
     return (
         <ImageSlideContainer className='ImageSlideContainer' ref={imageRef}>
             <MentorWrapper>
-                <ImageBox src={Image}></ImageBox>
+                <ImageBox src={NewMentorListData[slideCurrent].image}></ImageBox>
                 <IntroduceMentorContainer>
-                    {japanese ? "メンター 先生" : "멘토 선생님"}
+                    {japanese
+                        ? `${NewMentorListData[slideCurrent].englishname} 先生`
+                        : `${NewMentorListData[slideCurrent].nickname} 선생님`}
                     <IntroduceText>
                         {japanese
                             ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
@@ -25,7 +30,7 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
                     </IntroduceText>
                 </IntroduceMentorContainer>
             </MentorWrapper>
-            <MentorWrapper>
+            {/* <MentorWrapper>
                 <ImageBox src={Image2}></ImageBox>
                 <IntroduceMentorContainer>
                     {japanese ? "メンター 先生" : "멘토 선생님"}
@@ -57,7 +62,7 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
                             : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                     </IntroduceText>
                 </IntroduceMentorContainer>
-            </MentorWrapper>
+            </MentorWrapper> */}
         </ImageSlideContainer>
     )
 };
