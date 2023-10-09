@@ -7,7 +7,7 @@ import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
 import PageModal from './PageModal/PageModal';
-import SupportLogo from './SupportLogo';
+import SNSMenu from './SNSMenu';
 
 const Header = () => {
 
@@ -122,7 +122,7 @@ const Header = () => {
                 </TapContainer>
             </TapOutContainer>
             <SupportWrapper>
-                <SupportLogo />
+                <SNSMenu />
             </SupportWrapper>
         </HeaderOutWrapper>
     </HeaderLayoutContainer>
