@@ -18,7 +18,7 @@ const SlideShow = () => {
   useEffect(() => {
     if (imageRef.current) {
       // imageRef.current.style.transition = "all 1.5s ease-in-out";
-      imageRef.current.style.transform = `translateX(-${transX}%)`;
+      // imageRef.current.style.transform = `translateX(-${transX}%)`;
     };
     const intervalId = setInterval(() => {
       if (slideCurrent === 3) {
