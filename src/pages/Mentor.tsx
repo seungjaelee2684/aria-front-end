@@ -8,113 +8,16 @@ import MentorList from '../components/MentorPage/MentorList';
 import LeftArrow from '../assets/icons/leftArrow.png';
 import RightArrow from '../assets/icons/rightArrow.png';
 import FilterButton from '../components/MentorPage/FilterButton';
+import SlideShow from '../components/MentorPage/SlideShow';
 
 const Mentor = () => {
 
   const japanese = useRecoilValue(translate);
 
-  const imageRef = useRef<HTMLDivElement>(null);
-  const [slideCurrent, setSlideCurrent] = useState<number>(0);
-  const slideWidth : number = 100;
-  const transX : number = slideWidth * slideCurrent;
-
-  useEffect(() => {
-    if (imageRef.current) {
-      imageRef.current.style.transition = "all 1.5s ease-in-out";
-      imageRef.current.style.transform = `translateX(-${transX}%)`;
-    };
-    const intervalId = setInterval(() => {
-      if (slideCurrent === 3) {
-        setSlideCurrent(0);
-      } else {
-        setSlideCurrent((prevSlideCurrent) => prevSlideCurrent + 1);
-      }
-    }, 8000);
-  
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [slideCurrent]);
-
-  const prevButton = () => {
-    if (slideCurrent === 0) {
-      return;
-    } else {
-      setSlideCurrent(slideCurrent - 1);
-    };
-  };
-
-  const nextButton = () => {
-    if (slideCurrent === 3) {
-      return;
-    } else {
-      setSlideCurrent(slideCurrent + 1);
-    };
-  };
-
-  console.log("슬라이드 번호", slideCurrent);
-
   return (
     <LayoutContainer>
       <LayoutInWrapper>
-        <ImageOutContainer>
-          <SlideButtonBox
-            style={{left: "30px"}}
-            onClick={prevButton}>
-            <SlideButton src={LeftArrow}/>
-          </SlideButtonBox>
-          <SlideButtonBox
-            style={{right: "30px"}}
-            onClick={nextButton}>
-            <SlideButton src={RightArrow}/>
-          </SlideButtonBox>
-          <ImageSlideContainer ref={imageRef}>
-            <MentorWrapper>
-              <ImageBox src={Image}></ImageBox>
-              <IntroduceMentorContainer>
-                {japanese ? "メンター 先生" : "멘토 선생님"}
-                <IntroduceText>
-                  {japanese
-                    ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                    : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                </IntroduceText>
-              </IntroduceMentorContainer>
-            </MentorWrapper>
-            <MentorWrapper>
-              <ImageBox src={Image2}></ImageBox>
-              <IntroduceMentorContainer>
-                {japanese ? "メンター 先生" : "멘토 선생님"}
-                <IntroduceText>
-                  {japanese
-                    ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                    : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                </IntroduceText>
-              </IntroduceMentorContainer>
-            </MentorWrapper>
-            <MentorWrapper>
-              <ImageBox src={Image}></ImageBox>
-              <IntroduceMentorContainer>
-                {japanese ? "メンター 先生" : "멘토 선생님"}
-                <IntroduceText>
-                  {japanese
-                    ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                    : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                </IntroduceText>
-              </IntroduceMentorContainer>
-            </MentorWrapper>
-            <MentorWrapper>
-              <ImageBox src={Image2}></ImageBox>
-              <IntroduceMentorContainer>
-                {japanese ? "メンター 先生" : "멘토 선생님"}
-                <IntroduceText>
-                  {japanese
-                    ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                    : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                </IntroduceText>
-              </IntroduceMentorContainer>
-            </MentorWrapper> 
-          </ImageSlideContainer>
-        </ImageOutContainer>
+        <SlideShow />
       </LayoutInWrapper>
       <FilterButton />
       <MentorList japanese={japanese} />
@@ -196,7 +99,7 @@ const SlideButtonBox = styled.div`
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 250px;
+  top: 325px;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
