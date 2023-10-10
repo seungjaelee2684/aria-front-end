@@ -5,6 +5,7 @@ import RightArrow from '../../assets/icons/rightArrow.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import NewMentorList from './NewMentorList/NewMentorList';
+import './NewMentorList/NewMentorList.css'
 
 const SlideShow = () => {
 
@@ -12,21 +13,15 @@ const SlideShow = () => {
 
   const imageRef = useRef<HTMLDivElement>(null);
   const [slideCurrent, setSlideCurrent] = useState<number>(0);
-  const slideWidth: number = 100;
-  const transX: number = slideWidth * slideCurrent;
 
   useEffect(() => {
-    if (imageRef.current) {
-      // imageRef.current.style.transition = "all 1.5s ease-in-out";
-      // imageRef.current.style.transform = `translateX(-${transX}%)`;
-    };
     const intervalId = setInterval(() => {
       if (slideCurrent === 3) {
         setSlideCurrent(0);
       } else {
         setSlideCurrent((prevSlideCurrent) => prevSlideCurrent + 1);
       }
-    }, 10000);
+    }, 5000);
 
     return () => {
       clearInterval(intervalId);
