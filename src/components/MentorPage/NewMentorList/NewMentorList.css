@@ -1,5 +1,18 @@
+/* .ImageSlideContainer {
+    animation-name: slide_end;
+    animation-duration: 1s;
+    animation-delay: 4s;
+} */
+
 .ImageSlideContainer {
     animation: slide_show 2.5s forwards;
+}
+
+.ImageContainer {
+    animation-name: slide_end;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes slide_show {
@@ -8,5 +21,16 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes slide_end {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

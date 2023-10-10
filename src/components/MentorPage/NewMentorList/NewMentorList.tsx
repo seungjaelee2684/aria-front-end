@@ -14,10 +14,23 @@ interface NewMentorListProps {
 
 const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slideCurrent }) => {
 
+    // useEffect(() => {
+    //     const intervalId = setInterval(() => {
+    //         if (imageRef.current) {
+    //             imageRef.current.style.animation = "slide_end 1s forwards"
+    //         };
+    //         console.log("지금이니");
+    //     }, 4100);
+    
+    //     return () => {
+    //       clearInterval(intervalId);
+    //     };
+    // }, [slideCurrent]);
+
     return (
-        <ImageSlideContainer className='ImageSlideContainer' ref={imageRef}>
+        <ImageSlideContainer ref={imageRef}>
             <MentorWrapper>
-                <ImageBox src={NewMentorListData[slideCurrent].image}></ImageBox>
+                <ImageBox className='ImageSlideContainer' src={NewMentorListData[slideCurrent].image}></ImageBox>
                 {/* <IntroduceMentorContainer>
                     {japanese
                         ? NewMentorListData[slideCurrent].englishname
@@ -28,7 +41,7 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
                             : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                     </IntroduceText>
                 </IntroduceMentorContainer> */}
-                <NicknameContainer src={MentorNickname} />
+                <NicknameContainer className='ImageContainer' src={MentorNickname} />
             </MentorWrapper>
             {/* <MentorWrapper>
                 <ImageBox src={Image2}></ImageBox>
@@ -113,6 +126,7 @@ const NicknameContainer = styled.img`
   object-fit: cover;
   user-select: none;
   /* padding: 0px 40px; */
+  opacity: 0;
 `;
 
 const IntroduceText = styled.div`

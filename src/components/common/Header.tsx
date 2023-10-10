@@ -226,7 +226,7 @@ const TranslateText = styled.div`
 const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 70px;
     padding: 10px 5px;
 
     @media screen and (max-width: 1140px) {
