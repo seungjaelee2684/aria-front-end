@@ -182,9 +182,9 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 120px;
-    height: 90px;
-    object-fit: cover;
+    width: 100px;
+    height: 70px;
+    object-fit: contain;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -202,7 +202,7 @@ const HeaderLogo = styled.img`
 
 const TranslateText = styled.div`
     font-family: "Pretendard";
-    font-size: 14px;
+    font-size: 13px;
     color: #222020;
     font-weight: 600;
     cursor: pointer;
@@ -210,7 +210,7 @@ const TranslateText = styled.div`
 
     &:hover {
         color: #3c3ad6;
-        font-size: 13.8px;
+        font-size: 12.9px;
     }
 
     @media screen and (max-width: 1140px) {
@@ -235,18 +235,18 @@ const TapOutContainer = styled.div`
 `;
 
 const TapContainer = styled.div`
+    padding: 5px 0px;
     font-family: "Pretendard";
     font-size: 20px;
     color: #222020;
     font-weight: 400;
-    height: 25px;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 
     &:hover {
         color: #3c3ad6;
-        border-bottom: 2px solid #3c3ad6;
+        border-bottom: 3px solid #3c3ad6;
     }
 
     @media screen and (max-width: 1140px) {
@@ -268,7 +268,7 @@ const ScrollBarContainer = styled.div`
 `;
 
 const SupportWrapper = styled.div`
-    min-width: 20%;
+    min-width: 22%;
     height: 100%;
     display: flex;
     align-items: center;

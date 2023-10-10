@@ -15,7 +15,7 @@ const ModalContainer = styled.div`
   height: 100px;
   background-color: #222020;
   position: absolute;
-  top: 30px;
+  top: 45px;
   left: 0;
   z-index: 200;
   color: #FCFCFC;
