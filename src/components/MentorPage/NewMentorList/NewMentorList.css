@@ -1,5 +1,5 @@
 .ImageSlideContainer {
-    animation: slide_show 1s forwards;
+    animation: slide_show 2.5s forwards;
 }
 
 @keyframes slide_show {

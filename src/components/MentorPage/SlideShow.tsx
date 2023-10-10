@@ -35,7 +35,7 @@ const SlideShow = () => {
 
   const prevButton = () => {
     if (slideCurrent === 0) {
-      return;
+      setSlideCurrent(3);
     } else {
       setSlideCurrent(slideCurrent - 1);
     };
@@ -43,7 +43,7 @@ const SlideShow = () => {
 
   const nextButton = () => {
     if (slideCurrent === 3) {
-      return;
+      setSlideCurrent(0);
     } else {
       setSlideCurrent(slideCurrent + 1);
     };
@@ -64,6 +64,7 @@ const SlideShow = () => {
         <SlideButton src={RightArrow} />
       </SlideButtonBox>
       <NewMentorList
+        key={slideCurrent}
         japanese={japanese}
         imageRef={imageRef}
         slideCurrent={slideCurrent}/>
