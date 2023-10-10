@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Image from '../../../assets/images/testImage.png';
 import Image2 from '../../../assets/images/mainimage.jpg';
 import { NewMentorListData } from '../../../data/NewMentorData';
+import MentorNickname from '../../../assets/images/raplaname.png';
 
 interface NewMentorListProps {
     japanese: boolean;
@@ -13,22 +14,21 @@ interface NewMentorListProps {
 
 const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slideCurrent }) => {
 
-    useEffect(() => {}, [slideCurrent]);
-
     return (
         <ImageSlideContainer className='ImageSlideContainer' ref={imageRef}>
             <MentorWrapper>
                 <ImageBox src={NewMentorListData[slideCurrent].image}></ImageBox>
-                <IntroduceMentorContainer>
+                {/* <IntroduceMentorContainer>
                     {japanese
-                        ? `${NewMentorListData[slideCurrent].englishname} 先生`
+                        ? NewMentorListData[slideCurrent].englishname
                         : `${NewMentorListData[slideCurrent].nickname} 선생님`}
                     <IntroduceText>
                         {japanese
                             ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
                             : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                     </IntroduceText>
-                </IntroduceMentorContainer>
+                </IntroduceMentorContainer> */}
+                <NicknameContainer src={MentorNickname} />
             </MentorWrapper>
             {/* <MentorWrapper>
                 <ImageBox src={Image2}></ImageBox>
@@ -72,19 +72,20 @@ const ImageSlideContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  background-color: #fafafa;
 `;
 
 const MentorWrapper = styled.div`
-  min-width: 100%;
+  min-width: 80%;
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 24px;
-  background-color: #f3f3f3;
+  /* gap: 24px; */
+  margin: 0px auto;
 `;
 
 const ImageBox = styled.div<{ src: string }>`
-  width: 45%;
+  width: 50%;
   height: 700px;
   background-image: url(${(props) => props.src});
   background-size: cover;
@@ -93,7 +94,7 @@ const ImageBox = styled.div<{ src: string }>`
 `;
 
 const IntroduceMentorContainer = styled.div`
-  font-family: "Pretendard";
+  font-family: "Giants-Inline";
   font-size: 32px;
   color: #222020;
   font-weight: 800;
@@ -103,6 +104,15 @@ const IntroduceMentorContainer = styled.div`
   display: grid;
   gap: 20px;
   user-select: none;
+  padding: 0px 40px;
+`;
+
+const NicknameContainer = styled.img`
+  width: 500px;
+  height: 350px;
+  object-fit: cover;
+  user-select: none;
+  /* padding: 0px 40px; */
 `;
 
 const IntroduceText = styled.div`
