@@ -26,7 +26,6 @@ const CardContainer = styled.div`
   background-color: #FFFFFF;
   
   transition: all 0.2s ease-in-out;
-  cursor: pointer;
 
   &:hover {
     transform: translateY(-8px) scale(1.05);

@@ -52,7 +52,6 @@ const Home = () => {
 
 const MainLayout = styled.div`
     width: 100%;
-    height: 2000px;
     padding: 0px 0px;
     overflow: hidden;
     position: relative;
@@ -63,7 +62,7 @@ const MainLayout = styled.div`
 
 const MainImageContainer = styled.div`
     width: 1920px;
-    height: 980px;
+    height: 100vh;
     overflow-x: hidden;
 `;
 
