@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Copy from '../../assets/icons/copy.png';
 
 interface SNSModalProps {
-  sns: string;
+  sns: boolean;
 }
 
 const SNSModal : React.FC<SNSModalProps> = ({ sns }) => {
@@ -22,10 +22,10 @@ const SNSModal : React.FC<SNSModalProps> = ({ sns }) => {
   return (
     <ModalContainer>
       <ModalWrapper>
-        {sns}
+        https://discord.gg/N7SEvBds4F
         <CopyIcon
           src={Copy}
-          onClick={() => {onClickCopyHandler("https://github.com/seungjaelee2684")}}/>
+          onClick={() => {onClickCopyHandler("https://discord.gg/N7SEvBds4F")}}/>
       </ModalWrapper>
     </ModalContainer>
   )
@@ -33,17 +33,18 @@ const SNSModal : React.FC<SNSModalProps> = ({ sns }) => {
 
 const ModalContainer = styled.div`
   position: absolute;
-  width: 300px;
-  height: 20px;
+  min-width: 250px;
+  height: 25px;
   background-color: #1d466f;
   color: #FCFCFC;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px;
   top: 40px;
   right: 0;
   border-radius: 5px;
+  cursor: default;
 `;
 
 const ModalWrapper = styled.div`
@@ -51,20 +52,17 @@ const ModalWrapper = styled.div`
   height: 100%;
   background-color: #61a0de80;
   display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 5px;
-  padding: 5px 10px;
-  position: relative;
+  padding: 5px 8px;
+  gap: 20px;
 `;
 
 const CopyIcon = styled.img`
   width: 24px;
   height: 24px;
-  position: absolute;
-  top: 5px;
-  right: 10px;
   opacity: 0.8;
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
 
   &:hover {

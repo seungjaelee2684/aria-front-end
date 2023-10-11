@@ -5,7 +5,7 @@
 } */
 
 .ImageSlideContainer {
-    animation: slide_show 2.5s forwards;
+    animation: slide_show 3s forwards;
 }
 
 .ImageContainer {

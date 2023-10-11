@@ -7,7 +7,8 @@ import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
 import PageModal from './PageModal/PageModal';
-import SNSMenu from './SNSMenu';
+import SNSMenu from './SNSMenu/SNSMenu';
+import ListIcon from '../../assets/icons/list.png';
 
 const Header = () => {
 
@@ -19,6 +20,7 @@ const Header = () => {
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverEvent, setHoverEvent] = useState<boolean>(false);
     const [pageModal, setPageModal] = useState<string>("");
+    const [snsModal, setSnsModal] = useState<boolean>(false);
 
     console.log("모달 번호 => ", pageModal);
 
@@ -122,7 +124,11 @@ const Header = () => {
                 </TapContainer>
             </TapOutContainer>
             <SupportWrapper>
-                <SNSMenu />
+                {(snsModal) && <SNSMenu />}
+                <SNSModalContainer
+                    onClick={() => setSnsModal(!snsModal)}>
+                    <SNSModalListIcon src={ListIcon}/>
+                </SNSModalContainer>
             </SupportWrapper>
         </HeaderOutWrapper>
     </HeaderLayoutContainer>
@@ -272,10 +278,55 @@ const ScrollBarContainer = styled.div`
 `;
 
 const SupportWrapper = styled.div`
-    min-width: 22%;
+    min-width: 20%;
     height: 100%;
     display: flex;
+    justify-content: end;
     align-items: center;
+    position: relative;
+`;
+
+const SNSModalContainer = styled.div`
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #FCFCFC;
+    border: 1.5px solid #4a556830;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+
+    &:hover {
+        border: 1.5px solid #4a5568;
+    }
+
+    @media screen and (max-width: 1140px) {
+        width: 32px;
+        height: 32px;
+    }
+`;
+
+const SNSModalListIcon = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.3;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 1140px) {
+        width: 22px;
+        height: 22px;
+    }
 `;
 
 export default Header;
