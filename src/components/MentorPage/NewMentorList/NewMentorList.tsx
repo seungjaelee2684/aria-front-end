@@ -95,6 +95,10 @@ const MentorWrapper = styled.div`
   align-items: center;
   /* gap: 24px; */
   margin: 0px auto;
+
+  @media screen and (max-width: 1140px) {
+        min-width: 100%;
+    }
 `;
 
 const ImageBox = styled.div<{ src: string }>`
@@ -104,6 +108,10 @@ const ImageBox = styled.div<{ src: string }>`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 1140px) {
+        width: 80%;
+    }
 `;
 
 const IntroduceMentorContainer = styled.div`
@@ -127,6 +135,14 @@ const NicknameContainer = styled.img`
   user-select: none;
   /* padding: 0px 40px; */
   opacity: 0;
+
+  @media screen and (max-width: 1140px) {
+        position: absolute;
+        width: 350px;
+        height: 250px;
+        top: 50%;
+        right: 10%;
+    }
 `;
 
 const IntroduceText = styled.div`
