@@ -27,7 +27,7 @@ const Mentor = () => {
 
 const LayoutContainer = styled.div`
   width: 100%;
-  padding: 70px 0px;
+  padding: 80px 0px;
 `;
 
 const LayoutInWrapper = styled.div`

@@ -124,11 +124,11 @@ const Header = () => {
                 </TapContainer>
             </TapOutContainer>
             <SupportWrapper>
-                {(snsModal) && <SNSMenu />}
-                <SNSModalContainer
+                <SNSMenu />
+                {/* <SNSModalContainer
                     onClick={() => setSnsModal(!snsModal)}>
                     <SNSModalListIcon src={ListIcon}/>
-                </SNSModalContainer>
+                </SNSModalContainer> */}
             </SupportWrapper>
         </HeaderOutWrapper>
     </HeaderLayoutContainer>
@@ -141,7 +141,7 @@ const Header = () => {
 
 const HeaderHiddenContainer = styled.div`
     width: 100%;
-    height: 70px;
+    height: 80px;
     position: fixed;
     top: 0;
     left: 0;
@@ -153,7 +153,7 @@ const HeaderHiddenContainer = styled.div`
 
 const HeaderLayoutContainer = styled.div`
     width: 100%;
-    height: 70px;
+    height: 80px;
     /* border-bottom: 1px solid gray; */
     
     position: fixed;
@@ -180,7 +180,7 @@ const HeaderOutWrapper = styled.div`
 
 const LogoContainer = styled.div`
     display: flex;
-    margin: auto 0px;
+    /* margin: auto 0px; */
     align-items: center;
     gap: 16px;
     height: 90px;
@@ -192,9 +192,9 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 100px;
-    height: 70px;
-    object-fit: contain;
+    width: 120px;
+    height: 60px;
+    object-fit: cover;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -278,7 +278,7 @@ const ScrollBarContainer = styled.div`
 `;
 
 const SupportWrapper = styled.div`
-    min-width: 20%;
+    min-width: 5%;
     height: 100%;
     display: flex;
     justify-content: end;

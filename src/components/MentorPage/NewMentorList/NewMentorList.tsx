@@ -89,7 +89,7 @@ const ImageSlideContainer = styled.div`
 `;
 
 const MentorWrapper = styled.div`
-  min-width: 80%;
+  min-width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -102,11 +102,11 @@ const MentorWrapper = styled.div`
 `;
 
 const ImageBox = styled.div<{ src: string }>`
-  width: 50%;
+  width: 100%;
   height: 700px;
   background-image: url(${(props) => props.src});
-  background-size: cover;
-  background-position: center center;
+  background-size: 100% 100%;
+  background-position: top center;
   background-repeat: no-repeat;
 
   @media screen and (max-width: 1140px) {
@@ -135,6 +135,9 @@ const NicknameContainer = styled.img`
   user-select: none;
   /* padding: 0px 40px; */
   opacity: 0;
+  position: absolute;
+  right: 10%;
+  top: 25%;
 
   @media screen and (max-width: 1140px) {
         position: absolute;
