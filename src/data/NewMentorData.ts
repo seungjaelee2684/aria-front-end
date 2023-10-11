@@ -1,6 +1,7 @@
 import Image from '../assets/images/testImage.png';
 import Image2 from '../assets/images/rapla1.png';
 import Image3 from '../assets/images/rapla2.png'
+import Image4 from '../assets/images/lineimage.png';
 
 export const NewMentorListData = [
     {
@@ -33,6 +34,6 @@ export const NewMentorListData = [
         englishname: "Shumolly",
         nickname: "슈몰리",
         content: "",
-        image: Image
+        image: Image4
     },
 ];

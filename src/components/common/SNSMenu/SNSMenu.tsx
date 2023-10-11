@@ -52,15 +52,11 @@ const SNSMenu = () => {
 };
 
 const MenuIconContainer = styled.div`
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
-  position: absolute;
-  top: 0;
-  left: 30px;
-  z-index: 55;
+  gap: 12px;
 `;
 
 const InstaIcon = styled.div`
