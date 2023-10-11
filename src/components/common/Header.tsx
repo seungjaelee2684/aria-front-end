@@ -31,7 +31,7 @@ const Header = () => {
                 hoverRef.current.style.opacity = "1"
             } else {
                 hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "0.9"
+                hoverRef.current.style.opacity = "0.8"
             };
             
         };

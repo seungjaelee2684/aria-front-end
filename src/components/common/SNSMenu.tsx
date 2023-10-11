@@ -93,6 +93,7 @@ const TwitterIcon = styled.div`
   place-items: inherit;
   border: 1.5px solid #33b2f930;
   border-radius: 100%;
+  transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 

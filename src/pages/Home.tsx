@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
-import Image2 from '../assets/images/testImage.png';
+import MainBackground from '../assets/images/mainbackground.jpg';
 import { useNavigate } from 'react-router-dom';
+import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
 
@@ -39,13 +40,16 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             <ImageWrapper>
-                <Images src={Image2}/>
+                <Images src={MainBackground}/>
             </ImageWrapper>
         </MainImageContainer>
         <ButtonWrapper>
-        {/* <button onClick={() => navigate('/mentor')}>Mentor</button>
-        <button onClick={() => navigate('/notice')}>Notice</button> */}
+        <button onClick={() => navigate('/mentor')}>Mentor</button>
+        <button onClick={() => navigate('/notice')}>Notice</button>
         </ButtonWrapper>
+        <MainImageWrapper>
+            <MainImage />
+        </MainImageWrapper>
     </MainLayout>
   )
 };
@@ -57,29 +61,40 @@ const MainLayout = styled.div`
     position: relative;
     display: grid;
     justify-content: center;
-    z-index: 98;
+    z-index: 100;
 `;
 
 const MainImageContainer = styled.div`
-    width: 1920px;
+    width: 100%;
     height: 100vh;
     overflow-x: hidden;
 `;
 
 const ImageWrapper = styled.div`
-    width: 3840px;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
 `;
 
 const Images = styled.div<{ src : string }>`
     width: 1920px;
     height: 100%;
     background-image: url(${(props) => props.src});
-    background-size: 1920px 100%;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+`;
+
+const MainImageWrapper = styled.div`
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
 `;
 
 const ButtonWrapper = styled.div`
