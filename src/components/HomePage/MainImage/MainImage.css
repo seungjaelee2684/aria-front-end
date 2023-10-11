@@ -23,6 +23,20 @@
     animation-fill-mode: forwards;
 }
 
+.LogoImage {
+    animation-name: logo_image;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.PageMoveButton {
+    animation-name: logo_image;
+    animation-delay: 2.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 @keyframes character_image {
     0% {
         opacity: 0;
@@ -50,5 +64,16 @@
     100% {
         opacity: 0.7;
         transform: scale(1);
+    }
+}
+
+@keyframes logo_image {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
