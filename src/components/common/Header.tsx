@@ -166,6 +166,10 @@ const HeaderOutWrapper = styled.div`
     align-items: center;
     margin: auto 0px;
     height: 100%;
+
+    @media screen and (max-width: 1140px) {
+        padding: 0px 3% 0px 3%;
+    }
 `;
 
 const LogoContainer = styled.div`
