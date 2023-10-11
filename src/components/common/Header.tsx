@@ -7,7 +7,7 @@ import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
 import PageModal from './PageModal/PageModal';
-import SNSMenu from './SNSMenu/SNSMenu';
+import SNSMenu from './SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
 
 const Header = () => {
@@ -31,7 +31,7 @@ const Header = () => {
                 hoverRef.current.style.opacity = "1"
             } else {
                 hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "0.5"
+                hoverRef.current.style.opacity = "0.9"
             };
             
         };
@@ -147,7 +147,6 @@ const HeaderHiddenContainer = styled.div`
     left: 0;
     z-index: 99;
     background-color: #FFFFFF;
-    opacity: 0.5;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
 `;
 
