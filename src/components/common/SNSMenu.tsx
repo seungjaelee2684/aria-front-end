@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import Instagram from '../../../assets/icons/insta.png';
-import Twitter from '../../../assets/icons/twitter.png';
-import Discord from '../../../assets/icons/discord.png';
-import Youtube from '../../../assets/icons/youtube.png';
-import SNSModal from '../SNSModal';
+import Instagram from '../../assets/icons/insta.png';
+import Twitter from '../../assets/icons/twitter.png';
+import Discord from '../../assets/icons/discord.png';
+import Youtube from '../../assets/icons/youtube.png';
+import SNSModal from './SNSModal';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { translate } from '../../../store/Translation';
-import './SNSMenu.css';
+import { translate } from '../../store/Translation';
 
 const SNSMenu = () => {
 
