@@ -2,12 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainbackground.jpg';
-import { useNavigate } from 'react-router-dom';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
 
-    const navigate = useNavigate();
     // const imageRef = useRef<HTMLDivElement>(null);
     // const [slideCurrent, setSlideCurrent] = useState<number>(0);
     // const slideWidth : number = 1920;
@@ -43,10 +41,6 @@ const Home = () => {
                 <Images src={MainBackground}/>
             </ImageWrapper>
         </MainImageContainer>
-        <ButtonWrapper>
-        <button onClick={() => navigate('/mentor')}>Mentor</button>
-        <button onClick={() => navigate('/notice')}>Notice</button>
-        </ButtonWrapper>
         <MainImageWrapper>
             <MainImage />
         </MainImageWrapper>
@@ -95,12 +89,6 @@ const MainImageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
-`;
-
-const ButtonWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    position: absolute;
 `;
 
 export default Home;
