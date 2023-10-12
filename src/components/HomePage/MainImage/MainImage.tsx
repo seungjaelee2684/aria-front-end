@@ -72,7 +72,7 @@ const LogoContainer = styled.div`
     display: grid;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 100px;
     z-index: 101;
 `;
 
