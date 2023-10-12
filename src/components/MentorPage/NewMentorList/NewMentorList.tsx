@@ -31,7 +31,7 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
         <ImageSlideContainer ref={imageRef}>
             <MentorWrapper>
                 <ImageBox className='ImageSlideContainer' src={NewMentorListData[slideCurrent].image}></ImageBox>
-                {/* <IntroduceMentorContainer>
+                <IntroduceMentorContainer className='ImageContainer'>
                     {japanese
                         ? NewMentorListData[slideCurrent].englishname
                         : `${NewMentorListData[slideCurrent].nickname} 선생님`}
@@ -40,8 +40,8 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
                             ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
                             : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                     </IntroduceText>
-                </IntroduceMentorContainer> */}
-                <NicknameContainer className='ImageContainer' src={MentorNickname} />
+                </IntroduceMentorContainer>
+                {/* <NicknameContainer className='ImageContainer' src={MentorNickname} /> */}
             </MentorWrapper>
             {/* <MentorWrapper>
                 <ImageBox src={Image2}></ImageBox>
@@ -116,8 +116,8 @@ const ImageBox = styled.div<{ src: string }>`
 
 const IntroduceMentorContainer = styled.div`
   font-family: "Giants-Inline";
-  font-size: 32px;
-  color: #222020;
+  font-size: 48px;
+  color: #da438e;
   font-weight: 800;
   line-height: 150%;
   max-width: 15%;
@@ -126,6 +126,13 @@ const IntroduceMentorContainer = styled.div`
   gap: 20px;
   user-select: none;
   padding: 0px 40px;
+  opacity: 0;
+  position: absolute;
+  right: 20%;
+  top: 40%;
+  background-color: #FCFCFC;
+  padding: 40px;
+  border-radius: 10px;
 `;
 
 const NicknameContainer = styled.img`

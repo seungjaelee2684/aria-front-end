@@ -28,7 +28,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               {/* <Route element={<MainLayout />}> */}
-                <Route path='/notice' element={<Notice />} />
+                <Route path='/notice/notification' element={<Notice />} />
                 <Route path='/mentor' element={<Mentor />} />
                 <Route path='/hof' element={<Hof />} />
                 <Route path='/support' element={<Support />} />

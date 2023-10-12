@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import NoticeCard from './NoticeCard';
 
 const NoticeList = () => {
+
   return (
     <ListContainer>
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
-        <NoticeCard />
+        <NoticeCard end={false}/>
+        <NoticeCard end={false}/>
+        <NoticeCard end={false}/>
+        <NoticeCard end={false}/>
+        <NoticeCard end={false}/>
+        <NoticeCard end={false}/>
+        <NoticeCard end={true}/>
+        <NoticeCard end={true}/>
+        <NoticeCard end={true}/>
+        <NoticeCard end={true}/>
+        <NoticeCard end={true}/>
     </ListContainer>
   )
 };
