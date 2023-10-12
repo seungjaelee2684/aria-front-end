@@ -13,6 +13,9 @@ const NoticeList = () => {
         <NoticeCard />
         <NoticeCard />
         <NoticeCard />
+        <NoticeCard />
+        <NoticeCard />
+        <NoticeCard />
     </ListContainer>
   )
 };

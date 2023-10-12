@@ -31,7 +31,7 @@ const Header = () => {
                 hoverRef.current.style.opacity = "1"
             } else {
                 hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "0.8"
+                hoverRef.current.style.opacity = "0.4"
             };
             
         };
@@ -191,9 +191,9 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 120px;
-    height: 60px;
-    object-fit: cover;
+    width: 130px;
+    height: 80px;
+    object-fit: contain;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -250,8 +250,8 @@ const TapContainer = styled.div`
     padding: 5px 0px;
     font-family: "Pretendard";
     font-size: 20px;
-    color: #222020;
-    font-weight: 400;
+    color: #999999;
+    font-weight: 700;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
