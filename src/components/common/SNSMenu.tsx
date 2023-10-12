@@ -39,7 +39,7 @@ const SNSMenu = () => {
         <MenuIcon
           src={Discord}
           onClick={() => setSns(!sns)}/>
-        {(sns) && <SNSModal sns={sns}/>}
+        {(sns) && <SNSModal sns={sns} setSns={setSns}/>}
       </DiscordIcon>
       <YoutubeIcon>
         <MenuIcon

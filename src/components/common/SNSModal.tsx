@@ -4,14 +4,16 @@ import Copy from '../../assets/icons/copy.png';
 
 interface SNSModalProps {
   sns: boolean;
+  setSns: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SNSModal : React.FC<SNSModalProps> = ({ sns }) => {
+const SNSModal : React.FC<SNSModalProps> = ({ sns, setSns }) => {
 
   const onClickCopyHandler = async ( text : string) => {
     try {
       await navigator.clipboard.writeText(text);
       alert("클립보드에 링크가 복사되었습니다.");
+      setSns(false);
       console.log("복사된 링크 -> ", text);
     } catch (e) {
       alert("복사에 실패하였습니다.");
