@@ -53,7 +53,7 @@ const Header = () => {
                         navigate("/");
                         resetFilter();
                         resetFlag();
-                    }} />
+                    }}/>
                 <TranslateText onClick={() => setJapanese(!japanese)}>{japanese ? "한국어" : "日本語"}</TranslateText>
             </LogoContainer>
             <TapOutContainer>
@@ -62,66 +62,58 @@ const Header = () => {
                         navigate("/");
                         resetFilter();
                         resetFlag();
-                    }}
-                    onMouseOver={() => setPageModal("Home")} 
-                    onMouseOut={() => setPageModal("")}>
+                    }}>
                     Home
-                    {(pageModal === "Home")
-                        && <PageModal
-                            pageModal={pageModal}/>}
                 </TapContainer>
                 <TapContainer
                     onClick={() => {
                         navigate("/mentor");
                         resetFilter();
                         resetFlag();
-                    }}
-                    onMouseOver={() => setPageModal("Mentor")} 
-                    onMouseOut={() => setPageModal("")}>
+                    }}>
                     Mentor
-                    {(pageModal === "Mentor")
-                        && <PageModal
-                            pageModal={pageModal}/>}
                 </TapContainer>
-                <TapContainer
-                    onClick={() => {
-                        navigate("/notice");
-                        resetFilter();
-                        resetFlag();
-                    }}
+                <div
+                    style={{position: "relative"}}
                     onMouseOver={() => setPageModal("Notice")} 
                     onMouseOut={() => setPageModal("")}>
-                    Notice
+                    <TapContainer
+                        onClick={() => {
+                            navigate("/notice/notification");
+                            resetFilter();
+                            resetFlag();
+                        }}>
+                        Notice
+                        
+                    </TapContainer>
                     {(pageModal === "Notice")
                         && <PageModal
-                            pageModal={pageModal}/>}
-                </TapContainer>
+                        pageModal={pageModal}/>}
+                </div>
                 <TapContainer
                     onClick={() => {
                         navigate("/hof");
                         resetFilter();
                         resetFlag();
-                    }}
-                    onMouseOver={() => setPageModal("Hof")} 
-                    onMouseOut={() => setPageModal("")}>
+                    }}>
                     H.o.f
-                    {(pageModal === "Hof")
-                        && <PageModal
-                            pageModal={pageModal}/>}
                 </TapContainer>
-                <TapContainer
-                    onClick={() => {
-                        navigate("/support");
-                        resetFilter();
-                        resetFlag();
-                    }}
+                <div
+                    style={{position: "relative"}}
                     onMouseOver={() => setPageModal("Support")} 
                     onMouseOut={() => setPageModal("")}>
-                    Support
+                    <TapContainer
+                        onClick={() => {
+                            navigate("/support");
+                            resetFilter();
+                            resetFlag();
+                        }}>
+                        Support
+                    </TapContainer>
                     {(pageModal === "Support")
                         && <PageModal
-                            pageModal={pageModal}/>}
-                </TapContainer>
+                        pageModal={pageModal}/>}
+                </div>
             </TapOutContainer>
             <SupportWrapper>
                 <SNSMenu />
