@@ -14,6 +14,7 @@ import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
 import MentorDetail from './pages/MentorDetail';
 import ScrollBar from './components/common/ScrollBar';
+import ScrollTop from './components/common/ScrollTop/ScrollTop';
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ function App() {
                 <Route path='/mentor/detail/:id' element={<MentorDetail />} />
               {/* </Route> */}
             </Routes>
+            <ScrollTop />
           </BrowserRouter>
         </QueryClientProvider>
       </RecoilRoot>

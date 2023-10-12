@@ -13,13 +13,13 @@ const NoticeCard = () => {
         <CardImage src={Poster}/>
         <Text>
             {japanese
-                ? "タイトル : スローガンコンテスト"
-                : "제목 : 슬로건 공모전"}  
+                ? "タイトル: スローガンコンテスト"
+                : "제목: 슬로건 공모전"}  
         </Text>
         <Text>
             {japanese
-                ? "期間 : "
-                : "기간 : "}
+                ? "期間: "
+                : "기간: "}
             2023.10.12 ~ 2023.12.25
         </Text>
     </CardContainer>
