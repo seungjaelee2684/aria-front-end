@@ -71,14 +71,14 @@ const CloudsImage = styled.img`
 const LogoContainer = styled.div`
     display: grid;
     position: absolute;
-    top: 0;
+    top: 100px;
     left: 100px;
     z-index: 101;
 `;
 
 const LogoImage = styled.img`
     width: 600px;
-    height: 500px;
+    height: 370px;
     object-fit: cover;
     opacity: 0;
 `;
