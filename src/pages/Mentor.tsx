@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRecoilValue } from 'recoil';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { translate } from '../store/Translation';
 import Image from '../assets/images/testImage.png';
 import Image2 from '../assets/images/mainimage.jpg';

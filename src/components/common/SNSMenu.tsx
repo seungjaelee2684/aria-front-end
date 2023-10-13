@@ -162,11 +162,6 @@ const MenuIcon = styled.img`
   &:hover {
     opacity: 1;
   }
-
-  @media screen and (max-width: 1140px) {
-    width: 22px;
-    height: 22px;
-  }
 `;
 
 export default SNSMenu;

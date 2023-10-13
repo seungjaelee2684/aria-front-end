@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { translate } from '../store/Translation';
 import Search from '../assets/icons/search.png';
 import NoticeList from '../components/NoticePage/NoticeList';
+import Notification from '../components/NoticePage/Notification';
 
 const Notice = () => {
 
@@ -12,6 +13,9 @@ const Notice = () => {
   return (
     <LayoutContainer>
       <LayoutWrapper>
+        <NotificationContainer>
+          <Notification />
+        </NotificationContainer>
         <SearchBarContainer>
           <SearchBarWrapper>
             <SearBarInput
@@ -100,6 +104,10 @@ const SelectBar = styled.select`
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
+`;
+
+const NotificationContainer = styled.div`
+  width: 100%;
 `;
 
 export default Notice;
