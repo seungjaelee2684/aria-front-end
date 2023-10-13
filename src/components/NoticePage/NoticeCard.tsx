@@ -49,6 +49,7 @@ const CardContainer = styled.div`
     display: grid;
     gap: 0px;
     border: 1px solid #e9e9e9;
+    position: relative;
 
     &:hover {
         opacity: 0.7;
@@ -107,6 +108,12 @@ const StampContainer = styled.div`
     justify-content: center;
     align-items: center;
     color: #7c7c7c;
+
+    @media screen and (max-width: 1340px) {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
 `;
 
 const StampInContainer = styled.div`

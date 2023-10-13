@@ -31,7 +31,7 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
         <ImageSlideContainer ref={imageRef}>
             <MentorWrapper>
                 <ImageBox className='ImageSlideContainer' src={NewMentorListData[slideCurrent].image}></ImageBox>
-                <IntroduceMentorContainer className='ImageContainer'>
+                {/* <IntroduceMentorContainer className='ImageContainer'>
                     {japanese
                         ? NewMentorListData[slideCurrent].englishname
                         : `${NewMentorListData[slideCurrent].nickname} 선생님`}
@@ -40,8 +40,8 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
                             ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
                             : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                     </IntroduceText>
-                </IntroduceMentorContainer>
-                {/* <NicknameContainer className='ImageContainer' src={MentorNickname} /> */}
+                </IntroduceMentorContainer> */}
+                <NicknameContainer className='ImageContainer' src={MentorNickname} />
             </MentorWrapper>
             {/* <MentorWrapper>
                 <ImageBox src={Image2}></ImageBox>
@@ -108,10 +108,6 @@ const ImageBox = styled.div<{ src: string }>`
   background-size: 100% 100%;
   background-position: top center;
   background-repeat: no-repeat;
-
-  @media screen and (max-width: 1140px) {
-        width: 80%;
-    }
 `;
 
 const IntroduceMentorContainer = styled.div`
