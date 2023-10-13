@@ -241,7 +241,7 @@ const TapOutContainer = styled.nav`
 const TapContainer = styled.a`
     padding: 5px 0px;
     font-family: "Pretendard";
-    font-size: 20px;
+    font-size: 19px;
     color: #999999;
     font-weight: 700;
     position: relative;

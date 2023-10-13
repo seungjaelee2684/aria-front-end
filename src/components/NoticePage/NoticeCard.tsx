@@ -5,31 +5,37 @@ import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 
 interface NoticeCardProps {
-    end: boolean;
+    item: any;
 }
 
-const NoticeCard : React.FC<NoticeCardProps> = ({ end }) => {
+const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 
     const japanese = useRecoilValue(translate);
 
   return (
-    <CardContainer style={{opacity: `${end ? "0.7" : ""}`}}>
-        <CardImage src={Poster}/>
+    <CardContainer
+        style={{
+            opacity: `${(item?.status === "PROCEEDING") ? "" : "0.7"}`
+        }}>
+        <CardImage src={item?.image}/>
         <LineContainer>
-            <TextWrapper>
+            <TextWrapper
+                style={{
+                    fontSize: `${japanese ? "14px" : ""}`
+                }}>
                 <Text>
                     {japanese
-                        ? "タイトル: スローガンコンテスト"
-                        : "제목: 슬로건 공모전"}  
+                        ? `タイトル: ${item?.japanesetitle}`
+                        : `제목: ${item?.title}`}  
                 </Text>
                 <Text>
                     {japanese
                         ? "期間: "
                         : "기간: "}
-                    2023.10.12 ~ 2023.12.25
+                    {item?.period}
                 </Text>
             </TextWrapper>
-            {end && <StampContainer>
+            {item?.status === "DEADLINE" && <StampContainer>
                     <StampInContainer>
                         <StampBox>
                             <StampInBox>
@@ -78,6 +84,7 @@ const CardImage = styled.div<{ src : string }>`
 
 const LineContainer = styled.div`
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     width: 100%;
@@ -85,18 +92,18 @@ const LineContainer = styled.div`
 `;
 
 const TextWrapper = styled.div`
+    font-size: 16px;
 `;
 
 const Text = styled.div`
     width: 100%;
     font-family: "Pretendard";
-    font-size: 16px;
     font-weight: 400;
     line-height: 140%;
     color: #222020;
     user-select: none;
     display: flex;
-    padding: 0px 10px;
+    padding: 0px 5px;
 `;
 
 const StampContainer = styled.div`
@@ -108,12 +115,9 @@ const StampContainer = styled.div`
     justify-content: center;
     align-items: center;
     color: #7c7c7c;
-
-    @media screen and (max-width: 1340px) {
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-    }
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 `;
 
 const StampInContainer = styled.div`

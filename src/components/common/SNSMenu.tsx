@@ -172,6 +172,11 @@ const MenuIcon = styled.div<{ default : string, src : string }>`
     opacity: 1;
     background-image: url(${(props) => props.src});
   }
+
+  @media screen and (max-width: 1140px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 export default SNSMenu;

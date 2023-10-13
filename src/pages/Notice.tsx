@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { translate } from '../store/Translation';
 import Search from '../assets/icons/search.png';
 import NoticeList from '../components/NoticePage/NoticeList';
-import Notification from '../components/NoticePage/Notification';
+import Notification from '../components/NoticePage/Notification/Notification';
 
 const Notice = () => {
 
   const japanese = useRecoilValue(translate);
+
+  const [searchContent, setSearchContent] = useState<{ content : string }>({
+    content: "",
+  });
+  const { content } = searchContent;
+
+  const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSearchContent({
+      ...searchContent,
+      [name]: value
+    });
+  };
+  console.log("검색창 입력값", searchContent.content);
 
   return (
     <LayoutContainer>
@@ -19,6 +33,10 @@ const Notice = () => {
         <SearchBarContainer>
           <SearchBarWrapper>
             <SearBarInput
+              name="content"
+              value={content}
+              onChange={(e) => onChangeContentHandler(e)}
+              autoComplete="off"
               placeholder={
                 (japanese)
                 ? "何をお探しですか？"
@@ -72,7 +90,7 @@ const SearBarInput = styled.input`
   border: none;
   background: none;
   font-family: "Pretendard";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 140%;
   padding: 10px 20px;
