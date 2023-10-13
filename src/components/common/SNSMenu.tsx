@@ -4,6 +4,10 @@ import Instagram from '../../assets/icons/insta.png';
 import Twitter from '../../assets/icons/twitter.png';
 import Discord from '../../assets/icons/discord.png';
 import Youtube from '../../assets/icons/youtube.png';
+import InstagramDefault from '../../assets/icons/instadefault.png';
+import TwitterDefault from '../../assets/icons/twitterdefault.png';
+import DiscordDefault from '../../assets/icons/discorddefault.png';
+import YoutubeDefault from '../../assets/icons/youtubedefault.png';
 import SNSModal from './SNSModal';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -27,22 +31,26 @@ const SNSMenu = () => {
       <InstaIcon>
         <MenuIcon
           // className='MenuIcon'
+          default={InstagramDefault}
           src={Instagram}
           onClick={onClickReadyHandler}/>
       </InstaIcon>
       <TwitterIcon>
         <MenuIcon
+          default={TwitterDefault}
           src={Twitter}
           onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
       </TwitterIcon>
       <DiscordIcon>
         <MenuIcon
+          default={DiscordDefault}
           src={Discord}
           onClick={() => setSns(!sns)}/>
         {(sns) && <SNSModal sns={sns} setSns={setSns}/>}
       </DiscordIcon>
       <YoutubeIcon>
         <MenuIcon
+          default={YoutubeDefault}
           src={Youtube}
           onClick={onClickReadyHandler}/>
       </YoutubeIcon>
@@ -64,7 +72,7 @@ const InstaIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #e54a5830;
+  border: 1.5px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -91,7 +99,7 @@ const TwitterIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #33b2f930;
+  border: 1.5px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -113,7 +121,7 @@ const DiscordIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #7489da30;
+  border: 1.5px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -135,7 +143,7 @@ const YoutubeIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #ff000030;
+  border: 1.5px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -151,16 +159,23 @@ const YoutubeIcon = styled.div`
   }
 `;
 
-const MenuIcon = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0.3;
-  transition: all 0.3s ease-in-out;
+const MenuIcon = styled.div<{ default : string, src : string }>`
+  width: 36px;
+  height: 36px;
+  background-image: url(${(props) => props.default});
+  background-size: 100% 100%;
+  opacity: 0.5;
+  transition: all 0.4s ease-in-out;
   cursor: pointer;
 
   &:hover {
     opacity: 1;
+    background-image: url(${(props) => props.src});
+  }
+
+  @media screen and (max-width: 1140px) {
+    width: 32px;
+    height: 32px;
   }
 `;
 

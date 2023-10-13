@@ -1,22 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import NoticeCard from './NoticeCard';
+import { eventPosterData } from '../../data/EventPosterData';
 
 const NoticeList = () => {
 
   return (
     <ListContainer>
-        <NoticeCard end={false}/>
-        <NoticeCard end={false}/>
-        <NoticeCard end={false}/>
-        <NoticeCard end={false}/>
-        <NoticeCard end={false}/>
-        <NoticeCard end={false}/>
-        <NoticeCard end={true}/>
-        <NoticeCard end={true}/>
-        <NoticeCard end={true}/>
-        <NoticeCard end={true}/>
-        <NoticeCard end={true}/>
+      {eventPosterData?.map((item) => {
+        return (
+          <div key={item?.id}>
+            <NoticeCard item={item}/>
+          </div>
+        )
+      })}
     </ListContainer>
   )
 };
