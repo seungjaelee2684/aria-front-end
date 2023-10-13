@@ -37,13 +37,13 @@ const PageModal = ({ pageModal } : any) => {
               resetFilter()
               resetFlag()
             }}>
-            Notification
+            Schedule
           </ModalText>
           <ModalText>
-            Event
+            Classes
           </ModalText>
           <ModalText>
-            Event
+            Policy
           </ModalText>
         </div>
       )
@@ -65,7 +65,7 @@ const ModalContainer = styled.div`
   left: 0;
   z-index: 200;
   color: #FCFCFC;
-  padding: 10px 5px;
+  padding: 10px 0px 10px 5px;
 
   @media screen and (max-width: 1140px) {
     top: 30px;
