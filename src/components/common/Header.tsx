@@ -224,7 +224,7 @@ const TranslateText = styled.div`
     }
 `;
 
-const TapOutContainer = styled.div`
+const TapOutContainer = styled.nav`
     display: flex;
     align-items: center;
     gap: 70px;
@@ -238,7 +238,7 @@ const TapOutContainer = styled.div`
     }
 `;
 
-const TapContainer = styled.div`
+const TapContainer = styled.a`
     padding: 5px 0px;
     font-family: "Pretendard";
     font-size: 20px;

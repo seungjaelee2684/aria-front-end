@@ -11,12 +11,12 @@ const Notification = () => {
   return (
     <LineContainer>
         <ContentWrapper>
-        <NoticeIcon src={Notice}/>
-        <Title>{japanese ? "お知らせ" : "공지"}</Title>
-        <BarContainer />
-        {japanese
-            ? "内容内容内容内容内容内容"
-            : "내용내용내용내용내용내용"}
+            <NoticeIcon src={Notice}/>
+            <Title>{japanese ? "お知らせ" : "공지"}</Title>
+            <BarContainer />
+            {japanese
+                ? "内容内容内容内容内容内容"
+                : "내용내용내용내용내용내용"}
         </ContentWrapper>
         <SeeMoreButton>
             {japanese ? "もっと見る" : "더보기"}
@@ -31,7 +31,7 @@ const LineContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     font-family: "Pretendard";
-    margin-bottom: 20px;
+    margin: 20px 0px;
 `;
 
 const NoticeIcon = styled.img`
