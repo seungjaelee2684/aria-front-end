@@ -53,6 +53,11 @@ const CardContainer = styled.div`
     &:hover {
         opacity: 0.7;
     }
+
+    @media screen and (max-width: 1340px) {
+        width: 250px;
+        height: 300px;  
+    }
 `;
 
 const CardImage = styled.div<{ src : string }>`
@@ -62,6 +67,12 @@ const CardImage = styled.div<{ src : string }>`
     background-size: 319px 319px;
     background-position: center center;
     background-repeat: no-repeat;
+
+    @media screen and (max-width: 1340px) {
+        width: 250px;
+        height: 250px;
+        background-size: 250px 250px;
+    }
 `;
 
 const LineContainer = styled.div`

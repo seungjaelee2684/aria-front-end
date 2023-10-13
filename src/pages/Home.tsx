@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainbackground.jpg';
 import MainImage from '../components/HomePage/MainImage/MainImage';
