@@ -52,8 +52,8 @@ const SelectBarContainer = styled.div`
 `;
 
 const UpDownIcon = styled.img`
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 `;
 
