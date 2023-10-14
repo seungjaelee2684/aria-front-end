@@ -5,20 +5,45 @@ import { useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 import './Notification.css';
 import { NotificationData } from '../../../data/NotificationData';
+import { useNavigate } from 'react-router-dom';
 
 const Notification = () => {
 
     const japanese = useRecoilValue(translate);
+    const navigate = useNavigate();
 
     const textRef = useRef<HTMLDivElement>(null);
     const [textCurrent, setTextCurrent] = useState<number>(0);
+    const [startPoint, setStartPoint] = useState<boolean>(false);
     const currentHeight : number = textCurrent * 30;
 
     useEffect(() => {
         if (textRef.current) {
-            textRef.current.style.transform = `translateY(-${currentHeight}px)`;
+            if (textCurrent === 0 && startPoint === true) {
+                textRef.current.style.transition = "none";
+                textRef.current.style.transform = `translateY(-${currentHeight}px)`;
+            } else {
+                textRef.current.style.transition = "all 2s ease";
+                textRef.current.style.transform = `translateY(-${currentHeight}px)`;
+            }; 
+        };
+
+        setStartPoint(true);
+
+        const interVal = setInterval(() => {
+            if (textCurrent === 5) {
+                setTextCurrent(0);
+            } else {
+                setTextCurrent(textCurrent + 1);
+            };
+        }, (textCurrent === 0 && startPoint === true) ? 1 : 5000);
+
+        return () => {
+            clearInterval(interVal);
         };
     }, [textCurrent]);
+
+    console.log("공지사항 번호", textCurrent, startPoint);
 
   return (
     <LineContainer>
@@ -30,7 +55,7 @@ const Notification = () => {
                 <TextBox ref={textRef}>
                     {NotificationData?.map((item : any) => {
                         return (
-                            <Text>
+                            <Text key={item?.id}>
                                 {japanese
                                     ? item?.japanesenotice
                                     : item?.notice}
@@ -38,10 +63,17 @@ const Notification = () => {
                         )
                     })
                     }
+                    <Text>
+                        {japanese
+                            ? NotificationData[0]?.japanesenotice
+                            : NotificationData[0]?.notice}
+                    </Text>
                 </TextBox>
             </TextWrapper>
         </ContentWrapper>
-        <SeeMoreButton onClick={() => setTextCurrent(textCurrent + 1)} className='SeeMoreButton'>
+        <SeeMoreButton
+            className='SeeMoreButton'
+            onClick={() => navigate("/notice/notification")}>
             <span className='SpanContainer'>
                 {japanese ? "もっと見る" : "더보기"}
             </span>
@@ -95,7 +127,6 @@ const TextWrapper = styled.div`
 const TextBox = styled.div`
     display: flex;
     flex-direction: column;
-    transition: all 1s ease;
 `;
 
 const Text = styled.div`

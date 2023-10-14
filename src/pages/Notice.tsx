@@ -5,6 +5,7 @@ import { translate } from '../store/Translation';
 import Search from '../assets/icons/search.png';
 import NoticeList from '../components/NoticePage/NoticeList';
 import Notification from '../components/NoticePage/Notification/Notification';
+import SelectBar from '../components/NoticePage/SelectBar';
 
 const Notice = () => {
 
@@ -44,12 +45,7 @@ const Notice = () => {
               }/>
             <SearchIcon src={Search}/>
           </SearchBarWrapper>
-          <SelectBar>
-              <option>{japanese ? "全体" : "전체"}</option>
-              <option>{japanese ? "進行中" : "진행중"}</option>
-              <option>{japanese ? "イベント締切" : "행사마감"}</option>
-              <option>{japanese ? "開始予定" : "시작예정"}</option>
-          </SelectBar>
+          <SelectBar japanese={japanese} />
         </SearchBarContainer>
         <NoticeList />
       </LayoutWrapper>
@@ -112,16 +108,6 @@ const SearchIcon = styled.img`
   &:hover {
     background-color: #e9e9e9;
   }
-`;
-
-const SelectBar = styled.select`
-  width: 300px;
-  height: 30px;
-  padding: 0px 10px;
-  font-family: "Pretendard";
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
 `;
 
 const NotificationContainer = styled.div`
