@@ -15,6 +15,9 @@ import MainLayout from './components/common/MainLayout';
 import MentorDetail from './pages/MentorDetail';
 import ScrollBar from './components/common/ScrollBar';
 import ScrollTop from './components/common/ScrollTop/ScrollTop';
+import Notification from './pages/Notification';
+import NotificationDetail from './pages/NotificationDetail';
+import NoticeDetail from './pages/NoticeDetail';
 
 const queryClient = new QueryClient();
 
@@ -28,11 +31,14 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               {/* <Route element={<MainLayout />}> */}
-                <Route path='/notice/notification' element={<Notice />} />
+                <Route path='/notice' element={<Notice />} />
                 <Route path='/mentor' element={<Mentor />} />
                 <Route path='/hof' element={<Hof />} />
                 <Route path='/support' element={<Support />} />
                 <Route path='/mentor/detail/:id' element={<MentorDetail />} />
+                <Route path='/notice/notification' element={<Notification />} />
+                <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
+                <Route path='/notice/detail/:id' element={<NoticeDetail />} />
               {/* </Route> */}
             </Routes>
             <ScrollTop />

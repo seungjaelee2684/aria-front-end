@@ -32,7 +32,7 @@ const MainImage = () => {
                 <PageMoveButton onClick={() => navigate('/mentor')}>
                     Mentor
                 </PageMoveButton>
-                <PageMoveButton onClick={() => navigate('/notice/notification')}>
+                <PageMoveButton onClick={() => navigate('/notice')}>
                     Notice
                 </PageMoveButton>
             </ButtonWrapper>

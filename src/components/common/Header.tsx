@@ -79,7 +79,7 @@ const Header = () => {
                     onMouseOut={() => setPageModal("")}>
                     <TapContainer
                         onClick={() => {
-                            navigate("/notice/notification");
+                            navigate("/notice");
                             resetFilter();
                             resetFlag();
                         }}>

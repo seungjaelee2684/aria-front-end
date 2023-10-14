@@ -14,7 +14,15 @@ const PageModal = ({ pageModal } : any) => {
   const modalTitle = () => {
     if (pageModal === "Notice") {
       return (
-        <div>
+        <ModalContainer className='ModalContainerDiv'>
+          <ModalText
+            onClick={() => {
+              navigate("/notice")
+              resetFilter()
+              resetFlag()
+            }}>
+            Event
+          </ModalText>
           <ModalText
             onClick={() => {
               navigate("/notice/notification")
@@ -23,14 +31,11 @@ const PageModal = ({ pageModal } : any) => {
             }}>
             Notification
           </ModalText>
-          <ModalText>
-            Event
-          </ModalText>
-        </div>
+        </ModalContainer>
       )
     } else if (pageModal === "Support") {
       return (
-        <div>
+        <ModalContainer className='ModalContainerDiv'>
           <ModalText
             onClick={() => {
               navigate("/support")
@@ -45,27 +50,30 @@ const PageModal = ({ pageModal } : any) => {
           <ModalText>
             Policy
           </ModalText>
-        </div>
+        </ModalContainer>
       )
     };
   };
 
   return (
-    <ModalContainer className='ModalContainerDiv'>
+    <div>
       {modalTitle()}
-    </ModalContainer>
+    </div>
   )
 };
 
 const ModalContainer = styled.div`
   min-width: 70px;
   background-color: #222020;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   position: absolute;
   top: 30px;
   left: 0;
   z-index: 200;
   color: #FCFCFC;
-  padding: 10px 0px 10px 5px;
+  padding: 10px 5px 10px 5px;
 
   @media screen and (max-width: 1140px) {
     top: 30px;
