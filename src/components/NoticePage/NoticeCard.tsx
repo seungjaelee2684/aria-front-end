@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Poster from '../../assets/images/poster.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
+import { useNavigate } from 'react-router-dom';
 
 interface NoticeCardProps {
     item: any;
@@ -10,10 +11,12 @@ interface NoticeCardProps {
 
 const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 
+    const navigate = useNavigate();
     const japanese = useRecoilValue(translate);
 
   return (
     <CardContainer
+        onClick={() => navigate(`/notice/detail/${item?.id}`)}
         style={{
             opacity: `${(item?.status === "PROCEEDING") ? "" : "0.7"}`
         }}>
