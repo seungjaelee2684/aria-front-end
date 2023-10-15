@@ -14,14 +14,14 @@ const Notice = () => {
   const [searchContent, setSearchContent] = useState<{ content : string }>({
     content: "",
   });
-  const [selectOpen, setSelectOpen] = useState<{
+  const [selectOption, setSelectOption] = useState<{
     pick: string,
-    isOpen: boolean,
-    japanesepick: string
+    japanesepick: string,
+    englishpick: string
   }>({
     pick: "전체",
-    isOpen: false,
-    japanesepick: ""
+    japanesepick: "全体",
+    englishpick: "ALL"
   });
   const { content } = searchContent;
 
@@ -59,10 +59,12 @@ const Notice = () => {
           </SearchBarWrapper>
           <SelectBar
             japanese={japanese}
-            selectOpen={selectOpen}
-            setSelectOpen={setSelectOpen}/>
+            selectOption={selectOption}
+            setSelectOption={setSelectOption}/>
         </SearchBarContainer>
-        <NoticeList />
+        <NoticeList
+          selectOption={selectOption}
+          setSelectOption={setSelectOption}/>
       </LayoutWrapper>
     </LayoutContainer>
   )
