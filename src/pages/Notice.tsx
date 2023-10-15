@@ -14,6 +14,15 @@ const Notice = () => {
   const [searchContent, setSearchContent] = useState<{ content : string }>({
     content: "",
   });
+  const [selectOpen, setSelectOpen] = useState<{
+    pick: string,
+    isOpen: boolean,
+    japanesepick: string
+  }>({
+    pick: "전체",
+    isOpen: false,
+    japanesepick: ""
+  });
   const { content } = searchContent;
 
   const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +57,10 @@ const Notice = () => {
               }/>
             <SearchIcon src={Search}/>
           </SearchBarWrapper>
-          <SelectBar japanese={japanese} />
+          <SelectBar
+            japanese={japanese}
+            selectOpen={selectOpen}
+            setSelectOpen={setSelectOpen}/>
         </SearchBarContainer>
         <NoticeList />
       </LayoutWrapper>
