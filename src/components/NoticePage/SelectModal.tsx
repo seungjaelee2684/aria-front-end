@@ -5,17 +5,22 @@ interface SelectModalProps {
     japanese: boolean;
     selectOpen: {
         pick: string,
-        isOpen: boolean
+        isOpen: boolean,
+        japanesepick: string
     };
     setSelectOpen: React.Dispatch<React.SetStateAction<{
         pick: string,
-        isOpen: boolean
+        isOpen: boolean,
+        japanesepick: string
     }>>;
 }
 
 const SelectModal : React.FC<SelectModalProps> = (props) => {
 
     const { japanese, selectOpen, setSelectOpen } = props;
+
+    const divElement = document.getElementById("filterId");
+    const divContent = divElement?.innerHTML;
 
     type OptionType = {
       japaneseoption: string,
@@ -30,17 +35,19 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
       {japaneseoption: "", option: "시작예정", englishoption: "EXPECTED"},
     ];
 
-    const onClickFilterHandler = () => {
-      
+    const onClickFilterHandler = ( item : any ) => {
+      setSelectOpen({...selectOpen, pick: item?.option});
+      console.log("테스트", item?.option, typeof item?.option, selectOpen.pick);
     };
 
   return (
     <ModalContainer>
-      {modalOption.map((item : OptionType) => {
+      {modalOption.map((item : any) => {
         return (
           <ModalLineContainer
-            key={item.option}
-            onClick={() => setSelectOpen({...selectOpen, pick: item.option, isOpen: false})}>
+            key={item?.englishoption}
+            id="filterId"
+            onClick={() => onClickFilterHandler(item)}>
             {japanese ? item.japaneseoption : item.option}
           </ModalLineContainer>
         )

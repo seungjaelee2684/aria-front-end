@@ -6,20 +6,23 @@ import UpArrow from '../../assets/icons/upArrow.png';
 
 interface SelectBarProps {
     japanese: boolean;
+    selectOpen: {
+        pick: string,
+        isOpen: boolean,
+        japanesepick: string
+    };
+    setSelectOpen: React.Dispatch<React.SetStateAction<{
+        pick: string,
+        isOpen: boolean,
+        japanesepick: string
+    }>>;
 }
 
-const SelectBar : React.FC<SelectBarProps> = ({ japanese }) => {
+const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOpen, setSelectOpen }) => {
 
-    const [selectOpen, setSelectOpen] = useState<{
-        pick: string,
-        isOpen: boolean
-    }>({
-        pick: "전체",
-        isOpen: false
-    });
-    const { pick, isOpen } = selectOpen;
+    const { pick, isOpen, japanesepick } = selectOpen;
 
-    console.log("필터 옵션", pick, isOpen);
+    console.log("필터 옵션", pick, isOpen, japanesepick);
 
   return (
     <SelectBarContainer onClick={() => setSelectOpen({...selectOpen, isOpen: !isOpen})}>

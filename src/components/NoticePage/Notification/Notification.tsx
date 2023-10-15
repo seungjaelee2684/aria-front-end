@@ -43,7 +43,7 @@ const Notification = () => {
         };
     }, [textCurrent]);
 
-    console.log("공지사항 번호", textCurrent, startPoint);
+    // console.log("공지사항 번호", textCurrent, startPoint);
 
   return (
     <LineContainer>

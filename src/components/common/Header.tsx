@@ -22,7 +22,7 @@ const Header = () => {
     const [pageModal, setPageModal] = useState<string>("");
     const [snsModal, setSnsModal] = useState<boolean>(false);
 
-    console.log("모달 번호 => ", pageModal);
+    // console.log("모달 번호 => ", pageModal);
 
     useEffect(() => {
         if (hoverRef.current) {
