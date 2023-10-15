@@ -3,24 +3,21 @@ import styled from 'styled-components';
 
 interface SelectModalProps {
     japanese: boolean;
-    selectOpen: {
+    selectOption: {
         pick: string,
-        isOpen: boolean,
-        japanesepick: string
+        japanesepick: string,
+        englishpick: string
     };
-    setSelectOpen: React.Dispatch<React.SetStateAction<{
+    setSelectOption: React.Dispatch<React.SetStateAction<{
         pick: string,
-        isOpen: boolean,
-        japanesepick: string
+        japanesepick: string,
+        englishpick: string
     }>>;
 }
 
 const SelectModal : React.FC<SelectModalProps> = (props) => {
 
-    const { japanese, selectOpen, setSelectOpen } = props;
-
-    const divElement = document.getElementById("filterId");
-    const divContent = divElement?.innerHTML;
+    const { japanese, selectOption, setSelectOption } = props;
 
     type OptionType = {
       japaneseoption: string,
@@ -29,25 +26,28 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
     }
 
     const modalOption : OptionType[] = [
-      {japaneseoption: "", option: "전체", englishoption: "All"},
-      {japaneseoption: "", option: "진행중", englishoption: "PROCEEDING"},
-      {japaneseoption: "", option: "마감", englishoption: "DEADLINE"},
-      {japaneseoption: "", option: "시작예정", englishoption: "EXPECTED"},
+      {japaneseoption: "全体", option: "전체", englishoption: "ALL"},
+      {japaneseoption: "進行中", option: "진행중", englishoption: "PROCEEDING"},
+      {japaneseoption: "締め切り", option: "마감", englishoption: "DEADLINE"},
+      {japaneseoption: "開始予定", option: "시작예정", englishoption: "EXPECTED"},
     ];
 
-    const onClickFilterHandler = ( item : any ) => {
-      setSelectOpen({...selectOpen, pick: item?.option});
-      console.log("테스트", item?.option, typeof item?.option, selectOpen.pick);
-    };
+    console.log("test", selectOption?.englishpick);
 
   return (
     <ModalContainer>
-      {modalOption.map((item : any) => {
+      {modalOption.map((item : OptionType) => {
         return (
           <ModalLineContainer
             key={item?.englishoption}
-            id="filterId"
-            onClick={() => onClickFilterHandler(item)}>
+            onClick={() => {
+                setSelectOption({
+                  ...selectOption,
+                  pick: item?.option,
+                  japanesepick: item?.japaneseoption,
+                  englishpick: item?.englishoption})
+              }
+            }>
             {japanese ? item.japaneseoption : item.option}
           </ModalLineContainer>
         )

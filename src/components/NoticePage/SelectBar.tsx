@@ -6,27 +6,29 @@ import UpArrow from '../../assets/icons/upArrow.png';
 
 interface SelectBarProps {
     japanese: boolean;
-    selectOpen: {
+    selectOption: {
         pick: string,
-        isOpen: boolean,
-        japanesepick: string
+        japanesepick: string,
+        englishpick: string
     };
-    setSelectOpen: React.Dispatch<React.SetStateAction<{
+    setSelectOption: React.Dispatch<React.SetStateAction<{
         pick: string,
-        isOpen: boolean,
-        japanesepick: string
+        japanesepick: string,
+        englishpick: string
     }>>;
 }
 
-const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOpen, setSelectOpen }) => {
+const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelectOption }) => {
 
-    const { pick, isOpen, japanesepick } = selectOpen;
+    const { pick, japanesepick, englishpick } = selectOption;
 
-    console.log("필터 옵션", pick, isOpen, japanesepick);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    // console.log("필터 옵션", pick, japanesepick);
 
   return (
-    <SelectBarContainer onClick={() => setSelectOpen({...selectOpen, isOpen: !isOpen})}>
-        {pick}
+    <SelectBarContainer onClick={() => setIsOpen(!isOpen)}>
+        {japanese ? japanesepick : pick}
         {isOpen
             ? <UpDownIcon src={UpArrow}/>
             : <UpDownIcon src={DownArrow}/>}
@@ -34,8 +36,8 @@ const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOpen, setSelectO
             && <SelectModalWrapper>
                 <SelectModal
                     japanese={japanese}
-                    selectOpen={selectOpen}
-                    setSelectOpen={setSelectOpen}/>
+                    selectOption={selectOption}
+                    setSelectOption={setSelectOption}/>
             </SelectModalWrapper>}
     </SelectBarContainer>
   )
