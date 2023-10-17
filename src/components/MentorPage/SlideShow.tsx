@@ -5,6 +5,7 @@ import RightArrow from '../../assets/icons/rightArrow.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import NewMentorList from './NewMentorList/NewMentorList';
+import { NewMentorListData } from '../../data/NewMentorData';
 import './NewMentorList/NewMentorList.css'
 
 const SlideShow = () => {
@@ -47,6 +48,7 @@ const SlideShow = () => {
   console.log("슬라이드 번호", slideCurrent);
 
   return (
+    <div>
     <ImageOutContainer>
       <SlideButtonBox
         style={{ left: "30px" }}
@@ -64,6 +66,16 @@ const SlideShow = () => {
         imageRef={imageRef}
         slideCurrent={slideCurrent}/>
     </ImageOutContainer>
+    <SlideNumberContainer>
+      {NewMentorListData?.map((item : any) => {
+        return (
+          (slideCurrent === NewMentorListData.indexOf(item))
+            ? <SlideNumber style={{backgroundColor: "#646464"}} />
+            : <SlideNumber />
+        )
+      })}
+    </SlideNumberContainer>
+    </div>
   )
 };
 
@@ -106,6 +118,21 @@ const SlideButton = styled.img`
   width: 34px;
   height: 34px;
   object-fit: contain;
+`;
+
+const SlideNumberContainer = styled.div`
+  width: 96px;
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  gap: 16px;
+`;
+
+const SlideNumber = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background-color: #e9e9e9;
 `;
 
 export default SlideShow;

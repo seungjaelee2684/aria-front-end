@@ -13,7 +13,7 @@ const NoticeDetail = () => {
   console.log("이벤트데이터", eventList);
 
   return (
-    <div>NoticeDetail</div>
+    <div>{id}</div>
   )
 };
 
