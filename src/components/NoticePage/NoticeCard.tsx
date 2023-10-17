@@ -112,12 +112,12 @@ const Text = styled.div`
 const StampContainer = styled.div`
     min-width: 50px;
     height: 50px;
-    border: 1px dotted #7c7c7c;
+    border: 1px dotted red;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #7c7c7c;
+    color: red;
     position: absolute;
     bottom: 5px;
     right: 5px;

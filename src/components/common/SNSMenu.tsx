@@ -31,6 +31,7 @@ const SNSMenu = () => {
       <InstaIcon>
         <MenuIcon
           // className='MenuIcon'
+          title={japanese ? "準備中です。" : "준비중입니다."}
           default={InstagramDefault}
           src={Instagram}
           onClick={onClickReadyHandler}/>
@@ -50,6 +51,7 @@ const SNSMenu = () => {
       </DiscordIcon>
       <YoutubeIcon>
         <MenuIcon
+          title={japanese ? "準備中です。" : "준비중입니다."}
           default={YoutubeDefault}
           src={Youtube}
           onClick={onClickReadyHandler}/>
