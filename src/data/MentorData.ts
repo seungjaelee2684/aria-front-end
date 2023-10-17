@@ -1,6 +1,8 @@
 import Image from '../assets/images/surveimage.jpg';
 import Image2 from '../assets/images/mainimage.jpg';
 import Image3 from '../assets/images/testImage.png';
+import SanpachiImage from '../assets/images/sanpachiimage1.png';
+import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
 
 export const mentorListData = [
     {
@@ -25,7 +27,7 @@ export const mentorListData = [
         englishname: "Chan",
         nickname: "챤",
         content: "",
-        image: Image3
+        image: SanpachiImage2
     },
     {
         id: "4",
@@ -38,9 +40,9 @@ export const mentorListData = [
     {
         id: "5",
         nation: "Japanese",
-        englishname: "Messy",
-        nickname: "메시",
+        englishname: "さんぱち",
+        nickname: "Sanpachi",
         content: "",
-        image: Image2
+        image: SanpachiImage
     },
 ];

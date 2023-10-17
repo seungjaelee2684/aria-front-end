@@ -28,34 +28,36 @@ const SNSMenu = () => {
   
   return (
     <MenuIconContainer className='MenuIconContainer'>
-      <InstaIcon>
+      {/* <InstaIcon> */}
         <MenuIcon
           // className='MenuIcon'
           title={japanese ? "準備中です。" : "준비중입니다."}
           default={InstagramDefault}
           src={Instagram}
           onClick={onClickReadyHandler}/>
-      </InstaIcon>
-      <TwitterIcon>
+      {/* </InstaIcon> */}
+      {/* <TwitterIcon> */}
         <MenuIcon
+          title={japanese ? "準備中です。" : "트위터 보러가기"}
           default={TwitterDefault}
           src={Twitter}
           onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
-      </TwitterIcon>
-      <DiscordIcon>
+      {/* </TwitterIcon> */}
+      {/* <DiscordIcon> */}
         <MenuIcon
+          title={japanese ? "準備中です。" : "디스코드 보러가기"}
           default={DiscordDefault}
           src={Discord}
           onClick={() => setSns(!sns)}/>
         {(sns) && <SNSModal sns={sns} setSns={setSns}/>}
-      </DiscordIcon>
-      <YoutubeIcon>
+      {/* </DiscordIcon> */}
+      {/* <YoutubeIcon> */}
         <MenuIcon
           title={japanese ? "準備中です。" : "준비중입니다."}
           default={YoutubeDefault}
           src={Youtube}
           onClick={onClickReadyHandler}/>
-      </YoutubeIcon>
+      {/* </YoutubeIcon> */}
     </MenuIconContainer>
   )
 };
@@ -162,12 +164,12 @@ const YoutubeIcon = styled.div`
 `;
 
 const MenuIcon = styled.div<{ default : string, src : string }>`
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   background-image: url(${(props) => props.default});
   background-size: 100% 100%;
   opacity: 0.5;
-  transition: all 0.4s ease-in-out;
+  /* transition: all 0.4s ease-in-out; */
   cursor: pointer;
 
   &:hover {
@@ -176,8 +178,8 @@ const MenuIcon = styled.div<{ default : string, src : string }>`
   }
 
   @media screen and (max-width: 1140px) {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
 `;
 

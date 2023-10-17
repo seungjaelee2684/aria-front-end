@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import logo from '../../assets/logos/logo.png';
+import logo from '../../assets/logos/logosimple.png';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
@@ -96,7 +96,7 @@ const Header = () => {
                         resetFilter();
                         resetFlag();
                     }}>
-                    H.o.f
+                    H.O.F
                 </TapContainer>
                 <div
                     style={{position: "relative"}}
@@ -242,8 +242,9 @@ const TapContainer = styled.a`
     padding: 5px 0px;
     font-family: "Pretendard";
     font-size: 19px;
-    color: #999999;
-    font-weight: 700;
+    /* color: #999999; */
+    color: #222020;
+    font-weight: 500;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
