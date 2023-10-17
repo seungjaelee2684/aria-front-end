@@ -106,7 +106,7 @@ const SlideButtonBox = styled.div`
   align-items: center;
   background-color: #7e7e7e;
   opacity: 0.4;
-  z-index: 100;
+  z-index: 88;
   cursor: pointer;
 
   &:hover {
