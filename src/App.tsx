@@ -10,7 +10,7 @@ import Notice from './pages/Notice';
 import Mentor from './pages/Mentor';
 import Hof from './pages/Hof';
 import Support from './pages/Support';
-import Header from './components/common/Header/Header';
+import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
 import MentorDetail from './pages/MentorDetail';
 import ScrollBar from './components/common/ScrollBar';

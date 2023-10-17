@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import logo from '../../../assets/logos/logosimple.png';
+import logo from '../../assets/logos/logosimple.png';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useResetRecoilState } from 'recoil';
-import { translate } from '../../../store/Translation';
-import { nationFlag, nationKind } from '../../../store/NationFilter';
-import ScrollBar from '../ScrollBar';
-import PageModal from '../PageModal/PageModal';
-import SNSMenu from '../SNSMenu';
+import { translate } from '../../store/Translation';
+import { nationFlag, nationKind } from '../../store/NationFilter';
+import ScrollBar from './ScrollBar';
+import PageModal from './PageModal/PageModal';
+import SNSMenu from './SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
-import './Header.css';
+import '../../style/font/font.css';
 
 const Header = () => {
 

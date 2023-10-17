@@ -6,6 +6,7 @@ import Search from '../assets/icons/search.png';
 import NoticeList from '../components/NoticePage/NoticeList';
 import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
+import '../style/font/font.css';
 
 const Notice = () => {
 
@@ -44,23 +45,34 @@ const Notice = () => {
           <Notification />
         </NotificationContainer>
         <SearchBarContainer>
-          <SearchBarWrapper>
-            <SearBarInput
-              name="content"
-              value={content}
-              onChange={(e) => onChangeContentHandler(e)}
-              autoComplete="off"
-              placeholder={
-                (japanese)
-                ? "何をお探しですか？"
-                : '무엇을 찾으시나요?'
-              }/>
-            <SearchIcon src={Search}/>
-          </SearchBarWrapper>
-          <SelectBar
-            japanese={japanese}
-            selectOption={selectOption}
-            setSelectOption={setSelectOption}/>
+          <TotalTextWrapper>
+            Total
+            <TotalText>
+              12
+            </TotalText>
+            {japanese ? " 件" : " 건"}
+          </TotalTextWrapper>
+          <RightWrapper>
+            <SearchBarWrapper>
+              <SearBarInput
+                name="content"
+                value={content}
+                onChange={(e) => onChangeContentHandler(e)}
+                autoComplete="off"
+                placeholder={
+                  (japanese)
+                  ? "検索語"
+                  : '검색어'
+                }/>
+              <IconBox>
+              <SearchIcon src={Search}/>
+              </IconBox>
+            </SearchBarWrapper>
+            <SelectBar
+              japanese={japanese}
+              selectOption={selectOption}
+              setSelectOption={setSelectOption}/>
+          </RightWrapper>
         </SearchBarContainer>
         <NoticeList
           selectOption={selectOption}
@@ -92,49 +104,83 @@ const LayoutWrapper = styled.div`
 
 const SearchBarContainer = styled.div`
   width: 100%;
-  height: 50px;
-  padding: 20px 0px;
+  height: 54px;
+  padding: 0px 0px 5px 0px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
+`;
+
+const TotalTextWrapper = styled.div`
+  font-family: 'LINESeedKR-Bd';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  color: #222020;
+  gap: 8px;
+`;
+
+const TotalText = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  color: red;
+`;
+
+const RightWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 const SearchBarWrapper = styled.form`
-  width: 100%;
-  gap: 10px;
   display: flex;
   align-items: center;
 `;
 
 const SearBarInput = styled.input`
-  width: 100%;
-  height: 30px;
-  border: none;
+  width: 120px;
+  height: 34px;
+  border-left: 1px solid #ADADAD;
+  border-top: 1px solid #ADADAD;
+  border-bottom: 1px solid #ADADAD;
+  border-right: none;
   background: none;
   font-family: "Pretendard";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 140%;
-  padding: 10px 20px;
-  background-color: #e9e9e9;
-  border-radius: 50px;
+  padding: 0px 20px;
+  background-color: #FFF;
+  border-radius: 3px 0px 0px 3px;
   
-  &:active {
-    border: 1px solid;
+  &:hover {
+    border: 1px solid #222020;
   }
 `;
 
+const IconBox = styled.div`
+  width: 34px;
+  height: 34px;
+  border-top: 1px solid #ADADAD;
+  border-bottom: 1px solid #ADADAD;
+  border-right: 1px solid #ADADAD;
+  border-radius: 0px 3px 3px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const SearchIcon = styled.img`
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   border-radius: 100%;
   cursor: pointer;
-
-  &:hover {
-    background-color: #e9e9e9;
-  }
 `;
 
 const NotificationContainer = styled.div`

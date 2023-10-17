@@ -47,6 +47,7 @@ const ListContainer = styled.div`
     flex-wrap: wrap;
     gap: 16px;
     padding: 30px 0px;
+    border-top: 2px solid #222020;
 `;
 
 export default NoticeList;
