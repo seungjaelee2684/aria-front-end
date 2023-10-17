@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import logo from '../../assets/logos/logosimple.png';
+import logo from '../../../assets/logos/logosimple.png';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useResetRecoilState } from 'recoil';
-import { translate } from '../../store/Translation';
-import { nationFlag, nationKind } from '../../store/NationFilter';
-import ScrollBar from './ScrollBar';
-import PageModal from './PageModal/PageModal';
-import SNSMenu from './SNSMenu';
+import { translate } from '../../../store/Translation';
+import { nationFlag, nationKind } from '../../../store/NationFilter';
+import ScrollBar from '../ScrollBar';
+import PageModal from '../PageModal/PageModal';
+import SNSMenu from '../SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
+import './Header.css';
 
 const Header = () => {
 
@@ -63,7 +64,7 @@ const Header = () => {
                         resetFilter();
                         resetFlag();
                     }}>
-                    Home
+                    HOME
                 </TapContainer>
                 <TapContainer
                     onClick={() => {
@@ -71,7 +72,7 @@ const Header = () => {
                         resetFilter();
                         resetFlag();
                     }}>
-                    Mentor
+                    MENTOR
                 </TapContainer>
                 <div
                     style={{position: "relative"}}
@@ -83,7 +84,7 @@ const Header = () => {
                             resetFilter();
                             resetFlag();
                         }}>
-                        Notice
+                        NOTICE
                         
                     </TapContainer>
                     {(pageModal === "Notice")
@@ -96,7 +97,7 @@ const Header = () => {
                         resetFilter();
                         resetFlag();
                     }}>
-                    H.O.F
+                    SHOWCASE
                 </TapContainer>
                 <div
                     style={{position: "relative"}}
@@ -108,7 +109,7 @@ const Header = () => {
                             resetFilter();
                             resetFlag();
                         }}>
-                        Support
+                        SUPPORT
                     </TapContainer>
                     {(pageModal === "Support")
                         && <PageModal
@@ -229,6 +230,7 @@ const TapOutContainer = styled.nav`
     align-items: center;
     gap: 70px;
     padding: 10px 5px;
+    height: 100%;
 
     @media screen and (max-width: 1140px) {
         gap: 25px;
@@ -240,18 +242,22 @@ const TapOutContainer = styled.nav`
 
 const TapContainer = styled.a`
     padding: 5px 0px;
-    font-family: "Pretendard";
-    font-size: 19px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'LINESeedKR-Bd';
+    /* font-family: "Pretendard"; */
+    /* font-family: "Roboto+Condensed"; */
+    font-size: 16px;
     /* color: #999999; */
     color: #222020;
-    font-weight: 500;
+    font-weight: 400;
     position: relative;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s ease;
 
     &:hover {
         color: #3c3ad6;
-        border-bottom: 3px solid #3c3ad6;
     }
 
     @media screen and (max-width: 1140px) {

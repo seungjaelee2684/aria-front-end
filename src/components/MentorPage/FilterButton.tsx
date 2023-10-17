@@ -52,7 +52,7 @@ const FilterButtonWrapper = styled.div`
 
 const NationFilter = styled.div`
     width: 170px;
-    height: 40px;
+    height: 34px;
     border: 1px solid #e9e9e9;
     border-radius: 20px 0px 0px 20px;
     gap: 10px;
@@ -75,7 +75,7 @@ const NationFlag = styled.img`
 
 const FilterBtn = styled.div`
     width: 50px;
-    height: 40px;
+    height: 34px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,8 +92,8 @@ const FilterBtn = styled.div`
 `;
 
 const FilterBtnIcon = styled.img`
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 `;
 
