@@ -44,7 +44,7 @@ const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelec
 };
 
 const SelectBarContainer = styled.div`
-  min-width: 210px;
+  min-width: 120px;
   height: 34px;
   padding: 0px 10px 0px 16px;
   font-family: "Pretendard";
@@ -52,7 +52,7 @@ const SelectBarContainer = styled.div`
   font-weight: 400;
   line-height: normal;
   position: relative;
-  border: 1px solid #222020;
+  border: 1px solid #ADADAD;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +69,7 @@ const UpDownIcon = styled.img`
 const SelectModalWrapper = styled.div`
     position: absolute;
     top: 35px;
-    left: 0;
+    left: -1px;
     z-index: 20;
 `;
 

@@ -57,21 +57,19 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
 };
 
 const ModalContainer = styled.div`
-  min-width: 235px;
-  border-top: 0.5 solid #e9e9e9;
-  border-bottom: 0.5 solid #e9e9e9;
-  border-left: 1px solid #e9e9e9;
-  border-right: 1px solid #e9e9e9;
-  background-color: #FCFCFC;
+  min-width: 120px;
+  border-bottom: 0.5px solid #ADADAD;
+  border-left: 1px solid #ADADAD;
+  border-right: 1px solid #ADADAD;
+  background-color: #FFF;
   border-radius: 0px 0px 5px 5px;
   color: #222020;
 `;
 
 const ModalLineContainer = styled.div`
-  width: 210px;
+  width: 120px;
   height: 34px;
-  border-top: 0.5 solid #e9e9e9;
-  border-bottom: 0.5 solid #e9e9e9;
+  border-bottom: 0.5px solid #f8f8f8;
   display: flex;
   align-items: center;
   padding: 0px 10px 0px 16px;
