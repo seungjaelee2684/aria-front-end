@@ -77,7 +77,7 @@ const LayoutContainer = styled.div`
 
 const TitleContainer = styled.div`
   width: 100%;
-  height: 170px;
+  height: 200px;
   background-color: #e9e9e9;
   margin: 80px 0px 0px 0px;
   display: flex;

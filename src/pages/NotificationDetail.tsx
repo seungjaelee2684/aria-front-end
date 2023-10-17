@@ -1,8 +1,12 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 
 const NotificationDetail = () => {
+
+  const { id } = useParams();
+
   return (
-    <div>NotificationDetail</div>
+    <div>{id}</div>
   )
 };
 

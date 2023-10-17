@@ -53,8 +53,8 @@ const LayoutContainer = styled.div`
 
 const ListOutContainer = styled.div`
     margin: 0px auto;
-    min-width: 1272px;
-    max-width: 1272px;
+    min-width: 70%;
+    max-width: 70%;
 
     @media screen and (max-width: 1272px) {
         margin: 0px auto;
@@ -72,7 +72,7 @@ const ListContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 24px;
+    gap: 43px;
 `;
 
 export default MentorList;

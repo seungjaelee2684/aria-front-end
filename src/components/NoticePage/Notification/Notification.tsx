@@ -55,7 +55,9 @@ const Notification = () => {
                 <TextBox ref={textRef}>
                     {NotificationData?.map((item : any) => {
                         return (
-                            <Text key={item?.id}>
+                            <Text
+                                key={item?.id}
+                                onClick={() => navigate(`/notice/notification/detail/${item?.id}`)}>
                                 {japanese
                                     ? item?.japanesenotice
                                     : item?.notice}
@@ -133,6 +135,11 @@ const Text = styled.div`
     display: flex;
     align-items: center;
     min-height: 30px;
+    cursor: pointer;
+
+    &:hover {
+        color: #8f8f8f;
+    }
 `;
 
 const SeeMoreButton = styled.button`

@@ -183,8 +183,8 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 130px;
-    height: 70px;
+    width: 120px;
+    height: 64px;
     object-fit: contain;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
