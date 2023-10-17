@@ -95,7 +95,7 @@ const TotalWrapper = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: 140%;
-    color: #39373A;
+    color: #222020;
     display: flex;
     align-items: end;
     gap: 8px;
