@@ -13,11 +13,13 @@ interface SelectModalProps {
         japanesepick: string,
         englishpick: string
     }>>;
+    setContent: React.Dispatch<React.SetStateAction<string>>;
+    setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SelectModal : React.FC<SelectModalProps> = (props) => {
 
-    const { japanese, selectOption, setSelectOption } = props;
+    const { japanese, selectOption, setSelectOption, setContent, setInputValue } = props;
 
     type OptionType = {
       japaneseoption: string,
@@ -46,6 +48,8 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
                   pick: item?.option,
                   japanesepick: item?.japaneseoption,
                   englishpick: item?.englishoption})
+                setContent("");
+                setInputValue("");
               }
             }>
             {japanese ? item.japaneseoption : item.option}

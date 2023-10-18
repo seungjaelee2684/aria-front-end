@@ -12,9 +12,8 @@ const Notice = () => {
 
   const japanese = useRecoilValue(translate);
 
-  const [searchContent, setSearchContent] = useState<{ content : string }>({
-    content: "",
-  });
+  const [inputValue, setInputValue] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const [selectOption, setSelectOption] = useState<{
     pick: string,
     japanesepick: string,
@@ -24,16 +23,21 @@ const Notice = () => {
     japanesepick: "全体",
     englishpick: "ALL"
   });
-  const { content } = searchContent;
 
   const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setSearchContent({
-      ...searchContent,
-      [name]: value
+    setInputValue(e.target.value);
+  };
+
+  const onSubmitSearchHandler = ( e : React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setContent(inputValue);
+    setSelectOption({
+      pick: "전체",
+      japanesepick: "全体",
+      englishpick: "ALL"
     });
   };
-  console.log("검색창 입력값", searchContent.content);
+  console.log("검색창 입력값", content);
 
   return (
     <LayoutContainer>
@@ -53,30 +57,35 @@ const Notice = () => {
             {japanese ? " 件" : " 건"}
           </TotalTextWrapper>
           <RightWrapper>
-            <SearchBarWrapper>
+            <SearchBarWrapper onSubmit={onSubmitSearchHandler}>
               <SearBarInput
-                name="content"
-                value={content}
-                onChange={(e) => onChangeContentHandler(e)}
+                type="text"
+                value={inputValue}
+                onChange={onChangeContentHandler}
                 autoComplete="off"
                 placeholder={
                   (japanese)
-                  ? "検索語"
-                  : '검색어'
+                  ? "タイトル検索"
+                  : '제목 검색'
                 }/>
-              <IconBox>
+              <IconBox type='submit'>
               <SearchIcon src={Search}/>
               </IconBox>
             </SearchBarWrapper>
             <SelectBar
               japanese={japanese}
               selectOption={selectOption}
-              setSelectOption={setSelectOption}/>
+              setSelectOption={setSelectOption}
+              setContent={setContent}
+              setInputValue={setInputValue}/>
           </RightWrapper>
         </SearchBarContainer>
         <NoticeList
+          japanese={japanese}
           selectOption={selectOption}
-          setSelectOption={setSelectOption}/>
+          setSelectOption={setSelectOption}
+          content={content}
+          setContent={setContent}/>
       </LayoutWrapper>
     </LayoutContainer>
   )
@@ -163,16 +172,18 @@ const SearBarInput = styled.input`
   }
 `;
 
-const IconBox = styled.div`
+const IconBox = styled.button`
   width: 34px;
-  height: 34px;
+  height: 36px;
   border-top: 1px solid #ADADAD;
   border-bottom: 1px solid #ADADAD;
   border-right: 1px solid #ADADAD;
+  border-left: none;
   border-radius: 0px 3px 3px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #FFF;
 `;
 
 const SearchIcon = styled.img`
