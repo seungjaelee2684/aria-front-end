@@ -16,9 +16,11 @@ interface SelectBarProps {
         japanesepick: string,
         englishpick: string
     }>>;
+    setContent: React.Dispatch<React.SetStateAction<string>>;
+    setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelectOption }) => {
+const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelectOption, setContent, setInputValue }) => {
 
     const { pick, japanesepick, englishpick } = selectOption;
 
@@ -37,7 +39,9 @@ const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelec
                 <SelectModal
                     japanese={japanese}
                     selectOption={selectOption}
-                    setSelectOption={setSelectOption}/>
+                    setSelectOption={setSelectOption}
+                    setContent={setContent}
+                    setInputValue={setInputValue}/>
             </SelectModalWrapper>}
     </SelectBarContainer>
   )
