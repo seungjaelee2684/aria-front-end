@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
-import FilterModal from './FilterModal/FilterModal';
+import FilterModal from './FilterModal';
 import UpArrow from '../../assets/icons/upArrow.png';
 import DownArrow from '../../assets/icons/downArrow.png'
 

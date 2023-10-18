@@ -24,7 +24,7 @@ const NotificationList = () => {
                 <TotalWrapper>
                     Total
                     <Total>
-                        5
+                        {NotificationData.length}
                     </Total>
                     {japanese ? " 件" : " 건"}
                 </TotalWrapper>

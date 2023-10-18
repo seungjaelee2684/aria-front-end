@@ -70,7 +70,8 @@ const SlideShow = () => {
       {NewMentorListData?.map((item : any) => {
         return (
           (slideCurrent === NewMentorListData.indexOf(item))
-            ? <SlideNumber style={{backgroundColor: "#646464"}} />
+            ? <SlideNumber
+              style={{backgroundColor: "#222020"}}/>
             : <SlideNumber />
         )
       })}
@@ -121,7 +122,7 @@ const SlideButton = styled.img`
 `;
 
 const SlideNumberContainer = styled.div`
-  width: 96px;
+  width: 92px;
   display: flex;
   align-items: center;
   margin: 20px auto;
@@ -129,10 +130,11 @@ const SlideNumberContainer = styled.div`
 `;
 
 const SlideNumber = styled.div`
-  width: 12px;
-  height: 12px;
+  min-width: 10px;
+  height: 10px;
   border-radius: 100%;
-  background-color: #e9e9e9;
+  background-color: #FCFCFC;
+  border: 1px solid #222020;
 `;
 
 export default SlideShow;

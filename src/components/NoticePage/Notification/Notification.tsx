@@ -49,7 +49,7 @@ const Notification = () => {
     <LineContainer>
         <ContentWrapper>
             <NoticeIcon src={Notice}/>
-            <Title>{japanese ? "お知らせ" : "공지"}</Title>
+            <Title>{japanese ? "お知らせ" : "공지 사항"}</Title>
             <BarContainer />
             <TextWrapper>
                 <TextBox ref={textRef}>
@@ -95,13 +95,14 @@ const LineContainer = styled.div`
 `;
 
 const NoticeIcon = styled.img`
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 `;
 
 const Title = styled.div`
-    font-size: 18px;
+    width: 74px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 140%;
     color: #222020;
@@ -135,6 +136,12 @@ const Text = styled.div`
     display: flex;
     align-items: center;
     min-height: 30px;
+    /* text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; */
     cursor: pointer;
 
     &:hover {
@@ -143,14 +150,14 @@ const Text = styled.div`
 `;
 
 const SeeMoreButton = styled.button`
-    width: 150px;
+    width: 120px;
     height: 40px;
     border: none;
-    color: #FCFCFC;
-    background-color: #4947f7;
+    color: #222020;
+    background-color: #FFF;
     font-family: "Pretendard";
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 140%;
     border-radius: 5px;
     text-align: center;
