@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import SelectModal from './SelectModal';
 import DownArrow from '../../assets/icons/downArrow.png';
@@ -24,12 +24,25 @@ const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelec
 
     const { pick, japanesepick, englishpick } = selectOption;
 
+    const divRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+          if (divRef.current && !divRef.current.contains(event.target)) {
+            setIsOpen(false);
+          }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+          document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
 
     // console.log("필터 옵션", pick, japanesepick);
 
   return (
-    <SelectBarContainer onClick={() => setIsOpen(!isOpen)}>
+    <SelectBarContainer ref={divRef} onClick={() => setIsOpen(!isOpen)}>
         {japanese ? japanesepick : pick}
         {isOpen
             ? <UpDownIcon src={UpArrow}/>

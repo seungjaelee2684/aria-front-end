@@ -7,6 +7,8 @@ import NoticeList from '../components/NoticePage/NoticeList';
 import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
+import { eventTotal } from '../store/TotalNumber';
+import { eventPosterData } from '../data/EventPosterData';
 
 const Notice = () => {
 
@@ -14,6 +16,7 @@ const Notice = () => {
 
   const [inputValue, setInputValue] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [totalNumber, setTotalNumber] = useState<number>(eventPosterData.length);
   const [selectOption, setSelectOption] = useState<{
     pick: string,
     japanesepick: string,
@@ -52,7 +55,7 @@ const Notice = () => {
           <TotalTextWrapper>
             Total
             <TotalText>
-              12
+              {totalNumber}
             </TotalText>
             {japanese ? " 件" : " 건"}
           </TotalTextWrapper>
@@ -85,7 +88,8 @@ const Notice = () => {
           selectOption={selectOption}
           setSelectOption={setSelectOption}
           content={content}
-          setContent={setContent}/>
+          setContent={setContent}
+          setTotalNumber={setTotalNumber}/>
       </LayoutWrapper>
     </LayoutContainer>
   )

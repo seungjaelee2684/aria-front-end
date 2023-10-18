@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import NoticeCard from './NoticeCard';
 import { eventPosterData } from '../../data/EventPosterData';
@@ -17,9 +17,10 @@ interface NoticeListProps {
   }>>;
   content: string;
   setContent: React.Dispatch<React.SetStateAction<string>>;
+  setTotalNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSelectOption, content, setContent }) => {
+const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
 
   const proceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
   const searchDataKR = eventPosterData?.filter((item) => {
@@ -29,6 +30,22 @@ const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSel
     return item?.japanesetitle.toLowerCase().includes(content.toLowerCase())
   });
   console.log("검색", searchDataKR);
+
+  useEffect(() => {
+    if (content === "") {
+      if (selectOption?.englishpick === "ALL") {
+        setTotalNumber(eventPosterData.length);
+      } else {
+        setTotalNumber(proceedingData.length);
+      };
+    } else {
+      if (japanese) {
+        setTotalNumber(searchDataJP.length);
+      } else {
+        setTotalNumber(searchDataKR.length);
+      };
+    };
+  }, [selectOption, content]);
 
   return (
     <ListContainer>

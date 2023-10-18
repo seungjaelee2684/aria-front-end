@@ -68,6 +68,10 @@ const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @media screen and (max-width: 1140px) {
+    gap: 4px;
+  }
 `;
 
 const InstaIcon = styled.div`
@@ -169,7 +173,7 @@ const MenuIcon = styled.div<{ default : string, src : string }>`
   background-image: url(${(props) => props.default});
   background-size: 100% 100%;
   opacity: 0.5;
-  /* transition: all 0.4s ease-in-out; */
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
