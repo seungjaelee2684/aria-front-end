@@ -116,12 +116,13 @@ const LayoutWrapper = styled.div`
 `;
 
 const SearchBarContainer = styled.div`
-  width: 100%;
+  width: 1320px;
   height: 54px;
   padding: 0px 0px 5px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0px auto;
 `;
 
 const TotalTextWrapper = styled.div`

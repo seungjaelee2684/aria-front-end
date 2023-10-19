@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import './ScrollTop.css';
 import styled from 'styled-components';
 
-const ScrollTop = () => {
+const ScrollTopButton = () => {
 
     const scrollBtn = useRef<HTMLDivElement>(null);
 
@@ -64,4 +64,4 @@ const ScrollTopButtonWrapper = styled.div`
     }
 `;
 
-export default ScrollTop;
+export default ScrollTopButton;

@@ -97,7 +97,7 @@ const Header = () => {
                     </div>
                     <TapContainer
                         onClick={() => {
-                            navigate("/hof");
+                            navigate("/showcase");
                             resetFilter();
                             resetFlag();
                         }}>

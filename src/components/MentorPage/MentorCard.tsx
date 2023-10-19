@@ -20,7 +20,7 @@ const MentorCard = ({ item, japanese } : any) => {
 
 const CardContainer = styled.div`
   width: 315px;
-  height: 360px;
+  height: 380px;
   /* border: 1px solid; */
   /* border-radius: 10px; */
   background-color: #FFFFFF;

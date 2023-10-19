@@ -85,12 +85,13 @@ const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSel
 };
 
 const ListContainer = styled.div`
-  width: 100%;
+  width: 1320px;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 10px;
   padding: 30px 0px;
   border-top: 2px solid #222020;
+  margin: 0px auto;
 `;
 
 export default NoticeList;
