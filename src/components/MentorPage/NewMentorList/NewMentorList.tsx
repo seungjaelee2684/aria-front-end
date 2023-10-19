@@ -96,7 +96,7 @@ const MentorWrapper = styled.div`
   /* gap: 24px; */
   margin: 0px auto;
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
         min-width: 100%;
     }
 `;
@@ -142,7 +142,7 @@ const NicknameContainer = styled.img`
   right: 10%;
   top: 25%;
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
         position: absolute;
         width: 350px;
         height: 250px;

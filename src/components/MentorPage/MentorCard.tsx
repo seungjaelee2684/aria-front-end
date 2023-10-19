@@ -19,7 +19,7 @@ const MentorCard = ({ item, japanese } : any) => {
 };
 
 const CardContainer = styled.div`
-  width: 300px;
+  width: 315px;
   height: 360px;
   /* border: 1px solid; */
   /* border-radius: 10px; */
@@ -32,10 +32,10 @@ const CardContainer = styled.div`
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 5px 2px;
   }
 
-  @media screen and (max-width: 1272px) {
+  /* @media screen and (max-width: 1320px) {
     width: 180px;
     height: 240px;
-  }
+  } */
   @media screen and (max-width: 588px) {
     width: 156px;
     height: 216px;
@@ -43,8 +43,8 @@ const CardContainer = styled.div`
 `;
 
 const CardImage = styled.div<{ src : string }>`
-  width: 300px;
-  height: 300px;
+  width: 315px;
+  height: 315px;
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center center;
@@ -52,10 +52,10 @@ const CardImage = styled.div<{ src : string }>`
   /* border-radius: 10px; */
   border: 1px solid #e9e9e9;
 
-  @media screen and (max-width: 1272px) {
+  /* @media screen and (max-width: 1320px) {
     width: 180px;
     height: 180px;
-  }
+  } */
   @media screen and (max-width: 588px) {
     width: 156px;
     height: 156px;
@@ -71,7 +71,7 @@ const ContentContainer = styled.div`
   line-height: 140%;
   color: #39373A;
 
-  @media screen and (max-width: 1272px) {
+  @media screen and (max-width: 588px) {
     font-size: 12px;
     line-height: normal;
   }
@@ -84,7 +84,7 @@ const NicknameContainer = styled.div`
   font-weight: 600;
   line-height: 150%;
 
-  @media screen and (max-width: 1272px) {
+  @media screen and (max-width: 1320px) {
     font-size: 16px;
     line-height: normal;
   }

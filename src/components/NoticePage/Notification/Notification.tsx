@@ -117,7 +117,7 @@ const BarContainer = styled.div`
 const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 `;
 
 const TextWrapper = styled.div`

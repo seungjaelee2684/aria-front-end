@@ -41,97 +41,97 @@ const Header = () => {
 
   return (
     <div>
-    <HeaderHiddenContainer ref={hoverRef} />
-    <HeaderLayoutContainer
-        onMouseOver={() => setHoverEvent(true)}
-        onMouseOut={() => setHoverEvent(false)}
-    >
-        <HeaderOutWrapper>
-            <LogoContainer>
-                <HeaderLogo
-                    src={logo}
-                    alt=""
-                    onClick={() => {
-                        navigate("/");
-                        resetFilter();
-                        resetFlag();
-                    }}/>
-                <TranslateWrapper onClick={() => setJapanese(!japanese)}>
-                    <TranslateIcon src={Translate}/>
-                    <TranslateText>{japanese ? "한국어" : "日本語"}</TranslateText>
-                </TranslateWrapper>
-            </LogoContainer>
-            <TapOutContainer>
-                <TapContainer
-                    onClick={() => {
-                        navigate("/");
-                        resetFilter();
-                        resetFlag();
-                    }}>
-                    HOME
-                </TapContainer>
-                <TapContainer
-                    onClick={() => {
-                        navigate("/mentor");
-                        resetFilter();
-                        resetFlag();
-                    }}>
-                    MENTOR
-                </TapContainer>
-                <div
-                    style={{position: "relative"}}
-                    onMouseOver={() => setPageModal("Notice")} 
-                    onMouseOut={() => setPageModal("")}>
+        <HeaderHiddenContainer ref={hoverRef} />
+        <HeaderLayoutContainer
+            onMouseOver={() => setHoverEvent(true)}
+            onMouseOut={() => setHoverEvent(false)}
+        >
+            <HeaderOutWrapper>
+                <LogoContainer>
+                    <HeaderLogo
+                        src={logo}
+                        alt=""
+                        onClick={() => {
+                            navigate("/");
+                            resetFilter();
+                            resetFlag();
+                        }}/>
+                    <TranslateWrapper onClick={() => setJapanese(!japanese)}>
+                        <TranslateIcon src={Translate}/>
+                        <TranslateText>{japanese ? "한국어" : "日本語"}</TranslateText>
+                    </TranslateWrapper>
+                </LogoContainer>
+                <TapOutContainer>
                     <TapContainer
                         onClick={() => {
-                            navigate("/notice");
+                            navigate("/");
                             resetFilter();
                             resetFlag();
                         }}>
-                        NOTICE
-                        
+                        HOME
                     </TapContainer>
-                    {(pageModal === "Notice")
-                        && <PageModal
-                        pageModal={pageModal}/>}
-                </div>
-                <TapContainer
-                    onClick={() => {
-                        navigate("/hof");
-                        resetFilter();
-                        resetFlag();
-                    }}>
-                    SHOWCASE
-                </TapContainer>
-                <div
-                    style={{position: "relative"}}
-                    onMouseOver={() => setPageModal("Support")} 
-                    onMouseOut={() => setPageModal("")}>
                     <TapContainer
                         onClick={() => {
-                            navigate("/support");
+                            navigate("/mentor");
                             resetFilter();
                             resetFlag();
                         }}>
-                        SUPPORT
+                        MENTOR
                     </TapContainer>
-                    {(pageModal === "Support")
-                        && <PageModal
-                        pageModal={pageModal}/>}
-                </div>
-            </TapOutContainer>
-            <SupportWrapper>
-                <SNSMenu />
-                {/* <SNSModalContainer
-                    onClick={() => setSnsModal(!snsModal)}>
-                    <SNSModalListIcon src={ListIcon}/>
-                </SNSModalContainer> */}
-            </SupportWrapper>
-        </HeaderOutWrapper>
-    </HeaderLayoutContainer>
-    {/* <ScrollBarContainer> */}
-        {/* <ScrollBar /> */}
-    {/* </ScrollBarContainer> */}
+                    <div
+                        style={{position: "relative"}}
+                        onMouseOver={() => setPageModal("Notice")} 
+                        onMouseOut={() => setPageModal("")}>
+                        <TapContainer
+                            onClick={() => {
+                                navigate("/notice");
+                                resetFilter();
+                                resetFlag();
+                            }}>
+                            NOTICE
+                            
+                        </TapContainer>
+                        {(pageModal === "Notice")
+                            && <PageModal
+                            pageModal={pageModal}/>}
+                    </div>
+                    <TapContainer
+                        onClick={() => {
+                            navigate("/hof");
+                            resetFilter();
+                            resetFlag();
+                        }}>
+                        SHOWCASE
+                    </TapContainer>
+                    <div
+                        style={{position: "relative"}}
+                        onMouseOver={() => setPageModal("Support")} 
+                        onMouseOut={() => setPageModal("")}>
+                        <TapContainer
+                            onClick={() => {
+                                navigate("/support");
+                                resetFilter();
+                                resetFlag();
+                            }}>
+                            SUPPORT
+                        </TapContainer>
+                        {(pageModal === "Support")
+                            && <PageModal
+                            pageModal={pageModal}/>}
+                    </div>
+                </TapOutContainer>
+                <SupportWrapper>
+                    <SNSMenu />
+                    {/* <SNSModalContainer
+                        onClick={() => setSnsModal(!snsModal)}>
+                        <SNSModalListIcon src={ListIcon}/>
+                    </SNSModalContainer> */}
+                </SupportWrapper>
+            </HeaderOutWrapper>
+        </HeaderLayoutContainer>
+        {/* <ScrollBarContainer> */}
+            {/* <ScrollBar /> */}
+        {/* </ScrollBarContainer> */}
     </div>
   )
 };
@@ -150,27 +150,25 @@ const HeaderHiddenContainer = styled.div`
 const HeaderLayoutContainer = styled.div`
     width: 100%;
     height: 80px;
-    /* border-bottom: 1px solid gray; */
-    
+    /* border-bottom: 1px solid gray; */   
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
-    
-
     /* opacity: 0.5; */
 `;
 
 const HeaderOutWrapper = styled.div`
-    padding: 0px 15% 0px 15%;
+    width: 1320px;
+    margin: 0px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto 0px;
     height: 100%;
 
-    @media screen and (max-width: 1140px) {
-        padding: 0px 3% 0px 3%;
+    @media screen and (max-width: 1320px) {
+        width: 96%;
+        margin: 0px auto;
     }
 `;
 
@@ -181,7 +179,7 @@ const LogoContainer = styled.div`
     gap: 16px;
     height: 80px;
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         gap: 5px;
         height: 70px;
     }
@@ -200,7 +198,7 @@ const HeaderLogo = styled.img`
         opacity: 0.8;
     }
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         width: 100px;
         height: 100%;
     }
@@ -230,7 +228,7 @@ const TranslateText = styled.div`
     color: #222020;
     font-weight: 600;
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         font-size: 10px;
     }
 `;
@@ -242,7 +240,7 @@ const TapOutContainer = styled.nav`
     padding: 10px 5px;
     height: 100%;
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         gap: 25px;
     }
     @media screen and (max-width: 500px) {
@@ -270,7 +268,7 @@ const TapContainer = styled.a`
         color: #3c3ad6;
     }
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         font-size: 16px;
     }
     @media screen and (max-width: 836px) {
@@ -316,7 +314,7 @@ const SNSModalContainer = styled.div`
         border: 1.5px solid #4a5568;
     }
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         width: 32px;
         height: 32px;
     }
@@ -334,7 +332,7 @@ const SNSModalListIcon = styled.img`
         opacity: 1;
     }
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1320px) {
         width: 22px;
         height: 22px;
     }
