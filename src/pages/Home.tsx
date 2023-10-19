@@ -37,9 +37,9 @@ const Home = () => {
   return (
     <MainLayout>
         <MainImageContainer>
-            <ImageWrapper>
+            {/* <ImageWrapper> */}
                 <Images src={MainBackground}/>
-            </ImageWrapper>
+            {/* </ImageWrapper> */}
         </MainImageContainer>
         <MainImageWrapper>
             {/* <MainImage /> */}
@@ -62,6 +62,7 @@ const MainImageContainer = styled.div`
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
+    /* margin-top: 80px; */
 `;
 
 const ImageWrapper = styled.div`
@@ -81,6 +82,9 @@ const Images = styled.div<{ src : string }>`
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    position: fixed;
+    top: 80px;
+    left: 0;
 `;
 
 const MainImageWrapper = styled.div`

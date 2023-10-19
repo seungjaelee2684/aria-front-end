@@ -85,12 +85,12 @@ const Notification = () => {
 };
 
 const LineContainer = styled.div`
-    width: 100%;
+    width: 1320px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: "Pretendard";
-    margin: 20px 0px;
+    margin: 20px auto;
     user-select: none;
 `;
 
@@ -150,7 +150,7 @@ const Text = styled.div`
 `;
 
 const SeeMoreButton = styled.button`
-    width: 120px;
+    /* width: 120px; */
     height: 40px;
     border: none;
     color: #222020;

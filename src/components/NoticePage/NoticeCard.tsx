@@ -53,7 +53,7 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 };
 
 const CardContainer = styled.div`
-    width: 319px;
+    width: 320px;
     height: 380px;
     display: grid;
     gap: 0px;
@@ -71,10 +71,10 @@ const CardContainer = styled.div`
 `;
 
 const CardImage = styled.div<{ src : string }>`
-    width: 319px;
-    height: 319px;
+    width: 320px;
+    height: 320px;
     background-image: url(${(props) => props.src});
-    background-size: 319px 319px;
+    background-size: 320px 320px;
     background-position: center center;
     background-repeat: no-repeat;
 
