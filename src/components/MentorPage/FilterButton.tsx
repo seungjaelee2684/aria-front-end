@@ -38,8 +38,13 @@ const FilterButton = () => {
 };
 
 const FilterButtonContainer = styled.div`
-    max-width: 500px;
-    margin: 40px 15% 0px 15%;
+    max-width: 1320px;
+    margin: 40px auto;
+
+    @media screen and (max-width: 1320px) {
+        min-width: 96%;
+        max-width: 96%;
+    }
 `;
 
 const FilterButtonWrapper = styled.div`

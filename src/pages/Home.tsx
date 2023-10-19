@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
-import MainBackground from '../assets/images/mainbackground.jpg';
+import MainBackground from '../assets/images/mainimage2.jpg';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
@@ -42,7 +42,7 @@ const Home = () => {
             </ImageWrapper>
         </MainImageContainer>
         <MainImageWrapper>
-            <MainImage />
+            {/* <MainImage /> */}
         </MainImageWrapper>
     </MainLayout>
   )
@@ -75,7 +75,7 @@ const ImageWrapper = styled.div`
 `;
 
 const Images = styled.div<{ src : string }>`
-    width: 1920px;
+    width: 100%;
     height: 100%;
     background-image: url(${(props) => props.src});
     background-size: cover;

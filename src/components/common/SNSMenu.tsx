@@ -69,7 +69,7 @@ const MenuIconContainer = styled.div`
   align-items: center;
   gap: 12px;
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
     gap: 4px;
   }
 `;
@@ -95,7 +95,7 @@ const InstaIcon = styled.div`
     } */
   }
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
     width: 32px;
     height: 32px;
   }
@@ -117,7 +117,7 @@ const TwitterIcon = styled.div`
     border: 1.5px solid #33b2f9;
   }
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
     width: 32px;
     height: 32px;
   }
@@ -139,7 +139,7 @@ const DiscordIcon = styled.div`
     border: 1.5px solid #7489da;
   }
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
     width: 32px;
     height: 32px;
   }
@@ -161,7 +161,7 @@ const YoutubeIcon = styled.div`
     border: 1.5px solid #ff0000;
   }
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
     width: 32px;
     height: 32px;
   }
@@ -181,7 +181,7 @@ const MenuIcon = styled.div<{ default : string, src : string }>`
     background-image: url(${(props) => props.src});
   }
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1320px) {
     width: 28px;
     height: 28px;
   }
