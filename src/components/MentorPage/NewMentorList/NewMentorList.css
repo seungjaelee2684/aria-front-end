@@ -1,0 +1,43 @@
+/* .ImageSlideContainer {
+    animation-name: slide_end;
+    animation-duration: 1s;
+    animation-delay: 4s;
+} */
+
+.ImageSlideContainer {
+    animation: slide_show 3s forwards;
+}
+
+.ImageContainer {
+    animation-name: slide_end;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide_show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide_end {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@font-face {
+    font-family: "Giants-Inline";
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
