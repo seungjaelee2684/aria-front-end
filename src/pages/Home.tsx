@@ -83,7 +83,7 @@ const Images = styled.div<{ src : string }>`
     background-position: center center;
     background-repeat: no-repeat;
     position: fixed;
-    top: 80px;
+    top: 0px;
     left: 0;
 `;
 

@@ -111,8 +111,8 @@ const TitleContainer = styled.div`
 `;
 
 const LayoutWrapper = styled.div`
-  /* width: 100%; */
-  margin: 50px 15%;
+  width: 1320px;
+  margin: 50px auto;
 `;
 
 const SearchBarContainer = styled.div`
