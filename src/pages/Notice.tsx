@@ -9,6 +9,7 @@ import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
 import { eventTotal } from '../store/TotalNumber';
 import { eventPosterData } from '../data/EventPosterData';
+import Banner from '../assets/images/mainimage2.jpg';
 
 const Notice = () => {
 
@@ -45,7 +46,9 @@ const Notice = () => {
   return (
     <LayoutContainer>
       <TitleContainer>
-        배너
+        <BannerImageContainer src={Banner}>
+          이벤트
+        </BannerImageContainer>
       </TitleContainer>
       <LayoutWrapper>
         <NotificationContainer>
@@ -105,9 +108,22 @@ const TitleContainer = styled.div`
   height: 200px;
   background-color: #e9e9e9;
   margin: 80px 0px 0px 0px;
+`;
+const BannerImageContainer = styled.div<{ src : string }>`
+  width: 100%;
+  height: 200px;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  /* background-position: center center; */
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #FCFCFC;
+  font-family: "Pretendard";
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 150%;
 `;
 
 const LayoutWrapper = styled.div`
