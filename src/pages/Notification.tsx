@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import BannerBackground from '../assets/images/bannerbg.png';
+import BannerBackground from '../assets/images/rapla2.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 import NotificationList from '../components/NotificationPage/NotificationList';
@@ -41,8 +41,8 @@ const BannerBackgroundImg = styled.div<{ src : string }>`
   width: 100%;
   height: 100%;
   background-image: url(${(props) => props.src});
-  background-size: 100% 100%;
-  background-position: center center;
+  background-size: cover;
+  background-position: center 10%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@ const BannerBackgroundImg = styled.div<{ src : string }>`
   font-size: 40px;
   font-weight: 700;
   line-height: 150%;
-  color: #2b0404;
+  color: #FCFCFC;
 `;
 
 export default Notification;
