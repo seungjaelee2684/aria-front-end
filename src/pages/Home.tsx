@@ -38,6 +38,7 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             {/* <ImageWrapper> */}
+                <GradientContainer></GradientContainer>
                 <Images src={MainBackground}/>
             {/* </ImageWrapper> */}
         </MainImageContainer>
@@ -75,6 +76,16 @@ const ImageWrapper = styled.div`
     left: 0;
 `;
 
+const GradientContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff20, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+`;
+
 const Images = styled.div<{ src : string }>`
     width: 100%;
     height: 100%;
@@ -83,7 +94,7 @@ const Images = styled.div<{ src : string }>`
     background-position: center center;
     background-repeat: no-repeat;
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
 `;
 
