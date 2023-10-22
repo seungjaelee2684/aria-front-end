@@ -70,7 +70,10 @@ const SlideShow = () => {
           return (
             (slideCurrent === NewMentorListData.indexOf(item))
               ? <SlideNumber
-                style={{backgroundColor: "#FFF"}}/>
+                style={{
+                  backgroundColor: "#FFF",
+                  minWidth: "35px",
+                  borderRadius: "20px"}}/>
               : <SlideNumber />
           )
         })}
@@ -128,7 +131,7 @@ const SlideNumberContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  gap: 16px;
+  gap: 12px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -140,6 +143,7 @@ const SlideNumber = styled.div`
   border-radius: 100%;
   background-color: #757575;
   box-shadow: 1px 1px 6px 0px #5a5a5a;
+  transition: all 0.6s ease-in-out;
 `;
 
 export default SlideShow;
