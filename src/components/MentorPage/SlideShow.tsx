@@ -28,8 +28,13 @@ const SlideShow = () => {
   }, [slideCurrent]);
 
   const prevButton = () => {
-    setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent - 1) % (NewMentorListData.length));
-    setPrevCurrent(slideCurrent);
+    if (slideCurrent === 0) {
+      setSlideCurrent(NewMentorListData.length - 1);
+      setPrevCurrent(0);
+    } else {
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent - 1) % (NewMentorListData.length));
+      setPrevCurrent(slideCurrent);
+    };
   };
 
   const nextButton = () => {
@@ -37,18 +42,18 @@ const SlideShow = () => {
     setPrevCurrent(slideCurrent);
   };
 
-  console.log("슬라이드 번호", slideCurrent);
+  // console.log("슬라이드 번호", slideCurrent);
 
   return (
     <div>
     <ImageOutContainer>
       <SlideButtonBox
-        style={{ left: "30px" }}
+        style={{ left: "70px" }}
         onClick={prevButton}>
         <SlideButton src={LeftArrow} />
       </SlideButtonBox>
       <SlideButtonBox
-        style={{ right: "30px" }}
+        style={{ right: "70px" }}
         onClick={nextButton}>
         <SlideButton src={RightArrow} />
       </SlideButtonBox>
@@ -65,7 +70,7 @@ const SlideShow = () => {
           return (
             (slideCurrent === NewMentorListData.indexOf(item))
               ? <SlideNumber
-                style={{backgroundColor: "#FCFCFC"}}/>
+                style={{backgroundColor: "#FFF"}}/>
               : <SlideNumber />
           )
         })}
@@ -133,7 +138,8 @@ const SlideNumber = styled.div`
   min-width: 12px;
   height: 12px;
   border-radius: 100%;
-  background-color: #686868;
+  background-color: #757575;
+  box-shadow: 1px 1px 6px 0px #5a5a5a;
 `;
 
 export default SlideShow;
