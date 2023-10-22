@@ -19,6 +19,7 @@ import NotificationDetail from './pages/NotificationDetail';
 import NoticeDetail from './pages/NoticeDetail';
 import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
 import Showcase from './pages/Showcase';
+import Check from './pages/Check';
 
 const queryClient = new QueryClient();
 
@@ -32,15 +33,16 @@ function App() {
             <Header />
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/check' element={<Check />} />
               {/* <Route element={<MainLayout />}> */}
-                <Route path='/notice' element={<Notice />} />
-                <Route path='/mentor' element={<Mentor />} />
-                <Route path='/showcase' element={<Showcase />} />
-                <Route path='/support' element={<Support />} />
-                <Route path='/mentor/detail/:id' element={<MentorDetail />} />
-                <Route path='/notice/notification' element={<Notification />} />
-                <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
-                <Route path='/notice/detail/:id' element={<NoticeDetail />} />
+              <Route path='/notice' element={<Notice />} />
+              <Route path='/mentor' element={<Mentor />} />
+              <Route path='/showcase' element={<Showcase />} />
+              <Route path='/support' element={<Support />} />
+              <Route path='/mentor/detail/:id' element={<MentorDetail />} />
+              <Route path='/notice/notification' element={<Notification />} />
+              <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
+              <Route path='/notice/detail/:id' element={<NoticeDetail />} />
               {/* </Route> */}
             </Routes>
             <ScrollTopButton />
