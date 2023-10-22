@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import logo from '../../assets/logos/logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
@@ -19,12 +19,23 @@ const Header = () => {
     const resetFlag = useResetRecoilState(nationFlag);
 
     const navigate = useNavigate();
+    const location = useLocation();
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverEvent, setHoverEvent] = useState<boolean>(false);
     const [pageModal, setPageModal] = useState<string>("");
     const [snsModal, setSnsModal] = useState<boolean>(false);
 
     // console.log("모달 번호 => ", pageModal);
+
+    // const getHeaderPage = () => {
+    //     if (location.pathname === "/") {
+    //         return;
+    //     } else {
+    //         return (
+                
+    //         )
+    //     };
+    // };
 
     useEffect(() => {
         if (hoverRef.current) {
@@ -41,26 +52,28 @@ const Header = () => {
 
   return (
     <div>
-        <HeaderHiddenContainer ref={hoverRef} />
+        {(location.pathname !== "/") && <HeaderHiddenContainer ref={hoverRef} />}
         <HeaderLayoutContainer
             onMouseOver={() => setHoverEvent(true)}
             onMouseOut={() => setHoverEvent(false)}
         >
-            <HeaderOutWrapper>
-                <LogoContainer>
-                    <HeaderLogo
-                        src={logo}
-                        alt=""
-                        onClick={() => {
-                            navigate("/");
-                            resetFilter();
-                            resetFlag();
-                        }}/>
-                    <TranslateWrapper onClick={() => setJapanese(!japanese)}>
-                        <TranslateIcon src={Translate}/>
-                        <TranslateText>{japanese ? "한국어" : "日本語"}</TranslateText>
-                    </TranslateWrapper>
-                </LogoContainer>
+            <HeaderOutWrapper
+                style={{justifyContent: `${(location.pathname !== "/") ? "" : "center"}`}}>
+                {(location.pathname !== "/")
+                    && <LogoContainer>
+                        <HeaderLogo
+                            src={logo}
+                            alt=""
+                            onClick={() => {
+                                navigate("/");
+                                resetFilter();
+                                resetFlag();
+                            }}/>
+                        <TranslateWrapper onClick={() => setJapanese(!japanese)}>
+                            <TranslateIcon src={Translate}/>
+                            <TranslateText>{japanese ? "한국어" : "日本語"}</TranslateText>
+                        </TranslateWrapper>
+                    </LogoContainer>}
                 <TapOutContainer>
                     <TapContainer
                         onClick={() => {
@@ -71,6 +84,7 @@ const Header = () => {
                         HOME
                     </TapContainer>
                     <TapContainer
+                        style={{color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}`}}
                         onClick={() => {
                             navigate("/mentor");
                             resetFilter();
@@ -83,6 +97,7 @@ const Header = () => {
                         onMouseOver={() => setPageModal("Notice")} 
                         onMouseOut={() => setPageModal("")}>
                         <TapContainer
+                            style={{color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}`}}
                             onClick={() => {
                                 navigate("/notice");
                                 resetFilter();
@@ -91,11 +106,12 @@ const Header = () => {
                             NOTICE
                             
                         </TapContainer>
-                        {(pageModal === "Notice")
+                        {((pageModal === "Notice") && (location.pathname !== "/"))
                             && <PageModal
                             pageModal={pageModal}/>}
                     </div>
                     <TapContainer
+                        style={{color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}`}}
                         onClick={() => {
                             navigate("/showcase");
                             resetFilter();
@@ -108,6 +124,7 @@ const Header = () => {
                         onMouseOver={() => setPageModal("Support")} 
                         onMouseOut={() => setPageModal("")}>
                         <TapContainer
+                            style={{color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}`}}
                             onClick={() => {
                                 navigate("/support");
                                 resetFilter();
@@ -115,18 +132,15 @@ const Header = () => {
                             }}>
                             SUPPORT
                         </TapContainer>
-                        {(pageModal === "Support")
+                        {((pageModal === "Support") && (location.pathname !== "/"))
                             && <PageModal
                             pageModal={pageModal}/>}
                     </div>
                 </TapOutContainer>
-                <SupportWrapper>
-                    <SNSMenu />
-                    {/* <SNSModalContainer
-                        onClick={() => setSnsModal(!snsModal)}>
-                        <SNSModalListIcon src={ListIcon}/>
-                    </SNSModalContainer> */}
-                </SupportWrapper>
+                {(location.pathname !== "/")
+                    && <SupportWrapper>
+                        <SNSMenu />
+                    </SupportWrapper>}
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {/* <ScrollBarContainer> */}
