@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './NewMentorList.css';
+import '../../../style/font/font.css';
 import styled from 'styled-components';
 import Image from '../../../assets/images/testImage.png';
 import Image2 from '../../../assets/images/mainimage.jpg';
@@ -10,72 +10,41 @@ interface NewMentorListProps {
     japanese: boolean;
     imageRef: React.RefObject<HTMLDivElement>;
     slideCurrent: number;
+    prevCurrent: number | undefined;
+    setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slideCurrent }) => {
-
-    // useEffect(() => {
-    //     const intervalId = setInterval(() => {
-    //         if (imageRef.current) {
-    //             imageRef.current.style.animation = "slide_end 1s forwards"
-    //         };
-    //         console.log("지금이니");
-    //     }, 4100);
-    
-    //     return () => {
-    //       clearInterval(intervalId);
-    //     };
-    // }, [slideCurrent]);
+const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
 
     return (
         <ImageSlideContainer ref={imageRef}>
-            <MentorWrapper>
-                <ImageBox className='ImageSlideContainer' src={NewMentorListData[slideCurrent].image}></ImageBox>
-                {/* <IntroduceMentorContainer className='ImageContainer'>
-                    {japanese
-                        ? NewMentorListData[slideCurrent].englishname
-                        : `${NewMentorListData[slideCurrent].nickname} 선생님`}
-                    <IntroduceText>
-                        {japanese
-                            ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                            : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                    </IntroduceText>
-                </IntroduceMentorContainer> */}
-                <NicknameContainer className='ImageContainer' src={MentorNickname} />
-            </MentorWrapper>
-            {/* <MentorWrapper>
-                <ImageBox src={Image2}></ImageBox>
-                <IntroduceMentorContainer>
-                    {japanese ? "メンター 先生" : "멘토 선생님"}
-                    <IntroduceText>
-                        {japanese
-                            ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                            : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                    </IntroduceText>
-                </IntroduceMentorContainer>
-            </MentorWrapper>
-            <MentorWrapper>
-                <ImageBox src={Image}></ImageBox>
-                <IntroduceMentorContainer>
-                    {japanese ? "メンター 先生" : "멘토 선생님"}
-                    <IntroduceText>
-                        {japanese
-                            ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                            : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                    </IntroduceText>
-                </IntroduceMentorContainer>
-            </MentorWrapper>
-            <MentorWrapper>
-                <ImageBox src={Image2}></ImageBox>
-                <IntroduceMentorContainer>
-                    {japanese ? "メンター 先生" : "멘토 선생님"}
-                    <IntroduceText>
-                        {japanese
-                            ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                            : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                    </IntroduceText>
-                </IntroduceMentorContainer>
-            </MentorWrapper> */}
+            {/* <MentorWrapper> */}
+            {NewMentorListData?.map((item : any) => {
+                return (
+                    <div 
+                        className={(slideCurrent === NewMentorListData?.indexOf(item))
+                            ? "ImageSlideContainer"
+                            : (prevCurrent === NewMentorListData?.indexOf(item))
+                                ? "ImageContainer"
+                                : "NotActionImage"}>
+                        <ImageBox src={item?.image}/>
+                        {/* <IntroduceMentorContainer>
+                            {japanese
+                                ? item?.englishname
+                                : `${item?.nickname} 선생님`}
+                            <IntroduceText>
+                                {japanese
+                                    ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+                                    : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
+                            </IntroduceText>
+                        </IntroduceMentorContainer> */}
+                        <NicknameContainer 
+                            // className='ImageContainer'
+                            src={MentorNickname} />
+                    </div>
+                )
+            })}
+            {/* </MentorWrapper> */}
         </ImageSlideContainer>
     )
 };
@@ -85,7 +54,8 @@ const ImageSlideContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: #fafafa;
+  background-color: #FCFCFC;
+  position: relative;
 `;
 
 const MentorWrapper = styled.div`
@@ -105,13 +75,17 @@ const ImageBox = styled.div<{ src: string }>`
   width: 100%;
   height: 700px;
   background-image: url(${(props) => props.src});
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* opacity: 0; */
 `;
 
 const IntroduceMentorContainer = styled.div`
-  font-family: "Giants-Inline";
+  font-family: 'Pretendard';
   font-size: 48px;
   color: #da438e;
   font-weight: 800;
@@ -122,11 +96,10 @@ const IntroduceMentorContainer = styled.div`
   gap: 20px;
   user-select: none;
   padding: 0px 40px;
-  opacity: 0;
   position: absolute;
-  right: 20%;
+  left: 20%;
   top: 40%;
-  background-color: #FCFCFC;
+  background-color: #FCFCFC90;
   padding: 40px;
   border-radius: 10px;
 `;
@@ -137,9 +110,8 @@ const NicknameContainer = styled.img`
   object-fit: cover;
   user-select: none;
   /* padding: 0px 40px; */
-  opacity: 0;
   position: absolute;
-  right: 10%;
+  left: 10%;
   top: 25%;
 
   @media screen and (max-width: 1320px) {

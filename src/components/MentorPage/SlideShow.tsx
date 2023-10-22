@@ -14,14 +14,12 @@ const SlideShow = () => {
 
   const imageRef = useRef<HTMLDivElement>(null);
   const [slideCurrent, setSlideCurrent] = useState<number>(0);
+  const [prevCurrent, setPrevCurrent] = useState<number | undefined>();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (slideCurrent === 3) {
-        setSlideCurrent(0);
-      } else {
-        setSlideCurrent((prevSlideCurrent) => prevSlideCurrent + 1);
-      }
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData.length));
+      setPrevCurrent(slideCurrent);
     }, 5000);
 
     return () => {
@@ -30,19 +28,13 @@ const SlideShow = () => {
   }, [slideCurrent]);
 
   const prevButton = () => {
-    if (slideCurrent === 0) {
-      setSlideCurrent(3);
-    } else {
-      setSlideCurrent(slideCurrent - 1);
-    };
+    setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent - 1) % (NewMentorListData.length));
+    setPrevCurrent(slideCurrent);
   };
 
   const nextButton = () => {
-    if (slideCurrent === 3) {
-      setSlideCurrent(0);
-    } else {
-      setSlideCurrent(slideCurrent + 1);
-    };
+    setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData.length));
+    setPrevCurrent(slideCurrent);
   };
 
   console.log("슬라이드 번호", slideCurrent);
@@ -64,25 +56,29 @@ const SlideShow = () => {
         key={slideCurrent}
         japanese={japanese}
         imageRef={imageRef}
-        slideCurrent={slideCurrent}/>
+        slideCurrent={slideCurrent}
+        prevCurrent={prevCurrent}
+        setPrevCurrent={setPrevCurrent}
+        />
+      <SlideNumberContainer>
+        {NewMentorListData?.map((item : any) => {
+          return (
+            (slideCurrent === NewMentorListData.indexOf(item))
+              ? <SlideNumber
+                style={{backgroundColor: "#FCFCFC"}}/>
+              : <SlideNumber />
+          )
+        })}
+      </SlideNumberContainer>
     </ImageOutContainer>
-    <SlideNumberContainer>
-      {NewMentorListData?.map((item : any) => {
-        return (
-          (slideCurrent === NewMentorListData.indexOf(item))
-            ? <SlideNumber
-              style={{backgroundColor: "#222020"}}/>
-            : <SlideNumber />
-        )
-      })}
-    </SlideNumberContainer>
+    
     </div>
   )
 };
 
 const ImageOutContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 700px;
   overflow: hidden;
   position: relative;
 `;
@@ -122,19 +118,22 @@ const SlideButton = styled.img`
 `;
 
 const SlideNumberContainer = styled.div`
-  width: 92px;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: 20px auto;
   gap: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 `;
 
 const SlideNumber = styled.div`
-  min-width: 10px;
-  height: 10px;
+  min-width: 12px;
+  height: 12px;
   border-radius: 100%;
-  background-color: #FCFCFC;
-  border: 1px solid #222020;
+  background-color: #686868;
 `;
 
 export default SlideShow;
