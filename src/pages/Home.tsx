@@ -38,7 +38,7 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             {/* <ImageWrapper> */}
-                <GradientContainer></GradientContainer>
+                {/* <GradientContainer></GradientContainer> */}
                 <Images src={MainBackground}/>
             {/* </ImageWrapper> */}
         </MainImageContainer>
