@@ -35,6 +35,7 @@ const SNSModal : React.FC<SNSModalProps> = ({ sns, setSns }) => {
 
 const ModalContainer = styled.div`
   position: absolute;
+  z-index: 101;
   min-width: 250px;
   height: 25px;
   background-color: #1d466f;
@@ -43,8 +44,8 @@ const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 15px;
-  top: 40px;
-  right: 0;
+  top: 60px;
+  right: 45px;
   border-radius: 5px;
   cursor: default;
 `;

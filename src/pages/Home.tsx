@@ -79,7 +79,7 @@ const ImageWrapper = styled.div`
 const GradientContainer = styled.div`
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #ffffff20, transparent);
+    background: linear-gradient(to bottom, #ffffff30, transparent);
     position: absolute;
     top: 0;
     left: 0;
