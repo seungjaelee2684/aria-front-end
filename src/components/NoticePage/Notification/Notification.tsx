@@ -9,13 +9,35 @@ import { useNavigate } from 'react-router-dom';
 
 const Notification = () => {
 
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
     const textRef = useRef<HTMLDivElement>(null);
     const [textCurrent, setTextCurrent] = useState<number>(0);
     const [startPoint, setStartPoint] = useState<boolean>(false);
     const currentHeight : number = textCurrent * 30;
+
+    const onTitleHandler = ( Num : number ) => {
+        if (Num === 0) {
+          switch (language) {
+            case "english" :
+                return "Notice";
+            case "japanese" :
+                return "お知らせ";
+            default :
+                return "공지 사항";
+          };
+        } else {
+          switch (language) {
+            case "english" :
+                return "See More";
+            case "japanese" :
+                return "もっと見る";
+            default :
+                return "더보기";
+          };
+        }; 
+      };
 
     useEffect(() => {
         if (textRef.current) {
@@ -49,7 +71,7 @@ const Notification = () => {
     <LineContainer>
         <ContentWrapper>
             <NoticeIcon src={Notice}/>
-            <Title>{japanese ? "お知らせ" : "공지 사항"}</Title>
+            <Title>{onTitleHandler(0)}</Title>
             <BarContainer />
             <TextWrapper>
                 <TextBox ref={textRef}>
@@ -58,16 +80,16 @@ const Notification = () => {
                             <Text
                                 key={item?.id}
                                 onClick={() => navigate(`/notice/notification/detail/${item?.id}`)}>
-                                {japanese
-                                    ? item?.japanesenotice
+                                {language
+                                    ? item?.languagenotice
                                     : item?.notice}
                             </Text>
                         )
                     })
                     }
                     <Text>
-                        {japanese
-                            ? NotificationData[0]?.japanesenotice
+                        {language
+                            ? NotificationData[0]?.languagenotice
                             : NotificationData[0]?.notice}
                     </Text>
                 </TextBox>
@@ -77,7 +99,7 @@ const Notification = () => {
             className='SeeMoreButton'
             onClick={() => navigate("/notice/notification")}>
             <span className='SpanContainer'>
-                {japanese ? "もっと見る" : "더보기"}
+                {onTitleHandler(1)}
             </span>
         </SeeMoreButton>
     </LineContainer>
@@ -101,7 +123,7 @@ const NoticeIcon = styled.img`
 `;
 
 const Title = styled.div`
-    width: 74px;
+    /* width: 74px; */
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;

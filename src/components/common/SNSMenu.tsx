@@ -15,15 +15,49 @@ import { translate } from '../../store/Translation';
 
 const SNSMenu = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
   const [sns, setSns] = useState<boolean>(false);
 
   const onClickReadyHandler = () => {
-    if (japanese) {
-      alert("準備中です。");
-    } else {
-      alert("준비중입니다.");
+    switch (language) {
+      case "english" :
+          return alert("Coming soon");
+      case "japanese" :
+          return alert("準備中です。");
+      default :
+          return alert("준비중입니다.");
     };
+  };
+
+  const onTitleReadyHandler = ( Num : number ) => {
+    if (Num === 0) {
+      switch (language) {
+        case "english" :
+            return "Coming soon";
+        case "japanese" :
+            return "準備中です。";
+        default :
+            return "준비중입니다.";
+      };
+    } else if (Num === 1) {
+      switch (language) {
+        case "english" :
+            return "Go to Twitter";
+        case "japanese" :
+            return "Twitterを見に行く";
+        default :
+            return "트위터 보러가기";
+      };
+    } else {
+      switch (language) {
+        case "english" :
+            return "Go to Discord";
+        case "japanese" :
+            return "Discordを見に行く";
+        default :
+            return "디스코드 보러가기";
+      };
+    }; 
   };
   
   return (
@@ -31,21 +65,21 @@ const SNSMenu = () => {
       {/* <InstaIcon> */}
         <MenuIcon
           // className='MenuIcon'
-          title={japanese ? "準備中です。" : "준비중입니다."}
+          title={onTitleReadyHandler(0)}
           default={InstagramDefault}
           src={Instagram}
           onClick={onClickReadyHandler}/>
       {/* </InstaIcon> */}
       {/* <TwitterIcon> */}
         <MenuIcon
-          title={japanese ? "準備中です。" : "트위터 보러가기"}
+          title={onTitleReadyHandler(1)}
           default={TwitterDefault}
           src={Twitter}
           onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
       {/* </TwitterIcon> */}
       {/* <DiscordIcon> */}
         <MenuIcon
-          title={japanese ? "準備中です。" : "디스코드 보러가기"}
+          title={onTitleReadyHandler(2)}
           default={DiscordDefault}
           src={Discord}
           onClick={() => setSns(!sns)}/>
@@ -53,7 +87,7 @@ const SNSMenu = () => {
       {/* </DiscordIcon> */}
       {/* <YoutubeIcon> */}
         <MenuIcon
-          title={japanese ? "準備中です。" : "준비중입니다."}
+          title={onTitleReadyHandler(0)}
           default={YoutubeDefault}
           src={Youtube}
           onClick={onClickReadyHandler}/>

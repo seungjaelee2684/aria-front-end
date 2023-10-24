@@ -24,7 +24,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
     const nationFilter : Nation[]  = [
         {nation: "All", flag: ""},
-        {nation: "Japanese", flag: Japanflag},
+        {nation: "language", flag: Japanflag},
         {nation: "Korean" , flag: Koreaflag}
     ]
 

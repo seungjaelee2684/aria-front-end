@@ -10,7 +10,7 @@ import './NewMentorList/NewMentorList.css'
 
 const SlideShow = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
 
   const imageRef = useRef<HTMLDivElement>(null);
   const [slideCurrent, setSlideCurrent] = useState<number>(0);
@@ -59,7 +59,7 @@ const SlideShow = () => {
       </SlideButtonBox>
       <NewMentorList
         key={slideCurrent}
-        japanese={japanese}
+        language={language}
         imageRef={imageRef}
         slideCurrent={slideCurrent}
         prevCurrent={prevCurrent}
@@ -70,11 +70,12 @@ const SlideShow = () => {
           return (
             (slideCurrent === NewMentorListData.indexOf(item))
               ? <SlideNumber
+                key={item?.id}
                 style={{
                   backgroundColor: "#FFF",
                   minWidth: "35px",
                   borderRadius: "20px"}}/>
-              : <SlideNumber />
+              : <SlideNumber key={item?.id}/>
           )
         })}
       </SlideNumberContainer>

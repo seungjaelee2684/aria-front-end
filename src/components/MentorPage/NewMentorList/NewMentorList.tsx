@@ -7,21 +7,22 @@ import { NewMentorListData } from '../../../data/NewMentorData';
 import MentorNickname from '../../../assets/images/raplaname.png';
 
 interface NewMentorListProps {
-    japanese: boolean;
+    language: string;
     imageRef: React.RefObject<HTMLDivElement>;
     slideCurrent: number;
     prevCurrent: number | undefined;
     setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
+const NewMentorList : React.FC<NewMentorListProps> = ({ language, imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
 
     return (
         <ImageSlideContainer ref={imageRef}>
             {/* <MentorWrapper> */}
             {NewMentorListData?.map((item : any) => {
                 return (
-                    <div 
+                    <div
+                        key={item?.id}
                         className={(slideCurrent === NewMentorListData?.indexOf(item))
                             ? "ImageSlideContainer"
                             : (prevCurrent === NewMentorListData?.indexOf(item))
@@ -29,11 +30,11 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ japanese, imageRef, slid
                                 : "NotActionImage"}>
                         <ImageBox src={item?.image}/>
                         {/* <IntroduceMentorContainer>
-                            {japanese
+                            {language
                                 ? item?.englishname
                                 : `${item?.nickname} 선생님`}
                             <IntroduceText>
-                                {japanese
+                                {language
                                     ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
                                     : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                             </IntroduceText>

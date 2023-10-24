@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import LogoImage from '../assets/logos/logosimple.png';
 import TranslateIcon from '../assets/icons/translateicon.png';
@@ -7,8 +7,9 @@ import { translate } from '../store/Translation';
 
 const Check = () => {
 
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
     const [translation, setTranslation] = useRecoilState(translate);
+    const [languageModal, setLanguageModal] = useState<boolean>(false);
 
   return (
     <LayoutContainer>
@@ -18,19 +19,19 @@ const Check = () => {
                     <LogoContainer>
                         <Logo src={LogoImage}/>
                         <LogoText>
-                            {japanese ? "サイトチェックガイド" : "사이트 점검 안내"}
+                            {language ? "サイトチェックガイド" : "사이트 점검 안내"}
                         </LogoText>
                     </LogoContainer>
-                    <RightContainer onClick={() => setTranslation(!translation)}>
+                    <RightContainer onClick={() => setLanguageModal(!languageModal)}>
                         <ButtonIcon src={TranslateIcon}/>
                         <TranslateButton>
-                            {japanese ? "한국어" : "日本語"}
+                            {language ? "한국어" : "日本語"}
                         </TranslateButton>
                     </RightContainer>
                 </TopLineContainer>
                 <ContentWrapper>
                     <TitleContainer>
-                        {japanese ? "システムチェック中..." : "시스템 점검중..."}
+                        {language ? "システムチェック中..." : "시스템 점검중..."}
                     </TitleContainer>
                     <ContentContainer>
                         <Text>

@@ -7,13 +7,13 @@ import NotificationList from '../components/NotificationPage/NotificationList';
 
 const Notification = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
 
   return (
     <LayoutContainer>
       <TitleContainer>
         <BannerBackgroundImg src={BannerBackground}>
-          {japanese
+          {language
             ? "お知らせ"
             : "공지 사항"}
         </BannerBackgroundImg>

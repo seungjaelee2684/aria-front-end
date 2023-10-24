@@ -9,18 +9,18 @@ const MentorDetail = () => {
 
     const { id } = useParams();
     console.log("id ->", id);
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
     console.log("mentor ->", mentorInfo)
 
   return (
     <LayoutContainer>
         <TextWrapper>
-            <KeyText>{japanese ? "ニックネーム :" : "닉네임 :"}</KeyText>
-            <ValueText>{japanese ? mentorInfo[0]?.englishname : mentorInfo[0]?.nickname}</ValueText>
+            <KeyText>{language ? "ニックネーム :" : "닉네임 :"}</KeyText>
+            <ValueText>{language ? mentorInfo[0]?.englishname : mentorInfo[0]?.nickname}</ValueText>
         </TextWrapper>
         <TextWrapper>
-            <KeyText>{japanese ? "作品 ->" : "작품 ->"}</KeyText>
+            <KeyText>{language ? "作品 ->" : "작품 ->"}</KeyText>
             <ImageBox src={mentorInfo[0]?.image} />
         </TextWrapper>
     </LayoutContainer>

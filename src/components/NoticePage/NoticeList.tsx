@@ -4,15 +4,15 @@ import NoticeCard from './NoticeCard';
 import { eventPosterData } from '../../data/EventPosterData';
 
 interface NoticeListProps {
-  japanese: boolean;
+  language: string;
   selectOption: {
     pick: string,
-    japanesepick: string,
+    languagepick: string,
     englishpick: string
   };
   setSelectOption: React.Dispatch<React.SetStateAction<{
       pick: string,
-      japanesepick: string,
+      languagepick: string,
       englishpick: string
   }>>;
   content: string;
@@ -20,14 +20,17 @@ interface NoticeListProps {
   setTotalNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
+const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
 
   const proceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
   const searchDataKR = eventPosterData?.filter((item) => {
-    return item?.title.toLowerCase().includes(content.toLowerCase())
+    return item?.title.toLowerCase().includes(content.toLowerCase());
   });
   const searchDataJP = eventPosterData?.filter((item) => {
-    return item?.japanesetitle.toLowerCase().includes(content.toLowerCase())
+    return item?.japanesetitle.toLowerCase().includes(content.toLowerCase());
+  });
+  const searchDataEN = eventPosterData?.filter((item) => {
+    return item?.englishtitle.toLowerCase().includes(content.toLowerCase());
   });
   console.log("검색", searchDataKR);
 
@@ -39,7 +42,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSel
         setTotalNumber(proceedingData.length);
       };
     } else {
-      if (japanese) {
+      if (language) {
         setTotalNumber(searchDataJP.length);
       } else {
         setTotalNumber(searchDataKR.length);
@@ -65,7 +68,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSel
               </div>
             )
           }))
-        : (japanese)
+        : (language)
           ? searchDataJP?.map((item) => {
             return (
               <div key={item?.id}>

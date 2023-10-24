@@ -12,7 +12,7 @@ import SlideShow from '../components/MentorPage/SlideShow';
 
 const Mentor = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
 
   return (
     <LayoutContainer>
@@ -20,7 +20,7 @@ const Mentor = () => {
         <SlideShow />
       </LayoutInWrapper>
       <FilterButton />
-      <MentorList japanese={japanese} />
+      <MentorList language={language} />
     </LayoutContainer>
   )
 };
