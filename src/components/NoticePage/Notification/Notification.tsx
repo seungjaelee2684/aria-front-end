@@ -37,7 +37,18 @@ const Notification = () => {
                 return "더보기";
           };
         }; 
-      };
+    };
+
+    const noticeText = ( item : any ) => {
+        switch (language) {
+            case "english" :
+                return item?.englishnotice;
+            case "japanese" :
+                return item?.japanesenotice;
+            default :
+                return item?.notice;
+        };
+    };
 
     useEffect(() => {
         if (textRef.current) {
@@ -80,17 +91,13 @@ const Notification = () => {
                             <Text
                                 key={item?.id}
                                 onClick={() => navigate(`/notice/notification/detail/${item?.id}`)}>
-                                {language
-                                    ? item?.languagenotice
-                                    : item?.notice}
+                                {noticeText(item)}
                             </Text>
                         )
                     })
                     }
                     <Text>
-                        {language
-                            ? NotificationData[0]?.languagenotice
-                            : NotificationData[0]?.notice}
+                        {noticeText(NotificationData[0])}
                     </Text>
                 </TextBox>
             </TextWrapper>

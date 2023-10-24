@@ -11,7 +11,7 @@ export const eventPosterData = [
         period: "2022.07.18 ~ 2022.08.19",
         content: "",
         image: Image,
-        status: "PROCEEDING"
+        status: "Proceeding"
     },
     {
         id: "2",
@@ -21,7 +21,7 @@ export const eventPosterData = [
         period: "2021.10.01 ~ 2021.10.29",
         content: "",
         image: Image2,
-        status: "PROCEEDING"
+        status: "Proceeding"
     },
     {
         id: "3",
@@ -31,7 +31,7 @@ export const eventPosterData = [
         period: "2020.07.06 ~ 2020.08.17",
         content: "",
         image: Image3,
-        status: "PROCEEDING"
+        status: "Proceeding"
     },
     {
         id: "4",
@@ -41,7 +41,7 @@ export const eventPosterData = [
         period: "2022.07.18 ~ 2022.08.19",
         content: "",
         image: Image,
-        status: "PROCEEDING"
+        status: "Proceeding"
     },
     {
         id: "5",
@@ -51,7 +51,7 @@ export const eventPosterData = [
         period: "2021.10.01 ~ 2021.10.29",
         content: "",
         image: Image2,
-        status: "DEADLINE"
+        status: "Deadline"
     },
     {
         id: "6",
@@ -61,7 +61,7 @@ export const eventPosterData = [
         period: "2020.07.06 ~ 2020.08.17",
         content: "",
         image: Image3,
-        status: "DEADLINE"
+        status: "Deadline"
     },
     {
         id: "7",
@@ -71,7 +71,7 @@ export const eventPosterData = [
         period: "2022.07.18 ~ 2022.08.19",
         content: "",
         image: Image,
-        status: "DEADLINE"
+        status: "Deadline"
     },
     {
         id: "8",
@@ -81,7 +81,7 @@ export const eventPosterData = [
         period: "2021.10.01 ~ 2021.10.29",
         content: "",
         image: Image2,
-        status: "EXPECTED"
+        status: "Expected"
     },
     {
         id: "9",
@@ -91,6 +91,6 @@ export const eventPosterData = [
         period: "2020.07.06 ~ 2020.08.17",
         content: "",
         image: Image3,
-        status: "EXPECTED"
+        status: "Expected"
     },
 ];

@@ -7,7 +7,7 @@ import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
 export const mentorListData = [
     {
         id: "1",
-        nation: "language",
+        nation: "Japanese",
         englishname: "MinGyu",
         japanesename: "ミンギュ",
         nickname: "민규",
@@ -43,7 +43,7 @@ export const mentorListData = [
     },
     {
         id: "5",
-        nation: "language",
+        nation: "Japanese",
         englishname: "Sanpachi",
         japanesename: "さんぱち",
         nickname: "산파치",

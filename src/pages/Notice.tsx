@@ -20,11 +20,11 @@ const Notice = () => {
   const [totalNumber, setTotalNumber] = useState<number>(eventPosterData.length);
   const [selectOption, setSelectOption] = useState<{
     pick: string,
-    languagepick: string,
+    japanesepick: string,
     englishpick: string
   }>({
     pick: "전체",
-    languagepick: "全体",
+    japanesepick: "全体",
     englishpick: "ALL"
   });
 
@@ -37,17 +37,48 @@ const Notice = () => {
     setContent(inputValue);
     setSelectOption({
       pick: "전체",
-      languagepick: "全体",
+      japanesepick: "全体",
       englishpick: "ALL"
     });
   };
   console.log("검색창 입력값", content);
 
+  const textChange = ( Num : number ) => {
+    if (Num === 0) {
+      switch (language) {
+        case "english" :
+            return "EVENT";
+        case "japanese" :
+            return "イベント";
+        default :
+            return "이벤트";
+      };
+    } else if (Num === 1) {
+      switch (language) {
+        case "english" :
+            return "cases";
+        case "japanese" :
+            return " 件";
+        default :
+            return " 건";
+      };
+    } else {
+      switch (language) {
+        case "english" :
+            return "Enter Title";
+        case "japanese" :
+            return "タイトル検索";
+        default :
+            return "제목 검색";
+      };
+    };
+  };
+
   return (
     <LayoutContainer>
       <TitleContainer>
         <BannerImageContainer src={Banner}>
-          이벤트
+          {textChange(0)}
         </BannerImageContainer>
       </TitleContainer>
       <LayoutWrapper>
@@ -60,7 +91,7 @@ const Notice = () => {
             <TotalText>
               {totalNumber}
             </TotalText>
-            {language ? " 件" : " 건"}
+            {textChange(1)}
           </TotalTextWrapper>
           <RightWrapper>
             <SearchBarWrapper onSubmit={onSubmitSearchHandler}>
@@ -69,11 +100,7 @@ const Notice = () => {
                 value={inputValue}
                 onChange={onChangeContentHandler}
                 autoComplete="off"
-                placeholder={
-                  (language)
-                  ? "タイトル検索"
-                  : '제목 검색'
-                }/>
+                placeholder={textChange(2)}/>
               <IconBox type='submit'>
               <SearchIcon src={Search}/>
               </IconBox>

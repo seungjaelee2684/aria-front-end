@@ -16,17 +16,50 @@ const NotificationList = () => {
         navigate(`/notice/notification/detail/${item?.id}`);
     };
 
+    const textChange = ( Num : number ) => {
+        if (Num === 0) {
+          switch (language) {
+            case "english" :
+                return "Notice";
+            case "japanese" :
+                return "お知らせ";
+            default :
+                return "공지";
+          };
+        } else {
+            switch (language) {
+                case "english" :
+                    return "cases";
+                case "japanese" :
+                    return " 件";
+                default :
+                    return " 건";
+            };
+        };
+    };
+
+    const contentChange = ( item : any ) => {
+        switch (language) {
+            case "english" :
+                return item?.englishnotice;
+            case "japanese" :
+                return item?.japanesenotice;
+            default :
+                return item?.notice;
+        };
+    };
+
   return (
     <ListLayoutContainer>
         <OutWrapper>
             <TitleContainer>
-                {language ? "お知らせ" : "공지"}
+                {textChange(0)}
                 <TotalWrapper>
                     Total
                     <Total>
                         {NotificationData.length}
                     </Total>
-                    {language ? " 件" : " 건"}
+                    {textChange(1)}
                 </TotalWrapper>
             </TitleContainer>
             <ListContainer>
@@ -39,7 +72,7 @@ const NotificationList = () => {
                                 <ContentWrapper>
                                     <NoticeIcon src={Notice}/>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {language ? item?.languagenotice : item?.notice}
+                                        {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
                                 <ArrowIcon
@@ -51,7 +84,7 @@ const NotificationList = () => {
                                 <ContentWrapper>
                                     <NoticeIcon src={Notice}/>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {language ? item?.languagenotice : item?.notice}
+                                        {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
                                 <ArrowIcon
