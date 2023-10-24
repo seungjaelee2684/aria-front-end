@@ -49,7 +49,7 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
     <CardContainer
         onClick={() => navigate(`/notice/detail/${item?.id}`)}
         style={{
-            opacity: `${(item?.status === "PROCEEDING") ? "" : "0.7"}`
+            opacity: `${(item?.status === "Proceeding") ? "" : "0.7"}`
         }}>
         <CardImage src={item?.image}/>
         <LineContainer>
@@ -65,7 +65,7 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
                     {item?.period}
                 </Text>
             </TextWrapper>
-            {item?.status === "DEADLINE" && <StampContainer>
+            {item?.status === "Deadline" && <StampContainer>
                     <StampInContainer>
                         <StampBox>
                             <StampInBox>

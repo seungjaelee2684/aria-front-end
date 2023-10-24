@@ -7,12 +7,12 @@ interface NoticeListProps {
   language: string;
   selectOption: {
     pick: string,
-    languagepick: string,
+    japanesepick: string,
     englishpick: string
   };
   setSelectOption: React.Dispatch<React.SetStateAction<{
       pick: string,
-      languagepick: string,
+      japanesepick: string,
       englishpick: string
   }>>;
   content: string;
@@ -22,7 +22,7 @@ interface NoticeListProps {
 
 const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
 
-  const proceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
+  const ProceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
   const searchDataKR = eventPosterData?.filter((item) => {
     return item?.title.toLowerCase().includes(content.toLowerCase());
   });
@@ -34,15 +34,75 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
   });
   console.log("검색", searchDataKR);
 
+  const onFilterChange = () => {
+    if (content === "") {
+      if (selectOption?.englishpick === "ALL") {
+        return (
+          eventPosterData?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      } else {
+        return (
+          ProceedingData?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      };
+    } else {
+      if (language === "english") {
+        return (
+          searchDataEN?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      } else if (language === "japanese") {
+        return (
+          searchDataJP?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      } else {
+        return (
+          searchDataKR?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      };
+    }; 
+  };
+
   useEffect(() => {
     if (content === "") {
       if (selectOption?.englishpick === "ALL") {
         setTotalNumber(eventPosterData.length);
       } else {
-        setTotalNumber(proceedingData.length);
+        setTotalNumber(ProceedingData.length);
       };
     } else {
-      if (language) {
+      if (language === "english") {
+        setTotalNumber(searchDataEN.length);
+      } else if (language === "japanese") {
         setTotalNumber(searchDataJP.length);
       } else {
         setTotalNumber(searchDataKR.length);
@@ -52,37 +112,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
 
   return (
     <ListContainer>
-      {(content === "")
-        ? ((selectOption?.englishpick === "ALL")
-          ? eventPosterData?.map((item) => {
-              return (
-                <div key={item?.id}>
-                  <NoticeCard item={item}/>
-                </div>
-              )
-            })
-          : proceedingData?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          }))
-        : (language)
-          ? searchDataJP?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-          : searchDataKR?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })}
+      {onFilterChange()}
     </ListContainer>
   )
 };

@@ -8,12 +8,12 @@ interface SelectBarProps {
     language: string;
     selectOption: {
         pick: string,
-        languagepick: string,
+        japanesepick: string,
         englishpick: string
     };
     setSelectOption: React.Dispatch<React.SetStateAction<{
         pick: string,
-        languagepick: string,
+        japanesepick: string,
         englishpick: string
     }>>;
     setContent: React.Dispatch<React.SetStateAction<string>>;
@@ -22,10 +22,21 @@ interface SelectBarProps {
 
 const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelectOption, setContent, setInputValue }) => {
 
-    const { pick, languagepick, englishpick } = selectOption;
+    const { pick, japanesepick, englishpick } = selectOption;
 
     const divRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const filterOption = () => {
+      switch (language) {
+        case "english" :
+            return englishpick;
+        case "japanese" :
+            return japanesepick;
+        default :
+            return pick;
+      };
+    };
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
@@ -39,11 +50,11 @@ const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelec
         };
     }, []);
 
-    // console.log("필터 옵션", pick, languagepick);
+    // console.log("필터 옵션", pick, japanesepick);
 
   return (
     <SelectBarContainer ref={divRef} onClick={() => setIsOpen(!isOpen)}>
-        {language ? languagepick : pick}
+        {filterOption()}
         {isOpen
             ? <UpDownIcon src={UpArrow}/>
             : <UpDownIcon src={DownArrow}/>}
@@ -78,16 +89,16 @@ const SelectBarContainer = styled.div`
 `;
 
 const UpDownIcon = styled.img`
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 `;
 
 const SelectModalWrapper = styled.div`
-    position: absolute;
-    top: 35px;
-    left: -1px;
-    z-index: 20;
+  position: absolute;
+  top: 35px;
+  left: -1px;
+  z-index: 20;
 `;
 
 export default SelectBar;

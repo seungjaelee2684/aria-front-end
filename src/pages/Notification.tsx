@@ -9,13 +9,22 @@ const Notification = () => {
 
   const language = useRecoilValue(translate);
 
+  const textChange = () => {
+    switch (language) {
+      case "english" :
+        return "NOTICE";
+      case "japanese" :
+        return "お知らせ";
+      default :
+        return "공지 사항";
+    };
+  };
+
   return (
     <LayoutContainer>
       <TitleContainer>
         <BannerBackgroundImg src={BannerBackground}>
-          {language
-            ? "お知らせ"
-            : "공지 사항"}
+          {textChange()}
         </BannerBackgroundImg>
       </TitleContainer>
       <NotificationList />
