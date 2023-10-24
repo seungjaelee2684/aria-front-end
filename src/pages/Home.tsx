@@ -6,34 +6,6 @@ import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
 
-    // const imageRef = useRef<HTMLDivElement>(null);
-    // const [slideCurrent, setSlideCurrent] = useState<number>(0);
-    // const slideWidth : number = 1920;
-    // const transX : number = slideWidth * slideCurrent;
-
-    // useEffect(() => {
-    //     if (imageRef.current) {
-    //         imageRef.current.style.transition = "all 0.5s ease-in-out";
-    //         imageRef.current.style.transform = `translateX(-${transX}px)`;
-    //     };
-    // }, [slideCurrent]);
-
-    // const prevButton = () => {
-    //     if (slideCurrent === 0) {
-    //         return;
-    //     } else {
-    //         setSlideCurrent(slideCurrent - 1);
-    //     };
-    // };
-
-    // const nextButton = () => {
-    //     if (slideCurrent === 1) {
-    //         return;
-    //     } else {
-    //         setSlideCurrent(slideCurrent + 1);
-    //     };
-    // };
-
   return (
     <MainLayout>
         <MainImageContainer>

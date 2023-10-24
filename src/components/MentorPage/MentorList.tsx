@@ -6,10 +6,10 @@ import { useRecoilValue } from 'recoil';
 import { nationKind } from '../../store/NationFilter';
 
 interface MentorListProps {
-    japanese: boolean;
+    language: string;
 }
 
-const MentorList : React.FC<MentorListProps> = ({ japanese }) => {
+const MentorList : React.FC<MentorListProps> = ({ language }) => {
 
     const nationkind = useRecoilValue(nationKind);
 
@@ -25,7 +25,7 @@ const MentorList : React.FC<MentorListProps> = ({ japanese }) => {
                         <div key={item?.id}>
                             <MentorCard
                                 item={item}
-                                japanese={japanese}
+                                language={language}
                             />
                         </div> 
                     )
@@ -35,7 +35,7 @@ const MentorList : React.FC<MentorListProps> = ({ japanese }) => {
                         <div key={item?.id}>
                             <MentorCard
                                 item={item}
-                                japanese={japanese}
+                                language={language}
                             />
                         </div> 
                     )

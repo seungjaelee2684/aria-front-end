@@ -34,7 +34,6 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/check' element={<Check />} />
-              {/* <Route element={<MainLayout />}> */}
               <Route path='/notice' element={<Notice />} />
               <Route path='/mentor' element={<Mentor />} />
               <Route path='/showcase' element={<Showcase />} />
@@ -43,7 +42,6 @@ function App() {
               <Route path='/notice/notification' element={<Notification />} />
               <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
               <Route path='/notice/detail/:id' element={<NoticeDetail />} />
-              {/* </Route> */}
             </Routes>
             <ScrollTopButton />
           </BrowserRouter>

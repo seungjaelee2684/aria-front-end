@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import logo from '../../assets/logos/logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useResetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
@@ -14,7 +14,8 @@ import Translate from '../../assets/icons/translateicon.png';
 
 const Header = () => {
 
-    const [japanese, setJapanese] = useRecoilState(translate);
+    const language = useRecoilValue(translate);
+    const [languageTrans, setLanguageTrans] = useRecoilState(translate);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
 
@@ -23,19 +24,18 @@ const Header = () => {
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverEvent, setHoverEvent] = useState<boolean>(false);
     const [pageModal, setPageModal] = useState<string>("");
-    const [snsModal, setSnsModal] = useState<boolean>(false);
+    const [languageModal, setLanguageModal] = useState<boolean>(false);
 
-    // console.log("모달 번호 => ", pageModal);
-
-    // const getHeaderPage = () => {
-    //     if (location.pathname === "/") {
-    //         return;
-    //     } else {
-    //         return (
-                
-    //         )
-    //     };
-    // };
+    const languageChange = () => {
+        switch (language) {
+            case "english" :
+                return "ENG";
+            case "japanese" :
+                return "日本語";
+            default :
+                return "한국어";
+        };
+    };
 
     useEffect(() => {
         if (hoverRef.current) {
@@ -69,9 +69,9 @@ const Header = () => {
                                 resetFilter();
                                 resetFlag();
                             }}/>
-                        <TranslateWrapper onClick={() => setJapanese(!japanese)}>
+                        <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
                             <TranslateIcon src={Translate}/>
-                            <TranslateText>{japanese ? "한국어" : "日本語"}</TranslateText>
+                            <TranslateText>{languageChange()}</TranslateText>
                         </TranslateWrapper>
                     </LogoContainer>}
                 <TapOutContainer>

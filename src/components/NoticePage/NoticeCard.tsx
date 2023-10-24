@@ -12,7 +12,38 @@ interface NoticeCardProps {
 const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 
     const navigate = useNavigate();
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
+
+    const onTextHandler = ( Num : number ) => {
+        if (Num === 0) {
+          switch (language) {
+            case "english" :
+                return `Title: ${item?.englishtitle}`;
+            case "japanese" :
+                return `タイトル: ${item?.japanesetitle}`;
+            default :
+                return `제목: ${item?.title}`;
+          };
+        } else if (Num === 1) {
+            switch (language) {
+                case "english" :
+                    return "Period: ";
+                case "japanese" :
+                    return "期間: ";
+                default :
+                    return "기간: ";
+            };
+        } else {
+          switch (language) {
+            case "english" :
+                return "Deadline";
+            case "japanese" :
+                return "締め切り";
+            default :
+                return "마감";
+          };
+        }; 
+      };
 
   return (
     <CardContainer
@@ -24,17 +55,13 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
         <LineContainer>
             <TextWrapper
                 style={{
-                    fontSize: `${japanese ? "14px" : ""}`
+                    fontSize: `${(language !== "Korean") ? "14px" : ""}`
                 }}>
                 <Text>
-                    {japanese
-                        ? `タイトル: ${item?.japanesetitle}`
-                        : `제목: ${item?.title}`}  
+                    {onTextHandler(0)}  
                 </Text>
                 <Text>
-                    {japanese
-                        ? "期間: "
-                        : "기간: "}
+                    {onTextHandler(1)}
                     {item?.period}
                 </Text>
             </TextWrapper>
@@ -42,7 +69,7 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
                     <StampInContainer>
                         <StampBox>
                             <StampInBox>
-                                {japanese ? "締め切り" : "마감"}
+                                {onTextHandler(2)}
                             </StampInBox>
                         </StampBox>
                     </StampInContainer>
@@ -135,10 +162,10 @@ const StampBox = styled.div`
     width: 56px;
     height: 20px;
     border: 1px solid;
-    background-color: #FFF;
+    /* background-color: #FFF; */
     position: absolute;
     top: 10px;
-    left: -8px;
+    left: -7px;
     font-family: "Pretendard";
     font-size: 12px;
     font-weight: 600;

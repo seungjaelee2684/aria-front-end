@@ -13,18 +13,18 @@ import Banner from '../assets/images/mainimage2.jpg';
 
 const Notice = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
 
   const [inputValue, setInputValue] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [totalNumber, setTotalNumber] = useState<number>(eventPosterData.length);
   const [selectOption, setSelectOption] = useState<{
     pick: string,
-    japanesepick: string,
+    languagepick: string,
     englishpick: string
   }>({
     pick: "전체",
-    japanesepick: "全体",
+    languagepick: "全体",
     englishpick: "ALL"
   });
 
@@ -37,7 +37,7 @@ const Notice = () => {
     setContent(inputValue);
     setSelectOption({
       pick: "전체",
-      japanesepick: "全体",
+      languagepick: "全体",
       englishpick: "ALL"
     });
   };
@@ -60,7 +60,7 @@ const Notice = () => {
             <TotalText>
               {totalNumber}
             </TotalText>
-            {japanese ? " 件" : " 건"}
+            {language ? " 件" : " 건"}
           </TotalTextWrapper>
           <RightWrapper>
             <SearchBarWrapper onSubmit={onSubmitSearchHandler}>
@@ -70,7 +70,7 @@ const Notice = () => {
                 onChange={onChangeContentHandler}
                 autoComplete="off"
                 placeholder={
-                  (japanese)
+                  (language)
                   ? "タイトル検索"
                   : '제목 검색'
                 }/>
@@ -79,7 +79,7 @@ const Notice = () => {
               </IconBox>
             </SearchBarWrapper>
             <SelectBar
-              japanese={japanese}
+              language={language}
               selectOption={selectOption}
               setSelectOption={setSelectOption}
               setContent={setContent}
@@ -87,7 +87,7 @@ const Notice = () => {
           </RightWrapper>
         </SearchBarContainer>
         <NoticeList
-          japanese={japanese}
+          language={language}
           selectOption={selectOption}
           setSelectOption={setSelectOption}
           content={content}

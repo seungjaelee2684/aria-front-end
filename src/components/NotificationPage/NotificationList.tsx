@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NotificationList = () => {
 
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
     const onClickNoticeHandler = ( item : any ) => {
@@ -20,13 +20,13 @@ const NotificationList = () => {
     <ListLayoutContainer>
         <OutWrapper>
             <TitleContainer>
-                {japanese ? "お知らせ" : "공지"}
+                {language ? "お知らせ" : "공지"}
                 <TotalWrapper>
                     Total
                     <Total>
                         {NotificationData.length}
                     </Total>
-                    {japanese ? " 件" : " 건"}
+                    {language ? " 件" : " 건"}
                 </TotalWrapper>
             </TitleContainer>
             <ListContainer>
@@ -39,7 +39,7 @@ const NotificationList = () => {
                                 <ContentWrapper>
                                     <NoticeIcon src={Notice}/>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {japanese ? item?.japanesenotice : item?.notice}
+                                        {language ? item?.languagenotice : item?.notice}
                                     </Text>  
                                 </ContentWrapper>
                                 <ArrowIcon
@@ -51,7 +51,7 @@ const NotificationList = () => {
                                 <ContentWrapper>
                                     <NoticeIcon src={Notice}/>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {japanese ? item?.japanesenotice : item?.notice}
+                                        {language ? item?.languagenotice : item?.notice}
                                     </Text>  
                                 </ContentWrapper>
                                 <ArrowIcon
