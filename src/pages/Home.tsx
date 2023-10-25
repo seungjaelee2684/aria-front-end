@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
+import MainBG from '../assets/images/backgroundimage.jpg';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <MainImageContainer>
             {/* <ImageWrapper> */}
                 {/* <GradientContainer></GradientContainer> */}
-                <Images src={MainBackground}/>
+                <Images src={MainBG}/>
             {/* </ImageWrapper> */}
         </MainImageContainer>
         <MainImageWrapper>
@@ -33,8 +34,8 @@ const MainLayout = styled.div`
 
 const MainImageContainer = styled.div`
     width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
+    height: 2900px;
+    /* overflow-x: hidden; */
     /* margin-top: 80px; */
 `;
 
@@ -65,7 +66,8 @@ const Images = styled.div<{ src : string }>`
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    position: fixed;
+    position: absolute;
+    /* position: fixed; */
     top: 0;
     left: 0;
 `;
