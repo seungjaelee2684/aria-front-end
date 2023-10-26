@@ -60,7 +60,6 @@ const SlideShow = () => {
       <NewMentorList
         key={slideCurrent}
         language={language}
-        imageRef={imageRef}
         slideCurrent={slideCurrent}
         prevCurrent={prevCurrent}
         setPrevCurrent={setPrevCurrent}
@@ -72,10 +71,16 @@ const SlideShow = () => {
               ? <SlideNumber
                 key={item?.id}
                 style={{
+                  cursor: "default",
                   backgroundColor: "#FFF",
                   minWidth: "35px",
                   borderRadius: "20px"}}/>
-              : <SlideNumber key={item?.id}/>
+              : <SlideNumber
+                key={item?.id}
+                onClick={() => {
+                  setSlideCurrent((item?.id) - 1);
+                  setPrevCurrent(slideCurrent);
+                }}/>
           )
         })}
       </SlideNumberContainer>
@@ -145,6 +150,7 @@ const SlideNumber = styled.div`
   background-color: #757575;
   box-shadow: 1px 1px 6px 0px #5a5a5a;
   transition: all 0.6s ease-in-out;
+  cursor: pointer;
 `;
 
 export default SlideShow;

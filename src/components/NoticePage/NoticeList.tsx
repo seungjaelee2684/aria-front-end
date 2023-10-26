@@ -125,6 +125,10 @@ const ListContainer = styled.div`
   padding: 30px 0px;
   border-top: 2px solid #222020;
   margin: 0px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 100%;
+  }
 `;
 
 export default NoticeList;

@@ -156,6 +156,10 @@ const BannerImageContainer = styled.div<{ src : string }>`
 const LayoutWrapper = styled.div`
   width: 1320px;
   margin: 50px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 100%;
+  }
 `;
 
 const SearchBarContainer = styled.div`
@@ -166,6 +170,10 @@ const SearchBarContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 100%;
+  }
 `;
 
 const TotalTextWrapper = styled.div`
