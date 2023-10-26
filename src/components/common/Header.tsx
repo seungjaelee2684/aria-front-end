@@ -11,6 +11,7 @@ import SNSMenu from './SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
 import '../../style/font/font.css';
 import Translate from '../../assets/icons/translateicon.png';
+import TranslateModal from './TranslateModal';
 
 const Header = () => {
 
@@ -69,10 +70,17 @@ const Header = () => {
                                 resetFilter();
                                 resetFlag();
                             }}/>
-                        <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                            <TranslateIcon src={Translate}/>
-                            <TranslateText>{languageChange()}</TranslateText>
-                        </TranslateWrapper>
+                        <div
+                            style={{position: "relative"}}>
+                            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                                <TranslateIcon src={Translate}/>
+                                <TranslateText>{languageChange()}</TranslateText>
+                            </TranslateWrapper>
+                            {languageModal
+                                && <TranslateModal
+                                    setLanguageModal={setLanguageModal}
+                                    setLanguageTrans={setLanguageTrans}/>}
+                        </div>
                     </LogoContainer>}
                 <TapOutContainer>
                     <TapContainer
@@ -103,8 +111,7 @@ const Header = () => {
                                 resetFilter();
                                 resetFlag();
                             }}>
-                            NOTICE
-                            
+                            NOTICE 
                         </TapContainer>
                         {((pageModal === "Notice") && (location.pathname !== "/"))
                             && <PageModal
