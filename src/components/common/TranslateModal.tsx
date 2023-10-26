@@ -40,7 +40,7 @@ const ModalContainer = styled.div`
     flex-direction: column;
     background-color: #222020;
     position: absolute;
-    top: 30px;
+    top: 25px;
     left: 0;
 `;
 
@@ -60,6 +60,10 @@ const ModalLineContainer = styled.div`
     &:hover {
         color: #ff4444;
         transform: translateY(-1px);
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 12px;
     }
 `;
 

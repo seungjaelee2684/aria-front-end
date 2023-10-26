@@ -12,6 +12,8 @@ import ListIcon from '../../assets/icons/list.png';
 import '../../style/font/font.css';
 import Translate from '../../assets/icons/translateicon.png';
 import TranslateModal from './TranslateModal';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
+import { GiEarthAmerica } from 'react-icons/gi';
 
 const Header = () => {
 
@@ -73,8 +75,9 @@ const Header = () => {
                         <div
                             style={{position: "relative"}}>
                             <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                                <TranslateIcon src={Translate}/>
+                                <GiEarthAmerica />
                                 <TranslateText>{languageChange()}</TranslateText>
+                                {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
                             </TranslateWrapper>
                             {languageModal
                                 && <TranslateModal
@@ -250,7 +253,7 @@ const TranslateText = styled.div`
     font-weight: 600;
 
     @media screen and (max-width: 1320px) {
-        font-size: 10px;
+        font-size: 12px;
     }
 `;
 
