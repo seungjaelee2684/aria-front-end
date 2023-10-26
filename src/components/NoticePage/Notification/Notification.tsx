@@ -12,16 +12,14 @@ const Notification = () => {
     const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
-    const textRef = useRef<HTMLDivElement>(null);
     const [textCurrent, setTextCurrent] = useState<number>(0);
-    const [startPoint, setStartPoint] = useState<boolean>(false);
-    const currentHeight : number = textCurrent * 30;
+    const [prevCuttent, setPrevCuttent] = useState<number | undefined>();
 
     const onTitleHandler = ( Num : number ) => {
         if (Num === 0) {
           switch (language) {
             case "english" :
-                return "Notice";
+                return "Notification";
             case "japanese" :
                 return "お知らせ";
             default :
@@ -51,30 +49,15 @@ const Notification = () => {
     };
 
     useEffect(() => {
-        if (textRef.current) {
-            if (textCurrent === 0 && startPoint === true) {
-                textRef.current.style.transition = "none";
-                textRef.current.style.transform = `translateY(-${currentHeight}px)`;
-            } else {
-                textRef.current.style.transition = "all 2s ease";
-                textRef.current.style.transform = `translateY(-${currentHeight}px)`;
-            }; 
-        };
-
-        setStartPoint(true);
-
         const interVal = setInterval(() => {
-            if (textCurrent === 5) {
-                setTextCurrent(0);
-            } else {
-                setTextCurrent(textCurrent + 1);
-            };
-        }, (textCurrent === 0 && startPoint === true) ? 1 : 5000);
+            setTextCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NotificationData.length));
+            setPrevCuttent(textCurrent);
+        }, 6000);
 
         return () => {
             clearInterval(interVal);
         };
-    }, [textCurrent]);
+    }, [textCurrent, prevCuttent]);
 
     // console.log("공지사항 번호", textCurrent, startPoint);
 
@@ -85,21 +68,22 @@ const Notification = () => {
             <Title>{onTitleHandler(0)}</Title>
             <BarContainer />
             <TextWrapper>
-                <TextBox ref={textRef}>
-                    {NotificationData?.map((item : any) => {
-                        return (
-                            <Text
-                                key={item?.id}
-                                onClick={() => navigate(`/notice/notification/detail/${item?.id}`)}>
-                                {noticeText(item)}
-                            </Text>
-                        )
-                    })
-                    }
-                    <Text>
-                        {noticeText(NotificationData[0])}
-                    </Text>
-                </TextBox>
+                {NotificationData?.map((item : any) => {
+                    return (
+                        <Text
+                            className={
+                                (textCurrent === NotificationData.indexOf(item))
+                                    ? "Text"
+                                    : (prevCuttent === NotificationData.indexOf(item))
+                                        ? "PrevText"
+                                        : ""
+                            }
+                            key={item?.id}>
+                            {noticeText(item)}
+                        </Text>
+                    )
+                })
+                }
             </TextWrapper>
         </ContentWrapper>
         <SeeMoreButton
@@ -121,6 +105,10 @@ const LineContainer = styled.div`
     font-family: "Pretendard";
     margin: 20px auto;
     user-select: none;
+
+    @media screen and (max-width: 1320px) {
+        width: 100%;
+    }
 `;
 
 const NoticeIcon = styled.img`
@@ -130,7 +118,7 @@ const NoticeIcon = styled.img`
 `;
 
 const Title = styled.div`
-    /* width: 74px; */
+    min-width: 80px;
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;
@@ -138,7 +126,7 @@ const Title = styled.div`
 `;
 
 const BarContainer = styled.div`
-    width: 4px;
+    min-width: 4px;
     height: 30px;
     background-color: red;
 `;
@@ -146,23 +134,21 @@ const BarContainer = styled.div`
 const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 5px;
+    width: 100%;
+    gap: 8px;
 `;
 
 const TextWrapper = styled.div`
     display: flex;
+    width: 100%;
     padding-left: 20px;
     height: 30px;
-    overflow-y: hidden;
-`;
-
-const TextBox = styled.div`
-    display: flex;
-    flex-direction: column;
+    position: relative;
 `;
 
 const Text = styled.div`
     display: flex;
+    height: 100%;
     align-items: center;
     min-height: 30px;
     /* text-overflow: ellipsis;
@@ -171,15 +157,14 @@ const Text = styled.div`
     overflow: hidden;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical; */
-    cursor: pointer;
-
-    &:hover {
-        color: #8f8f8f;
-    }
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 10px;
 `;
 
 const SeeMoreButton = styled.button`
-    /* width: 120px; */
+    min-width: 120px;
     height: 40px;
     border: none;
     color: #222020;

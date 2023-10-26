@@ -8,16 +8,15 @@ import MentorNickname from '../../../assets/images/raplaname.png';
 
 interface NewMentorListProps {
     language: string;
-    imageRef: React.RefObject<HTMLDivElement>;
     slideCurrent: number;
     prevCurrent: number | undefined;
     setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-const NewMentorList : React.FC<NewMentorListProps> = ({ language, imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
+const NewMentorList : React.FC<NewMentorListProps> = ({ language, slideCurrent, prevCurrent, setPrevCurrent }) => {
 
     return (
-        <ImageSlideContainer ref={imageRef}>
+        <ImageSlideContainer>
             {/* <MentorWrapper> */}
             {NewMentorListData?.map((item : any) => {
                 return (

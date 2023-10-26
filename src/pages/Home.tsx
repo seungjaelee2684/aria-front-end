@@ -13,6 +13,9 @@ const Home = () => {
             {/* <ImageWrapper> */}
                 {/* <GradientContainer></GradientContainer> */}
                 <Images src={MainBG}/>
+                {/* <VideoFile>
+                    <source type='video/mp4' />
+                </VideoFile> */}
             {/* </ImageWrapper> */}
         </MainImageContainer>
         <MainImageWrapper>
@@ -57,6 +60,15 @@ const GradientContainer = styled.div`
     top: 0;
     left: 0;
     z-index: 100;
+`;
+
+const VideoFile = styled.video`
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
 `;
 
 const Images = styled.div<{ src : string }>`

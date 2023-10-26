@@ -91,7 +91,7 @@ const CardContainer = styled.div`
         opacity: 0.7;
     }
 
-    @media screen and (max-width: 1340px) {
+    @media screen and (max-width: 1320px) {
         width: 250px;
         height: 300px;  
     }
