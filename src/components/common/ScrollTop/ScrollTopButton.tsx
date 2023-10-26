@@ -42,8 +42,8 @@ const ScrollTopButton = () => {
 const ScrollTopButtonWrapper = styled.div`
     position: fixed;
     z-index: 97;
-    bottom: 5%;
-    right: 3%;
+    bottom: 4%;
+    right: 4%;
     font-family: "Pretendard";
     font-size: 20px;
     font-weight: 700;
@@ -53,8 +53,8 @@ const ScrollTopButtonWrapper = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #222020;
-    border-radius: 5px;
-    width: 80px;
+    border-radius: 3px;
+    width: 70px;
     height: 50px;
     opacity: 0;
     cursor: pointer;
