@@ -4,12 +4,73 @@ import LogoImage from '../assets/logos/logosimple.png';
 import TranslateIcon from '../assets/icons/translateicon.png';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
+import { GiEarthAmerica } from 'react-icons/gi';
+import TranslateModal from '../components/common/TranslateModal';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 
 const Check = () => {
 
     const language = useRecoilValue(translate);
-    const [translation, setTranslation] = useRecoilState(translate);
+    const [languageTrans, setLanguageTrans] = useRecoilState(translate);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
+
+    const checkText = ( Num : number ) => {
+        if (Num === 0) {
+            switch (language) {
+                case "english" : 
+                    return "Site Inspection Guide";
+                case "japanese" : 
+                    return "サイトチェックガイド";
+                default : 
+                    return "사이트 점검 안내";
+            };
+        } else if (Num === 1) {
+            switch (language) {
+                case "english" : 
+                    return "ENG";
+                case "japanese" : 
+                    return "日本語";
+                default : 
+                    return "한국어";
+            };
+        } else if (Num === 2) {
+            switch (language) {
+                case "english" : 
+                    return "Checking the system...";
+                case "japanese" : 
+                    return "システムチェック中...";
+                default : 
+                    return "시스템 점검중...";
+            };
+        } else if (Num === 3) {
+            switch (language) {
+                case "english" : 
+                    return "We are checking the site for better service.";
+                case "japanese" : 
+                    return "より良いサービスを提供するためにサイトをチェックしています。";
+                default : 
+                    return "보다 나은 서비스를 제공하기 위해 사이트를 점검중입니다.";
+            };
+        } else if (Num === 4) {
+            switch (language) {
+                case "english" : 
+                    return "We apologize for the inconvenience caused to use.";
+                case "japanese" : 
+                    return "ご利用にご不便をおかけして申し訳ございません。";
+                default : 
+                    return "이용에 불편을 끼쳐드려 죄송합니다.";
+            };
+        } else {
+            switch (language) {
+                case "english" : 
+                    return "Inspection Time :";
+                case "japanese" : 
+                    return "点検時間 :";
+                default : 
+                    return "점검시간 :";
+            };
+        };
+    };
 
   return (
     <LayoutContainer>
@@ -19,39 +80,46 @@ const Check = () => {
                     <LogoContainer>
                         <Logo src={LogoImage}/>
                         <LogoText>
-                            {language ? "サイトチェックガイド" : "사이트 점검 안내"}
+                            {checkText(0)}
                         </LogoText>
                     </LogoContainer>
-                    <RightContainer onClick={() => setLanguageModal(!languageModal)}>
-                        <ButtonIcon src={TranslateIcon}/>
-                        <TranslateButton>
-                            {language ? "한국어" : "日本語"}
-                        </TranslateButton>
-                    </RightContainer>
+                    <div style={{position: "relative"}}>
+                        <RightContainer onClick={() => setLanguageModal(!languageModal)}>
+                            <GiEarthAmerica />
+                            <TranslateButton>
+                                {checkText(1)}
+                            </TranslateButton>
+                            {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                        </RightContainer>
+                        {languageModal
+                                && <TranslateModal
+                                    setLanguageModal={setLanguageModal}
+                                    setLanguageTrans={setLanguageTrans}/>}
+                    </div>
                 </TopLineContainer>
                 <ContentWrapper>
                     <TitleContainer>
-                        {language ? "システムチェック中..." : "시스템 점검중..."}
+                        {checkText(2)}
                     </TitleContainer>
                     <ContentContainer>
                         <Text>
-                            보다 나은 서비스를 제공하기 위해 사이트를 점검중입니다.
+                            {checkText(3)}
                         </Text>
                         <Text>
-                            이용에 불편을 끼쳐드려 죄송합니다.
+                            {checkText(4)}
                         </Text>
                     </ContentContainer>
                     <UnderContentContainer>
                         <UnderTextLine>
-                            <UnderTitle>점검시간 :</UnderTitle>
+                            <UnderTitle>{checkText(5)}</UnderTitle>
                             2023/10/23 12:40 ~ 18:00
                         </UnderTextLine>
                         <UnderTextLine>
-                            <UnderTitle>점검시간 :</UnderTitle>
+                            <UnderTitle>{checkText(5)}</UnderTitle>
                             2023/10/23 12:40 ~ 18:00
                         </UnderTextLine>
                         <UnderTextLine>
-                            <UnderTitle>점검시간 :</UnderTitle>
+                            <UnderTitle>{checkText(5)}</UnderTitle>
                             2023/10/23 12:40 ~ 18:00
                         </UnderTextLine>
                     </UnderContentContainer>
@@ -92,7 +160,7 @@ const LogoText = styled.div`
 `;
 
 const ItemContainer = styled.div`
-    width: 60%;
+    width: 50%;
     height: 100%;
     margin: 0px auto;
     /* background-color: #e9e9e9; */
@@ -122,6 +190,7 @@ const TopLineContainer = styled.div`
 const RightContainer = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
     gap: 5px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -140,7 +209,7 @@ const ButtonIcon = styled.img`
 const TranslateButton = styled.div`
     font-family: "Pretendard";
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
 `;
 
@@ -176,7 +245,7 @@ const Text = styled.div`
 `;
 
 const UnderContentContainer = styled.div`
-    width: 900px;
+    width: 80%;
     margin: 50px auto 50px auto;
     display: flex;
     flex-direction: column;
