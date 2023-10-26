@@ -12,7 +12,7 @@ const Notification = () => {
   const textChange = () => {
     switch (language) {
       case "english" :
-        return "NOTICE";
+        return "NOTIFICATION";
       case "japanese" :
         return "お知らせ";
       default :

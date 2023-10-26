@@ -1,7 +1,7 @@
 @keyframes scroll_btn_open {
     from {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: translateY(-35px);
     }
     to {
         opacity: 0.9;
@@ -16,6 +16,6 @@
     }
     to {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: translateY(-35px);
     }
 }

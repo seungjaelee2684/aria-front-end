@@ -72,7 +72,7 @@ const SlideShow = () => {
                 key={item?.id}
                 style={{
                   cursor: "default",
-                  backgroundColor: "#FFF",
+                  backgroundColor: "#FCFCFC",
                   minWidth: "35px",
                   borderRadius: "20px"}}/>
               : <SlideNumber
@@ -115,7 +115,7 @@ const SlideButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7e7e7e;
+  background-color: #888888;
   opacity: 0.4;
   z-index: 88;
   cursor: pointer;
