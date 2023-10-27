@@ -8,7 +8,7 @@ import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
 import { eventPosterData } from '../data/EventPosterData';
-import Banner from '../assets/images/mainimage2.jpg';
+import NoticeBanner from '../components/NoticePage/NoticeBanner/NoticeBanner';
 
 const Notice = () => {
 
@@ -46,15 +46,6 @@ const Notice = () => {
     if (Num === 0) {
       switch (language) {
         case "english" :
-            return "EVENT";
-        case "japanese" :
-            return "イベント";
-        default :
-            return "이벤트";
-      };
-    } else if (Num === 1) {
-      switch (language) {
-        case "english" :
             return "cases";
         case "japanese" :
             return " 件";
@@ -75,11 +66,7 @@ const Notice = () => {
 
   return (
     <LayoutContainer>
-      <TitleContainer>
-        <BannerImageContainer src={Banner}>
-          {textChange(0)}
-        </BannerImageContainer>
-      </TitleContainer>
+      <NoticeBanner />
       <LayoutWrapper>
         <NotificationContainer>
           <Notification />
@@ -90,7 +77,7 @@ const Notice = () => {
             <TotalText>
               {totalNumber}
             </TotalText>
-            {textChange(1)}
+            {textChange(0)}
           </TotalTextWrapper>
           <RightWrapper>
             <SearchBarWrapper onSubmit={onSubmitSearchHandler}>
@@ -99,7 +86,7 @@ const Notice = () => {
                 value={inputValue}
                 onChange={onChangeContentHandler}
                 autoComplete="off"
-                placeholder={textChange(2)}/>
+                placeholder={textChange(1)}/>
               <IconBox type='submit'>
               <SearchIcon src={Search}/>
               </IconBox>
@@ -127,30 +114,6 @@ const Notice = () => {
 const LayoutContainer = styled.div`
   width: 100%;
   /* padding: 80px 0px; */
-`;
-
-const TitleContainer = styled.div`
-  width: 100%;
-  height: 230px;
-  background-color: #e9e9e9;
-  margin: 80px 0px 0px 0px;
-  user-select: none;
-`;
-const BannerImageContainer = styled.div<{ src : string }>`
-  width: 100%;
-  height: 230px;
-  background-image: url(${(props) => props.src});
-  background-size: cover;
-  /* background-position: center center; */
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #FCFCFC;
-  font-family: "Pretendard";
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 150%;
 `;
 
 const LayoutWrapper = styled.div`
