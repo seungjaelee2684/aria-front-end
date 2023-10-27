@@ -20,6 +20,7 @@ import NoticeDetail from './pages/NoticeDetail';
 import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
 import Showcase from './pages/Showcase';
 import Check from './pages/Check';
+import SNSMenu from './components/common/SNSMenu';
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ function App() {
           <BrowserRouter>
             <ScrollTop />
             <Header />
+            <SNSMenu />
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/check' element={<Check />} />

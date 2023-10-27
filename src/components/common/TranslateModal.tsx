@@ -41,7 +41,7 @@ const ModalContainer = styled.div`
     background-color: #222020;
     position: absolute;
     top: 25px;
-    left: 0;
+    left: -20px;
 `;
 
 const ModalLineContainer = styled.div`
