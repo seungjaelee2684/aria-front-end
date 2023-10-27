@@ -82,7 +82,7 @@ const SNSMenu = () => {
           title={onTitleReadyHandler(2)}
           default={DiscordDefault}
           src={Discord}
-          onClick={() => setSns(!sns)}/>
+          onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
         {(sns) && <SNSModal sns={sns} setSns={setSns}/>}
       {/* </DiscordIcon> */}
       {/* <YoutubeIcon> */}
@@ -97,10 +97,14 @@ const SNSMenu = () => {
 };
 
 const MenuIconContainer = styled.div`
-  min-width: 100%;
+  position: fixed;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  top: 40%;
+  right: 20px;
+  z-index: 89;
   gap: 12px;
 
   @media screen and (max-width: 1320px) {

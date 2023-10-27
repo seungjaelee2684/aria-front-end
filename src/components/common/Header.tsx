@@ -72,19 +72,8 @@ const Header = () => {
                                 resetFilter();
                                 resetFlag();
                             }}/>
-                        <div
-                            style={{position: "relative"}}>
-                            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                                <GiEarthAmerica />
-                                <TranslateText>{languageChange()}</TranslateText>
-                                {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
-                            </TranslateWrapper>
-                            {languageModal
-                                && <TranslateModal
-                                    setLanguageModal={setLanguageModal}
-                                    setLanguageTrans={setLanguageTrans}/>}
-                        </div>
                     </LogoContainer>}
+                <RightWrapper>
                 <TapOutContainer>
                     <TapContainer
                         onClick={() => {
@@ -147,10 +136,19 @@ const Header = () => {
                             pageModal={pageModal}/>}
                     </div>
                 </TapOutContainer>
-                {(location.pathname !== "/")
-                    && <SupportWrapper>
-                        <SNSMenu />
-                    </SupportWrapper>}
+                <BarContainer />
+                <TranslateContainer>
+                    <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                        <GiEarthAmerica />
+                        <TranslateText>{languageChange()}</TranslateText>
+                        {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                    </TranslateWrapper>
+                    {languageModal
+                        && <TranslateModal
+                            setLanguageModal={setLanguageModal}
+                            setLanguageTrans={setLanguageTrans}/>}
+                </TranslateContainer>
+                </RightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {/* <ScrollBarContainer> */}
@@ -241,21 +239,22 @@ const TranslateWrapper = styled.div`
     }
 `;
 
-const TranslateIcon = styled.img`
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-`;
-
 const TranslateText = styled.div`
     font-family: "Pretendard";
-    font-size: 13px;
+    font-size: 14px;
     color: #222020;
     font-weight: 600;
 
     @media screen and (max-width: 1320px) {
         font-size: 12px;
     }
+`;
+
+const RightWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
 `;
 
 const TapOutContainer = styled.nav`
@@ -311,11 +310,19 @@ const ScrollBarContainer = styled.div`
     }
 `;
 
-const SupportWrapper = styled.div`
-    min-width: 5%;
-    height: 100%;
+const BarContainer = styled.div`
+    width: 3px;
+    height: 40px;
+    background-color: #3c3ad690;
+    border-radius: 10px;
+    margin-left: 70px;
+`;
+
+const TranslateContainer = styled.div`
+    /* min-width: 3%;
+    height: 100%; */
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     position: relative;
 `;

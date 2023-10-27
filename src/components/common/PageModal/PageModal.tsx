@@ -45,7 +45,7 @@ const PageModal = ({ pageModal } : any) => {
             Schedule
           </ModalText>
           <ModalText>
-            Classes
+            Counseling
           </ModalText>
           <ModalText>
             Policy
