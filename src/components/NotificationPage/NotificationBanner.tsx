@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import './NotificationBanner.css';
+import '../../style/Banner.css';
 import { useRecoilValue } from 'recoil';
-import { translate } from '../../../store/Translation';
-import BannerBackground from '../../../assets/images/rapla2.png';
+import { translate } from '../../store/Translation';
+import BannerBackground from '../../assets/images/rapla2.png';
 
 const NotificationBanner = () => {
 
@@ -22,9 +22,14 @@ const NotificationBanner = () => {
 
   return (
     <TitleContainer>
-        <BannerBackgroundImg src={BannerBackground}>
-          {textChange()}
-        </BannerBackgroundImg>
+      <BannerBackgroundImg src={BannerBackground}>
+        <TextWrapper>
+          <TextBox className='TextBox'>
+            {textChange()}
+          </TextBox>
+          <AnimationBar className='AnimationBar'/>
+        </TextWrapper>
+      </BannerBackgroundImg>
     </TitleContainer>
   )
 };
@@ -54,6 +59,33 @@ const BannerBackgroundImg = styled.div<{ src : string }>`
   font-weight: 700;
   line-height: 150%;
   color: #FCFCFC;
+`;
+
+const TextWrapper = styled.div`
+  width: 250px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+
+const TextBox = styled.div`
+  color: #FCFCFC;
+  font-family: "Pretendard";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 150%;
+`;
+
+const AnimationBar = styled.div`
+  width: 270px;
+  height: 3px;
+  background-color: #FCFCFC;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  opacity: 0;
 `;
 
 export default NotificationBanner;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import NotificationList from '../components/NotificationPage/NotificationList';
-import NotificationBanner from '../components/NotificationPage/NotificationBanner/NotificationBanner';
+import NotificationBanner from '../components/NotificationPage/NotificationBanner';
 
 const Notification = () => {
 
