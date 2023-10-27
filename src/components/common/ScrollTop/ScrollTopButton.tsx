@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import './ScrollTop.css';
 import styled from 'styled-components';
+import { LuArrowBigUpDash } from 'react-icons/lu';
 
 const ScrollTopButton = () => {
 
@@ -34,7 +35,7 @@ const ScrollTopButton = () => {
         className='ScrollTopButtonWrapper'
         ref={scrollBtn}
         onClick={onClickMoveTopHandler}>
-        TOP
+        <LuArrowBigUpDash />
     </ScrollTopButtonWrapper>
   )
 };
@@ -45,23 +46,20 @@ const ScrollTopButtonWrapper = styled.div`
     bottom: 4%;
     right: 4%;
     font-family: "Pretendard";
-    font-size: 20px;
+    font-size: 36px;
     font-weight: 700;
     line-height: 150%;
-    color: #FCFCFC;
+    color: #222020;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #222020;
+    background-color: #FFF;
+    border: 2px solid #222020;
     border-radius: 3px;
-    width: 70px;
+    width: 60px;
     height: 50px;
     opacity: 0;
     cursor: pointer;
-
-    &:hover {
-        opacity: 1;
-    }
 `;
 
 export default ScrollTopButton;

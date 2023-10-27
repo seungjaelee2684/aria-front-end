@@ -189,6 +189,7 @@ const HeaderOutWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    user-select: none;
 
     @media screen and (max-width: 1320px) {
         width: 96%;

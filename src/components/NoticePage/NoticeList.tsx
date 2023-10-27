@@ -36,7 +36,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
 
   const onFilterChange = () => {
     if (content === "") {
-      if (selectOption?.englishpick === "ALL") {
+      if (selectOption?.englishpick === "All") {
         return (
           eventPosterData?.map((item) => {
             return (
@@ -94,7 +94,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
 
   useEffect(() => {
     if (content === "") {
-      if (selectOption?.englishpick === "ALL") {
+      if (selectOption?.englishpick === "All") {
         setTotalNumber(eventPosterData.length);
       } else {
         setTotalNumber(ProceedingData.length);

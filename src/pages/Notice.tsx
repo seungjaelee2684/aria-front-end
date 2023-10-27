@@ -7,7 +7,6 @@ import NoticeList from '../components/NoticePage/NoticeList';
 import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
-import { eventTotal } from '../store/TotalNumber';
 import { eventPosterData } from '../data/EventPosterData';
 import Banner from '../assets/images/mainimage2.jpg';
 
@@ -25,7 +24,7 @@ const Notice = () => {
   }>({
     pick: "전체",
     japanesepick: "全体",
-    englishpick: "ALL"
+    englishpick: "All"
   });
 
   const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +37,7 @@ const Notice = () => {
     setSelectOption({
       pick: "전체",
       japanesepick: "全体",
-      englishpick: "ALL"
+      englishpick: "All"
     });
   };
   console.log("검색창 입력값", content);
@@ -65,7 +64,7 @@ const Notice = () => {
     } else {
       switch (language) {
         case "english" :
-            return "Enter Title";
+            return "Type a title";
         case "japanese" :
             return "タイトル検索";
         default :
@@ -135,6 +134,7 @@ const TitleContainer = styled.div`
   height: 230px;
   background-color: #e9e9e9;
   margin: 80px 0px 0px 0px;
+  user-select: none;
 `;
 const BannerImageContainer = styled.div<{ src : string }>`
   width: 100%;
@@ -148,7 +148,7 @@ const BannerImageContainer = styled.div<{ src : string }>`
   align-items: center;
   color: #FCFCFC;
   font-family: "Pretendard";
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 150%;
 `;

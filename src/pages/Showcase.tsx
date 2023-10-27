@@ -57,7 +57,7 @@ const BannerImageContainer = styled.div<{ src : string }>`
   align-items: center;
   color: #FCFCFC;
   font-family: "Pretendard";
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 150%;
 `;

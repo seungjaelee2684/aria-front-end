@@ -58,7 +58,7 @@ const BannerBackgroundImg = styled.div<{ src : string }>`
   justify-content: center;
   align-items: center;
   font-family: "Pretendard";
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 150%;
   color: #FCFCFC;
