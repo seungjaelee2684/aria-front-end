@@ -11,7 +11,7 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             {/* <ImageWrapper> */}
-                {/* <GradientContainer></GradientContainer> */}
+                <GradientContainer />
                 <Images src={MainBG}/>
                 {/* <VideoFile>
                     <source type='video/mp4' />
@@ -55,7 +55,7 @@ const ImageWrapper = styled.div`
 const GradientContainer = styled.div`
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #ffffff30, transparent);
+    background: linear-gradient(to bottom, #00000070, transparent);
     position: absolute;
     top: 0;
     left: 0;

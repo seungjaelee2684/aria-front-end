@@ -49,12 +49,12 @@ const ScrollTopButtonWrapper = styled.div`
     font-size: 36px;
     font-weight: 700;
     line-height: 150%;
-    color: #222020;
+    color: #535151;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFF;
-    border: 2px solid #222020;
+    border: 2px solid #535151;
     border-radius: 3px;
     width: 60px;
     height: 50px;

@@ -61,7 +61,7 @@ const Header = () => {
             onMouseOut={() => setHoverEvent(false)}
         >
             <HeaderOutWrapper
-                style={{justifyContent: `${(location.pathname !== "/") ? "" : "center"}`}}>
+                style={{justifyContent: `${(location.pathname !== "/") ? "" : "end"}`}}>
                 {(location.pathname !== "/")
                     && <LogoContainer>
                         <HeaderLogo
@@ -136,18 +136,19 @@ const Header = () => {
                             pageModal={pageModal}/>}
                     </div>
                 </TapOutContainer>
-                <BarContainer />
-                <TranslateContainer>
-                    <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                        <GiEarthAmerica />
-                        <TranslateText>{languageChange()}</TranslateText>
-                        {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
-                    </TranslateWrapper>
-                    {languageModal
-                        && <TranslateModal
-                            setLanguageModal={setLanguageModal}
-                            setLanguageTrans={setLanguageTrans}/>}
-                </TranslateContainer>
+                {(location.pathname !== ("/")) && <BarContainer />}
+                {(location.pathname !== ("/"))
+                    && <TranslateContainer>
+                        <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                            <GiEarthAmerica />
+                            <TranslateText>{languageChange()}</TranslateText>
+                            {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                        </TranslateWrapper>
+                        {languageModal
+                            && <TranslateModal
+                                setLanguageModal={setLanguageModal}
+                                setLanguageTrans={setLanguageTrans}/>}
+                    </TranslateContainer>}
                 </RightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>

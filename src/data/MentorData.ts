@@ -44,7 +44,7 @@ export const mentorListData = [
     {
         id: "5",
         nation: "Japanese",
-        englishname: "Sanpachi",
+        englishname: "Sanpati",
         japanesename: "さんぱち",
         nickname: "산파치",
         content: "",
