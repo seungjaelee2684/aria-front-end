@@ -58,7 +58,8 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
                   ...selectOption,
                   pick: item?.option,
                   japanesepick: item?.japaneseoption,
-                  englishpick: item?.englishoption})
+                  englishpick: item?.englishoption
+                })
                 setContent("");
                 setInputValue("");
               }

@@ -1,17 +1,22 @@
+.ScrollTopButtonWrapper:hover {
+    background-color: #222020;
+    color: #FCFCFC;
+}
+
 @keyframes scroll_btn_open {
     from {
         opacity: 0;
         transform: translateY(-35px);
     }
     to {
-        opacity: 0.9;
+        opacity: 1;
         transform: translateY(0);
     }
 }
 
 @keyframes scroll_btn_close {
     from {
-        opacity: 0.9;
+        opacity: 1;
         transform: translateY(0);
     }
     to {

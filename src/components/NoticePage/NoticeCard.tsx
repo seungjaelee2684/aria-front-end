@@ -18,20 +18,20 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
         if (Num === 0) {
           switch (language) {
             case "english" :
-                return `Title: ${item?.englishtitle}`;
+                return `Title : ${item?.englishtitle}`;
             case "japanese" :
-                return `タイトル: ${item?.japanesetitle}`;
+                return `タイトル : ${item?.japanesetitle}`;
             default :
-                return `제목: ${item?.title}`;
+                return `제목 : ${item?.title}`;
           };
         } else if (Num === 1) {
             switch (language) {
                 case "english" :
-                    return "Period: ";
+                    return "Period : ";
                 case "japanese" :
-                    return "期間: ";
+                    return "期間 : ";
                 default :
-                    return "기간: ";
+                    return "기간 : ";
             };
         } else {
           switch (language) {
