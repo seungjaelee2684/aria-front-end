@@ -19,7 +19,7 @@ const Notification = () => {
         if (Num === 0) {
           switch (language) {
             case "english" :
-                return "Notification";
+                return "Announcements";
             case "japanese" :
                 return "お知らせ";
             default :
@@ -28,7 +28,7 @@ const Notification = () => {
         } else {
           switch (language) {
             case "english" :
-                return "See More";
+                return "More";
             case "japanese" :
                 return "もっと見る";
             default :
@@ -164,7 +164,7 @@ const Text = styled.div`
 `;
 
 const SeeMoreButton = styled.button`
-    min-width: 120px;
+    display: inline-block;
     height: 40px;
     border: none;
     color: #222020;

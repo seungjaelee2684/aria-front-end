@@ -31,7 +31,7 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
       {japaneseoption: "全体", option: "전체", englishoption: "All"},
       {japaneseoption: "進行中", option: "진행중", englishoption: "Proceeding"},
       {japaneseoption: "締め切り", option: "마감", englishoption: "Deadline"},
-      {japaneseoption: "開始予定", option: "시작예정", englishoption: "Expected"},
+      {japaneseoption: "開始予定", option: "시작예정", englishoption: "Upcoming"},
     ];
 
     const filterOptions = ( item : OptionType ) => {

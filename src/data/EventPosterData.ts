@@ -81,7 +81,7 @@ export const eventPosterData = [
         period: "2021.10.01 ~ 2021.10.29",
         content: "",
         image: Image2,
-        status: "Expected"
+        status: "Upcoming"
     },
     {
         id: "9",
@@ -91,6 +91,6 @@ export const eventPosterData = [
         period: "2020.07.06 ~ 2020.08.17",
         content: "",
         image: Image3,
-        status: "Expected"
+        status: "Upcoming"
     },
 ];

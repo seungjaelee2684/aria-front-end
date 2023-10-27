@@ -73,7 +73,7 @@ const Header = () => {
                                 resetFlag();
                             }}/>
                     </LogoContainer>}
-                <RightWrapper>
+                {/* <RightWrapper> */}
                 <TapOutContainer>
                     <TapContainer
                         onClick={() => {
@@ -136,7 +136,7 @@ const Header = () => {
                             pageModal={pageModal}/>}
                     </div>
                 </TapOutContainer>
-                {(location.pathname !== ("/")) && <BarContainer />}
+                {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {(location.pathname !== ("/"))
                     && <TranslateContainer>
                         <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
@@ -149,7 +149,7 @@ const Header = () => {
                                 setLanguageModal={setLanguageModal}
                                 setLanguageTrans={setLanguageTrans}/>}
                     </TranslateContainer>}
-                </RightWrapper>
+                {/* </RightWrapper> */}
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {/* <ScrollBarContainer> */}
@@ -254,14 +254,14 @@ const TranslateText = styled.div`
 const RightWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 30px;
+    /* gap: 25px; */
     height: 100%;
 `;
 
 const TapOutContainer = styled.nav`
     display: flex;
     align-items: center;
-    gap: 70px;
+    gap: 80px;
     padding: 10px 5px;
     height: 100%;
 
@@ -279,13 +279,12 @@ const TapContainer = styled.a`
     display: flex;
     align-items: center;
     font-family: 'LINESeedKR-Bd';
-    /* font-family: "Pretendard"; */
-    /* font-family: "Roboto+Condensed"; */
     font-size: 16px;
     /* color: #999999; */
     color: #222020;
     font-weight: 400;
     position: relative;
+    /* text-shadow: 1px 1px 4px #FFFFFF; */
     cursor: pointer;
     transition: all 0.4s ease;
 

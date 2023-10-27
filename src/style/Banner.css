@@ -4,13 +4,13 @@
 
 .AnimationBar {
     animation: bar_appear 1s forwards;
-    animation-delay: 0.4s;
+    animation-delay: 0.2s;
 }
 
 @keyframes banner_text_up {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;

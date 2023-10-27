@@ -12,7 +12,7 @@ const NotificationBanner = () => {
     const textChange = () => {
         switch (language) {
             case "english" :
-                return "NOTIFICATION";
+                return "ANNOUNCEMENTS";
             case "japanese" :
                 return "お知らせ";
             default :
@@ -62,9 +62,9 @@ const BannerBackgroundImg = styled.div<{ src : string }>`
 `;
 
 const TextWrapper = styled.div`
-  width: 250px;
-  height: 70px;
+  min-height: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -76,15 +76,14 @@ const TextBox = styled.div`
   font-size: 36px;
   font-weight: 700;
   line-height: 150%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `;
 
 const AnimationBar = styled.div`
-  width: 270px;
+  width: 80px;
   height: 3px;
   background-color: #FCFCFC;
-  position: absolute;
-  bottom: 0;
-  left: -10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;
 `;
 
