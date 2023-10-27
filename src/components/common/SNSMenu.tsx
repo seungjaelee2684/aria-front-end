@@ -108,7 +108,7 @@ const MenuIconContainer = styled.div`
   gap: 12px;
 
   @media screen and (max-width: 1320px) {
-    gap: 4px;
+    gap: 8px;
   }
 `;
 
@@ -206,8 +206,8 @@ const YoutubeIcon = styled.div`
 `;
 
 const MenuIcon = styled.div<{ default : string, src : string }>`
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background-image: url(${(props) => props.default});
   background-size: 100% 100%;
   opacity: 0.5;
@@ -220,8 +220,8 @@ const MenuIcon = styled.div<{ default : string, src : string }>`
   }
 
   @media screen and (max-width: 1320px) {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
 `;
 
