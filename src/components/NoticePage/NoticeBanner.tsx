@@ -54,9 +54,9 @@ const BannerImageContainer = styled.div<{ src : string }>`
 `;
 
 const TextWrapper = styled.div`
-    width: 100px;
-    height: 70px;
+    min-height: 80px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -68,15 +68,14 @@ const TextBox = styled.div`
     font-size: 36px;
     font-weight: 700;
     line-height: 150%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `;
 
 const AnimationBar = styled.div`
-    width: 120px;
+    width: 80px;
     height: 3px;
     background-color: #FCFCFC;
-    position: absolute;
-    bottom: 0;
-    left: -10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
 `;
 

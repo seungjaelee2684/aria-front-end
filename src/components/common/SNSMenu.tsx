@@ -42,7 +42,7 @@ const SNSMenu = () => {
     } else if (Num === 1) {
       switch (language) {
         case "english" :
-            return "Go to Twitter";
+            return "Visit Twitter account.";
         case "japanese" :
             return "Twitterを見に行く";
         default :
@@ -51,7 +51,7 @@ const SNSMenu = () => {
     } else {
       switch (language) {
         case "english" :
-            return "Go to Discord";
+            return "Visit Discord account.";
         case "japanese" :
             return "Discordを見に行く";
         default :

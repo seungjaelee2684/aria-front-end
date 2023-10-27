@@ -73,7 +73,7 @@ const SlideShow = () => {
                 style={{
                   cursor: "default",
                   backgroundColor: "#FCFCFC",
-                  minWidth: "35px",
+                  minWidth: "40px",
                   borderRadius: "20px"}}/>
               : <SlideNumber
                 key={item?.id}
@@ -137,17 +137,17 @@ const SlideNumberContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  gap: 12px;
+  gap: 16px;
   position: absolute;
   bottom: 0;
   left: 0;
 `;
 
 const SlideNumber = styled.div`
-  min-width: 12px;
-  height: 12px;
+  min-width: 10px;
+  height: 10px;
   border-radius: 100%;
-  background-color: #757575;
+  background-color: #4d4d4d;
   box-shadow: 1px 1px 6px 0px #5a5a5a;
   transition: all 0.6s ease-in-out;
   cursor: pointer;
