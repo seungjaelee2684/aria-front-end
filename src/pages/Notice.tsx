@@ -8,7 +8,7 @@ import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
 import { eventPosterData } from '../data/EventPosterData';
-import NoticeBanner from '../components/NoticePage/NoticeBanner/NoticeBanner';
+import NoticeBanner from '../components/NoticePage/NoticeBanner';
 
 const Notice = () => {
 
