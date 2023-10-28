@@ -59,6 +59,7 @@ const SlideShow = () => {
       </SlideButtonBox>
       <NewMentorList
         key={slideCurrent}
+        imageRef={imageRef}
         language={language}
         slideCurrent={slideCurrent}
         prevCurrent={prevCurrent}
