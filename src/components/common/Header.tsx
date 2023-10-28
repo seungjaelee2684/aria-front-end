@@ -6,7 +6,6 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
-import PageModal from './PageModal/PageModal';
 import SNSMenu from './SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
 import '../../style/font/font.css';
@@ -14,19 +13,20 @@ import Translate from '../../assets/icons/translateicon.png';
 import TranslateModal from './TranslateModal';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { GiEarthAmerica } from 'react-icons/gi';
+import NavButton from './NavButton';
 
 const Header = () => {
 
     const language = useRecoilValue(translate);
-    const [languageTrans, setLanguageTrans] = useRecoilState(translate);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
+    const [languageTrans, setLanguageTrans] = useRecoilState(translate);
+    
 
     const navigate = useNavigate();
     const location = useLocation();
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverEvent, setHoverEvent] = useState<boolean>(false);
-    const [pageModal, setPageModal] = useState<string>("");
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -74,68 +74,7 @@ const Header = () => {
                             }}/>
                     </LogoContainer>}
                 {/* <RightWrapper> */}
-                <TapOutContainer>
-                    <TapContainer
-                        onClick={() => {
-                            navigate("/");
-                            resetFilter();
-                            resetFlag();
-                        }}>
-                        HOME
-                    </TapContainer>
-                    <TapContainer
-                        style={{color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}`}}
-                        onClick={() => {
-                            navigate("/mentor");
-                            resetFilter();
-                            resetFlag();
-                        }}>
-                        MENTOR
-                    </TapContainer>
-                    <div
-                        style={{position: "relative"}}
-                        onMouseOver={() => setPageModal("Notice")} 
-                        onMouseOut={() => setPageModal("")}>
-                        <TapContainer
-                            style={{color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}`}}
-                            onClick={() => {
-                                navigate("/notice");
-                                resetFilter();
-                                resetFlag();
-                            }}>
-                            NOTICE 
-                        </TapContainer>
-                        {((pageModal === "Notice") && (location.pathname !== "/"))
-                            && <PageModal
-                            pageModal={pageModal}/>}
-                    </div>
-                    <TapContainer
-                        style={{color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}`}}
-                        onClick={() => {
-                            navigate("/showcase");
-                            resetFilter();
-                            resetFlag();
-                        }}>
-                        SHOWCASE
-                    </TapContainer>
-                    <div
-                        style={{position: "relative"}}
-                        onMouseOver={() => setPageModal("Support")} 
-                        onMouseOut={() => setPageModal("")}>
-                        <TapContainer
-                            style={{color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}`}}
-                            onClick={() => {
-                                navigate("/support");
-                                resetFilter();
-                                resetFlag();
-                            }}>
-                            SUPPORT
-                        </TapContainer>
-                        {((pageModal === "Support") && (location.pathname !== "/"))
-                            && <PageModal
-                            pageModal={pageModal}/>}
-                    </div>
-                </TapOutContainer>
+                <NavButton/>
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {(location.pathname !== ("/"))
                     && <TranslateContainer>
@@ -256,48 +195,6 @@ const RightWrapper = styled.div`
     align-items: center;
     /* gap: 25px; */
     height: 100%;
-`;
-
-const TapOutContainer = styled.nav`
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    padding: 10px 5px;
-    height: 100%;
-
-    @media screen and (max-width: 1320px) {
-        gap: 25px;
-    }
-    @media screen and (max-width: 500px) {
-        gap: 16px;
-    }
-`;
-
-const TapContainer = styled.a`
-    padding: 5px 0px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    font-family: 'LINESeedKR-Bd';
-    font-size: 16px;
-    /* color: #999999; */
-    color: #222020;
-    font-weight: 400;
-    position: relative;
-    /* text-shadow: 1px 1px 4px #FFFFFF; */
-    cursor: pointer;
-    transition: all 0.4s ease;
-
-    &:hover {
-        color: #3c3ad6;
-    }
-
-    @media screen and (max-width: 1320px) {
-        font-size: 16px;
-    }
-    @media screen and (max-width: 836px) {
-        font-size: 12px;
-    }
 `;
 
 const ScrollBarContainer = styled.div`
