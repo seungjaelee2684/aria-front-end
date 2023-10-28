@@ -69,7 +69,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   align-items: start;
   position: absolute;
-  top: 30px;
+  top: 60px;
   left: 0;
   z-index: 200;
   color: #FCFCFC;

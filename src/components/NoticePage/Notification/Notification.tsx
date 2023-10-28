@@ -118,7 +118,7 @@ const NoticeIcon = styled.img`
 `;
 
 const Title = styled.div`
-    min-width: 80px;
+    min-width: 120px;
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;
