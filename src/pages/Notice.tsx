@@ -193,7 +193,7 @@ const SearBarInput = styled.input`
 
 const IconBox = styled.button`
   width: 34px;
-  height: 36px;
+  height: 35px;
   border-top: 1px solid #ADADAD;
   border-bottom: 1px solid #ADADAD;
   border-right: 1px solid #ADADAD;

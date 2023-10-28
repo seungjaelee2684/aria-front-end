@@ -5,11 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 
-interface NavButtonProps {
-
-}
-
-const NavButton : React.FC<NavButtonProps> = () => {
+const NavButton = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -28,14 +24,15 @@ const NavButton : React.FC<NavButtonProps> = () => {
         if (underLine.current) {
             underLine.current.style.left = `${e.currentTarget.offsetLeft + "px"}`;
             underLine.current.style.width = `${e.currentTarget.offsetWidth + "px"}`;
-            underLine.current.style.top = `${(e.currentTarget.offsetTop + e.currentTarget.offsetHeight - 9) + "px"}`;
-            underLine.current.style.opacity = "1";
+            // underLine.current.style.top = `${(e.currentTarget.offsetTop + e.currentTarget.offsetHeight - 9) + "px"}`;
         };
     };
 
     return (
         <TapOutContainer className='TapOutContainer'>
-            {(location.pathname !== "/") && <UnderBarContainer ref={underLine} />}
+            <UnderBarContainer
+                ref={underLine}
+                style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/>
             <TapContainer
                 href='#'
                 onClick={() => {
@@ -59,7 +56,7 @@ const NavButton : React.FC<NavButtonProps> = () => {
                 href='#'
                 onMouseOver={() => setPageModal("Notice")}
                 onMouseOut={() => setPageModal("")}>
-                <div
+                <TapContainer
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
                         navigate("/notice");
@@ -67,7 +64,7 @@ const NavButton : React.FC<NavButtonProps> = () => {
                         resetFlag();
                     }}>
                     NOTICE
-                </div>
+                </TapContainer>
                 {((pageModal === "Notice") && (location.pathname !== "/"))
                     && <PageModal
                         pageModal={pageModal} />}
@@ -123,10 +120,9 @@ const UnderBarContainer = styled.div`
     width: 0;
     background: linear-gradient(to right, #3c3ad6, #530898);
     /* background-color: #3c3ad6; */
-    top: 0;
+    top: 76px;
     left: 0;
     height: 4px;
-    opacity: 0;
     transition: all 0.5s ease-out;
 `;
 
