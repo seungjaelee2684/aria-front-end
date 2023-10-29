@@ -3,16 +3,27 @@ import styled from 'styled-components';
 import Image from '../../assets/images/surveimage.jpg';
 import { useNavigate } from 'react-router-dom';
 
-const MentorCard = ({ item, japanese } : any) => {
+const MentorCard = ({ item, language } : any) => {
 
   const navigate = useNavigate();
+
+  const languageTrans = () => {
+    switch (language) {
+      case "english" :
+          return "";
+      case "japanese" :
+          return item?.japanesename;
+      default :
+          return item?.nickname;
+    };
+  };
 
   return (
     <CardContainer onClick={() => navigate(`/mentor/detail/${item?.id}`)}>
       <CardImage src={item?.image}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
-        {japanese ? "" : `${item?.nickname}`}
+        {languageTrans()}
       </ContentContainer>
     </CardContainer>
   )
@@ -20,7 +31,7 @@ const MentorCard = ({ item, japanese } : any) => {
 
 const CardContainer = styled.div`
   width: 315px;
-  height: 360px;
+  height: 380px;
   /* border: 1px solid; */
   /* border-radius: 10px; */
   background-color: #FFFFFF;
@@ -67,7 +78,7 @@ const ContentContainer = styled.div`
   margin-top: 5px;
   gap: 0px;
   font-family: "Pretendard";
-  font-size: 14px;
+  font-size: 16px;
   line-height: 140%;
   color: #39373A;
 
@@ -79,7 +90,7 @@ const ContentContainer = styled.div`
 
 const NicknameContainer = styled.div`
   font-family: "Pretendard";
-  font-size: 18px;
+  font-size: 20px;
   color: #222020;
   font-weight: 600;
   line-height: 150%;

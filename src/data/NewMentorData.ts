@@ -6,7 +6,7 @@ import Image4 from '../assets/images/lineimage.png';
 export const NewMentorListData = [
     {
         id: "1",
-        nation: "Japanese",
+        nation: "language",
         englishname: "MinGyu",
         nickname: "민규",
         content: "",

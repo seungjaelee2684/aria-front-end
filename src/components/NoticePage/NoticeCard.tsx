@@ -12,37 +12,64 @@ interface NoticeCardProps {
 const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 
     const navigate = useNavigate();
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
+
+    const onTextHandler = ( Num : number ) => {
+        if (Num === 0) {
+          switch (language) {
+            case "english" :
+                return `Title : ${item?.englishtitle}`;
+            case "japanese" :
+                return `タイトル : ${item?.japanesetitle}`;
+            default :
+                return `제목 : ${item?.title}`;
+          };
+        } else if (Num === 1) {
+            switch (language) {
+                case "english" :
+                    return "Period : ";
+                case "japanese" :
+                    return "期間 : ";
+                default :
+                    return "기간 : ";
+            };
+        } else {
+          switch (language) {
+            case "english" :
+                return "Deadline";
+            case "japanese" :
+                return "締め切り";
+            default :
+                return "마감";
+          };
+        }; 
+      };
 
   return (
     <CardContainer
         onClick={() => navigate(`/notice/detail/${item?.id}`)}
         style={{
-            opacity: `${(item?.status === "PROCEEDING") ? "" : "0.7"}`
+            opacity: `${(item?.status === "Proceeding") ? "" : "0.7"}`
         }}>
         <CardImage src={item?.image}/>
         <LineContainer>
             <TextWrapper
                 style={{
-                    fontSize: `${japanese ? "14px" : ""}`
+                    fontSize: `${(language !== "Korean") ? "14px" : ""}`
                 }}>
                 <Text>
-                    {japanese
-                        ? `タイトル: ${item?.japanesetitle}`
-                        : `제목: ${item?.title}`}  
+                    {onTextHandler(0)}  
                 </Text>
                 <Text>
-                    {japanese
-                        ? "期間: "
-                        : "기간: "}
+                    {onTextHandler(1)}
                     {item?.period}
                 </Text>
             </TextWrapper>
-            {item?.status === "DEADLINE" && <StampContainer>
+            {item?.status === "Deadline" && <StampContainer>
                     <StampInContainer>
                         <StampBox>
                             <StampInBox>
-                                {japanese ? "締め切り" : "마감"}
+                                {onTextHandler(2)}
                             </StampInBox>
                         </StampBox>
                     </StampInContainer>
@@ -53,7 +80,7 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 };
 
 const CardContainer = styled.div`
-    width: 319px;
+    width: 320px;
     height: 380px;
     display: grid;
     gap: 0px;
@@ -64,17 +91,17 @@ const CardContainer = styled.div`
         opacity: 0.7;
     }
 
-    @media screen and (max-width: 1340px) {
+    @media screen and (max-width: 1320px) {
         width: 250px;
         height: 300px;  
     }
 `;
 
 const CardImage = styled.div<{ src : string }>`
-    width: 319px;
-    height: 319px;
+    width: 320px;
+    height: 320px;
     background-image: url(${(props) => props.src});
-    background-size: 319px 319px;
+    background-size: 320px 320px;
     background-position: center center;
     background-repeat: no-repeat;
 
@@ -135,10 +162,10 @@ const StampBox = styled.div`
     width: 56px;
     height: 20px;
     border: 1px solid;
-    background-color: #FFF;
+    /* background-color: #FFF; */
     position: absolute;
     top: 10px;
-    left: -8px;
+    left: -7px;
     font-family: "Pretendard";
     font-size: 12px;
     font-weight: 600;

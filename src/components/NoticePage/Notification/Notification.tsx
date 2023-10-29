@@ -9,39 +9,55 @@ import { useNavigate } from 'react-router-dom';
 
 const Notification = () => {
 
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
-    const textRef = useRef<HTMLDivElement>(null);
     const [textCurrent, setTextCurrent] = useState<number>(0);
-    const [startPoint, setStartPoint] = useState<boolean>(false);
-    const currentHeight : number = textCurrent * 30;
+    const [prevCuttent, setPrevCuttent] = useState<number | undefined>();
+
+    const onTitleHandler = ( Num : number ) => {
+        if (Num === 0) {
+          switch (language) {
+            case "english" :
+                return "Announcements";
+            case "japanese" :
+                return "お知らせ";
+            default :
+                return "공지 사항";
+          };
+        } else {
+          switch (language) {
+            case "english" :
+                return "More";
+            case "japanese" :
+                return "もっと見る";
+            default :
+                return "더보기";
+          };
+        }; 
+    };
+
+    const noticeText = ( item : any ) => {
+        switch (language) {
+            case "english" :
+                return item?.englishnotice;
+            case "japanese" :
+                return item?.japanesenotice;
+            default :
+                return item?.notice;
+        };
+    };
 
     useEffect(() => {
-        if (textRef.current) {
-            if (textCurrent === 0 && startPoint === true) {
-                textRef.current.style.transition = "none";
-                textRef.current.style.transform = `translateY(-${currentHeight}px)`;
-            } else {
-                textRef.current.style.transition = "all 2s ease";
-                textRef.current.style.transform = `translateY(-${currentHeight}px)`;
-            }; 
-        };
-
-        setStartPoint(true);
-
         const interVal = setInterval(() => {
-            if (textCurrent === 5) {
-                setTextCurrent(0);
-            } else {
-                setTextCurrent(textCurrent + 1);
-            };
-        }, (textCurrent === 0 && startPoint === true) ? 1 : 5000);
+            setTextCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NotificationData.length));
+            setPrevCuttent(textCurrent);
+        }, 6000);
 
         return () => {
             clearInterval(interVal);
         };
-    }, [textCurrent]);
+    }, [textCurrent, prevCuttent]);
 
     // console.log("공지사항 번호", textCurrent, startPoint);
 
@@ -49,35 +65,32 @@ const Notification = () => {
     <LineContainer>
         <ContentWrapper>
             <NoticeIcon src={Notice}/>
-            <Title>{japanese ? "お知らせ" : "공지 사항"}</Title>
+            <Title>{onTitleHandler(0)}</Title>
             <BarContainer />
             <TextWrapper>
-                <TextBox ref={textRef}>
-                    {NotificationData?.map((item : any) => {
-                        return (
-                            <Text
-                                key={item?.id}
-                                onClick={() => navigate(`/notice/notification/detail/${item?.id}`)}>
-                                {japanese
-                                    ? item?.japanesenotice
-                                    : item?.notice}
-                            </Text>
-                        )
-                    })
-                    }
-                    <Text>
-                        {japanese
-                            ? NotificationData[0]?.japanesenotice
-                            : NotificationData[0]?.notice}
-                    </Text>
-                </TextBox>
+                {NotificationData?.map((item : any) => {
+                    return (
+                        <Text
+                            className={
+                                (textCurrent === NotificationData.indexOf(item))
+                                    ? "Text"
+                                    : (prevCuttent === NotificationData.indexOf(item))
+                                        ? "PrevText"
+                                        : ""
+                            }
+                            key={item?.id}>
+                            {noticeText(item)}
+                        </Text>
+                    )
+                })
+                }
             </TextWrapper>
         </ContentWrapper>
         <SeeMoreButton
             className='SeeMoreButton'
             onClick={() => navigate("/notice/notification")}>
             <span className='SpanContainer'>
-                {japanese ? "もっと見る" : "더보기"}
+                {onTitleHandler(1)}
             </span>
         </SeeMoreButton>
     </LineContainer>
@@ -85,13 +98,17 @@ const Notification = () => {
 };
 
 const LineContainer = styled.div`
-    width: 100%;
+    width: 1320px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: "Pretendard";
-    margin: 20px 0px;
+    margin: 20px auto;
     user-select: none;
+
+    @media screen and (max-width: 1320px) {
+        width: 100%;
+    }
 `;
 
 const NoticeIcon = styled.img`
@@ -101,7 +118,7 @@ const NoticeIcon = styled.img`
 `;
 
 const Title = styled.div`
-    width: 74px;
+    min-width: 120px;
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;
@@ -109,7 +126,7 @@ const Title = styled.div`
 `;
 
 const BarContainer = styled.div`
-    width: 4px;
+    min-width: 4px;
     height: 30px;
     background-color: red;
 `;
@@ -117,23 +134,21 @@ const BarContainer = styled.div`
 const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 5px;
+    width: 100%;
+    gap: 8px;
 `;
 
 const TextWrapper = styled.div`
     display: flex;
+    width: 100%;
     padding-left: 20px;
     height: 30px;
-    overflow-y: hidden;
-`;
-
-const TextBox = styled.div`
-    display: flex;
-    flex-direction: column;
+    position: relative;
 `;
 
 const Text = styled.div`
     display: flex;
+    height: 100%;
     align-items: center;
     min-height: 30px;
     /* text-overflow: ellipsis;
@@ -142,15 +157,14 @@ const Text = styled.div`
     overflow: hidden;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical; */
-    cursor: pointer;
-
-    &:hover {
-        color: #8f8f8f;
-    }
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 10px;
 `;
 
 const SeeMoreButton = styled.button`
-    width: 120px;
+    width: 130px;
     height: 40px;
     border: none;
     color: #222020;
@@ -160,7 +174,7 @@ const SeeMoreButton = styled.button`
     font-weight: 400;
     line-height: 140%;
     border-radius: 5px;
-    text-align: center;
+    text-align: end;
     cursor: pointer;
 `;
 

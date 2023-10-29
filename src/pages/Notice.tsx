@@ -7,12 +7,12 @@ import NoticeList from '../components/NoticePage/NoticeList';
 import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
-import { eventTotal } from '../store/TotalNumber';
 import { eventPosterData } from '../data/EventPosterData';
+import NoticeBanner from '../components/NoticePage/NoticeBanner';
 
 const Notice = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
 
   const [inputValue, setInputValue] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -24,7 +24,7 @@ const Notice = () => {
   }>({
     pick: "전체",
     japanesepick: "全体",
-    englishpick: "ALL"
+    englishpick: "All"
   });
 
   const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
@@ -37,16 +37,36 @@ const Notice = () => {
     setSelectOption({
       pick: "전체",
       japanesepick: "全体",
-      englishpick: "ALL"
+      englishpick: "All"
     });
   };
   console.log("검색창 입력값", content);
 
+  const textChange = ( Num : number ) => {
+    if (Num === 0) {
+      switch (language) {
+        case "english" :
+            return "cases";
+        case "japanese" :
+            return " 件";
+        default :
+            return " 건";
+      };
+    } else {
+      switch (language) {
+        case "english" :
+            return "Type a title";
+        case "japanese" :
+            return "タイトル検索";
+        default :
+            return "제목 검색";
+      };
+    };
+  };
+
   return (
     <LayoutContainer>
-      <TitleContainer>
-        배너
-      </TitleContainer>
+      <NoticeBanner />
       <LayoutWrapper>
         <NotificationContainer>
           <Notification />
@@ -57,7 +77,7 @@ const Notice = () => {
             <TotalText>
               {totalNumber}
             </TotalText>
-            {japanese ? " 件" : " 건"}
+            {textChange(0)}
           </TotalTextWrapper>
           <RightWrapper>
             <SearchBarWrapper onSubmit={onSubmitSearchHandler}>
@@ -66,17 +86,13 @@ const Notice = () => {
                 value={inputValue}
                 onChange={onChangeContentHandler}
                 autoComplete="off"
-                placeholder={
-                  (japanese)
-                  ? "タイトル検索"
-                  : '제목 검색'
-                }/>
+                placeholder={textChange(1)}/>
               <IconBox type='submit'>
               <SearchIcon src={Search}/>
               </IconBox>
             </SearchBarWrapper>
             <SelectBar
-              japanese={japanese}
+              language={language}
               selectOption={selectOption}
               setSelectOption={setSelectOption}
               setContent={setContent}
@@ -84,7 +100,7 @@ const Notice = () => {
           </RightWrapper>
         </SearchBarContainer>
         <NoticeList
-          japanese={japanese}
+          language={language}
           selectOption={selectOption}
           setSelectOption={setSelectOption}
           content={content}
@@ -100,28 +116,27 @@ const LayoutContainer = styled.div`
   /* padding: 80px 0px; */
 `;
 
-const TitleContainer = styled.div`
-  width: 100%;
-  height: 200px;
-  background-color: #e9e9e9;
-  margin: 80px 0px 0px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const LayoutWrapper = styled.div`
-  /* width: 100%; */
-  margin: 50px 15%;
+  width: 1320px;
+  margin: 50px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+  }
 `;
 
 const SearchBarContainer = styled.div`
-  width: 100%;
+  width: 1320px;
   height: 54px;
   padding: 0px 0px 5px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 100%;
+  }
 `;
 
 const TotalTextWrapper = styled.div`

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Copy from '../../assets/icons/copy.png';
+import { LuClipboardCopy } from 'react-icons/lu';
 
 interface SNSModalProps {
   sns: boolean;
@@ -25,9 +26,11 @@ const SNSModal : React.FC<SNSModalProps> = ({ sns, setSns }) => {
     <ModalContainer>
       <ModalWrapper>
         https://discord.gg/N7SEvBds4F
-        <CopyIcon
-          src={Copy}
-          onClick={() => {onClickCopyHandler("https://discord.gg/N7SEvBds4F")}}/>
+        <CopyIcon>
+          <LuClipboardCopy
+            // src={Copy}
+            onClick={() => {onClickCopyHandler("https://discord.gg/N7SEvBds4F")}}/>
+        </CopyIcon>
       </ModalWrapper>
     </ModalContainer>
   )
@@ -35,6 +38,7 @@ const SNSModal : React.FC<SNSModalProps> = ({ sns, setSns }) => {
 
 const ModalContainer = styled.div`
   position: absolute;
+  z-index: 101;
   min-width: 250px;
   height: 25px;
   background-color: #1d466f;
@@ -43,8 +47,8 @@ const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 15px;
-  top: 40px;
-  right: 0;
+  top: 60px;
+  right: 45px;
   border-radius: 5px;
   cursor: default;
 `;
@@ -60,9 +64,10 @@ const ModalWrapper = styled.div`
   gap: 20px;
 `;
 
-const CopyIcon = styled.img`
-  width: 24px;
-  height: 24px;
+const CopyIcon = styled.div`
+  font-size: 18px;
+  display: flex;
+  align-items: center;
   opacity: 0.8;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

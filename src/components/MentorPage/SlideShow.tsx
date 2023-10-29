@@ -10,18 +10,16 @@ import './NewMentorList/NewMentorList.css'
 
 const SlideShow = () => {
 
-  const japanese = useRecoilValue(translate);
+  const language = useRecoilValue(translate);
 
   const imageRef = useRef<HTMLDivElement>(null);
   const [slideCurrent, setSlideCurrent] = useState<number>(0);
+  const [prevCurrent, setPrevCurrent] = useState<number | undefined>();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (slideCurrent === 3) {
-        setSlideCurrent(0);
-      } else {
-        setSlideCurrent((prevSlideCurrent) => prevSlideCurrent + 1);
-      }
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData.length));
+      setPrevCurrent(slideCurrent);
     }, 5000);
 
     return () => {
@@ -31,58 +29,71 @@ const SlideShow = () => {
 
   const prevButton = () => {
     if (slideCurrent === 0) {
-      setSlideCurrent(3);
+      setSlideCurrent(NewMentorListData.length - 1);
+      setPrevCurrent(0);
     } else {
-      setSlideCurrent(slideCurrent - 1);
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent - 1) % (NewMentorListData.length));
+      setPrevCurrent(slideCurrent);
     };
   };
 
   const nextButton = () => {
-    if (slideCurrent === 3) {
-      setSlideCurrent(0);
-    } else {
-      setSlideCurrent(slideCurrent + 1);
-    };
+    setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData.length));
+    setPrevCurrent(slideCurrent);
   };
 
-  console.log("슬라이드 번호", slideCurrent);
+  // console.log("슬라이드 번호", slideCurrent);
 
   return (
     <div>
     <ImageOutContainer>
       <SlideButtonBox
-        style={{ left: "30px" }}
+        style={{ left: "70px" }}
         onClick={prevButton}>
         <SlideButton src={LeftArrow} />
       </SlideButtonBox>
       <SlideButtonBox
-        style={{ right: "30px" }}
+        style={{ right: "70px" }}
         onClick={nextButton}>
         <SlideButton src={RightArrow} />
       </SlideButtonBox>
       <NewMentorList
         key={slideCurrent}
-        japanese={japanese}
         imageRef={imageRef}
-        slideCurrent={slideCurrent}/>
+        language={language}
+        slideCurrent={slideCurrent}
+        prevCurrent={prevCurrent}
+        setPrevCurrent={setPrevCurrent}
+        />
+      <SlideNumberContainer>
+        {NewMentorListData?.map((item : any) => {
+          return (
+            (slideCurrent === NewMentorListData.indexOf(item))
+              ? <SlideNumber
+                key={item?.id}
+                style={{
+                  cursor: "default",
+                  backgroundColor: "#FCFCFC",
+                  minWidth: "40px",
+                  borderRadius: "20px"}}/>
+              : <SlideNumber
+                key={item?.id}
+                onClick={() => {
+                  setSlideCurrent((item?.id) - 1);
+                  setPrevCurrent(slideCurrent);
+                }}/>
+          )
+        })}
+      </SlideNumberContainer>
     </ImageOutContainer>
-    <SlideNumberContainer>
-      {NewMentorListData?.map((item : any) => {
-        return (
-          (slideCurrent === NewMentorListData.indexOf(item))
-            ? <SlideNumber
-              style={{backgroundColor: "#222020"}}/>
-            : <SlideNumber />
-        )
-      })}
-    </SlideNumberContainer>
+    
     </div>
   )
 };
 
 const ImageOutContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 700px;
   overflow: hidden;
   position: relative;
 `;
@@ -105,7 +116,7 @@ const SlideButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7e7e7e;
+  background-color: #888888;
   opacity: 0.4;
   z-index: 88;
   cursor: pointer;
@@ -122,19 +133,25 @@ const SlideButton = styled.img`
 `;
 
 const SlideNumberContainer = styled.div`
-  width: 92px;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: 20px auto;
   gap: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 `;
 
 const SlideNumber = styled.div`
   min-width: 10px;
   height: 10px;
   border-radius: 100%;
-  background-color: #FCFCFC;
-  border: 1px solid #222020;
+  background-color: #ADADAD;
+  box-shadow: 1px 1px 6px 0px #5a5a5a;
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
 `;
 
 export default SlideShow;

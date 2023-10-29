@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 interface SelectModalProps {
-    japanese: boolean;
+    language: string;
     selectOption: {
         pick: string,
         japanesepick: string,
@@ -19,7 +19,7 @@ interface SelectModalProps {
 
 const SelectModal : React.FC<SelectModalProps> = (props) => {
 
-    const { japanese, selectOption, setSelectOption, setContent, setInputValue } = props;
+    const { language, selectOption, setSelectOption, setContent, setInputValue } = props;
 
     type OptionType = {
       japaneseoption: string,
@@ -28,11 +28,22 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
     }
 
     const modalOption : OptionType[] = [
-      {japaneseoption: "全体", option: "전체", englishoption: "ALL"},
-      {japaneseoption: "進行中", option: "진행중", englishoption: "PROCEEDING"},
-      {japaneseoption: "締め切り", option: "마감", englishoption: "DEADLINE"},
-      {japaneseoption: "開始予定", option: "시작예정", englishoption: "EXPECTED"},
+      {japaneseoption: "全体", option: "전체", englishoption: "All"},
+      {japaneseoption: "進行中", option: "진행중", englishoption: "Proceeding"},
+      {japaneseoption: "締め切り", option: "마감", englishoption: "Deadline"},
+      {japaneseoption: "開始予定", option: "시작예정", englishoption: "Upcoming"},
     ];
+
+    const filterOptions = ( item : OptionType ) => {
+      switch (language) {
+        case "english" :
+            return item.englishoption;
+        case "japanese" :
+            return item.japaneseoption;
+        default :
+            return item.option;
+      };
+    };
 
     console.log("test", selectOption?.englishpick);
 
@@ -47,12 +58,13 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
                   ...selectOption,
                   pick: item?.option,
                   japanesepick: item?.japaneseoption,
-                  englishpick: item?.englishoption})
+                  englishpick: item?.englishoption
+                })
                 setContent("");
                 setInputValue("");
               }
             }>
-            {japanese ? item.japaneseoption : item.option}
+            {filterOptions(item)}
           </ModalLineContainer>
         )
       })}

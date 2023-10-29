@@ -5,7 +5,7 @@ import DownArrow from '../../assets/icons/downArrow.png';
 import UpArrow from '../../assets/icons/upArrow.png';
 
 interface SelectBarProps {
-    japanese: boolean;
+    language: string;
     selectOption: {
         pick: string,
         japanesepick: string,
@@ -20,12 +20,23 @@ interface SelectBarProps {
     setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelectOption, setContent, setInputValue }) => {
+const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelectOption, setContent, setInputValue }) => {
 
     const { pick, japanesepick, englishpick } = selectOption;
 
     const divRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const filterOption = () => {
+      switch (language) {
+        case "english" :
+            return englishpick;
+        case "japanese" :
+            return japanesepick;
+        default :
+            return pick;
+      };
+    };
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
@@ -43,14 +54,14 @@ const SelectBar : React.FC<SelectBarProps> = ({ japanese, selectOption, setSelec
 
   return (
     <SelectBarContainer ref={divRef} onClick={() => setIsOpen(!isOpen)}>
-        {japanese ? japanesepick : pick}
+        {filterOption()}
         {isOpen
             ? <UpDownIcon src={UpArrow}/>
             : <UpDownIcon src={DownArrow}/>}
         {isOpen
             && <SelectModalWrapper>
                 <SelectModal
-                    japanese={japanese}
+                    language={language}
                     selectOption={selectOption}
                     setSelectOption={setSelectOption}
                     setContent={setContent}
@@ -78,16 +89,16 @@ const SelectBarContainer = styled.div`
 `;
 
 const UpDownIcon = styled.img`
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 `;
 
 const SelectModalWrapper = styled.div`
-    position: absolute;
-    top: 35px;
-    left: -1px;
-    z-index: 20;
+  position: absolute;
+  top: 35px;
+  left: -1px;
+  z-index: 20;
 `;
 
 export default SelectBar;

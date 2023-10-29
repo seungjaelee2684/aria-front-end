@@ -9,14 +9,16 @@ export const mentorListData = [
         id: "1",
         nation: "Japanese",
         englishname: "MinGyu",
+        japanesename: "ミンギュ",
         nickname: "민규",
         content: "",
         image: Image
     },
     {
         id: "2",
-        nation: "Korean",
+        nation: "American",
         englishname: "Shal.E",
+        japanesename: "シャイ",
         nickname: "샬e",
         content: "",
         image: Image2
@@ -25,6 +27,7 @@ export const mentorListData = [
         id: "3",
         nation: "Korean",
         englishname: "Chan",
+        japanesename: "チャン",
         nickname: "챤",
         content: "",
         image: SanpachiImage2
@@ -33,6 +36,7 @@ export const mentorListData = [
         id: "4",
         nation: "Korean",
         englishname: "Shumolly",
+        japanesename: "シュモリ",
         nickname: "슈몰리",
         content: "",
         image: Image
@@ -40,8 +44,9 @@ export const mentorListData = [
     {
         id: "5",
         nation: "Japanese",
-        englishname: "さんぱち",
-        nickname: "Sanpachi",
+        englishname: "Sanpati",
+        japanesename: "さんぱち",
+        nickname: "산파치",
         content: "",
         image: SanpachiImage
     },

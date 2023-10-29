@@ -2,44 +2,21 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
+import MainBG from '../assets/images/maingif.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
 
-    // const imageRef = useRef<HTMLDivElement>(null);
-    // const [slideCurrent, setSlideCurrent] = useState<number>(0);
-    // const slideWidth : number = 1920;
-    // const transX : number = slideWidth * slideCurrent;
-
-    // useEffect(() => {
-    //     if (imageRef.current) {
-    //         imageRef.current.style.transition = "all 0.5s ease-in-out";
-    //         imageRef.current.style.transform = `translateX(-${transX}px)`;
-    //     };
-    // }, [slideCurrent]);
-
-    // const prevButton = () => {
-    //     if (slideCurrent === 0) {
-    //         return;
-    //     } else {
-    //         setSlideCurrent(slideCurrent - 1);
-    //     };
-    // };
-
-    // const nextButton = () => {
-    //     if (slideCurrent === 1) {
-    //         return;
-    //     } else {
-    //         setSlideCurrent(slideCurrent + 1);
-    //     };
-    // };
-
   return (
     <MainLayout>
         <MainImageContainer>
-            <ImageWrapper>
-                <Images src={MainBackground}/>
-            </ImageWrapper>
+            {/* <ImageWrapper> */}
+                {/* <GradientContainer /> */}
+                <Images src={MainBG}/>
+                {/* <VideoFile>
+                    <source type='video/mp4' />
+                </VideoFile> */}
+            {/* </ImageWrapper> */}
         </MainImageContainer>
         <MainImageWrapper>
             {/* <MainImage /> */}
@@ -60,8 +37,9 @@ const MainLayout = styled.div`
 
 const MainImageContainer = styled.div`
     width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
+    height: 2900px;
+    /* overflow-x: hidden; */
+    /* margin-top: 80px; */
 `;
 
 const ImageWrapper = styled.div`
@@ -74,6 +52,25 @@ const ImageWrapper = styled.div`
     left: 0;
 `;
 
+const GradientContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #00000040, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+`;
+
+const VideoFile = styled.video`
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
+`;
+
 const Images = styled.div<{ src : string }>`
     width: 100%;
     height: 100%;
@@ -81,6 +78,10 @@ const Images = styled.div<{ src : string }>`
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    position: absolute;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
 `;
 
 const MainImageWrapper = styled.div`

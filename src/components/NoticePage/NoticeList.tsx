@@ -4,7 +4,7 @@ import NoticeCard from './NoticeCard';
 import { eventPosterData } from '../../data/EventPosterData';
 
 interface NoticeListProps {
-  japanese: boolean;
+  language: string;
   selectOption: {
     pick: string,
     japanesepick: string,
@@ -20,26 +20,89 @@ interface NoticeListProps {
   setTotalNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
+const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
 
-  const proceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
+  const ProceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
   const searchDataKR = eventPosterData?.filter((item) => {
-    return item?.title.toLowerCase().includes(content.toLowerCase())
+    return item?.title.toLowerCase().includes(content.toLowerCase());
   });
   const searchDataJP = eventPosterData?.filter((item) => {
-    return item?.japanesetitle.toLowerCase().includes(content.toLowerCase())
+    return item?.japanesetitle.toLowerCase().includes(content.toLowerCase());
+  });
+  const searchDataEN = eventPosterData?.filter((item) => {
+    return item?.englishtitle.toLowerCase().includes(content.toLowerCase());
   });
   console.log("검색", searchDataKR);
 
-  useEffect(() => {
+  const onFilterChange = () => {
     if (content === "") {
-      if (selectOption?.englishpick === "ALL") {
-        setTotalNumber(eventPosterData.length);
+      if (selectOption?.englishpick === "All") {
+        return (
+          eventPosterData?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
       } else {
-        setTotalNumber(proceedingData.length);
+        return (
+          ProceedingData?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
       };
     } else {
-      if (japanese) {
+      if (language === "english") {
+        return (
+          searchDataEN?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      } else if (language === "japanese") {
+        return (
+          searchDataJP?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      } else {
+        return (
+          searchDataKR?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      };
+    }; 
+  };
+
+  useEffect(() => {
+    if (content === "") {
+      if (selectOption?.englishpick === "All") {
+        setTotalNumber(eventPosterData.length);
+      } else {
+        setTotalNumber(ProceedingData.length);
+      };
+    } else {
+      if (language === "english") {
+        setTotalNumber(searchDataEN.length);
+      } else if (language === "japanese") {
         setTotalNumber(searchDataJP.length);
       } else {
         setTotalNumber(searchDataKR.length);
@@ -49,48 +112,23 @@ const NoticeList : React.FC<NoticeListProps> = ({ japanese, selectOption, setSel
 
   return (
     <ListContainer>
-      {(content === "")
-        ? ((selectOption?.englishpick === "ALL")
-          ? eventPosterData?.map((item) => {
-              return (
-                <div key={item?.id}>
-                  <NoticeCard item={item}/>
-                </div>
-              )
-            })
-          : proceedingData?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          }))
-        : (japanese)
-          ? searchDataJP?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-          : searchDataKR?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })}
+      {onFilterChange()}
     </ListContainer>
   )
 };
 
 const ListContainer = styled.div`
-  width: 100%;
+  width: 1320px;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 10px;
   padding: 30px 0px;
   border-top: 2px solid #222020;
+  margin: 0px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 100%;
+  }
 `;
 
 export default NoticeList;

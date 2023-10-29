@@ -9,24 +9,57 @@ import { useNavigate } from 'react-router-dom';
 
 const NotificationList = () => {
 
-    const japanese = useRecoilValue(translate);
+    const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
     const onClickNoticeHandler = ( item : any ) => {
         navigate(`/notice/notification/detail/${item?.id}`);
     };
 
+    const textChange = ( Num : number ) => {
+        if (Num === 0) {
+          switch (language) {
+            case "english" :
+                return "Notice";
+            case "japanese" :
+                return "お知らせ";
+            default :
+                return "공지";
+          };
+        } else {
+            switch (language) {
+                case "english" :
+                    return "cases";
+                case "japanese" :
+                    return " 件";
+                default :
+                    return " 건";
+            };
+        };
+    };
+
+    const contentChange = ( item : any ) => {
+        switch (language) {
+            case "english" :
+                return item?.englishnotice;
+            case "japanese" :
+                return item?.japanesenotice;
+            default :
+                return item?.notice;
+        };
+    };
+
   return (
     <ListLayoutContainer>
         <OutWrapper>
             <TitleContainer>
-                {japanese ? "お知らせ" : "공지"}
+                {textChange(0)}
                 <TotalWrapper>
                     Total
                     <Total>
                         {NotificationData.length}
                     </Total>
-                    {japanese ? " 件" : " 건"}
+                    {textChange(1)}
                 </TotalWrapper>
             </TitleContainer>
             <ListContainer>
@@ -39,7 +72,7 @@ const NotificationList = () => {
                                 <ContentWrapper>
                                     <NoticeIcon src={Notice}/>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {japanese ? item?.japanesenotice : item?.notice}
+                                        {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
                                 <ArrowIcon
@@ -51,7 +84,7 @@ const NotificationList = () => {
                                 <ContentWrapper>
                                     <NoticeIcon src={Notice}/>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {japanese ? item?.japanesenotice : item?.notice}
+                                        {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
                                 <ArrowIcon
@@ -67,15 +100,19 @@ const NotificationList = () => {
 };
 
 const ListLayoutContainer = styled.div`
-    width: 100%;
-    margin: 60px 0px;
+    width: 1320px;
+    margin: 60px auto;
+
+    @media screen and (max-width: 1320px) {
+        width: 100%;
+    }
 `;
 
 const OutWrapper = styled.div`
-    margin: 20px 15% 20px 15%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 `;
 
 const TitleContainer = styled.div`

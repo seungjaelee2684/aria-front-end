@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
@@ -15,7 +15,20 @@ const FilterButton = () => {
 
     const nationkind = useRecoilValue(nationKind);
     const flag = useRecoilValue(nationFlag);
+    const divRef = useRef<HTMLDivElement>(null);
     const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+          if (divRef.current && !divRef.current.contains(event.target)) {
+            setIsOpenFilter(false);
+          }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+          document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
 
   return (
     <FilterButtonContainer>
@@ -24,7 +37,9 @@ const FilterButton = () => {
                 {(nationkind !== "All") && <NationFlag src={flag}/>}
                 {nationkind}
             </NationFilter>
-            <FilterBtn onClick={() => setIsOpenFilter(!isOpenFilter)}>
+            <FilterBtn
+                ref={divRef} 
+                onClick={() => setIsOpenFilter(!isOpenFilter)}>
                 <FilterBtnIcon src={isOpenFilter ? `${UpArrow}` : `${DownArrow}`}/>
             </FilterBtn>
             {isOpenFilter
