@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/videos/front page2.gif';
+import MainBG from '../assets/videos/maingif.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainLogo from '../assets/logos/mainlogo.png';
 
@@ -89,8 +89,8 @@ const Images = styled.img`
 
 const MainImageWrapper = styled.div`
     position: absolute;
-    top: 450px;
-    left: 40%;
+    top: 400px;
+    left: 42%;
 `;
 
 const LogoImage = styled.img`
