@@ -35,7 +35,7 @@ const PageModal = ({ pageModal } : any) => {
       )
     } else if (pageModal === "Support") {
       return (
-        <ModalContainer className='ModalContainerDiv'>
+        <ModalContainer className='ModalContainerBig'>
           <ModalText
             onClick={() => {
               navigate("/support")
@@ -69,7 +69,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   align-items: start;
   position: absolute;
-  top: 60px;
+  top: 85px;
   left: 0;
   z-index: 200;
   color: #FCFCFC;

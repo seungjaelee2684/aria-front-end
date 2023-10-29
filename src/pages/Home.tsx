@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/images/maingif.gif';
+import MainBG from '../assets/videos/front page2.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainLogo from '../assets/logos/mainlogo.png';
 
@@ -73,13 +73,14 @@ const VideoFile = styled.video`
     z-index: 101;
 `;
 
-const Images = styled.div<{ src : string }>`
+const Images = styled.img`
     width: 100%;
     height: 100%;
-    background-image: url(${(props) => props.src});
+    object-fit: cover;
+    /* background-image: url(${(props) => props.src});
     background-size: cover;
     background-position: 0% 0%;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     position: absolute;
     /* position: fixed; */
     top: 0;
