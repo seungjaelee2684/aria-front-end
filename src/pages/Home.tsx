@@ -76,7 +76,7 @@ const Images = styled.div<{ src : string }>`
     height: 100%;
     background-image: url(${(props) => props.src});
     background-size: cover;
-    background-position: center center;
+    background-position: 0% 0%;
     background-repeat: no-repeat;
     position: absolute;
     /* position: fixed; */
