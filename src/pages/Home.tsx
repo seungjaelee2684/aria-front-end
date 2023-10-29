@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/images/backgroundimage.jpg';
+import MainBG from '../assets/images/maingif.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             {/* <ImageWrapper> */}
-                <GradientContainer />
+                {/* <GradientContainer /> */}
                 <Images src={MainBG}/>
                 {/* <VideoFile>
                     <source type='video/mp4' />
