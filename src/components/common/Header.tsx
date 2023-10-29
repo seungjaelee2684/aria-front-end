@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import logo from '../../assets/logos/logo.png';
+import logo from '../../assets/logos/logosimple.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';

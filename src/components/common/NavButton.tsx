@@ -77,7 +77,7 @@ const NavButton = () => {
                     resetFilter();
                     resetFlag();
                 }}>
-                SHOWCASE
+                H.O.F
             </TapContainer>
             <TapContainer
                 href='#'
