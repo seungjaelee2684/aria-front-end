@@ -13,26 +13,26 @@ const NavButton = () => {
     const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
 
-    const underLine = useRef<HTMLDivElement>(null);
-    let horizontalMenus = document.querySelectorAll("nav a");
+    // const underLine = useRef<HTMLDivElement>(null);
+    // let horizontalMenus = document.querySelectorAll("nav a");
     
-    horizontalMenus.forEach((menu) => {
-        menu.addEventListener("click", (e) => horizontalIndicator(e))
-    })
+    // horizontalMenus.forEach((menu) => {
+    //     menu.addEventListener("click", (e) => horizontalIndicator(e))
+    // })
 
-    const horizontalIndicator = (e : any) => {
-        if (underLine.current) {
-            underLine.current.style.left = `${e.currentTarget.offsetLeft + "px"}`;
-            underLine.current.style.width = `${e.currentTarget.offsetWidth + "px"}`;
-            // underLine.current.style.top = `${(e.currentTarget.offsetTop + e.currentTarget.offsetHeight - 9) + "px"}`;
-        };
-    };
+    // const horizontalIndicator = (e : any) => {
+    //     if (underLine.current) {
+    //         underLine.current.style.left = `${e.currentTarget.offsetLeft + "px"}`;
+    //         underLine.current.style.width = `${e.currentTarget.offsetWidth + "px"}`;
+    //         // underLine.current.style.top = `${(e.currentTarget.offsetTop + e.currentTarget.offsetHeight - 9) + "px"}`;
+    //     };
+    // };
 
     return (
         <TapOutContainer className='TapOutContainer'>
-            <UnderBarContainer
+            {/* <UnderBarContainer
                 ref={underLine}
-                style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/>
+                style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/> */}
             <TapContainer
                 href='#'
                 onClick={() => {
