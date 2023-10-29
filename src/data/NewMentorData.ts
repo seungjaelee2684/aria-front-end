@@ -1,5 +1,5 @@
 import Image from '../assets/images/mentorimage.png';
-import Image2 from '../assets/images/rapla1.png';
+import Image2 from '../assets/images/mentorimage2.png';
 import Image3 from '../assets/images/rapla2.png'
 import Image4 from '../assets/images/lineimage.png';
 
@@ -10,7 +10,8 @@ export const NewMentorListData = [
         englishname: "MinGyu",
         nickname: "민규",
         content: "",
-        image: Image
+        image: Image,
+        status: ""
     },
     {
         id: "2",
@@ -18,7 +19,8 @@ export const NewMentorListData = [
         englishname: "Shal.E",
         nickname: "샬e",
         content: "",
-        image: Image2
+        image: Image2,
+        status: "Left"
     },
     {
         id: "3",
@@ -26,7 +28,8 @@ export const NewMentorListData = [
         englishname: "Chan",
         nickname: "챤",
         content: "",
-        image: Image3
+        image: Image,
+        status: ""
     },
     {
         id: "4",
@@ -34,6 +37,7 @@ export const NewMentorListData = [
         englishname: "Shumolly",
         nickname: "슈몰리",
         content: "",
-        image: Image4
+        image: Image2,
+        status: "Left"
     },
 ];
