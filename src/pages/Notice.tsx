@@ -121,7 +121,7 @@ const LayoutWrapper = styled.div`
   margin: 50px auto;
 
   @media screen and (max-width: 1320px) {
-    width: 100%;
+    width: 96%;
   }
 `;
 
@@ -193,7 +193,7 @@ const SearBarInput = styled.input`
 
 const IconBox = styled.button`
   width: 34px;
-  height: 35px;
+  height: 36px;
   border-top: 1px solid #ADADAD;
   border-bottom: 1px solid #ADADAD;
   border-right: 1px solid #ADADAD;

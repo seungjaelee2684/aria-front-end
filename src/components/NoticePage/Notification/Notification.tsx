@@ -164,7 +164,7 @@ const Text = styled.div`
 `;
 
 const SeeMoreButton = styled.button`
-    display: inline-block;
+    width: 130px;
     height: 40px;
     border: none;
     color: #222020;
@@ -174,7 +174,7 @@ const SeeMoreButton = styled.button`
     font-weight: 400;
     line-height: 140%;
     border-radius: 5px;
-    text-align: center;
+    text-align: end;
     cursor: pointer;
 `;
 
