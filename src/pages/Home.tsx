@@ -88,13 +88,13 @@ const Images = styled.div<{ src : string }>`
 
 const MainImageWrapper = styled.div`
     position: absolute;
-    top: 400px;
+    top: 450px;
     left: 40%;
 `;
 
 const LogoImage = styled.img`
-    width: 440px;
-    height: 260px;
+    width: 320px;
+    height: 190px;
     object-fit: cover;
 `;
 
