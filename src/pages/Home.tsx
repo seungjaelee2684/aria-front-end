@@ -4,6 +4,7 @@ import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
 import MainBG from '../assets/images/maingif.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
+import MainLogo from '../assets/logos/mainlogo.png';
 
 const Home = () => {
 
@@ -20,6 +21,7 @@ const Home = () => {
         </MainImageContainer>
         <MainImageWrapper>
             {/* <MainImage /> */}
+            <LogoImage src={MainLogo}/>
         </MainImageWrapper>
     </MainLayout>
   )
@@ -86,10 +88,14 @@ const Images = styled.div<{ src : string }>`
 
 const MainImageWrapper = styled.div`
     position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    top: 450px;
+    left: 40%;
+`;
+
+const LogoImage = styled.img`
+    width: 320px;
+    height: 190px;
+    object-fit: cover;
 `;
 
 export default Home;

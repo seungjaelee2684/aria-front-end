@@ -61,7 +61,7 @@ const Header = () => {
             onMouseOut={() => setHoverEvent(false)}
         >
             <HeaderOutWrapper
-                style={{justifyContent: `${(location.pathname !== "/") ? "" : "end"}`}}>
+                style={{justifyContent: `${(location.pathname !== "/") ? "" : "center"}`}}>
                 {(location.pathname !== "/")
                     && <LogoContainer>
                         <HeaderLogo

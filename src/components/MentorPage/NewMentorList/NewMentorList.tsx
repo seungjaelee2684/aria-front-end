@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Image from '../../../assets/images/testImage.png';
 import Image2 from '../../../assets/images/mainimage.jpg';
 import { NewMentorListData } from '../../../data/NewMentorData';
-import MentorNickname from '../../../assets/images/raplaname.png';
+import MentorNickname from '../../../assets/images/mentorimagetext.png';
 
 interface NewMentorListProps {
     language: string;
@@ -40,9 +40,11 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ language, imageRef, slid
                                     : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                             </IntroduceText>
                         </IntroduceMentorContainer> */}
-                        <NicknameContainer 
-                            // className='ImageContainer'
-                            src={MentorNickname} />
+                        {(item?.status === "Left")
+                            ? <NicknameLeftContainer src={MentorNickname}/>
+                            : <NicknameContainer 
+                                // className='ImageContainer'
+                                src={MentorNickname} />}
                     </div>
                 )
             })}
@@ -107,14 +109,33 @@ const IntroduceMentorContainer = styled.div`
 `;
 
 const NicknameContainer = styled.img`
-  width: 500px;
-  height: 350px;
+  width: 600px;
+  height: 250px;
   object-fit: cover;
   user-select: none;
   /* padding: 0px 40px; */
   position: absolute;
   left: 10%;
-  top: 25%;
+  top: 35%;
+
+  @media screen and (max-width: 1320px) {
+        position: absolute;
+        width: 350px;
+        height: 250px;
+        top: 50%;
+        right: 10%;
+    }
+`;
+
+const NicknameLeftContainer = styled.img`
+  width: 600px;
+  height: 250px;
+  object-fit: cover;
+  user-select: none;
+  /* padding: 0px 40px; */
+  position: absolute;
+  right: 10%;
+  top: 35%;
 
   @media screen and (max-width: 1320px) {
         position: absolute;
