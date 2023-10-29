@@ -29,7 +29,7 @@ const PageModal = ({ pageModal } : any) => {
               resetFilter()
               resetFlag()
             }}>
-            Notification
+            Announcements
           </ModalText>
         </ModalContainer>
       )

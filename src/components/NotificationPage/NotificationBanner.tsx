@@ -36,7 +36,7 @@ const NotificationBanner = () => {
 
 const TitleContainer = styled.div`
   width: 100%;
-  height: 230px;
+  height: 300px;
   background-color: #FCFCFC;
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@ const TextWrapper = styled.div`
 const TextBox = styled.div`
   color: #FCFCFC;
   font-family: "Pretendard";
-  font-size: 36px;
+  font-size: 46px;
   font-weight: 700;
   line-height: 150%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
