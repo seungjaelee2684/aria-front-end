@@ -40,9 +40,9 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ language, imageRef, slid
                                     : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
                             </IntroduceText>
                         </IntroduceMentorContainer> */}
-                        <NicknameContainer 
+                        {/* <NicknameContainer 
                             // className='ImageContainer'
-                            src={MentorNickname} />
+                            src={MentorNickname} /> */}
                     </div>
                 )
             })}
