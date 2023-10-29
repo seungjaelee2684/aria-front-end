@@ -109,14 +109,14 @@ const IntroduceMentorContainer = styled.div`
 `;
 
 const NicknameContainer = styled.img`
-  width: 800px;
-  height: 330px;
+  width: 600px;
+  height: 250px;
   object-fit: cover;
   user-select: none;
   /* padding: 0px 40px; */
   position: absolute;
   left: 10%;
-  top: 25%;
+  top: 35%;
 
   @media screen and (max-width: 1320px) {
         position: absolute;
@@ -128,14 +128,14 @@ const NicknameContainer = styled.img`
 `;
 
 const NicknameLeftContainer = styled.img`
-  width: 800px;
-  height: 330px;
+  width: 600px;
+  height: 250px;
   object-fit: cover;
   user-select: none;
   /* padding: 0px 40px; */
   position: absolute;
   right: 10%;
-  top: 25%;
+  top: 35%;
 
   @media screen and (max-width: 1320px) {
         position: absolute;
