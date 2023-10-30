@@ -91,9 +91,14 @@ const CardContainer = styled.div`
         opacity: 0.7;
     }
 
-    @media screen and (max-width: 1320px) {
+    @media screen and (max-width: 836px) {
         width: 250px;
         height: 300px;  
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 200px;
+        height: 250px;  
     }
 `;
 
@@ -105,24 +110,33 @@ const CardImage = styled.div<{ src : string }>`
     background-position: center center;
     background-repeat: no-repeat;
 
-    @media screen and (max-width: 1340px) {
+    @media screen and (max-width: 836px) {
         width: 250px;
         height: 250px;
         background-size: 250px 250px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 200px;
+        height: 200px;
+        background-size: 200px 200px;
     }
 `;
 
 const LineContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     gap: 20px;
     width: 100%;
-    padding: 5px;
 `;
 
 const TextWrapper = styled.div`
-    font-size: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 5px 10px;
 `;
 
 const Text = styled.div`
@@ -131,9 +145,19 @@ const Text = styled.div`
     font-weight: 400;
     line-height: 140%;
     color: #222020;
+    justify-content: start;
     user-select: none;
-    display: flex;
-    padding: 0px 5px;
+    text-align: start;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    }
 `;
 
 const StampContainer = styled.div`

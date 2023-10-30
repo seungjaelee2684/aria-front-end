@@ -42,6 +42,14 @@ const TitleContainer = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
+
+  @media screen and (max-width: 836px) {
+    height: 200px;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 150px;
+  }
 `;
 
 const BannerBackgroundImg = styled.div<{ src : string }>`
@@ -77,6 +85,10 @@ const TextBox = styled.div`
   font-weight: 700;
   line-height: 150%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media screen and (max-width: 500px) {
+    font-size: 32px;
+  }
 `;
 
 const AnimationBar = styled.div`
@@ -85,6 +97,10 @@ const AnimationBar = styled.div`
   background-color: #FCFCFC;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;
+
+  @media screen and (max-width: 500px) {
+    width: 60px;
+  }
 `;
 
 export default NotificationBanner;

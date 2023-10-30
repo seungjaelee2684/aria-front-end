@@ -19,12 +19,12 @@
     position: absolute;
     opacity: 0;
     top: 0;
-    right: -20px;
+    right: -10px;
     transition: 0.5s;
 }
 
 .SeeMoreButton:hover span {
-    padding-right: 25px;
+    padding-right: 15px;
 }
 
 .SeeMoreButton:hover span:after {

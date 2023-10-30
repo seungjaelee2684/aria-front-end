@@ -86,12 +86,29 @@ const SelectBarContainer = styled.div`
   align-items: center;
   border-radius: 3px;
   position: relative;
+
+  @media screen and (max-width: 836px) {
+    min-width: 100px;
+    height: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    min-width: 60px;
+    height: 26px;
+    font-size: 12px;
+    padding: 0px 10px;
+  }
 `;
 
 const UpDownIcon = styled.img`
   width: 20px;
   height: 20px;
   object-fit: contain;
+
+  @media screen and (max-width: 500px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const SelectModalWrapper = styled.div`
@@ -99,6 +116,14 @@ const SelectModalWrapper = styled.div`
   top: 35px;
   left: -1px;
   z-index: 20;
+
+  @media screen and (max-width: 836px) {
+    top: 31px;
+  }
+
+  @media screen and (max-width: 500px) {
+    top: 27px;
+  }
 `;
 
 export default SelectBar;
