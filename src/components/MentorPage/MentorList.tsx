@@ -61,11 +61,6 @@ const ListOutContainer = styled.div`
         min-width: 96%;
         max-width: 96%;
     }
-    @media screen and (max-width: 588px) {
-        margin: 0px auto;
-        min-width: 336px;
-        max-width: 336px;
-    }
 `;
 
 const ListContainer = styled.div`
@@ -73,6 +68,10 @@ const ListContainer = styled.div`
     flex-wrap: wrap;
     align-items: center;
     gap: 20px;
+
+    @media screen and (max-width: 836px) {
+        justify-content: center;
+    }
 `;
 
 export default MentorList;

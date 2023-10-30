@@ -47,9 +47,19 @@ const CardContainer = styled.div`
     width: 180px;
     height: 240px;
   } */
-  @media screen and (max-width: 588px) {
-    width: 156px;
-    height: 216px;
+  @media screen and (max-width: 1320px) {
+    width: 270px;
+    height: 320px;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 200px;
+    height: 250px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 180px;
+    height: 230px;
   }
 `;
 
@@ -67,9 +77,19 @@ const CardImage = styled.div<{ src : string }>`
     width: 180px;
     height: 180px;
   } */
-  @media screen and (max-width: 588px) {
-    width: 156px;
-    height: 156px;
+  @media screen and (max-width: 1320px) {
+    width: 270px;
+    height: 270px;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 180px;
+    height: 180px;
   }
 `;
 

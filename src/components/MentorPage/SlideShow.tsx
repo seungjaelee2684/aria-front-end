@@ -47,16 +47,14 @@ const SlideShow = () => {
   return (
     <div>
     <ImageOutContainer>
-      <SlideButtonBox
-        style={{ left: "70px" }}
+      <SlideLeftButtonBox
         onClick={prevButton}>
         <SlideButton src={LeftArrow} />
-      </SlideButtonBox>
-      <SlideButtonBox
-        style={{ right: "70px" }}
+      </SlideLeftButtonBox>
+      <SlideRightButtonBox
         onClick={nextButton}>
         <SlideButton src={RightArrow} />
-      </SlideButtonBox>
+      </SlideRightButtonBox>
       <NewMentorList
         key={slideCurrent}
         imageRef={imageRef}
@@ -96,6 +94,10 @@ const ImageOutContainer = styled.div`
   height: 700px;
   overflow: hidden;
   position: relative;
+
+  @media screen and (max-width: 836px) {
+    height: 300px;
+  }
 `;
 
 const SlideBtnWrapper = styled.div`
@@ -106,11 +108,12 @@ const SlideBtnWrapper = styled.div`
   align-items: center;
 `;
 
-const SlideButtonBox = styled.div`
+const SlideLeftButtonBox = styled.div`
   width: 50px;
   height: 50px;
   position: absolute;
   top: 325px;
+  left: 70px;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
@@ -123,6 +126,43 @@ const SlideButtonBox = styled.div`
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media screen and (max-width: 1320px) {
+    left: 50px;
+  }
+
+  @media screen and (max-width: 836px) {
+    left: 10px;
+  }
+`;
+
+const SlideRightButtonBox = styled.div`
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 325px;
+  right: 70px;
+  border: 2px solid #FFFFFF;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #888888;
+  opacity: 0.4;
+  z-index: 88;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 1320px) {
+    right: 50px;
+  }
+
+  @media screen and (max-width: 836px) {
+    right: 10px;
   }
 `;
 

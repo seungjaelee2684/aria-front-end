@@ -33,15 +33,16 @@ const NavButton = () => {
             {/* <UnderBarContainer
                 ref={underLine}
                 style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/> */}
-            <TapContainer
-                href='#'
-                onClick={() => {
-                    navigate("/");
-                    resetFilter();
-                    resetFlag();
-                }}>
-                HOME
-            </TapContainer>
+            {(location.pathname !== "/")
+                && <TapContainer
+                    href='#'
+                    onClick={() => {
+                        navigate("/");
+                        resetFilter();
+                        resetFlag();
+                    }}>
+                    HOME
+                </TapContainer>}
             <TapContainer
                 href='#'
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
@@ -108,9 +109,9 @@ const TapOutContainer = styled.nav`
     height: 100%;
 
     @media screen and (max-width: 1320px) {
-        gap: 25px;
+        gap: 30px;
     }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 836px) {
         gap: 16px;
     }
 `;
