@@ -28,6 +28,10 @@ const Mentor = () => {
 const LayoutContainer = styled.div`
   width: 100%;
   padding: 80px 0px;
+
+  @media screen and (max-width: 500px) {
+    padding: 40px 0px;
+  }
 `;
 
 const LayoutInWrapper = styled.div`
