@@ -100,14 +100,6 @@ const ImageOutContainer = styled.div`
   }
 `;
 
-const SlideBtnWrapper = styled.div`
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const SlideLeftButtonBox = styled.div`
   width: 50px;
   height: 50px;
@@ -134,6 +126,9 @@ const SlideLeftButtonBox = styled.div`
 
   @media screen and (max-width: 836px) {
     left: 10px;
+    top: 125px;
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -163,6 +158,9 @@ const SlideRightButtonBox = styled.div`
 
   @media screen and (max-width: 836px) {
     right: 10px;
+    top: 125px;
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -170,6 +168,11 @@ const SlideButton = styled.img`
   width: 34px;
   height: 34px;
   object-fit: contain;
+
+  @media screen and (max-width: 836px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const SlideNumberContainer = styled.div`
