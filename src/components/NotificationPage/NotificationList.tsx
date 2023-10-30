@@ -104,7 +104,7 @@ const ListLayoutContainer = styled.div`
     margin: 60px auto;
 
     @media screen and (max-width: 1320px) {
-        width: 100%;
+        width: 96%;
     }
 `;
 

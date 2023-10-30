@@ -80,6 +80,15 @@ const ModalContainer = styled.div`
   background-color: #FFF;
   border-radius: 0px 0px 5px 5px;
   color: #222020;
+
+  @media screen and (max-width: 836px) {
+    min-width: 80px;
+  }
+
+  @media screen and (max-width: 500px) {
+    min-width: 60px;
+    font-size: 12px;
+  }
 `;
 
 const ModalLineContainer = styled.div`
@@ -93,6 +102,17 @@ const ModalLineContainer = styled.div`
   &:hover {
     color: #FCFCFC;
     background-color: #1e4eeb;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 80px;
+    height: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 60px;
+    height: 26px;
+    padding: 0px 10px;
   }
 `;
 
