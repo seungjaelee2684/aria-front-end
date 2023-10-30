@@ -65,7 +65,12 @@ const Notification = () => {
     <LineContainer>
         <ContentWrapper>
             <NoticeIcon src={Notice}/>
-            <Title>{onTitleHandler(0)}</Title>
+            <Title
+                minWidth={
+                    (language === "english")
+                        ? 130
+                        : 90
+                }>{onTitleHandler(0)}</Title>
             <BarContainer />
             <TextWrapper>
                 {NotificationData?.map((item : any) => {
@@ -115,20 +120,45 @@ const NoticeIcon = styled.img`
     width: 28px;
     height: 28px;
     object-fit: contain;
+
+    @media screen and (max-width: 836px) {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 18px;
+        height: 18px;
+    }
 `;
 
-const Title = styled.div`
-    min-width: 120px;
+const Title = styled.div<{ minWidth : number }>`
+    min-width: ${(props) => `${props.minWidth}px`};
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;
     color: #222020;
+
+    @media screen and (max-width: 836px) {
+        min-width: ${(props) => `${props.minWidth - 10}px`};
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 500px) {
+        min-width: ${(props) => `${props.minWidth - 38}px`};
+        font-size: 11px;
+    }
 `;
 
 const BarContainer = styled.div`
     min-width: 4px;
     height: 30px;
     background-color: red;
+
+    @media screen and (max-width: 500px) {
+        min-width: 2px;
+        height: 20px;
+    }
 `;
 
 const ContentWrapper = styled.div`
@@ -136,6 +166,10 @@ const ContentWrapper = styled.div`
     align-items: center;
     width: 100%;
     gap: 8px;
+
+    @media screen and (max-width: 500px) {
+        gap: 4px;
+    }
 `;
 
 const TextWrapper = styled.div`
@@ -144,13 +178,20 @@ const TextWrapper = styled.div`
     padding-left: 20px;
     height: 30px;
     position: relative;
+
+    @media screen and (max-width: 500px) {
+        height: 20px;
+    }
 `;
 
 const Text = styled.div`
     display: flex;
+    width: 100%;
     height: 100%;
     align-items: center;
     min-height: 30px;
+    font-size: 16px;
+    font-weight: 400;
     /* text-overflow: ellipsis;
     word-break: break-word;
     display: -webkit-box;
@@ -161,11 +202,22 @@ const Text = styled.div`
     position: absolute;
     top: 0;
     left: 10px;
+
+    @media screen and (max-width: 836px) {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 11px;
+        font-weight: 400;
+        min-height: 20px;
+    }
 `;
 
 const SeeMoreButton = styled.button`
     width: 130px;
-    height: 40px;
+    height: 30px;
     border: none;
     color: #222020;
     background-color: #FFF;
@@ -176,6 +228,12 @@ const SeeMoreButton = styled.button`
     border-radius: 5px;
     text-align: end;
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        width: 100px;
+        font-size: 12px;
+        height: 20px;
+    }
 `;
 
 export default Notification;

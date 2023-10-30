@@ -40,6 +40,14 @@ const TitleContainer = styled.div`
     background-color: #e9e9e9;
     margin: 80px 0px 0px 0px;
     user-select: none;
+
+    @media screen and (max-width: 836px) {
+        height: 200px;
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 150px;
+    }
 `;
 const BannerImageContainer = styled.div<{ src : string }>`
     width: 100%;
@@ -51,6 +59,14 @@ const BannerImageContainer = styled.div<{ src : string }>`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 836px) {
+        height: 200px;
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 150px;
+    }
 `;
 
 const TextWrapper = styled.div`
@@ -69,6 +85,10 @@ const TextBox = styled.div`
     font-weight: 700;
     line-height: 150%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: 500px) {
+        font-size: 32px;
+    }
 `;
 
 const AnimationBar = styled.div`
@@ -77,6 +97,10 @@ const AnimationBar = styled.div`
     background-color: #FCFCFC;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
+
+    @media screen and (max-width: 500px) {
+        width: 60px;
+    }
 `;
 
 export default NoticeBanner;

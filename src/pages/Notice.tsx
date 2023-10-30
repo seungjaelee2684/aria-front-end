@@ -136,6 +136,7 @@ const SearchBarContainer = styled.div`
 
   @media screen and (max-width: 1320px) {
     width: 100%;
+    height: 34px;
   }
 `;
 
@@ -148,6 +149,11 @@ const TotalTextWrapper = styled.div`
   align-items: center;
   color: #222020;
   gap: 8px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+    gap: 4px;
+  }
 `;
 
 const TotalText = styled.div`
@@ -157,6 +163,10 @@ const TotalText = styled.div`
   display: flex;
   align-items: center;
   color: red;
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
 `;
 
 const RightWrapper = styled.div`
@@ -189,6 +199,18 @@ const SearBarInput = styled.input`
   &:hover {
     border: 1px solid #222020;
   }
+
+  @media screen and (max-width: 836px) {
+    width: 80px;
+    height: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 60px;
+    height: 26px;
+    font-size: 12px;
+    padding: 0px 10px;
+  }
 `;
 
 const IconBox = styled.button`
@@ -203,6 +225,16 @@ const IconBox = styled.button`
   align-items: center;
   justify-content: center;
   background-color: #FFF;
+
+  @media screen and (max-width: 836px) {
+    width: 30px;
+    height: 32px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 26px;
+    height: 28px;
+  }
 `;
 
 const SearchIcon = styled.img`
@@ -211,6 +243,11 @@ const SearchIcon = styled.img`
   object-fit: contain;
   border-radius: 100%;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 const NotificationContainer = styled.div`
