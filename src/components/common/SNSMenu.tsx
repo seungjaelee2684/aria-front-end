@@ -110,6 +110,10 @@ const MenuIconContainer = styled.div`
   @media screen and (max-width: 1320px) {
     gap: 8px;
   }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const InstaIcon = styled.div`

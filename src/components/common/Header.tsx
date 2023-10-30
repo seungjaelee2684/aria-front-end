@@ -14,6 +14,7 @@ import TranslateModal from './TranslateModal';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { GiEarthAmerica } from 'react-icons/gi';
 import NavButton from './NavButton';
+import MobileNavBtn from './MobileNavBtn';
 
 const Header = () => {
 
@@ -74,7 +75,9 @@ const Header = () => {
                             }}/>
                     </LogoContainer>}
                 {/* <RightWrapper> */}
-                <NavButton/>
+                <NavButtonContainer>
+                    <NavButton />
+                </NavButtonContainer>
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {(location.pathname !== ("/"))
                     && <TranslateContainer>
@@ -94,6 +97,9 @@ const Header = () => {
         {/* <ScrollBarContainer> */}
             {/* <ScrollBar /> */}
         {/* </ScrollBarContainer> */}
+        <MobileNavButton>
+            <MobileNavBtn navigate={navigate}/>
+        </MobileNavButton>
     </div>
   )
 };
@@ -107,6 +113,10 @@ const HeaderHiddenContainer = styled.div`
     z-index: 99;
     background-color: #FFFFFF;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const HeaderLayoutContainer = styled.div`
@@ -118,6 +128,12 @@ const HeaderLayoutContainer = styled.div`
     left: 0;
     z-index: 100;
     /* opacity: 0.5; */
+
+    @media screen and (max-width: 500px) {
+        background-color: #FFFFFF;
+        height: 40px;
+        border-bottom: 1px solid #e9e9e9;
+    }
 `;
 
 const HeaderOutWrapper = styled.div`
@@ -139,12 +155,10 @@ const LogoContainer = styled.div`
     display: flex;
     /* margin: auto 0px; */
     align-items: center;
-    gap: 16px;
     height: 80px;
 
-    @media screen and (max-width: 1320px) {
-        gap: 5px;
-        height: 70px;
+    @media screen and (max-width: 500px) {
+        height: 40px;
     }
 `;
 
@@ -163,12 +177,14 @@ const HeaderLogo = styled.img`
 
     @media screen and (max-width: 1320px) {
         width: 100px;
-        height: 100%;
     }
 
     @media screen and (max-width: 836px) {
         width: 90px;
-        height: 100%;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 65px;
     }
 `;
 
@@ -269,6 +285,20 @@ const SNSModalListIcon = styled.img`
     @media screen and (max-width: 1320px) {
         width: 22px;
         height: 22px;
+    }
+`;
+
+const NavButtonContainer = styled.div`
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
+`;
+
+const MobileNavButton = styled.div`
+    display: none;
+
+    @media screen and (max-width: 500px) {
+        display: block;
     }
 `;
 
