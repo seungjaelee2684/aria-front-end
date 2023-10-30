@@ -86,6 +86,10 @@ const ImageBox = styled.div<{ src: string }>`
   top: 0;
   left: 0;
   /* opacity: 0; */
+
+  @media screen and (max-width: 836px) {
+    height: 300px;
+  }
 `;
 
 const IntroduceMentorContainer = styled.div`
@@ -118,12 +122,20 @@ const NicknameContainer = styled.img`
   left: 10%;
   top: 35%;
 
-  @media screen and (max-width: 1320px) {
-        position: absolute;
-        width: 350px;
-        height: 250px;
-        top: 50%;
-        right: 10%;
+    @media screen and (max-width: 1320px) {
+        width: 480px;
+        height: 200px;
+        top: 40%;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 330px;
+        height: 140px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 220px;
+        height: 90px;
     }
 `;
 
@@ -137,12 +149,20 @@ const NicknameLeftContainer = styled.img`
   right: 10%;
   top: 35%;
 
-  @media screen and (max-width: 1320px) {
-        position: absolute;
-        width: 350px;
-        height: 250px;
-        top: 50%;
-        right: 10%;
+    @media screen and (max-width: 1320px) {
+        width: 480px;
+        height: 200px;
+        top: 40%;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 330px;
+        height: 140px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 220px;
+        height: 90px;
     }
 `;
 

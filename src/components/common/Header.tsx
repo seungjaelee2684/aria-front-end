@@ -165,6 +165,11 @@ const HeaderLogo = styled.img`
         width: 100px;
         height: 100%;
     }
+
+    @media screen and (max-width: 836px) {
+        width: 90px;
+        height: 100%;
+    }
 `;
 
 const TranslateWrapper = styled.div`

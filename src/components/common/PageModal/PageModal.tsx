@@ -76,7 +76,7 @@ const ModalContainer = styled.div`
   padding: 10px 5px 10px 5px;
 
   @media screen and (max-width: 1320px) {
-    top: 30px;
+    min-width: 40px;
   }
 `;
 
@@ -92,6 +92,14 @@ const ModalText = styled.div`
   &:hover {
     color: #ff4444;
     transform: translateY(-1px);
+  }
+
+  @media screen and (max-width: 1320px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 10px;
   }
 `;
 
