@@ -35,7 +35,7 @@ const NavButton = () => {
                 style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/> */}
             {(location.pathname !== "/")
                 && <TapContainer
-                    href='#'
+                    // href='#'
                     onClick={() => {
                         navigate("/");
                         resetFilter();
@@ -44,7 +44,7 @@ const NavButton = () => {
                     HOME
                 </TapContainer>}
             <TapContainer
-                href='#'
+                // href='#'
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
                 onClick={() => {
                     navigate("/mentor");
@@ -54,7 +54,7 @@ const NavButton = () => {
                 MENTOR
             </TapContainer>
             <TapContainer
-                href='#'
+                // href='#'
                 onMouseOver={() => setPageModal("Notice")}
                 onMouseOut={() => setPageModal("")}>
                 <TapContainer
@@ -71,7 +71,7 @@ const NavButton = () => {
                         pageModal={pageModal} />}
             </TapContainer>
             <TapContainer
-                href='#'
+                // href='#'
                 style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
                 onClick={() => {
                     navigate("/showcase");
@@ -81,7 +81,7 @@ const NavButton = () => {
                 H.O.F
             </TapContainer>
             <TapContainer
-                href='#'
+                // href='#'
                 onMouseOver={() => setPageModal("Support")}
                 onMouseOut={() => setPageModal("")}>
                 <div
@@ -101,7 +101,7 @@ const NavButton = () => {
     )
 };
 
-const TapOutContainer = styled.nav`
+const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 80px;
@@ -127,7 +127,7 @@ const UnderBarContainer = styled.div`
     transition: all 0.5s ease-out;
 `;
 
-const TapContainer = styled.a`
+const TapContainer = styled.div`
     padding: 5px 0px;
     height: 100%;
     display: flex;
