@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/videos/maingif.gif';
+import MainBG from '../assets/videos/front page2.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainLogo from '../assets/logos/mainlogo.png';
 
@@ -14,8 +14,8 @@ const Home = () => {
             {/* <ImageWrapper> */}
                 {/* <GradientContainer /> */}
                 <Images src={MainBG}/>
-                {/* <VideoFile>
-                    <source type='video/mp4' />
+                {/* <VideoFile muted autoPlay loop>
+                    <source src="https://ssl.pstatic.net/static.gn/js/clickcrD.js" type='video/mp4'/>
                 </VideoFile> */}
             {/* </ImageWrapper> */}
         </MainImageContainer>
@@ -39,7 +39,7 @@ const MainLayout = styled.div`
 
 const MainImageContainer = styled.div`
     width: 100%;
-    height: 2900px;
+    height: 3000px;
     /* overflow-x: hidden; */
     /* margin-top: 80px; */
 `;
@@ -65,12 +65,13 @@ const GradientContainer = styled.div`
 `;
 
 const VideoFile = styled.video`
-    width: 400px;
-    height: 300px;
-    position: absolute;
+    width: 100%;
+    height: 3000px;
+    object-fit: cover;
+    /* position: absolute;
     top: 0;
     left: 0;
-    z-index: 101;
+    z-index: 101; */
 `;
 
 const Images = styled.img`

@@ -47,7 +47,7 @@ const ScrollTopButtonWrapper = styled.div`
     right: 4%;
     font-family: "Pretendard";
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 150%;
     color: #535151;
     display: flex;
@@ -55,11 +55,17 @@ const ScrollTopButtonWrapper = styled.div`
     align-items: center;
     background-color: #FFF;
     border: 2px solid #535151;
-    border-radius: 3px;
-    width: 60px;
+    width: 50px;
     height: 50px;
     opacity: 0;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
 `;
 
 export default ScrollTopButton;
