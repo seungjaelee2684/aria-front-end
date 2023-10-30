@@ -47,6 +47,7 @@ const TitleContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         height: 150px;
+        margin: 40px 0px 0px 0px;
     }
 `;
 const BannerImageContainer = styled.div<{ src : string }>`
