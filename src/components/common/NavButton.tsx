@@ -57,7 +57,7 @@ const NavButton = () => {
                 // href='#'
                 onMouseOver={() => setPageModal("Notice")}
                 onMouseOut={() => setPageModal("")}>
-                <TapContainer
+                <div
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
                         navigate("/notice");
@@ -65,7 +65,7 @@ const NavButton = () => {
                         resetFlag();
                     }}>
                     NOTICE
-                </TapContainer>
+                </div>
                 {((pageModal === "Notice") && (location.pathname !== "/"))
                     && <PageModal
                         pageModal={pageModal} />}
@@ -105,8 +105,7 @@ const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 80px;
-    padding: 10px 5px;
-    height: 100%;
+    height: 80px;
 
     @media screen and (max-width: 1320px) {
         gap: 30px;

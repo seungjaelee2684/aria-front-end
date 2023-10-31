@@ -131,7 +131,7 @@ const HeaderLayoutContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         background-color: #FFFFFF;
-        height: 40px;
+        height: 50px;
         border-bottom: 1px solid #e9e9e9;
     }
 `;
@@ -184,7 +184,7 @@ const HeaderLogo = styled.img`
     }
 
     @media screen and (max-width: 500px) {
-        width: 65px;
+        width: 80px;
     }
 `;
 

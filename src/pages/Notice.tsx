@@ -118,7 +118,7 @@ const LayoutContainer = styled.div`
 
 const LayoutWrapper = styled.div`
   width: 1320px;
-  margin: 50px auto;
+  margin: 80px auto;
 
   @media screen and (max-width: 1320px) {
     width: 96%;

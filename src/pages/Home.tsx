@@ -4,7 +4,6 @@ import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
 import MainBG from '../assets/videos/front page2.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
-import MainLogo from '../assets/logos/mainlogo.png';
 // import MyVideo from '../assets/videos/video.mp4';
 
 const Home = () => {
@@ -15,16 +14,12 @@ const Home = () => {
             {/* <ImageWrapper> */}
                 {/* <GradientContainer /> */}
                 {/* <Images src={MainBG}/> */}
-                <VideoFile muted autoPlay loop>
-                    <source src="videofiles/video.mp4" type='video/mp4'/>
-                </VideoFile>
-                {/* <iframe width="560" height="315" src="https://youtube.com/shorts/r85kD2xJ4rQ?si=DUcqMiBy0H2KdhrT" frameBorder="0"></iframe> */}
+            <VideoFile muted autoPlay loop>
+                <source src="videofiles/video.mp4" type='video/mp4'/>
+            </VideoFile>
             {/* </ImageWrapper> */}
         </MainImageContainer>
-        <MainImageWrapper>
-            {/* <MainImage /> */}
-            <LogoImage src={MainLogo}/>
-        </MainImageWrapper>
+        <MainImage />
     </MainLayout>
   )
 };
@@ -42,7 +37,7 @@ const MainLayout = styled.div`
 const MainImageContainer = styled.div`
     width: 100%;
     height: 3000px;
-    /* overflow-x: hidden; */
+    overflow: hidden;
     /* margin-top: 80px; */
 `;
 
@@ -63,7 +58,7 @@ const GradientContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 101;
 `;
 
 const VideoFile = styled.video`
@@ -88,19 +83,6 @@ const Images = styled.img`
     /* position: fixed; */
     top: 0;
     left: 0;
-`;
-
-const MainImageWrapper = styled.div`
-    position: absolute;
-    z-index: 100;
-    top: 400px;
-    left: 42%;
-`;
-
-const LogoImage = styled.img`
-    width: 320px;
-    height: 190px;
-    object-fit: cover;
 `;
 
 export default Home;

@@ -6,6 +6,8 @@ import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
 import MobileSNS from './MobileSNS/MobileSNS';
 import { IoShareSocialOutline } from 'react-icons/io5';
+import { GrHomeRounded } from 'react-icons/gr';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -20,13 +22,17 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
     <div style={{position: "relative"}}>
         <UnderHeaderContainer>
             <ButtonOutWrapper>
-                <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
+                <HomeButtonWrapper onClick={() => navigate("/")}>
+                    <GrHomeRounded />
+                </HomeButtonWrapper>
                     <HomeButton onClick={() => setSnsModal(!snsModal)}>
                         {snsModal 
                             ? <IoShareSocialOutline />
                             : <HomeBtnIcon src={Home}/>}
                     </HomeButton>
-                <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
+                <HomeButtonWrapper onClick={() => setHamburg(!hamburg)}>
+                    <GiHamburgerMenu />
+                </HomeButtonWrapper>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
         {snsModal
@@ -62,6 +68,19 @@ const ButtonOutWrapper = styled.div`
     margin: 0px auto;
 `;
 
+const HomeButtonWrapper = styled.div`
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    font-family: "Pretendard";
+    font-size: 28px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222020;
+`;
+
 const HamburgButton = styled.img`
     width: 36px;
     height: 36px;
@@ -78,7 +97,7 @@ const HomeButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     font-family: "Pretendard";
     font-size: 36px;
     color: #222020;
