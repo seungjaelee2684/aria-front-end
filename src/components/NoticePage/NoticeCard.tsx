@@ -97,8 +97,8 @@ const CardContainer = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        width: 200px;
-        height: 250px;  
+        width: 180px;
+        height: 220px;  
     }
 `;
 
@@ -117,9 +117,9 @@ const CardImage = styled.div<{ src : string }>`
     }
 
     @media screen and (max-width: 500px) {
-        width: 200px;
-        height: 200px;
-        background-size: 200px 200px;
+        width: 180px;
+        height: 180px;
+        background-size: 180px 180px;
     }
 `;
 
@@ -156,7 +156,7 @@ const Text = styled.div`
     -webkit-box-orient: vertical;
 
     @media screen and (max-width: 500px) {
-        font-size: 12px;
+        font-size: 10px;
     }
 `;
 
