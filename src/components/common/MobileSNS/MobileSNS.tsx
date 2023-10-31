@@ -19,18 +19,30 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
   return (
     <div>
         <BackgroundContainer onClick={() => setSnsModal(false)}/>
-        <InstaIcon
-            src={InstagramDefault}
-            className='InstaIcon'/>
-        <TwitterIcon
-            src={TwitterDefault}
-            className='TwitterIcon'/>
-        <DiscordIcon
-            src={DiscordDefault}
-            className='DiscordIcon'/>
-        <YoutubeIcon
-            src={YoutubeDefault}
-            className='YoutubeIcon'/>
+        <IconBox
+            bordercolor="1px solid #e54a58"
+            style={{bottom: '70px', left: "25%"}}
+            className='InstaIcon'>
+            <Icon src={Instagram}/>
+        </IconBox>
+        <IconBox
+            bordercolor="1px solid #33b2f9"
+            style={{bottom: '120px', left: "36%"}}
+            className='TwitterIcon'>
+            <Icon src={Twitter}/>
+        </IconBox>
+        <IconBox
+            bordercolor="1px solid #7489da"
+            style={{bottom: '120px', left: "52%"}}
+            className='DiscordIcon'>
+            <Icon src={Discord}/>
+        </IconBox>
+        <IconBox
+            bordercolor="1px solid #ff0000"
+            style={{bottom: '70px', left: "63%"}}
+            className='YoutubeIcon'>
+            <Icon src={Youtube}/>
+        </IconBox>
     </div>
   )
 };
@@ -41,33 +53,42 @@ const BackgroundContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
-  background-color: #22202010;
+  z-index: 98;
+  background-color: #22202030;
 `;
 
-export const InstaIcon = styled.img`
+const IconBox = styled.div<{ bordercolor : string }>`
     width: 50px;
     height: 50px;
-    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: ${(props) => props.bordercolor};
+    border-radius: 100%;
+    background-color: #FCFCFC90;
+    box-shadow: rgba(155, 151, 151, 0.808) 1px 1px 10px 1px;
     position: fixed;
-    z-index: 99;
+    z-index: 98;
     bottom: 70px;
     left: 25%;
+    opacity: 0;
+
+    /* &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        border: 1px solid;
+        border-image: linear-gradient(${(props) => props.bordercolor});
+        border-image-slice: 1;
+        border-radius: 50%;
+        position: absolute;
+    } */
 `;
 
-const TwitterIcon = styled(InstaIcon)`
-    bottom: 120px;
-    left: 36%;
-`;
-
-const DiscordIcon = styled(InstaIcon)`
-    bottom: 120px;
-    left: 52%;
-`;
-
-const YoutubeIcon = styled(InstaIcon)`
-    bottom: 70px;
-    left: 62%;
+const Icon = styled.img`
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 `;
 
 export default MobileSNS;

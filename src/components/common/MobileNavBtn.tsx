@@ -5,6 +5,7 @@ import { NavigateFunction } from 'react-router-dom';
 import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
 import MobileSNS from './MobileSNS/MobileSNS';
+import { IoShareSocialOutline } from 'react-icons/io5';
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -20,8 +21,10 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
         <UnderHeaderContainer>
             <ButtonOutWrapper>
                 <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
-                    <HomeButton>
-                        <HomeBtnIcon src={Home} onClick={() => setSnsModal(!snsModal)}/>
+                    <HomeButton onClick={() => setSnsModal(!snsModal)}>
+                        {snsModal 
+                            ? <IoShareSocialOutline />
+                            : <HomeBtnIcon src={Home}/>}
                     </HomeButton>
                 <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
             </ButtonOutWrapper>
@@ -75,6 +78,11 @@ const HomeButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
+    font-family: "Pretendard";
+    font-size: 36px;
+    color: #222020;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 `;
 
 const HomeButtonContainer = styled.div`

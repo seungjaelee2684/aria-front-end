@@ -65,7 +65,7 @@ const ScrollTopButtonWrapper = styled.div`
         width: 40px;
         height: 40px;
         font-size: 24px;
-        bottom: 7%;
+        bottom: 8%;
         right: 2%;
     }
 `;
