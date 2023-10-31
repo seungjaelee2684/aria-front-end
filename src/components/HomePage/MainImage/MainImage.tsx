@@ -6,6 +6,7 @@ import Cloud1 from '../../../assets/images/cloud1.png';
 import Cloud2 from '../../../assets/images/cloud2.png';
 import Cloud3 from '../../../assets/images/cloud3.png';
 import Logo from '../../../assets/logos/logo.png';
+import MainLogo from '../../../assets/logos/mainlogo.png';
 import { useNavigate } from 'react-router-dom';
 
 const MainImage = () => {
@@ -13,31 +14,10 @@ const MainImage = () => {
     const navigate = useNavigate();
 
   return (
-    <ImageLayout>
-        <CharacterImage className='CharacterImage' src={Character}/>
-        <CloudsImage className='CloudsImage1' src={Cloud3}/>
-        <CloudsImage
-            className='CloudsImage2'
-            src={Cloud2}
-            style={{bottom: "250px", left: "600px"}}/>
-        <CloudsImage
-            className='CloudsImage3'
-            src={Cloud1}
-            style={{bottom: "700px", left: "700px"}}/>
-        <LogoContainer>
-            <LogoImage
-                className='LogoImage'
-                src={Logo}/>
-            <ButtonWrapper className='PageMoveButton'>
-                <PageMoveButton onClick={() => navigate('/mentor')}>
-                    Mentor
-                </PageMoveButton>
-                <PageMoveButton onClick={() => navigate('/notice')}>
-                    Notice
-                </PageMoveButton>
-            </ButtonWrapper>
-        </LogoContainer>
-    </ImageLayout>
+    <MainImageWrapper className='MainImageWrapper'>
+        {/* <MainImage /> */}
+        <LogoImage src={MainLogo}/>
+    </MainImageWrapper>
   )
 };
 
@@ -76,12 +56,12 @@ const LogoContainer = styled.div`
     z-index: 101;
 `;
 
-const LogoImage = styled.img`
-    width: 600px;
-    height: 370px;
-    object-fit: cover;
-    opacity: 0;
-`;
+// const LogoImage = styled.img`
+//     width: 600px;
+//     height: 370px;
+//     object-fit: cover;
+//     opacity: 0;
+// `;
 
 const ButtonWrapper = styled.div`
     display: flex;
@@ -110,6 +90,20 @@ const PageMoveButton = styled.div`
         background-color: #3d4886;
         font-size: 23.6px;
     }
+`;
+
+const MainImageWrapper = styled.div`
+    position: absolute;
+    z-index: 100;
+    top: 14%;
+    left: 42%;
+    opacity: 0;
+`;
+
+const LogoImage = styled.img`
+    width: 320px;
+    height: 190px;
+    object-fit: cover;
 `;
 
 export default MainImage;
