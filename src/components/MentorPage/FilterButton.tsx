@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import FilterModal from './FilterModal';
 import UpArrow from '../../assets/icons/upArrow.png';
 import DownArrow from '../../assets/icons/downArrow.png'
+import Koreaflag from '../../assets/logos/koreaflag.png';
+import Japanflag from '../../assets/logos/japanflag.png';
+import Americaflag from '../../assets/logos/americaflag.png'
 
 const FilterButton = () => {
 
@@ -17,6 +20,15 @@ const FilterButton = () => {
     const flag = useRecoilValue(nationFlag);
     const divRef = useRef<HTMLDivElement>(null);
     const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
+    const [, setNationkind] = useRecoilState(nationKind);
+    const [, setFlag] = useRecoilState(nationFlag);
+
+    const nationFilter : Nation[]  = [
+        {nation: "All", flag: ""},
+        {nation: "American", flag: Americaflag},
+        {nation: "Japanese", flag: Japanflag},
+        {nation: "Korean" , flag: Koreaflag}
+    ]
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
@@ -48,6 +60,24 @@ const FilterButton = () => {
                         setIsOpenFilter={setIsOpenFilter}/>
                 </ModalWrapper>}
         </FilterButtonWrapper>
+        {nationFilter.map((item : Nation) => {
+            return (
+                <MobileFilterButton
+                    key={item?.nation}
+                    style={{
+                        backgroundColor: `${(nationkind === item?.nation) ? "#ADADAD" : ""}`,
+                        color: `${(nationkind === item?.nation) ? "#FCFCFC" : ""}`,
+                        fontWeight: `${(nationkind === item?.nation) ? "600" : ""}`
+                    }}
+                    onClick={() => {
+                        setNationkind(item?.nation);
+                        setFlag(item?.flag);
+                        setIsOpenFilter(false);
+                    }}>
+                    {item?.nation}
+                </MobileFilterButton>
+            )
+        })}
     </FilterButtonContainer>
   )
 };
@@ -60,6 +90,11 @@ const FilterButtonContainer = styled.div`
         min-width: 96%;
         max-width: 96%;
     }
+
+    @media screen and (max-width: 500px) {
+        display: flex;
+        gap: 8px;
+    }
 `;
 
 const FilterButtonWrapper = styled.div`
@@ -68,6 +103,10 @@ const FilterButtonWrapper = styled.div`
     align-items: center;
     position: relative;
     z-index: 50;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const NationFilter = styled.div`
@@ -121,6 +160,24 @@ const ModalWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+`;
+
+const MobileFilterButton = styled.div`
+    display: none;
+    
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ADADAD;
+        color: #ADADAD;
+        font-family: "Pretendard";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: normal;
+    }
 `;
 
 export default FilterButton;
