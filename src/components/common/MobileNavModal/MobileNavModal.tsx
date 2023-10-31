@@ -8,16 +8,17 @@ import { nationFlag, nationKind } from '../../../store/NationFilter';
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
+  hamburg: boolean;
   setHamburg: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, setHamburg }) => {
+const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg }) => {
 
   const resetFilter = useResetRecoilState(nationKind);
   const resetFlag = useResetRecoilState(nationFlag);
 
   return (
-    <ModalContainer>
+    <ModalContainer className='ModalContainer'>
       <CloseBtn onClick={() => setHamburg(false)}>
         <MdClose />
       </CloseBtn>
@@ -58,9 +59,10 @@ const ModalContainer = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
   z-index: 101;
   user-select: none;
+  box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
 `;
 
 const CloseBtn = styled.div`
