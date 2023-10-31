@@ -18,15 +18,18 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
         <UnderHeaderContainer>
             <ButtonOutWrapper>
                 <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
-                <HomeBottonContainer>
-                    <HomeBtnIcon src={Home} onClick={() => navigate("/")}/>
-                </HomeBottonContainer>
+
+                    <HomeButton>
+                        <HomeBtnIcon src={Home} onClick={() => navigate("/")}/>
+                    </HomeButton>
+
                 <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
         {hamburg
             && <MobileNavModal
                 navigate={navigate}
+                hamburg={hamburg}
                 setHamburg={setHamburg}/>}
     </div>
   )
@@ -34,7 +37,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
 const UnderHeaderContainer = styled.div`
     width: 100%;
-    height: 40px;
+    height: 60px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -48,30 +51,42 @@ const ButtonOutWrapper = styled.div`
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
     margin: 0px auto;
 `;
 
 const HamburgButton = styled.img`
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
+    margin-bottom: 12px;
 `;
 
-const HomeBottonContainer = styled.div`
-    width: 70px;
-    height: 70px;
+const HomeButton = styled.div`
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
     background-color: #FFFFFF;
-    border: 1px solid #e9e9e9;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
+const HomeButtonContainer = styled.div`
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+`;
+
 const HomeBtnIcon = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
     object-fit: contain;
 `;
 
