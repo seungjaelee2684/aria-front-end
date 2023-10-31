@@ -31,7 +31,7 @@ const MentorCard = ({ item, language } : any) => {
 
 const CardContainer = styled.div`
   width: 315px;
-  height: 380px;
+  height: 375px;
   /* border: 1px solid; */
   /* border-radius: 10px; */
   background-color: #FFFFFF;
@@ -98,25 +98,25 @@ const ContentContainer = styled.div`
   margin-top: 5px;
   gap: 0px;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 14px;
   line-height: 140%;
   color: #39373A;
 
   @media screen and (max-width: 588px) {
-    font-size: 12px;
+    font-size: 10px;
     line-height: normal;
   }
 `;
 
 const NicknameContainer = styled.div`
   font-family: "Pretendard";
-  font-size: 20px;
+  font-size: 18px;
   color: #222020;
   font-weight: 600;
   line-height: 150%;
 
   @media screen and (max-width: 1320px) {
-    font-size: 16px;
+    font-size: 14px;
     line-height: normal;
   }
 `;

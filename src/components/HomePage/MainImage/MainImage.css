@@ -1,5 +1,6 @@
-.CharacterImage {
+.MainImageWrapper {
     animation: character_image 1.5s forwards;
+    animation-delay: 1s;
 }
 
 .CloudsImage1 {
