@@ -5,6 +5,7 @@ import MainBackground from '../assets/images/mainimage2.jpg';
 import MainBG from '../assets/videos/front page2.gif';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainLogo from '../assets/logos/mainlogo.png';
+// import MyVideo from '../assets/videos/video.mp4';
 
 const Home = () => {
 
@@ -13,10 +14,11 @@ const Home = () => {
         <MainImageContainer>
             {/* <ImageWrapper> */}
                 {/* <GradientContainer /> */}
-                <Images src={MainBG}/>
-                {/* <VideoFile muted autoPlay loop>
-                    <source src="https://ssl.pstatic.net/static.gn/js/clickcrD.js" type='video/mp4'/>
-                </VideoFile> */}
+                {/* <Images src={MainBG}/> */}
+                <VideoFile muted autoPlay loop>
+                    <source src="videofiles/video.mp4" type='video/mp4'/>
+                </VideoFile>
+                {/* <iframe width="560" height="315" src="https://youtube.com/shorts/r85kD2xJ4rQ?si=DUcqMiBy0H2KdhrT" frameBorder="0"></iframe> */}
             {/* </ImageWrapper> */}
         </MainImageContainer>
         <MainImageWrapper>
@@ -66,12 +68,12 @@ const GradientContainer = styled.div`
 
 const VideoFile = styled.video`
     width: 100%;
-    height: 3000px;
+    height: auto;
     object-fit: cover;
-    /* position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 101; */
+    z-index: 100;
 `;
 
 const Images = styled.img`
@@ -90,6 +92,7 @@ const Images = styled.img`
 
 const MainImageWrapper = styled.div`
     position: absolute;
+    z-index: 100;
     top: 400px;
     left: 42%;
 `;

@@ -63,7 +63,7 @@ const BackgroundContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 99;
   background-color: #22202050;
 `;
 
@@ -77,10 +77,9 @@ const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 15px 15px 0px 0px;
-  z-index: 101;
+  z-index: 100;
   user-select: none;
   box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
-  padding: 20px;
 `;
 
 const CloseBtnContainer = styled.div`
@@ -88,6 +87,7 @@ const CloseBtnContainer = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+  margin-top: 20px;
 `;
 
 const CloseBtn = styled.div`
