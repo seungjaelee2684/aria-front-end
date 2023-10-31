@@ -18,39 +18,54 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
   const resetFlag = useResetRecoilState(nationFlag);
 
   return (
-    <ModalContainer className='ModalContainer'>
-      <CloseBtn onClick={() => setHamburg(false)}>
-        <MdClose />
-      </CloseBtn>
-      <TextWrapper>
-        <Text onClick={() => {
-          navigate("/mentor")
-          resetFilter()
-          resetFlag()
-          setHamburg(false)
-        }}>Mentor</Text>
-        <Text onClick={() => {
-          navigate("/notice")
-          resetFilter()
-          resetFlag()
-          setHamburg(false)
-        }}>Notice</Text>
-        <Text onClick={() => {
-          navigate("/showcase")
-          resetFilter()
-          resetFlag()
-          setHamburg(false)
-        }}>H.O.F</Text>
-        <Text onClick={() => {
-          navigate("/support")
-          resetFilter()
-          resetFlag()
-          setHamburg(false)
-        }}>Support</Text>
-      </TextWrapper>
-    </ModalContainer>
+    <div>
+      <BackgroundContainer onClick={() => setHamburg(false)}/>
+      <ModalContainer className='ModalContainer'>
+        <CloseBtnContainer>
+          <CloseBtn onClick={() => setHamburg(false)}>
+            <MdClose />
+          </CloseBtn>
+        </CloseBtnContainer>
+        <TextWrapper>
+          <Text onClick={() => {
+            navigate("/mentor")
+            resetFilter()
+            resetFlag()
+            setHamburg(false)
+          }}>Mentor</Text>
+          <Text onClick={() => {
+            navigate("/notice")
+            resetFilter()
+            resetFlag()
+            setHamburg(false)
+          }}>Notice</Text>
+          <Text onClick={() => {
+            navigate("/showcase")
+            resetFilter()
+            resetFlag()
+            setHamburg(false)
+          }}>H.O.F</Text>
+          <Text onClick={() => {
+            navigate("/support")
+            resetFilter()
+            resetFlag()
+            setHamburg(false)
+          }}>Support</Text>
+        </TextWrapper>
+      </ModalContainer>
+    </div>
   )
 };
+
+const BackgroundContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #22202050;
+`;
 
 const ModalContainer = styled.div`
   width: 100%;
@@ -59,10 +74,20 @@ const ModalContainer = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
   border-radius: 15px 15px 0px 0px;
   z-index: 101;
   user-select: none;
   box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+  padding: 20px;
+`;
+
+const CloseBtnContainer = styled.div`
+  width: 96%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 `;
 
 const CloseBtn = styled.div`

@@ -4,6 +4,7 @@ import Home from '../../assets/logos/mainlogo.png';
 import { NavigateFunction } from 'react-router-dom';
 import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
+import MobileSNS from './MobileSNS/MobileSNS';
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -12,20 +13,23 @@ interface MobileNavBtnProps {
 const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
     const [hamburg, setHamburg] = useState<boolean>(false);
+    const [snsModal, setSnsModal] = useState<boolean>(false);
 
   return (
     <div style={{position: "relative"}}>
         <UnderHeaderContainer>
             <ButtonOutWrapper>
                 <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
-
                     <HomeButton>
-                        <HomeBtnIcon src={Home} onClick={() => navigate("/")}/>
+                        <HomeBtnIcon src={Home} onClick={() => setSnsModal(!snsModal)}/>
                     </HomeButton>
-
                 <HamburgButton src={NavigateBtn} onClick={() => setHamburg(!hamburg)}/>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
+        {snsModal
+            && <MobileSNS
+                snsModal={snsModal}
+                setSnsModal={setSnsModal}/>}
         {hamburg
             && <MobileNavModal
                 navigate={navigate}
