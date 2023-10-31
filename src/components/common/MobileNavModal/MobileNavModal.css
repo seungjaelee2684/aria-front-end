@@ -1,0 +1,25 @@
+.ModalContainer {
+    animation: mobile_modal_open 0.5s forwards;
+}
+
+/* .ModalCloseContainer {
+    animation: mobile_modal_close 0.5s forwards;
+} */
+
+@keyframes mobile_modal_open {
+    from {
+        transform: translateY(500px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+/* @keyframes mobile_modal_close {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-500px);
+    }
+} */
