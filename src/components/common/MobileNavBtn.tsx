@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import Home from '../../assets/logos/mainlogo.png';
+import Home from '../../assets/logos/mobilelogo.png';
 import { NavigateFunction } from 'react-router-dom';
 import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
@@ -60,7 +60,7 @@ const UnderHeaderContainer = styled.div`
 `;
 
 const ButtonOutWrapper = styled.div`
-    width: 70%;
+    width: 66%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -99,7 +99,7 @@ const HomeButton = styled.div`
     align-items: center;
     margin-bottom: 3px;
     font-family: "Pretendard";
-    font-size: 36px;
+    font-size: 40px;
     color: #222020;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 `;
@@ -116,8 +116,8 @@ const HomeButtonContainer = styled.div`
 `;
 
 const HomeBtnIcon = styled.img`
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 `;
 

@@ -59,7 +59,12 @@ const CardContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     width: 180px;
-    height: 230px;
+    height: 220px;
+
+    &:hover {
+      transform: translateY(0px) scale(1);
+      box-shadow: none;
+    }
   }
 `;
 
