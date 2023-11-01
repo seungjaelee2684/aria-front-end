@@ -39,7 +39,7 @@ const CardContainer = styled.div`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-5px) scale(1.01);
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 5px 2px;
   }
 
