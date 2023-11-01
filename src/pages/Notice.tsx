@@ -201,12 +201,12 @@ const SearBarInput = styled.input`
   }
 
   @media screen and (max-width: 836px) {
-    width: 80px;
+    width: 100px;
     height: 30px;
   }
 
   @media screen and (max-width: 500px) {
-    width: 60px;
+    width: 90px;
     height: 26px;
     font-size: 12px;
     padding: 0px 10px;

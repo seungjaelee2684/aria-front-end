@@ -114,14 +114,13 @@ const CloseBtn = styled.div`
   align-items: center;
   border-radius: 100%;
   font-family: "Pretendard";
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
   line-height: normal;
-  color: #ADADAD;
+  color: #222020;
 
   &:active {
     background-color: #e9e9e9;
-    color: #FCFCFC;
   }
 `;
 
@@ -140,6 +139,7 @@ const TextWrapper = styled.div`
 const Text = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
   padding: 20px 40px;
 `;
 

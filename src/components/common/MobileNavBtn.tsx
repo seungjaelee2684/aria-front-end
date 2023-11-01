@@ -8,6 +8,7 @@ import MobileSNS from './MobileSNS/MobileSNS';
 import { IoShareSocialOutline } from 'react-icons/io5';
 import { GrHomeRounded } from 'react-icons/gr';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { BsBoxArrowLeft } from 'react-icons/bs';
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -31,7 +32,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                             : <HomeBtnIcon src={Home}/>}
                     </HomeButton>
                 <HomeButtonWrapper onClick={() => setHamburg(!hamburg)}>
-                    <GiHamburgerMenu />
+                    {hamburg ? <BsBoxArrowLeft /> : <GiHamburgerMenu />}
                 </HomeButtonWrapper>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
@@ -55,6 +56,7 @@ const UnderHeaderContainer = styled.div`
     bottom: 0;
     left: 0;
     background-color: #FFFFFF;
+    user-select: none;
     z-index: 99;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
 `;
@@ -99,8 +101,8 @@ const HomeButton = styled.div`
     align-items: center;
     margin-bottom: 3px;
     font-family: "Pretendard";
-    font-size: 40px;
-    color: #222020;
+    font-size: 44px;
+    color: #797979;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 `;
 
