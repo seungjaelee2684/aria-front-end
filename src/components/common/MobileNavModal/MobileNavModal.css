@@ -8,7 +8,7 @@
 
 @keyframes mobile_modal_open {
     from {
-        transform: translateY(500px);
+        transform: translateX(-500px);
     }
     to {
         transform: translateY(0px);
