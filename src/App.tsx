@@ -21,6 +21,7 @@ import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
 import Showcase from './pages/Showcase';
 import Check from './pages/Check';
 import SNSMenu from './components/common/SNSMenu';
+import Footer from './components/common/Footer';
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ function App() {
               <Route path='/notice/detail/:id' element={<NoticeDetail />} />
             </Routes>
             <ScrollTopButton />
+            <Footer />
           </BrowserRouter>
         </QueryClientProvider>
       </RecoilRoot>

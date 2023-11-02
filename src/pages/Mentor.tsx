@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { translate } from '../store/Translation';
 import Image from '../assets/images/testImage.png';
 import Image2 from '../assets/images/mainimage.jpg';
 import MentorList from '../components/MentorPage/MentorList';
@@ -12,7 +10,7 @@ import SlideShow from '../components/MentorPage/SlideShow';
 
 const Mentor = () => {
 
-  const language = useRecoilValue(translate);
+  
 
   return (
     <LayoutContainer>
@@ -20,7 +18,7 @@ const Mentor = () => {
         <SlideShow />
       </LayoutInWrapper>
       <FilterButton />
-      <MentorList language={language} />
+      <MentorList />
     </LayoutContainer>
   )
 };

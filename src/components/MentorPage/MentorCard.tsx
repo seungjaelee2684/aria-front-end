@@ -43,10 +43,6 @@ const CardContainer = styled.div`
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 5px 2px;
   }
 
-  /* @media screen and (max-width: 1320px) {
-    width: 180px;
-    height: 240px;
-  } */
   @media screen and (max-width: 1320px) {
     width: 270px;
     height: 320px;
@@ -107,7 +103,16 @@ const ContentContainer = styled.div`
   line-height: 140%;
   color: #39373A;
 
-  @media screen and (max-width: 588px) {
+  @media screen and (max-width: 1320px) {
+    margin-top: 0px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 12px;
+    margin-top: 0px;
+  }
+
+  @media screen and (max-width: 500px) {
     font-size: 10px;
     line-height: normal;
   }
@@ -120,7 +125,11 @@ const NicknameContainer = styled.div`
   font-weight: 600;
   line-height: 150%;
 
-  @media screen and (max-width: 1320px) {
+  @media screen and (max-width: 836px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 500px) {
     font-size: 14px;
     line-height: normal;
   }

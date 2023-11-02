@@ -21,12 +21,13 @@ const Header = () => {
     const language = useRecoilValue(translate);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
-    const [languageTrans, setLanguageTrans] = useRecoilState(translate);
+    const [, setLanguageTrans] = useRecoilState(translate);
     
 
     const navigate = useNavigate();
     const location = useLocation();
     const hoverRef = useRef<HTMLDivElement>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
     const [hoverEvent, setHoverEvent] = useState<boolean>(false);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
@@ -42,6 +43,18 @@ const Header = () => {
     };
 
     useEffect(() => {
+        const handleClickOutside = (event: any) => {
+          if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setLanguageModal(false);
+          }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+          document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
         if (hoverRef.current) {
             if (hoverEvent) {
                 hoverRef.current.style.transition = "all 0.2s ease-in-out"
@@ -53,6 +66,8 @@ const Header = () => {
             
         };
     }, [hoverEvent]);
+
+    // console.log("렌더링 발생");
 
   return (
     <div>
@@ -80,7 +95,7 @@ const Header = () => {
                 </NavButtonContainer>
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {(location.pathname !== ("/"))
-                    && <TranslateContainer>
+                    && <TranslateContainer ref={modalRef}>
                         <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
                             <GiEarthAmerica />
                             <TranslateText>{languageChange()}</TranslateText>
@@ -176,7 +191,7 @@ const HeaderLogo = styled.img`
     }
 
     @media screen and (max-width: 1320px) {
-        width: 100px;
+        width: 110px;
     }
 
     @media screen and (max-width: 836px) {
