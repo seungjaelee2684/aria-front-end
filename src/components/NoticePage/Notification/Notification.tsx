@@ -167,7 +167,7 @@ const ContentWrapper = styled.div`
     width: 100%;
     gap: 8px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 1320px) {
         gap: 4px;
     }
 `;

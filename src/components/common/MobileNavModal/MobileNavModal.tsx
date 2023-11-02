@@ -51,6 +51,12 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           }}>
             Notice
           </Text>
+          <SurvePageButton>
+            Event
+          </SurvePageButton>
+          <SurvePageButton>
+            Announcements
+          </SurvePageButton>
           <Text onClick={() => {
             navigate("/showcase")
             resetFilter()
@@ -67,6 +73,15 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           }}>
             Support
           </Text>
+          <SurvePageButton>
+            Schedule
+          </SurvePageButton>
+          <SurvePageButton>
+            Counseling
+          </SurvePageButton>
+          <SurvePageButton>
+            Policy
+          </SurvePageButton>
         </TextWrapper>
       </ModalContainer>
     </div>
@@ -141,6 +156,15 @@ const Text = styled.div`
   display: flex;
   align-items: center;
   padding: 20px 40px;
+`;
+
+const SurvePageButton = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 70px 20px 70px;
+  color: #ADADAD;
+  font-size: 14px;
 `;
 
 export default MobileNavModal;

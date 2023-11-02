@@ -4,25 +4,45 @@ import '../../style/Banner.css';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import BannerBackground from '../../assets/images/rapla2.png';
+import Banner1 from '../../assets/images/mainimage2.jpg';
+import Banner2 from '../../assets/images/rapla2.png';
 
-const NotificationBanner = () => {
+interface BannerProps {
+    page: number;
+}
+
+const Banner : React.FC<BannerProps> = ({ page }) => {
 
     const language = useRecoilValue(translate);
+
+    type InfoType = {
+        image: string,
+        englishtitle: string,
+        japanesetitle: string,
+        title: string
+    };
+
+    const textInformation : InfoType[] = [
+        {image: Banner1, englishtitle: "EVENT", japanesetitle: "イベント", title: "이벤트"},
+        {image: Banner2, englishtitle: "ANNOUNCEMENTS", japanesetitle: "お知らせ", title: "공지 사항"},
+        {image: Banner1, englishtitle: "SHOWCASE", japanesetitle: "名誉の殿堂", title: "명예의 전당"},
+        {image: Banner2, englishtitle: "", japanesetitle: "", title: ""}
+    ];
 
     const textChange = () => {
         switch (language) {
             case "english" :
-                return "ANNOUNCEMENTS";
+                return textInformation[page]?.englishtitle;
             case "japanese" :
-                return "お知らせ";
+                return textInformation[page]?.japanesetitle;
             default :
-                return "공지 사항";
+                return textInformation[page]?.title;
         };
     };
 
   return (
     <TitleContainer>
-      <BannerBackgroundImg src={BannerBackground}>
+      <BannerBackgroundImg src={textInformation[page]?.image}>
         <TextWrapper>
           <TextBox className='TextBox'>
             {textChange()}
@@ -37,6 +57,7 @@ const NotificationBanner = () => {
 const TitleContainer = styled.div`
   width: 100%;
   height: 300px;
+  margin: 80px 0px 0px 0px;
   background-color: #FCFCFC;
   display: flex;
   justify-content: center;
@@ -49,6 +70,7 @@ const TitleContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     height: 150px;
+    margin: 40px 0px 0px 0px;
   }
 `;
 
@@ -103,4 +125,4 @@ const AnimationBar = styled.div`
   }
 `;
 
-export default NotificationBanner;
+export default Banner;

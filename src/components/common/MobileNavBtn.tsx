@@ -6,8 +6,8 @@ import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
 import MobileSNS from './MobileSNS/MobileSNS';
 import { IoShareSocialOutline } from 'react-icons/io5';
-import { GrHomeRounded } from 'react-icons/gr';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoHomeOutline } from 'react-icons/io5';
+import { RxHamburgerMenu } from 'react-icons/rx';
 import { BsBoxArrowLeft } from 'react-icons/bs';
 
 interface MobileNavBtnProps {
@@ -23,17 +23,25 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
     <div style={{position: "relative"}}>
         <UnderHeaderContainer>
             <ButtonOutWrapper>
-                <HomeButtonWrapper onClick={() => navigate("/")}>
-                    <GrHomeRounded />
-                </HomeButtonWrapper>
+                <ButtonBox onClick={() => navigate("/")}>
+                    <ButtonWrapper>
+                        <IoHomeOutline />
+                    </ButtonWrapper>
+                    Home
+                </ButtonBox>
                     <HomeButton onClick={() => setSnsModal(!snsModal)}>
-                        {snsModal 
-                            ? <IoShareSocialOutline />
-                            : <HomeBtnIcon src={Home}/>}
+                        <HomeButtonInWrapper>
+                            {snsModal 
+                                ? <IoShareSocialOutline />
+                                : <HomeBtnIcon src={Home}/>}
+                        </HomeButtonInWrapper>
                     </HomeButton>
-                <HomeButtonWrapper onClick={() => setHamburg(!hamburg)}>
-                    {hamburg ? <BsBoxArrowLeft /> : <GiHamburgerMenu />}
-                </HomeButtonWrapper>
+                <ButtonBox onClick={() => setHamburg(!hamburg)}>
+                    <ButtonWrapper>
+                        {hamburg ? <BsBoxArrowLeft /> : <RxHamburgerMenu />}
+                    </ButtonWrapper>
+                    Menu
+                </ButtonBox>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
         {snsModal
@@ -70,40 +78,49 @@ const ButtonOutWrapper = styled.div`
     margin: 0px auto;
 `;
 
-const HomeButtonWrapper = styled.div`
-    width: 36px;
-    height: 36px;
-    margin-bottom: 12px;
-    font-family: "Pretendard";
-    font-size: 28px;
-    font-weight: 400;
+const ButtonWrapper = styled.div`
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #222020;
 `;
 
-const HamburgButton = styled.img`
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    margin-bottom: 12px;
+const ButtonBox = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Pretendard";
+    gap: 3px;
+    font-size: 10px;
+    font-weight: 600;
+`;
+
+const HomeButtonInWrapper = styled.div`
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 100%;
 `;
 
 const HomeButton = styled.div`
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    background-color: #FFFFFF;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3px;
+    /* margin-bottom: 3px; */
     font-family: "Pretendard";
     font-size: 44px;
     color: #797979;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, #FFFFFF, #cccccc);
 `;
 
 const HomeButtonContainer = styled.div`
@@ -118,8 +135,8 @@ const HomeButtonContainer = styled.div`
 `;
 
 const HomeBtnIcon = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
 `;
 

@@ -4,14 +4,12 @@ import { mentorListData } from '../../data/MentorData';
 import MentorCard from './MentorCard';
 import { useRecoilValue } from 'recoil';
 import { nationKind } from '../../store/NationFilter';
+import { translate } from '../../store/Translation';
 
-interface MentorListProps {
-    language: string;
-}
-
-const MentorList : React.FC<MentorListProps> = ({ language }) => {
+const MentorList = () => {
 
     const nationkind = useRecoilValue(nationKind);
+    const language = useRecoilValue(translate);
 
     const filterData = mentorListData?.filter((data) => data.nation === nationkind);
 
