@@ -118,7 +118,7 @@ const LayoutContainer = styled.div`
 
 const LayoutWrapper = styled.div`
   width: 1320px;
-  margin: 80px auto;
+  margin: 40px auto;
 
   @media screen and (max-width: 1320px) {
     width: 96%;
@@ -206,7 +206,7 @@ const SearBarInput = styled.input`
   }
 
   @media screen and (max-width: 500px) {
-    width: 90px;
+    width: 130px;
     height: 26px;
     font-size: 12px;
     padding: 0px 10px;

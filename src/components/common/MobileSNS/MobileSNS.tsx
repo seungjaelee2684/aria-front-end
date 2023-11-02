@@ -92,8 +92,8 @@ const IconBox = styled.div<{ bordercolor : string }>`
     align-items: center;
     border: ${(props) => props.bordercolor};
     border-radius: 100%;
-    background-color: rgba(255, 255, 255, 0.863);
-    box-shadow: rgba(155, 151, 151, 0.808) 1px 1px 10px 1px;
+    background-color: rgba(255, 255, 255, 0.925);
+    box-shadow: rgba(94, 92, 92, 0.808) 1px 1px 10px 1px;
     position: fixed;
     z-index: 98;
     bottom: 70px;
