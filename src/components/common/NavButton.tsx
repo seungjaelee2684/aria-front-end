@@ -108,7 +108,7 @@ const TapOutContainer = styled.div`
     height: 80px;
 
     @media screen and (max-width: 1320px) {
-        gap: 30px;
+        gap: 50px;
     }
     @media screen and (max-width: 836px) {
         gap: 16px;

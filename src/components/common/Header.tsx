@@ -176,7 +176,7 @@ const HeaderLogo = styled.img`
     }
 
     @media screen and (max-width: 1320px) {
-        width: 100px;
+        width: 110px;
     }
 
     @media screen and (max-width: 836px) {
