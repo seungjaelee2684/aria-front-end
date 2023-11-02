@@ -1,31 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
-import Banner from '../assets/images/mainimage.jpg';
 import { translate } from '../store/Translation';
 import { useRecoilValue } from 'recoil';
+import Banner from '../components/common/Banner';
 
 const Showcase = () => {
 
   const language = useRecoilValue(translate);
 
-  const titleText = () => {
-    switch (language) {
-      case "english" :
-        return "SHOWCASE";
-      case "japanese" :
-        return "名誉の殿堂";
-      default :
-        return "명예의 전당";
-    }
-  };
-
   return (
     <LayoutContainer>
-      <BannerContainer>
-        <BannerImageContainer src={Banner}>
-          {titleText()}
-        </BannerImageContainer>
-      </BannerContainer>
+      <Banner page={2}/>
       <LayoutWrapper>
         Showcase
       </LayoutWrapper>
@@ -65,6 +50,10 @@ const BannerImageContainer = styled.div<{ src : string }>`
 const LayoutWrapper = styled.div`
   width: 1320px;
   margin: 0px auto;
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+  }
 `;
 
 export default Showcase;

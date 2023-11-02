@@ -1,15 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
 import NotificationList from '../components/NotificationPage/NotificationList';
-import NotificationBanner from '../components/NotificationPage/NotificationBanner';
+import Banner from '../components/common/Banner';
 
 const Notification = () => {
 
-  
-
   return (
     <LayoutContainer>
-      <NotificationBanner />
+      <Banner page={1}/>
       <NotificationList />
     </LayoutContainer>
   )
@@ -17,11 +15,6 @@ const Notification = () => {
 
 const LayoutContainer = styled.div`
   width: 100%;
-  padding: 80px 0px;
-
-  @media screen and (max-width: 500px) {
-    padding: 40px 0px;
-  }
 `;
 
 export default Notification;
