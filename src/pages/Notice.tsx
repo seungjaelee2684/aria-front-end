@@ -8,7 +8,7 @@ import Notification from '../components/NoticePage/Notification/Notification';
 import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
 import { eventPosterData } from '../data/EventPosterData';
-import NoticeBanner from '../components/NoticePage/NoticeBanner';
+import Banner from '../components/common/Banner';
 
 const Notice = () => {
 
@@ -66,7 +66,7 @@ const Notice = () => {
 
   return (
     <LayoutContainer>
-      <NoticeBanner />
+      <Banner page={0}/>
       <LayoutWrapper>
         <NotificationContainer>
           <Notification />
