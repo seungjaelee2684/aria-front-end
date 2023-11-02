@@ -26,11 +26,15 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                 <HomeButtonWrapper onClick={() => navigate("/")}>
                     <GrHomeRounded />
                 </HomeButtonWrapper>
-                    <HomeButton onClick={() => setSnsModal(!snsModal)}>
-                        {snsModal 
-                            ? <IoShareSocialOutline />
-                            : <HomeBtnIcon src={Home}/>}
-                    </HomeButton>
+                    
+                        <HomeButton onClick={() => setSnsModal(!snsModal)}>
+                        <HomeButtonInWrapper>
+                            {snsModal 
+                                ? <IoShareSocialOutline />
+                                : <HomeBtnIcon src={Home}/>}
+                                </HomeButtonInWrapper>
+                        </HomeButton>
+                    
                 <HomeButtonWrapper onClick={() => setHamburg(!hamburg)}>
                     {hamburg ? <BsBoxArrowLeft /> : <GiHamburgerMenu />}
                 </HomeButtonWrapper>
@@ -83,18 +87,20 @@ const HomeButtonWrapper = styled.div`
     color: #222020;
 `;
 
-const HamburgButton = styled.img`
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    margin-bottom: 12px;
+const HomeButtonInWrapper = styled.div`
+    width: 66px;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 100%;
 `;
 
 const HomeButton = styled.div`
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    background-color: #FFFFFF;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
     display: flex;
     justify-content: center;
@@ -104,6 +110,7 @@ const HomeButton = styled.div`
     font-size: 44px;
     color: #797979;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: linear-gradient(to bottom, #FFFFFF, #ADADAD);
 `;
 
 const HomeButtonContainer = styled.div`
