@@ -7,8 +7,34 @@ import FooterLogo from '../../assets/logos/graylogo.png';
 
 const Footer = () => {
 
-    const location = useLocation();
-    const language = useRecoilValue(translate);
+  const location = useLocation();
+  const language = useRecoilValue(translate);
+
+  type ArrType = {
+    englishcontent: string,
+    japanesecontent: string,
+    content: string
+  }
+
+  const textArr : ArrType[] = [
+    {englishcontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", japanesecontent: "", content: ""},
+  ];
+
+  const translateText = (Num : number) => {
+    switch (language) {
+      case "english" :
+        return textArr[Num]?.englishcontent;
+      case "japanese" :
+        return textArr[Num]?.japanesecontent;
+      default :
+        return textArr[Num]?.content;
+    }
+  };
     
   return (
     <FooterContainer style={{display: `${(location.pathname === "/") ? "none" : "block"}`}}>
