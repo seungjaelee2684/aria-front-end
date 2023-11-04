@@ -4,17 +4,17 @@
 
 .TwitterIcon {
     animation: twitter_fade_out 0.5s forwards;
-    animation-delay: 0.1s;
+    /* animation-delay: 0.1s; */
 }
 
 .DiscordIcon {
     animation: discord_fade_out 0.5s forwards;
-    animation-delay: 0.2s;
+    /* animation-delay: 0.2s; */
 }
 
 .YoutubeIcon {
     animation: youtube_fade_out 0.5s forwards;
-    animation-delay: 0.3s;
+    /* animation-delay: 0.3s; */
 }
 
 @keyframes instar_fade_out {
