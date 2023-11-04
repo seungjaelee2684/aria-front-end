@@ -33,7 +33,7 @@ function App() {
           <BrowserRouter>
             <ScrollTop />
             <Header />
-            <SNSMenu />
+            {/* <SNSMenu /> */}
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/check' element={<Check />} />
