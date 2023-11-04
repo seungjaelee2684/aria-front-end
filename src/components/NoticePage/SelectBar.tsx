@@ -93,7 +93,7 @@ const SelectBarContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    min-width: 60px;
+    min-width: 80px;
     height: 26px;
     font-size: 12px;
     padding: 0px 10px;

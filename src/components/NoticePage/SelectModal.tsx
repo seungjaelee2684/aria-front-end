@@ -82,11 +82,11 @@ const ModalContainer = styled.div`
   color: #222020;
 
   @media screen and (max-width: 836px) {
-    min-width: 80px;
+    min-width: 100px;
   }
 
   @media screen and (max-width: 500px) {
-    min-width: 60px;
+    min-width: 80px;
     font-size: 12px;
   }
 `;
@@ -105,12 +105,12 @@ const ModalLineContainer = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    width: 80px;
+    width: 100px;
     height: 30px;
   }
 
   @media screen and (max-width: 500px) {
-    width: 60px;
+    width: 80px;
     height: 26px;
     padding: 0px 10px;
   }

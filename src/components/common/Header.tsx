@@ -217,12 +217,12 @@ const TranslateWrapper = styled.div`
 
 const TranslateText = styled.div`
     font-family: "Pretendard";
-    font-size: 14px;
+    font-size: 16px;
     color: #222020;
     font-weight: 600;
 
     @media screen and (max-width: 1320px) {
-        font-size: 12px;
+        font-size: 14px;
     }
 `;
 

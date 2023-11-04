@@ -65,8 +65,9 @@ const FilterButton = () => {
                 <MobileFilterButton
                     key={item?.nation}
                     style={{
-                        background: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
-                        color: `${(nationkind === item?.nation) ? "#FCFCFC" : ""}`,
+                        borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
+                        borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
+                        color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
                         fontWeight: `${(nationkind === item?.nation) ? "600" : ""}`
                     }}
                     onClick={() => {
@@ -172,9 +173,9 @@ const MobileFilterButton = styled.div`
         justify-content: center;
         align-items: center;
         border: 1px solid #ADADAD;
-        border-image: linear-gradient(to right, #2a9fff, #2e1388);
+        /* border-image: linear-gradient(to right, #2a9fff, #2e1388); */
         border-image-slice: 1;
-        color: #3c3ad6;
+        color: #ADADAD;
         font-family: "Pretendard";
         font-size: 16px;
         font-weight: 300;
