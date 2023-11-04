@@ -14,12 +14,35 @@ const Footer = () => {
     <FooterContainer style={{display: `${(location.pathname === "/") ? "none" : "block"}`}}>
       <FooterOutContainer>
         <TopLaneHeader>
-
+          <LeftTopLaneContainer>
+            <Text>
+              내용내용
+            </Text>
+            <Text>
+              내용내용
+            </Text>
+            <Text>
+              내용내용
+            </Text>
+          </LeftTopLaneContainer>
         </TopLaneHeader>
         <FooterOutWrapper>
           <LogoContainer src={FooterLogo}/>
           <FirstWrapper>
-            개인정보 처리방침
+            <Title>
+              개인정보 처리방침
+            </Title>
+            <ContentBox>
+              <Content>
+                주소: 서울특별시 블라블라 블라블라
+              </Content>
+              <Content>
+                개인정보 처리방침
+              </Content> 
+              <Content>
+                개인정보 처리방침
+              </Content> 
+            </ContentBox>
           </FirstWrapper>
           <FirstWrapper>
             개인정보 처리방침
@@ -61,13 +84,27 @@ const TopLaneHeader = styled.div`
   height: 150px;
   border-bottom: 1px solid #ADADAD;
   padding: 0px 40px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+`;
+
+const LeftTopLaneContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: #e9e9e9; 
+`;
+
+const Text = styled.div`
+  font-size: 16px;
 `;
 
 const FooterOutWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   margin: 40px;
   gap: 40px;
 `;
@@ -81,7 +118,23 @@ const LogoContainer = styled.img`
 const FirstWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  text-align: start;
+  gap: 30px;
+`;
+
+const Title = styled.div`
+
+`;
+
+const ContentBox = styled.div`
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const Content = styled.div`
+
 `;
 
 export default Footer;
