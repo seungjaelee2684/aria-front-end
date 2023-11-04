@@ -206,7 +206,7 @@ const SearBarInput = styled.input`
   }
 
   @media screen and (max-width: 500px) {
-    width: 130px;
+    width: 110px;
     height: 26px;
     font-size: 12px;
     padding: 0px 10px;
