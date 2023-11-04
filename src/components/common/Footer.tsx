@@ -15,12 +15,15 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-color: #222020;
-    color: #FCFCFC;
+    color: #ADADAD;
     font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
     z-index: 99;
-    margin-top: 400px;
+    margin-top: 300px;
 
     @media screen and (max-width: 500px) {
         margin-bottom: 60px;
