@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import './SNSMenu.css';
 import Instagram from '../../../assets/icons/insta.png';
 import Twitter from '../../../assets/icons/twitter.png';
 import Discord from '../../../assets/icons/discord.png';
@@ -64,31 +65,26 @@ const SNSMenu = () => {
     <MenuIconContainer className='MenuIconContainer'>
       <InstaIcon>
         <MenuIcon
-          className='MenuIcon'
+          // className='MenuIcon'
           title={onTitleReadyHandler(0)}
-          default={InstagramDefault}
           src={Instagram}
           onClick={onClickReadyHandler}/>
       </InstaIcon>
       <TwitterIcon>
         <MenuIcon
           title={onTitleReadyHandler(1)}
-          default={TwitterDefault}
           src={Twitter}
           onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
       </TwitterIcon>
       <DiscordIcon>
         <MenuIcon
           title={onTitleReadyHandler(2)}
-          default={DiscordDefault}
           src={Discord}
           onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
-        {(sns) && <SNSModal sns={sns} setSns={setSns}/>}
       </DiscordIcon>
       <YoutubeIcon>
         <MenuIcon
           title={onTitleReadyHandler(0)}
-          default={YoutubeDefault}
           src={Youtube}
           onClick={onClickReadyHandler}/>
       </YoutubeIcon>
@@ -97,18 +93,18 @@ const SNSMenu = () => {
 };
 
 const MenuIconContainer = styled.div`
-  position: absolute;
+  position: fixed;
   height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 55px;
-  right: 0;
+  top: 85px;
+  right: 15.3%;
   z-index: 89;
   gap: 8px;
 
   @media screen and (max-width: 1320px) {
-    gap: 8px;
+    right: 2.1%;
   }
 
   @media screen and (max-width: 500px) {
@@ -122,25 +118,21 @@ const InstaIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1px solid #BCBCBC50;
+  background-color: #FFFFFF90;
+  border: 1px solid #e54a5890;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    border: 1px solid #e54a58;
+    
     background-color: #FFFFFF;
     /* .MenuIcon {
       &:hover {
         opacity: 1;
       }
     } */
-  }
-
-  @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
   }
 `;
 
@@ -150,20 +142,16 @@ const TwitterIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1px solid #BCBCBC50;
+  background-color: #FFFFFF90;
+  border: 1px solid #33b2f990;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    border: 1px solid #33b2f9;
+    
     background-color: #FFFFFF;
-  }
-
-  @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
   }
 `;
 
@@ -173,20 +161,15 @@ const DiscordIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1px solid #BCBCBC50;
+  background-color: #FFFFFF90;
+  border: 1px solid #7489da90;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
-  &:hover {
-    border: 1px solid #7489da;
+  &:hover { 
     background-color: #FFFFFF;
-  }
-
-  @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
   }
 `;
 
@@ -196,7 +179,8 @@ const YoutubeIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1px solid #BCBCBC50;
+  background-color: #FFFFFF90;
+  border: 1px solid #ff000090;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
@@ -206,30 +190,19 @@ const YoutubeIcon = styled.div`
     border: 1px solid #ff0000;
     background-color: #FFFFFF;
   }
-
-  @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
-  }
 `;
 
-const MenuIcon = styled.div<{ default : string, src : string }>`
+const MenuIcon = styled.div<{ src : string }>`
   width: 44px;
   height: 44px;
-  background-image: url(${(props) => props.default});
+  background-image: url(${(props) => props.src});
   background-size: 100% 100%;
-  opacity: 0.5;
+  opacity: 0.8;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
     opacity: 1;
-    background-image: url(${(props) => props.src});
-  }
-
-  @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
   }
 `;
 

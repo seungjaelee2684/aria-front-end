@@ -114,13 +114,13 @@ const Header = () => {
                             <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                                 <IoShareSocialOutline />
                             </SNSModalContainer>
-                            {snsOpen && <SNSMenu />}
                         </div>
                     </TranslateContainer>
                 {/* </RightWrapper> */}
                 
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
+        {snsOpen && <SNSMenu />}
         {/* <ScrollBarContainer> */}
             {/* <ScrollBar /> */}
         {/* </ScrollBarContainer> */}
@@ -302,11 +302,6 @@ const SNSModalContainer = styled.div`
     &:hover {
         color: #222020;
         border: 1px solid #222020;
-    }
-
-    @media screen and (max-width: 1320px) {
-        width: 32px;
-        height: 32px;
     }
 `;
 
