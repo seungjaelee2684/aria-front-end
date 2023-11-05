@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/videos/front page2.gif';
+import MainBG from '../assets/images/mainimage2.jpg';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 // import MyVideo from '../assets/videos/video.mp4';
 
@@ -11,15 +11,9 @@ const Home = () => {
   return (
     <MainLayout>
         <MainImageContainer>
-            {/* <ImageWrapper> */}
-                {/* <GradientContainer /> */}
-                {/* <Images src={MainBG}/> */}
-            <VideoFile muted autoPlay loop>
-                <source src="videofiles/video.mp4" type='video/mp4'/>
-            </VideoFile>
-            {/* </ImageWrapper> */}
+            <GradientContainer />
+            <Images src={MainBG}/>
         </MainImageContainer>
-        <MainImage />
     </MainLayout>
   )
 };
@@ -36,7 +30,7 @@ const MainLayout = styled.div`
 
 const MainImageContainer = styled.div`
     width: 100%;
-    height: 3000px;
+    height: 100vh;
     overflow: hidden;
     /* margin-top: 80px; */
 `;

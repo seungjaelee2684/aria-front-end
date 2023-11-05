@@ -40,6 +40,10 @@ const Notice = () => {
       englishpick: "All"
     });
   };
+
+  // window.onload = () => {
+  //   console.log("로딩완료");
+  // };
   console.log("검색창 입력값", content);
 
   const textChange = ( Num : number ) => {

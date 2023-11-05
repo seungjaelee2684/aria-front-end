@@ -2,16 +2,29 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
 import PageModal from './PageModal/PageModal';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useResetRecoilState } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
+import { translate } from '../../store/Translation';
 
 const NavButton = () => {
 
     const navigate = useNavigate();
+    const language = useRecoilValue(translate);
     const location = useLocation();
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
+
+    const alertText = () => {
+        switch (language) {
+            case "english" :
+                return alert("Coming soon");
+            case "japanese" :
+                return alert("準備中です。");
+            default :
+                return alert("준비중입니다.");
+        };
+    };
 
     // const underLine = useRef<HTMLDivElement>(null);
     // let horizontalMenus = document.querySelectorAll("nav a");
@@ -33,7 +46,7 @@ const NavButton = () => {
             {/* <UnderBarContainer
                 ref={underLine}
                 style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/> */}
-            {(location.pathname !== "/")
+            {/* {(location.pathname !== "/")
                 && <TapContainer
                     // href='#'
                     onClick={() => {
@@ -42,7 +55,7 @@ const NavButton = () => {
                         resetFlag();
                     }}>
                     HOME
-                </TapContainer>}
+                </TapContainer>} */}
             <TapContainer
                 // href='#'
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
@@ -73,11 +86,12 @@ const NavButton = () => {
             <TapContainer
                 // href='#'
                 style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
-                onClick={() => {
-                    navigate("/showcase");
-                    resetFilter();
-                    resetFlag();
-                }}>
+                onClick={
+                    // navigate("/showcase");
+                    // resetFilter();
+                    // resetFlag();
+                    alertText
+                }>
                 H.O.F
             </TapContainer>
             <TapContainer
@@ -104,14 +118,14 @@ const NavButton = () => {
 const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: 110px;
     height: 80px;
 
     @media screen and (max-width: 1320px) {
-        gap: 50px;
+        gap: 70px;
     }
     @media screen and (max-width: 836px) {
-        gap: 16px;
+        gap: 24px;
     }
 `;
 

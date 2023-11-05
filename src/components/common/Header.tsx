@@ -6,15 +6,16 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
-import SNSMenu from './SNSMenu';
+import SNSMenu from './SNSMenu/SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
 import '../../style/font/font.css';
 import Translate from '../../assets/icons/translateicon.png';
 import TranslateModal from './TranslateModal';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
-import { GiEarthAmerica } from 'react-icons/gi';
+import { BsGlobe2 } from 'react-icons/bs';
 import NavButton from './NavButton';
 import MobileNavBtn from './MobileNavBtn';
+import { IoShareSocialOutline } from 'react-icons/io5';
 
 const Header = () => {
 
@@ -22,13 +23,12 @@ const Header = () => {
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const [, setLanguageTrans] = useRecoilState(translate);
-    
 
     const navigate = useNavigate();
     const location = useLocation();
-    const hoverRef = useRef<HTMLDivElement>(null);
     const modalRef = useRef<HTMLDivElement>(null);
-    const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+    const snsModalRef = useRef<HTMLDivElement>(null);
+    const [snsOpen, setSnsOpen] = useState<boolean>(false);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -46,7 +46,10 @@ const Header = () => {
         const handleClickOutside = (event: any) => {
           if (modalRef.current && !modalRef.current.contains(event.target)) {
             setLanguageModal(false);
-          }
+          };
+          if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
+            setSnsOpen(false);
+          };
         };
         document.addEventListener("click", handleClickOutside);
         return () => {
@@ -54,32 +57,31 @@ const Header = () => {
         };
     }, []);
 
-    useEffect(() => {
-        if (hoverRef.current) {
-            if (hoverEvent) {
-                hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "1"
-            } else {
-                hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "0.4"
-            };
+    // useEffect(() => {
+    //     if (hoverRef.current) {
+    //         if (hoverEvent) {
+    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
+    //             hoverRef.current.style.opacity = "1"
+    //         } else {
+    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
+    //             hoverRef.current.style.opacity = "0.4"
+    //         };
             
-        };
-    }, [hoverEvent]);
+    //     };
+    // }, [hoverEvent]);
 
     // console.log("렌더링 발생");
 
   return (
     <div>
-        {(location.pathname !== "/") && <HeaderHiddenContainer ref={hoverRef} />}
+        {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
         <HeaderLayoutContainer
-            onMouseOver={() => setHoverEvent(true)}
-            onMouseOut={() => setHoverEvent(false)}
+            style={{ position: `${(location.pathname === "/") ? "absolute" : "fixed"}` }}
+            // onMouseOver={() => setHoverEvent(true)}
+            // onMouseOut={() => setHoverEvent(false)}
         >
-            <HeaderOutWrapper
-                style={{justifyContent: `${(location.pathname !== "/") ? "" : "center"}`}}>
-                {(location.pathname !== "/")
-                    && <LogoContainer>
+            <HeaderOutWrapper>
+                <LogoContainer>
                         <HeaderLogo
                             src={logo}
                             alt=""
@@ -88,27 +90,37 @@ const Header = () => {
                                 resetFilter();
                                 resetFlag();
                             }}/>
-                    </LogoContainer>}
+                    </LogoContainer>
                 {/* <RightWrapper> */}
                 <NavButtonContainer>
                     <NavButton />
                 </NavButtonContainer>
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
-                {(location.pathname !== ("/"))
-                    && <TranslateContainer ref={modalRef}>
-                        <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                            <GiEarthAmerica />
-                            <TranslateText>{languageChange()}</TranslateText>
-                            {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                <TranslateContainer>
+                        <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
+                            <BsGlobe2 />
+                            {/* <TranslateText>{languageChange()}</TranslateText> */}
+                            {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
+                            <TransText
+                                style={{fontSize: `${(language === "japanese") ? "8px" : "9px"}`}}>
+                                {languageChange()}
+                            </TransText>
                         </TranslateWrapper>
                         {languageModal
                             && <TranslateModal
                                 setLanguageModal={setLanguageModal}
                                 setLanguageTrans={setLanguageTrans}/>}
-                    </TranslateContainer>}
+                        <div>
+                            <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
+                                <IoShareSocialOutline />
+                            </SNSModalContainer>
+                        </div>
+                    </TranslateContainer>
                 {/* </RightWrapper> */}
+                
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
+        {snsOpen && <SNSMenu />}
         {/* <ScrollBarContainer> */}
             {/* <ScrollBar /> */}
         {/* </ScrollBarContainer> */}
@@ -138,11 +150,12 @@ const HeaderLayoutContainer = styled.div`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     z-index: 100;
     /* opacity: 0.5; */
+    background-color: #FFFFFF;
 
     @media screen and (max-width: 500px) {
         background-color: #FFFFFF;
@@ -205,13 +218,22 @@ const HeaderLogo = styled.img`
 
 const TranslateWrapper = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 2px;
-    transition: all 0.2s ease-in-out;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ADADAD;
+    border-radius: 100%;
+    color: #ADADAD;
+    background-color: #FFFFFF;
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
 
     &:hover {
-       opacity: 0.8;
+       color: #222020;
+       border: 1px solid #222020;
     }
 `;
 
@@ -258,30 +280,28 @@ const TranslateContainer = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    gap: 10px;
 `;
 
 const SNSModalContainer = styled.div`
-    width: 36px;
-    min-width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: #FCFCFC;
-    border: 1.5px solid #4a556830;
+    background-color: #FFFFFF;
+    border: 1px solid #41ecf180;
     border-radius: 100%;
+    color: #41ecf180;
+    font-size: 28px;
     transition: all 0.3s ease-in-out;
     position: relative;
     z-index: 100;
     cursor: pointer;
 
     &:hover {
-        border: 1.5px solid #4a5568;
-    }
-
-    @media screen and (max-width: 1320px) {
-        width: 32px;
-        height: 32px;
+        color: #41ecf1;
+        border: 1px solid #41ecf1;
     }
 `;
 
@@ -315,6 +335,18 @@ const MobileNavButton = styled.div`
     @media screen and (max-width: 500px) {
         display: block;
     }
+`;
+
+const TransText = styled.div`
+    font-family: "Pretendard";
+    font-size: 9px;
+    font-weight: 700;
+    line-height: normal;
+    width: 25px;
+    height: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default Header;
