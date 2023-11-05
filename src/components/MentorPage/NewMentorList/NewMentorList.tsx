@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Image from '../../../assets/images/testImage.png';
 import Image2 from '../../../assets/images/mainimage.jpg';
 import { NewMentorListData } from '../../../data/NewMentorData';
-import MentorNickname from '../../../assets/images/mentorimagetext.png';
 
 interface NewMentorListProps {
     language: string;
@@ -41,10 +40,10 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ language, imageRef, slid
                             </IntroduceText>
                         </IntroduceMentorContainer> */}
                         {(item?.status === "Left")
-                            ? <NicknameLeftContainer src={MentorNickname}/>
+                            ? <NicknameLeftContainer src={item?.nickimage}/>
                             : <NicknameContainer 
                                 // className='ImageContainer'
-                                src={MentorNickname} />}
+                                src={item?.nickimage} />}
                     </div>
                 )
             })}

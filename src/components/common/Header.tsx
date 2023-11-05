@@ -54,32 +54,31 @@ const Header = () => {
         };
     }, []);
 
-    useEffect(() => {
-        if (hoverRef.current) {
-            if (hoverEvent) {
-                hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "1"
-            } else {
-                hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "0.4"
-            };
+    // useEffect(() => {
+    //     if (hoverRef.current) {
+    //         if (hoverEvent) {
+    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
+    //             hoverRef.current.style.opacity = "1"
+    //         } else {
+    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
+    //             hoverRef.current.style.opacity = "0.4"
+    //         };
             
-        };
-    }, [hoverEvent]);
+    //     };
+    // }, [hoverEvent]);
 
     // console.log("렌더링 발생");
 
   return (
     <div>
-        {(location.pathname !== "/") && <HeaderHiddenContainer ref={hoverRef} />}
+        {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
         <HeaderLayoutContainer
-            onMouseOver={() => setHoverEvent(true)}
-            onMouseOut={() => setHoverEvent(false)}
+            style={{ position: `${(location.pathname === "/") ? "absolute" : "fixed"}` }}
+            // onMouseOver={() => setHoverEvent(true)}
+            // onMouseOut={() => setHoverEvent(false)}
         >
-            <HeaderOutWrapper
-                style={{justifyContent: `${(location.pathname !== "/") ? "" : "center"}`}}>
-                {(location.pathname !== "/")
-                    && <LogoContainer>
+            <HeaderOutWrapper>
+                <LogoContainer>
                         <HeaderLogo
                             src={logo}
                             alt=""
@@ -88,14 +87,13 @@ const Header = () => {
                                 resetFilter();
                                 resetFlag();
                             }}/>
-                    </LogoContainer>}
+                    </LogoContainer>
                 {/* <RightWrapper> */}
                 <NavButtonContainer>
                     <NavButton />
                 </NavButtonContainer>
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
-                {(location.pathname !== ("/"))
-                    && <TranslateContainer ref={modalRef}>
+                <TranslateContainer ref={modalRef}>
                         <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
                             <GiEarthAmerica />
                             <TranslateText>{languageChange()}</TranslateText>
@@ -105,7 +103,7 @@ const Header = () => {
                             && <TranslateModal
                                 setLanguageModal={setLanguageModal}
                                 setLanguageTrans={setLanguageTrans}/>}
-                    </TranslateContainer>}
+                    </TranslateContainer>
                 {/* </RightWrapper> */}
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
@@ -138,11 +136,12 @@ const HeaderLayoutContainer = styled.div`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     z-index: 100;
     /* opacity: 0.5; */
+    background-color: #FFFFFF;
 
     @media screen and (max-width: 500px) {
         background-color: #FFFFFF;
