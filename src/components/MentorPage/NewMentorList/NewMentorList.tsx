@@ -147,6 +147,7 @@ const NicknameLeftContainer = styled.img`
   position: absolute;
   right: 10%;
   top: 35%;
+  user-select: none;
 
     @media screen and (max-width: 1320px) {
         width: 480px;

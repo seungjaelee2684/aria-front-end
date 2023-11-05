@@ -8,10 +8,10 @@ import InstagramDefault from '../../assets/icons/instadefault.png';
 import TwitterDefault from '../../assets/icons/twitterdefault.png';
 import DiscordDefault from '../../assets/icons/discorddefault.png';
 import YoutubeDefault from '../../assets/icons/youtubedefault.png';
-import SNSModal from './SNSModal';
+import SNSModal from '../SNSModal';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { translate } from '../../store/Translation';
+import { translate } from '../../../store/Translation';
 
 const SNSMenu = () => {
 
@@ -97,7 +97,7 @@ const SNSMenu = () => {
 };
 
 const MenuIconContainer = styled.div`
-  position: fixed;
+  position: absolute;
   height: 100%;
   display: flex;
   flex-direction: column;

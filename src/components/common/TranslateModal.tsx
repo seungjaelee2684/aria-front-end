@@ -1,5 +1,7 @@
 import React from 'react'
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { translate } from '../../store/Translation';
 
 interface TranslateModalProps {
     setLanguageModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -7,8 +9,14 @@ interface TranslateModalProps {
 }
 
 const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal, setLanguageTrans }) => {
+
+    const language = useRecoilValue(translate);
+
   return (
     <ModalContainer>
+        {/* <TransLineContainer>
+            Language : {languageChange()}
+        </TransLineContainer> */}
         <ModalLineContainer
             onClick={() => {
                 setLanguageTrans("english");
@@ -35,16 +43,41 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal, setL
 };
 
 const ModalContainer = styled.div`
-    width: 80px;
+    width: 120px;
     display: flex;
     flex-direction: column;
     background-color: #222020;
     position: absolute;
-    top: 25px;
-    left: -20px;
+    top: 50px;
+    left: -80px;
 `;
 
 const ModalLineContainer = styled.div`
+    width: 100px;
+    height: 30px;
+    font-family: "Pretendard";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #FCFCFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 0px 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        color: #ff4444;
+        transform: translateY(-1px);
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 12px;
+    }
+`;
+
+const TransLineContainer = styled.div`
     width: 100%;
     height: 30px;
     font-family: "Pretendard";
@@ -53,14 +86,10 @@ const ModalLineContainer = styled.div`
     line-height: normal;
     color: #FCFCFC;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0px 10px;
-    cursor: pointer;
-
-    &:hover {
-        color: #ff4444;
-        transform: translateY(-1px);
-    }
+    margin: 0px 10px 0px 0px;
+    border-bottom: 1px solid;
 
     @media screen and (max-width: 1320px) {
         font-size: 12px;
