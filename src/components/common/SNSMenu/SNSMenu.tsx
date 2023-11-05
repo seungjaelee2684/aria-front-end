@@ -100,7 +100,7 @@ const MenuIconContainer = styled.div`
   align-items: center;
   top: 85px;
   right: 15.3%;
-  z-index: 89;
+  z-index: 98;
   gap: 8px;
 
   @media screen and (max-width: 1320px) {

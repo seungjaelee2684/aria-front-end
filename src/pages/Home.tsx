@@ -11,15 +11,9 @@ const Home = () => {
   return (
     <MainLayout>
         <MainImageContainer>
-            {/* <ImageWrapper> */}
-                <GradientContainer />
-                <Images src={MainBG}/>
-            {/* <VideoFile muted autoPlay loop>
-                <source src="videofiles/video.mp4" type='video/mp4'/>
-            </VideoFile> */}
-            {/* </ImageWrapper> */}
+            <GradientContainer />
+            <Images src={MainBG}/>
         </MainImageContainer>
-        {/* <MainImage /> */}
     </MainLayout>
   )
 };

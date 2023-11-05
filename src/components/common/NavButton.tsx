@@ -2,16 +2,29 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
 import PageModal from './PageModal/PageModal';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useResetRecoilState } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
+import { translate } from '../../store/Translation';
 
 const NavButton = () => {
 
     const navigate = useNavigate();
+    const language = useRecoilValue(translate);
     const location = useLocation();
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
+
+    const alertText = () => {
+        switch (language) {
+            case "english" :
+                return alert("Coming soon");
+            case "japanese" :
+                return alert("準備中です。");
+            default :
+                return alert("준비중입니다.");
+        };
+    };
 
     // const underLine = useRef<HTMLDivElement>(null);
     // let horizontalMenus = document.querySelectorAll("nav a");
@@ -73,11 +86,12 @@ const NavButton = () => {
             <TapContainer
                 // href='#'
                 style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
-                onClick={() => {
+                onClick={
                     // navigate("/showcase");
                     // resetFilter();
                     // resetFlag();
-                }}>
+                    alertText
+                }>
                 H.O.F
             </TapContainer>
             <TapContainer

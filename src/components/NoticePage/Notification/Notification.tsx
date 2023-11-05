@@ -66,7 +66,7 @@ const Notification = () => {
         <ContentWrapper>
             <NoticeIcon src={Notice}/>
             <Title
-                minWidth={
+                textwidth={
                     (language === "english")
                         ? 130
                         : 90
@@ -132,20 +132,20 @@ const NoticeIcon = styled.img`
     }
 `;
 
-const Title = styled.div<{ minWidth : number }>`
-    min-width: ${(props) => `${props.minWidth}px`};
+const Title = styled.div<{ textwidth : number }>`
+    min-width: ${(props) => `${props.textwidth}px`};
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;
     color: #222020;
 
     @media screen and (max-width: 836px) {
-        min-width: ${(props) => `${props.minWidth - 10}px`};
+        min-width: ${(props) => `${props.textwidth - 10}px`};
         font-size: 13px;
     }
 
     @media screen and (max-width: 500px) {
-        min-width: ${(props) => `${props.minWidth - 38}px`};
+        min-width: ${(props) => `${props.textwidth - 38}px`};
         font-size: 11px;
     }
 `;
