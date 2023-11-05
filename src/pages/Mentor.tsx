@@ -10,7 +10,9 @@ import SlideShow from '../components/MentorPage/SlideShow';
 
 const Mentor = () => {
 
-  
+  // window.onload = () => {
+  //   console.log("로딩완료");
+  // };
 
   return (
     <LayoutContainer>
