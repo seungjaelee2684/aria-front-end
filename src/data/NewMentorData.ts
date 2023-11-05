@@ -2,6 +2,7 @@ import Image from '../assets/images/mentorimage.png';
 import Image2 from '../assets/images/mentorimage2.png';
 import Image3 from '../assets/images/rapla2.png'
 import Image4 from '../assets/images/lineimage.png';
+import MentorNickname from '../assets/images/mentorimagetext.png';
 
 export const NewMentorListData = [
     {
@@ -11,6 +12,7 @@ export const NewMentorListData = [
         nickname: "민규",
         content: "",
         image: Image,
+        nickimage: MentorNickname,
         status: ""
     },
     {
@@ -20,6 +22,7 @@ export const NewMentorListData = [
         nickname: "샬e",
         content: "",
         image: Image2,
+        nickimage: MentorNickname,
         status: "Left"
     },
     {
@@ -29,6 +32,7 @@ export const NewMentorListData = [
         nickname: "챤",
         content: "",
         image: Image,
+        nickimage: MentorNickname,
         status: ""
     },
     {
@@ -38,6 +42,7 @@ export const NewMentorListData = [
         nickname: "슈몰리",
         content: "",
         image: Image2,
+        nickimage: MentorNickname,
         status: "Left"
     },
 ];
