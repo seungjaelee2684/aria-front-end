@@ -102,7 +102,7 @@ const Header = () => {
                             {/* <TranslateText>{languageChange()}</TranslateText> */}
                             {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                             <TransText
-                                style={{fontSize: `${(language === "japanese") ? "7px" : "8px"}`}}>
+                                style={{fontSize: `${(language === "japanese") ? "8px" : "9px"}`}}>
                                 {languageChange()}
                             </TransText>
                         </TranslateWrapper>
@@ -290,9 +290,9 @@ const SNSModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
-    border: 1px solid #ADADAD;
+    border: 1px solid #41ecf180;
     border-radius: 100%;
-    color: #ADADAD;
+    color: #41ecf180;
     font-size: 28px;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -300,8 +300,8 @@ const SNSModalContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-        color: #222020;
-        border: 1px solid #222020;
+        color: #41ecf1;
+        border: 1px solid #41ecf1;
     }
 `;
 
@@ -339,11 +339,14 @@ const MobileNavButton = styled.div`
 
 const TransText = styled.div`
     font-family: "Pretendard";
-    font-size: 8px;
-    font-weight: 400;
+    font-size: 9px;
+    font-weight: 700;
     line-height: normal;
     width: 25px;
     height: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default Header;
