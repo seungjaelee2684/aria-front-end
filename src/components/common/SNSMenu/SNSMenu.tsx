@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import Instagram from '../../assets/icons/insta.png';
-import Twitter from '../../assets/icons/twitter.png';
-import Discord from '../../assets/icons/discord.png';
-import Youtube from '../../assets/icons/youtube.png';
-import InstagramDefault from '../../assets/icons/instadefault.png';
-import TwitterDefault from '../../assets/icons/twitterdefault.png';
-import DiscordDefault from '../../assets/icons/discorddefault.png';
-import YoutubeDefault from '../../assets/icons/youtubedefault.png';
+import Instagram from '../../../assets/icons/insta.png';
+import Twitter from '../../../assets/icons/twitter.png';
+import Discord from '../../../assets/icons/discord.png';
+import Youtube from '../../../assets/icons/youtube.png';
+import InstagramDefault from '../../../assets/icons/instadefault.png';
+import TwitterDefault from '../../../assets/icons/twitterdefault.png';
+import DiscordDefault from '../../../assets/icons/discorddefault.png';
+import YoutubeDefault from '../../../assets/icons/youtubedefault.png';
 import SNSModal from '../SNSModal';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -62,50 +62,50 @@ const SNSMenu = () => {
   
   return (
     <MenuIconContainer className='MenuIconContainer'>
-      {/* <InstaIcon> */}
+      <InstaIcon>
         <MenuIcon
-          // className='MenuIcon'
+          className='MenuIcon'
           title={onTitleReadyHandler(0)}
           default={InstagramDefault}
           src={Instagram}
           onClick={onClickReadyHandler}/>
-      {/* </InstaIcon> */}
-      {/* <TwitterIcon> */}
+      </InstaIcon>
+      <TwitterIcon>
         <MenuIcon
           title={onTitleReadyHandler(1)}
           default={TwitterDefault}
           src={Twitter}
           onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
-      {/* </TwitterIcon> */}
-      {/* <DiscordIcon> */}
+      </TwitterIcon>
+      <DiscordIcon>
         <MenuIcon
           title={onTitleReadyHandler(2)}
           default={DiscordDefault}
           src={Discord}
           onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
         {(sns) && <SNSModal sns={sns} setSns={setSns}/>}
-      {/* </DiscordIcon> */}
-      {/* <YoutubeIcon> */}
+      </DiscordIcon>
+      <YoutubeIcon>
         <MenuIcon
           title={onTitleReadyHandler(0)}
           default={YoutubeDefault}
           src={Youtube}
           onClick={onClickReadyHandler}/>
-      {/* </YoutubeIcon> */}
+      </YoutubeIcon>
     </MenuIconContainer>
   )
 };
 
 const MenuIconContainer = styled.div`
   position: absolute;
-  height: 100%;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 40%;
-  right: 20px;
+  top: 55px;
+  right: 0;
   z-index: 89;
-  gap: 12px;
+  gap: 8px;
 
   @media screen and (max-width: 1320px) {
     gap: 8px;
@@ -117,19 +117,20 @@ const MenuIconContainer = styled.div`
 `;
 
 const InstaIcon = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #BCBCBC50;
+  border: 1px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    border: 1.5px solid #e54a58;
+    border: 1px solid #e54a58;
+    background-color: #FFFFFF;
     /* .MenuIcon {
       &:hover {
         opacity: 1;
@@ -144,19 +145,20 @@ const InstaIcon = styled.div`
 `;
 
 const TwitterIcon = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #BCBCBC50;
+  border: 1px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    border: 1.5px solid #33b2f9;
+    border: 1px solid #33b2f9;
+    background-color: #FFFFFF;
   }
 
   @media screen and (max-width: 1320px) {
@@ -166,19 +168,20 @@ const TwitterIcon = styled.div`
 `;
 
 const DiscordIcon = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #BCBCBC50;
+  border: 1px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    border: 1.5px solid #7489da;
+    border: 1px solid #7489da;
+    background-color: #FFFFFF;
   }
 
   @media screen and (max-width: 1320px) {
@@ -188,19 +191,20 @@ const DiscordIcon = styled.div`
 `;
 
 const YoutubeIcon = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   justify-content: center;
   place-items: inherit;
-  border: 1.5px solid #BCBCBC50;
+  border: 1px solid #BCBCBC50;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    border: 1.5px solid #ff0000;
+    border: 1px solid #ff0000;
+    background-color: #FFFFFF;
   }
 
   @media screen and (max-width: 1320px) {
@@ -210,12 +214,12 @@ const YoutubeIcon = styled.div`
 `;
 
 const MenuIcon = styled.div<{ default : string, src : string }>`
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   background-image: url(${(props) => props.default});
   background-size: 100% 100%;
   opacity: 0.5;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {

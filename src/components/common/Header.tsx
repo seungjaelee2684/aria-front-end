@@ -23,13 +23,12 @@ const Header = () => {
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const [, setLanguageTrans] = useRecoilState(translate);
-    
 
     const navigate = useNavigate();
     const location = useLocation();
-    const hoverRef = useRef<HTMLDivElement>(null);
     const modalRef = useRef<HTMLDivElement>(null);
-    const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+    const snsModalRef = useRef<HTMLDivElement>(null);
+    const [snsOpen, setSnsOpen] = useState<boolean>(false);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -47,7 +46,10 @@ const Header = () => {
         const handleClickOutside = (event: any) => {
           if (modalRef.current && !modalRef.current.contains(event.target)) {
             setLanguageModal(false);
-          }
+          };
+          if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
+            setSnsOpen(false);
+          };
         };
         document.addEventListener("click", handleClickOutside);
         return () => {
@@ -94,8 +96,8 @@ const Header = () => {
                     <NavButton />
                 </NavButtonContainer>
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
-                <TranslateContainer ref={modalRef}>
-                        <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                <TranslateContainer>
+                        <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
                             <BsGlobe2 />
                             {/* <TranslateText>{languageChange()}</TranslateText> */}
                             {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
@@ -108,9 +110,12 @@ const Header = () => {
                             && <TranslateModal
                                 setLanguageModal={setLanguageModal}
                                 setLanguageTrans={setLanguageTrans}/>}
-                        <SNSModalContainer>
-                            <IoShareSocialOutline />
-                        </SNSModalContainer>
+                        <div>
+                            <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
+                                <IoShareSocialOutline />
+                            </SNSModalContainer>
+                            {snsOpen && <SNSMenu />}
+                        </div>
                     </TranslateContainer>
                 {/* </RightWrapper> */}
                 
@@ -223,7 +228,7 @@ const TranslateWrapper = styled.div`
     color: #ADADAD;
     background-color: #FFFFFF;
     font-size: 24px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
 
     &:hover {
@@ -289,7 +294,7 @@ const SNSModalContainer = styled.div`
     border-radius: 100%;
     color: #ADADAD;
     font-size: 28px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     position: relative;
     z-index: 100;
     cursor: pointer;
