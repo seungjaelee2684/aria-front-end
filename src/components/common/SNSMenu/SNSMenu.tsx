@@ -118,7 +118,7 @@ const InstaIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  background-color: #FFFFFF90;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #e54a5890;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
@@ -142,7 +142,7 @@ const TwitterIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  background-color: #FFFFFF90;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #33b2f990;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
@@ -161,7 +161,7 @@ const DiscordIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  background-color: #FFFFFF90;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #7489da90;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
@@ -179,7 +179,7 @@ const YoutubeIcon = styled.div`
   display: grid;
   justify-content: center;
   place-items: inherit;
-  background-color: #FFFFFF90;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #ff000090;
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
