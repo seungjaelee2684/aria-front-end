@@ -6,15 +6,16 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
-import SNSMenu from './SNSMenu';
+import SNSMenu from './SNSMenu/SNSMenu';
 import ListIcon from '../../assets/icons/list.png';
 import '../../style/font/font.css';
 import Translate from '../../assets/icons/translateicon.png';
 import TranslateModal from './TranslateModal';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
-import { GiEarthAmerica } from 'react-icons/gi';
+import { BsGlobe2 } from 'react-icons/bs';
 import NavButton from './NavButton';
 import MobileNavBtn from './MobileNavBtn';
+import { IoShareSocialOutline } from 'react-icons/io5';
 
 const Header = () => {
 
@@ -95,16 +96,24 @@ const Header = () => {
                 {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 <TranslateContainer ref={modalRef}>
                         <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                            <GiEarthAmerica />
-                            <TranslateText>{languageChange()}</TranslateText>
-                            {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                            <BsGlobe2 />
+                            {/* <TranslateText>{languageChange()}</TranslateText> */}
+                            {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
+                            <TransText
+                                style={{fontSize: `${(language === "japanese") ? "7px" : "8px"}`}}>
+                                {languageChange()}
+                            </TransText>
                         </TranslateWrapper>
                         {languageModal
                             && <TranslateModal
                                 setLanguageModal={setLanguageModal}
                                 setLanguageTrans={setLanguageTrans}/>}
+                        <SNSModalContainer>
+                            <IoShareSocialOutline />
+                        </SNSModalContainer>
                     </TranslateContainer>
                 {/* </RightWrapper> */}
+                
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {/* <ScrollBarContainer> */}
@@ -204,13 +213,22 @@ const HeaderLogo = styled.img`
 
 const TranslateWrapper = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 2px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ADADAD;
+    border-radius: 100%;
+    color: #ADADAD;
+    background-color: #FFFFFF;
+    font-size: 24px;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
 
     &:hover {
-       opacity: 0.8;
+       color: #222020;
+       border: 1px solid #222020;
     }
 `;
 
@@ -257,25 +275,28 @@ const TranslateContainer = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    gap: 10px;
 `;
 
 const SNSModalContainer = styled.div`
-    width: 36px;
-    min-width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: #FCFCFC;
-    border: 1.5px solid #4a556830;
+    background-color: #FFFFFF;
+    border: 1px solid #ADADAD;
     border-radius: 100%;
-    transition: all 0.3s ease-in-out;
+    color: #ADADAD;
+    font-size: 28px;
+    transition: all 0.2s ease-in-out;
     position: relative;
     z-index: 100;
     cursor: pointer;
 
     &:hover {
-        border: 1.5px solid #4a5568;
+        color: #222020;
+        border: 1px solid #222020;
     }
 
     @media screen and (max-width: 1320px) {
@@ -314,6 +335,15 @@ const MobileNavButton = styled.div`
     @media screen and (max-width: 500px) {
         display: block;
     }
+`;
+
+const TransText = styled.div`
+    font-family: "Pretendard";
+    font-size: 8px;
+    font-weight: 400;
+    line-height: normal;
+    width: 25px;
+    height: 8px;
 `;
 
 export default Header;
