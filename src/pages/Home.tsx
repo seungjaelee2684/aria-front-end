@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/images/mainimage2.jpg';
+import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
+import MainCharactor from '../assets/images/maincharactorimage.png';
 // import MyVideo from '../assets/videos/video.mp4';
 
 const DIVIDER_HEIGHT = 5;
@@ -78,10 +79,14 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
-            {/* <GradientContainer /> */}
-                <Images src={MainBG}/>
-                <Images src={MainBG}/>
-                {/* <Images src={MainBG}/> */}
+                <ImageBoxWrapper>
+                    <ObjectImage src={MainCharactor}/>
+                    <Images src={MainBG}/>
+                </ImageBoxWrapper>
+                <ImageBoxWrapper>
+                    <ObjectImage src={MainCharactor}/>
+                    <Images src={MainBG}/>   
+                </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
     </MainLayout>
@@ -101,7 +106,6 @@ const MainLayout = styled.div`
 const MainImageContainer = styled.div`
     width: 100%;
     height: 100vh;
-    /* overflow: hidden; */
     /* margin-top: 80px; */
 `;
 
@@ -112,6 +116,7 @@ const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center; */
     overflow-y: auto;
+    background-color: black;
     /* position: absolute;
     top: 0;
     left: 0; */
@@ -123,22 +128,19 @@ const ImageWrapper = styled.div`
 
 const GradientContainer = styled.div`
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #00000040, transparent);
+    height: 100vh;
+    background: linear-gradient(to top, #000000c3, transparent);
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 101;
+    z-index: 96;
 `;
 
-const VideoFile = styled.video`
+const ImageBoxWrapper = styled.div`
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 `;
 
 const Images = styled.img`
@@ -147,14 +149,21 @@ const Images = styled.img`
     object-fit: cover;
     /* background-image: url(${(props) => props.src});
     background-size: cover;
-    background-position: 0% 0%;
+    background-position: center center;
     background-repeat: no-repeat; */
+    /* position: relative; */
 `;
 
-const UnderBar = styled.div`
+const ObjectImage = styled.div<{ src : string }>`
     width: 100%;
-    height: 5px;
-    background-color: #000000;
+    height: 100vh;
+    background-image: url(${(props) => props.src});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
 
 export default Home;
