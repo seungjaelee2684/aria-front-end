@@ -112,6 +112,7 @@ const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center; */
     overflow-y: auto;
+    background-color: black;
     /* position: absolute;
     top: 0;
     left: 0; */
