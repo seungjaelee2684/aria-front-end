@@ -8,12 +8,12 @@
 }
 
 .CharactorImage {
-    animation: charactor_appear 1.5s forwards;
+    animation: charactor_appear 2s forwards;
     animation-delay: 0.5s;
 }
 
 .NoneCharactorImage {
-    animation: charactor_disappear 1.5s forwards;
+    animation: charactor_disappear 1s forwards;
 }
 
 @keyframes gradient_appear {
