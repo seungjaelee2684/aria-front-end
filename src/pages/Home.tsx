@@ -79,7 +79,7 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
-            <GradientContainer />
+            
                 <ImageBoxWrapper>
                     <ObjectImage src={MainCharactor}/>
                     <Images src={MainBG}/>
@@ -131,32 +131,22 @@ const ImageWrapper = styled.div`
 
 const GradientContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(to top, #000000c3, transparent);
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 101;
-`;
-
-const VideoFile = styled.video`
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
+    z-index: 96;
 `;
 
 const ImageBoxWrapper = styled.div`
     width: 100%;
-    height: 100vh;
     position: relative;
 `;
 
 const Images = styled.img`
     width: 100%;
+    height: 100vh;
     object-fit: cover;
     /* background-image: url(${(props) => props.src});
     background-size: cover;
@@ -167,7 +157,7 @@ const Images = styled.img`
 
 const ObjectImage = styled.div<{ src : string }>`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: url(${(props) => props.src});
     background-size: cover;
     background-position: center center;
