@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import './ScrollTop.css';
 import styled from 'styled-components';
 import { LuArrowBigUpDash } from 'react-icons/lu';
-import { AiOutlineArrowUp } from 'react-icons/ai';
+import { BiArrowToTop } from 'react-icons/bi';
 
 const ScrollTopButton = () => {
 
@@ -36,7 +36,7 @@ const ScrollTopButton = () => {
         className='ScrollTopButtonWrapper'
         ref={scrollBtn}
         onClick={onClickMoveTopHandler}>
-        <AiOutlineArrowUp />
+        <BiArrowToTop />
     </ScrollTopButtonWrapper>
   )
 };

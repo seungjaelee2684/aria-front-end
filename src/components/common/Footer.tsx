@@ -29,37 +29,6 @@ const Footer = () => {
     };
   };
 
-  const onTitleReadyHandler = ( Num : number ) => {
-    if (Num === 0) {
-      switch (language) {
-        case "english" :
-            return "Coming soon";
-        case "japanese" :
-            return "準備中です。";
-        default :
-            return "준비중입니다.";
-      };
-    } else if (Num === 1) {
-      switch (language) {
-        case "english" :
-            return "Visit Twitter account.";
-        case "japanese" :
-            return "Twitterを見に行く";
-        default :
-            return "트위터 보러가기";
-      };
-    } else {
-      switch (language) {
-        case "english" :
-            return "Visit Discord account.";
-        case "japanese" :
-            return "Discordを見に行く";
-        default :
-            return "디스코드 보러가기";
-      };
-    }; 
-  };
-
   type ArrType = {
     englishcontent: string,
     japanesecontent: string,
@@ -101,27 +70,31 @@ const Footer = () => {
               내용내용
             </Text>
           </LeftTopLaneContainer>
-          <MenuIconContainer className='MenuIconContainer'>
-            <MenuIcon
-              title={onTitleReadyHandler(0)}
-              default={InstagramDefault}
-              src={Instagram}
-              onClick={onClickReadyHandler}/>
-            <MenuIcon
-              title={onTitleReadyHandler(1)}
-              default={TwitterDefault}
-              src={Twitter}
-              onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
-            <MenuIcon
-              title={onTitleReadyHandler(2)}
-              default={DiscordDefault}
-              src={Discord}
-              onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
-            <MenuIcon
-              title={onTitleReadyHandler(0)}
-              default={YoutubeDefault}
-              src={Youtube}
-              onClick={onClickReadyHandler}/>
+          <MenuIconContainer>
+            <IconBoxWrapper>
+              <MenuIcon
+                // default={InstagramDefault}
+                src={InstagramDefault}
+                onClick={onClickReadyHandler}/>
+            </IconBoxWrapper>
+            <IconBoxWrapper>
+              <MenuIcon
+                // default={TwitterDefault}
+                src={TwitterDefault}
+                onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
+            </IconBoxWrapper>
+            <IconBoxWrapper>
+              <MenuIcon
+                // default={DiscordDefault}
+                src={DiscordDefault}
+                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
+            </IconBoxWrapper>
+            <IconBoxWrapper>
+              <MenuIcon
+                // default={YoutubeDefault}
+                src={YoutubeDefault}
+                onClick={onClickReadyHandler}/>
+            </IconBoxWrapper>
           </MenuIconContainer>
         </TopLaneHeader>
         <FooterOutWrapper>
@@ -216,24 +189,25 @@ const MenuIconContainer = styled.div`
   }
 `;
 
-const MenuIcon = styled.div<{ default : string, src : string }>`
-  width: 36px;
-  height: 36px;
-  background-image: url(${(props) => props.default});
-  background-size: 100% 100%;
-  opacity: 0.5;
-  transition: all 0.2s ease-in-out;
+const IconBoxWrapper = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
   cursor: pointer;
-
+  
   &:hover {
-    opacity: 1;
-    background-image: url(${(props) => props.src});
+    background-color: #444444;
   }
+`;
 
-  @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
-  }
+const MenuIcon = styled.div<{ src : string }>`
+  width: 32px;
+  height: 32px;
+  background-image: url(${(props) => props.src});
+  background-size: 100% 100%;
 `;
 
 const FooterOutWrapper = styled.div`
