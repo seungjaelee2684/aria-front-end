@@ -33,16 +33,7 @@ const Home = () => {
                         behavior: "smooth",
                     });
                     setScrollIndex(2);
-                    } else {
-                    //현재 2페이지
-                    console.log("현재 2페이지, down");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setScrollIndex(3);
-                    }
+                    };
                 } else {
                     // 스크롤 올릴 때
                     if (scrollTop >= 0 && scrollTop < pageHeight) {
@@ -157,6 +148,9 @@ const Images = styled.img`
     background-position: center center;
     background-repeat: no-repeat; */
     /* position: relative; */
+    @media screen and (max-width: 1000px) {
+        height: 100vh;
+    }
 `;
 
 const ObjectImage = styled.div<{ src : string }>`
