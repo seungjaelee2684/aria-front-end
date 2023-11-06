@@ -5,6 +5,7 @@ import MainBackground from '../assets/images/mainimage2.jpg';
 import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainCharactor from '../assets/images/maincharactorimage.png';
+import '../components/HomePage/MainImage/MainImage.css';
 // import MyVideo from '../assets/videos/video.mp4';
 
 const DIVIDER_HEIGHT = 5;
@@ -80,11 +81,15 @@ const Home = () => {
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
-                    <ObjectImage src={MainCharactor}/>
+                    <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : "NoneGradientContainer"}/>
+                    {/* <ObjectImage src={MainCharactor}/> */}
                     <Images src={MainBG}/>
                 </ImageBoxWrapper>
                 <ImageBoxWrapper>
-                    <ObjectImage src={MainCharactor}/>
+                    <GradientContainer />
+                    <ObjectImage
+                        className={(scrollIndex === 2) ? "CharactorImage" : "NoneCharactorImage"}
+                        src={MainCharactor}/>
                     <Images src={MainBG}/>   
                 </ImageBoxWrapper>
             </ImageWrapper>
@@ -129,11 +134,12 @@ const ImageWrapper = styled.div`
 const GradientContainer = styled.div`
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to top, #000000c3, transparent);
+    background-color: #0000008f;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 96;
+    opacity: 0;
 `;
 
 const ImageBoxWrapper = styled.div`
@@ -145,7 +151,6 @@ const ImageBoxWrapper = styled.div`
 
 const Images = styled.img`
     width: 100%;
-    height: 100vh;
     object-fit: cover;
     /* background-image: url(${(props) => props.src});
     background-size: cover;
@@ -164,6 +169,7 @@ const ObjectImage = styled.div<{ src : string }>`
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
 `;
 
 export default Home;
