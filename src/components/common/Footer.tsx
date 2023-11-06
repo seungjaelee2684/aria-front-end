@@ -178,10 +178,10 @@ const Text = styled.div`
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 
   @media screen and (max-width: 1320px) {
-    gap: 8px;
+    gap: 3px;
   }
 
   @media screen and (max-width: 500px) {
@@ -190,8 +190,8 @@ const MenuIconContainer = styled.div`
 `;
 
 const IconBoxWrapper = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -204,8 +204,8 @@ const IconBoxWrapper = styled.div`
 `;
 
 const MenuIcon = styled.div<{ src : string }>`
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   background-image: url(${(props) => props.src});
   background-size: 100% 100%;
 `;

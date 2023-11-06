@@ -79,7 +79,6 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
-            
                 <ImageBoxWrapper>
                     <ObjectImage src={MainCharactor}/>
                     <Images src={MainBG}/>
@@ -88,7 +87,6 @@ const Home = () => {
                     <ObjectImage src={MainCharactor}/>
                     <Images src={MainBG}/>   
                 </ImageBoxWrapper>
-                {/* <Images src={MainBG}/> */}
             </ImageWrapper>
         </MainImageContainer>
     </MainLayout>
@@ -108,7 +106,6 @@ const MainLayout = styled.div`
 const MainImageContainer = styled.div`
     width: 100%;
     height: 100vh;
-    /* overflow: hidden; */
     /* margin-top: 80px; */
 `;
 
@@ -141,7 +138,9 @@ const GradientContainer = styled.div`
 
 const ImageBoxWrapper = styled.div`
     width: 100%;
+    height: 100vh;
     position: relative;
+    overflow: hidden;
 `;
 
 const Images = styled.img`
