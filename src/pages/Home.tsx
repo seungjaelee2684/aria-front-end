@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
-import MainBG from '../assets/images/mainimage2.jpg';
+import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
+import MainCharactor from '../assets/images/maincharactorimage.png';
 // import MyVideo from '../assets/videos/video.mp4';
 
 const DIVIDER_HEIGHT = 5;
@@ -78,9 +79,15 @@ const Home = () => {
     <MainLayout>
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
-            {/* <GradientContainer /> */}
-                <Images src={MainBG}/>
-                <Images src={MainBG}/>
+            <GradientContainer />
+                <ImageBoxWrapper>
+                    <ObjectImage src={MainCharactor}/>
+                    <Images src={MainBG}/>
+                </ImageBoxWrapper>
+                <ImageBoxWrapper>
+                    <ObjectImage src={MainCharactor}/>
+                    <Images src={MainBG}/>   
+                </ImageBoxWrapper>
                 {/* <Images src={MainBG}/> */}
             </ImageWrapper>
         </MainImageContainer>
@@ -125,7 +132,7 @@ const ImageWrapper = styled.div`
 const GradientContainer = styled.div`
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #00000040, transparent);
+    background: linear-gradient(to top, #000000c3, transparent);
     position: absolute;
     top: 0;
     left: 0;
@@ -142,20 +149,32 @@ const VideoFile = styled.video`
     z-index: 100;
 `;
 
-const Images = styled.img`
+const ImageBoxWrapper = styled.div`
     width: 100%;
     height: 100vh;
+    position: relative;
+`;
+
+const Images = styled.img`
+    width: 100%;
     object-fit: cover;
     /* background-image: url(${(props) => props.src});
     background-size: cover;
-    background-position: 0% 0%;
+    background-position: center center;
     background-repeat: no-repeat; */
+    /* position: relative; */
 `;
 
-const UnderBar = styled.div`
+const ObjectImage = styled.div<{ src : string }>`
     width: 100%;
-    height: 5px;
-    background-color: #000000;
+    height: 100%;
+    background-image: url(${(props) => props.src});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
 
 export default Home;
