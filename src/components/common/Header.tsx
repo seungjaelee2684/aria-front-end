@@ -101,8 +101,7 @@ const Header = () => {
                             <BsGlobe2 />
                             {/* <TranslateText>{languageChange()}</TranslateText> */}
                             {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
-                            <TransText
-                                style={{fontSize: `${(language === "japanese") ? "8px" : "9px"}`}}>
+                            <TransText>
                                 {languageChange()}
                             </TransText>
                         </TranslateWrapper>
@@ -228,12 +227,27 @@ const TranslateWrapper = styled.div`
     color: #ADADAD;
     background-color: #FFFFFF;
     font-size: 24px;
+    gap: 2px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
     &:hover {
        color: #222020;
        border: 1px solid #222020;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: auto;
+        height: 100%;
+        border: none;
+        flex-direction: row;
+        gap: 5px;
+        color: #222020;
+        font-size: 20px;
+
+        &:hover {
+            border: none;
+        }
     }
 `;
 
@@ -303,6 +317,10 @@ const SNSModalContainer = styled.div`
         color: #41ecf1;
         border: 1px solid #41ecf1;
     }
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const SNSModalListIcon = styled.img`
@@ -339,7 +357,7 @@ const MobileNavButton = styled.div`
 
 const TransText = styled.div`
     font-family: "Pretendard";
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
     line-height: normal;
     width: 25px;
@@ -347,6 +365,13 @@ const TransText = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 500px) {
+        width: auto;
+        height: auto;
+        font-weight: 600;
+        font-size: 14px;
+    }
 `;
 
 export default Header;
