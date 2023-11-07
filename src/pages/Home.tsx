@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
 import MainBG from '../assets/images/sanpatimainbackground.png';
+import MainBGUnder from '../assets/images/sanpatimainbackgroundunder.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
@@ -72,7 +73,16 @@ const Home = () => {
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
-                    <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : "NoneGradientContainer"}/>
+                    <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : ""}/>
+                    <TextContainer>
+                        <MainText>Aria</MainText>
+                        <MainContent className={(scrollIndex === 1) ? "MainContent" : ""}>
+                            동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여 
+                        </MainContent>
+                        <MainContent className={(scrollIndex === 1) ? "MainSecondContent" : ""}>
+                            국적에 구애받지 않고 전세계 다양한 작가님들에게 배움을 얻을수 있는 공간을 만들겠습니다
+                        </MainContent>
+                    </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
                     <Images src={MainBG}/>
                 </ImageBoxWrapper>
@@ -81,7 +91,7 @@ const Home = () => {
                     <ObjectImage
                         className={(scrollIndex === 2) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
-                    <Images src={MainBG}/>   
+                    <Images src={MainBGUnder}/>   
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -163,6 +173,37 @@ const ObjectImage = styled.div<{ src : string }>`
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+`;
+
+const TextContainer = styled.div`
+    width: 60%;
+    height: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Pretendard";
+    gap: 50px;
+    /* background-color: #e9e9e9; */
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    z-index: 97;
+`;
+
+const MainText = styled.div`
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 150%;
+    color: #FCFCFC;
+`;
+
+const MainContent = styled.div`
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 140%;
+    color: #FCFCFC;
     opacity: 0;
 `;
 
