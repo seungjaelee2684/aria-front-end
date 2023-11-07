@@ -35,9 +35,9 @@ const Home = () => {
             text: "는"
         },
         {
-            englishtext: "We will establish a global illustration academy platform where you can learn about different painting cultures of the East and the West in one place",
-            japanesetext: "東洋と西洋の異なる絵画文化を一ヶ所で学べるグローバルイラストアカデミープラットフォームを構築し",
-            text: "동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여"
+            englishtext: "We will establish a global illustration academy platform where you can learn about different painting cultures of the East and the West in one place,",
+            japanesetext: "東洋と西洋の異なる絵画文化を一ヶ所で学べるグローバルイラストアカデミープラットフォームを構築し,",
+            text: "동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여,"
         },
         {
             englishtext: "create a space where you can learn from various artists around the world regardless of nationality.",
@@ -125,7 +125,9 @@ const Home = () => {
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
                     <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : ""}/>
-                    <ArrowIcon style={{bottom: "2%"}}>
+                    <ArrowIcon
+                        style={{bottom: "3%", color: "#FCFCFC"}}
+                        className={(scrollIndex === 1) ? "DownArrow" : ""}>
                         <PiArrowFatLinesDownLight />
                     </ArrowIcon>
                     <TextContainer>
@@ -145,7 +147,9 @@ const Home = () => {
                 </ImageBoxWrapper>
                 <ImageBoxWrapper>
                     <GradientContainer />
-                    <ArrowIcon style={{top: "10%"}}>
+                    <ArrowIcon
+                        style={{top: "10%"}}
+                        className={(scrollIndex === 2) ? "UpArrow" : ""}>
                         <PiArrowFatLinesUpLight />
                     </ArrowIcon>
                     <ButtonWrapper>
@@ -230,7 +234,7 @@ const Images = styled.img`
     background-position: center center;
     background-repeat: no-repeat; */
     /* position: relative; */
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1500px) {
         height: 100vh;
     }
 `;
@@ -323,7 +327,7 @@ const ButtonWrapper = styled.div`
 
 const Button = styled.div`
     height: 80px;
-    background-color: #2c2c97;
+    background-color: #4444ac;
     color: #FCFCFC;
     border-radius: 10px 0px 0px 10px;
     font-family: "Pretendard";
@@ -340,21 +344,27 @@ const Button = styled.div`
     &:hover {
         font-size: 33px;
         transform: scale(1.02);
+        background-color: #333396;
     }
 `;
 
 const ArrowIcon = styled.div`
-    width: 80px;
+    width: 100px;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    font-size: 80px;
+    font-size: 100px;
     color: #222020;
     position: absolute;
     left: 48%;
     z-index: 97;
+    opacity: 0;
+
+    @media screen and (max-width: 836px) {
+        display: none;
+    }
 `;
 
 export default Home;

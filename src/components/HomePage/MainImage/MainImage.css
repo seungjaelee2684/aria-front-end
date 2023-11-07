@@ -41,6 +41,16 @@
     animation-delay: 1.6s;
 }
 
+.UpArrow {
+    animation: up_arrow_appear 1s infinite;
+    animation-delay: 3s;
+}
+
+.DownArrow {
+    animation: down_arrow_appear 1s infinite;
+    animation-delay: 3s;
+}
+
 @keyframes gradient_appear {
     from {
         opacity: 0;
@@ -126,5 +136,27 @@
     to {
         opacity: 1;
         transform: translateX(0%);
+    }
+}
+
+@keyframes up_arrow_appear {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 0.8;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes down_arrow_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 0.5;
+        transform: translateY(0%);
     }
 }
