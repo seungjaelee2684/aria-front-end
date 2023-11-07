@@ -109,7 +109,7 @@ const Header = () => {
                             && <TranslateModal
                                 setLanguageModal={setLanguageModal}
                                 setLanguageTrans={setLanguageTrans}/>}
-                        <div>
+                        <div style={{display: `${(location.pathname === "/") ? "none" : ""}`}}>
                             <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                                 <IoShareSocialOutline />
                             </SNSModalContainer>
