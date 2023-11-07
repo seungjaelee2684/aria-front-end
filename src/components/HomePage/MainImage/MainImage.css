@@ -18,72 +18,92 @@
 
 .MainContent {
     animation: content_appear 1s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 1.5s;
 }
 
 .MainSecondContent {
     animation: second_content_appear 1s forwards;
-    animation-delay: 0.8s;
+    animation-delay: 1.8s;
+}
+
+.MainTitle {
+    animation: logo_title_appear 1s forwards;
+    animation-delay: 1s;
 }
 
 @keyframes gradient_appear {
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
+    to {
         opacity: 1;
     }
 }
 
 @keyframes gradient_disappear {
-    0% {
+    from {
         opacity: 1;
     }
-    100% {
+    to {
         opacity: 0;
     }
 }
 
 @keyframes charactor_appear {
-    0% {
+    from {
         opacity: 0;
         transform: translateX(-100%);
     }
-    100% {
+    /* 60% {
+        opacity: 1;
+        transform: translateX(30%);
+    } */
+    to {
         opacity: 1;
         transform: translateX(0%);
     }
 }
 
 @keyframes charactor_disappear {
-    0% {
+    from {
         opacity: 1;
         transform: translateX(0%);
     }
-    100% {
+    to {
         opacity: 0;
         transform: translateX(-100%);
     }
 }
 
 @keyframes content_appear {
-    0% {
+    from {
         opacity: 0;
         transform: translateX(-50%);
     }
-    100% {
+    to {
         opacity: 1;
         transform: translateX(0%);
     }
 }
 
 @keyframes second_content_appear {
-    0% {
+    from {
         opacity: 0;
         transform: translateX(50%);
     }
-    100% {
+    to {
         opacity: 1;
         transform: translateX(0%);
+    }
+}
+
+@keyframes logo_title_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }
