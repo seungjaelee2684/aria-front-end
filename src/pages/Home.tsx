@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
+import '../style/font/font.css';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
 import MainLogo from '../assets/logos/mainlogo.png';
@@ -120,54 +121,64 @@ const Home = () => {
     
   }, []);
   return (
-    <MainLayout>
+    <MainLayout style={{zIndex: `${(scrollIndex === 1) ? "97" : "100"}`}}>
+        <PageBarOutContainer>
+            <PageBarContainer>
+                <PageNumberWrapper></PageNumberWrapper>
+                <PageNumber />
+                <PageBar></PageBar>
+                <PageNumber />
+            </PageBarContainer>
+        </PageBarOutContainer>
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
-                    <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : ""}/>
-                    <ArrowIcon
+                    <GradientContainer />
+                    {/* <ArrowIcon
+                        style={{top: "10%"}}
+                        className={(scrollIndex === 2) ? "UpArrow" : ""}>
+                        <PiArrowFatLinesUpLight />
+                    </ArrowIcon> */}
+                    <ButtonWrapper>
+                        <Button
+                            style={{width: "600px"}}
+                            className={(scrollIndex === 1) ? "Button" : ""}>
+                            {mainPageTextHanlder(3)}
+                        </Button>
+                        <Button
+                            style={{width: "550px"}}
+                            className={(scrollIndex === 1) ? "SecondButton" : ""}>
+                            {mainPageTextHanlder(4)}
+                        </Button>
+                    </ButtonWrapper>
+                    <ObjectImage
+                        className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
+                        src={MainCharactor}/>
+                    <Images src={MainBG}/>  
+                </ImageBoxWrapper>
+                <ImageBoxWrapper>
+                    <GradientContainer className={(scrollIndex === 2) ? "GradientContainer" : ""}/>
+                    {/* <ArrowIcon
                         style={{bottom: "3%", color: "#FCFCFC"}}
-                        className={(scrollIndex === 1) ? "DownArrow" : ""}>
+                        className={(scrollIndex === 2) ? "DownArrow" : ""}>
                         <PiArrowFatLinesDownLight />
-                    </ArrowIcon>
+                    </ArrowIcon> */}
                     <TextContainer>
-                        <MainTitleImage
-                            src={MainLogo}
-                            className={(scrollIndex === 1) ? "MainTitle" : ""}/>
+                        <MainText
+                            // src={MainLogo}
+                            className={(scrollIndex === 2) ? "MainTitle" : ""}>
+                                ARIA
+                        </MainText>
                         {/* <MainText>Aria</MainText> */}
-                        <MainContent className={(scrollIndex === 1) ? "MainContent" : ""}>
+                        <MainContent className={(scrollIndex === 2) ? "MainContent" : ""}>
                             {mainPageTextHanlder(1)}
                         </MainContent>
-                        <MainContent className={(scrollIndex === 1) ? "MainSecondContent" : ""}>
+                        <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
                         {mainPageTextHanlder(2)}
                         </MainContent>
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
                     <Images src={MainBG}/>
-                </ImageBoxWrapper>
-                <ImageBoxWrapper>
-                    <GradientContainer />
-                    <ArrowIcon
-                        style={{top: "10%"}}
-                        className={(scrollIndex === 2) ? "UpArrow" : ""}>
-                        <PiArrowFatLinesUpLight />
-                    </ArrowIcon>
-                    <ButtonWrapper>
-                        <Button
-                            style={{width: "600px"}}
-                            className={(scrollIndex === 2) ? "Button" : ""}>
-                            {mainPageTextHanlder(3)}
-                        </Button>
-                        <Button
-                            style={{width: "550px"}}
-                            className={(scrollIndex === 2) ? "SecondButton" : ""}>
-                            {mainPageTextHanlder(4)}
-                        </Button>
-                    </ButtonWrapper>
-                    <ObjectImage
-                        className={(scrollIndex === 2) ? "CharactorImage" : "NoneCharactorImage"}
-                        src={MainCharactor}/>
-                    <Images src={MainBGUnder}/>   
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -253,7 +264,7 @@ const ObjectImage = styled.div<{ src : string }>`
 `;
 
 const TextContainer = styled.div`
-    width: 60%;
+    width: 30%;
     height: 50%;
     margin: auto;
     display: flex;
@@ -263,8 +274,8 @@ const TextContainer = styled.div`
     gap: 60px;
     /* background-color: #e9e9e9; */
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 25%;
+    left: 35%;
     z-index: 97;
     user-select: none;
 
@@ -289,19 +300,24 @@ const MainTitleImage = styled.img`
 `;
 
 const MainText = styled.div`
-    font-size: 80px;
+    font-family: 'BMDOHYEON';
+    font-size: 100px;
     font-weight: 700;
     line-height: 150%;
     color: #FCFCFC;
+    text-shadow: 4px 4px 2px rgba(255, 255, 255, 0.5);
+    opacity: 0;
 `;
 
 const MainContent = styled.div`
-    font-size: 40px;
+    font-family: 'IAMAPLAYER';
+    font-size: 24px;
     font-weight: 600;
     line-height: 140%;
     color: #FCFCFC;
     opacity: 0;
     display: flex;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 
     @media screen and (max-width: 1000px) {
         font-size: 28px;
@@ -365,6 +381,49 @@ const ArrowIcon = styled.div`
     @media screen and (max-width: 836px) {
         display: none;
     }
+`;
+
+const PageBarOutContainer = styled.div`
+    position: fixed;
+    top: 48%;
+    right: 2%;
+    z-index: 98;
+`;
+
+const PageBarContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+`;
+
+const PageNumberWrapper = styled.div`
+    width: 22px;
+    height: 22px;
+    border: 2px solid #222020;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    top: -5px;
+    /* bottom: -5px; */
+`;
+
+const PageNumber = styled.div`
+    width: 16px;
+    height: 16px;
+    background-color: #22202090;
+    border-radius: 100%;
+`;
+
+const PageBar = styled.div`
+    width: 4px;
+    height: 30px;
+    background-color: #ADADAD90;
+    border-radius: 10px;
 `;
 
 export default Home;
