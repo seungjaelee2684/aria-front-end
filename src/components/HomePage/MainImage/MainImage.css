@@ -31,6 +31,16 @@
     animation-delay: 1s;
 }
 
+.Button {
+    animation: button_appear 0.8s forwards;
+    animation-delay: 1.3s;
+}
+
+.SecondButton {
+    animation: button_appear 0.8s forwards;
+    animation-delay: 1.6s;
+}
+
 @keyframes gradient_appear {
     from {
         opacity: 0;
@@ -52,7 +62,7 @@
 @keyframes charactor_appear {
     from {
         opacity: 0;
-        transform: translateX(-100%);
+        transform: translateX(-80%);
     }
     /* 60% {
         opacity: 1;
@@ -78,7 +88,7 @@
 @keyframes content_appear {
     from {
         opacity: 0;
-        transform: translateX(-50%);
+        transform: translateX(-30%);
     }
     to {
         opacity: 1;
@@ -89,7 +99,7 @@
 @keyframes second_content_appear {
     from {
         opacity: 0;
-        transform: translateX(50%);
+        transform: translateX(30%);
     }
     to {
         opacity: 1;
@@ -105,5 +115,16 @@
     to {
         opacity: 1;
         transform: translateY(0%);
+    }
+}
+
+@keyframes button_appear {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
     }
 }
