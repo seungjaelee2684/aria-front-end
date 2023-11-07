@@ -120,54 +120,62 @@ const Home = () => {
     
   }, []);
   return (
-    <MainLayout>
+    <MainLayout style={{zIndex: `${(scrollIndex === 1) ? "97" : "100"}`}}>
+        <PageBarOutContainer>
+            <PageBarContainer>
+                <PageNumberWrapper></PageNumberWrapper>
+                <PageNumber />
+                <PageBar></PageBar>
+                <PageNumber />
+            </PageBarContainer>
+        </PageBarOutContainer>
         <MainImageContainer>
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
-                    <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : ""}/>
-                    <ArrowIcon
-                        style={{bottom: "3%", color: "#FCFCFC"}}
-                        className={(scrollIndex === 1) ? "DownArrow" : ""}>
-                        <PiArrowFatLinesDownLight />
-                    </ArrowIcon>
-                    <TextContainer>
-                        <MainTitleImage
-                            src={MainLogo}
-                            className={(scrollIndex === 1) ? "MainTitle" : ""}/>
-                        {/* <MainText>Aria</MainText> */}
-                        <MainContent className={(scrollIndex === 1) ? "MainContent" : ""}>
-                            {mainPageTextHanlder(1)}
-                        </MainContent>
-                        <MainContent className={(scrollIndex === 1) ? "MainSecondContent" : ""}>
-                        {mainPageTextHanlder(2)}
-                        </MainContent>
-                    </TextContainer>
-                    {/* <ObjectImage src={MainCharactor}/> */}
-                    <Images src={MainBG}/>
-                </ImageBoxWrapper>
-                <ImageBoxWrapper>
                     <GradientContainer />
-                    <ArrowIcon
+                    {/* <ArrowIcon
                         style={{top: "10%"}}
                         className={(scrollIndex === 2) ? "UpArrow" : ""}>
                         <PiArrowFatLinesUpLight />
-                    </ArrowIcon>
+                    </ArrowIcon> */}
                     <ButtonWrapper>
                         <Button
                             style={{width: "600px"}}
-                            className={(scrollIndex === 2) ? "Button" : ""}>
+                            className={(scrollIndex === 1) ? "Button" : ""}>
                             {mainPageTextHanlder(3)}
                         </Button>
                         <Button
                             style={{width: "550px"}}
-                            className={(scrollIndex === 2) ? "SecondButton" : ""}>
+                            className={(scrollIndex === 1) ? "SecondButton" : ""}>
                             {mainPageTextHanlder(4)}
                         </Button>
                     </ButtonWrapper>
                     <ObjectImage
-                        className={(scrollIndex === 2) ? "CharactorImage" : "NoneCharactorImage"}
+                        className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
-                    <Images src={MainBGUnder}/>   
+                    <Images src={MainBG}/>  
+                </ImageBoxWrapper>
+                <ImageBoxWrapper>
+                    <GradientContainer className={(scrollIndex === 2) ? "GradientContainer" : ""}/>
+                    {/* <ArrowIcon
+                        style={{bottom: "3%", color: "#FCFCFC"}}
+                        className={(scrollIndex === 2) ? "DownArrow" : ""}>
+                        <PiArrowFatLinesDownLight />
+                    </ArrowIcon> */}
+                    <TextContainer>
+                        <MainTitleImage
+                            src={MainLogo}
+                            className={(scrollIndex === 2) ? "MainTitle" : ""}/>
+                        {/* <MainText>Aria</MainText> */}
+                        <MainContent className={(scrollIndex === 2) ? "MainContent" : ""}>
+                            {mainPageTextHanlder(1)}
+                        </MainContent>
+                        <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
+                        {mainPageTextHanlder(2)}
+                        </MainContent>
+                    </TextContainer>
+                    {/* <ObjectImage src={MainCharactor}/> */}
+                    <Images src={MainBGUnder}/>
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -296,7 +304,7 @@ const MainText = styled.div`
 `;
 
 const MainContent = styled.div`
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
     line-height: 140%;
     color: #FCFCFC;
@@ -365,6 +373,49 @@ const ArrowIcon = styled.div`
     @media screen and (max-width: 836px) {
         display: none;
     }
+`;
+
+const PageBarOutContainer = styled.div`
+    position: fixed;
+    top: 48%;
+    right: 2%;
+    z-index: 98;
+`;
+
+const PageBarContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+`;
+
+const PageNumberWrapper = styled.div`
+    width: 22px;
+    height: 22px;
+    border: 2px solid #222020;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    top: -5px;
+    /* bottom: -5px; */
+`;
+
+const PageNumber = styled.div`
+    width: 16px;
+    height: 16px;
+    background-color: #222020;
+    border-radius: 100%;
+`;
+
+const PageBar = styled.div`
+    width: 4px;
+    height: 30px;
+    background-color: #ADADAD;
+    border-radius: 10px;
 `;
 
 export default Home;
