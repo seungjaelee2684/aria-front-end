@@ -8,14 +8,64 @@ import MainBGUnder from '../assets/images/sanpatimainbackgroundunder.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
+import { useRecoilValue } from 'recoil';
+import { translate } from '../store/Translation';
+import { PiArrowFatLinesDownLight, PiArrowFatLinesUpLight } from 'react-icons/pi';
+// import { PiArrowFatLinesUpLight } from 'react-icons/pi';
 // import MyVideo from '../assets/videos/video.mp4';
 
 const DIVIDER_HEIGHT = 5;
 
 const Home = () => {
 
+    const language = useRecoilValue(translate);
     const outerDivRef = useRef<HTMLDivElement>(null);
     const [scrollIndex, setScrollIndex] = useState<number>(1);
+
+    type TextType = {
+        englishtext: string,
+        japanesetext: string,
+        text: string
+    }
+
+    const mainPageText : TextType[] = [
+        {
+            englishtext: "",
+            japanesetext: "",
+            text: "는"
+        },
+        {
+            englishtext: "We will establish a global illustration academy platform where you can learn about different painting cultures of the East and the West in one place",
+            japanesetext: "東洋と西洋の異なる絵画文化を一ヶ所で学べるグローバルイラストアカデミープラットフォームを構築し",
+            text: "동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여"
+        },
+        {
+            englishtext: "create a space where you can learn from various artists around the world regardless of nationality.",
+            japanesetext: "国籍に関係なく世界の多様な作家に学べる空間を作ります。",
+            text: "국적에 구애받지 않고 전세계 다양한 작가님들에게 배움을 얻을수 있는 공간을 만들겠습니다."
+        },
+        {
+            englishtext: "See more",
+            japanesetext: "詳細を見る",
+            text: "자세히 보기"
+        },
+        {
+            englishtext: "Going to see an instructor",
+            japanesetext: "講師を見に行く",
+            text: "강사 보러가기"
+        }
+    ];
+
+    const mainPageTextHanlder = (Num : number) => {
+        switch (language) {
+            case "english" :
+                return mainPageText[Num]?.englishtext;
+            case "japanese" :
+                return mainPageText[Num]?.japanesetext;
+            default :
+                return mainPageText[Num]?.text;
+        }
+    };
 
     useEffect(() => {
         const wheelEventHandler = (e : any) => {
@@ -75,16 +125,19 @@ const Home = () => {
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
                     <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : ""}/>
+                    <ArrowIcon style={{bottom: "2%"}}>
+                        <PiArrowFatLinesDownLight />
+                    </ArrowIcon>
                     <TextContainer>
                         <MainTitleImage
                             src={MainLogo}
                             className={(scrollIndex === 1) ? "MainTitle" : ""}/>
                         {/* <MainText>Aria</MainText> */}
                         <MainContent className={(scrollIndex === 1) ? "MainContent" : ""}>
-                            동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여 
+                            {mainPageTextHanlder(1)}
                         </MainContent>
                         <MainContent className={(scrollIndex === 1) ? "MainSecondContent" : ""}>
-                            국적에 구애받지 않고 전세계 다양한 작가님들에게 배움을 얻을수 있는 공간을 만들겠습니다
+                        {mainPageTextHanlder(2)}
                         </MainContent>
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
@@ -92,6 +145,21 @@ const Home = () => {
                 </ImageBoxWrapper>
                 <ImageBoxWrapper>
                     <GradientContainer />
+                    <ArrowIcon style={{top: "10%"}}>
+                        <PiArrowFatLinesUpLight />
+                    </ArrowIcon>
+                    <ButtonWrapper>
+                        <Button
+                            style={{width: "600px"}}
+                            className={(scrollIndex === 2) ? "Button" : ""}>
+                            {mainPageTextHanlder(3)}
+                        </Button>
+                        <Button
+                            style={{width: "550px"}}
+                            className={(scrollIndex === 2) ? "SecondButton" : ""}>
+                            {mainPageTextHanlder(4)}
+                        </Button>
+                    </ButtonWrapper>
                     <ObjectImage
                         className={(scrollIndex === 2) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
@@ -181,19 +249,20 @@ const ObjectImage = styled.div<{ src : string }>`
 `;
 
 const TextContainer = styled.div`
-    width: 50%;
+    width: 60%;
     height: 50%;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: "Pretendard";
-    gap: 50px;
+    gap: 60px;
     /* background-color: #e9e9e9; */
     position: absolute;
-    top: 25%;
-    left: 25%;
+    top: 20%;
+    left: 20%;
     z-index: 97;
+    user-select: none;
 
     @media screen and (max-width: 500px) {
         width: 90%;
@@ -208,6 +277,7 @@ const MainTitleImage = styled.img`
     height: auto;
     object-fit: cover;
     opacity: 0;
+    user-select: none;
 
     @media screen and (max-width: 500px) {
         width: 300px;
@@ -227,6 +297,7 @@ const MainContent = styled.div`
     line-height: 140%;
     color: #FCFCFC;
     opacity: 0;
+    display: flex;
 
     @media screen and (max-width: 1000px) {
         font-size: 28px;
@@ -238,16 +309,52 @@ const MainContent = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-    width: 500px;
+    width: 700px;
     position: absolute;
-    top: 25%;
+    top: 40%;
     right: 0;
     display: flex;
     flex-direction: column;
+    align-items: end;
+    gap: 16px;
+    z-index: 97;
+    user-select: none;
 `;
 
 const Button = styled.div`
-    
+    height: 80px;
+    background-color: #2c2c97;
+    color: #FCFCFC;
+    border-radius: 10px 0px 0px 10px;
+    font-family: "Pretendard";
+    font-size: 32px;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(48, 52, 54, 0.726) 2px 2px 6px 1px;
+    opacity: 0;
+    cursor: pointer;
+
+    &:hover {
+        font-size: 33px;
+        transform: scale(1.02);
+    }
+`;
+
+const ArrowIcon = styled.div`
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 80px;
+    color: #222020;
+    position: absolute;
+    left: 48%;
+    z-index: 97;
 `;
 
 export default Home;
