@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
+import '../style/font/font.css';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
 import MainLogo from '../assets/logos/mainlogo.png';
@@ -163,9 +164,11 @@ const Home = () => {
                         <PiArrowFatLinesDownLight />
                     </ArrowIcon> */}
                     <TextContainer>
-                        <MainTitleImage
-                            src={MainLogo}
-                            className={(scrollIndex === 2) ? "MainTitle" : ""}/>
+                        <MainText
+                            // src={MainLogo}
+                            className={(scrollIndex === 2) ? "MainTitle" : ""}>
+                                ARIA
+                        </MainText>
                         {/* <MainText>Aria</MainText> */}
                         <MainContent className={(scrollIndex === 2) ? "MainContent" : ""}>
                             {mainPageTextHanlder(1)}
@@ -175,7 +178,7 @@ const Home = () => {
                         </MainContent>
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
-                    <Images src={MainBGUnder}/>
+                    <Images src={MainBG}/>
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -261,7 +264,7 @@ const ObjectImage = styled.div<{ src : string }>`
 `;
 
 const TextContainer = styled.div`
-    width: 60%;
+    width: 30%;
     height: 50%;
     margin: auto;
     display: flex;
@@ -271,8 +274,8 @@ const TextContainer = styled.div`
     gap: 60px;
     /* background-color: #e9e9e9; */
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 25%;
+    left: 35%;
     z-index: 97;
     user-select: none;
 
@@ -297,19 +300,24 @@ const MainTitleImage = styled.img`
 `;
 
 const MainText = styled.div`
-    font-size: 80px;
+    font-family: 'BMDOHYEON';
+    font-size: 100px;
     font-weight: 700;
     line-height: 150%;
     color: #FCFCFC;
+    text-shadow: 4px 4px 2px rgba(255, 255, 255, 0.5);
+    opacity: 0;
 `;
 
 const MainContent = styled.div`
-    font-size: 30px;
+    font-family: 'IAMAPLAYER';
+    font-size: 24px;
     font-weight: 600;
     line-height: 140%;
     color: #FCFCFC;
     opacity: 0;
     display: flex;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 
     @media screen and (max-width: 1000px) {
         font-size: 28px;
@@ -407,14 +415,14 @@ const PageNumberWrapper = styled.div`
 const PageNumber = styled.div`
     width: 16px;
     height: 16px;
-    background-color: #222020;
+    background-color: #22202090;
     border-radius: 100%;
 `;
 
 const PageBar = styled.div`
     width: 4px;
     height: 30px;
-    background-color: #ADADAD;
+    background-color: #ADADAD90;
     border-radius: 10px;
 `;
 
