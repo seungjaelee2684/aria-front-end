@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
 import Image from '../assets/images/mainimage.jpg';
 import MainBackground from '../assets/images/mainimage2.jpg';
+import MainLogo from '../assets/logos/mainlogo.png';
 import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainBGUnder from '../assets/images/sanpatimainbackgroundunder.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
@@ -75,7 +76,10 @@ const Home = () => {
                 <ImageBoxWrapper>
                     <GradientContainer className={(scrollIndex === 1) ? "GradientContainer" : ""}/>
                     <TextContainer>
-                        <MainText>Aria</MainText>
+                        <MainTitleImage
+                            src={MainLogo}
+                            className={(scrollIndex === 1) ? "MainTitle" : ""}/>
+                        {/* <MainText>Aria</MainText> */}
                         <MainContent className={(scrollIndex === 1) ? "MainContent" : ""}>
                             동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여 
                         </MainContent>
@@ -135,7 +139,7 @@ const ImageWrapper = styled.div`
 const GradientContainer = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: #0000008f;
+    background-color: #000000ac;
     position: absolute;
     top: 0;
     left: 0;
@@ -177,7 +181,7 @@ const ObjectImage = styled.div<{ src : string }>`
 `;
 
 const TextContainer = styled.div`
-    width: 60%;
+    width: 50%;
     height: 50%;
     margin: auto;
     display: flex;
@@ -188,8 +192,26 @@ const TextContainer = styled.div`
     /* background-color: #e9e9e9; */
     position: absolute;
     top: 25%;
-    left: 20%;
+    left: 25%;
     z-index: 97;
+
+    @media screen and (max-width: 500px) {
+        width: 90%;
+        top: 15%;
+        left: 5%;
+        gap: 80px;
+    }
+`;
+
+const MainTitleImage = styled.img`
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    opacity: 0;
+
+    @media screen and (max-width: 500px) {
+        width: 300px;
+    }
 `;
 
 const MainText = styled.div`
@@ -205,6 +227,14 @@ const MainContent = styled.div`
     line-height: 140%;
     color: #FCFCFC;
     opacity: 0;
+
+    @media screen and (max-width: 1000px) {
+        font-size: 28px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 20px;
+    }
 `;
 
 export default Home;
