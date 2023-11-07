@@ -237,4 +237,17 @@ const MainContent = styled.div`
     }
 `;
 
+const ButtonWrapper = styled.div`
+    width: 500px;
+    position: absolute;
+    top: 25%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+`;
+
+const Button = styled.div`
+    
+`;
+
 export default Home;

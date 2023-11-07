@@ -118,11 +118,11 @@ const NavButton = () => {
 const TapOutContainer = styled.div`
     display: flex;
     align-items: center;
-    gap: 110px;
+    gap: 100px;
     height: 80px;
 
     @media screen and (max-width: 1320px) {
-        gap: 70px;
+        gap: 60px;
     }
     @media screen and (max-width: 836px) {
         gap: 24px;
@@ -146,7 +146,7 @@ const TapContainer = styled.div`
     display: flex;
     align-items: center;
     font-family: 'LINESeedKR-Bd';
-    font-size: 16px;
+    font-size: 17px;
     /* color: #999999; */
     color: #222020;
     font-weight: 400;
