@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
 import '../style/font/font.css';
-import Image from '../assets/images/mainimage.jpg';
-import MainBackground from '../assets/images/mainimage2.jpg';
+import FirstMainFrameImage from '../assets/images/maincharacter.png';
+import SecondMainFrameImage from '../assets/images/maincharactorimage.png';
+import ThirdMainFrameImage from '../assets/images/raplafirst.png';
 import MainLogo from '../assets/logos/mainlogo.png';
 import MainBG from '../assets/images/sanpatimainbackground.png';
-import MainBGUnder from '../assets/images/sanpatimainbackgroundunder.png';
-import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -189,16 +188,26 @@ const Home = () => {
                             {mainPageTextHanlder(2)}
                         </MainContent>
                         <FrameBoxWrapper>
-                            <FrameBox className={(scrollIndex === 2) ? "FirstFrame" : ""}>
-                                <FrameContent>안녕</FrameContent>
+                            <FrameBox
+                                className={(scrollIndex === 2) ? "FirstFrame" : ""}>
+                                <FrameInFicture src={FirstMainFrameImage}/>
+                                <FrameContent className='FirstMainContent'>
+                                    안녕
+                                </FrameContent>
                                 <FrameImage src={Frame}/>
                             </FrameBox>
                             <FrameBox className={(scrollIndex === 2) ? "SecondFrame" : ""}>
-                                <FrameContent></FrameContent>
+                                <FrameInFicture src={SecondMainFrameImage}/>
+                                <FrameContent className='SecondMainContent'>
+                                    하이
+                                </FrameContent>
                                 <FrameImage src={Frame}/>
                             </FrameBox>
                             <FrameBox className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
-                                <FrameContent></FrameContent>
+                                <FrameInFicture src={ThirdMainFrameImage}/>
+                                <FrameContent className='ThirdMainContent'>
+                                    바이
+                                </FrameContent>
                                 <FrameImage src={Frame}/>
                             </FrameBox>
                         </FrameBoxWrapper>
@@ -327,7 +336,7 @@ const MainTitleImage = styled.img`
 
 const MainText = styled.div`
     font-family: 'BMDOHYEON';
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
     line-height: 150%;
     color: #FCFCFC;
@@ -459,27 +468,43 @@ const FrameBoxWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 18px;
+    cursor: pointer;
 `;
 
 const FrameBox = styled.div`
     width: 240px;
     height: 318px;
     position: relative;
-    font-family: "BMDOHYEON";
-    font-size: 16px;
-    font-weight: 500;
+    font-family: "IAMAPLAYER";
+    font-size: 20px;
+    font-weight: 700;
     line-height: 140%;
-    color: #222020;
+    color: #FCFCFC;
     background-color: #FCFCFC;
     opacity: 0;
 `;
 
+const FrameInFicture = styled.img`
+    width: 240px;
+    height: 318px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
 const FrameContent = styled.div`
-    width: 98%;
-    height: 98%;
+    width: 240px;
+    height: 318px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2f6192c7;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
 `;
 
 const FrameImage = styled.img`
