@@ -66,6 +66,24 @@
     animation-delay: 2.6s;
 }
 
+.FirstFrame:hover {
+    .FirstMainContent {
+        opacity: 1;
+    }
+}
+
+.SecondFrame:hover {
+    .SecondMainContent {
+        opacity: 1;
+    }
+}
+
+.ThirdFrame:hover {
+    .ThirdMainContent {
+        opacity: 1;
+    }
+}
+
 @keyframes gradient_appear {
     from {
         opacity: 0;
