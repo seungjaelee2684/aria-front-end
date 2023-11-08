@@ -126,10 +126,20 @@ const Home = () => {
     <MainLayout>
         <PageBarOutContainer>
             <PageBarContainer>
-                <PageNumberWrapper></PageNumberWrapper>
-                <PageNumber />
-                <PageBar></PageBar>
-                <PageNumber />
+                <PageNumberWrapper
+                    style={{
+                        top: `${(scrollIndex === 1) ? "-5px" : ""}`,
+                        bottom: `${(scrollIndex === 2) ? "-5px" : ""}`
+                    }}    
+                ></PageNumberWrapper>
+                <PageNumber
+                    style={{
+                        backgroundColor: `${(scrollIndex === 1) ? "#FCFCFC" : "#FCFCFC90"}`
+                    }}/>
+                <PageNumber 
+                    style={{
+                        backgroundColor: `${(scrollIndex === 2) ? "#FCFCFC" : "#FCFCFC90"}`
+                    }}/>
             </PageBarContainer>
         </PageBarOutContainer>
         <MainImageContainer>
@@ -402,7 +412,7 @@ const ArrowIcon = styled.div`
 
 const PageBarOutContainer = styled.div`
     position: fixed;
-    top: 48%;
+    top: 49%;
     right: 2%;
     z-index: 98;
 `;
@@ -411,29 +421,29 @@ const PageBarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     position: relative;
 `;
 
 const PageNumberWrapper = styled.div`
     width: 22px;
     height: 22px;
-    border: 2px solid #222020;
-    border-radius: 100%;
+    border: 2px solid #FCFCFC;
+    /* border-radius: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     transition: all 0.5s ease-in-out;
-    top: -5px;
+    transform: rotate(45deg);
+    /* top: -5px; */
     /* bottom: -5px; */
 `;
 
 const PageNumber = styled.div`
     width: 16px;
     height: 16px;
-    background-color: #22202090;
-    border-radius: 100%;
+    transform: rotate(45deg);
 `;
 
 const PageBar = styled.div`
