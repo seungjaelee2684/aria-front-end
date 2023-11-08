@@ -79,9 +79,9 @@ const Header = () => {
         {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
         <HeaderLayoutContainer
             style={{
-                position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
+                // position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
                 opacity: `${(mainPage === 2) ? "0" : "1"}`,
-                height: `${(mainPage === 2) ? "0px" : "80px"}`
+                height: `${(mainPage === 2) ? "0px" : ""}`
             }}
             // onMouseOver={() => setHoverEvent(true)}
             // onMouseOut={() => setHoverEvent(false)}
@@ -154,7 +154,7 @@ const HeaderLayoutContainer = styled.div`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
@@ -311,9 +311,9 @@ const SNSModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
-    border: 1px solid #41ecf180;
+    border: 1px solid #41bff180;
     border-radius: 100%;
-    color: #41ecf180;
+    color: #41bff180;
     font-size: 28px;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -321,8 +321,8 @@ const SNSModalContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-        color: #41ecf1;
-        border: 1px solid #41ecf1;
+        color: #41bff1;
+        border: 1px solid #41bff1;
     }
 
     @media screen and (max-width: 500px) {
