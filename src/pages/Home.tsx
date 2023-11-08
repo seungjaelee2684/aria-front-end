@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
 import styled from 'styled-components';
 import '../style/font/font.css';
-import Image from '../assets/images/mainimage.jpg';
-import MainBackground from '../assets/images/mainimage2.jpg';
+import FirstMainFrameImage from '../assets/images/maincharacter.png';
+import SecondMainFrameImage from '../assets/images/maincharactorimage.png';
+import ThirdMainFrameImage from '../assets/images/raplafirst.png';
 import MainLogo from '../assets/logos/mainlogo.png';
 import MainBG from '../assets/images/sanpatimainbackground.png';
-import MainBGUnder from '../assets/images/sanpatimainbackgroundunder.png';
-import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 import { PiArrowFatLinesDownLight, PiArrowFatLinesUpLight } from 'react-icons/pi';
+import { MainPageNumber } from '../store/MainPageNumber';
+import Frame from '../assets/images/frame.png';
 // import { PiArrowFatLinesUpLight } from 'react-icons/pi';
 // import MyVideo from '../assets/videos/video.mp4';
 
@@ -21,7 +22,7 @@ const Home = () => {
 
     const language = useRecoilValue(translate);
     const outerDivRef = useRef<HTMLDivElement>(null);
-    const [scrollIndex, setScrollIndex] = useState<number>(1);
+    const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
 
     type TextType = {
         englishtext: string,
@@ -117,17 +118,27 @@ const Home = () => {
         return () => {
         outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
         };
-    };
-    
+    };  
   }, []);
+
   return (
-    <MainLayout style={{zIndex: `${(scrollIndex === 1) ? "97" : "100"}`}}>
+    <MainLayout>
         <PageBarOutContainer>
             <PageBarContainer>
-                <PageNumberWrapper></PageNumberWrapper>
-                <PageNumber />
-                <PageBar></PageBar>
-                <PageNumber />
+                <PageNumberWrapper
+                    style={{
+                        top: `${(scrollIndex === 1) ? "-5px" : ""}`,
+                        bottom: `${(scrollIndex === 2) ? "-5px" : ""}`
+                    }}    
+                ></PageNumberWrapper>
+                <PageNumber
+                    style={{
+                        backgroundColor: `${(scrollIndex === 1) ? "#FCFCFC" : "#FCFCFC90"}`
+                    }}/>
+                <PageNumber 
+                    style={{
+                        backgroundColor: `${(scrollIndex === 2) ? "#FCFCFC" : "#FCFCFC90"}`
+                    }}/>
             </PageBarContainer>
         </PageBarOutContainer>
         <MainImageContainer>
@@ -139,7 +150,7 @@ const Home = () => {
                         className={(scrollIndex === 2) ? "UpArrow" : ""}>
                         <PiArrowFatLinesUpLight />
                     </ArrowIcon> */}
-                    <ButtonWrapper>
+                    {/* <ButtonWrapper>
                         <Button
                             style={{width: "600px"}}
                             className={(scrollIndex === 1) ? "Button" : ""}>
@@ -150,7 +161,7 @@ const Home = () => {
                             className={(scrollIndex === 1) ? "SecondButton" : ""}>
                             {mainPageTextHanlder(4)}
                         </Button>
-                    </ButtonWrapper>
+                    </ButtonWrapper> */}
                     <ObjectImage
                         className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
@@ -174,11 +185,35 @@ const Home = () => {
                             {mainPageTextHanlder(1)}
                         </MainContent>
                         <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
-                        {mainPageTextHanlder(2)}
+                            {mainPageTextHanlder(2)}
                         </MainContent>
+                        <FrameBoxWrapper>
+                            <FrameBox
+                                className={(scrollIndex === 2) ? "FirstFrame" : ""}>
+                                <FrameInFicture src={FirstMainFrameImage}/>
+                                <FrameContent className='FirstMainContent'>
+                                    안녕
+                                </FrameContent>
+                                <FrameImage src={Frame}/>
+                            </FrameBox>
+                            <FrameBox className={(scrollIndex === 2) ? "SecondFrame" : ""}>
+                                <FrameInFicture src={SecondMainFrameImage}/>
+                                <FrameContent className='SecondMainContent'>
+                                    하이
+                                </FrameContent>
+                                <FrameImage src={Frame}/>
+                            </FrameBox>
+                            <FrameBox className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
+                                <FrameInFicture src={ThirdMainFrameImage}/>
+                                <FrameContent className='ThirdMainContent'>
+                                    바이
+                                </FrameContent>
+                                <FrameImage src={Frame}/>
+                            </FrameBox>
+                        </FrameBoxWrapper>
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
-                    <Images src={MainBG}/>
+                    {/* <Images src={MainBG}/> */}
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -200,6 +235,9 @@ const MainImageContainer = styled.div`
     width: 100%;
     height: 100vh;
     /* margin-top: 80px; */
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const ImageWrapper = styled.div`
@@ -209,14 +247,10 @@ const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center; */
     overflow-y: auto;
-    background-color: black;
+    background-color: #222020;
     /* position: absolute;
     top: 0;
     left: 0; */
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
 `;
 
 const GradientContainer = styled.div`
@@ -264,18 +298,19 @@ const ObjectImage = styled.div<{ src : string }>`
 `;
 
 const TextContainer = styled.div`
-    width: 30%;
-    height: 50%;
+    width: 40%;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    gap: 60px;
+    gap: 40px;
     /* background-color: #e9e9e9; */
     position: absolute;
-    top: 25%;
-    left: 35%;
+    top: 0;
+    left: 30%;
     z-index: 97;
     user-select: none;
 
@@ -301,7 +336,7 @@ const MainTitleImage = styled.img`
 
 const MainText = styled.div`
     font-family: 'BMDOHYEON';
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
     line-height: 150%;
     color: #FCFCFC;
@@ -310,6 +345,7 @@ const MainText = styled.div`
 `;
 
 const MainContent = styled.div`
+    width: 85%;
     font-family: 'IAMAPLAYER';
     font-size: 24px;
     font-weight: 600;
@@ -385,7 +421,7 @@ const ArrowIcon = styled.div`
 
 const PageBarOutContainer = styled.div`
     position: fixed;
-    top: 48%;
+    top: 49%;
     right: 2%;
     z-index: 98;
 `;
@@ -394,29 +430,29 @@ const PageBarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     position: relative;
 `;
 
 const PageNumberWrapper = styled.div`
     width: 22px;
     height: 22px;
-    border: 2px solid #222020;
-    border-radius: 100%;
+    border: 2px solid #FCFCFC;
+    /* border-radius: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     transition: all 0.5s ease-in-out;
-    top: -5px;
+    transform: rotate(45deg);
+    /* top: -5px; */
     /* bottom: -5px; */
 `;
 
 const PageNumber = styled.div`
     width: 16px;
     height: 16px;
-    background-color: #22202090;
-    border-radius: 100%;
+    transform: rotate(45deg);
 `;
 
 const PageBar = styled.div`
@@ -424,6 +460,60 @@ const PageBar = styled.div`
     height: 30px;
     background-color: #ADADAD90;
     border-radius: 10px;
+`;
+
+const FrameBoxWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+`;
+
+const FrameBox = styled.div`
+    width: 240px;
+    height: 318px;
+    position: relative;
+    font-family: "IAMAPLAYER";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 140%;
+    color: #FCFCFC;
+    background-color: #FCFCFC;
+    opacity: 0;
+`;
+
+const FrameInFicture = styled.img`
+    width: 240px;
+    height: 318px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
+const FrameContent = styled.div`
+    width: 240px;
+    height: 318px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2f6192c7;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+`;
+
+const FrameImage = styled.img`
+    width: 243px;
+    height: auto;
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    object-fit: cover;
 `;
 
 export default Home;
