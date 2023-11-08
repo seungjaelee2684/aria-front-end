@@ -11,8 +11,8 @@ const NavButton = () => {
     const navigate = useNavigate();
     const language = useRecoilValue(translate);
     const location = useLocation();
-    const resetFilter = useResetRecoilState(nationKind);
-    const resetFlag = useResetRecoilState(nationFlag);
+    // const resetFilter = useResetRecoilState(nationKind);
+    // const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
 
     const alertText = () => {
@@ -61,8 +61,6 @@ const NavButton = () => {
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
                 onClick={() => {
                     navigate("/mentor");
-                    resetFilter();
-                    resetFlag();
                 }}>
                 MENTOR
             </TapContainer>
@@ -74,8 +72,6 @@ const NavButton = () => {
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
                         navigate("/notice");
-                        resetFilter();
-                        resetFlag();
                     }}>
                     NOTICE
                 </div>
@@ -102,8 +98,6 @@ const NavButton = () => {
                     style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
                         navigate("/support");
-                        resetFilter();
-                        resetFlag();
                     }}>
                     SUPPORT
                 </div>
