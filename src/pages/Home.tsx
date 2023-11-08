@@ -200,6 +200,9 @@ const MainImageContainer = styled.div`
     width: 100%;
     height: 100vh;
     /* margin-top: 80px; */
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const ImageWrapper = styled.div`
@@ -212,11 +215,7 @@ const ImageWrapper = styled.div`
     background-color: black;
     /* position: absolute;
     top: 0;
-    left: 0; */
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
+    left: 0; */ 
 `;
 
 const GradientContainer = styled.div`
@@ -304,7 +303,7 @@ const MainText = styled.div`
     font-size: 100px;
     font-weight: 700;
     line-height: 150%;
-    color: #FCFCFC;
+    color: #3c3ad6;
     text-shadow: 4px 4px 2px rgba(255, 255, 255, 0.5);
     opacity: 0;
 `;
