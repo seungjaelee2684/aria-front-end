@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import '../style/font/font.css';
 import FirstMainFrameImage from '../assets/images/maincharacter.png';
 import SecondMainFrameImage from '../assets/images/maincharactorimage.png';
-import ThirdMainFrameImage from '../assets/images/raplafirst.png';
+import ThirdMainFrameImage from '../assets/images/rapla1.png';
 import MainLogo from '../assets/logos/mainlogo.png';
 import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainCharactor from '../assets/images/maincharactorimage.png';
@@ -133,11 +133,11 @@ const Home = () => {
                 ></PageNumberWrapper>
                 <PageNumber
                     style={{
-                        backgroundColor: `${(scrollIndex === 1) ? "#FCFCFC" : "#FCFCFC90"}`
+                        backgroundColor: `${(scrollIndex === 1) ? "#FFFFFF" : "#ffffffbe"}`
                     }}/>
                 <PageNumber 
                     style={{
-                        backgroundColor: `${(scrollIndex === 2) ? "#FCFCFC" : "#FCFCFC90"}`
+                        backgroundColor: `${(scrollIndex === 2) ? "#FFFFFF" : "#ffffffbe"}`
                     }}/>
             </PageBarContainer>
         </PageBarOutContainer>
@@ -192,21 +192,21 @@ const Home = () => {
                                 className={(scrollIndex === 2) ? "FirstFrame" : ""}>
                                 <FrameInFicture src={FirstMainFrameImage}/>
                                 <FrameContent className='FirstMainContent'>
-                                    안녕
+                                    수강 신청
                                 </FrameContent>
                                 <FrameImage src={Frame}/>
                             </FrameBox>
                             <FrameBox className={(scrollIndex === 2) ? "SecondFrame" : ""}>
                                 <FrameInFicture src={SecondMainFrameImage}/>
                                 <FrameContent className='SecondMainContent'>
-                                    하이
+                                    디스코드
                                 </FrameContent>
                                 <FrameImage src={Frame}/>
                             </FrameBox>
                             <FrameBox className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
                                 <FrameInFicture src={ThirdMainFrameImage}/>
                                 <FrameContent className='ThirdMainContent'>
-                                    바이
+                                    운영정책
                                 </FrameContent>
                                 <FrameImage src={Frame}/>
                             </FrameBox>
@@ -422,7 +422,7 @@ const ArrowIcon = styled.div`
 const PageBarOutContainer = styled.div`
     position: fixed;
     top: 49%;
-    right: 2%;
+    right: 3%;
     z-index: 98;
 `;
 
@@ -430,14 +430,14 @@ const PageBarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 36px;
     position: relative;
 `;
 
 const PageNumberWrapper = styled.div`
     width: 22px;
     height: 22px;
-    border: 2px solid #FCFCFC;
+    border: 2px solid #FFFFFF;
     /* border-radius: 100%; */
     display: flex;
     justify-content: center;
@@ -482,6 +482,7 @@ const FrameBox = styled.div`
     color: #FCFCFC;
     background-color: #FCFCFC;
     opacity: 0;
+    box-shadow: 3px 3px 8px rgba(255, 255, 255, 0.582);
 `;
 
 const FrameInFicture = styled.img`
