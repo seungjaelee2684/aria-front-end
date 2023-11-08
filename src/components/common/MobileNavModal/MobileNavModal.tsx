@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import './MobileNavModal.css';
 import { MdClose } from 'react-icons/md';
 import { NavigateFunction } from 'react-router-dom';
-import { useResetRecoilState } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../../store/NationFilter';
+import { translate } from '../../../store/Translation';
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -14,9 +15,19 @@ interface MobileNavModalProps {
 
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg }) => {
 
-  const resetFilter = useResetRecoilState(nationKind);
-  const resetFlag = useResetRecoilState(nationFlag);
+  const language = useRecoilValue(translate);
 
+  const onClickReadyHandler = () => {
+    switch (language) {
+      case "english" :
+          return alert("Coming soon");
+      case "japanese" :
+          return alert("準備中です。");
+      default :
+          return alert("준비중입니다.");
+    };
+  };
+  
   return (
     <div>
       <BackgroundContainer onClick={() => setHamburg(false)}/>
@@ -27,50 +38,52 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </CloseBtn>
         </CloseBtnContainer>
         <TextWrapper>
-          <Text onClick={() => {
-            navigate("/")
-            resetFilter()
-            resetFlag()
-            setHamburg(false)
-          }}>
+          <Text
+            onClick={() => {
+              navigate("/")
+              setHamburg(false)
+            }}>
             Home
           </Text>
-          <Text onClick={() => {
-            navigate("/mentor")
-            resetFilter()
-            resetFlag()
-            setHamburg(false)
-          }}>
+          <Text
+            onClick={() => {
+              navigate("/mentor")
+              setHamburg(false)
+            }}>
             Mentor
           </Text>
-          <Text onClick={() => {
-            navigate("/notice")
-            resetFilter()
-            resetFlag()
-            setHamburg(false)
-          }}>
+          <Text
+            onClick={() => {
+              navigate("/notice")
+              setHamburg(false)
+            }}>
             Notice
           </Text>
-          <SurvePageButton>
+          <SurvePageButton
+            onClick={() => {
+              navigate("/notice")
+              setHamburg(false)
+            }}>
             Event
           </SurvePageButton>
-          <SurvePageButton>
+          <SurvePageButton
+            onClick={() => {
+              navigate("/notice/notification")
+              setHamburg(false)
+            }}>
             Announcements
           </SurvePageButton>
-          <Text onClick={() => {
-            navigate("/showcase")
-            resetFilter()
-            resetFlag()
-            setHamburg(false)
-          }}>
+          <Text
+            onClick={() => {
+              onClickReadyHandler();
+            }}>
             H.O.F
           </Text>
-          <Text onClick={() => {
-            navigate("/support")
-            resetFilter()
-            resetFlag()
-            setHamburg(false)
-          }}>
+          <Text
+            onClick={() => {
+              navigate("/support")
+              setHamburg(false)
+            }}>
             Support
           </Text>
           <SurvePageButton>
