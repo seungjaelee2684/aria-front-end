@@ -9,9 +9,11 @@ import MainBGUnder from '../assets/images/sanpatimainbackgroundunder.png';
 import MainImage from '../components/HomePage/MainImage/MainImage';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 import { PiArrowFatLinesDownLight, PiArrowFatLinesUpLight } from 'react-icons/pi';
+import { MainPageNumber } from '../store/MainPageNumber';
+import Frame from '../assets/images/frame.png';
 // import { PiArrowFatLinesUpLight } from 'react-icons/pi';
 // import MyVideo from '../assets/videos/video.mp4';
 
@@ -21,7 +23,7 @@ const Home = () => {
 
     const language = useRecoilValue(translate);
     const outerDivRef = useRef<HTMLDivElement>(null);
-    const [scrollIndex, setScrollIndex] = useState<number>(1);
+    const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
 
     type TextType = {
         englishtext: string,
@@ -117,11 +119,11 @@ const Home = () => {
         return () => {
         outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
         };
-    };
-    
+    };  
   }, []);
+
   return (
-    <MainLayout style={{zIndex: `${(scrollIndex === 1) ? "97" : "100"}`}}>
+    <MainLayout>
         <PageBarOutContainer>
             <PageBarContainer>
                 <PageNumberWrapper></PageNumberWrapper>
@@ -139,7 +141,7 @@ const Home = () => {
                         className={(scrollIndex === 2) ? "UpArrow" : ""}>
                         <PiArrowFatLinesUpLight />
                     </ArrowIcon> */}
-                    <ButtonWrapper>
+                    {/* <ButtonWrapper>
                         <Button
                             style={{width: "600px"}}
                             className={(scrollIndex === 1) ? "Button" : ""}>
@@ -150,7 +152,7 @@ const Home = () => {
                             className={(scrollIndex === 1) ? "SecondButton" : ""}>
                             {mainPageTextHanlder(4)}
                         </Button>
-                    </ButtonWrapper>
+                    </ButtonWrapper> */}
                     <ObjectImage
                         className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
@@ -174,11 +176,25 @@ const Home = () => {
                             {mainPageTextHanlder(1)}
                         </MainContent>
                         <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
-                        {mainPageTextHanlder(2)}
+                            {mainPageTextHanlder(2)}
                         </MainContent>
+                        <FrameBoxWrapper>
+                            <FrameBox className={(scrollIndex === 2) ? "FirstFrame" : ""}>
+                                <FrameContent>안녕</FrameContent>
+                                <FrameImage src={Frame}/>
+                            </FrameBox>
+                            <FrameBox className={(scrollIndex === 2) ? "SecondFrame" : ""}>
+                                <FrameContent></FrameContent>
+                                <FrameImage src={Frame}/>
+                            </FrameBox>
+                            <FrameBox className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
+                                <FrameContent></FrameContent>
+                                <FrameImage src={Frame}/>
+                            </FrameBox>
+                        </FrameBoxWrapper>
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
-                    <Images src={MainBG}/>
+                    {/* <Images src={MainBG}/> */}
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -212,10 +228,10 @@ const ImageWrapper = styled.div`
     flex-direction: column;
     align-items: center; */
     overflow-y: auto;
-    background-color: black;
+    background-color: #222020;
     /* position: absolute;
     top: 0;
-    left: 0; */ 
+    left: 0; */
 `;
 
 const GradientContainer = styled.div`
@@ -263,18 +279,19 @@ const ObjectImage = styled.div<{ src : string }>`
 `;
 
 const TextContainer = styled.div`
-    width: 30%;
-    height: 50%;
+    width: 40%;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    gap: 60px;
+    gap: 40px;
     /* background-color: #e9e9e9; */
     position: absolute;
-    top: 25%;
-    left: 35%;
+    top: 0;
+    left: 30%;
     z-index: 97;
     user-select: none;
 
@@ -303,12 +320,13 @@ const MainText = styled.div`
     font-size: 100px;
     font-weight: 700;
     line-height: 150%;
-    color: #3c3ad6;
+    color: #FCFCFC;
     text-shadow: 4px 4px 2px rgba(255, 255, 255, 0.5);
     opacity: 0;
 `;
 
 const MainContent = styled.div`
+    width: 85%;
     font-family: 'IAMAPLAYER';
     font-size: 24px;
     font-weight: 600;
@@ -423,6 +441,44 @@ const PageBar = styled.div`
     height: 30px;
     background-color: #ADADAD90;
     border-radius: 10px;
+`;
+
+const FrameBoxWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+`;
+
+const FrameBox = styled.div`
+    width: 240px;
+    height: 318px;
+    position: relative;
+    font-family: "BMDOHYEON";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222020;
+    background-color: #FCFCFC;
+    opacity: 0;
+`;
+
+const FrameContent = styled.div`
+    width: 98%;
+    height: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const FrameImage = styled.img`
+    width: 243px;
+    height: auto;
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    object-fit: cover;
 `;
 
 export default Home;

@@ -16,10 +16,12 @@ import { BsGlobe2 } from 'react-icons/bs';
 import NavButton from './NavButton';
 import MobileNavBtn from './MobileNavBtn';
 import { IoShareSocialOutline } from 'react-icons/io5';
+import { MainPageNumber } from '../../store/MainPageNumber';
 
 const Header = () => {
 
     const language = useRecoilValue(translate);
+    const mainPage = useRecoilValue(MainPageNumber);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const [, setLanguageTrans] = useRecoilState(translate);
@@ -76,7 +78,11 @@ const Header = () => {
     <div>
         {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
         <HeaderLayoutContainer
-            style={{ position: `${(location.pathname === "/") ? "absolute" : "fixed"}` }}
+            style={{
+                position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
+                opacity: `${(mainPage === 2) ? "0" : "1"}`,
+                height: `${(mainPage === 2) ? "0px" : "80px"}`
+            }}
             // onMouseOver={() => setHoverEvent(true)}
             // onMouseOut={() => setHoverEvent(false)}
         >
@@ -138,7 +144,6 @@ const HeaderHiddenContainer = styled.div`
     left: 0;
     z-index: 99;
     background-color: #FFFFFF;
-    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
 
     @media screen and (max-width: 500px) {
         display: none;
@@ -155,6 +160,8 @@ const HeaderLayoutContainer = styled.div`
     z-index: 100;
     /* opacity: 0.5; */
     background-color: #FFFFFF;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+    transition: all 0.4s ease-in-out;
 
     @media screen and (max-width: 500px) {
         background-color: #FFFFFF;
