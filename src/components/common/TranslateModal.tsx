@@ -13,34 +13,51 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal, setL
     const language = useRecoilValue(translate);
 
   return (
-    <ModalContainer>
-        {/* <TransLineContainer>
-            Language : {languageChange()}
-        </TransLineContainer> */}
-        <ModalLineContainer
-            onClick={() => {
-                setLanguageTrans("english");
-                setLanguageModal(false);
-            }}>
-            English
-        </ModalLineContainer>
-        <ModalLineContainer
-            onClick={() => {
-                setLanguageTrans("japanese");
-                setLanguageModal(false);
-            }}>
-            日本語
-        </ModalLineContainer>
-        <ModalLineContainer
-            onClick={() => {
-                setLanguageTrans("korean");
-                setLanguageModal(false);
-            }}>
-            한국어
-        </ModalLineContainer>
-    </ModalContainer>
+    <div>
+        <ModalBackgroundContainer />
+        <ModalContainer>
+            {/* <TransLineContainer>
+                Language : {languageChange()}
+            </TransLineContainer> */}
+            <ModalLineContainer
+                onClick={() => {
+                    setLanguageTrans("english");
+                    setLanguageModal(false);
+                }}>
+                English
+            </ModalLineContainer>
+            <ModalLineContainer
+                onClick={() => {
+                    setLanguageTrans("japanese");
+                    setLanguageModal(false);
+                }}>
+                日本語
+            </ModalLineContainer>
+            <ModalLineContainer
+                onClick={() => {
+                    setLanguageTrans("korean");
+                    setLanguageModal(false);
+                }}>
+                한국어
+            </ModalLineContainer>
+        </ModalContainer>
+    </div>
   )
 };
+
+const ModalBackgroundContainer = styled.div`
+    display: none;
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        height: 100%;
+        background-color: #00000080;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 97;
+        display: block;
+    }
+`;
 
 const ModalContainer = styled.div`
     width: 120px;
@@ -50,6 +67,15 @@ const ModalContainer = styled.div`
     position: absolute;
     top: 50px;
     left: -80px;
+    z-index: 98;
+
+    @media screen and (max-width: 500px) {
+        position: fixed;
+        top: 40%;
+        left: 25%;
+        width: 50%;
+        border-radius: 10px;
+    }
 `;
 
 const ModalLineContainer = styled.div`
@@ -74,6 +100,12 @@ const ModalLineContainer = styled.div`
 
     @media screen and (max-width: 1320px) {
         font-size: 12px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        font-size: 18px;
+        height: 60px;
     }
 `;
 

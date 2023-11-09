@@ -81,7 +81,7 @@ const BackgroundContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 98;
-  background-color: #22202030;
+  background-color: #22202070;
 `;
 
 const IconBox = styled.div<{ bordercolor : string }>`
