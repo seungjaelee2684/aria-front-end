@@ -10,11 +10,13 @@ const MentorCard = ({ item, language } : any) => {
   const languageTrans = () => {
     switch (language) {
       case "english" :
-          return "";
+        return "";
+      case "chinese" :
+        return item?.chinesename;
       case "japanese" :
-          return item?.japanesename;
+        return item?.japanesename;
       default :
-          return item?.nickname;
+        return item?.nickname;
     };
   };
 
@@ -54,8 +56,8 @@ const CardContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    width: 180px;
-    height: 220px;
+    width: 170px;
+    height: 210px;
 
     &:hover {
       transform: translateY(0px) scale(1);
@@ -89,8 +91,8 @@ const CardImage = styled.div<{ src : string }>`
   }
 
   @media screen and (max-width: 500px) {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
   }
 `;
 

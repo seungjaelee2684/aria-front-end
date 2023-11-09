@@ -1,75 +1,19 @@
-import React, { useState, useRef, useEffect, ReactEventHandler } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import '../style/font/font.css';
-import FirstMainFrameImage from '../assets/images/maincharacter.png';
-import SecondMainFrameImage from '../assets/images/maincharactorimage.png';
-import ThirdMainFrameImage from '../assets/images/rapla1.png';
-import MainWhiteLogo from '../assets/logos/whitelogo.png';
-import MainLogo from '../assets/logos/mainlogo.png';
-import MainBlackBG from '../assets/images/mainblackbackground.jpg';
 import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { translate } from '../store/Translation';
-import { PiArrowFatLinesDownLight, PiArrowFatLinesUpLight } from 'react-icons/pi';
+import { useRecoilState } from 'recoil';
 import { MainPageNumber } from '../store/MainPageNumber';
-import Frame from '../assets/images/frame.png';
-// import { PiArrowFatLinesUpLight } from 'react-icons/pi';
-// import MyVideo from '../assets/videos/video.mp4';
+import SecondPageImage from '../components/HomePage/SecondPageImage';
 
 const DIVIDER_HEIGHT = 5;
 
 const Home = () => {
 
-    const language = useRecoilValue(translate);
     const outerDivRef = useRef<HTMLDivElement>(null);
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
-
-    type TextType = {
-        englishtext: string,
-        japanesetext: string,
-        text: string
-    }
-
-    const mainPageText : TextType[] = [
-        {
-            englishtext: "",
-            japanesetext: "",
-            text: "는"
-        },
-        {
-            englishtext: "We will establish a global illustration academy platform where you can learn about different painting cultures of the East and the West in one place,",
-            japanesetext: "東洋と西洋の異なる絵画文化を一ヶ所で学べるグローバルイラストアカデミープラットフォームを構築し,",
-            text: "동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여,"
-        },
-        {
-            englishtext: "create a space where you can learn from various artists around the world regardless of nationality.",
-            japanesetext: "国籍に関係なく世界の多様な作家に学べる空間を作ります。",
-            text: "국적에 구애받지 않고 전세계 다양한 작가님들에게 배움을 얻을수 있는 공간을 만들겠습니다."
-        },
-        {
-            englishtext: "See more",
-            japanesetext: "詳細を見る",
-            text: "자세히 보기"
-        },
-        {
-            englishtext: "Going to see an instructor",
-            japanesetext: "講師を見に行く",
-            text: "강사 보러가기"
-        }
-    ];
-
-    const mainPageTextHanlder = (Num : number) => {
-        switch (language) {
-            case "english" :
-                return mainPageText[Num]?.englishtext;
-            case "japanese" :
-                return mainPageText[Num]?.japanesetext;
-            default :
-                return mainPageText[Num]?.text;
-        }
-    };
 
     useEffect(() => {
         const wheelEventHandler = (e : any) => {
@@ -148,82 +92,12 @@ const Home = () => {
             <ImageWrapper ref={outerDivRef}>
                 <ImageBoxWrapper>
                     <GradientContainer />
-                    {/* <ArrowIcon
-                        style={{top: "10%"}}
-                        className={(scrollIndex === 2) ? "UpArrow" : ""}>
-                        <PiArrowFatLinesUpLight />
-                    </ArrowIcon> */}
-                    {/* <ButtonWrapper>
-                        <Button
-                            style={{width: "600px"}}
-                            className={(scrollIndex === 1) ? "Button" : ""}>
-                            {mainPageTextHanlder(3)}
-                        </Button>
-                        <Button
-                            style={{width: "550px"}}
-                            className={(scrollIndex === 1) ? "SecondButton" : ""}>
-                            {mainPageTextHanlder(4)}
-                        </Button>
-                    </ButtonWrapper> */}
                     <ObjectImage
                         className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
                     <Images src={MainBG}/>  
                 </ImageBoxWrapper>
-                <SecondImageBoxWrapper>
-                    <GradientContainer className={(scrollIndex === 2) ? "GradientContainer" : ""}/>
-                    {/* <ArrowIcon
-                        style={{bottom: "3%", color: "#FCFCFC"}}
-                        className={(scrollIndex === 2) ? "DownArrow" : ""}>
-                        <PiArrowFatLinesDownLight />
-                    </ArrowIcon> */}
-                    <TextContainer>
-                        <MainTitleImage
-                            className={(scrollIndex === 2) ? "MainTitle" : ""}
-                            src={MainWhiteLogo}/>
-                        {/* <MainText
-                            // src={MainLogo}
-                            className={(scrollIndex === 2) ? "MainTitle" : ""}>
-                                ARIA
-                        </MainText> */}
-                        {/* <MainText>Aria</MainText> */}
-                        <MainSubTitle className={(scrollIndex === 2) ? "MainContent" : ""}>
-                            GROBAL ART ACADEMY
-                        </MainSubTitle>
-                        <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
-                            {mainPageTextHanlder(1)}
-                        </MainContent>
-                        <MainContent className={(scrollIndex === 2) ? "MainThirdContent" : ""}>
-                            {mainPageTextHanlder(2)}
-                        </MainContent>
-                        <FrameBoxWrapper>
-                            <FrameBox
-                                className={(scrollIndex === 2) ? "FirstFrame" : ""}>
-                                <FrameInFicture src={FirstMainFrameImage}/>
-                                <FrameContent className='FirstMainContent'>
-                                    수강 신청
-                                </FrameContent>
-                                <FrameImage src={Frame}/>
-                            </FrameBox>
-                            <FrameBox className={(scrollIndex === 2) ? "SecondFrame" : ""}>
-                                <FrameInFicture src={SecondMainFrameImage}/>
-                                <FrameContent className='SecondMainContent'>
-                                    디스코드
-                                </FrameContent>
-                                <FrameImage src={Frame}/>
-                            </FrameBox>
-                            <FrameBox className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
-                                <FrameInFicture src={ThirdMainFrameImage}/>
-                                <FrameContent className='ThirdMainContent'>
-                                    운영정책
-                                </FrameContent>
-                                <FrameImage src={Frame}/>
-                            </FrameBox>
-                        </FrameBoxWrapper>
-                    </TextContainer>
-                    {/* <ObjectImage src={MainCharactor}/> */}
-                    <Images src={MainBlackBG}/>
-                </SecondImageBoxWrapper>
+                <SecondPageImage />
             </ImageWrapper>
         </MainImageContainer>
     </MainLayout>
@@ -280,20 +154,10 @@ const ImageBoxWrapper = styled.div`
     overflow: hidden;
 `;
 
-const SecondImageBoxWrapper = styled(ImageBoxWrapper)`
-    @media screen and (max-width: 500px) {
-        display: none;
-    }
-`;
-
 const Images = styled.img`
     width: 100%;
     object-fit: cover;
-    /* background-image: url(${(props) => props.src});
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat; */
-    /* position: relative; */
+
     @media screen and (max-width: 1500px) {
         height: 100vh;
     }
@@ -310,130 +174,6 @@ const ObjectImage = styled.div<{ src : string }>`
     top: 0;
     left: 0;
     opacity: 0;
-`;
-
-const TextContainer = styled.div`
-    width: 40%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Pretendard";
-    gap: 50px;
-    /* background-color: #e9e9e9; */
-    position: absolute;
-    top: 0;
-    left: 30%;
-    z-index: 97;
-    user-select: none;
-
-    @media screen and (max-width: 1320px) {
-        width: 70%;
-        top: 0;
-        left: 15%;
-        gap: 50px;
-    }
-
-    @media screen and (max-width: 500px) {
-        width: 94%;
-        top: 0;
-        left: 3%;
-        gap: 80px;
-    }
-`;
-
-const MainTitleImage = styled.img`
-    width: 240px;
-    height: auto;
-    object-fit: cover;
-    opacity: 0;
-    user-select: none;
-
-    @media screen and (max-width: 500px) {
-        width: 300px;
-    }
-`;
-
-const MainText = styled.div`
-    font-family: 'BMDOHYEON';
-    font-size: 80px;
-    font-weight: 700;
-    line-height: 150%;
-    color: #FCFCFC;
-    text-shadow: 4px 4px 2px rgba(255, 255, 255, 0.5);
-    opacity: 0;
-
-    @media screen and (max-width: 1320px) {
-        font-size: 60px;
-    }
-`;
-
-const MainContent = styled.div`
-    width: 70%;
-    font-family: 'Jeongnimsaji-R';
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 140%;
-    color: #FCFCFC;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    /* text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5); */
-
-    @media screen and (max-width: 1320px) {
-        font-size: 14px;
-    }
-`;
-
-const MainSubTitle = styled.div`
-    width: 100%;
-    font-family: 'Jeongnimsaji-R';
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 140%;
-    color: #4596ff;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    letter-spacing: 20px;
-`;
-
-const ButtonWrapper = styled.div`
-    width: 700px;
-    position: absolute;
-    top: 40%;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: 16px;
-    z-index: 97;
-    user-select: none;
-`;
-
-const Button = styled.div`
-    height: 80px;
-    background-color: #4444ac;
-    color: #FCFCFC;
-    border-radius: 10px 0px 0px 10px;
-    font-family: "Pretendard";
-    font-size: 32px;
-    font-weight: 600;
-    line-height: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(48, 52, 54, 0.726) 2px 2px 6px 1px;
-    opacity: 0;
-    cursor: pointer;
-
-    &:hover {
-        font-size: 33px;
-        transform: scale(1.02);
-        background-color: #333396;
-    }
 `;
 
 const ArrowIcon = styled.div`
@@ -503,85 +243,6 @@ const PageNumber = styled.div`
     @media screen and (max-width: 1320px) {
         width: 10px;
         height: 10px;
-    }
-`;
-
-const FrameBoxWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    cursor: pointer;
-
-    @media screen and (max-width: 1320px) {
-        gap: 16px;
-    }
-`;
-
-const FrameBox = styled.div`
-    width: 240px;
-    height: 318px;
-    position: relative;
-    font-family: "IAMAPLAYER";
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 140%;
-    color: #FCFCFC;
-    background-color: #FCFCFC;
-    opacity: 0;
-    box-shadow: 3px 3px 8px rgba(255, 255, 255, 0.582);
-
-    @media screen and (max-width: 1320px) {
-        width: 170px;
-        height: 226px;
-        font-size: 16px;
-    }
-`;
-
-const FrameInFicture = styled.img`
-    width: 240px;
-    height: 318px;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    @media screen and (max-width: 1320px) {
-        width: 170px;
-        height: 226px;
-    }
-`;
-
-const FrameContent = styled.div`
-    width: 240px;
-    height: 318px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #2f6192c7;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-
-    @media screen and (max-width: 1320px) {
-        width: 170px;
-        height: 226px;
-    }
-`;
-
-const FrameImage = styled.img`
-    width: 243px;
-    height: auto;
-    position: absolute;
-    top: -2px;
-    left: -1px;
-    object-fit: cover;
-
-    @media screen and (max-width: 1320px) {
-        width: 173px;
     }
 `;
 
