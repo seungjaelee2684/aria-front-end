@@ -4,6 +4,7 @@ import '../style/font/font.css';
 import FirstMainFrameImage from '../assets/images/maincharacter.png';
 import SecondMainFrameImage from '../assets/images/maincharactorimage.png';
 import ThirdMainFrameImage from '../assets/images/rapla1.png';
+import MainWhiteLogo from '../assets/logos/whitelogo.png';
 import MainLogo from '../assets/logos/mainlogo.png';
 import MainBlackBG from '../assets/images/mainblackbackground.jpg';
 import MainBG from '../assets/images/sanpatimainbackground.png';
@@ -177,16 +178,22 @@ const Home = () => {
                         <PiArrowFatLinesDownLight />
                     </ArrowIcon> */}
                     <TextContainer>
-                        <MainText
+                        <MainTitleImage
+                            className={(scrollIndex === 2) ? "MainTitle" : ""}
+                            src={MainWhiteLogo}/>
+                        {/* <MainText
                             // src={MainLogo}
                             className={(scrollIndex === 2) ? "MainTitle" : ""}>
                                 ARIA
-                        </MainText>
+                        </MainText> */}
                         {/* <MainText>Aria</MainText> */}
-                        <MainContent className={(scrollIndex === 2) ? "MainContent" : ""}>
+                        <MainSubTitle className={(scrollIndex === 2) ? "MainContent" : ""}>
+                            GROBAL ART ACADEMY
+                        </MainSubTitle>
+                        <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
                             {mainPageTextHanlder(1)}
                         </MainContent>
-                        <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
+                        <MainContent className={(scrollIndex === 2) ? "MainThirdContent" : ""}>
                             {mainPageTextHanlder(2)}
                         </MainContent>
                         <FrameBoxWrapper>
@@ -332,7 +339,7 @@ const TextContainer = styled.div`
 `;
 
 const MainTitleImage = styled.img`
-    width: 400px;
+    width: 240px;
     height: auto;
     object-fit: cover;
     opacity: 0;
@@ -358,23 +365,33 @@ const MainText = styled.div`
 `;
 
 const MainContent = styled.div`
-    width: 85%;
-    font-family: 'IAMAPLAYER';
-    font-size: 24px;
-    font-weight: 600;
+    width: 70%;
+    font-family: 'Jeongnimsaji-R';
+    font-size: 20px;
+    font-weight: 400;
     line-height: 140%;
     color: #FCFCFC;
     opacity: 0;
     display: flex;
-    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    justify-content: center;
+    /* text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5); */
 
     @media screen and (max-width: 1320px) {
-        font-size: 18px;
-    }
-
-    @media screen and (max-width: 500px) {
         font-size: 14px;
     }
+`;
+
+const MainSubTitle = styled.div`
+    width: 100%;
+    font-family: 'Jeongnimsaji-R';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 140%;
+    color: #4596ff;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 20px;
 `;
 
 const ButtonWrapper = styled.div`
