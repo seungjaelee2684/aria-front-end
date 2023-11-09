@@ -21,6 +21,8 @@ const NotificationList = () => {
           switch (language) {
             case "english" :
                 return "Notice";
+            case "chinese" :
+                return "公告";
             case "japanese" :
                 return "お知らせ";
             default :
@@ -30,6 +32,8 @@ const NotificationList = () => {
             switch (language) {
                 case "english" :
                     return "cases";
+                case "chinese" :
+                    return " 件";
                 case "japanese" :
                     return " 件";
                 default :
@@ -42,6 +46,8 @@ const NotificationList = () => {
         switch (language) {
             case "english" :
                 return item?.englishnotice;
+            case "chinese" :
+                return item?.chinesenotice;
             case "japanese" :
                 return item?.japanesenotice;
             default :
