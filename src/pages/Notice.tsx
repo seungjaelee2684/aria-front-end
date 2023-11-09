@@ -20,11 +20,13 @@ const Notice = () => {
   const [selectOption, setSelectOption] = useState<{
     pick: string,
     japanesepick: string,
-    englishpick: string
+    englishpick: string,
+    chinesepick: string
   }>({
     pick: "전체",
     japanesepick: "全体",
-    englishpick: "All"
+    englishpick: "All",
+    chinesepick: "整个"
   });
 
   const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +39,8 @@ const Notice = () => {
     setSelectOption({
       pick: "전체",
       japanesepick: "全体",
-      englishpick: "All"
+      englishpick: "All",
+      chinesepick: "整个"
     });
   };
 
@@ -50,20 +53,24 @@ const Notice = () => {
     if (Num === 0) {
       switch (language) {
         case "english" :
-            return "cases";
+          return "cases";
+        case "chinese" :
+          return " 件";
         case "japanese" :
-            return " 件";
+          return " 件";
         default :
-            return " 건";
+          return " 건";
       };
     } else {
       switch (language) {
         case "english" :
-            return "Type a title";
+          return "Type a title";
+        case "chinese" :
+          return "标题搜索";
         case "japanese" :
-            return "タイトル検索";
+          return "タイトル検索";
         default :
-            return "제목 검색";
+          return "제목 검색";
       };
     };
   };

@@ -19,6 +19,8 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
           switch (language) {
             case "english" :
                 return `Title : ${item?.englishtitle}`;
+            case "chinese" :
+                return `题目 : ${item?.chinesetitle}`;
             case "japanese" :
                 return `タイトル : ${item?.japanesetitle}`;
             default :
@@ -28,6 +30,8 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
             switch (language) {
                 case "english" :
                     return "Period : ";
+                case "chinese" :
+                    return "时间 : ";
                 case "japanese" :
                     return "期間 : ";
                 default :
@@ -37,6 +41,8 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
           switch (language) {
             case "english" :
                 return "Deadline";
+            case "chinese" :
+                return "结束";
             case "japanese" :
                 return "締め切り";
             default :
