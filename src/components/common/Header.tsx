@@ -37,6 +37,8 @@ const Header = () => {
         switch (language) {
             case "english" :
                 return "ENG";
+            case "chinese" :
+                return "中文";
             case "japanese" :
                 return "日本語";
             default :

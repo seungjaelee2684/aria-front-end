@@ -16,15 +16,19 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal, setL
     <div>
         <ModalBackgroundContainer />
         <ModalContainer>
-            {/* <TransLineContainer>
-                Language : {languageChange()}
-            </TransLineContainer> */}
             <ModalLineContainer
                 onClick={() => {
                     setLanguageTrans("english");
                     setLanguageModal(false);
                 }}>
                 English
+            </ModalLineContainer>
+            <ModalLineContainer
+                onClick={() => {
+                    setLanguageTrans("chinese");
+                    setLanguageModal(false);
+                }}>
+                中文
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
@@ -71,7 +75,7 @@ const ModalContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         position: fixed;
-        top: 40%;
+        top: 30%;
         left: 25%;
         width: 50%;
         border-radius: 10px;
@@ -103,9 +107,9 @@ const ModalLineContainer = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        width: 100%;
         font-size: 18px;
-        height: 60px;
+        height: 50px;
+        margin: 10px auto;
     }
 `;
 
