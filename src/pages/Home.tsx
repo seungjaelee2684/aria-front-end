@@ -5,6 +5,7 @@ import FirstMainFrameImage from '../assets/images/maincharacter.png';
 import SecondMainFrameImage from '../assets/images/maincharactorimage.png';
 import ThirdMainFrameImage from '../assets/images/rapla1.png';
 import MainLogo from '../assets/logos/mainlogo.png';
+import MainBlackBG from '../assets/images/mainblackbackground.jpg';
 import MainBG from '../assets/images/sanpatimainbackground.png';
 import MainCharactor from '../assets/images/maincharactorimage.png';
 import '../components/HomePage/MainImage/MainImage.css';
@@ -126,9 +127,10 @@ const Home = () => {
         <PageBarOutContainer>
             <PageBarContainer>
                 <PageNumberWrapper
+                    className='PageNumberWrapper'
                     style={{
-                        top: `${(scrollIndex === 1) ? "-5px" : ""}`,
-                        bottom: `${(scrollIndex === 2) ? "-5px" : ""}`
+                        top: `${(scrollIndex === 1) ? "-6px" : ""}`,
+                        bottom: `${(scrollIndex === 2) ? "-6px" : ""}`
                     }}    
                 ></PageNumberWrapper>
                 <PageNumber
@@ -213,7 +215,7 @@ const Home = () => {
                         </FrameBoxWrapper>
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
-                    {/* <Images src={MainBG}/> */}
+                    <Images src={MainBlackBG}/>
                 </ImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
@@ -314,10 +316,17 @@ const TextContainer = styled.div`
     z-index: 97;
     user-select: none;
 
+    @media screen and (max-width: 1320px) {
+        width: 70%;
+        top: 0;
+        left: 15%;
+        gap: 50px;
+    }
+
     @media screen and (max-width: 500px) {
-        width: 90%;
-        top: 15%;
-        left: 5%;
+        width: 94%;
+        top: 0;
+        left: 3%;
         gap: 80px;
     }
 `;
@@ -342,6 +351,10 @@ const MainText = styled.div`
     color: #FCFCFC;
     text-shadow: 4px 4px 2px rgba(255, 255, 255, 0.5);
     opacity: 0;
+
+    @media screen and (max-width: 1320px) {
+        font-size: 60px;
+    }
 `;
 
 const MainContent = styled.div`
@@ -355,12 +368,12 @@ const MainContent = styled.div`
     display: flex;
     text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 
-    @media screen and (max-width: 1000px) {
-        font-size: 28px;
+    @media screen and (max-width: 1320px) {
+        font-size: 18px;
     }
 
     @media screen and (max-width: 500px) {
-        font-size: 20px;
+        font-size: 14px;
     }
 `;
 
@@ -447,19 +460,23 @@ const PageNumberWrapper = styled.div`
     transform: rotate(45deg);
     /* top: -5px; */
     /* bottom: -5px; */
+
+    @media screen and (max-width: 1320px) {
+        width: 18px;
+        height: 18px;
+    }
 `;
 
 const PageNumber = styled.div`
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
+    transition: all 0.5s ease-in-out;
     transform: rotate(45deg);
-`;
 
-const PageBar = styled.div`
-    width: 4px;
-    height: 30px;
-    background-color: #ADADAD90;
-    border-radius: 10px;
+    @media screen and (max-width: 1320px) {
+        width: 10px;
+        height: 10px;
+    }
 `;
 
 const FrameBoxWrapper = styled.div`
@@ -469,6 +486,10 @@ const FrameBoxWrapper = styled.div`
     align-items: center;
     gap: 18px;
     cursor: pointer;
+
+    @media screen and (max-width: 1320px) {
+        gap: 16px;
+    }
 `;
 
 const FrameBox = styled.div`
@@ -483,6 +504,12 @@ const FrameBox = styled.div`
     background-color: #FCFCFC;
     opacity: 0;
     box-shadow: 3px 3px 8px rgba(255, 255, 255, 0.582);
+
+    @media screen and (max-width: 1320px) {
+        width: 170px;
+        height: 226px;
+        font-size: 16px;
+    }
 `;
 
 const FrameInFicture = styled.img`
@@ -492,6 +519,11 @@ const FrameInFicture = styled.img`
     position: absolute;
     top: 0;
     left: 0;
+
+    @media screen and (max-width: 1320px) {
+        width: 170px;
+        height: 226px;
+    }
 `;
 
 const FrameContent = styled.div`
@@ -506,6 +538,11 @@ const FrameContent = styled.div`
     background-color: #2f6192c7;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+
+    @media screen and (max-width: 1320px) {
+        width: 170px;
+        height: 226px;
+    }
 `;
 
 const FrameImage = styled.img`
@@ -515,6 +552,10 @@ const FrameImage = styled.img`
     top: -2px;
     left: -1px;
     object-fit: cover;
+
+    @media screen and (max-width: 1320px) {
+        width: 173px;
+    }
 `;
 
 export default Home;

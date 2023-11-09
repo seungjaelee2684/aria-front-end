@@ -52,17 +52,17 @@
 }
 
 .FirstFrame {
-    animation: frame_appear 1s forwards;
+    animation: frame_appear 0.8s forwards;
     animation-delay: 2s;
 }
 
 .SecondFrame {
-    animation: frame_appear 1s forwards;
+    animation: frame_appear 0.8s forwards;
     animation-delay: 2.3s;
 }
 
 .ThirdFrame {
-    animation: frame_appear 1s forwards;
+    animation: frame_appear 0.8s forwards;
     animation-delay: 2.6s;
 }
 
@@ -82,6 +82,13 @@
     .ThirdMainContent {
         opacity: 1;
     }
+}
+
+.PageNumberWrapper {
+    animation-name: page_number;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes gradient_appear {
@@ -202,5 +209,23 @@
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes page_number {
+    0% {
+        transform: rotate(45deg) scale(1);
+    }
+    /* 25% {
+        transform: rotate(135deg) scale(1.01);
+    }
+    50% {
+        transform: rotate(225deg) scale(1);
+    }
+    75% {
+        transform: rotate(315deg) scale(1.01);
+    } */
+    100% {
+        transform: rotate(405deg) scale(1);
     }
 }
