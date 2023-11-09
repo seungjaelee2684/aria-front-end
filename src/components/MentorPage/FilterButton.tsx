@@ -8,6 +8,7 @@ import DownArrow from '../../assets/icons/downArrow.png'
 import Koreaflag from '../../assets/logos/koreaflag.png';
 import Japanflag from '../../assets/logos/japanflag.png';
 import Americaflag from '../../assets/logos/americaflag.png'
+import Chinaflag from '../../assets/logos/chinaflag.png'
 
 const FilterButton = () => {
 
@@ -26,6 +27,7 @@ const FilterButton = () => {
     const nationFilter : Nation[]  = [
         {nation: "All", flag: ""},
         {nation: "American", flag: Americaflag},
+        {nation: "Chinese", flag: Chinaflag},
         {nation: "Japanese", flag: Japanflag},
         {nation: "Korean" , flag: Koreaflag}
     ]
