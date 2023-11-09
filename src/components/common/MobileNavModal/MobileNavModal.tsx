@@ -20,11 +20,13 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
   const onClickReadyHandler = () => {
     switch (language) {
       case "english" :
-          return alert("Coming soon");
+        return alert("Coming soon");
+      case "chinese" :
+        return alert("正在准备。");
       case "japanese" :
-          return alert("準備中です。");
+        return alert("準備中です。");
       default :
-          return alert("준비중입니다.");
+        return alert("준비중입니다.");
     };
   };
   
