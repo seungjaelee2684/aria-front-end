@@ -22,11 +22,13 @@ const SNSMenu = () => {
   const onClickReadyHandler = () => {
     switch (language) {
       case "english" :
-          return alert("Coming soon");
+        return alert("Coming soon");
+      case "chinese" :
+        return alert("正在准备。");
       case "japanese" :
-          return alert("準備中です。");
+        return alert("準備中です。");
       default :
-          return alert("준비중입니다.");
+        return alert("준비중입니다.");
     };
   };
 
@@ -34,29 +36,35 @@ const SNSMenu = () => {
     if (Num === 0) {
       switch (language) {
         case "english" :
-            return "Coming soon";
+          return "Coming soon";
+        case "chinese" :
+          return "正在准备。";
         case "japanese" :
-            return "準備中です。";
+          return "準備中です。";
         default :
-            return "준비중입니다.";
+          return "준비중입니다.";
       };
     } else if (Num === 1) {
       switch (language) {
         case "english" :
-            return "Visit Twitter account.";
+          return "Visit Twitter account.";
+        case "english" :
+          return "查看推特";
         case "japanese" :
-            return "Twitterを見に行く";
+          return "Twitterを見に行く";
         default :
-            return "트위터 보러가기";
+          return "트위터 보러가기";
       };
     } else {
       switch (language) {
         case "english" :
-            return "Visit Discord account.";
+          return "Visit Discord account.";
+        case "english" :
+          return "查看 Discord";
         case "japanese" :
-            return "Discordを見に行く";
+          return "Discordを見に行く";
         default :
-            return "디스코드 보러가기";
+          return "디스코드 보러가기";
       };
     }; 
   };
