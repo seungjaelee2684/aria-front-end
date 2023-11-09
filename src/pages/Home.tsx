@@ -170,7 +170,7 @@ const Home = () => {
                         src={MainCharactor}/>
                     <Images src={MainBG}/>  
                 </ImageBoxWrapper>
-                <ImageBoxWrapper>
+                <SecondImageBoxWrapper>
                     <GradientContainer className={(scrollIndex === 2) ? "GradientContainer" : ""}/>
                     {/* <ArrowIcon
                         style={{bottom: "3%", color: "#FCFCFC"}}
@@ -223,7 +223,7 @@ const Home = () => {
                     </TextContainer>
                     {/* <ObjectImage src={MainCharactor}/> */}
                     <Images src={MainBlackBG}/>
-                </ImageBoxWrapper>
+                </SecondImageBoxWrapper>
             </ImageWrapper>
         </MainImageContainer>
     </MainLayout>
@@ -278,6 +278,12 @@ const ImageBoxWrapper = styled.div`
     height: 100vh;
     position: relative;
     overflow: hidden;
+`;
+
+const SecondImageBoxWrapper = styled(ImageBoxWrapper)`
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const Images = styled.img`
@@ -454,6 +460,10 @@ const PageBarOutContainer = styled.div`
     top: 49%;
     right: 3%;
     z-index: 98;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const PageBarContainer = styled.div`
