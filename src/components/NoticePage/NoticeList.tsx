@@ -127,7 +127,7 @@ const ListContainer = styled.div`
   margin: 0px auto;
 
   @media screen and (max-width: 1320px) {
-    width: 100%;
+    width: 96%;
     gap: 16px;
     justify-content: center;
   }
