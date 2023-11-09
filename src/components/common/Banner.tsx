@@ -6,6 +6,7 @@ import { translate } from '../../store/Translation';
 import BannerBackground from '../../assets/images/rapla2.png';
 import Banner1 from '../../assets/images/mainimage2.jpg';
 import Banner2 from '../../assets/images/rapla2.png';
+import { textInformation } from '../../languages/EventPageTrans';
 
 interface BannerProps {
     page: number;
@@ -15,28 +16,16 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
 
     const language = useRecoilValue(translate);
 
-    type InfoType = {
-        image: string,
-        englishtitle: string,
-        japanesetitle: string,
-        title: string
-    };
-
-    const textInformation : InfoType[] = [
-        {image: Banner1, englishtitle: "EVENT", japanesetitle: "イベント", title: "이벤트"},
-        {image: Banner2, englishtitle: "ANNOUNCEMENTS", japanesetitle: "お知らせ", title: "공지 사항"},
-        {image: Banner1, englishtitle: "SHOWCASE", japanesetitle: "名誉の殿堂", title: "명예의 전당"},
-        {image: Banner2, englishtitle: "", japanesetitle: "", title: ""}
-    ];
-
     const textChange = () => {
         switch (language) {
-            case "english" :
-                return textInformation[page]?.englishtitle;
-            case "japanese" :
-                return textInformation[page]?.japanesetitle;
-            default :
-                return textInformation[page]?.title;
+          case "english" :
+            return textInformation[page]?.englishtitle;
+          case "chinese" :
+            return textInformation[page]?.chinesetitle;
+          case "japanese" :
+            return textInformation[page]?.japanesetitle;
+          default :
+            return textInformation[page]?.title;
         };
     };
 
