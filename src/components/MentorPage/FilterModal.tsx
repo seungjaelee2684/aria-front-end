@@ -2,6 +2,7 @@ import React from 'react'
 import Koreaflag from '../../assets/logos/koreaflag.png';
 import Japanflag from '../../assets/logos/japanflag.png';
 import Americaflag from '../../assets/logos/americaflag.png'
+import Chinaflag from '../../assets/logos/chinaflag.png'
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
@@ -26,6 +27,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
     const nationFilter : Nation[]  = [
         {nation: "All", flag: ""},
         {nation: "American", flag: Americaflag},
+        {nation: "Chinese", flag: Chinaflag},
         {nation: "Japanese", flag: Japanflag},
         {nation: "Korean" , flag: Koreaflag}
     ]

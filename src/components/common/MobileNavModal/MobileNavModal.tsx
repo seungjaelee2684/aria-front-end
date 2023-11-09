@@ -121,6 +121,7 @@ const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 0px 15px 15px 0px;
+  background-color: #ebfeff;
   z-index: 100;
   user-select: none;
   box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
@@ -131,7 +132,7 @@ const CloseBtnContainer = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-top: 10px;
+  margin: 10px auto 0px auto;
 `;
 
 const CloseBtn = styled.div`
@@ -161,21 +162,21 @@ const TextWrapper = styled.div`
   color: #222020;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
 `;
 
 const Text = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 30px;
 `;
 
 const SurvePageButton = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0px 70px 20px 70px;
+  padding: 10px 50px 10px 50px;
   color: #ADADAD;
   font-size: 14px;
 `;

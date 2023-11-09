@@ -19,6 +19,8 @@ const NavButton = () => {
         switch (language) {
             case "english" :
                 return alert("Coming soon");
+            case "chinese" :
+                return alert("正在准备。");
             case "japanese" :
                 return alert("準備中です。");
             default :
