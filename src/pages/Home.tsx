@@ -128,7 +128,7 @@ const Home = () => {
         <PageBarOutContainer>
             <PageBarContainer>
                 <PageNumberWrapper
-                    className='PageNumberWrapper'
+                    // className={(scrollIndex === 1) ? "PageNumberWrapper" : "NonePageNumberWrapper"}
                     style={{
                         top: `${(scrollIndex === 1) ? "-6px" : ""}`,
                         bottom: `${(scrollIndex === 2) ? "-6px" : ""}`
@@ -136,7 +136,7 @@ const Home = () => {
                 ></PageNumberWrapper>
                 <PageNumber
                     style={{
-                        backgroundColor: `${(scrollIndex === 1) ? "#FFFFFF" : "#ffffffbe"}`
+                        backgroundColor: `${(scrollIndex === 1) ? "#FFFFFF" : "#ffffff5c"}`
                     }}/>
                 <PageNumber 
                     style={{
@@ -315,7 +315,7 @@ const TextContainer = styled.div`
     justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    gap: 40px;
+    gap: 50px;
     /* background-color: #e9e9e9; */
     position: absolute;
     top: 0;
@@ -468,7 +468,6 @@ const PageNumberWrapper = styled.div`
     width: 22px;
     height: 22px;
     border: 2px solid #FFFFFF;
-    /* border-radius: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -488,6 +487,7 @@ const PageNumber = styled.div`
     width: 14px;
     height: 14px;
     transition: all 0.5s ease-in-out;
+    /* border-radius: 100%; */
     transform: rotate(45deg);
 
     @media screen and (max-width: 1320px) {

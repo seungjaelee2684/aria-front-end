@@ -90,10 +90,11 @@
 }
 
 .PageNumberWrapper {
-    animation-name: page_number;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation: page_number 0.5s forwards;
+}
+
+.NonePageNumberWrapper {
+    animation: none_page_number 0.5s forwards;
 }
 
 @keyframes gradient_appear {
@@ -218,19 +219,19 @@
 }
 
 @keyframes page_number {
-    0% {
-        transform: rotate(45deg) scale(1);
+    from {
+        transform: translateY(0px) rotate(45deg);
     }
-    /* 25% {
-        transform: rotate(135deg) scale(1.01);
+    to {
+        transform: translateY(49px) rotate(45deg);
     }
-    50% {
-        transform: rotate(225deg) scale(1);
+}
+
+@keyframes none_page_number {
+    from {
+        transform: translateY(0px) rotate(45deg);
     }
-    75% {
-        transform: rotate(315deg) scale(1.01);
-    } */
-    100% {
-        transform: rotate(405deg) scale(1);
+    to {
+        transform: translateY(-49px) rotate(45deg);
     }
 }
