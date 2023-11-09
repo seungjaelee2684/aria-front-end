@@ -9,12 +9,14 @@ interface SelectBarProps {
     selectOption: {
         pick: string,
         japanesepick: string,
-        englishpick: string
+        englishpick: string,
+        chinesepick: string
     };
     setSelectOption: React.Dispatch<React.SetStateAction<{
         pick: string,
         japanesepick: string,
-        englishpick: string
+        englishpick: string,
+        chinesepick: string
     }>>;
     setContent: React.Dispatch<React.SetStateAction<string>>;
     setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -22,7 +24,7 @@ interface SelectBarProps {
 
 const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelectOption, setContent, setInputValue }) => {
 
-    const { pick, japanesepick, englishpick } = selectOption;
+    const { pick, japanesepick, englishpick, chinesepick } = selectOption;
 
     const divRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -30,11 +32,13 @@ const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelec
     const filterOption = () => {
       switch (language) {
         case "english" :
-            return englishpick;
+          return englishpick;
+        case "chinese" :
+          return chinesepick;
         case "japanese" :
-            return japanesepick;
+          return japanesepick;
         default :
-            return pick;
+          return pick;
       };
     };
 
