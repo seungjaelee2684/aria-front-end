@@ -1,6 +1,7 @@
 import Image from '../assets/images/surveimage.jpg';
-import Image2 from '../assets/images/mainimage.jpg';
-import Image3 from '../assets/images/testImage.png';
+import Image2 from '../assets/images/rapla1.png';
+import Image3 from '../assets/images/rapla2.png';
+import Image4 from '../assets/images/maincharactor.png';
 import SanpachiImage from '../assets/images/sanpachiimage1.png';
 import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
 
@@ -43,7 +44,7 @@ export const mentorListData = [
         japanesename: "シュモリ",
         nickname: "슈몰리",
         content: "",
-        image: Image
+        image: Image3
     },
     {
         id: "5",
@@ -54,5 +55,15 @@ export const mentorListData = [
         nickname: "산파치",
         content: "",
         image: SanpachiImage
+    },
+    {
+        id: "6",
+        nation: "Chinese",
+        englishname: "Neon",
+        chinesename: "氖",
+        japanesename: "ネオン",
+        nickname: "네온",
+        content: "",
+        image: Image4
     },
 ];
