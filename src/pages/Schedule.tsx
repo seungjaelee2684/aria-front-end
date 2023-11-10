@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
+import Banner from '../components/common/Banner';
 
 const Schedule = () => {
   return (
     <LayOutContainer>
+      <Banner page={3}/>
       Schedule
     </LayOutContainer>
   )
