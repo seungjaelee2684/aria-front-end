@@ -9,7 +9,7 @@ import { translate } from '../../store/Translation';
 const MentorList = () => {
 
     const nationkind = useRecoilValue(nationKind);
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
 
     const filterData = mentorListData?.filter((data) => data.nation === nationkind);
 

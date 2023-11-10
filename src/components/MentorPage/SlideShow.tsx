@@ -10,8 +10,6 @@ import './NewMentorList/NewMentorList.css'
 
 const SlideShow = () => {
 
-  const language = useRecoilValue(translate);
-
   const imageRef = useRef<HTMLDivElement>(null);
   const [slideCurrent, setSlideCurrent] = useState<number>(0);
   const [prevCurrent, setPrevCurrent] = useState<number | undefined>();
@@ -58,7 +56,6 @@ const SlideShow = () => {
       <NewMentorList
         key={slideCurrent}
         imageRef={imageRef}
-        language={language}
         slideCurrent={slideCurrent}
         prevCurrent={prevCurrent}
         setPrevCurrent={setPrevCurrent}

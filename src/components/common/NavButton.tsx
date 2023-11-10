@@ -9,7 +9,8 @@ import { translate } from '../../store/Translation';
 const NavButton = () => {
 
     const navigate = useNavigate();
-    const language = useRecoilValue(translate);
+    // const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const location = useLocation();
     // const resetFilter = useResetRecoilState(nationKind);
     // const resetFlag = useResetRecoilState(nationFlag);
@@ -23,8 +24,10 @@ const NavButton = () => {
                 return alert("正在准备。");
             case "japanese" :
                 return alert("準備中です。");
-            default :
+            case "korean" :
                 return alert("준비중입니다.");
+            default :
+                return alert("Coming soon");
         };
     };
 
@@ -77,7 +80,7 @@ const NavButton = () => {
                     }}>
                     NOTICE
                 </div>
-                {((pageModal === "Notice") && (location.pathname !== "/"))
+                {(pageModal === "Notice")
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>
@@ -99,11 +102,11 @@ const NavButton = () => {
                 <div
                     style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        navigate("/support");
+                        navigate("/schedule");
                     }}>
                     SUPPORT
                 </div>
-                {((pageModal === "Support") && (location.pathname !== "/"))
+                {(pageModal === "Support")
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>
