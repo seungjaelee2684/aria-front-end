@@ -12,7 +12,7 @@ interface NoticeCardProps {
 const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 
     const navigate = useNavigate();
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
 
     const onTextHandler = ( Num : number ) => {
         if (Num === 0) {
@@ -23,8 +23,10 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
                 return `题目 : ${item?.chinesetitle}`;
             case "japanese" :
                 return `タイトル : ${item?.japanesetitle}`;
-            default :
+            case "korean" :
                 return `제목 : ${item?.title}`;
+            default :
+                return `Title : ${item?.englishtitle}`;
           };
         } else if (Num === 1) {
             switch (language) {
@@ -34,8 +36,10 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
                     return "时间 : ";
                 case "japanese" :
                     return "期間 : ";
-                default :
+                case "korean" :
                     return "기간 : ";
+                default :
+                    return "Period : ";
             };
         } else {
           switch (language) {
@@ -45,8 +49,10 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
                 return "结束";
             case "japanese" :
                 return "締め切り";
-            default :
+            case "korean" :
                 return "마감";
+            default :
+                return "Deadline";
           };
         }; 
       };

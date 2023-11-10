@@ -5,12 +5,9 @@ import { translate } from '../../store/Translation';
 
 interface TranslateModalProps {
     setLanguageModal: React.Dispatch<React.SetStateAction<boolean>>;
-    setLanguageTrans: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal, setLanguageTrans }) => {
-
-    const language = useRecoilValue(translate);
+const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) => {
 
   return (
     <div>
@@ -18,29 +15,33 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal, setL
         <ModalContainer>
             <ModalLineContainer
                 onClick={() => {
-                    setLanguageTrans("english");
                     setLanguageModal(false);
+                    localStorage.setItem("language", "english");
+                    window.location.reload();
                 }}>
                 English
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
-                    setLanguageTrans("chinese");
                     setLanguageModal(false);
+                    localStorage.setItem("language", "chinese");
+                    window.location.reload();
                 }}>
                 中文
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
-                    setLanguageTrans("japanese");
                     setLanguageModal(false);
+                    localStorage.setItem("language", "japanese");
+                    window.location.reload();
                 }}>
                 日本語
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
-                    setLanguageTrans("korean");
                     setLanguageModal(false);
+                    localStorage.setItem("language", "korean");
+                    window.location.reload();
                 }}>
                 한국어
             </ModalLineContainer>

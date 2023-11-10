@@ -13,7 +13,7 @@ import MainBlackBG from '../../assets/images/mainblackbackground.jpg';
 
 const SecondPageImage = () => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const scrollIndex = useRecoilValue(MainPageNumber);
 
     const mainPageTextHanlder = (Num : number) => {
@@ -24,8 +24,10 @@ const SecondPageImage = () => {
                 return mainPageText[Num]?.chinesetext;
             case "japanese" :
                 return mainPageText[Num]?.japanesetext;
-            default :
+            case "korean" :
                 return mainPageText[Num]?.text;
+            default :
+                return mainPageText[Num]?.englishtext;
         }
     };
 

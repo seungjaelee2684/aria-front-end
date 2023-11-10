@@ -7,69 +7,26 @@ import { translate } from '../store/Translation';
 import { GiEarthAmerica } from 'react-icons/gi';
 import TranslateModal from '../components/common/TranslateModal';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
+import { checkPageContent } from '../languages/CheckPageTrans';
 
 const Check = () => {
 
-    const language = useRecoilValue(translate);
-    const [languageTrans, setLanguageTrans] = useRecoilState(translate);
+    const language = localStorage.getItem("language");
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const checkText = ( Num : number ) => {
-        if (Num === 0) {
-            switch (language) {
-                case "english" : 
-                    return "Site Inspection Guide";
-                case "japanese" : 
-                    return "サイトチェックガイド";
-                default : 
-                    return "사이트 점검 안내";
-            };
-        } else if (Num === 1) {
-            switch (language) {
-                case "english" : 
-                    return "ENG";
-                case "japanese" : 
-                    return "日本語";
-                default : 
-                    return "한국어";
-            };
-        } else if (Num === 2) {
-            switch (language) {
-                case "english" : 
-                    return "Checking the system...";
-                case "japanese" : 
-                    return "システムチェック中...";
-                default : 
-                    return "시스템 점검중...";
-            };
-        } else if (Num === 3) {
-            switch (language) {
-                case "english" : 
-                    return "We are checking the site for better service.";
-                case "japanese" : 
-                    return "より良いサービスを提供するためにサイトをチェックしています。";
-                default : 
-                    return "보다 나은 서비스를 제공하기 위해 사이트를 점검중입니다.";
-            };
-        } else if (Num === 4) {
-            switch (language) {
-                case "english" : 
-                    return "We apologize for the inconvenience caused to use.";
-                case "japanese" : 
-                    return "ご利用にご不便をおかけして申し訳ございません。";
-                default : 
-                    return "이용에 불편을 끼쳐드려 죄송합니다.";
-            };
-        } else {
-            switch (language) {
-                case "english" : 
-                    return "Inspection Time :";
-                case "japanese" : 
-                    return "点検時間 :";
-                default : 
-                    return "점검시간 :";
-            };
-        };
+        switch (language) {
+            case "english" : 
+                return checkPageContent[Num]?.englishtext;
+            case "chinese" : 
+                return checkPageContent[Num]?.chinesetext;
+            case "japanese" : 
+                return checkPageContent[Num]?.japanesetext;
+            case "korean" : 
+                return checkPageContent[Num]?.text;
+            default : 
+                return checkPageContent[Num]?.englishtext;
+        };   
     };
 
   return (
@@ -93,8 +50,7 @@ const Check = () => {
                         </RightContainer>
                         {languageModal
                                 && <TranslateModal
-                                    setLanguageModal={setLanguageModal}
-                                    setLanguageTrans={setLanguageTrans}/>}
+                                    setLanguageModal={setLanguageModal}/>}
                     </div>
                 </TopLineContainer>
                 <ContentWrapper>
