@@ -35,20 +35,22 @@ const SecondPageImage = () => {
         <ImageBoxWrapper>
             <GradientContainer className={(scrollIndex === 2) ? "GradientContainer" : ""} />
             <TextContainer>
-                <MainTitleImage
-                    className={(scrollIndex === 2) ? "MainTitle" : ""}
-                    src={MainWhiteLogo} />
-                <MainSubTitle className={(scrollIndex === 2) ? "MainContent" : ""}>
-                    GROBAL ART ACADEMY
-                </MainSubTitle>
-                <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
-                    {mainPageTextHanlder(1)}
-                </MainContent>
-                <MainContent className={(scrollIndex === 2) ? "MainThirdContent" : ""}>
-                    {mainPageTextHanlder(2)}
-                </MainContent>
-                <FrameBoxWrapper>
-                    <FrameBox
+                <MainTextOutWrapper>
+                    <MainTitleImage
+                        className={(scrollIndex === 2) ? "MainTitle" : ""}
+                        src={MainWhiteLogo} />
+                    <MainSubTitle className={(scrollIndex === 2) ? "MainContent" : ""}>
+                        GROBAL ART ACADEMY
+                    </MainSubTitle>
+                    <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
+                        {mainPageTextHanlder(1)}
+                    </MainContent>
+                    <MainContent className={(scrollIndex === 2) ? "MainThirdContent" : ""}>
+                        {mainPageTextHanlder(2)}
+                    </MainContent>
+                </MainTextOutWrapper>
+                <ButtonOutContainer>
+                    {/* <FrameBox
                         className={(scrollIndex === 2) ? "FirstFrame" : ""}>
                         <FrameInFicture src={FirstMainFrameImage} />
                         <FrameContent className='FirstMainContent'>
@@ -69,8 +71,26 @@ const SecondPageImage = () => {
                             운영정책
                         </FrameContent>
                         <FrameImage src={Frame} />
-                    </FrameBox>
-                </FrameBoxWrapper>
+                    </FrameBox> */}
+                    <ButtonBoxWapper className={(scrollIndex === 2) ? "FirstFrame" : ""}>
+                        <ButtonHoverBox className='FirstMainContent'>
+                            수강신청 하러가기
+                        </ButtonHoverBox>
+                        <ButtonBackgroundImage src={FirstMainFrameImage}/>
+                    </ButtonBoxWapper>
+                    <ButtonBoxWapper className={(scrollIndex === 2) ? "SecondFrame" : ""}>
+                        <ButtonHoverBox className='SecondMainContent'>
+                            수강신청 하러가기
+                        </ButtonHoverBox>
+                        <ButtonBackgroundImage src={FirstMainFrameImage}/>
+                    </ButtonBoxWapper>
+                    <ButtonBoxWapper className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
+                        <ButtonHoverBox className='ThirdMainContent'>
+                            수강신청 하러가기
+                        </ButtonHoverBox>
+                        <ButtonBackgroundImage src={FirstMainFrameImage}/>
+                    </ButtonBoxWapper>
+                </ButtonOutContainer>
             </TextContainer>
             <Images src={MainBlackBG} />
         </ImageBoxWrapper>
@@ -113,7 +133,7 @@ const GradientContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-    width: 40%;
+    width: 100%;
     height: 100%;
     margin: auto;
     display: flex;
@@ -121,26 +141,39 @@ const TextContainer = styled.div`
     justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    gap: 50px;
+    gap: 100px;
     /* background-color: #e9e9e9; */
     position: absolute;
     top: 0;
-    left: 30%;
+    left: 0;
     z-index: 97;
     user-select: none;
 
     @media screen and (max-width: 1320px) {
-        width: 70%;
+        width: 80%;
         top: 0;
-        left: 15%;
-        gap: 50px;
+        left: 10%;
     }
 
-    @media screen and (max-width: 500px) {
-        width: 94%;
+    @media screen and (max-width: 836px) {
+        width: 90%;
         top: 0;
-        left: 3%;
-        gap: 80px;
+        left: 5%;
+        gap: 60px;
+    }
+`;
+
+const MainTextOutWrapper = styled.div`
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+    @media screen and (max-width: 1320px) {
+        width: 60%;
+        gap: 40px;
     }
 `;
 
@@ -152,7 +185,7 @@ const MainTitleImage = styled.img`
     user-select: none;
 
     @media screen and (max-width: 500px) {
-        width: 300px;
+        width: 200px;
     }
 `;
 
@@ -174,7 +207,7 @@ const MainContent = styled.div`
     font-family: 'Jeongnimsaji-R';
     font-size: 20px;
     font-weight: 400;
-    line-height: 140%;
+    line-height: 150%;
     color: #FCFCFC;
     opacity: 0;
     display: flex;
@@ -183,19 +216,23 @@ const MainContent = styled.div`
 
     @media screen and (max-width: 1320px) {
         font-size: 14px;
+        width: 100%;
     }
 `;
 
-const FrameBoxWrapper = styled.div`
+const ButtonOutContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 18px;
-    cursor: pointer;
+    gap: 30px;
 
     @media screen and (max-width: 1320px) {
         gap: 16px;
+    }
+
+    @media screen and (max-width: 836px) {
+        flex-direction: column;
     }
 `;
 
@@ -252,16 +289,57 @@ const FrameContent = styled.div`
     }
 `;
 
-const FrameImage = styled.img`
-    width: 243px;
-    height: auto;
-    position: absolute;
-    top: -2px;
-    left: -1px;
-    object-fit: cover;
+const ButtonBoxWapper = styled.div`
+    width: 400px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
 
     @media screen and (max-width: 1320px) {
-        width: 173px;
+        width: 250px;
+        height: 100px;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 100%;
+        height: 60px;
+    }
+`;
+
+const ButtonBackgroundImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
+
+const ButtonHoverBox = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: #22202090;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FCFCFC;
+    font-family: "IAMAPLAYER";
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+
+    @media screen and (max-width: 836px) {
+        font-size: 18px;
     }
 `;
 
