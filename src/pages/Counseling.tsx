@@ -4,6 +4,7 @@ import Banner from '../components/common/Banner';
 
 const Counseling = () => {
 
+  const language = localStorage.getItem("language");
   const [isChoice, setIsChoice] = useState<boolean>(false);
 
   return (
@@ -41,14 +42,14 @@ const LayOutContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 1320px;
-  margin: 80px auto;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
 `;
 
 const ButtonWrapper = styled.div`
   width: 100%;
-  border-bottom: 2px solid #e9e9e9;
+  border-bottom: 2px solid #f3f3f3;
   position: relative;
 `;
 
@@ -61,15 +62,15 @@ const ButtonBox = styled.div`
 `;
 
 const Button = styled.div`
-  width: 170px;
-  height: 44px;
+  width: 180px;
+  height: 54px;
   border-radius: 20px 20px 0px 0px;
   /* border-right: 2px solid #c4f6ff;
   border-left: 2px solid #c4f6ff; */
   color: #222020;
   font-family: "Pretendard";
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 400;
   line-height: normal;
   display: flex;
   justify-content: center;
@@ -78,21 +79,21 @@ const Button = styled.div`
 
   &:hover {
     background: linear-gradient(to top, #e1fbff, transparent);
-    height: 40px;
+    height: 50px;
     border-bottom: 4px solid #c4f6ff;
   }
 `;
 
 const ClickButton = styled.div`
-  width: 170px;
-  height: 40px;
+  width: 180px;
+  height: 50px;
   border-bottom: 4px solid #c4f6ff;
   border-radius: 20px 20px 0px 0px;
   /* border-right: 2px solid #c4f6ff;
   border-left: 2px solid #c4f6ff; */
   color: #222020;
   font-family: "Pretendard";
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   line-height: normal;
   display: flex;
