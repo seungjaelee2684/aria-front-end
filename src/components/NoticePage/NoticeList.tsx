@@ -4,7 +4,7 @@ import NoticeCard from './NoticeCard';
 import { eventPosterData } from '../../data/EventPosterData';
 
 interface NoticeListProps {
-  language: string;
+  language: string | null;
   selectOption: {
     pick: string,
     japanesepick: string,
@@ -93,9 +93,19 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
             )
           })
         )
-      } else {
+      } else if (language === "korean") {
         return (
           searchDataKR?.map((item) => {
+            return (
+              <div key={item?.id}>
+                <NoticeCard item={item}/>
+              </div>
+            )
+          })
+        )
+      } else {
+        return (
+          searchDataEN?.map((item) => {
             return (
               <div key={item?.id}>
                 <NoticeCard item={item}/>

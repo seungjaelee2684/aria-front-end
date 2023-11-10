@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 interface SelectModalProps {
-    language: string;
+    language: string | null;
     selectOption: {
         pick: string,
         japanesepick: string,
@@ -40,13 +40,15 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
     const filterOptions = ( item : OptionType ) => {
       switch (language) {
         case "english" :
-            return item.englishoption;
-          case "chinese" :
-            return item.chineseoption;
+          return item.englishoption;
+        case "chinese" :
+          return item.chineseoption;
         case "japanese" :
-            return item.japaneseoption;
+          return item.japaneseoption;
+        case "korean" :
+          return item.option;
         default :
-            return item.option;
+          return item.englishoption;
       };
     };
 

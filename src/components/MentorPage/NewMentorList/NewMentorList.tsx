@@ -6,14 +6,13 @@ import Image2 from '../../../assets/images/mainimage.jpg';
 import { NewMentorListData } from '../../../data/NewMentorData';
 
 interface NewMentorListProps {
-    language: string;
     imageRef: React.RefObject<HTMLDivElement>;
     slideCurrent: number;
     prevCurrent: number | undefined;
     setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-const NewMentorList : React.FC<NewMentorListProps> = ({ language, imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
+const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
 
     return (
         <ImageSlideContainer>

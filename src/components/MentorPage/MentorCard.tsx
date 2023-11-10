@@ -15,8 +15,10 @@ const MentorCard = ({ item, language } : any) => {
         return item?.chinesename;
       case "japanese" :
         return item?.japanesename;
-      default :
+      case "korean" :
         return item?.nickname;
+      default :
+        return "";
     };
   };
 

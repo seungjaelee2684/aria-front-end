@@ -16,7 +16,7 @@ import { translate } from '../../../store/Translation';
 
 const SNSMenu = () => {
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
   const [sns, setSns] = useState<boolean>(false);
 
   const onClickReadyHandler = () => {
@@ -27,8 +27,10 @@ const SNSMenu = () => {
         return alert("正在准备。");
       case "japanese" :
         return alert("準備中です。");
-      default :
+      case "korean" :
         return alert("준비중입니다.");
+      default :
+        return alert("Coming soon");
     };
   };
 
@@ -41,30 +43,34 @@ const SNSMenu = () => {
           return "正在准备。";
         case "japanese" :
           return "準備中です。";
-        default :
+        case "korean" :
           return "준비중입니다.";
+        default :
+          return "Coming soon";
       };
     } else if (Num === 1) {
       switch (language) {
         case "english" :
           return "Visit Twitter account.";
-        case "english" :
+        case "chinese" :
           return "查看推特";
-        case "japanese" :
-          return "Twitterを見に行く";
-        default :
+        case "korean" :
           return "트위터 보러가기";
+        default :
+          return "Visit Twitter account.";
       };
     } else {
       switch (language) {
         case "english" :
           return "Visit Discord account.";
-        case "english" :
+        case "chinese" :
           return "查看 Discord";
         case "japanese" :
           return "Discordを見に行く";
-        default :
+        case "korean" :
           return "디스코드 보러가기";
+        default :
+          return "Visit Discord account.";
       };
     }; 
   };

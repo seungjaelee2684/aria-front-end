@@ -5,7 +5,7 @@ import DownArrow from '../../assets/icons/downArrow.png';
 import UpArrow from '../../assets/icons/upArrow.png';
 
 interface SelectBarProps {
-    language: string;
+    language: string | null;
     selectOption: {
         pick: string,
         japanesepick: string,
@@ -37,8 +37,10 @@ const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelec
           return chinesepick;
         case "japanese" :
           return japanesepick;
-        default :
+        case "korean" :
           return pick;
+        default :
+          return englishpick;
       };
     };
 

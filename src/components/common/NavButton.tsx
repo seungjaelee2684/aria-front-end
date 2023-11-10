@@ -9,7 +9,8 @@ import { translate } from '../../store/Translation';
 const NavButton = () => {
 
     const navigate = useNavigate();
-    const language = useRecoilValue(translate);
+    // const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const location = useLocation();
     // const resetFilter = useResetRecoilState(nationKind);
     // const resetFlag = useResetRecoilState(nationFlag);
@@ -23,8 +24,10 @@ const NavButton = () => {
                 return alert("正在准备。");
             case "japanese" :
                 return alert("準備中です。");
-            default :
+            case "korean" :
                 return alert("준비중입니다.");
+            default :
+                return alert("Coming soon");
         };
     };
 

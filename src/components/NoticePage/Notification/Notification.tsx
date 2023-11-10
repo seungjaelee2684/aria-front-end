@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Notification = () => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const navigate = useNavigate();
 
     const [textCurrent, setTextCurrent] = useState<number>(0);
@@ -24,8 +24,10 @@ const Notification = () => {
                 return "公告事项";
             case "japanese" :
                 return "お知らせ";
-            default :
+            case "korean" :
                 return "공지 사항";
+            default :
+                return "Announcements";
           };
         } else {
           switch (language) {
@@ -35,8 +37,10 @@ const Notification = () => {
                 return "查看更多";
             case "japanese" :
                 return "もっと見る";
-            default :
+            case "korean" :
                 return "더보기";
+            default :
+                return "More";
           };
         }; 
     };
@@ -49,8 +53,10 @@ const Notification = () => {
                 return item?.chinesenotice;
             case "japanese" :
                 return item?.japanesenotice;
-            default :
+            case "korean" :
                 return item?.notice;
+            default :
+                return item?.englishnotice;
         };
     };
 

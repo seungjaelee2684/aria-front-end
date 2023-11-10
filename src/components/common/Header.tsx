@@ -20,11 +20,11 @@ import { MainPageNumber } from '../../store/MainPageNumber';
 
 const Header = () => {
 
-    const language = useRecoilValue(translate);
+    // const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const mainPage = useRecoilValue(MainPageNumber);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
-    const [, setLanguageTrans] = useRecoilState(translate);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -41,8 +41,10 @@ const Header = () => {
                 return "中文";
             case "japanese" :
                 return "日本語";
-            default :
+            case "korean" :
                 return "한국어";
+            default :
+                return "ENG";
         };
     };
 
@@ -115,8 +117,7 @@ const Header = () => {
                         </TranslateWrapper>
                         {languageModal
                             && <TranslateModal
-                                setLanguageModal={setLanguageModal}
-                                setLanguageTrans={setLanguageTrans}/>}
+                                setLanguageModal={setLanguageModal}/>}
                         <div style={{display: `${(location.pathname === "/") ? "none" : ""}`}}>
                             <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                                 <IoShareSocialOutline />
