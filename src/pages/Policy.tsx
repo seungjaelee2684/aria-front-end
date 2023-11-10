@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Policy = () => {
   return (
     <LayOutContainer>
-        Policy
+      Policy
     </LayOutContainer>
   )
 };
