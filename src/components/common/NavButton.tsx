@@ -80,7 +80,7 @@ const NavButton = () => {
                     }}>
                     NOTICE
                 </div>
-                {((pageModal === "Notice") && (location.pathname !== "/"))
+                {(pageModal === "Notice")
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>
@@ -102,11 +102,11 @@ const NavButton = () => {
                 <div
                     style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        navigate("/support");
+                        navigate("/schedule");
                     }}>
                     SUPPORT
                 </div>
-                {((pageModal === "Support") && (location.pathname !== "/"))
+                {(pageModal === "Support")
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>

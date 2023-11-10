@@ -8,27 +8,15 @@ import { nationFlag, nationKind } from '../../../store/NationFilter';
 const PageModal = ({ pageModal } : any) => {
 
   const navigate = useNavigate();
-  const resetFilter = useResetRecoilState(nationKind);
-  const resetFlag = useResetRecoilState(nationFlag);
 
   const modalTitle = () => {
     if (pageModal === "Notice") {
       return (
         <ModalContainer className='ModalContainerDiv'>
-          <ModalText
-            onClick={() => {
-              navigate("/notice")
-              resetFilter()
-              resetFlag()
-            }}>
+          <ModalText onClick={() => navigate("/notice")}>
             Event
           </ModalText>
-          <ModalText
-            onClick={() => {
-              navigate("/notice/notification")
-              resetFilter()
-              resetFlag()
-            }}>
+          <ModalText onClick={() => navigate("/notice/notification")}>
             Announcements
           </ModalText>
         </ModalContainer>
@@ -36,18 +24,13 @@ const PageModal = ({ pageModal } : any) => {
     } else if (pageModal === "Support") {
       return (
         <ModalContainer className='ModalContainerBig'>
-          <ModalText
-            onClick={() => {
-              navigate("/support")
-              resetFilter()
-              resetFlag()
-            }}>
+          <ModalText onClick={() => navigate("/schedule")}>
             Schedule
           </ModalText>
-          <ModalText>
+          <ModalText onClick={() => navigate("/counseling")}>
             Counseling
           </ModalText>
-          <ModalText>
+          <ModalText onClick={() => navigate("/policy")}>
             Policy
           </ModalText>
         </ModalContainer>

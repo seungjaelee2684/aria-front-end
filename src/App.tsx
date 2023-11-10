@@ -8,7 +8,7 @@ import { RecoilRoot } from 'recoil';
 import Home from './pages/Home';
 import Notice from './pages/Notice';
 import Mentor from './pages/Mentor';
-import Support from './pages/Support';
+import Schedule from './pages/Schedule';
 import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
 import MentorDetail from './pages/MentorDetail';
@@ -22,6 +22,8 @@ import Showcase from './pages/Showcase';
 import Check from './pages/Check';
 // import SNSMenu from './components/common/SNSMenu';
 import Footer from './components/common/Footer';
+import Counseling from './pages/Counseling';
+import Policy from './pages/Policy';
 
 const queryClient = new QueryClient();
 
@@ -33,14 +35,15 @@ function App() {
           <BrowserRouter>
             <ScrollTop />
             <Header />
-            {/* <SNSMenu /> */}
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/check' element={<Check />} />
               <Route path='/notice' element={<Notice />} />
               <Route path='/mentor' element={<Mentor />} />
               <Route path='/showcase' element={<Showcase />} />
-              <Route path='/support' element={<Support />} />
+              <Route path='/schedule' element={<Schedule />} />
+              <Route path='/counseling' element={<Counseling />} />
+              <Route path='/policy' element={<Policy />} />
               <Route path='/mentor/detail/:id' element={<MentorDetail />} />
               <Route path='/notice/notification' element={<Notification />} />
               <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
