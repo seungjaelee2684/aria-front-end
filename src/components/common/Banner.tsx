@@ -6,10 +6,10 @@ import { translate } from '../../store/Translation';
 import BannerBackground from '../../assets/images/rapla2.png';
 import Banner1 from '../../assets/images/mainimage2.jpg';
 import Banner2 from '../../assets/images/rapla2.png';
-import { textInformation } from '../../languages/EventPageTrans';
+import { textInformation } from '../../languages/BannerTrans';
 
 interface BannerProps {
-    page: number;
+  page: number;
 }
 
 const Banner : React.FC<BannerProps> = ({ page }) => {
@@ -17,18 +17,18 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
     const language = localStorage.getItem("language");
 
     const textChange = () => {
-        switch (language) {
-          case "english" :
-            return textInformation[page]?.englishtitle;
-          case "chinese" :
-            return textInformation[page]?.chinesetitle;
-          case "japanese" :
-            return textInformation[page]?.japanesetitle;
-          case "korean" :
-            return textInformation[page]?.title;
-          default :
-            return textInformation[page]?.englishtitle;
-        };
+      switch (language) {
+        case "english" :
+          return textInformation[page]?.englishtitle;
+        case "chinese" :
+          return textInformation[page]?.chinesetitle;
+        case "japanese" :
+          return textInformation[page]?.japanesetitle;
+        case "korean" :
+          return textInformation[page]?.title;
+        default :
+          return textInformation[page]?.englishtitle;
+      };
     };
 
   return (
