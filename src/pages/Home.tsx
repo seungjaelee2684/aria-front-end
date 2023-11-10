@@ -80,7 +80,7 @@ const Home = () => {
                 ></PageNumberWrapper>
                 <PageNumber
                     style={{
-                        backgroundColor: `${(scrollIndex === 1) ? "#FFFFFF" : "#ffffff5c"}`
+                        backgroundColor: `${(scrollIndex === 1) ? "#FFFFFF" : "#ffffffbe"}`
                     }}/>
                 <PageNumber 
                     style={{
