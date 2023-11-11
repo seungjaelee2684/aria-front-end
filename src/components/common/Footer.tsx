@@ -21,37 +21,46 @@ const Footer = () => {
   const onClickReadyHandler = () => {
     switch (language) {
       case "english" :
-          return alert("Coming soon");
+        return alert("Coming soon");
+      case "chinese" :
+        return alert("正在准备。");
       case "japanese" :
-          return alert("準備中です。");
+        return alert("準備中です。");
+      case "korean" :
+        return alert("준비중입니다.");
       default :
-          return alert("준비중입니다.");
+        return alert("Coming soon");
     };
   };
 
   type ArrType = {
     englishcontent: string,
+    chinesecontent: string,
     japanesecontent: string,
     content: string
   }
 
   const textArr : ArrType[] = [
-    {englishcontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
+    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
   ];
 
   const translateText = (Num : number) => {
     switch (language) {
       case "english" :
         return textArr[Num]?.englishcontent;
+      case "chinese" :
+        return textArr[Num]?.chinesecontent;
       case "japanese" :
         return textArr[Num]?.japanesecontent;
-      default :
+      case "korean" :
         return textArr[Num]?.content;
+      default :
+        return textArr[Num]?.englishcontent;
     }
   };
     
