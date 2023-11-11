@@ -9,7 +9,7 @@ const Counseling = () => {
 
   return (
     <LayOutContainer>
-      <Banner page={4}/>
+      {/* <Banner page={4}/> */}
       <ContentContainer>
         <ButtonWrapper>
             {isChoice
@@ -37,12 +37,12 @@ const Counseling = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 80px auto;
+  margin: 180px auto;
 `;
 
 const ContentContainer = styled.div`
   width: 1320px;
-  margin: 100px auto;
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
 `;

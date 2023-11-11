@@ -15,14 +15,23 @@ const MentorDetail = () => {
 
   return (
     <LayoutContainer>
-        <TextWrapper>
-            <KeyText>{language ? "ニックネーム :" : "닉네임 :"}</KeyText>
-            <ValueText>{language ? mentorInfo[0]?.englishname : mentorInfo[0]?.nickname}</ValueText>
-        </TextWrapper>
-        <TextWrapper>
-            <KeyText>{language ? "作品 ->" : "작품 ->"}</KeyText>
-            <ImageBox src={mentorInfo[0]?.image} />
-        </TextWrapper>
+        <InContainer>
+            {mentorInfo[0]?.content.map((item : string) => {
+                return (
+                    <CurriculumImg
+                        key={item}
+                        src={item}/>
+                )
+            })}
+            {/* <TextWrapper>
+                <KeyText>{language ? "ニックネーム :" : "닉네임 :"}</KeyText>
+                <ValueText>{language ? mentorInfo[0]?.englishname : mentorInfo[0]?.nickname}</ValueText>
+            </TextWrapper>
+            <TextWrapper>
+                <KeyText>{language ? "作品 ->" : "작품 ->"}</KeyText>
+                <ImageBox src={mentorInfo[0]?.image} />
+            </TextWrapper> */}
+        </InContainer>
     </LayoutContainer>
   )
 };
@@ -30,6 +39,31 @@ const MentorDetail = () => {
 const LayoutContainer = styled.div`
     width: 100%;
     padding: 80px 0px;
+
+    @media screen and (max-width: 650px) {
+        padding: 50px 0px;
+    }
+`;
+
+const InContainer = styled.div`
+    width: 650px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+
+    @media screen and (max-width: 650px) {
+        width: 96%;
+        gap: 50px;
+    }
+`;
+
+const CurriculumImg = styled.img`
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    user-select: none;
 `;
 
 const TextWrapper = styled.div`
