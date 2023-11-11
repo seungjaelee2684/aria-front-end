@@ -51,6 +51,7 @@ const ButtonWrapper = styled.div`
   width: 100%;
   border-bottom: 2px solid #f3f3f3;
   position: relative;
+  user-select: none;
 `;
 
 const ButtonBox = styled.div`
