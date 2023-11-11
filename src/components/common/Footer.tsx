@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { translate } from '../../store/Translation';
@@ -12,10 +12,12 @@ import InstagramDefault from '../../assets/icons/instadefault.png';
 import TwitterDefault from '../../assets/icons/twitterdefault.png';
 import DiscordDefault from '../../assets/icons/discorddefault.png';
 import YoutubeDefault from '../../assets/icons/youtubedefault.png';
+import { AiFillHome } from 'react-icons/ai';
 
 const Footer = () => {
 
   const location = useLocation();
+  const navigate = useNavigate();
   const language = useRecoilValue(translate);
 
   const onClickReadyHandler = () => {
@@ -69,8 +71,11 @@ const Footer = () => {
       <FooterOutContainer>
         <TopLaneHeader>
           <LeftTopLaneContainer>
+            <HomeButton onClick={() => navigate("/")}>
+              <AiFillHome />
+            </HomeButton>
             <Text>
-              내용내용
+              개인정보 처리방침
             </Text>
             <Text>
               내용내용
@@ -176,12 +181,21 @@ const TopLaneHeader = styled.div`
 const LeftTopLaneContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
   color: #e9e9e9;
 `;
 
+const HomeButton = styled.div`
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    color: #ADADAD;
+  }
+`;
+
 const Text = styled.div`
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 const MenuIconContainer = styled.div`
@@ -204,11 +218,11 @@ const IconBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
+  background-color: #131212;
   cursor: pointer;
   
   &:hover {
-    background-color: #444444;
+    background-color: #525050;
   }
 `;
 
@@ -224,7 +238,7 @@ const FooterOutWrapper = styled.div`
   height: 100%;
   display: flex;
   align-items: start;
-  gap: 40px;
+  gap: 100px;
   margin: 40px 0px;
 `;
 
