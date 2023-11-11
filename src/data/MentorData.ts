@@ -4,6 +4,12 @@ import Image3 from '../assets/images/rapla2.png';
 import Image4 from '../assets/images/maincharactor.png';
 import SanpachiImage from '../assets/images/sanpachiimage1.png';
 import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
+import SanpatiCurriculum1 from '../assets/curriculums/sanpati/sanpaticurriculum1.png';
+import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2.png';
+import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';
+import SanpatiCurriculum4 from '../assets/curriculums/sanpati/sanpaticurriculum4.png';
+import SanpatiCurriculum5 from '../assets/curriculums/sanpati/sanpaticurriculum5.png';
+import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6.png';
 
 export const mentorListData = [
     {
@@ -13,7 +19,14 @@ export const mentorListData = [
         chinesename: "民奎",
         japanesename: "ミンギュ",
         nickname: "민규",
-        content: "",
+        content: [
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
         image: Image
     },
     {
@@ -23,7 +36,14 @@ export const mentorListData = [
         chinesename: "沙尔·E",
         japanesename: "シャイ",
         nickname: "샬e",
-        content: "",
+        content: [
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
         image: Image2
     },
     {
@@ -33,7 +53,14 @@ export const mentorListData = [
         chinesename: "陈先生",
         japanesename: "チャン",
         nickname: "챤",
-        content: "",
+        content: [
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
         image: SanpachiImage2
     },
     {
@@ -43,7 +70,14 @@ export const mentorListData = [
         chinesename: "舒莫利",
         japanesename: "シュモリ",
         nickname: "슈몰리",
-        content: "",
+        content: [
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
         image: Image3
     },
     {
@@ -53,7 +87,14 @@ export const mentorListData = [
         chinesename: "圣帕蒂",
         japanesename: "さんぱち",
         nickname: "산파치",
-        content: "",
+        content: [
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
         image: SanpachiImage
     },
     {
@@ -63,7 +104,14 @@ export const mentorListData = [
         chinesename: "氖",
         japanesename: "ネオン",
         nickname: "네온",
-        content: "",
+        content: [
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
         image: Image4
     },
 ];
