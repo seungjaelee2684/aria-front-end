@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
 import Banner from '../components/common/Banner';
+import { PiDotsSixBold } from 'react-icons/pi';
 
 const Counseling = () => {
 
@@ -13,7 +14,7 @@ const Counseling = () => {
       if (isChoice) {
         leverRef.current.style.transform = "translateX(0px)";
       } else {
-        leverRef.current.style.transform = "translateX(-86px)";
+        leverRef.current.style.transform = "translateX(-64px)";
       };
     };
   };
@@ -28,8 +29,15 @@ const Counseling = () => {
               leversHandler()
               setIsChoice(!isChoice)
             }}>
-              Counseling
-            <LeversButton ref={leverRef}/>
+              <LeversText>
+                계정추가
+              </LeversText>
+              <LeversText>
+                수강신청
+              </LeversText>
+            <LeversButton ref={leverRef}>
+              <PiDotsSixBold />
+            </LeversButton>
           </ButtonBackground>
             {/* {isChoice
               ? <ButtonBox>
@@ -74,6 +82,10 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+`;
+
+const LeftTitleContainer = styled.div`
+
 `;
 
 const ButtonBox = styled.div`
@@ -125,33 +137,41 @@ const ClickButton = styled.div`
 `;
 
 const ButtonBackground = styled.div`
-  width: 140px;
-  height: 18px;
+  width: 120px;
+  height: 24px;
   border-radius: 20px;
-  background-color: #e9e9e9;
+  background: linear-gradient(to right, #2a9fff 50%, #2e1388 50%);
   position: relative;
-  box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.534);
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  color: #222020;
-  font-family: "Pretendard";
-  font-size: 12px;
-  font-weight: 500;
-  line-height: normal;
   padding: 0px 10px;
+`;
+
+const LeversText = styled.div`
+  font-family: "Pretendard";
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  color: #FCFCFC;
 `;
 
 const LeversButton = styled.div`
   width: 80px;
-  height: 22px;
+  height: 30px;
   border-radius: 20px;
   background-color: #ADADAD;
   position: absolute;
-  top: -2px;
-  left: 82px;
+  top: -3px;
+  left: 62px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.596);
-  transition: all 0.6s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: #FCFCFC;
+  transition: all 0.5s ease-out;
   cursor: pointer;
 `;
 
