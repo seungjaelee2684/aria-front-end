@@ -1,17 +1,46 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
 import Banner from '../components/common/Banner';
+import { PiDotsSixBold } from 'react-icons/pi';
+import ApplyClasses from '../components/CounselingPage/ApplyClasses';
+import AddFriends from '../components/CounselingPage/AddFriends';
 
 const Counseling = () => {
 
   const language = localStorage.getItem("language");
+  const leverRef = useRef<HTMLDivElement>(null);
   const [isChoice, setIsChoice] = useState<boolean>(false);
+
+  const leversHandler = () => {
+    if (leverRef.current) {
+      if (isChoice) {
+        leverRef.current.style.transform = "translateX(0px)";
+      } else {
+        leverRef.current.style.transform = "translateX(-64px)";
+      };
+    };
+  };
 
   return (
     <LayOutContainer>
       {/* <Banner page={4}/> */}
       <ContentContainer>
         <ButtonWrapper>
+          {/* <ButtonBackground
+            onClick={() => {
+              leversHandler()
+              setIsChoice(!isChoice)
+            }}>
+              <LeversText>
+                상담신청
+              </LeversText>
+              <LeversText>
+                수강신청
+              </LeversText>
+            <LeversButton ref={leverRef}>
+              <PiDotsSixBold />
+            </LeversButton>
+          </ButtonBackground> */}
             {isChoice
               ? <ButtonBox>
                 <Button onClick={() => setIsChoice(false)}>
@@ -30,6 +59,9 @@ const Counseling = () => {
                 </Button>
               </ButtonBox>}
         </ButtonWrapper>
+        {isChoice
+            ? <ApplyClasses />
+            : <AddFriends />}
       </ContentContainer>
     </LayOutContainer>
   )
@@ -37,12 +69,12 @@ const Counseling = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 180px auto;
+  margin: 80px auto;
 `;
 
 const ContentContainer = styled.div`
   width: 1320px;
-  margin: 0px auto;
+  margin: 180px auto;
   display: flex;
   flex-direction: column;
 `;
@@ -52,6 +84,13 @@ const ButtonWrapper = styled.div`
   border-bottom: 2px solid #f3f3f3;
   position: relative;
   user-select: none;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
+
+const LeftTitleContainer = styled.div`
+
 `;
 
 const ButtonBox = styled.div`
@@ -100,6 +139,45 @@ const ClickButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const ButtonBackground = styled.div`
+  width: 120px;
+  height: 24px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #2a9fff 50%, #411cbd 50%);
+  position: relative;
+  box-shadow: inset 1px 1px 2px 1px rgba(0, 0, 0, 0.623);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+`;
+
+const LeversText = styled.div`
+  font-family: "Pretendard";
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  color: #FCFCFC;
+`;
+
+const LeversButton = styled.div`
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #ADADAD;
+  position: absolute;
+  top: -3px;
+  left: 62px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.596);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: #FCFCFC;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
 `;
 
 export default Counseling;

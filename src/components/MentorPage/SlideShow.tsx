@@ -123,7 +123,7 @@ const SlideLeftButtonBox = styled.div`
 
   @media screen and (max-width: 836px) {
     left: 10px;
-    top: 125px;
+    top: 135px;
     width: 30px;
     height: 30px;
   }
@@ -155,7 +155,7 @@ const SlideRightButtonBox = styled.div`
 
   @media screen and (max-width: 836px) {
     right: 10px;
-    top: 125px;
+    top: 135px;
     width: 30px;
     height: 30px;
   }

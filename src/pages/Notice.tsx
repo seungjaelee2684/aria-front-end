@@ -58,8 +58,10 @@ const Notice = () => {
           return " 件";
         case "japanese" :
           return " 件";
-        default :
+        case "korean" :
           return " 건";
+        default :
+          return "cases";
       };
     } else {
       switch (language) {
@@ -69,8 +71,10 @@ const Notice = () => {
           return "标题搜索";
         case "japanese" :
           return "タイトル検索";
-        default :
+        case "korean" :
           return "제목 검색";
+        default :
+          return "Type a title";
       };
     };
   };
