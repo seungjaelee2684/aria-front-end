@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
 import Banner from '../components/common/Banner';
 import { PiDotsSixBold } from 'react-icons/pi';
+import ApplyClasses from '../components/CounselingPage/ApplyClasses';
+import AddFriends from '../components/CounselingPage/AddFriends';
 
 const Counseling = () => {
 
@@ -57,6 +59,9 @@ const Counseling = () => {
                 </Button>
               </ButtonBox>} */}
         </ButtonWrapper>
+        {isChoice
+            ? <ApplyClasses />
+            : <AddFriends />}
       </ContentContainer>
     </LayOutContainer>
   )
@@ -69,7 +74,7 @@ const LayOutContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 1320px;
-  margin: 120px auto;
+  margin: 180px auto;
   display: flex;
   flex-direction: column;
 `;
@@ -140,9 +145,9 @@ const ButtonBackground = styled.div`
   width: 120px;
   height: 24px;
   border-radius: 20px;
-  background: linear-gradient(to right, #2a9fff 50%, #2e1388 50%);
+  background: linear-gradient(to right, #2a9fff 50%, #411cbd 50%);
   position: relative;
-  box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.534);
+  box-shadow: inset 1px 1px 2px 1px rgba(0, 0, 0, 0.623);
   display: flex;
   justify-content: space-between;
   align-items: center;
