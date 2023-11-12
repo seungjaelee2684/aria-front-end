@@ -26,13 +26,13 @@ const Counseling = () => {
       {/* <Banner page={4}/> */}
       <ContentContainer>
         <ButtonWrapper>
-          <ButtonBackground
+          {/* <ButtonBackground
             onClick={() => {
               leversHandler()
               setIsChoice(!isChoice)
             }}>
               <LeversText>
-                계정추가
+                상담신청
               </LeversText>
               <LeversText>
                 수강신청
@@ -40,8 +40,8 @@ const Counseling = () => {
             <LeversButton ref={leverRef}>
               <PiDotsSixBold />
             </LeversButton>
-          </ButtonBackground>
-            {/* {isChoice
+          </ButtonBackground> */}
+            {isChoice
               ? <ButtonBox>
                 <Button onClick={() => setIsChoice(false)}>
                   Counseling
@@ -57,7 +57,7 @@ const Counseling = () => {
                 <Button onClick={() => setIsChoice(true)}>
                   Counseling
                 </Button>
-              </ButtonBox>} */}
+              </ButtonBox>}
         </ButtonWrapper>
         {isChoice
             ? <ApplyClasses />
