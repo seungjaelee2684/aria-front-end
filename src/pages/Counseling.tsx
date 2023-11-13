@@ -25,8 +25,8 @@ const Counseling = () => {
     <LayOutContainer>
       {/* <Banner page={4}/> */}
       <ContentContainer>
-        <ButtonWrapper>
-          {/* <ButtonBackground
+        {/* <ButtonWrapper>
+          <ButtonBackground
             onClick={() => {
               leversHandler()
               setIsChoice(!isChoice)
@@ -40,7 +40,7 @@ const Counseling = () => {
             <LeversButton ref={leverRef}>
               <PiDotsSixBold />
             </LeversButton>
-          </ButtonBackground> */}
+          </ButtonBackground>
             {isChoice
               ? <ButtonBox>
                 <Button onClick={() => setIsChoice(false)}>
@@ -61,7 +61,7 @@ const Counseling = () => {
         </ButtonWrapper>
         {isChoice
             ? <ApplyClasses />
-            : <AddFriends />}
+            : <AddFriends />} */}
       </ContentContainer>
     </LayOutContainer>
   )
