@@ -49,14 +49,14 @@ const Counseling = () => {
               <ButtonContainer>
                 <IoPersonAddOutline />
                 <ButtonText>
-                  계정 친구추가
+                {counseling(4)}
                   <AiOutlinePlus />
                 </ButtonText>
               </ButtonContainer>
               <ButtonContainer onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                 <BsDiscord style={{color: "#7489da"}}/>
                 <ButtonText>
-                  수강 신청하러 가기
+                  {counseling(5)}
                   <MdKeyboardArrowRight />
                 </ButtonText>
               </ButtonContainer>
@@ -140,7 +140,7 @@ const ButtonAllWrapper = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  width: 280px;
+  width: 300px;
   height: 140px;
   display: flex;
   flex-direction: column;
@@ -151,13 +151,13 @@ const ButtonContainer = styled.div`
   font-size: 34px;
   font-weight: 600;
   line-height: normal;
-  gap: 16px;
+  gap: 20px;
   color: #222020;
   cursor: pointer;
 `;
 
 const ButtonText = styled.div`
-  font-size: 24px;
+  font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;

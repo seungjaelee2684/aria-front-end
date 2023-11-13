@@ -26,8 +26,20 @@ export const CounselingText : CounselingTextType[] = [
     },
     {
         englishtext: "Counseling Hours: 9 AM to 11 PM",
-        chinesetext: "咨询时间：上午9点至晚上11点",
-        japanesetext: "相談時間: 午前9時～夜11時",
-        text: "상담시간 : 오전 9시~밤 11시"
+        chinesetext: "咨询时间：上午9点~下午11点",
+        japanesetext: "相談時間: 午前9時 ～ 午後11時",
+        text: "상담시간 : 오전 9시 ~ 오후 11시"
+    },
+    {
+        englishtext: "Add account friend",
+        chinesetext: "添加账户好友",
+        japanesetext: "アカウント 友達追加",
+        text: "계정 친구추가"
+    },
+    {
+        englishtext: "Going to register for a course",
+        chinesetext: "去听课申请",
+        japanesetext: "受講申請に行く",
+        text: "수강 신청하러 가기"
     },
 ]
