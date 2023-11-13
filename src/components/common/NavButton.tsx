@@ -93,7 +93,7 @@ const NavButton = () => {
                     // resetFlag();
                     alertText
                 }>
-                H.O.F
+                SHOWCASE
             </TapContainer>
             <TapContainer
                 // href='#'
