@@ -3,8 +3,11 @@ import '../style/font/font.css';
 import styled from 'styled-components';
 import ApplyClasses from '../components/CounselingPage/ApplyClasses';
 import AddFriends from '../components/CounselingPage/AddFriends';
-import { IoLogoDiscord } from 'react-icons/io5';
+import { IoLogoDiscord, IoPersonAddOutline } from 'react-icons/io5';
 import { CounselingText } from '../languages/CounselingPageTrans';
+import { BsDiscord } from 'react-icons/bs';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const Counseling = () => {
 
@@ -42,6 +45,22 @@ const Counseling = () => {
             <TimeCheckContainer>
               {counseling(3)}
             </TimeCheckContainer>
+            <ButtonAllWrapper>
+              <ButtonContainer>
+                <IoPersonAddOutline />
+                <ButtonText>
+                  계정 친구추가
+                  <AiOutlinePlus />
+                </ButtonText>
+              </ButtonContainer>
+              <ButtonContainer onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+                <BsDiscord style={{color: "#7489da"}}/>
+                <ButtonText>
+                  수강 신청하러 가기
+                  <MdKeyboardArrowRight />
+                </ButtonText>
+              </ButtonContainer>
+            </ButtonAllWrapper>
           </ContentWrapper>
         </ContentContainer>
       </InContainer>
@@ -63,7 +82,7 @@ const InContainer = styled.div`
 
 const TitleContainer = styled.div`
   font-family: "Pretendard";
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
   line-height: 150%;
   width: 100%;
@@ -87,8 +106,9 @@ const ContentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 500;
+  border-bottom: 2px solid #e9e9e9;
   gap: 20px;
 `;
 
@@ -102,11 +122,46 @@ const ContentWrapper = styled.div`
   white-space: pre-line;
   color: #222020;
   gap: 16px;
+  margin-bottom: 40px;
 `;
 
 const TimeCheckContainer = styled.div`
-  color: #858585;
-  font-size: 20px;
+  color: #9c8282;
+  font-size: 16px;
+`;
+
+const ButtonAllWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+`;
+
+const ButtonContainer = styled.div`
+  width: 280px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ADADAD;
+  font-family: "Pretendard";
+  font-size: 34px;
+  font-weight: 600;
+  line-height: normal;
+  gap: 16px;
+  color: #222020;
+  cursor: pointer;
+`;
+
+const ButtonText = styled.div`
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 `;
 
 export default Counseling;
