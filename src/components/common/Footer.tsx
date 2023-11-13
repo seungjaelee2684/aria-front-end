@@ -213,8 +213,8 @@ const MenuIconContainer = styled.div`
 `;
 
 const IconBoxWrapper = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,8 +227,8 @@ const IconBoxWrapper = styled.div`
 `;
 
 const MenuIcon = styled.div<{ src : string }>`
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   background-image: url(${(props) => props.src});
   background-size: 100% 100%;
 `;
