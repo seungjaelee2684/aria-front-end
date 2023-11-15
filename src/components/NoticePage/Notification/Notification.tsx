@@ -79,7 +79,7 @@ const Notification = () => {
             <NoticeIcon src={Notice}/>
             <Title
                 textwidth={
-                    (language === "english")
+                    (language === "english" || language === null)
                         ? 130
                         : 90
                 }>{onTitleHandler(0)}</Title>
