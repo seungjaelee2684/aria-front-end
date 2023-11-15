@@ -59,7 +59,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
 const UnderHeaderContainer = styled.div`
     width: 100%;
-    height: 60px;
+    height: 40px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -79,7 +79,7 @@ const ButtonOutWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-    font-size: 30px;
+    font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,15 +91,16 @@ const ButtonBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     font-family: "Pretendard";
-    gap: 3px;
-    font-size: 10px;
+    gap: 2px;
+    font-size: 8px;
     font-weight: 600;
 `;
 
 const HomeButtonInWrapper = styled.div`
-    width: 64px;
-    height: 64px;
+    width: 44px;
+    height: 44px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,8 +109,8 @@ const HomeButtonInWrapper = styled.div`
 `;
 
 const HomeButton = styled.div`
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 100%;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
     display: flex;
@@ -117,7 +118,7 @@ const HomeButton = styled.div`
     align-items: center;
     /* margin-bottom: 3px; */
     font-family: "Pretendard";
-    font-size: 44px;
+    font-size: 34px;
     color: #797979;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     background: linear-gradient(to bottom, #FFFFFF, #cccccc);
@@ -135,8 +136,8 @@ const HomeButtonContainer = styled.div`
 `;
 
 const HomeBtnIcon = styled.img`
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
 `;
 
