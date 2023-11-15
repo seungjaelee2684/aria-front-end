@@ -46,14 +46,17 @@ const Counseling = () => {
               {counseling(3)}
             </TimeCheckContainer>
             <ButtonAllWrapper>
-              <ButtonContainer>
+              <ButtonContainer
+                boxcolor="#2a9fff">
                 <IoPersonAddOutline />
                 <ButtonText>
                 {counseling(4)}
                   <AiOutlinePlus />
                 </ButtonText>
               </ButtonContainer>
-              <ButtonContainer onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+              <ButtonContainer
+                boxcolor="#2e1388"
+                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                 <BsDiscord style={{color: "#7489da"}}/>
                 <ButtonText>
                   {counseling(5)}
@@ -78,6 +81,10 @@ const InContainer = styled.div`
   margin: 140px auto;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -139,7 +146,7 @@ const ButtonAllWrapper = styled.div`
   margin-top: 30px;
 `;
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled.div<{ boxcolor : string }>`
   width: 300px;
   height: 140px;
   display: flex;
@@ -153,7 +160,12 @@ const ButtonContainer = styled.div`
   line-height: normal;
   gap: 20px;
   color: #222020;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
+
+  &:hover {
+    border: 1px solid ${(props) => props.boxcolor};
+  }
 `;
 
 const ButtonText = styled.div`
