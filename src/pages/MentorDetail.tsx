@@ -9,7 +9,7 @@ const MentorDetail = () => {
 
     const { id } = useParams();
     console.log("id ->", id);
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
     console.log("mentor ->", mentorInfo)
 
@@ -53,7 +53,7 @@ const InContainer = styled.div`
     align-items: center;
     gap: 80px;
 
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 800px) {
         width: 96%;
         gap: 50px;
     }

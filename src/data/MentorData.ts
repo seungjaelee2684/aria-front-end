@@ -9,7 +9,7 @@ import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';
 import SanpatiCurriculum4 from '../assets/curriculums/sanpati/sanpaticurriculum4.png';
 import SanpatiCurriculum5 from '../assets/curriculums/sanpati/sanpaticurriculum5.png';
-import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6.png';
+// import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6.png';
 
 export const mentorListData = [
     {
@@ -25,7 +25,7 @@ export const mentorListData = [
             SanpatiCurriculum3,
             SanpatiCurriculum4,
             SanpatiCurriculum5,
-            SanpatiCurriculum6
+            // SanpatiCurriculum6
         ],
         image: Image
     },
@@ -42,7 +42,7 @@ export const mentorListData = [
             SanpatiCurriculum3,
             SanpatiCurriculum4,
             SanpatiCurriculum5,
-            SanpatiCurriculum6
+            // SanpatiCurriculum6
         ],
         image: Image2
     },
@@ -59,7 +59,7 @@ export const mentorListData = [
             SanpatiCurriculum3,
             SanpatiCurriculum4,
             SanpatiCurriculum5,
-            SanpatiCurriculum6
+            // SanpatiCurriculum6
         ],
         image: SanpachiImage2
     },
@@ -76,7 +76,7 @@ export const mentorListData = [
             SanpatiCurriculum3,
             SanpatiCurriculum4,
             SanpatiCurriculum5,
-            SanpatiCurriculum6
+            // SanpatiCurriculum6
         ],
         image: Image3
     },
@@ -93,7 +93,7 @@ export const mentorListData = [
             SanpatiCurriculum3,
             SanpatiCurriculum4,
             SanpatiCurriculum5,
-            SanpatiCurriculum6
+            // SanpatiCurriculum6
         ],
         image: SanpachiImage
     },
@@ -110,7 +110,7 @@ export const mentorListData = [
             SanpatiCurriculum3,
             SanpatiCurriculum4,
             SanpatiCurriculum5,
-            SanpatiCurriculum6
+            // SanpatiCurriculum6
         ],
         image: Image4
     },
