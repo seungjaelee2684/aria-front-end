@@ -51,11 +51,11 @@ const InContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 120px;
 
     @media screen and (max-width: 800px) {
         width: 96%;
-        gap: 50px;
+        /* gap: 50px; */
     }
 `;
 
