@@ -14,6 +14,17 @@ const Counseling = () => {
   const language = localStorage.getItem("language");
   const leverRef = useRef<HTMLDivElement>(null);
 
+  const onClickCopyHandler = async ( text : string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("클립보드에 링크가 복사되었습니다.");
+      console.log("복사된 링크 -> ", text);
+    } catch (e) {
+      alert("복사에 실패하였습니다.");
+      console.log("Error -> ", e);
+    };
+  };
+
   const counseling = (Num : number) => {
     switch (language) {
       case "english" :
@@ -47,6 +58,7 @@ const Counseling = () => {
             </TimeCheckContainer>
             <ButtonAllWrapper>
               <ButtonContainer
+                onClick={() => onClickCopyHandler("code")}
                 boxcolor="#2a9fff">
                 <IoPersonAddOutline />
                 <ButtonText>

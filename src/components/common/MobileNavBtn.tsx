@@ -59,7 +59,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
 const UnderHeaderContainer = styled.div`
     width: 100%;
-    height: 40px;
+    height: 50px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -116,7 +116,7 @@ const HomeButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 3px; */
+    margin-bottom: 3px;
     font-family: "Pretendard";
     font-size: 34px;
     color: #797979;
