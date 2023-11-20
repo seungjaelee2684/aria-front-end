@@ -46,7 +46,7 @@ const LayoutContainer = styled.div`
 `;
 
 const InContainer = styled.div`
-    width: 800px;
+    width: 1000px;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@ const InContainer = styled.div`
     gap: 120px;
 
     @media screen and (max-width: 800px) {
-        width: 96%;
+        width: 100%;
         /* gap: 50px; */
     }
 `;
