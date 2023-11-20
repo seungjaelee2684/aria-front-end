@@ -130,7 +130,20 @@ const Footer = () => {
             </ContentBox>
           </FirstWrapper>
           <FirstWrapper>
-            개인정보 처리방침
+            <Title>
+              개인정보 처리방침
+            </Title>
+            <ContentBox>
+              <Content>
+                주소: 서울특별시 블라블라 블라블라
+              </Content>
+              <Content>
+                개인정보 처리방침
+              </Content> 
+              <Content>
+                개인정보 처리방침
+              </Content> 
+            </ContentBox>
           </FirstWrapper>
         </FooterOutWrapper>
       </FooterOutContainer>
@@ -149,6 +162,7 @@ const FooterContainer = styled.div`
   line-height: 140%;
   z-index: 99;
   margin-top: 300px;
+  transition: all 0.2s ease-in-out;
 
   @media screen and (max-width: 500px) {
     margin-bottom: 60px;
@@ -171,11 +185,19 @@ const FooterOutContainer = styled.div`
 
 const TopLaneHeader = styled.div`
   width: 100%;
-  height: 150px;
+  min-height: 80px;
   border-bottom: 1px solid #ADADAD;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 836px) {
+    min-height: 60px;
+  }
+
+  @media screen and (max-width: 500px) {
+    min-height: 30px;
+  }
 `;
 
 const LeftTopLaneContainer = styled.div`
@@ -183,6 +205,10 @@ const LeftTopLaneContainer = styled.div`
   align-items: center;
   gap: 50px;
   color: #e9e9e9;
+
+  @media screen and (max-width: 500px) {
+    gap: 20px;
+  }
 `;
 
 const HomeButton = styled.div`
@@ -192,20 +218,32 @@ const HomeButton = styled.div`
   &:hover {
     color: #ADADAD;
   }
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
 `;
 
 const Text = styled.div`
   font-size: 18px;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
 `;
 
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
-
-  @media screen and (max-width: 1320px) {
-    gap: 3px;
-  }
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -224,6 +262,11 @@ const IconBoxWrapper = styled.div`
   &:hover {
     background-color: #525050;
   }
+
+  @media screen and (max-width: 836px) {
+    width: 34px;
+    height: 34px;
+  }
 `;
 
 const MenuIcon = styled.div<{ src : string }>`
@@ -231,6 +274,11 @@ const MenuIcon = styled.div<{ src : string }>`
   height: 32px;
   background-image: url(${(props) => props.src});
   background-size: 100% 100%;
+
+  @media screen and (max-width: 836px) {
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 const FooterOutWrapper = styled.div`
@@ -240,12 +288,30 @@ const FooterOutWrapper = styled.div`
   align-items: start;
   gap: 100px;
   margin: 40px 0px;
+
+  @media screen and (max-width: 836px) {
+    gap: 80px;
+    margin: 30px 0px;
+  }
+
+  @media screen and (max-width: 500px) {
+    gap: 40px;
+    margin: 16px 0px;
+  }
 `;
 
 const LogoContainer = styled.img`
   width: 150px;
-  height: 80px;
+  height: auto;
   object-fit: cover;
+
+  @media screen and (max-width: 836px) {
+    width: 120px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 80px;
+  }
 `;
 
 const FirstWrapper = styled.div`
@@ -253,21 +319,46 @@ const FirstWrapper = styled.div`
   flex-direction: column;
   text-align: start;
   gap: 30px;
+
+  @media screen and (max-width: 836px) {
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 500px) {
+    gap: 16px;
+  }
 `;
 
 const Title = styled.div`
+  font-size: 14px;
 
+  @media screen and (max-width: 836px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
 `;
 
 const ContentBox = styled.div`
   font-size: 12px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
+
+  @media screen and (max-width: 836px) {
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 8px;
+    gap: 5px;
+  }
 `;
 
 const Content = styled.div`
-
+  line-height: normal;
 `;
 
 export default Footer;
