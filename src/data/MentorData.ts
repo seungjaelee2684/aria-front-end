@@ -4,6 +4,7 @@ import Image3 from '../assets/images/rapla2.png';
 import Image4 from '../assets/images/maincharactor.png';
 import SanpachiImage from '../assets/images/sanpachiimage1.png';
 import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
+import SanpatiCurriculum from '../assets/curriculums/sanpati/sanpaticurriculummain.png';
 import SanpatiCurriculum1 from '../assets/curriculums/sanpati/sanpaticurriculum1.png';
 import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2.png';
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';
@@ -20,11 +21,12 @@ export const mentorListData = [
         japanesename: "ミンギュ",
         nickname: "민규",
         content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
+            SanpatiCurriculum
+            // SanpatiCurriculum1,
+            // SanpatiCurriculum2,
+            // SanpatiCurriculum3,
+            // SanpatiCurriculum4,
+            // SanpatiCurriculum5,
             // SanpatiCurriculum6
         ],
         image: Image
@@ -37,11 +39,12 @@ export const mentorListData = [
         japanesename: "シャイ",
         nickname: "샬e",
         content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
+            SanpatiCurriculum
+            // SanpatiCurriculum1,
+            // SanpatiCurriculum2,
+            // SanpatiCurriculum3,
+            // SanpatiCurriculum4,
+            // SanpatiCurriculum5,
             // SanpatiCurriculum6
         ],
         image: Image2
@@ -54,11 +57,12 @@ export const mentorListData = [
         japanesename: "チャン",
         nickname: "챤",
         content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
+            SanpatiCurriculum
+            // SanpatiCurriculum1,
+            // SanpatiCurriculum2,
+            // SanpatiCurriculum3,
+            // SanpatiCurriculum4,
+            // SanpatiCurriculum5,
             // SanpatiCurriculum6
         ],
         image: SanpachiImage2
@@ -71,11 +75,12 @@ export const mentorListData = [
         japanesename: "シュモリ",
         nickname: "슈몰리",
         content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
+            SanpatiCurriculum
+            // SanpatiCurriculum1,
+            // SanpatiCurriculum2,
+            // SanpatiCurriculum3,
+            // SanpatiCurriculum4,
+            // SanpatiCurriculum5,
             // SanpatiCurriculum6
         ],
         image: Image3
@@ -88,11 +93,12 @@ export const mentorListData = [
         japanesename: "さんぱち",
         nickname: "산파치",
         content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
+            SanpatiCurriculum
+            // SanpatiCurriculum1,
+            // SanpatiCurriculum2,
+            // SanpatiCurriculum3,
+            // SanpatiCurriculum4,
+            // SanpatiCurriculum5,
             // SanpatiCurriculum6
         ],
         image: SanpachiImage
@@ -105,11 +111,12 @@ export const mentorListData = [
         japanesename: "ネオン",
         nickname: "네온",
         content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
+            SanpatiCurriculum
+            // SanpatiCurriculum1,
+            // SanpatiCurriculum2,
+            // SanpatiCurriculum3,
+            // SanpatiCurriculum4,
+            // SanpatiCurriculum5,
             // SanpatiCurriculum6
         ],
         image: Image4
