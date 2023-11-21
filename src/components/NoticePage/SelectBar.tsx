@@ -92,6 +92,7 @@ const SelectBarContainer = styled.div`
   align-items: center;
   border-radius: 3px;
   position: relative;
+  user-select: none;
 
   @media screen and (max-width: 836px) {
     min-width: 100px;
