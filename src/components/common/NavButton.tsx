@@ -102,7 +102,7 @@ const NavButton = () => {
                 <div
                     style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        navigate("/schedule");
+                        navigate("/counseling");
                     }}>
                     SUPPORT
                 </div>

@@ -257,6 +257,7 @@ const SearchIcon = styled.img`
   height: 24px;
   object-fit: contain;
   border-radius: 100%;
+  user-select: none;
   cursor: pointer;
 
   @media screen and (max-width: 500px) {

@@ -24,9 +24,9 @@ const PageModal = ({ pageModal } : any) => {
     } else if (pageModal === "Support") {
       return (
         <ModalContainer className='ModalContainerBig'>
-          <ModalText onClick={() => navigate("/schedule")}>
+          {/* <ModalText onClick={() => navigate("/schedule")}>
             Schedule
-          </ModalText>
+          </ModalText> */}
           <ModalText onClick={() => navigate("/counseling")}>
             Counseling
           </ModalText>

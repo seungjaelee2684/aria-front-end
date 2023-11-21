@@ -4,7 +4,7 @@ import Image3 from '../assets/images/rapla2.png';
 import Image4 from '../assets/images/maincharactor.png';
 import SanpachiImage from '../assets/images/sanpachiimage1.png';
 import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
-import SanpatiCurriculum from '../assets/curriculums/sanpati/sanpaticurriculummain.png';
+import SanpatiCurriculum from '../assets/curriculums/sanpati/sanpaticurriculummain.jpg';
 import SanpatiCurriculum1 from '../assets/curriculums/sanpati/sanpaticurriculum1.png';
 import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2.png';
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';

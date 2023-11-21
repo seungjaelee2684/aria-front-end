@@ -40,13 +40,13 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </CloseBtn>
         </CloseBtnContainer>
         <TextWrapper>
-          <Text
+          {/* <Text
             onClick={() => {
               navigate("/")
               setHamburg(false)
             }}>
             Home
-          </Text>
+          </Text> */}
           <Text
             onClick={() => {
               navigate("/mentor")
@@ -83,18 +83,18 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </Text>
           <Text
             onClick={() => {
-              navigate("/schedule")
+              navigate("/counseling")
               setHamburg(false)
             }}>
             Support
           </Text>
-          <SurvePageButton
+          {/* <SurvePageButton
             onClick={() => {
               navigate("/schedule")
               setHamburg(false)
             }}>
             Schedule
-          </SurvePageButton>
+          </SurvePageButton> */}
           <SurvePageButton
             onClick={() => {
               navigate("/counseling")
