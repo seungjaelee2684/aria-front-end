@@ -46,7 +46,7 @@ const LayoutContainer = styled.div`
 `;
 
 const InContainer = styled.div`
-    width: 1000px;
+    width: 1320px;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
