@@ -10,7 +10,12 @@ import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';
 import SanpatiCurriculum4 from '../assets/curriculums/sanpati/sanpaticurriculum4.png';
 import SanpatiCurriculum5 from '../assets/curriculums/sanpati/sanpaticurriculum5.png';
-// import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6.png';
+import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6.png';
+import CurriculumHome from '../assets/curriculums/curriculumhome.png';
+import CurriculumYoutube from '../assets/curriculums/curriculumyoutube.png';
+import CurriculumTwitter from '../assets/curriculums/curriculumtwitter.png';
+import CurriculumInstar from '../assets/curriculums/curriculuminstar.png';
+import CurriculumArtstation from '../assets/curriculums/curriculumartstation.png';
 
 export const mentorListData = [
     {
@@ -21,13 +26,35 @@ export const mentorListData = [
         japanesename: "ミンギュ",
         nickname: "민규",
         content: [
-            SanpatiCurriculum
-            // SanpatiCurriculum1,
-            // SanpatiCurriculum2,
-            // SanpatiCurriculum3,
-            // SanpatiCurriculum4,
-            // SanpatiCurriculum5,
-            // SanpatiCurriculum6
+            // SanpatiCurriculum
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
+        sns: [
+            {
+                icon: CurriculumHome,
+                link: ""
+            },
+            {
+                icon: CurriculumYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumInstar,
+                link: ""
+            },
+            {
+                icon: CurriculumArtstation,
+                link: ""
+            }
         ],
         image: Image
     },
@@ -39,13 +66,35 @@ export const mentorListData = [
         japanesename: "シャイ",
         nickname: "샬e",
         content: [
-            SanpatiCurriculum
-            // SanpatiCurriculum1,
-            // SanpatiCurriculum2,
-            // SanpatiCurriculum3,
-            // SanpatiCurriculum4,
-            // SanpatiCurriculum5,
-            // SanpatiCurriculum6
+            // SanpatiCurriculum
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
+        sns: [
+            {
+                icon: CurriculumHome,
+                link: ""
+            },
+            {
+                icon: CurriculumYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumInstar,
+                link: ""
+            },
+            {
+                icon: CurriculumArtstation,
+                link: ""
+            }
         ],
         image: Image2
     },
@@ -57,13 +106,35 @@ export const mentorListData = [
         japanesename: "チャン",
         nickname: "챤",
         content: [
-            SanpatiCurriculum
-            // SanpatiCurriculum1,
-            // SanpatiCurriculum2,
-            // SanpatiCurriculum3,
-            // SanpatiCurriculum4,
-            // SanpatiCurriculum5,
-            // SanpatiCurriculum6
+            // SanpatiCurriculum
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
+        sns: [
+            {
+                icon: CurriculumHome,
+                link: ""
+            },
+            {
+                icon: CurriculumYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumInstar,
+                link: ""
+            },
+            {
+                icon: CurriculumArtstation,
+                link: ""
+            }
         ],
         image: SanpachiImage2
     },
@@ -75,13 +146,35 @@ export const mentorListData = [
         japanesename: "シュモリ",
         nickname: "슈몰리",
         content: [
-            SanpatiCurriculum
-            // SanpatiCurriculum1,
-            // SanpatiCurriculum2,
-            // SanpatiCurriculum3,
-            // SanpatiCurriculum4,
-            // SanpatiCurriculum5,
-            // SanpatiCurriculum6
+            // SanpatiCurriculum
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
+        sns: [
+            {
+                icon: CurriculumHome,
+                link: ""
+            },
+            {
+                icon: CurriculumYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumInstar,
+                link: ""
+            },
+            {
+                icon: CurriculumArtstation,
+                link: ""
+            }
         ],
         image: Image3
     },
@@ -93,13 +186,35 @@ export const mentorListData = [
         japanesename: "さんぱち",
         nickname: "산파치",
         content: [
-            SanpatiCurriculum
-            // SanpatiCurriculum1,
-            // SanpatiCurriculum2,
-            // SanpatiCurriculum3,
-            // SanpatiCurriculum4,
-            // SanpatiCurriculum5,
-            // SanpatiCurriculum6
+            // SanpatiCurriculum
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
+        sns: [
+            {
+                icon: CurriculumHome,
+                link: ""
+            },
+            {
+                icon: CurriculumYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumInstar,
+                link: ""
+            },
+            {
+                icon: CurriculumArtstation,
+                link: ""
+            }
         ],
         image: SanpachiImage
     },
@@ -111,13 +226,35 @@ export const mentorListData = [
         japanesename: "ネオン",
         nickname: "네온",
         content: [
-            SanpatiCurriculum
-            // SanpatiCurriculum1,
-            // SanpatiCurriculum2,
-            // SanpatiCurriculum3,
-            // SanpatiCurriculum4,
-            // SanpatiCurriculum5,
-            // SanpatiCurriculum6
+            // SanpatiCurriculum
+            SanpatiCurriculum1,
+            SanpatiCurriculum2,
+            SanpatiCurriculum3,
+            SanpatiCurriculum4,
+            SanpatiCurriculum5,
+            SanpatiCurriculum6
+        ],
+        sns: [
+            {
+                icon: CurriculumHome,
+                link: ""
+            },
+            {
+                icon: CurriculumYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumInstar,
+                link: ""
+            },
+            {
+                icon: CurriculumArtstation,
+                link: ""
+            }
         ],
         image: Image4
     },

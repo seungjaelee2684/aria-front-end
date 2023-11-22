@@ -16,11 +16,24 @@ const MentorDetail = () => {
   return (
     <LayoutContainer>
         <InContainer>
+            <CurriculumImg
+                src={mentorInfo[0]?.content[0]}/>
+            <CurriculumSNS>
+                {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                    return (
+                        <SNSIcons
+                            key={item?.icon}
+                            src={item?.icon}
+                            onClick={() => window.open(item?.link)}/>
+                    )
+                })}
+            </CurriculumSNS>
             {mentorInfo[0]?.content.map((item : string) => {
                 return (
-                    <CurriculumImg
-                        key={item}
-                        src={item}/>
+                    (mentorInfo[0]?.content.indexOf(item) !== 0)
+                        &&  <CurriculumImg
+                            key={item}
+                            src={item}/>  
                 )
             })}
             {/* <TextWrapper>
@@ -46,16 +59,20 @@ const LayoutContainer = styled.div`
 `;
 
 const InContainer = styled.div`
-    width: 1320px;
+    width: 1100px;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 120px;
+    gap: 300px;
 
     @media screen and (max-width: 800px) {
         width: 100%;
-        /* gap: 50px; */
+        gap: 200px;
+    }
+
+    @media screen and (max-width: 500px) {
+        gap: 150px;
     }
 `;
 
@@ -66,35 +83,18 @@ const CurriculumImg = styled.img`
     user-select: none;
 `;
 
-const TextWrapper = styled.div`
-    width: 100%;
+const CurriculumSNS = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    width: 100%;
+    gap: 90px;
 `;
 
-const KeyText = styled.div`
-    font-family: "Pretendard";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 150%;
-`;
-
-const ValueText = styled.div`
-    font-family: "Pretendard";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 140%;
-`;
-
-const ImageBox = styled.div<{ src : string }>`
-    width: 56px;
-    height: 56px;
-    background-image: url(${(props) => props.src});
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+const SNSIcons = styled.img`
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
 `;
 
 export default MentorDetail;
