@@ -1,8 +1,8 @@
 import React from 'react'
-import Koreaflag from '../../assets/logos/koreaflag.png';
-import Japanflag from '../../assets/logos/japanflag.png';
-import Americaflag from '../../assets/logos/americaflag.png'
-import Chinaflag from '../../assets/logos/chinaflag.png'
+import Koreaflag from '../../assets/logos/koreaflag.webp';
+import Japanflag from '../../assets/logos/japanflag.webp';
+import Americaflag from '../../assets/logos/americaflag.webp'
+import Chinaflag from '../../assets/logos/chinaflag.webp'
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';

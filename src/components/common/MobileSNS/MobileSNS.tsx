@@ -5,10 +5,6 @@ import Instagram from '../../../assets/icons/insta.webp';
 import Twitter from '../../../assets/icons/twitter.webp';
 import Discord from '../../../assets/icons/discord.webp';
 import Youtube from '../../../assets/icons/youtube.webp';
-import InstagramDefault from '../../../assets/icons/instadefault.png';
-import TwitterDefault from '../../../assets/icons/twitterdefault.png';
-import DiscordDefault from '../../../assets/icons/discorddefault.png';
-import YoutubeDefault from '../../../assets/icons/youtubedefault.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 
@@ -41,7 +37,7 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
             style={{bottom: '70px', left: "25%"}}
             className='InstaIcon'
             onClick={onClickReadyHandler}>
-            <Icon src={Instagram}/>
+            <Icon src={Instagram} alt=''/>
         </IconBox>
         <IconBox
             bordercolor="1px solid #33b2f9"
@@ -51,7 +47,7 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
                 window.open("https://twitter.com/ARIA_Academy");
                 setSnsModal(false);
             }}>
-            <Icon src={Twitter}/>
+            <Icon src={Twitter} alt=''/>
         </IconBox>
         <IconBox
             bordercolor="1px solid #7489da"
@@ -61,14 +57,14 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
                 window.open("https://discord.gg/N7SEvBds4F")
                 setSnsModal(false);
             }}>
-            <Icon src={Discord}/>
+            <Icon src={Discord} alt=''/>
         </IconBox>
         <IconBox
             bordercolor="1px solid #ff0000"
             style={{bottom: '70px', left: "63%"}}
             className='YoutubeIcon'
             onClick={onClickReadyHandler}>
-            <Icon src={Youtube}/>
+            <Icon src={Youtube} alt=''/>
         </IconBox>
     </div>
   )

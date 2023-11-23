@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import logo from '../../assets/logos/logosimple.png';
+import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import ScrollBar from './ScrollBar';
 import SNSMenu from './SNSMenu/SNSMenu';
-import ListIcon from '../../assets/icons/list.png';
 import '../../style/font/font.css';
-import Translate from '../../assets/icons/translateicon.png';
 import TranslateModal from './TranslateModal';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { BsGlobe2 } from 'react-icons/bs';

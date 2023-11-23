@@ -82,24 +82,28 @@ const SNSMenu = () => {
           // className='MenuIcon'
           title={onTitleReadyHandler(0)}
           src={Instagram}
+          alt=''
           onClick={onClickReadyHandler}/>
       </InstaIcon>
       <TwitterIcon>
         <MenuIcon
           title={onTitleReadyHandler(1)}
           src={Twitter}
+          alt=''
           onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
       </TwitterIcon>
       <DiscordIcon>
         <MenuIcon
           title={onTitleReadyHandler(2)}
           src={Discord}
+          alt=''
           onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
       </DiscordIcon>
       <YoutubeIcon>
         <MenuIcon
           title={onTitleReadyHandler(0)}
           src={Youtube}
+          alt=''
           onClick={onClickReadyHandler}/>
       </YoutubeIcon>
     </MenuIconContainer>
@@ -206,11 +210,10 @@ const YoutubeIcon = styled.div`
   }
 `;
 
-const MenuIcon = styled.div<{ src : string }>`
+const MenuIcon = styled.img`
   width: 44px;
   height: 44px;
-  background-image: url(${(props) => props.src});
-  background-size: 100% 100%;
+  object-fit: contain;
   opacity: 0.8;
   transition: all 0.3s ease-in-out;
   cursor: pointer;

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import LogoImage from '../assets/logos/logosimple.png';
-import TranslateIcon from '../assets/icons/translateicon.png';
+import LogoImage from '../assets/logos/logosimple.webp';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 import { GiEarthAmerica } from 'react-icons/gi';
