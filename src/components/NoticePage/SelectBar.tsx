@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SelectModal from './SelectModal';
 import DownArrow from '../../assets/icons/downArrow.png';
 import UpArrow from '../../assets/icons/upArrow.png';
+import { TiArrowUnsorted } from "react-icons/ti";
 
 interface SelectBarProps {
     language: string | null;
@@ -61,9 +62,9 @@ const SelectBar : React.FC<SelectBarProps> = ({ language, selectOption, setSelec
   return (
     <SelectBarContainer ref={divRef} onClick={() => setIsOpen(!isOpen)}>
         {filterOption()}
-        {isOpen
-            ? <UpDownIcon src={UpArrow}/>
-            : <UpDownIcon src={DownArrow}/>}
+        <SelectIcon>
+          <TiArrowUnsorted />
+        </SelectIcon>
         {isOpen
             && <SelectModalWrapper>
                 <SelectModal
@@ -131,6 +132,14 @@ const SelectModalWrapper = styled.div`
   @media screen and (max-width: 500px) {
     top: 27px;
   }
+`;
+
+const SelectIcon = styled.div`
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222020;
 `;
 
 export default SelectBar;

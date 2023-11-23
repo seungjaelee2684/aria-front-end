@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { IoCheckmark } from "react-icons/io5";
 
 interface SelectModalProps {
     language: string | null;
@@ -73,6 +74,8 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
               }
             }>
             {filterOptions(item)}
+            {(selectOption?.pick === item?.option)
+              && <IoCheckmark />}
           </ModalLineContainer>
         )
       })}
@@ -104,6 +107,7 @@ const ModalLineContainer = styled.div`
   height: 34px;
   border-bottom: 0.5px solid #f8f8f8;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0px 10px 0px 16px;
 
