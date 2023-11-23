@@ -66,13 +66,13 @@ const InContainer = styled.div`
     align-items: center;
     gap: 300px;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1100px) {
         width: 100%;
         gap: 200px;
     }
 
     @media screen and (max-width: 500px) {
-        gap: 150px;
+        gap: 120px;
     }
 `;
 
@@ -89,12 +89,31 @@ const CurriculumSNS = styled.div`
     align-items: center;
     width: 100%;
     gap: 90px;
+
+    @media screen and (max-width: 1100px) {
+        width: 100%;
+        gap: 50px;
+    }
+
+    @media screen and (max-width: 500px) {
+        gap: 30px;
+    }
 `;
 
 const SNSIcons = styled.img`
     width: 90px;
     height: 90px;
     object-fit: contain;
+
+    @media screen and (max-width: 1100px) {
+        width: 70px;
+        height: 70px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 40px;
+        height: 40px;
+    }
 `;
 
 export default MentorDetail;
