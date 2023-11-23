@@ -1,8 +1,8 @@
-import Image from '../assets/images/mentorimage.png';
-import Image2 from '../assets/images/mentorimage2.png';
+import Image from '../assets/images/mentorimage.webp';
+import Image2 from '../assets/images/mentorimage2.webp';
 import Image3 from '../assets/images/rapla2.png'
 import Image4 from '../assets/images/lineimage.png';
-import MentorNickname from '../assets/images/mentorimagetext.png';
+import MentorNickname from '../assets/images/mentorimagetext.webp';
 
 export const NewMentorListData = [
     {
