@@ -8,7 +8,6 @@ import { mainPageText } from '../../languages/HomeTrans';
 import FirstMainFrameImage from '../../assets/images/maincharacter.png';
 import SecondMainFrameImage from '../../assets/images/maincharactorimage.png';
 import ThirdMainFrameImage from '../../assets/images/rapla1.png';
-import Frame from '../../assets/images/frame.png';
 import MainBlackBG from '../../assets/images/mainblackbackground.jpg';
 
 const SecondPageImage = () => {
@@ -50,52 +49,30 @@ const SecondPageImage = () => {
                     </MainContent>
                 </MainTextOutWrapper>
                 <ButtonOutContainer>
-                    {/* <FrameBox
-                        className={(scrollIndex === 2) ? "FirstFrame" : ""}>
-                        <FrameInFicture src={FirstMainFrameImage} />
-                        <FrameContent className='FirstMainContent'>
-                            수강 신청
-                        </FrameContent>
-                        <FrameImage src={Frame} />
-                    </FrameBox>
-                    <FrameBox className={(scrollIndex === 2) ? "SecondFrame" : ""}>
-                        <FrameInFicture src={SecondMainFrameImage} />
-                        <FrameContent className='SecondMainContent'>
-                            디스코드
-                        </FrameContent>
-                        <FrameImage src={Frame} />
-                    </FrameBox>
-                    <FrameBox className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
-                        <FrameInFicture src={ThirdMainFrameImage} />
-                        <FrameContent className='ThirdMainContent'>
-                            운영정책
-                        </FrameContent>
-                        <FrameImage src={Frame} />
-                    </FrameBox> */}
                     <ButtonBoxWapper className={(scrollIndex === 2) ? "FirstFrame" : ""}>
                         <ButtonGradient />
                         <ButtonHoverBox className='FirstMainContent'>
                             수강신청 하러가기
                         </ButtonHoverBox>
-                        <ButtonBackgroundImage src={FirstMainFrameImage}/>
+                        <ButtonBackgroundImage src={FirstMainFrameImage} alt=''/>
                     </ButtonBoxWapper>
                     <ButtonBoxWapper className={(scrollIndex === 2) ? "SecondFrame" : ""}>
                         <ButtonGradient />
                         <ButtonHoverBox className='SecondMainContent'>
                             수강신청 하러가기
                         </ButtonHoverBox>
-                        <ButtonBackgroundImage src={FirstMainFrameImage}/>
+                        <ButtonBackgroundImage src={FirstMainFrameImage} alt=''/>
                     </ButtonBoxWapper>
                     <ButtonBoxWapper className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
                         <ButtonGradient />
                         <ButtonHoverBox className='ThirdMainContent'>
                             수강신청 하러가기
                         </ButtonHoverBox>
-                        <ButtonBackgroundImage src={FirstMainFrameImage}/>
+                        <ButtonBackgroundImage src={FirstMainFrameImage} alt=''/>
                     </ButtonBoxWapper>
                 </ButtonOutContainer>
             </TextContainer>
-            <Images src={MainBlackBG} />
+            <Images src={MainBlackBG} alt=''/>
         </ImageBoxWrapper>
     )
 };

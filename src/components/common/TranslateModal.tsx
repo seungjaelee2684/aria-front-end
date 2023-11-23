@@ -109,7 +109,7 @@ const ModalLineContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         font-size: 18px;
-        height: 50px;
+        height: 40px;
         margin: 10px auto;
     }
 `;

@@ -87,32 +87,32 @@ const Footer = () => {
           <MenuIconContainer>
             <IconBoxWrapper>
               <MenuIcon
-                // default={InstagramDefault}
                 src={InstagramDefault}
+                alt=''
                 onClick={onClickReadyHandler}/>
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
-                // default={TwitterDefault}
                 src={TwitterDefault}
+                alt=''
                 onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
-                // default={DiscordDefault}
                 src={DiscordDefault}
+                alt=''
                 onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
-                // default={YoutubeDefault}
                 src={YoutubeDefault}
+                alt=''
                 onClick={onClickReadyHandler}/>
             </IconBoxWrapper>
           </MenuIconContainer>
         </TopLaneHeader>
         <FooterOutWrapper>
-          <LogoContainer src={FooterLogo}/>
+          <LogoContainer src={FooterLogo} alt=''/>
           <FirstWrapper>
             <Title>
               개인정보 처리방침
@@ -269,11 +269,10 @@ const IconBoxWrapper = styled.div`
   }
 `;
 
-const MenuIcon = styled.div<{ src : string }>`
+const MenuIcon = styled.img`
   width: 32px;
   height: 32px;
-  background-image: url(${(props) => props.src});
-  background-size: 100% 100%;
+  object-fit: contain;
 
   @media screen and (max-width: 836px) {
     width: 28px;

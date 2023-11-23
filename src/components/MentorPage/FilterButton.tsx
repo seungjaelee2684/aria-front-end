@@ -48,7 +48,7 @@ const FilterButton = () => {
     <FilterButtonContainer>
         <FilterButtonWrapper>
             <NationFilter>
-                {(nationkind !== "All") && <NationFlag src={flag}/>}
+                {(nationkind !== "All") && <NationFlag src={flag} alt=''/>}
                 {nationkind}
             </NationFilter>
             <FilterBtn
