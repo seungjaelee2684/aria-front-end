@@ -95,7 +95,7 @@ const Home = () => {
                     <ObjectImage
                         className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
                         src={MainCharactor}/>
-                    <Images src={MainBG}/>  
+                    <Images src={MainBG} alt=''/>
                 </ImageBoxWrapper>
                 <SecondPageImage />
             </ImageWrapper>
@@ -106,7 +106,6 @@ const Home = () => {
 
 const MainLayout = styled.div`
     width: 100%;
-    /* padding: 0px 0px; */
     overflow-y: hidden;
     position: relative;
     display: grid;

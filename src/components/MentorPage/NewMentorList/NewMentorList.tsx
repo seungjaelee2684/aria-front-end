@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import '../../../style/font/font.css';
 import styled from 'styled-components';
-import Image from '../../../assets/images/testImage.png';
-import Image2 from '../../../assets/images/mainimage.jpg';
 import { NewMentorListData } from '../../../data/NewMentorData';
 
 interface NewMentorListProps {
@@ -39,10 +37,11 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                             </IntroduceText>
                         </IntroduceMentorContainer> */}
                         {(item?.status === "Left")
-                            ? <NicknameLeftContainer src={item?.nickimage}/>
+                            ? <NicknameLeftContainer src={item?.nickimage} alt=''/>
                             : <NicknameContainer 
                                 // className='ImageContainer'
-                                src={item?.nickimage} />}
+                                src={item?.nickimage}
+                                alt=''/>}
                     </div>
                 )
             })}
