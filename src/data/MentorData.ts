@@ -14,7 +14,7 @@ import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6
 import CurriculumHome from '../assets/curriculums/curriculumhome.png';
 import CurriculumYoutube from '../assets/curriculums/curriculumyoutube.png';
 import CurriculumTwitter from '../assets/curriculums/curriculumtwitter.png';
-import CurriculumInstar from '../assets/curriculums/curriculuminstar.png';
+import CurriculumInsta from '../assets/curriculums/curriculuminsta.png';
 import CurriculumArtstation from '../assets/curriculums/curriculumartstation.png';
 
 export const mentorListData = [
@@ -48,7 +48,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInstar,
+                icon: CurriculumInsta,
                 link: ""
             },
             {
@@ -88,7 +88,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInstar,
+                icon: CurriculumInsta,
                 link: ""
             },
             {
@@ -128,7 +128,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInstar,
+                icon: CurriculumInsta,
                 link: ""
             },
             {
@@ -168,7 +168,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInstar,
+                icon: CurriculumInsta,
                 link: ""
             },
             {
@@ -208,7 +208,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInstar,
+                icon: CurriculumInsta,
                 link: ""
             },
             {
@@ -248,7 +248,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInstar,
+                icon: CurriculumInsta,
                 link: ""
             },
             {
