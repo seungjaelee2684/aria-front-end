@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import '../style/font/font.css';
-import MainBG from '../assets/images/sanpatimainbackground.png';
-import MainCharactor from '../assets/images/maincharactorimage.png';
+import MainBG from '../assets/images/sanpatimainbackground.webp';
+import MainCharactor from '../assets/images/maincharactorimage.webp';
 import '../components/HomePage/MainImage/MainImage.css';
 import { useRecoilState } from 'recoil';
 import { MainPageNumber } from '../store/MainPageNumber';

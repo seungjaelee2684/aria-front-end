@@ -8,10 +8,10 @@ import Instagram from '../../assets/icons/insta.png';
 import Twitter from '../../assets/icons/twitter.png';
 import Discord from '../../assets/icons/discord.png';
 import Youtube from '../../assets/icons/youtube.png';
-import InstagramDefault from '../../assets/icons/instadefault.png';
-import TwitterDefault from '../../assets/icons/twitterdefault.png';
-import DiscordDefault from '../../assets/icons/discorddefault.png';
-import YoutubeDefault from '../../assets/icons/youtubedefault.png';
+import InstagramDefault from '../../assets/icons/instadefault.webp';
+import TwitterDefault from '../../assets/icons/twitterdefault.webp';
+import DiscordDefault from '../../assets/icons/discorddefault.webp';
+import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
 
 const Footer = () => {

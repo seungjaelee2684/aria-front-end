@@ -5,10 +5,10 @@ import { nationFlag, nationKind } from '../../store/NationFilter';
 import FilterModal from './FilterModal';
 import UpArrow from '../../assets/icons/upArrow.png';
 import DownArrow from '../../assets/icons/downArrow.png'
-import Koreaflag from '../../assets/logos/koreaflag.png';
-import Japanflag from '../../assets/logos/japanflag.png';
-import Americaflag from '../../assets/logos/americaflag.png'
-import Chinaflag from '../../assets/logos/chinaflag.png'
+import Koreaflag from '../../assets/logos/koreaflag.webp';
+import Japanflag from '../../assets/logos/japanflag.webp';
+import Americaflag from '../../assets/logos/americaflag.webp'
+import Chinaflag from '../../assets/logos/chinaflag.webp'
 
 const FilterButton = () => {
 

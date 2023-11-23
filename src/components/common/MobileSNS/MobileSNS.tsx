@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import './MobileSNS.css';
-import Instagram from '../../../assets/icons/insta.png';
-import Twitter from '../../../assets/icons/twitter.png';
-import Discord from '../../../assets/icons/discord.png';
-import Youtube from '../../../assets/icons/youtube.png';
+import Instagram from '../../../assets/icons/insta.webp';
+import Twitter from '../../../assets/icons/twitter.webp';
+import Discord from '../../../assets/icons/discord.webp';
+import Youtube from '../../../assets/icons/youtube.webp';
 import InstagramDefault from '../../../assets/icons/instadefault.png';
 import TwitterDefault from '../../../assets/icons/twitterdefault.png';
 import DiscordDefault from '../../../assets/icons/discorddefault.png';
