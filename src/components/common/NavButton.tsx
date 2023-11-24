@@ -18,10 +18,10 @@ const NavButton = () => {
     const [pageModal, setPageModal] = useState<string>("");
     const [alertModal, setAlertModal] = useState<{
         isOpen: boolean,
-        whatAlert: string
+        whatAlert: number
     }>({
         isOpen: false,
-        whatAlert: ""
+        whatAlert: 100
     });
     const { isOpen, whatAlert } = alertModal;
 
@@ -96,7 +96,7 @@ const NavButton = () => {
             <TapContainer
                 // href='#'
                 style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: "showcase"})}>
+                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
                 SHOWCASE
             </TapContainer>
             <TapContainer

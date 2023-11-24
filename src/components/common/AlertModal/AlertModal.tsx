@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import './AlertModal.css';
 import { HiOutlineShieldExclamation } from "react-icons/hi2";
+import { CiNoWaitingSign } from "react-icons/ci";
+import { GoCheckCircle } from "react-icons/go";
 import { alertInformation } from '../../../languages/AlertTrans';
 
 interface AlertModalProps {
   alertModal: {
     isOpen: boolean,
-    whatAlert: string
+    whatAlert: number
   };
   setAlertModal: React.Dispatch<React.SetStateAction<{
     isOpen: boolean,
-    whatAlert: string
+    whatAlert: number
   }>>;
 }
 
@@ -19,59 +21,55 @@ const AlertModal : React.FC<AlertModalProps> = ({ alertModal, setAlertModal }) =
   
   console.log("모달창 데이터", alertModal.whatAlert);
 
-  const [count, setCount] = useState<number>(0);
-
   const language = localStorage.getItem("language");
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (count < 100) {
-  //       setCount(count + 1);
-  //     } else {
-  //       setAlertModal({...alertModal, isOpen: false, whatAlert: ""})
-  //     };
-  //   }, 100)
-  //   return () => clearInterval(interval);
-  // }, [count])
 
   const alertTranslate = (Num : number) => {
     switch (language) {
       case "chinese" :
-        return alertInformation[Num]?.chinesealert;
+        return alertInformation[(alertModal.whatAlert * 2) + Num]?.chinesealert;
       case "japanese" :
-        return alertInformation[Num]?.japanesealert;
+        return alertInformation[(alertModal.whatAlert * 2) + Num]?.japanesealert;
       case "korean" :
-        return alertInformation[Num]?.alert;
+        return alertInformation[(alertModal.whatAlert * 2) + Num]?.alert;
       default :
-        return alertInformation[Num]?.englishalert;
+        return alertInformation[(alertModal.whatAlert * 2) + Num]?.englishalert;
     }
   };
 
   const alertContentChange = () => {
-    if (alertModal.whatAlert === "showcase") {
-      return ;
+    if (alertModal.whatAlert === 0) {
+      return (
+        <ExclamationIcon color="#fce169">
+          <HiOutlineShieldExclamation />
+        </ExclamationIcon>
+      );
+    } else {
+      return (
+        <ExclamationIcon color="#b0d990">
+          <GoCheckCircle />
+        </ExclamationIcon>
+      );
     };
   };
   
   return (
     <BackgroudContainer
-      onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: ""})}>
+      onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
       <ModalContainer
         onClick={(e) => e.stopPropagation()}
         className='AlertModalContainer'>
-        <ExclamationIcon color="yellow">
-          <HiOutlineShieldExclamation />
-        </ExclamationIcon>
+        {alertContentChange()}
         <ModalTitle>
           {alertTranslate(0)}
         </ModalTitle>
         <ModalContent>
           {alertTranslate(1)}
         </ModalContent>
-        <CloseButton onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: ""})}>
-          OK
-        </CloseButton>
-        {/* <CloseTimer width={count}/> */}
+        <ButtonContainer>
+          <CloseButton onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
+            OK
+          </CloseButton>
+        </ButtonContainer>
       </ModalContainer>
     </BackgroudContainer>
   )
@@ -91,26 +89,26 @@ const BackgroudContainer = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  width: 550px;
+  width: 480px;
   height: 300px;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 5px;
   font-family: "Pretendard";
   position: relative;
-  padding: 0px 20px;
+  padding: 0px 40px;
 `;
 
 const ExclamationIcon = styled.div<{ color : string }>`
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 80px;
+  font-size: 100px;
   color: ${(props) => props.color};
-  margin-bottom: 10px;
+  margin: 20px 0px 10px 0px;
 `;
 
 const ModalTitle = styled.div`
@@ -132,18 +130,24 @@ const ModalContent = styled.div`
   margin-top: 10px;
 `;
 
+const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+`;
+
 const CloseButton = styled.button`
   width: 60px;
   height: 40px;
   background-color: #3c3ad6;
   border-radius: 5px;
   font-family: "Pretendard";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: normal;
   color: #FCFCFC;
-  border: none;
-  margin-top: 30px;
+  border: 2px solid #d2d1f8;
   cursor: pointer;
 `;
 
