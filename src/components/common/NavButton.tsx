@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import { translate } from '../../store/Translation';
+import AlertModal from './AlertModal/AlertModal';
 
 const NavButton = () => {
 
@@ -15,6 +16,14 @@ const NavButton = () => {
     // const resetFilter = useResetRecoilState(nationKind);
     // const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
+    const [alertModal, setAlertModal] = useState<{
+        isOpen: boolean,
+        whatAlert: string
+    }>({
+        isOpen: false,
+        whatAlert: ""
+    });
+    const { isOpen, whatAlert } = alertModal;
 
     const alertText = () => {
         switch (language) {
@@ -87,12 +96,7 @@ const NavButton = () => {
             <TapContainer
                 // href='#'
                 style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
-                onClick={
-                    // navigate("/showcase");
-                    // resetFilter();
-                    // resetFlag();
-                    alertText
-                }>
+                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: "showcase"})}>
                 SHOWCASE
             </TapContainer>
             <TapContainer
@@ -110,6 +114,10 @@ const NavButton = () => {
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>
+            {(isOpen)
+                && <AlertModal
+                    alertModal={alertModal}
+                    setAlertModal={setAlertModal}/>}
         </TapOutContainer>
     )
 };
