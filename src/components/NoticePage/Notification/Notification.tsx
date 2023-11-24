@@ -6,6 +6,7 @@ import { translate } from '../../../store/Translation';
 import './Notification.css';
 import { NotificationData } from '../../../data/NotificationData';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineNotification } from "react-icons/ai";
 
 const Notification = () => {
 
@@ -76,7 +77,9 @@ const Notification = () => {
   return (
     <LineContainer>
         <ContentWrapper>
-            <NoticeIcon src={Notice}/>
+            <NoticeIcon>
+                <AiOutlineNotification />
+            </NoticeIcon>
             <Title
                 textwidth={
                     (language === "english" || language === null)
@@ -128,19 +131,18 @@ const LineContainer = styled.div`
     }
 `;
 
-const NoticeIcon = styled.img`
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
+const NoticeIcon = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: red;
 
     @media screen and (max-width: 836px) {
-        width: 24px;
-        height: 24px;
+        font-size: 20px;
     }
 
     @media screen and (max-width: 500px) {
-        width: 18px;
-        height: 18px;
+        font-size: 16px;
     }
 `;
 
