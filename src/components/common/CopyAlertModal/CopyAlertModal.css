@@ -1,0 +1,13 @@
+.CopyAlertContainer {
+    animation: copy_alert_open 0.5s forwards;
+}
+@keyframes copy_alert_open {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
