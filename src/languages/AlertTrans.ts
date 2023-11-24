@@ -10,7 +10,7 @@ export const alertInformation : AlertType[] = [
         englishalert: "Coming soon",
         chinesealert: "正在准备。",
         japanesealert: "準備中です。",
-        alert: "준비중!"
+        alert: "준비중이에요!"
     },
     {
         englishalert: "We are currently preparing the content, so please wait a little bit.",
