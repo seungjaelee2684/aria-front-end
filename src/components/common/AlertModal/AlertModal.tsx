@@ -66,7 +66,7 @@ const AlertModal : React.FC<AlertModalProps> = ({ alertModal, setAlertModal }) =
           {alertTranslate(0)}
         </ModalTitle>
         <ModalContent>
-          modal
+          {alertTranslate(1)}
         </ModalContent>
         <CloseButton onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: ""})}>
           OK
@@ -101,6 +101,7 @@ const ModalContainer = styled.div`
   border-radius: 8px;
   font-family: "Pretendard";
   position: relative;
+  padding: 0px 20px;
 `;
 
 const ExclamationIcon = styled.div<{ color : string }>`
@@ -124,10 +125,11 @@ const ModalTitle = styled.div`
 const ModalContent = styled.div`
   width: 100%;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 `;
 
 const CloseButton = styled.button`
