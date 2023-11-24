@@ -93,6 +93,11 @@ const ModalContainer = styled.div`
   font-family: "Pretendard";
   position: relative;
   padding: 0px 40px;
+
+  @media screen and (max-width: 500px) {
+    width: 300px;
+    height: 200px;
+  }
 `;
 
 const ExclamationIcon = styled.div<{ color : string }>`
