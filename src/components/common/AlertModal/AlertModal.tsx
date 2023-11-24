@@ -5,20 +5,13 @@ import { HiOutlineShieldExclamation } from "react-icons/hi2";
 import { CiNoWaitingSign } from "react-icons/ci";
 import { GoCheckCircle } from "react-icons/go";
 import { alertInformation } from '../../../languages/AlertTrans';
+import { useRecoilState } from 'recoil';
+import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
-interface AlertModalProps {
-  alertModal: {
-    isOpen: boolean,
-    whatAlert: number
-  };
-  setAlertModal: React.Dispatch<React.SetStateAction<{
-    isOpen: boolean,
-    whatAlert: number
-  }>>;
-}
-
-const AlertModal : React.FC<AlertModalProps> = ({ alertModal, setAlertModal }) => {
+const AlertModal = () => {
   
+  const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
+
   console.log("모달창 데이터", alertModal.whatAlert);
 
   const language = localStorage.getItem("language");
