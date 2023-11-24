@@ -6,6 +6,7 @@ import Notice from '../../assets/icons/notification.png';
 import RightArrow from '../../assets/icons/rightcolorarrow.png';
 import { NotificationData } from '../../data/NotificationData';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineNotification } from "react-icons/ai";
 
 const NotificationList = () => {
 
@@ -82,7 +83,9 @@ const NotificationList = () => {
                                 key={item.id}
                                 style={{borderBottom: "none"}}>
                                 <ContentWrapper>
-                                    <NoticeIcon src={Notice}/>
+                                    <NoticeIcon>
+                                        <AiOutlineNotification />
+                                    </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
                                     </Text>  
@@ -94,7 +97,9 @@ const NotificationList = () => {
                             : <LineContainer
                                 key={item.id}>
                                 <ContentWrapper>
-                                    <NoticeIcon src={Notice}/>
+                                    <NoticeIcon>
+                                        <AiOutlineNotification />
+                                    </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
                                     </Text>  
@@ -220,14 +225,18 @@ const Text = styled.div`
     }
 `;
 
-const NoticeIcon = styled.img`
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
+const NoticeIcon = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: red;
+
+    @media screen and (max-width: 836px) {
+        font-size: 20px;
+    }
 
     @media screen and (max-width: 500px) {
-        width: 16px;
-        height: 16px;
+        font-size: 16px;
     }
 `;
 

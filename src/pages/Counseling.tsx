@@ -8,16 +8,19 @@ import { CounselingText } from '../languages/CounselingPageTrans';
 import { BsDiscord } from 'react-icons/bs';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdKeyboardArrowRight } from 'react-icons/md';
+import { useRecoilState } from 'recoil';
+import { CopyAlert } from '../store/CopyAlert';
 
 const Counseling = () => {
 
   const language = localStorage.getItem("language");
   const leverRef = useRef<HTMLDivElement>(null);
+  const [, setCopyHandler] = useRecoilState(CopyAlert);
 
-  const onClickCopyHandler = async ( text : string) => {
+  const onClickCopyHandler = async ( text : string ) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert("클립보드에 링크가 복사되었습니다.");
+      setCopyHandler(true)
       console.log("복사된 링크 -> ", text);
     } catch (e) {
       alert("복사에 실패하였습니다.");
@@ -27,8 +30,6 @@ const Counseling = () => {
 
   const counseling = (Num : number) => {
     switch (language) {
-      case "english" :
-        return CounselingText[Num]?.englishtext;
       case "chinese" :
         return CounselingText[Num]?.chinesetext;
       case "japanese" :
@@ -173,6 +174,7 @@ const ButtonContainer = styled.div<{ boxcolor : string }>`
   gap: 20px;
   color: #222020;
   transition: all 0.3s ease-in-out;
+  user-select: none;
   cursor: pointer;
 
   &:hover {

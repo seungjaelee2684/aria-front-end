@@ -15,12 +15,15 @@ import NavButton from './NavButton';
 import MobileNavBtn from './MobileNavBtn';
 import { IoShareSocialOutline } from 'react-icons/io5';
 import { MainPageNumber } from '../../store/MainPageNumber';
+import { CopyAlert } from '../../store/CopyAlert';
+import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
 
 const Header = () => {
 
     // const language = useRecoilValue(translate);
     const language = localStorage.getItem("language");
     const mainPage = useRecoilValue(MainPageNumber);
+    const copyHandle = useRecoilValue(CopyAlert);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
 
@@ -127,6 +130,7 @@ const Header = () => {
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {snsOpen && <SNSMenu />}
+        {copyHandle && <CopyAlertModal />}
         {/* <ScrollBarContainer> */}
             {/* <ScrollBar /> */}
         {/* </ScrollBarContainer> */}
