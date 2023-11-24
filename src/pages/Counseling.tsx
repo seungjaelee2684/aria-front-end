@@ -173,6 +173,7 @@ const ButtonContainer = styled.div<{ boxcolor : string }>`
   gap: 20px;
   color: #222020;
   transition: all 0.3s ease-in-out;
+  user-select: none;
   cursor: pointer;
 
   &:hover {
