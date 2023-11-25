@@ -24,7 +24,7 @@ const CopyAlertModal = () => {
   return (
     <BackgroundContainer>
         <AlertContainer ref={alertRef} className='CopyAlertContainer'>
-            CopyAlertModal
+            클립보드에 링크가 복사되었습니다.
         </AlertContainer>
     </BackgroundContainer>
   )
