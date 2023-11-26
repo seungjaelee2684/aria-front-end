@@ -19,7 +19,7 @@ interface FilterModalProps {
 const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
     
-    const [, setNationkind] = useRecoilState(nationKind);
+    const [nationkind, setNationkind] = useRecoilState(nationKind);
     const [, setFlag] = useRecoilState(nationFlag);
     const nationValue = useRecoilValue(nationKind);
     const flagValue = useRecoilValue(nationFlag);
@@ -32,13 +32,16 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
         {nation: "Korean" , flag: Koreaflag}
     ]
 
+    const noneFilter = nationFilter.filter((item) => item.nation !== nationkind);
+    console.log("필터", noneFilter);
+
   return (
     <FilterModalContainer>
         <DefaultBtn>
             {flagValue && <NationFlag src={flagValue}/>}
             {nationValue}
         </DefaultBtn>
-        {nationFilter?.map((item : Nation) => {
+        {noneFilter?.map((item : Nation) => {
             return (
                 <FilterModalBtn
                     key={item?.nation}
