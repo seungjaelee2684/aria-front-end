@@ -11,12 +11,14 @@ import DiscordDefault from '../../../assets/icons/discorddefault.png';
 import YoutubeDefault from '../../../assets/icons/youtubedefault.png';
 import SNSModal from '../SNSModal';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
+import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
 const SNSMenu = () => {
 
   const language = localStorage.getItem("language");
+  const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [sns, setSns] = useState<boolean>(false);
 
   const onClickReadyHandler = () => {
@@ -83,7 +85,7 @@ const SNSMenu = () => {
           title={onTitleReadyHandler(0)}
           src={Instagram}
           alt=''
-          onClick={onClickReadyHandler}/>
+          onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
       </InstaIcon>
       <TwitterIcon>
         <MenuIcon
@@ -104,7 +106,7 @@ const SNSMenu = () => {
           title={onTitleReadyHandler(0)}
           src={Youtube}
           alt=''
-          onClick={onClickReadyHandler}/>
+          onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
       </YoutubeIcon>
     </MenuIconContainer>
   )

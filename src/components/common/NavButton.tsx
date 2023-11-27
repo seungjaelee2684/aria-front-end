@@ -109,8 +109,7 @@ const NavButton = () => {
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>
-            {(isOpen)
-                && <AlertModal />}
+            {(isOpen) && <AlertModal />}
         </TapOutContainer>
     )
 };
