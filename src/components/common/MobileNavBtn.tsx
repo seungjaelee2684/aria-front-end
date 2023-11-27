@@ -9,6 +9,9 @@ import { IoShareSocialOutline } from 'react-icons/io5';
 import { IoHomeOutline } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { BsBoxArrowLeft } from 'react-icons/bs';
+import { useRecoilState } from 'recoil';
+import { AlertModalOpen } from '../../store/AlertModalOpen';
+import AlertModal from './AlertModal/AlertModal';
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -18,6 +21,8 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
     const [hamburg, setHamburg] = useState<boolean>(false);
     const [snsModal, setSnsModal] = useState<boolean>(false);
+    const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
+    const { isOpen } = alertModal;
 
   return (
     <div style={{position: "relative"}}>
@@ -53,6 +58,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                 navigate={navigate}
                 hamburg={hamburg}
                 setHamburg={setHamburg}/>}
+        {isOpen && <AlertModal />}
     </div>
   )
 };

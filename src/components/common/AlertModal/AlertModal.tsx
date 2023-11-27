@@ -73,26 +73,31 @@ const BackgroudContainer = styled.div`
   height: 100%;
   position: fixed;
   z-index: 101;
-  background-color: #00000070;
   display: flex;
   justify-content: center;
-  align-items: center;
   top: 0;
   left: 0;
+
+  @media screen and (max-width: 500px) {
+    background-color: #00000070;
+    align-items: center;
+  }
 `;
 
 const ModalContainer = styled.div`
-  width: 480px;
-  height: 300px;
+  width: 300px;
+  height: 180px;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   border-radius: 5px;
   font-family: "Pretendard";
   position: relative;
-  padding: 0px 40px;
+  box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+  padding: 0px 30px;
 
   @media screen and (max-width: 500px) {
     width: 300px;
@@ -104,49 +109,54 @@ const ExclamationIcon = styled.div<{ color : string }>`
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 100px;
+  font-size: 55px;
   color: ${(props) => props.color};
-  margin: 20px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
 `;
 
 const ModalTitle = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 28px;
-  font-weight: 700;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 800;
   line-height: 150%;
 `;
 
 const ModalContent = styled.div`
   width: 100%;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   line-height: normal;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const CloseButton = styled.button`
-  width: 60px;
-  height: 40px;
+  width: 45px;
+  height: 28px;
   background-color: #3c3ad6;
   border-radius: 5px;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   line-height: normal;
   color: #FCFCFC;
   border: 2px solid #d2d1f8;
   cursor: pointer;
+
+  &:hover {
+    border: none;
+  }
 `;
 
 const CloseTimer = styled.div<{ width : number }>`

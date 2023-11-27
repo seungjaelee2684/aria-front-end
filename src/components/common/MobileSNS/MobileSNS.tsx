@@ -5,8 +5,9 @@ import Instagram from '../../../assets/icons/insta.webp';
 import Twitter from '../../../assets/icons/twitter.webp';
 import Discord from '../../../assets/icons/discord.webp';
 import Youtube from '../../../assets/icons/youtube.webp';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
+import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
 interface MobileSNSProps {
     snsModal: boolean;
@@ -16,6 +17,7 @@ interface MobileSNSProps {
 const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
 
     const language = useRecoilValue(translate);
+    const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
     const onClickReadyHandler = () => {
         setSnsModal(false);
@@ -36,7 +38,7 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
             bordercolor="1px solid #e54a58"
             style={{bottom: '70px', left: "25%"}}
             className='InstaIcon'
-            onClick={onClickReadyHandler}>
+            onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
             <Icon src={Instagram} alt=''/>
         </IconBox>
         <IconBox
@@ -63,7 +65,7 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
             bordercolor="1px solid #ff0000"
             style={{bottom: '70px', left: "63%"}}
             className='YoutubeIcon'
-            onClick={onClickReadyHandler}>
+            onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
             <Icon src={Youtube} alt=''/>
         </IconBox>
     </div>
