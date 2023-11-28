@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import './MobileNavModal.css';
 import { MdClose } from 'react-icons/md';
 import { NavigateFunction } from 'react-router-dom';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../../store/NationFilter';
 import { translate } from '../../../store/Translation';
+import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -16,6 +17,7 @@ interface MobileNavModalProps {
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg }) => {
 
   const language = useRecoilValue(translate);
+  const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   const onClickReadyHandler = () => {
     switch (language) {
@@ -76,10 +78,8 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
             Announcements
           </SurvePageButton>
           <Text
-            onClick={() => {
-              onClickReadyHandler();
-            }}>
-            H.O.F
+            onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+            Showcase
           </Text>
           <Text
             onClick={() => {

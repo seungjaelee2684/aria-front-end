@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { translate } from '../../store/Translation';
 import FooterLogo from '../../assets/logos/graylogo.png';
@@ -13,12 +13,14 @@ import TwitterDefault from '../../assets/icons/twitterdefault.webp';
 import DiscordDefault from '../../assets/icons/discorddefault.webp';
 import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
+import { AlertModalOpen } from '../../store/AlertModalOpen';
 
 const Footer = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
   const language = useRecoilValue(translate);
+  const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   const onClickReadyHandler = () => {
     switch (language) {
@@ -89,7 +91,7 @@ const Footer = () => {
               <MenuIcon
                 src={InstagramDefault}
                 alt=''
-                onClick={onClickReadyHandler}/>
+                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
@@ -107,7 +109,7 @@ const Footer = () => {
               <MenuIcon
                 src={YoutubeDefault}
                 alt=''
-                onClick={onClickReadyHandler}/>
+                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
             </IconBoxWrapper>
           </MenuIconContainer>
         </TopLaneHeader>
@@ -165,7 +167,7 @@ const FooterContainer = styled.div`
   transition: all 0.2s ease-in-out;
 
   @media screen and (max-width: 500px) {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     height: 150px;
     margin-top: 100px;
   }
