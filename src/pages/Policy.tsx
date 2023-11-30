@@ -16,7 +16,7 @@ const Policy = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 80px auto;
+  margin: 80px auto 0px auto;
 `;
 
 const PolicyOutContainer = styled.div`
@@ -35,7 +35,6 @@ const PolicyOutContainer = styled.div`
   font-weight: 500;
   line-height: normal;
   transition: all 0.3s linear;
-  user-select: none;
 
   @media screen and (max-width: 1320px) {
     width: 96%;
@@ -44,8 +43,11 @@ const PolicyOutContainer = styled.div`
 
 const PolicyHeader = styled.div`
   width: 100%;
-  padding: 0px 10px;
   display: flex;
+`;
+
+const PolicyTitle = styled.div`
+  width: 100%;
 `;
 
 export default Policy;
