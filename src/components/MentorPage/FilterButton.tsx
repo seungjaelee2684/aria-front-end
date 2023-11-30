@@ -3,8 +3,8 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import FilterModal from './FilterModal';
-import UpArrow from '../../assets/icons/upArrow.png';
-import DownArrow from '../../assets/icons/downArrow.png'
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import Koreaflag from '../../assets/logos/koreaflag.webp';
 import Japanflag from '../../assets/logos/japanflag.webp';
 import Americaflag from '../../assets/logos/americaflag.webp'
@@ -54,7 +54,9 @@ const FilterButton = () => {
             <FilterBtn
                 ref={divRef} 
                 onClick={() => setIsOpenFilter(!isOpenFilter)}>
-                <FilterBtnIcon src={isOpenFilter ? `${UpArrow}` : `${DownArrow}`}/>
+                {(isOpenFilter)
+                    ? <IoIosArrowUp />
+                    : <IoIosArrowDown />}
             </FilterBtn>
             {isOpenFilter
                 && <ModalWrapper>
@@ -105,6 +107,7 @@ const FilterButtonWrapper = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+    user-select: none;
     z-index: 50;
 
     @media screen and (max-width: 500px) {
@@ -138,6 +141,7 @@ const NationFlag = styled.img`
 const FilterBtn = styled.div`
     width: 50px;
     height: 34px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;

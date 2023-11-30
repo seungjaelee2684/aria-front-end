@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { translate } from '../../store/Translation';
 import Notice from '../../assets/icons/notification.png';
-import RightArrow from '../../assets/icons/rightcolorarrow.png';
+import { IoIosArrowForward } from "react-icons/io";
 import { NotificationData } from '../../data/NotificationData';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
@@ -20,8 +20,6 @@ const NotificationList = () => {
     const textChange = ( Num : number ) => {
         if (Num === 0) {
           switch (language) {
-            case "english" :
-                return "Notice";
             case "chinese" :
                 return "公告";
             case "japanese" :
@@ -33,8 +31,6 @@ const NotificationList = () => {
           };
         } else {
             switch (language) {
-                case "english" :
-                    return "cases";
                 case "chinese" :
                     return " 件";
                 case "japanese" :
@@ -49,8 +45,6 @@ const NotificationList = () => {
 
     const contentChange = ( item : any ) => {
         switch (language) {
-            case "english" :
-                return item?.englishnotice;
             case "chinese" :
                 return item?.chinesenotice;
             case "japanese" :
@@ -90,9 +84,7 @@ const NotificationList = () => {
                                         {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
-                                <ArrowIcon
-                                    src={RightArrow}
-                                    onClick={() => onClickNoticeHandler(item)}/>
+                                <IoIosArrowForward />
                             </LineContainer>
                             : <LineContainer
                                 key={item.id}>
@@ -104,9 +96,7 @@ const NotificationList = () => {
                                         {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
-                                <ArrowIcon
-                                    src={RightArrow}
-                                    onClick={() => onClickNoticeHandler(item)}/>
+                                <IoIosArrowForward />
                             </LineContainer>
                     )
                 })}

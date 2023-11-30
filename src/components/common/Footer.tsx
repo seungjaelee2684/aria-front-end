@@ -166,6 +166,10 @@ const FooterContainer = styled.div`
   margin-top: 300px;
   transition: all 0.2s ease-in-out;
 
+  @media screen and (max-width: 1320px) {
+    margin-top: 200px;
+  }
+
   @media screen and (max-width: 500px) {
     margin-bottom: 50px;
     height: 150px;
