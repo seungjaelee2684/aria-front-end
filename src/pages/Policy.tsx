@@ -143,7 +143,6 @@ const Policy = () => {
 
   return (
     <LayOutContainer>
-      Policy
       <PolicyOutContainer>
         {policyTranslate()}
         {/* <PolicyInContainer>
@@ -208,15 +207,19 @@ const PolicyOutContainer = styled.div`
 `;
 
 const PolicyInContainer = styled.div`
-  width: 90%;
+  width: 94%;
   height: 100%;
   border-radius: 10px;
   border: 1px solid #e9e9e9;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 100px;
   background-color: #FFFFFF;
   padding: 20px;
+
+  @media screen and (max-width: 1320px) {
+    width: 90%;
+  }
 `;
 
 const PolicyHeader = styled.div`
@@ -235,10 +238,10 @@ const ContentWrapper = styled.div`
 const PolicyTitle = styled.div`
   width: 100%;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   justify-content: start;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const PolicyFirstContent = styled.div`
@@ -253,7 +256,7 @@ export const PolicyFirstContent = styled.div`
 `;
 
 const PolicyOtherContent = styled(PolicyFirstContent)`
-  text-indent: 0px;
+  text-indent: 5px;
 `;
 
 export default Policy;
