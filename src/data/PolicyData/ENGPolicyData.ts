@@ -50,16 +50,23 @@ export const englishPolicyData = [
     },
     {
         id: "6",
-        title: "",
+        title: "6. Instructions for the class",
         content: [
-            "",
+            "① Responsibilities for providing personal information and preparing false information of students",
+            "The company is an educational institution, and students are obligated to faithfully respond to the provision of personal information. If personal information (name, date of birth, contact information, etc.) is intentionally or negligently delivered to the company, the student may be held fully liable in the event of a legal dispute arising from it, and the company and instructor are not obligated to compensate or take responsibility for any legal issues that may arise from the student.",
+            "② Policies associated with various conflicts",
+            "If the company's classes and operations are disrupted due to friction with its employees, instructors, and other students, the company may force the person in charge of the dispute to be expelled.\nIn addition, even if it is not intentional, all applications for classes and the use of the company's services may be prohibited for those who commit acts that can cause damage to classes and business interference.\nIn addition, the company can request compensation for damages and take legal action against damages caused by the incident.",
+            "③ End of Session",
+            "If you terminate the session and stop using company's service, you will be expelled from all of our discord channels.\nEntrance applications and personal information provided will be stored in our company for a year according to the Education Act and the Academy Act and will be destroyed accordingly."
         ]
     },
     {
         id: "7",
-        title: "",
+        title: "7. Refund Policy",
         content: [
-            "",
+            "If the reason for the refund occurs\nIn accordance with Article 18 (3) of the Enforcement Decree of the Act on Establishment and Operation of Academy,",
+            "1. Prior to the start of session → Full refund of tuition fees\n2. Before 1/3 of the session → 2/3 of the tuition fee is refunded\n(Excludes short-term special lectures and some short-term special lectures. Partial Refund Not Applicable)\n3. 1/2 before the session → 1/2 of the tuition fee\n(Excludes short-term special lectures and some short-term special lectures. Partial Refund Not Applicable)\n4. If the session has passed more than 1/2 of the time, the tuition fee will not be returned.",
+            "7-1. When calculating the actual payment amount and the change fee through exchange rate conversion, the following principles are followed.\nWhen converting the actual payment amount, the exchange rate on the day of sale is applied and converted into the currency of the place of change."
         ]
     },
 ];

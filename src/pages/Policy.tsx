@@ -14,9 +14,9 @@ const Policy = () => {
       return (
         <PolicyInContainer>
           <PolicyHeader>
-            운영정책
+            Operation Policy
           </PolicyHeader>
-          {chinesePolicyData?.map((item) => {
+          {englishPolicyData?.map((item) => {
             return (
               <ContentWrapper key={item.id}>
                 <PolicyTitle>
@@ -24,7 +24,7 @@ const Policy = () => {
                 </PolicyTitle>
                 {item?.content.map((text) => {
                   return (
-                    ((chinesePolicyData.indexOf(item) + 1) === 1)
+                    ((englishPolicyData.indexOf(item) + 1) === 1)
                       ? ((item?.content.indexOf(text) + 1) === 1)
                         ? <PolicyFirstContent key={text}>
                           {text}
@@ -46,7 +46,7 @@ const Policy = () => {
       return (
         <PolicyInContainer>
           <PolicyHeader>
-            운영정책
+            運営ポリシー
           </PolicyHeader>
           {japanesePolicyData?.map((item) => {
             return (
@@ -110,7 +110,7 @@ const Policy = () => {
       return (
         <PolicyInContainer>
           <PolicyHeader>
-            운영정책
+            Operation Policy
           </PolicyHeader>
           {englishPolicyData?.map((item) => {
             return (
@@ -185,7 +185,7 @@ const LayOutContainer = styled.div`
 `;
 
 const PolicyOutContainer = styled.div`
-  width: 1320px;
+  width: 800px;
   min-height: 400px;
   margin: 20px auto;
   background-color: #e9e9e9;
@@ -201,24 +201,33 @@ const PolicyOutContainer = styled.div`
   line-height: normal;
   transition: all 0.3s linear;
 
-  @media screen and (max-width: 1320px) {
+  @media screen and (max-width: 800px) {
     width: 96%;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
   }
 `;
 
 const PolicyInContainer = styled.div`
-  width: 94%;
+  width: 90%;
   height: 100%;
   border-radius: 10px;
   border: 1px solid #e9e9e9;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 70px;
   background-color: #FFFFFF;
   padding: 20px;
 
   @media screen and (max-width: 1320px) {
     width: 90%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 86%;
+    gap: 40px;
   }
 `;
 
@@ -233,6 +242,10 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media screen and (max-width: 500px) {
+    gap: 10px;
+  }
 `;
 
 const PolicyTitle = styled.div`
@@ -240,8 +253,12 @@ const PolicyTitle = styled.div`
   font-weight: 600;
   font-size: 20px;
   display: flex;
-  justify-content: start;
-  margin-bottom: 30px;
+  text-align: left;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 
 export const PolicyFirstContent = styled.div`
@@ -253,10 +270,14 @@ export const PolicyFirstContent = styled.div`
   text-align: left;
   white-space: pre-line;
   text-indent: 80px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
 `;
 
 const PolicyOtherContent = styled(PolicyFirstContent)`
-  text-indent: 5px;
+  text-indent: 0px;
 `;
 
 export default Policy;
