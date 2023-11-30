@@ -65,22 +65,22 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </Text>
           <SurvePageButton
             onClick={() => {
-              navigate("/notice")
+              setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
               setHamburg(false)
             }}>
             Event
           </SurvePageButton>
           <SurvePageButton
             onClick={() => {
-              navigate("/notice/notification")
+              setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
               setHamburg(false)
             }}>
             Announcements
           </SurvePageButton>
           <Text
             onClick={() => {
-              setHamburg(false)
               setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
+              setHamburg(false)
             }}>
             Showcase
           </Text>

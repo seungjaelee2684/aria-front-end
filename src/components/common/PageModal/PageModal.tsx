@@ -2,21 +2,23 @@ import React from 'react'
 import './PageModal.css';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useResetRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../../store/NationFilter';
+import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
 const PageModal = ({ pageModal } : any) => {
 
   const navigate = useNavigate();
+  const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   const modalTitle = () => {
     if (pageModal === "Notice") {
       return (
         <ModalContainer className='ModalContainerDiv'>
-          <ModalText onClick={() => navigate("/notice")}>
+          <ModalText onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
             Event
           </ModalText>
-          <ModalText onClick={() => navigate("/notice/notification")}>
+          <ModalText onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
             Announcements
           </ModalText>
         </ModalContainer>
@@ -54,7 +56,7 @@ const ModalContainer = styled.div`
   position: absolute;
   top: 85px;
   left: 0;
-  z-index: 200;
+  z-index: 100;
   color: #FCFCFC;
   padding: 10px 5px 10px 5px;
 
