@@ -88,6 +88,7 @@ const ModalContainer = styled.div`
   width: 300px;
   height: 180px;
   background-color: #FFFFFF;
+  color: #222020;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,6 +103,9 @@ const ModalContainer = styled.div`
   @media screen and (max-width: 500px) {
     width: 300px;
     height: 200px;
+    border-radius: 10px;
+    background-color: #1a2833;
+    color: #FCFCFC;
   }
 `;
 
