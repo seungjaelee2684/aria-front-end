@@ -112,7 +112,7 @@ const SlideLeftButtonBox = styled.div`
   background-color: #888888;
   opacity: 0.4;
   z-index: 88;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 
   &:hover {
@@ -147,7 +147,7 @@ const SlideRightButtonBox = styled.div`
   background-color: #888888;
   opacity: 0.4;
   z-index: 88;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 
   &:hover {
