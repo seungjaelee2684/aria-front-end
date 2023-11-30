@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import './MobileNavModal.css';
 import { MdClose } from 'react-icons/md';
@@ -18,19 +18,11 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
 
   const language = useRecoilValue(translate);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
-
-  const onClickReadyHandler = () => {
-    switch (language) {
-      case "english" :
-        return alert("Coming soon");
-      case "chinese" :
-        return alert("正在准备。");
-      case "japanese" :
-        return alert("準備中です。");
-      default :
-        return alert("준비중입니다.");
-    };
-  };
+  const [subPage, setSubPage] = useState<{ notice: boolean, support: boolean }>({
+    notice: false,
+    support: false
+  });
+  const { notice, support } = subPage;
   
   return (
     <div>
@@ -42,13 +34,6 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </CloseBtn>
         </CloseBtnContainer>
         <TextWrapper>
-          {/* <Text
-            onClick={() => {
-              navigate("/")
-              setHamburg(false)
-            }}>
-            Home
-          </Text> */}
           <Text
             onClick={() => {
               navigate("/mentor")
@@ -58,60 +43,59 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </Text>
           <Text
             onClick={() => {
-              navigate("/notice")
-              setHamburg(false)
+              setSubPage({...subPage, notice: !notice, support: false})
             }}>
             Notice
           </Text>
-          <SurvePageButton
-            onClick={() => {
-              navigate("/notice")
-              setHamburg(false)
-            }}>
-            Event
-          </SurvePageButton>
-          <SurvePageButton
-            onClick={() => {
-              navigate("/notice/notification")
-              setHamburg(false)
-            }}>
-            Announcements
-          </SurvePageButton>
+          {(notice)
+            && <SubPageButtonWrapper>
+              <SubPageButton
+                style={{borderBottom: "1px dotted #e9e9e9"}}
+                onClick={() => {
+                  setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
+                  setHamburg(false)
+                }}>
+                Event
+              </SubPageButton>
+              <SubPageButton
+                onClick={() => {
+                  setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
+                  setHamburg(false)
+                }}>
+                Announcements
+              </SubPageButton>
+            </SubPageButtonWrapper>}
           <Text
             onClick={() => {
-              setHamburg(false)
               setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
+              setHamburg(false)
             }}>
             Showcase
           </Text>
           <Text
             onClick={() => {
-              navigate("/counseling")
-              setHamburg(false)
+              setSubPage({...subPage, notice: false, support: !support})
             }}>
             Support
           </Text>
-          {/* <SurvePageButton
-            onClick={() => {
-              navigate("/schedule")
-              setHamburg(false)
-            }}>
-            Schedule
-          </SurvePageButton> */}
-          <SurvePageButton
-            onClick={() => {
-              navigate("/counseling")
-              setHamburg(false)
-            }}>
-            Counseling
-          </SurvePageButton>
-          <SurvePageButton
-            onClick={() => {
-              navigate("/policy")
-              setHamburg(false)
-            }}>
-            Policy
-          </SurvePageButton>
+          {(support)
+            && <SubPageButtonWrapper>
+              <SubPageButton
+                style={{borderBottom: "1px dotted #e9e9e9"}}
+                onClick={() => {
+                  navigate("/counseling")
+                  setHamburg(false)
+                }}>
+                Counseling
+              </SubPageButton>
+              <SubPageButton
+                onClick={() => {
+                  navigate("/policy")
+                  setHamburg(false)
+                }}>
+                Policy
+              </SubPageButton>
+            </SubPageButtonWrapper>}
         </TextWrapper>
       </ModalContainer>
     </div>
@@ -186,15 +170,21 @@ const Text = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px 30px;
+  padding: 30px 30px;
 `;
 
-const SurvePageButton = styled.div`
+const SubPageButtonWrapper = styled.div`
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: inset rgba(63, 71, 77, 0.2) 2px 2px 5px 0px;
+`;
+
+const SubPageButton = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 10px 50px 10px 50px;
-  color: #ADADAD;
+  padding: 20px 50px 20px 50px;
+  color: #222020;
   font-size: 14px;
 `;
 
