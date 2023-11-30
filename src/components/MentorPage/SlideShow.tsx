@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import LeftArrow from '../../assets/icons/leftArrow.png';
-import RightArrow from '../../assets/icons/rightArrow.png';
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import NewMentorList from './NewMentorList/NewMentorList';
@@ -47,11 +47,11 @@ const SlideShow = () => {
     <ImageOutContainer>
       <SlideLeftButtonBox
         onClick={prevButton}>
-        <SlideButton src={LeftArrow} />
+        <IoIosArrowBack />
       </SlideLeftButtonBox>
       <SlideRightButtonBox
         onClick={nextButton}>
-        <SlideButton src={RightArrow} />
+        <IoIosArrowForward />
       </SlideRightButtonBox>
       <NewMentorList
         key={slideCurrent}
@@ -103,6 +103,7 @@ const SlideLeftButtonBox = styled.div`
   position: absolute;
   top: 325px;
   left: 70px;
+  color: #FFFFFF;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
@@ -111,6 +112,7 @@ const SlideLeftButtonBox = styled.div`
   background-color: #888888;
   opacity: 0.4;
   z-index: 88;
+  font-size: 24px;
   cursor: pointer;
 
   &:hover {
@@ -126,6 +128,7 @@ const SlideLeftButtonBox = styled.div`
     top: 135px;
     width: 30px;
     height: 30px;
+    font-size: 20px;
   }
 `;
 
@@ -135,6 +138,7 @@ const SlideRightButtonBox = styled.div`
   position: absolute;
   top: 325px;
   right: 70px;
+  color: #FFFFFF;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
@@ -143,6 +147,7 @@ const SlideRightButtonBox = styled.div`
   background-color: #888888;
   opacity: 0.4;
   z-index: 88;
+  font-size: 24px;
   cursor: pointer;
 
   &:hover {
@@ -158,6 +163,7 @@ const SlideRightButtonBox = styled.div`
     top: 135px;
     width: 30px;
     height: 30px;
+    font-size: 20px;
   }
 `;
 
