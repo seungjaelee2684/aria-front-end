@@ -1,5 +1,5 @@
 .MenuIconContainer {
-    animation: menu_modal_open 0.9s forwards;
+    animation: menu_modal_open 0.7s forwards;
 }
 
 @keyframes menu_modal_open {

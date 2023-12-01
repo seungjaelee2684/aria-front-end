@@ -14,6 +14,6 @@ export const textInformation : InfoType[] = [
     {image: Banner1, englishtitle: "EVENT", chinesetitle: "事件", japanesetitle: "イベント", title: "이벤트"},
     {image: Banner2, englishtitle: "ANNOUNCEMENTS", chinesetitle: "公告事项", japanesetitle: "お知らせ", title: "공지 사항"},
     {image: Banner1, englishtitle: "H.O.F", chinesetitle: "名人堂", japanesetitle: "名誉の殿堂", title: "명예의 전당"},
-    {image: Banner3, englishtitle: "", chinesetitle: "", japanesetitle: "", title: ""},
+    {image: Banner3, englishtitle: "Operation Policy", chinesetitle: "Operation Policy", japanesetitle: "運営ポリシー", title: "운영 정책"},
     {image: Banner2, englishtitle: "COUNSELING", chinesetitle: "咨询指南", japanesetitle: "相談案内", title: "상담 안내"}
   ];
