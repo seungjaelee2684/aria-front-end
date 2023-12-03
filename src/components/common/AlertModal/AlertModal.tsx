@@ -7,6 +7,7 @@ import { GoCheckCircle } from "react-icons/go";
 import { alertInformation } from '../../../languages/AlertTrans';
 import { useRecoilState } from 'recoil';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
+import { IoIosTimer } from "react-icons/io";
 
 const AlertModal = () => {
   
@@ -33,7 +34,7 @@ const AlertModal = () => {
     if (alertModal.whatAlert === 0) {
       return (
         <ExclamationIcon color="#fce169">
-          <HiOutlineShieldExclamation />
+          <IoIosTimer />
         </ExclamationIcon>
       );
     } else {

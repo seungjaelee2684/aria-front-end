@@ -17,7 +17,7 @@ const MentorList = () => {
     <LayoutContainer>
         <ListOutContainer>
         <ListContainer>
-            {(nationkind === "All")
+            {(nationkind === "All Country")
                 ? mentorListData?.map((item : any) => {
                     return (
                         <div key={item?.id}>
