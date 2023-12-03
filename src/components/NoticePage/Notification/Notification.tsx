@@ -10,7 +10,7 @@ import { AiOutlineNotification } from "react-icons/ai";
 
 const Notification = () => {
 
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
     const [textCurrent, setTextCurrent] = useState<number>(0);

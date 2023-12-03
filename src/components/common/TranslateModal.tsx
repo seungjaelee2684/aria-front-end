@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { translate } from '../../store/Translation';
 
@@ -9,6 +9,8 @@ interface TranslateModalProps {
 
 const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) => {
 
+    const [, setLanguage] = useRecoilState(translate);
+
   return (
     <div>
         <ModalBackgroundContainer />
@@ -16,32 +18,28 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) =>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    localStorage.setItem("language", "english");
-                    window.location.reload();
+                    setLanguage("english");
                 }}>
                 English
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    localStorage.setItem("language", "chinese");
-                    window.location.reload();
+                    setLanguage("chinese");
                 }}>
                 中文
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    localStorage.setItem("language", "japanese");
-                    window.location.reload();
+                    setLanguage("japanese");
                 }}>
                 日本語
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    localStorage.setItem("language", "korean");
-                    window.location.reload();
+                    setLanguage("korean");
                 }}>
                 한국어
             </ModalLineContainer>

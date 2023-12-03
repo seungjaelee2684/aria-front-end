@@ -21,7 +21,7 @@ import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
 const Header = () => {
 
     // const language = useRecoilValue(translate);
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
     const resetFilter = useResetRecoilState(nationKind);

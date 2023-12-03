@@ -5,9 +5,10 @@ import { HiOutlineShieldExclamation } from "react-icons/hi2";
 import { CiNoWaitingSign } from "react-icons/ci";
 import { GoCheckCircle } from "react-icons/go";
 import { alertInformation } from '../../../languages/AlertTrans';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import { IoIosTimer } from "react-icons/io";
+import { translate } from '../../../store/Translation';
 
 const AlertModal = () => {
   
@@ -15,7 +16,7 @@ const AlertModal = () => {
 
   console.log("모달창 데이터", alertModal.whatAlert);
 
-  const language = localStorage.getItem("language");
+  const language = useRecoilValue(translate);
 
   const alertTranslate = (Num : number) => {
     switch (language) {
