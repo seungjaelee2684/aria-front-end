@@ -12,7 +12,7 @@ import MainBlackBG from '../../assets/images/mainblackbackground.jpg';
 
 const SecondPageImage = () => {
 
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const scrollIndex = useRecoilValue(MainPageNumber);
 
     const mainPageTextHanlder = (Num : number) => {

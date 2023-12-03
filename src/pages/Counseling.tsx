@@ -8,12 +8,13 @@ import { CounselingText } from '../languages/CounselingPageTrans';
 import { BsDiscord } from 'react-icons/bs';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdKeyboardArrowRight } from 'react-icons/md';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../store/CopyAlert';
+import { translate } from '../store/Translation';
 
 const Counseling = () => {
 
-  const language = localStorage.getItem("language");
+  const language = useRecoilValue(translate);
   const leverRef = useRef<HTMLDivElement>(null);
   const [, setCopyHandler] = useRecoilState(CopyAlert);
 

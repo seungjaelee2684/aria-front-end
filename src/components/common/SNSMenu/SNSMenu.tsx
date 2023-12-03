@@ -17,7 +17,7 @@ import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
 const SNSMenu = () => {
 
-  const language = localStorage.getItem("language");
+  const language = useRecoilValue(translate);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [sns, setSns] = useState<boolean>(false);
 

@@ -5,10 +5,12 @@ import { chinesePolicyData } from '../data/PolicyData/CNPolicyData';
 import { japanesePolicyData } from '../data/PolicyData/JPPolicyData';
 import { policyData } from '../data/PolicyData/KRPolicyData';
 import Banner from '../components/common/Banner';
+import { useRecoilValue } from 'recoil';
+import { translate } from '../store/Translation';
 
 const Policy = () => {
 
-  const language = localStorage.getItem("language");
+  const language = useRecoilValue(translate);
 
   const policyTranslate = () => {
     if (language === "chinese") {

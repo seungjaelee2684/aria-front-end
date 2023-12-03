@@ -9,7 +9,7 @@ const MentorDetail = () => {
 
     const { id } = useParams();
     console.log("id ->", id);
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
     console.log("mentor ->", mentorInfo)
 

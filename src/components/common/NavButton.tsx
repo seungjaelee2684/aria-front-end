@@ -12,7 +12,7 @@ const NavButton = () => {
 
     const navigate = useNavigate();
     // const language = useRecoilValue(translate);
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const location = useLocation();
     // const resetFilter = useResetRecoilState(nationKind);
     // const resetFlag = useResetRecoilState(nationFlag);
