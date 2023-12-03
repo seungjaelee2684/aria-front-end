@@ -11,29 +11,13 @@ import AlertModal from './AlertModal/AlertModal';
 const NavButton = () => {
 
     const navigate = useNavigate();
-    // const language = useRecoilValue(translate);
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const location = useLocation();
     // const resetFilter = useResetRecoilState(nationKind);
     // const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
     const { isOpen, whatAlert } = alertModal;
-
-    const alertText = () => {
-        switch (language) {
-            case "english" :
-                return alert("Coming soon");
-            case "chinese" :
-                return alert("正在准备。");
-            case "japanese" :
-                return alert("準備中です。");
-            case "korean" :
-                return alert("준비중입니다.");
-            default :
-                return alert("Coming soon");
-        };
-    };
 
     // const underLine = useRef<HTMLDivElement>(null);
     // let horizontalMenus = document.querySelectorAll("nav a");
@@ -75,24 +59,26 @@ const NavButton = () => {
             </TapContainer>
             <TapContainer
                 // href='#'
-                onMouseOver={() => setPageModal("Notice")}
-                onMouseOut={() => setPageModal("")}>
+                style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
+                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+                SHOWCASE
+            </TapContainer>
+            <TapContainer
+                // href='#'
+                // onMouseOver={() => setPageModal("Notice")}
+                // onMouseOut={() => setPageModal("")}
+                >
                 <div
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                        // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                        navigate("/notice/notification");
                     }}>
                     NOTICE
                 </div>
                 {(pageModal === "Notice")
                     && <PageModal
                         pageModal={pageModal} />}
-            </TapContainer>
-            <TapContainer
-                // href='#'
-                style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-                SHOWCASE
             </TapContainer>
             <TapContainer
                 // href='#'

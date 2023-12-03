@@ -121,7 +121,7 @@ const Footer = () => {
             </Title>
             <ContentBox>
               <Content>
-                주소: 서울특별시 블라블라 블라블라
+                주소: 서울특별시
               </Content>
               <Content>
                 개인정보 처리방침
@@ -131,7 +131,7 @@ const Footer = () => {
               </Content> 
             </ContentBox>
           </FirstWrapper>
-          <FirstWrapper>
+          {/* <FirstWrapper>
             <Title>
               개인정보 처리방침
             </Title>
@@ -146,7 +146,7 @@ const Footer = () => {
                 개인정보 처리방침
               </Content> 
             </ContentBox>
-          </FirstWrapper>
+          </FirstWrapper> */}
         </FooterOutWrapper>
       </FooterOutContainer>
     </FooterContainer>

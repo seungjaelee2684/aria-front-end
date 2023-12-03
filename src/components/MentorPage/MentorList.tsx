@@ -9,7 +9,7 @@ import { translate } from '../../store/Translation';
 const MentorList = () => {
 
     const nationkind = useRecoilValue(nationKind);
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
 
     const filterData = mentorListData?.filter((data) => data.nation === nationkind);
 
@@ -17,7 +17,7 @@ const MentorList = () => {
     <LayoutContainer>
         <ListOutContainer>
         <ListContainer>
-            {(nationkind === "All")
+            {(nationkind === "All Country")
                 ? mentorListData?.map((item : any) => {
                     return (
                         <div key={item?.id}>

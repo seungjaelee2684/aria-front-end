@@ -10,7 +10,7 @@ import { checkPageContent } from '../languages/CheckPageTrans';
 
 const Check = () => {
 
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const checkText = ( Num : number ) => {

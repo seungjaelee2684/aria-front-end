@@ -10,7 +10,7 @@ import { AiOutlineNotification } from "react-icons/ai";
 
 const NotificationList = () => {
 
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
     const navigate = useNavigate();
 
     const onClickNoticeHandler = ( item : any ) => {

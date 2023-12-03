@@ -12,7 +12,7 @@ import Banner from '../components/common/Banner';
 
 const Notice = () => {
 
-  const language = localStorage.getItem("language");
+  const language = useRecoilValue(translate);
 
   const [inputValue, setInputValue] = useState<string>("");
   const [content, setContent] = useState<string>("");

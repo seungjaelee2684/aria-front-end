@@ -25,7 +25,7 @@ const FilterButton = () => {
     const [, setFlag] = useRecoilState(nationFlag);
 
     const nationFilter : Nation[]  = [
-        {nation: "All", flag: ""},
+        {nation: "All Country", flag: ""},
         {nation: "American", flag: Americaflag},
         {nation: "Chinese", flag: Chinaflag},
         {nation: "Japanese", flag: Japanflag},
@@ -48,7 +48,7 @@ const FilterButton = () => {
     <FilterButtonContainer>
         <FilterButtonWrapper>
             <NationFilter>
-                {(nationkind !== "All") && <NationFlag src={flag} alt=''/>}
+                {(nationkind !== "All Country") && <NationFlag src={flag} alt=''/>}
                 {nationkind}
             </NationFilter>
             <FilterBtn

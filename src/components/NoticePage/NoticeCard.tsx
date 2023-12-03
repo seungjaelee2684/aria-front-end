@@ -12,7 +12,7 @@ interface NoticeCardProps {
 const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
 
     const navigate = useNavigate();
-    const language = localStorage.getItem("language");
+    const language = useRecoilValue(translate);
 
     const onTextHandler = ( Num : number ) => {
         if (Num === 0) {
