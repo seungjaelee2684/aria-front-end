@@ -1,13 +1,29 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import './CopyAlertModal.css';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../../../store/CopyAlert';
+import { translate } from '../../../store/Translation';
+import { copyAlertContent } from '../../../languages/CopyAlertTrans';
 
 const CopyAlertModal = () => {
 
+    const language = useRecoilValue(translate);
     const [copyHandler, setCopyHandler] = useRecoilState(CopyAlert);
     const alertRef = useRef<HTMLDivElement>(null);
+
+    const copyTextChange = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return copyAlertContent[Num]?.chinesetext;
+            case "japanese" :
+                return copyAlertContent[Num]?.japanesetext;
+            case "korean" :
+                return copyAlertContent[Num]?.text;
+            default :
+                return copyAlertContent[Num]?.englishtext;
+        };
+    };
 
     useEffect(() => {
         setTimeout(() => {
@@ -24,7 +40,7 @@ const CopyAlertModal = () => {
   return (
     <BackgroundContainer>
         <AlertContainer ref={alertRef} className='CopyAlertContainer'>
-            클립보드에 링크가 복사되었습니다.
+            {copyTextChange(0)}
         </AlertContainer>
     </BackgroundContainer>
   )
