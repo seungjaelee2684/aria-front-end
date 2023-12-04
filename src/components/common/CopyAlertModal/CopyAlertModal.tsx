@@ -28,13 +28,14 @@ const CopyAlertModal = () => {
     useEffect(() => {
         setTimeout(() => {
             if (alertRef.current) {
+                alertRef.current.style.transition = "all 0.5s ease-out";
+                alertRef.current.style.transform = "translateY(-10px)";
                 alertRef.current.style.opacity = "0";
-                alertRef.current.style.transform = "translateY(-20px)";
             };
         }, 3000);
         setTimeout(() => {
             setCopyHandler(false);
-        }, 3300);
+        }, 3500);
     }, [])
 
   return (

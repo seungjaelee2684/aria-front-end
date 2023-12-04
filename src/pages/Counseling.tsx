@@ -17,7 +17,7 @@ import Capture from '../assets/images/discordcapture.png';
 const Counseling = () => {
 
   const language = useRecoilValue(translate);
-  const leverRef = useRef<HTMLDivElement>(null);
+  const alertRef = useRef<HTMLDivElement>(null);
   const [, setCopyHandler] = useRecoilState(CopyAlert);
 
   const onClickCopyHandler = async ( text : string ) => {

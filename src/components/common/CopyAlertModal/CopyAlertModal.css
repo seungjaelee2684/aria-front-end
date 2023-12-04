@@ -1,5 +1,5 @@
 .CopyAlertContainer {
-    animation: copy_alert_open 0.5s forwards;
+    animation: copy_alert_open 0.5s ease-out;
 }
 @keyframes copy_alert_open {
     from {
