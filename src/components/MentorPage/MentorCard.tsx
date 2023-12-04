@@ -9,8 +9,6 @@ const MentorCard = ({ item, language } : any) => {
 
   const languageTrans = () => {
     switch (language) {
-      case "english" :
-        return "";
       case "chinese" :
         return item?.chinesename;
       case "japanese" :
