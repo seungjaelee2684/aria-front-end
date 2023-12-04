@@ -11,6 +11,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../store/CopyAlert';
 import { translate } from '../store/Translation';
+import Monitor from '../assets/images/monitor.png';
 
 const Counseling = () => {
 
@@ -44,43 +45,48 @@ const Counseling = () => {
 
   return (
     <LayOutContainer>
-      <InContainer>
-        <ContentContainer>
-          <TitleContainer>
-            <Title>
-              <IoLogoDiscord />
-              {counseling(0)}
-            </Title>
-            {counseling(1)}
-          </TitleContainer>
-          <ContentWrapper>
-            {counseling(2)}
-            <TimeCheckContainer>
-              {counseling(3)}
-            </TimeCheckContainer>
-            <ButtonAllWrapper>
-              <ButtonContainer
-                onClick={() => onClickCopyHandler("code")}
-                boxcolor="#2a9fff">
-                <IoPersonAddOutline />
-                <ButtonText>
-                {counseling(4)}
-                  <AiOutlinePlus />
-                </ButtonText>
-              </ButtonContainer>
-              <ButtonContainer
-                boxcolor="#2e1388"
-                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
-                <BsDiscord style={{color: "#7489da"}}/>
-                <ButtonText>
-                  {counseling(5)}
-                  <MdKeyboardArrowRight />
-                </ButtonText>
-              </ButtonContainer>
-            </ButtonAllWrapper>
-          </ContentWrapper>
-        </ContentContainer>
-      </InContainer>
+      <OutContainer>
+        <MonitorContainer>
+          <MonitorImage src={Monitor} alt=''/>
+        </MonitorContainer>
+        <InContainer>
+          <ContentContainer>
+            <TitleContainer>
+              <Title>
+                <IoLogoDiscord />
+                {counseling(0)}
+              </Title>
+              {counseling(1)}
+            </TitleContainer>
+            <ContentWrapper>
+              {counseling(2)}
+              <TimeCheckContainer>
+                {counseling(3)}
+              </TimeCheckContainer>
+              <ButtonAllWrapper>
+                <ButtonContainer
+                  onClick={() => onClickCopyHandler("code")}
+                  boxcolor="#2a9fff">
+                  <IoPersonAddOutline />
+                  <ButtonText>
+                  {counseling(4)}
+                    <AiOutlinePlus />
+                  </ButtonText>
+                </ButtonContainer>
+                <ButtonContainer
+                  boxcolor="#2e1388"
+                  onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+                  <BsDiscord style={{color: "#7489da"}}/>
+                  <ButtonText>
+                    {counseling(5)}
+                    <MdKeyboardArrowRight />
+                  </ButtonText>
+                </ButtonContainer>
+              </ButtonAllWrapper>
+            </ContentWrapper>
+          </ContentContainer>
+        </InContainer>
+      </OutContainer>
     </LayOutContainer>
   )
 };
@@ -90,15 +96,36 @@ const LayOutContainer = styled.div`
   margin: 80px auto;
 `;
 
-const InContainer = styled.div`
+const OutContainer = styled.div`
   width: 1320px;
-  margin: 140px auto;
+  margin: 130px auto 0px auto;
   display: flex;
-  flex-direction: column;
+  border-bottom: 2px solid #e9e9e9;
+  padding-bottom: 50px;
+  /* flex-direction: column; */
 
   @media screen and (max-width: 1320px) {
     width: 96%;
   }
+`;
+
+const MonitorContainer = styled.div`
+  min-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MonitorImage = styled.img`
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+`;
+
+const InContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TitleContainer = styled.div`
@@ -129,7 +156,6 @@ const ContentContainer = styled.div`
   align-items: center;
   font-size: 17px;
   font-weight: 500;
-  border-bottom: 2px solid #e9e9e9;
   gap: 20px;
 `;
 
