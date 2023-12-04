@@ -11,6 +11,8 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../store/CopyAlert';
 import { translate } from '../store/Translation';
+import Monitor from '../assets/images/monitorcapture.png';
+import Capture from '../assets/images/discordcapture.png';
 
 const Counseling = () => {
 
@@ -44,43 +46,48 @@ const Counseling = () => {
 
   return (
     <LayOutContainer>
-      <InContainer>
-        <ContentContainer>
-          <TitleContainer>
-            <Title>
-              <IoLogoDiscord />
-              {counseling(0)}
-            </Title>
-            {counseling(1)}
-          </TitleContainer>
-          <ContentWrapper>
-            {counseling(2)}
-            <TimeCheckContainer>
-              {counseling(3)}
-            </TimeCheckContainer>
-            <ButtonAllWrapper>
-              <ButtonContainer
-                onClick={() => onClickCopyHandler("code")}
-                boxcolor="#2a9fff">
-                <IoPersonAddOutline />
-                <ButtonText>
-                {counseling(4)}
-                  <AiOutlinePlus />
-                </ButtonText>
-              </ButtonContainer>
-              <ButtonContainer
-                boxcolor="#2e1388"
-                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
-                <BsDiscord style={{color: "#7489da"}}/>
-                <ButtonText>
-                  {counseling(5)}
-                  <MdKeyboardArrowRight />
-                </ButtonText>
-              </ButtonContainer>
-            </ButtonAllWrapper>
-          </ContentWrapper>
-        </ContentContainer>
-      </InContainer>
+      <OutContainer>
+        <MonitorContainer>
+          <MonitorImage src={Monitor} />
+        </MonitorContainer>
+        <InContainer>
+          <ContentContainer>
+            <TitleContainer>
+              <Title>
+                <IoLogoDiscord />
+                {counseling(0)}
+              </Title>
+              {counseling(1)}
+            </TitleContainer>
+            <ContentWrapper>
+              {counseling(2)}
+              <TimeCheckContainer>
+                {counseling(3)}
+              </TimeCheckContainer>
+              <ButtonAllWrapper>
+                <ButtonContainer
+                  onClick={() => onClickCopyHandler("code")}
+                  boxcolor="#2a9fff">
+                  <IoPersonAddOutline />
+                  <ButtonText>
+                  {counseling(4)}
+                    <AiOutlinePlus />
+                  </ButtonText>
+                </ButtonContainer>
+                <ButtonContainer
+                  boxcolor="#2e1388"
+                  onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+                  <BsDiscord style={{color: "#7489da"}}/>
+                  <ButtonText>
+                    {counseling(5)}
+                    <MdKeyboardArrowRight />
+                  </ButtonText>
+                </ButtonContainer>
+              </ButtonAllWrapper>
+            </ContentWrapper>
+          </ContentContainer>
+        </InContainer>
+      </OutContainer>
     </LayOutContainer>
   )
 };
@@ -90,14 +97,68 @@ const LayOutContainer = styled.div`
   margin: 80px auto;
 `;
 
-const InContainer = styled.div`
+const OutContainer = styled.div`
   width: 1320px;
-  margin: 140px auto;
+  margin: 130px auto 0px auto;
+  display: flex;
+  border-bottom: 2px solid #e9e9e9;
+  padding: 0px 0px 20px 0px;
+  transition: all 0.3s;
+  /* flex-direction: column; */
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 80px auto 0px auto;
+    gap: 30px;
+  }
+`;
+
+const MonitorContainer = styled.div`
+  min-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MonitorImage = styled.img`
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+
+  @media screen and (max-width: 1320px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 60%;
+  }
+`;
+
+// const MonitorCaptureImg = styled.img`
+//   width: 99%;
+//   height: 70%;
+//   object-fit: cover;
+//   position: absolute;
+//   top: 1px;
+//   left: 2px;
+// `;
+
+const InContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 
   @media screen and (max-width: 1320px) {
-    width: 96%;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
   }
 `;
 
@@ -112,6 +173,11 @@ const TitleContainer = styled.div`
   align-items: center;
   color: #222020;
   gap: 16px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 26px;
+    gap: 8px;
+  }
 `;
 
 const Title = styled.div`
@@ -129,8 +195,12 @@ const ContentContainer = styled.div`
   align-items: center;
   font-size: 17px;
   font-weight: 500;
-  border-bottom: 2px solid #e9e9e9;
   gap: 20px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+    gap: 16px;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -144,11 +214,19 @@ const ContentWrapper = styled.div`
   color: #222020;
   gap: 16px;
   margin-bottom: 40px;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const TimeCheckContainer = styled.div`
   color: #9c8282;
   font-size: 16px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 13px;
+  }
 `;
 
 const ButtonAllWrapper = styled.div`
@@ -158,18 +236,23 @@ const ButtonAllWrapper = styled.div`
   align-items: center;
   gap: 24px;
   margin-top: 30px;
+
+  @media screen and (max-width: 500px) {
+    gap: 16px;
+    margin-top: 20px;
+  }
 `;
 
 const ButtonContainer = styled.div<{ boxcolor : string }>`
-  width: 300px;
-  height: 140px;
+  width: 240px;
+  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid #ADADAD;
   font-family: "Pretendard";
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 600;
   line-height: normal;
   gap: 20px;
@@ -181,14 +264,25 @@ const ButtonContainer = styled.div<{ boxcolor : string }>`
   &:hover {
     border: 1px solid ${(props) => props.boxcolor};
   }
+
+  @media screen and (max-width: 500px) {
+    width: 180px;
+    height: 90px;
+    gap: 12px;
+    font-size: 26px;
+  }
 `;
 
 const ButtonText = styled.div`
-  font-size: 22px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 export default Counseling;
