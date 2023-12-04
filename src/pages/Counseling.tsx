@@ -48,7 +48,7 @@ const Counseling = () => {
     <LayOutContainer>
       <OutContainer>
         <MonitorContainer>
-          <MonitorImage src={Monitor} />
+          <MonitorImage src={Monitor} alt=''/>
         </MonitorContainer>
         <InContainer>
           <ContentContainer>
@@ -119,16 +119,23 @@ const OutContainer = styled.div`
 `;
 
 const MonitorContainer = styled.div`
-  min-width: 500px;
+  min-width: 600px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: start;
+  user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const MonitorImage = styled.img`
-  width: 90%;
+  width: 80%;
   height: auto;
   object-fit: contain;
+  user-select: none;
 
   @media screen and (max-width: 1320px) {
     width: 50%;
@@ -195,7 +202,7 @@ const ContentContainer = styled.div`
   align-items: center;
   font-size: 17px;
   font-weight: 500;
-  gap: 20px;
+  gap: 30px;
 
   @media screen and (max-width: 500px) {
     font-size: 14px;
@@ -212,8 +219,8 @@ const ContentWrapper = styled.div`
   font-family: "Pretendard";
   white-space: pre-line;
   color: #222020;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 50px;
 
   @media screen and (max-width: 500px) {
     margin-bottom: 20px;
@@ -235,7 +242,7 @@ const ButtonAllWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
-  margin-top: 30px;
+  margin-top: 40px;
 
   @media screen and (max-width: 500px) {
     gap: 16px;
