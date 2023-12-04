@@ -183,7 +183,7 @@ const MobileFilterButton = styled.div`
         border-image-slice: 1;
         color: #ADADAD;
         font-family: "Pretendard";
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 300;
         line-height: normal;
     }
