@@ -99,10 +99,10 @@ const LayOutContainer = styled.div`
 
 const OutContainer = styled.div`
   width: 1320px;
-  margin: 140px auto 0px auto;
+  margin: 130px auto 0px auto;
   display: flex;
   border-bottom: 2px solid #e9e9e9;
-  padding-bottom: 20px;
+  padding: 0px 0px 20px 0px;
   transition: all 0.3s;
   /* flex-direction: column; */
 
@@ -119,14 +119,14 @@ const OutContainer = styled.div`
 `;
 
 const MonitorContainer = styled.div`
-  min-width: 42%;
+  min-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const MonitorImage = styled.img`
-  width: 74%;
+  width: 90%;
   height: auto;
   object-fit: contain;
 
@@ -149,7 +149,7 @@ const MonitorImage = styled.img`
 // `;
 
 const InContainer = styled.div`
-  width: 58%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 
