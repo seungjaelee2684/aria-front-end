@@ -136,7 +136,7 @@ const TapContainer = styled.div`
     display: flex;
     align-items: center;
     font-family: 'LINESeedKR-Bd';
-    font-size: 17px;
+    font-size: 15px;
     /* color: #999999; */
     color: #222020;
     font-weight: 400;
@@ -151,7 +151,7 @@ const TapContainer = styled.div`
     }
 
     @media screen and (max-width: 1320px) {
-        font-size: 16px;
+        font-size: 14px;
     }
     @media screen and (max-width: 836px) {
         font-size: 12px;
