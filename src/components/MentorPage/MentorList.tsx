@@ -46,7 +46,11 @@ const MentorList = () => {
 
 const LayoutContainer = styled.div`
     width: 100%;
-    margin: 20px 0px;
+    margin: 40px 0px;
+
+    @media screen and (max-width: 500px) {
+        margin: 20px 0px;
+    }
 `;
 
 const ListOutContainer = styled.div`
