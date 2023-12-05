@@ -48,7 +48,7 @@ const FilterButton = () => {
   return (
     <FilterButtonContainer>
         <LayOutTitleContainer>
-            <BarContainer />
+            {/* <BarContainer /> */}
             Artist
         </LayOutTitleContainer>
         <FilterButtonWrapper>
@@ -122,6 +122,10 @@ const LayOutTitleContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
+    background: linear-gradient(to right, #6df1ff, #3c3ad6, #530898, #000a3b);
+    -webkit-background-clip: text;
+    color: transparent;
+    user-select: none;
     /* border-left: 4px solid #3c3ad6; */
 `;
 
