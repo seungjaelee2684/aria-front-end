@@ -67,7 +67,7 @@ const Counseling = () => {
               <ButtonAllWrapper>
                 <ButtonContainer
                   onClick={() => onClickCopyHandler("code")}
-                  boxcolor="#2a9fff">
+                  color="#2a9fff">
                   <IoPersonAddOutline />
                   <ButtonText>
                   {counseling(4)}
@@ -75,7 +75,7 @@ const Counseling = () => {
                   </ButtonText>
                 </ButtonContainer>
                 <ButtonContainer
-                  boxcolor="#2e1388"
+                  color="#2e1388"
                   onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                   <BsDiscord style={{color: "#7489da"}}/>
                   <ButtonText>
@@ -250,8 +250,8 @@ const ButtonAllWrapper = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div<{ boxcolor : string }>`
-  width: 240px;
+const ButtonContainer = styled.div<{ color : string }>`
+  width: 260px;
   height: 120px;
   display: flex;
   flex-direction: column;
@@ -269,7 +269,7 @@ const ButtonContainer = styled.div<{ boxcolor : string }>`
   cursor: pointer;
 
   &:hover {
-    border: 1px solid ${(props) => props.boxcolor};
+    border: 1px solid ${(props) => props.color};
   }
 
   @media screen and (max-width: 500px) {
@@ -281,7 +281,7 @@ const ButtonContainer = styled.div<{ boxcolor : string }>`
 `;
 
 const ButtonText = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;

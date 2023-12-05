@@ -58,7 +58,7 @@ const ModalContainer = styled.div`
   left: 0;
   z-index: 100;
   color: #FCFCFC;
-  padding: 10px 5px 10px 5px;
+  padding: 5px;
 
   @media screen and (max-width: 1320px) {
     min-width: 40px;
@@ -70,7 +70,7 @@ const ModalText = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
-  padding: 5px;
+  padding: 10px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 
@@ -80,11 +80,11 @@ const ModalText = styled.div`
   }
 
   @media screen and (max-width: 1320px) {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
