@@ -90,7 +90,7 @@ const FilterModalBtn = styled.div`
 const DefaultBtn = styled.div`
     width: 170px;
     height: 34px;
-    border-bottom: 1px solid #e9e9e9;
+    /* border-bottom: 1px solid #e9e9e9; */
     border-radius: 20px 20px 0px 0px;
     gap: 10px;
     display: flex;

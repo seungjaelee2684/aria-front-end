@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import '../../style/font/font.css';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
@@ -47,6 +48,7 @@ const FilterButton = () => {
   return (
     <FilterButtonContainer>
         <LayOutTitleContainer>
+            <BarContainer />
             Artist
         </LayOutTitleContainer>
         <FilterButtonWrapper>
@@ -57,9 +59,7 @@ const FilterButton = () => {
             <FilterBtn
                 ref={divRef}
                 onClick={() => setIsOpenFilter(!isOpenFilter)}>
-                {(isOpenFilter)
-                    ? <IoIosArrowUp />
-                    : <IoIosArrowDown />}
+                <IoIosArrowDown />
             </FilterBtn>
             {isOpenFilter
                 && <ModalWrapper>
@@ -94,7 +94,7 @@ const FilterButton = () => {
 
 const FilterButtonContainer = styled.div`
     max-width: 1320px;
-    margin: 60px auto 0px auto;
+    margin: 80px auto 0px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,10 +114,21 @@ const FilterButtonContainer = styled.div`
 
 const LayOutTitleContainer = styled.div`
     /* font-family: "Pretendard"; */
-    font-family: "Lemon/Milk", sans-serif;
+    /* font-family: "Lemon/Milk", sans-serif; */
+    font-family: 'LINESeedKR-Bd';
     font-size: 32px;
     font-weight: 700;
     line-height: 150%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* border-left: 4px solid #3c3ad6; */
+`;
+
+const BarContainer = styled.div`
+    width: 4px;
+    height: 40px;
+    background-color: #3c3ad6;
 `;
 
 const FilterButtonWrapper = styled.div`
