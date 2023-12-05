@@ -46,7 +46,7 @@ const MentorList = () => {
 
 const LayoutContainer = styled.div`
     width: 100%;
-    margin: 40px 0px;
+    margin: 20px 0px;
 `;
 
 const ListOutContainer = styled.div`
