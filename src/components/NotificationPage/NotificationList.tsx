@@ -46,13 +46,13 @@ const NotificationList = () => {
     const contentChange = ( item : any ) => {
         switch (language) {
             case "chinese" :
-                return item?.chinesenotice;
+                return item?.chinesenotice.title;
             case "japanese" :
-                return item?.japanesenotice;
+                return item?.japanesenotice.title;
             case "korean" :
-                return item?.notice;
+                return item?.notice.title;
             default :
-                return item?.englishnotice;
+                return item?.englishnotice.title;
         };
     };
 
@@ -84,7 +84,12 @@ const NotificationList = () => {
                                         {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
-                                <IoIosArrowForward />
+                                <RightWrapper onClick={() => onClickNoticeHandler(item)}>
+                                    <RightText>
+                                        ARIA | {item?.date}
+                                    </RightText>
+                                    <IoIosArrowForward />
+                                </RightWrapper>
                             </LineContainer>
                             : <LineContainer
                                 key={item.id}>
@@ -96,7 +101,12 @@ const NotificationList = () => {
                                         {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
-                                <IoIosArrowForward />
+                                <RightWrapper onClick={() => onClickNoticeHandler(item)}>
+                                    <RightText>
+                                        ARIA | {item?.date}
+                                    </RightText>
+                                    <IoIosArrowForward />
+                                </RightWrapper>
                             </LineContainer>
                     )
                 })}
@@ -227,6 +237,29 @@ const NoticeIcon = styled.div`
 
     @media screen and (max-width: 500px) {
         font-size: 16px;
+    }
+`;
+
+const RightWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+`;
+
+const RightText = styled.div`
+    font-family: "Pretendard";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #222020;
+
+    @media screen and (max-width: 836px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
     }
 `;
 

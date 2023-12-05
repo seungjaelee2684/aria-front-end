@@ -46,13 +46,16 @@ const FilterButton = () => {
 
   return (
     <FilterButtonContainer>
+        <LayOutTitleContainer>
+            Artist
+        </LayOutTitleContainer>
         <FilterButtonWrapper>
             <NationFilter>
                 {(nationkind !== "All Country") && <NationFlag src={flag} alt=''/>}
                 {nationkind}
             </NationFilter>
             <FilterBtn
-                ref={divRef} 
+                ref={divRef}
                 onClick={() => setIsOpenFilter(!isOpenFilter)}>
                 {(isOpenFilter)
                     ? <IoIosArrowUp />
@@ -64,32 +67,37 @@ const FilterButton = () => {
                         setIsOpenFilter={setIsOpenFilter}/>
                 </ModalWrapper>}
         </FilterButtonWrapper>
-        {nationFilter.map((item : Nation) => {
-            return (
-                <MobileFilterButton
-                    key={item?.nation}
-                    style={{
-                        borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
-                        borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
-                        color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
-                        fontWeight: `${(nationkind === item?.nation) ? "600" : ""}`
-                    }}
-                    onClick={() => {
-                        setNationkind(item?.nation);
-                        setFlag(item?.flag);
-                        setIsOpenFilter(false);
-                    }}>
-                    {item?.nation}
-                </MobileFilterButton>
-            )
-        })}
+        <MobileFilterButtonWrapper>
+            {nationFilter.map((item : Nation) => {
+                return (
+                    <MobileFilterButton
+                        key={item?.nation}
+                        style={{
+                            borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
+                            borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
+                            color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
+                            fontWeight: `${(nationkind === item?.nation) ? "600" : ""}`
+                        }}
+                        onClick={() => {
+                            setNationkind(item?.nation);
+                            setFlag(item?.flag);
+                            setIsOpenFilter(false);
+                        }}>
+                        {item?.nation}
+                    </MobileFilterButton>
+                )
+            })}
+        </MobileFilterButtonWrapper>
     </FilterButtonContainer>
   )
 };
 
 const FilterButtonContainer = styled.div`
     max-width: 1320px;
-    margin: 40px auto;
+    margin: 60px auto 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     @media screen and (max-width: 1320px) {
         min-width: 96%;
@@ -97,9 +105,19 @@ const FilterButtonContainer = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        display: flex;
-        gap: 8px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        margin: 30px auto 0px auto;
     }
+`;
+
+const LayOutTitleContainer = styled.div`
+    /* font-family: "Pretendard"; */
+    font-family: "Lemon/Milk", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 150%;
 `;
 
 const FilterButtonWrapper = styled.div`
@@ -157,10 +175,15 @@ const FilterBtn = styled.div`
     }
 `;
 
-const FilterBtnIcon = styled.img`
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+const MobileFilterButtonWrapper = styled.div`
+    display: none;
+
+    @media screen and (max-width: 500px) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
 `;
 
 const ModalWrapper = styled.div`

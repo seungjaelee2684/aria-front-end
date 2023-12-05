@@ -1,37 +1,142 @@
 export const NotificationData = [
     {
         id: "1",
-        englishnotice: "DetailDetailDetailDetailDetailDetailDetail1",
-        chinesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容1",
-        japanesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容1",
-        notice: "내용내용내용내용내용내용내용내용내용내용내용내용1",
+        englishnotice: {
+            title: "DetailDetailDetailDetailDetailDetailDetail1",
+            content: [
+                "",
+            ]
+        },
+        chinesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        japanesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        notice: {
+            title: "내용내용내용내용내용내용내용내용내용내용내용내용1",
+            content: [
+                "",
+            ]
+        },
+        date: "2023.12.05"
     },
     {
         id: "2",
-        englishnotice: "DetailDetailDetailDetailDetailDetailDetail2",
-        chinesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容2",
-        japanesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容2",
-        notice: "내용내용내용내용내용내용내용내용내용내용내용내용2",
+        englishnotice: {
+            title: "DetailDetailDetailDetailDetailDetailDetail1",
+            content: [
+                "",
+            ]
+        },
+        chinesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        japanesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        notice: {
+            title: "내용내용내용내용내용내용내용내용내용내용내용내용1",
+            content: [
+                "",
+            ]
+        },
+        date: "2023.12.05"
     },
     {
         id: "3",
-        englishnotice: "DetailDetailDetailDetailDetailDetailDetail3",
-        chinesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容3",
-        japanesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容3",
-        notice: "내용내용내용내용내용내용내용내용내용내용내용내용3",
+        englishnotice: {
+            title: "DetailDetailDetailDetailDetailDetailDetail1",
+            content: [
+                "",
+            ]
+        },
+        chinesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        japanesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        notice: {
+            title: "내용내용내용내용내용내용내용내용내용내용내용내용1",
+            content: [
+                "",
+            ]
+        },
+        date: "2023.12.05"
     },
     {
         id: "4",
-        englishnotice: "DetailDetailDetailDetailDetailDetailDetail4",
-        chinesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容4",
-        japanesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容4",
-        notice: "내용내용내용내용내용내용내용내용내용내용내용내용4",
+        englishnotice: {
+            title: "DetailDetailDetailDetailDetailDetailDetail1",
+            content: [
+                "",
+            ]
+        },
+        chinesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        japanesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        notice: {
+            title: "내용내용내용내용내용내용내용내용내용내용내용내용1",
+            content: [
+                "",
+            ]
+        },
+        date: "2023.12.05"
     },
     {
         id: "5",
-        englishnotice: "DetailDetailDetailDetailDetailDetailDetail5",
-        chinesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容5",
-        japanesenotice: "内容内容内容内容内容内容内容内容内容内容内容内容5",
-        notice: "내용내용내용내용내용내용내용내용내용내용내용내용5",
+        englishnotice: {
+            title: "DetailDetailDetailDetailDetailDetailDetail1",
+            content: [
+                "",
+            ]
+        },
+        chinesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        japanesenotice: {
+            title: "内容内容内容内容内容内容内容内容内容内容内容内容1",
+            content: [
+                "",
+            ]
+        },
+        notice: {
+            title: "내용내용내용내용내용내용내용내용내용내용내용내용1",
+            content: [
+                "",
+            ]
+        },
+        date: "2023.12.05"
     },
 ];
