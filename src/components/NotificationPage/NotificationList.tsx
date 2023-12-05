@@ -86,7 +86,7 @@ const NotificationList = () => {
                                 </ContentWrapper>
                                 <RightWrapper onClick={() => onClickNoticeHandler(item)}>
                                     <RightText>
-                                        {item?.date}
+                                        ARIA | {item?.date}
                                     </RightText>
                                     <IoIosArrowForward />
                                 </RightWrapper>
@@ -103,7 +103,7 @@ const NotificationList = () => {
                                 </ContentWrapper>
                                 <RightWrapper onClick={() => onClickNoticeHandler(item)}>
                                     <RightText>
-                                        {item?.date}
+                                        ARIA | {item?.date}
                                     </RightText>
                                     <IoIosArrowForward />
                                 </RightWrapper>

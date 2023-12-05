@@ -48,16 +48,14 @@ const Notification = () => {
 
     const noticeText = ( item : any ) => {
         switch (language) {
-            case "english" :
-                return item?.englishnotice;
             case "chinese" :
-                return item?.chinesenotice;
+                return item?.chinesenotice.title;
             case "japanese" :
-                return item?.japanesenotice;
+                return item?.japanesenotice.title;
             case "korean" :
-                return item?.notice;
+                return item?.notice.title;
             default :
-                return item?.englishnotice;
+                return item?.englishnotice.title;
         };
     };
 
