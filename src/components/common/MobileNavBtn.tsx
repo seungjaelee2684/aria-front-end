@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
 import Home from '../../assets/logos/mobilelogo.png';
 import { NavigateFunction } from 'react-router-dom';
@@ -19,10 +19,29 @@ interface MobileNavBtnProps {
 
 const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
+    const mobileModalRef = useRef<HTMLDivElement>(null);
+    const backgroundRef = useRef<HTMLDivElement>(null);
     const [hamburg, setHamburg] = useState<boolean>(false);
     const [snsModal, setSnsModal] = useState<boolean>(false);
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
     const { isOpen } = alertModal;
+
+    const onClickHamburgOpenHandler = () => {
+        if (mobileModalRef.current && backgroundRef.current) {
+            if (hamburg) {
+            //   mobileModalRef.current.style.opacity = "0";
+                // backgroundRef.current.style.opacity = "0";
+                backgroundRef.current.style.visibility = "hidden";
+                mobileModalRef.current.style.transform = "translateX(-350px)";
+            } else {
+            //   mobileModalRef.current.style.opacity = "1";
+                // backgroundRef.current.style.opacity = "1";
+                backgroundRef.current.style.visibility = "visible";
+                mobileModalRef.current.style.transform = "translateX(350px)";
+            };
+        };
+        setHamburg(!hamburg);
+    };
 
   return (
     <div style={{position: "relative"}}>
@@ -41,7 +60,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                                 : <HomeBtnIcon src={Home}/>}
                         </HomeButtonInWrapper>
                     </HomeButton>
-                <ButtonBox onClick={() => setHamburg(!hamburg)}>
+                <ButtonBox onClick={onClickHamburgOpenHandler}>
                     <ButtonWrapper>
                         {hamburg ? <BsBoxArrowLeft /> : <RxHamburgerMenu />}
                     </ButtonWrapper>
@@ -53,11 +72,12 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
             && <MobileSNS
                 snsModal={snsModal}
                 setSnsModal={setSnsModal}/>}
-        {hamburg
-            && <MobileNavModal
-                navigate={navigate}
-                hamburg={hamburg}
-                setHamburg={setHamburg}/>}
+        <MobileNavModal
+            navigate={navigate}
+            hamburg={hamburg}
+            setHamburg={setHamburg}
+            mobileModalRef={mobileModalRef}
+            backgroundRef={backgroundRef}/>
         {isOpen && <AlertModal />}
     </div>
   )
