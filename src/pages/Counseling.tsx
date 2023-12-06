@@ -186,7 +186,7 @@ const TitleContainer = styled.div`
   gap: 16px;
 
   @media screen and (max-width: 500px) {
-    font-size: 26px;
+    font-size: 22px;
     gap: 8px;
   }
 `;
@@ -209,7 +209,7 @@ const ContentContainer = styled.div`
   gap: 30px;
 
   @media screen and (max-width: 500px) {
-    font-size: 14px;
+    font-size: 12px;
     gap: 16px;
   }
 `;
