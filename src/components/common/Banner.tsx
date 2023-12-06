@@ -100,7 +100,7 @@ const TextBox = styled.div`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media screen and (max-width: 500px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 `;
 
@@ -113,6 +113,7 @@ const AnimationBar = styled.div`
 
   @media screen and (max-width: 500px) {
     width: 60px;
+    height: 2px;
   }
 `;
 
