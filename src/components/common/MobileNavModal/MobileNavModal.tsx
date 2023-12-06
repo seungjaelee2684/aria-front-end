@@ -154,7 +154,7 @@ const ModalContainer = styled.div`
   background-color: #FFFFFF;
   position: fixed;
   bottom: 0;
-  left: -50%;
+  left: -70%;
   display: flex;
   flex-direction: column;
   border-radius: 0px 15px 15px 0px;
