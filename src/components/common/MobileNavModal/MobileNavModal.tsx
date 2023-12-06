@@ -30,7 +30,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
   const onClickHamburgCloseHandler = () => {
     if (mobileModalRef.current && backgroundRef.current) {
       backgroundRef.current.style.visibility = "hidden";
-      mobileModalRef.current.style.transform = "translateX(-350px)";
+      mobileModalRef.current.style.transform = "translateX(-70%)";
     };
     setHamburg(false);
   };
@@ -68,21 +68,21 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           <Text
             onClick={() => {
               navigate("/mentor")
-              setHamburg(false)
+              onClickHamburgCloseHandler()
             }}>
             Mentor
           </Text>
           <Text
             onClick={() => {
               setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
-              setHamburg(false)
+              onClickHamburgCloseHandler()
             }}>
             Showcase
           </Text>
           <Text
             onClick={() => {
               navigate("/notice/notification");
-              setHamburg(false)
+              onClickHamburgCloseHandler()
               // setSubPage({...subPage, notice: !notice, support: false})
             }}>
             Notice
@@ -93,14 +93,14 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
                 style={{borderBottom: "1px dotted #e9e9e9"}}
                 onClick={() => {
                   setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
-                  setHamburg(false)
+                  onClickHamburgCloseHandler()
                 }}>
                 Event
               </SubPageButton>
               <SubPageButton
                 onClick={() => {
                   setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
-                  setHamburg(false)
+                  onClickHamburgCloseHandler()
                 }}>
                 Announcements
               </SubPageButton>
@@ -118,14 +118,14 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
                 style={{borderBottom: "1px dotted #e9e9e9"}}
                 onClick={() => {
                   navigate("/counseling")
-                  setHamburg(false)
+                  onClickHamburgCloseHandler()
                 }}>
                 Counseling
               </SubPageButton>
               <SubPageButton
                 onClick={() => {
                   navigate("/policy")
-                  setHamburg(false)
+                  onClickHamburgCloseHandler()
                 }}>
                 Policy
               </SubPageButton>
@@ -149,12 +149,12 @@ const BackgroundContainer = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  width: 350px;
+  width: 70%;
   height: 100%;
   background-color: #FFFFFF;
   position: fixed;
   bottom: 0;
-  left: -350px;
+  left: -50%;
   display: flex;
   flex-direction: column;
   border-radius: 0px 15px 15px 0px;
@@ -207,7 +207,8 @@ const Text = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 30px 30px;
+  padding: 30px 0px;
+  text-indent: 30px;
 `;
 
 const SubPageButtonWrapper = styled.div`
@@ -220,7 +221,8 @@ const SubPageButton = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px 50px 20px 50px;
+  padding: 20px 0px 20px 0px;
+  text-indent: 50px;
   color: #222020;
   font-size: 14px;
 `;

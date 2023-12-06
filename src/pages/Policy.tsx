@@ -177,6 +177,10 @@ const Policy = () => {
 const LayOutContainer = styled.div`
   width: 100%;
   margin: 80px auto 0px auto;
+
+  @media screen and (max-width: 500px) {
+    margin: 50px auto 0px auto;
+  }
 `;
 
 const PolicyHeader = styled.div`
@@ -187,6 +191,10 @@ const PolicyHeader = styled.div`
 
   @media screen and (max-width: 1320px) {
     width: 96%;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 70px auto 20px auto;
   }
 `;
 
