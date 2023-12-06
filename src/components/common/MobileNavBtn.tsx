@@ -37,7 +37,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
             //   mobileModalRef.current.style.opacity = "1";
                 // backgroundRef.current.style.opacity = "1";
                 backgroundRef.current.style.visibility = "visible";
-                mobileModalRef.current.style.transform = "translateX(70%)";
+                mobileModalRef.current.style.transform = "translateX(98%)";
             };
         };
         setHamburg(!hamburg);
