@@ -32,12 +32,12 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
             //   mobileModalRef.current.style.opacity = "0";
                 // backgroundRef.current.style.opacity = "0";
                 backgroundRef.current.style.visibility = "hidden";
-                mobileModalRef.current.style.transform = "translateX(-350px)";
+                mobileModalRef.current.style.transform = "translateX(-70%)";
             } else {
             //   mobileModalRef.current.style.opacity = "1";
                 // backgroundRef.current.style.opacity = "1";
                 backgroundRef.current.style.visibility = "visible";
-                mobileModalRef.current.style.transform = "translateX(350px)";
+                mobileModalRef.current.style.transform = "translateX(70%)";
             };
         };
         setHamburg(!hamburg);
