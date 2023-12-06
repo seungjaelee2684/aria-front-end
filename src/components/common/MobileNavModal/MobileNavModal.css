@@ -8,9 +8,11 @@
 
 @keyframes mobile_modal_open {
     from {
+        opacity: 0;
         transform: translateX(-500px);
     }
     to {
+        opacity: 1;
         transform: translateY(0px);
     }
 }

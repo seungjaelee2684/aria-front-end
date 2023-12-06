@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components';
 import './MobileNavModal.css';
 import { MdClose } from 'react-icons/md';
@@ -12,9 +12,11 @@ interface MobileNavModalProps {
   navigate: NavigateFunction;
   hamburg: boolean;
   setHamburg: React.Dispatch<React.SetStateAction<boolean>>;
+  mobileModalRef: React.RefObject<HTMLDivElement>;
+  backgroundRef: React.RefObject<HTMLDivElement>;
 }
 
-const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg }) => {
+const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
   const language = useRecoilValue(translate);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
@@ -23,13 +25,26 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
     support: false
   });
   const { notice, support } = subPage;
+
+  const onClickHamburgCloseHandler = () => {
+    if (mobileModalRef.current && backgroundRef.current) {
+      backgroundRef.current.style.visibility = "hidden";
+      mobileModalRef.current.style.transform = "translateX(-350px)";
+    };
+    setHamburg(false);
+};
   
   return (
     <div>
-      <BackgroundContainer onClick={() => setHamburg(false)}/>
-      <ModalContainer className='ModalContainer'>
+      <BackgroundContainer
+        ref={backgroundRef}
+        onClick={onClickHamburgCloseHandler}/>
+      <ModalContainer
+        ref={mobileModalRef}
+        // className='ModalContainer'
+      >
         <CloseBtnContainer>
-          <CloseBtn onClick={() => setHamburg(false)}>
+          <CloseBtn onClick={onClickHamburgCloseHandler}>
             <MdClose />
           </CloseBtn>
         </CloseBtnContainer>
@@ -111,22 +126,25 @@ const BackgroundContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 98;
+  /* opacity: 0; */
+  visibility: hidden;
   background-color: #22202050;
 `;
 
 const ModalContainer = styled.div`
-  width: 70%;
+  width: 350px;
   height: 100%;
   background-color: #FFFFFF;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: -350px;
   display: flex;
   flex-direction: column;
   border-radius: 0px 15px 15px 0px;
   background-color: #ebfeff;
   z-index: 100;
   user-select: none;
+  transition: all 0.5s;
   box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
 `;
 
