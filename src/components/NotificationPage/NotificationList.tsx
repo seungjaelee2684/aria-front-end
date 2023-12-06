@@ -194,7 +194,7 @@ const LineContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         height: 20px;
-        padding: 20px 10px;
+        padding: 14px 10px;
     }
 `;
 
@@ -221,7 +221,7 @@ const Text = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        font-size: 12px;
+        font-size: 10px;
     }
 `;
 
@@ -236,7 +236,7 @@ const NoticeIcon = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        font-size: 16px;
+        font-size: 12px;
     }
 `;
 
@@ -245,6 +245,11 @@ const RightWrapper = styled.div`
     align-items: center;
     gap: 16px;
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+        gap: 8px;
+    }
 `;
 
 const RightText = styled.div`
@@ -259,7 +264,7 @@ const RightText = styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        font-size: 10px;
+        font-size: 8px;
     }
 `;
 
