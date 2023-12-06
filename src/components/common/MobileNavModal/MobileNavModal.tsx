@@ -19,6 +19,7 @@ interface MobileNavModalProps {
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
   const language = useRecoilValue(translate);
+  const subModalRef = useRef<HTMLDivElement>(null);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [subPage, setSubPage] = useState<{ notice: boolean, support: boolean }>({
     notice: false,
@@ -32,7 +33,22 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
       mobileModalRef.current.style.transform = "translateX(-350px)";
     };
     setHamburg(false);
-};
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (subModalRef.current && !subModalRef.current.contains(event.target)) {
+        setSubPage({...subPage, notice: false, support: false});
+      };
+      if (subModalRef.current && !subModalRef.current.contains(event.target)) {
+        setSubPage({...subPage, notice: false, support: false});
+      };
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   
   return (
     <div>
@@ -90,6 +106,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               </SubPageButton>
             </SubPageButtonWrapper>}
           <Text
+            ref={subModalRef}
             onClick={() => {
               setSubPage({...subPage, notice: false, support: !support})
             }}>
