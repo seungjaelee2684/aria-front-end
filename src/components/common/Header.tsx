@@ -51,9 +51,9 @@ const Header = () => {
     };
 
     useEffect(() => {
-        setTimeout(() => {
-            setIsPopUp(true);
-        }, 800);
+        // setTimeout(() => {
+        //     setIsPopUp(true);
+        // }, 800);
 
         const handleClickOutside = (event: any) => {
           if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -136,7 +136,7 @@ const Header = () => {
         </HeaderLayoutContainer>
         {snsOpen && <SNSMenu />}
         {copyHandle && <CopyAlertModal />}
-        {isPopUp && <PopUp />}
+        {/* {isPopUp && <PopUp />} */}
         {/* <ScrollBarContainer> */}
             {/* <ScrollBar /> */}
         {/* </ScrollBarContainer> */}
