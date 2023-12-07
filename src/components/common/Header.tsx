@@ -20,6 +20,7 @@ import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
 import { popUpOpen } from '../../store/PopUpOpen';
 import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
+import { GoGlobe } from "react-icons/go";
 
 const Header = () => {
 
@@ -121,7 +122,7 @@ const Header = () => {
                         </HomeBtnWrapper>
                         <TranslateContainer>
                             <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
-                                <BsGlobe2 />
+                                <GoGlobe />
                                 {/* <TranslateText>{languageChange()}</TranslateText> */}
                                 {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                                 <TransText>
@@ -262,6 +263,7 @@ const SmallButtonWrapper = styled.div`
     display: flex;
     justify-content: end;
     align-items: center;
+    gap: 10px;
 `;
 
 const TranslateWrapper = styled.div`
@@ -271,7 +273,7 @@ const TranslateWrapper = styled.div`
     color: #ADADAD;
     background-color: #FFFFFF;
     font-size: 14px;
-    gap: 0px;
+    gap: 2px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -329,7 +331,7 @@ const HomeBtnWrapper = styled.div`
     align-items: center;
     font-family: "Pretendard";
     font-size: 14px;
-    gap: 0px;
+    gap: 2px;
     color: #ADADAD;
     border: 1px solid #FFFFFF;
     transition: all 0.3s ease-in-out;
@@ -358,7 +360,7 @@ const SNSModalContainer = styled.div`
     font-size: 14px;
     transition: all 0.3s ease-in-out;
     position: relative;
-    gap: 0px;
+    gap: 2px;
     z-index: 100;
     cursor: pointer;
 
@@ -409,8 +411,6 @@ const TransText = styled.div`
     font-size: 10px;
     font-weight: 500;
     line-height: normal;
-    width: 25px;
-    height: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
