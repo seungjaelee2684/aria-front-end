@@ -31,6 +31,7 @@ const Header = () => {
     const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
+    const scrollHeader = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -51,6 +52,22 @@ const Header = () => {
                 return "ENG";
         };
     };
+
+    window.addEventListener("scroll", () => {
+        let scrollValue = window.scrollY;
+        // console.log("스크롤", scrollValue);
+        if (scrollHeader.current) {
+            if (scrollValue > 100) {  
+                scrollHeader.current.style.position = "fixed";
+            } else {
+                if (scrollValue === 0) {
+                    scrollHeader.current.style.opacity = "0";
+                } else {
+                    scrollHeader.current.style.animation = "absolute";
+                };   
+            };
+        };
+    });
 
     useEffect(() => {
         // setTimeout(() => {
