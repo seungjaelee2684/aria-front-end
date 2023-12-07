@@ -19,6 +19,7 @@ import { CopyAlert } from '../../store/CopyAlert';
 import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
 import { popUpOpen } from '../../store/PopUpOpen';
 import PopUp from './PopUp';
+import { IoMdHome } from "react-icons/io";
 
 const Header = () => {
 
@@ -110,6 +111,14 @@ const Header = () => {
                 {/* <RightWrapper> */}
                 <HeaderRightWrapper>
                     <SmallButtonWrapper>
+                        <HomeBtnWrapper>
+                            <IoMdHome />
+                                {/* <TranslateText>{languageChange()}</TranslateText> */}
+                                {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
+                            <TransText>
+                                Home
+                            </TransText>
+                        </HomeBtnWrapper>
                         <TranslateContainer>
                             <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
                                 <BsGlobe2 />
@@ -122,12 +131,13 @@ const Header = () => {
                             {languageModal
                                 && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
-                            <div style={{display: `${(location.pathname === "/") ? "none" : ""}`}}>
-                                <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
-                                    <IoShareSocialOutline />
-                                </SNSModalContainer>
-                            </div>
                         </TranslateContainer>
+                        <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
+                            <IoShareSocialOutline />
+                            <TransText>
+                                Social
+                            </TransText>
+                        </SNSModalContainer>
                     </SmallButtonWrapper>
                     <NavButtonContainer>
                         <NavButton />
@@ -203,7 +213,7 @@ const LogoContainer = styled.div`
     display: flex;
     /* margin: auto 0px; */
     align-items: center;
-    height: 60px;
+    height: 80px;
 
     @media screen and (max-width: 500px) {
         height: 40px;
@@ -248,7 +258,7 @@ const HeaderRightWrapper = styled.div`
 
 const SmallButtonWrapper = styled.div`
     width: 100%;
-    height: 20px;
+    height: 30px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -314,6 +324,23 @@ const BarContainer = styled.div`
     margin-left: 70px;
 `;
 
+const HomeBtnWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 14px;
+    gap: 0px;
+    color: #ADADAD;
+    border: 1px solid #FFFFFF;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        border: 1px solid #222020;
+        color: #222020;
+    }
+`;
+
 const TranslateContainer = styled.div`
     /* min-width: 3%; */
     height: 100%;
@@ -324,18 +351,14 @@ const TranslateContainer = styled.div`
 `;
 
 const SNSModalContainer = styled.div`
-    width: 44px;
-    height: 44px;
-    display: grid;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    background-color: #FFFFFF;
-    border: 1px solid #41bff180;
-    border-radius: 100%;
-    color: #41bff180;
-    font-size: 28px;
+    border: 1px solid #FFFFFF;
+    color: #ADADAD;
+    font-size: 14px;
     transition: all 0.3s ease-in-out;
     position: relative;
+    gap: 0px;
     z-index: 100;
     cursor: pointer;
 
@@ -384,7 +407,7 @@ const MobileNavButton = styled.div`
 const TransText = styled.div`
     font-family: "Pretendard";
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: normal;
     width: 25px;
     height: 8px;
