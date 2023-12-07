@@ -29,10 +29,10 @@ const PageModal = ({ pageModal } : any) => {
           {/* <ModalText onClick={() => navigate("/schedule")}>
             Schedule
           </ModalText> */}
-          <ModalText onClick={() => navigate("/counseling")}>
+          <ModalText onClick={() => navigate("/support/counseling")}>
             Counseling
           </ModalText>
-          <ModalText onClick={() => navigate("/policy")}>
+          <ModalText onClick={() => navigate("/support/policy")}>
             Policy
           </ModalText>
         </ModalContainer>
@@ -54,7 +54,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   align-items: start;
   position: absolute;
-  top: 55px;
+  top: 65px;
   left: 0;
   z-index: 100;
   color: #FCFCFC;

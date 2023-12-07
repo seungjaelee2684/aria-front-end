@@ -127,7 +127,7 @@ const Header = () => {
                 {/* <RightWrapper> */}
                 <HeaderRightWrapper>
                     <SmallButtonWrapper>
-                        <HomeBtnWrapper>
+                        <HomeBtnWrapper onClick={() => navigate("/")}>
                             <IoMdHome />
                                 {/* <TranslateText>{languageChange()}</TranslateText> */}
                                 {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
@@ -239,7 +239,7 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 100px;
+    width: 120px;
     height: auto;
     object-fit: cover;
     transition: all 0.3s ease-in-out;
@@ -418,8 +418,8 @@ const MobileNavButton = styled.div`
 
 const TransText = styled.div`
     font-family: "Pretendard";
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 200;
     line-height: normal;
     display: flex;
     justify-content: center;

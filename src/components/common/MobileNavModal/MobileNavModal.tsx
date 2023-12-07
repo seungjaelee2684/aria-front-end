@@ -117,14 +117,14 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               <SubPageButton
                 style={{borderBottom: "1px dotted #e9e9e9"}}
                 onClick={() => {
-                  navigate("/counseling")
+                  navigate("/support/counseling")
                   onClickHamburgCloseHandler()
                 }}>
                 Counseling
               </SubPageButton>
               <SubPageButton
                 onClick={() => {
-                  navigate("/policy")
+                  navigate("/support/policy")
                   onClickHamburgCloseHandler()
                 }}>
                 Policy
