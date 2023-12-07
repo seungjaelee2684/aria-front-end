@@ -87,7 +87,7 @@ const NavButton = () => {
                 <div
                     style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        navigate("/counseling");
+                        navigate("/support/counseling");
                     }}>
                     SUPPORT
                 </div>
@@ -137,7 +137,7 @@ const TapContainer = styled.div`
     display: flex;
     align-items: center;
     font-family: 'LINESeedKR-Bd';
-    font-size: 15px;
+    font-size: 18px;
     /* color: #999999; */
     color: #222020;
     font-weight: normal;
@@ -152,7 +152,7 @@ const TapContainer = styled.div`
     }
 
     @media screen and (max-width: 1320px) {
-        font-size: 14px;
+        font-size: 16px;
     }
     @media screen and (max-width: 836px) {
         font-size: 12px;

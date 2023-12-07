@@ -42,8 +42,8 @@ function App() {
               <Route path='/mentor' element={<Mentor />} />
               <Route path='/showcase' element={<Showcase />} />
               <Route path='/schedule' element={<Schedule />} />
-              <Route path='/counseling' element={<Counseling />} />
-              <Route path='/policy' element={<Policy />} />
+              <Route path='/support/counseling' element={<Counseling />} />
+              <Route path='/support/policy' element={<Policy />} />
               <Route path='/mentor/detail/:id' element={<MentorDetail />} />
               <Route path='/notice/notification' element={<Notification />} />
               <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
