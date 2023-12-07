@@ -57,14 +57,11 @@ const Header = () => {
         let scrollValue = window.scrollY;
         // console.log("스크롤", scrollValue);
         if (scrollHeader.current) {
-            if (scrollValue > 100) {  
+            if (scrollValue > 300) {  
                 scrollHeader.current.style.position = "fixed";
             } else {
-                if (scrollValue === 0) {
-                    scrollHeader.current.style.opacity = "0";
-                } else {
-                    scrollHeader.current.style.animation = "absolute";
-                };   
+                scrollHeader.current.style.position = "absolute";
+  
             };
         };
     });
@@ -107,6 +104,7 @@ const Header = () => {
     <div>
         {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
         <HeaderLayoutContainer
+            ref={scrollHeader}
             style={{
                 // position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
                 opacity: `${(mainPage === 2) ? "0" : "1"}`,
@@ -198,7 +196,7 @@ const HeaderLayoutContainer = styled.div`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
@@ -278,7 +276,7 @@ const HeaderRightWrapper = styled.div`
 
 const SmallButtonWrapper = styled.div`
     width: 100%;
-    height: 30px;
+    height: 20px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -286,6 +284,7 @@ const SmallButtonWrapper = styled.div`
 `;
 
 const TranslateWrapper = styled.div`
+    height: 100%;
     display: flex;
     align-items: center;
     border: 1px solid #FFFFFF;
@@ -298,7 +297,6 @@ const TranslateWrapper = styled.div`
 
     &:hover {
        color: #222020;
-       border: 1px solid #222020;
     }
 
     @media screen and (max-width: 500px) {
@@ -355,7 +353,6 @@ const HomeBtnWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-        border: 1px solid #222020;
         color: #222020;
     }
 `;
@@ -363,9 +360,6 @@ const HomeBtnWrapper = styled.div`
 const TranslateContainer = styled.div`
     /* min-width: 3%; */
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 `;
 
@@ -383,7 +377,6 @@ const SNSModalContainer = styled.div`
 
     &:hover {
         color: #41bff1;
-        border: 1px solid #41bff1;
     }
 
     @media screen and (max-width: 500px) {
