@@ -104,15 +104,15 @@ const TapOutContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
-    height: 50px;
+    gap: 120px;
+    height: 60px;
 
     @media screen and (max-width: 1320px) {
-        gap: 60px;
+        gap: 100px;
     }
 
     @media screen and (max-width: 836px) {
-        gap: 40px;
+        gap: 80px;
     }
 
     @media screen and (max-width: 650px) {
@@ -140,7 +140,7 @@ const TapContainer = styled.div`
     font-size: 15px;
     /* color: #999999; */
     color: #222020;
-    font-weight: 400;
+    font-weight: normal;
     text-decoration: none;
     position: relative;
     /* text-shadow: 1px 1px 4px #FFFFFF; */

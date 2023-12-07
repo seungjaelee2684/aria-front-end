@@ -69,8 +69,8 @@ const ModalContainer = styled.div`
     flex-direction: column;
     background-color: #222020;
     position: absolute;
-    top: 63px;
-    right: 70px;
+    top: 20px;
+    right: -10px;
     z-index: 98;
 
     @media screen and (max-width: 500px) {
