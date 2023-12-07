@@ -109,28 +109,30 @@ const Header = () => {
                     </LogoContainer>
                 {/* <RightWrapper> */}
                 <HeaderRightWrapper>
-                <NavButtonContainer>
-                    <NavButton />
-                </NavButtonContainer>
-                {/* {(location.pathname !== ("/")) && <BarContainer />} */}
-                <TranslateContainer>
-                        <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
-                            <BsGlobe2 />
-                            {/* <TranslateText>{languageChange()}</TranslateText> */}
-                            {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
-                            <TransText>
-                                {languageChange()}
-                            </TransText>
-                        </TranslateWrapper>
-                        {languageModal
-                            && <TranslateModal
-                                setLanguageModal={setLanguageModal}/>}
-                        <div style={{display: `${(location.pathname === "/") ? "none" : ""}`}}>
-                            <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
-                                <IoShareSocialOutline />
-                            </SNSModalContainer>
-                        </div>
-                </TranslateContainer>
+                    <SmallButtonWrapper>
+                        <TranslateContainer>
+                            <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
+                                <BsGlobe2 />
+                                {/* <TranslateText>{languageChange()}</TranslateText> */}
+                                {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
+                                <TransText>
+                                    {languageChange()}
+                                </TransText>
+                            </TranslateWrapper>
+                            {languageModal
+                                && <TranslateModal
+                                    setLanguageModal={setLanguageModal}/>}
+                            <div style={{display: `${(location.pathname === "/") ? "none" : ""}`}}>
+                                <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
+                                    <IoShareSocialOutline />
+                                </SNSModalContainer>
+                            </div>
+                        </TranslateContainer>
+                    </SmallButtonWrapper>
+                    <NavButtonContainer>
+                        <NavButton />
+                    </NavButtonContainer>
+                    {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {/* </RightWrapper> */}
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
@@ -239,7 +241,7 @@ const HeaderRightWrapper = styled.div`
     flex-direction: column;
     /* align-items: center; */
     /* gap: 25px; */
-    width: 100%;
+    width: 70%;
     height: 100%;
     gap: 0px;
 `;
@@ -254,17 +256,12 @@ const SmallButtonWrapper = styled.div`
 
 const TranslateWrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
-    border: 1px solid #ADADAD;
-    border-radius: 100%;
+    border: 1px solid #FFFFFF;
     color: #ADADAD;
     background-color: #FFFFFF;
-    font-size: 24px;
-    gap: 2px;
+    font-size: 14px;
+    gap: 0px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -318,13 +315,12 @@ const BarContainer = styled.div`
 `;
 
 const TranslateContainer = styled.div`
-    /* min-width: 3%;
-    height: 100%; */
+    /* min-width: 3%; */
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 10px;
 `;
 
 const SNSModalContainer = styled.div`
@@ -387,7 +383,7 @@ const MobileNavButton = styled.div`
 
 const TransText = styled.div`
     font-family: "Pretendard";
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 700;
     line-height: normal;
     width: 25px;

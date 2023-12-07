@@ -102,6 +102,7 @@ const NavButton = () => {
 
 const TapOutContainer = styled.div`
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 100px;
     height: 60px;
