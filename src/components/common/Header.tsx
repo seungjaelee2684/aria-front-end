@@ -120,6 +120,7 @@ const Header = () => {
                                 Home
                             </TransText>
                         </HomeBtnWrapper>
+                        <BarContainer />
                         <TranslateContainer>
                             <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
                                 <GoGlobe />
@@ -133,6 +134,7 @@ const Header = () => {
                                 && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
+                        <BarContainer />
                         <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                             <IoShareSocialOutline />
                             <TransText>
@@ -263,7 +265,7 @@ const SmallButtonWrapper = styled.div`
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 `;
 
 const TranslateWrapper = styled.div`
@@ -319,11 +321,9 @@ const ScrollBarContainer = styled.div`
 `;
 
 const BarContainer = styled.div`
-    width: 3px;
-    height: 40px;
-    background-color: #3c3ad690;
-    border-radius: 10px;
-    margin-left: 70px;
+    width: 1px;
+    height: 10px;
+    background-color: #e9e9e9;
 `;
 
 const HomeBtnWrapper = styled.div`
