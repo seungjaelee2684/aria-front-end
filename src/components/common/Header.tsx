@@ -108,6 +108,7 @@ const Header = () => {
                             }}/>
                     </LogoContainer>
                 {/* <RightWrapper> */}
+                <HeaderRightWrapper>
                 <NavButtonContainer>
                     <NavButton />
                 </NavButtonContainer>
@@ -129,9 +130,9 @@ const Header = () => {
                                 <IoShareSocialOutline />
                             </SNSModalContainer>
                         </div>
-                    </TranslateContainer>
+                </TranslateContainer>
                 {/* </RightWrapper> */}
-                
+                </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {snsOpen && <SNSMenu />}
@@ -200,7 +201,7 @@ const LogoContainer = styled.div`
     display: flex;
     /* margin: auto 0px; */
     align-items: center;
-    height: 80px;
+    height: 60px;
 
     @media screen and (max-width: 500px) {
         height: 40px;
@@ -208,9 +209,9 @@ const LogoContainer = styled.div`
 `;
 
 const HeaderLogo = styled.img`
-    width: 120px;
-    height: 100%;
-    object-fit: contain;
+    width: 100px;
+    height: auto;
+    object-fit: cover;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -231,6 +232,24 @@ const HeaderLogo = styled.img`
     @media screen and (max-width: 500px) {
         width: 80px;
     }
+`;
+
+const HeaderRightWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* gap: 25px; */
+    width: 100%;
+    height: 100%;
+    gap: 0px;
+`;
+
+const SmallButtonWrapper = styled.div`
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 `;
 
 const TranslateWrapper = styled.div`
@@ -278,13 +297,6 @@ const TranslateText = styled.div`
     @media screen and (max-width: 1320px) {
         font-size: 14px;
     }
-`;
-
-const RightWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    /* gap: 25px; */
-    height: 100%;
 `;
 
 const ScrollBarContainer = styled.div`
