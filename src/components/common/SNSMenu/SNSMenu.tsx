@@ -119,7 +119,7 @@ const MenuIconContainer = styled.div`
   flex-direction: column;
   align-items: center;
   top: 85px;
-  right: 6.6%;
+  right: 15.2%;
   z-index: 98;
   gap: 8px;
 
