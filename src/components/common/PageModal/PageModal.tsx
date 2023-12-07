@@ -54,7 +54,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   align-items: start;
   position: absolute;
-  top: 85px;
+  top: 55px;
   left: 0;
   z-index: 100;
   color: #FCFCFC;
