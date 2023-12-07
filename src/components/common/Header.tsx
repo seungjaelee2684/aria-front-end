@@ -17,6 +17,8 @@ import { IoShareSocialOutline } from 'react-icons/io5';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import { CopyAlert } from '../../store/CopyAlert';
 import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
+import { popUpOpen } from '../../store/PopUpOpen';
+import PopUp from './PopUp';
 
 const Header = () => {
 
@@ -24,6 +26,7 @@ const Header = () => {
     const language = useRecoilValue(translate);
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
+    const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
 
@@ -48,6 +51,10 @@ const Header = () => {
     };
 
     useEffect(() => {
+        // setTimeout(() => {
+        //     setIsPopUp(true);
+        // }, 800);
+
         const handleClickOutside = (event: any) => {
           if (modalRef.current && !modalRef.current.contains(event.target)) {
             setLanguageModal(false);
@@ -129,6 +136,7 @@ const Header = () => {
         </HeaderLayoutContainer>
         {snsOpen && <SNSMenu />}
         {copyHandle && <CopyAlertModal />}
+        {/* {isPopUp && <PopUp />} */}
         {/* <ScrollBarContainer> */}
             {/* <ScrollBar /> */}
         {/* </ScrollBarContainer> */}

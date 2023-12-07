@@ -12,7 +12,8 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) =>
     const [, setLanguage] = useRecoilState(translate);
 
   return (
-    <ModalBackgroundContainer>
+    <div>
+        <ModalBackgroundContainer />
         <ModalContainer>
             <ModalLineContainer
                 onClick={() => {
@@ -43,19 +44,20 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) =>
                 한국어
             </ModalLineContainer>
         </ModalContainer>
-    </ModalBackgroundContainer>
+    </div>
   )
 };
 
 const ModalBackgroundContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 97;
+    display: none;
 
-    @media screen and (max-width: 500px) { 
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 97;
         background-color: #00000080;
         backdrop-filter: blur(5px); 
     }
@@ -67,8 +69,8 @@ const ModalContainer = styled.div`
     flex-direction: column;
     background-color: #222020;
     position: absolute;
-    top: 80px;
-    right: 10%;
+    top: 63px;
+    right: 70px;
     z-index: 98;
 
     @media screen and (max-width: 500px) {
