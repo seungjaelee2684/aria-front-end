@@ -263,7 +263,7 @@ const ButtonContainer = styled.div<{ color : string }>`
   align-items: center;
   border: 1px solid #ADADAD;
   font-family: "Pretendard";
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
   line-height: normal;
   gap: 20px;

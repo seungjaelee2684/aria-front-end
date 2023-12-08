@@ -78,7 +78,7 @@ const SNSMenu = () => {
   };
   
   return (
-    <MenuIconContainer className='MenuIconContainer'>
+    <MenuIconContainer>
       {/* <DiscordIcon> */}
       <MenuIcon
           title={onTitleReadyHandler(2)}
@@ -115,7 +115,16 @@ const SNSMenu = () => {
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+  height: 100%;
+
+  @media screen and (max-width: 1320px) {
+    gap: 14px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 12px;
+  }
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -203,15 +212,20 @@ const YoutubeIcon = styled.div`
 `;
 
 const MenuIcon = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   object-fit: cover;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   @media screen and (max-width: 1320px) {
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 18px;
+    height: 18px;
   }
 `;
 

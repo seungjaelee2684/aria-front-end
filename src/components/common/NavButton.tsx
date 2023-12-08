@@ -108,11 +108,11 @@ const TapOutContainer = styled.div`
     height: 50px;
 
     @media screen and (max-width: 1320px) {
-        gap: 80px;
+        gap: 70px;
     }
 
     @media screen and (max-width: 836px) {
-        gap: 40px;
+        gap: 30px;
     }
 
     @media screen and (max-width: 650px) {
@@ -138,7 +138,7 @@ const TapContainer = styled.div`
     font-family: 'LINESeedKR-Bd';
     font-size: 18px;
     /* color: #999999; */
-    color: #222020;
+    color: #9c9c9c;
     font-weight: normal;
     text-decoration: none;
     position: relative;
@@ -152,7 +152,7 @@ const TapContainer = styled.div`
     }
 
     @media screen and (max-width: 1320px) {
-        font-size: 16px;
+        font-size: 15px;
     }
     @media screen and (max-width: 836px) {
         font-size: 12px;
