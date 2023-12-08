@@ -274,6 +274,10 @@ const HeaderRightWrapper = styled.div`
     width: 74%;
     height: 100%;
     gap: 0px;
+
+    @media screen and (max-width: 1320px) {
+        width: 80%;
+    }
 `;
 
 const SmallButtonWrapper = styled.div`
@@ -296,7 +300,7 @@ const TranslateWrapper = styled.div`
     border: 1px solid #FFFFFF;
     color: #4c4c4c;
     background-color: #FFFFFF;
-    font-size: 16px;
+    font-size: 14px;
     gap: 4px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -351,7 +355,7 @@ const HomeBtnWrapper = styled.div`
     display: flex;
     align-items: center;
     font-family: "Pretendard";
-    font-size: 16px;
+    font-size: 14px;
     gap: 2px;
     color: #4c4c4c;
     border: 1px solid #FFFFFF;
@@ -424,8 +428,8 @@ const MobileNavButton = styled.div`
 
 const TransText = styled.div`
     font-family: "Pretendard";
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 12px;
+    font-weight: 400;
     line-height: normal;
     display: flex;
     justify-content: center;
@@ -445,6 +449,11 @@ const UnderLaneContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 1320px) {
+        justify-content: center;
+        gap: 10%;
+    }
 
     @media screen and (max-width: 500px) {
         display: none;
