@@ -89,9 +89,9 @@ const Footer = () => {
           <MenuIconContainer>
             <IconBoxWrapper>
               <MenuIcon
-                src={InstagramDefault}
+                src={DiscordDefault}
                 alt=''
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
+                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
@@ -101,9 +101,9 @@ const Footer = () => {
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
-                src={DiscordDefault}
+                src={InstagramDefault}
                 alt=''
-                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
+                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
             </IconBoxWrapper>
             <IconBoxWrapper>
               <MenuIcon
@@ -155,8 +155,8 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 300px;
-  background-color: #222020;
+  height: 250px;
+  background-color: #383636;
   color: #ADADAD;
   font-family: "Pretendard";
   font-size: 14px;
@@ -196,7 +196,7 @@ const FooterOutContainer = styled.div`
 
 const TopLaneHeader = styled.div`
   width: 100%;
-  min-height: 80px;
+  min-height: 50px;
   border-bottom: 1px solid #ADADAD;
   display: flex;
   justify-content: space-between;
@@ -236,7 +236,7 @@ const HomeButton = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 18px;
+  font-size: 16px;
 
   @media screen and (max-width: 1320px) {
     font-size: 16px;
@@ -262,8 +262,8 @@ const MenuIconContainer = styled.div`
 `;
 
 const IconBoxWrapper = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   display: flex;
   justify-content: center;
   align-items: center;

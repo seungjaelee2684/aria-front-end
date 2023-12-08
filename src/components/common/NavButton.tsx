@@ -105,14 +105,14 @@ const TapOutContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 120px;
-    height: 60px;
+    height: 50px;
 
     @media screen and (max-width: 1320px) {
-        gap: 100px;
+        gap: 80px;
     }
 
     @media screen and (max-width: 836px) {
-        gap: 80px;
+        gap: 40px;
     }
 
     @media screen and (max-width: 650px) {
@@ -132,7 +132,6 @@ const UnderBarContainer = styled.div`
 `;
 
 const TapContainer = styled.div`
-    padding: 5px 0px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -148,6 +147,7 @@ const TapContainer = styled.div`
     transition: all 0.4s ease;
 
     &:hover {
+        /* border-bottom: 4px solid #3c3ad6; */
         color: #3c3ad6;
     }
 

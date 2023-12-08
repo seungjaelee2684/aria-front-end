@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import './SNSMenu.css';
-import Instagram from '../../../assets/icons/insta.webp';
-import Twitter from '../../../assets/icons/twitter.webp';
-import Discord from '../../../assets/icons/discord.webp';
-import Youtube from '../../../assets/icons/youtube.webp';
+import Instagram from '../../../assets/icons/instablack.webp';
+import Twitter from '../../../assets/icons/twitterblack.webp';
+import Discord from '../../../assets/icons/discordblack.webp';
+import Youtube from '../../../assets/icons/youtubeblack.webp';
 import InstagramDefault from '../../../assets/icons/instadefault.png';
 import TwitterDefault from '../../../assets/icons/twitterdefault.png';
 import DiscordDefault from '../../../assets/icons/discorddefault.png';
@@ -79,53 +79,43 @@ const SNSMenu = () => {
   
   return (
     <MenuIconContainer className='MenuIconContainer'>
-      <InstaIcon>
+      {/* <DiscordIcon> */}
+      <MenuIcon
+          title={onTitleReadyHandler(2)}
+          src={Discord}
+          alt=''
+          onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
+      {/* </DiscordIcon> */}
+      {/* <TwitterIcon> */}
+      <MenuIcon
+          title={onTitleReadyHandler(1)}
+          src={Twitter}
+          alt=''
+          onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
+      {/* </TwitterIcon> */}
+      {/* <InstaIcon> */}
         <MenuIcon
           // className='MenuIcon'
           title={onTitleReadyHandler(0)}
           src={Instagram}
           alt=''
           onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
-      </InstaIcon>
-      <TwitterIcon>
-        <MenuIcon
-          title={onTitleReadyHandler(1)}
-          src={Twitter}
-          alt=''
-          onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
-      </TwitterIcon>
-      <DiscordIcon>
-        <MenuIcon
-          title={onTitleReadyHandler(2)}
-          src={Discord}
-          alt=''
-          onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
-      </DiscordIcon>
-      <YoutubeIcon>
+      {/* </InstaIcon> */}
+      {/* <YoutubeIcon> */}
         <MenuIcon
           title={onTitleReadyHandler(0)}
           src={Youtube}
           alt=''
           onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
-      </YoutubeIcon>
+      {/* </YoutubeIcon> */}
     </MenuIconContainer>
   )
 };
 
 const MenuIconContainer = styled.div`
-  position: fixed;
-  height: 400px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  top: 85px;
-  right: 15.2%;
-  z-index: 98;
-  gap: 8px;
-
-  @media screen and (max-width: 1320px) {
-    right: 2.1%;
-  }
+  gap: 16px;
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -213,15 +203,15 @@ const YoutubeIcon = styled.div`
 `;
 
 const MenuIcon = styled.img`
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  opacity: 0.8;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
-  &:hover {
-    opacity: 1;
+  @media screen and (max-width: 1320px) {
+    width: 32px;
+    height: 32px;
   }
 `;
 

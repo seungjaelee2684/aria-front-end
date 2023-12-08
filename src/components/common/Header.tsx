@@ -37,7 +37,7 @@ const Header = () => {
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
     const snsModalRef = useRef<HTMLDivElement>(null);
-    const [snsOpen, setSnsOpen] = useState<boolean>(false);
+    // const [snsOpen, setSnsOpen] = useState<boolean>(false);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -66,24 +66,24 @@ const Header = () => {
         };
     });
 
-    useEffect(() => {
-        // setTimeout(() => {
-        //     setIsPopUp(true);
-        // }, 800);
+    // useEffect(() => {
+    //     // setTimeout(() => {
+    //     //     setIsPopUp(true);
+    //     // }, 800);
 
-        const handleClickOutside = (event: any) => {
-          if (modalRef.current && !modalRef.current.contains(event.target)) {
-            setLanguageModal(false);
-          };
-          if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
-            setSnsOpen(false);
-          };
-        };
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-          document.removeEventListener("click", handleClickOutside);
-        };
-    }, []);
+    //     const handleClickOutside = (event: any) => {
+    //       if (modalRef.current && !modalRef.current.contains(event.target)) {
+    //         setLanguageModal(false);
+    //       };
+    //       if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
+    //         setSnsOpen(false);
+    //       };
+    //     };
+    //     document.addEventListener("click", handleClickOutside);
+    //     return () => {
+    //       document.removeEventListener("click", handleClickOutside);
+    //     };
+    // }, []);
 
     // useEffect(() => {
     //     if (hoverRef.current) {
@@ -132,7 +132,7 @@ const Header = () => {
                                 {/* <TranslateText>{languageChange()}</TranslateText> */}
                                 {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                             <TransText>
-                                Home
+                                HOME
                             </TransText>
                         </HomeBtnWrapper>
                         <BarContainer />
@@ -149,23 +149,25 @@ const Header = () => {
                                 && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
-                        <BarContainer />
+                        {/* <BarContainer />
                         <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                             <IoShareSocialOutline />
                             <TransText>
                                 Social
                             </TransText>
-                        </SNSModalContainer>
+                        </SNSModalContainer> */}
                     </SmallButtonWrapper>
-                    <NavButtonContainer>
-                        <NavButton />
-                    </NavButtonContainer>
+                    <UnderLaneContainer>
+                        <NavButtonContainer>
+                            <NavButton />
+                        </NavButtonContainer>
+                        <SNSMenu />
+                    </UnderLaneContainer>
                     {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {/* </RightWrapper> */}
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        {snsOpen && <SNSMenu />}
         {copyHandle && <CopyAlertModal />}
         {/* {isPopUp && <PopUp />} */}
         {/* <ScrollBarContainer> */}
@@ -269,18 +271,22 @@ const HeaderRightWrapper = styled.div`
     flex-direction: column;
     /* align-items: center; */
     /* gap: 25px; */
-    width: 70%;
+    width: 74%;
     height: 100%;
     gap: 0px;
 `;
 
 const SmallButtonWrapper = styled.div`
-    width: 100%;
-    height: 20px;
+    width: 90%;
+    height: 30px;
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+
+    @media screen and (max-width: 500px) {
+        height: 100%;
+    }
 `;
 
 const TranslateWrapper = styled.div`
@@ -288,10 +294,10 @@ const TranslateWrapper = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #FFFFFF;
-    color: #ADADAD;
+    color: #4c4c4c;
     background-color: #FFFFFF;
-    font-size: 14px;
-    gap: 2px;
+    font-size: 16px;
+    gap: 4px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -345,9 +351,9 @@ const HomeBtnWrapper = styled.div`
     display: flex;
     align-items: center;
     font-family: "Pretendard";
-    font-size: 14px;
+    font-size: 16px;
     gap: 2px;
-    color: #ADADAD;
+    color: #4c4c4c;
     border: 1px solid #FFFFFF;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -367,7 +373,7 @@ const SNSModalContainer = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #FFFFFF;
-    color: #ADADAD;
+    color: #4c4c4c;
     font-size: 14px;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -418,8 +424,8 @@ const MobileNavButton = styled.div`
 
 const TransText = styled.div`
     font-family: "Pretendard";
-    font-size: 11px;
-    font-weight: 200;
+    font-size: 14px;
+    font-weight: 300;
     line-height: normal;
     display: flex;
     justify-content: center;
@@ -430,6 +436,18 @@ const TransText = styled.div`
         height: auto;
         font-weight: 600;
         font-size: 14px;
+    }
+`;
+
+const UnderLaneContainer = styled.div`
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 500px) {
+        display: none;
     }
 `;
 
