@@ -156,7 +156,7 @@ const Footer = () => {
 const FooterContainer = styled.div`
   width: 100%;
   height: 250px;
-  background-color: #383636;
+  background-color: #333030;
   color: #ADADAD;
   font-family: "Pretendard";
   font-size: 14px;
@@ -267,7 +267,7 @@ const IconBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #131212;
+  background-color: #252424;
   cursor: pointer;
   
   &:hover {
