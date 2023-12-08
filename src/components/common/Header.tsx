@@ -37,7 +37,7 @@ const Header = () => {
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
     const snsModalRef = useRef<HTMLDivElement>(null);
-    const [snsOpen, setSnsOpen] = useState<boolean>(false);
+    // const [snsOpen, setSnsOpen] = useState<boolean>(false);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -66,24 +66,24 @@ const Header = () => {
         };
     });
 
-    useEffect(() => {
-        // setTimeout(() => {
-        //     setIsPopUp(true);
-        // }, 800);
+    // useEffect(() => {
+    //     // setTimeout(() => {
+    //     //     setIsPopUp(true);
+    //     // }, 800);
 
-        const handleClickOutside = (event: any) => {
-          if (modalRef.current && !modalRef.current.contains(event.target)) {
-            setLanguageModal(false);
-          };
-          if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
-            setSnsOpen(false);
-          };
-        };
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-          document.removeEventListener("click", handleClickOutside);
-        };
-    }, []);
+    //     const handleClickOutside = (event: any) => {
+    //       if (modalRef.current && !modalRef.current.contains(event.target)) {
+    //         setLanguageModal(false);
+    //       };
+    //       if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
+    //         setSnsOpen(false);
+    //       };
+    //     };
+    //     document.addEventListener("click", handleClickOutside);
+    //     return () => {
+    //       document.removeEventListener("click", handleClickOutside);
+    //     };
+    // }, []);
 
     // useEffect(() => {
     //     if (hoverRef.current) {
@@ -150,22 +150,24 @@ const Header = () => {
                                     setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
                         <BarContainer />
-                        <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
+                        {/* <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                             <IoShareSocialOutline />
                             <TransText>
                                 Social
                             </TransText>
-                        </SNSModalContainer>
+                        </SNSModalContainer> */}
                     </SmallButtonWrapper>
-                    <NavButtonContainer>
-                        <NavButton />
-                    </NavButtonContainer>
+                    <UnderLaneContainer>
+                        <NavButtonContainer>
+                            <NavButton />
+                        </NavButtonContainer>
+                        <SNSMenu />
+                    </UnderLaneContainer>
                     {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {/* </RightWrapper> */}
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        {snsOpen && <SNSMenu />}
         {copyHandle && <CopyAlertModal />}
         {/* {isPopUp && <PopUp />} */}
         {/* <ScrollBarContainer> */}
@@ -269,7 +271,7 @@ const HeaderRightWrapper = styled.div`
     flex-direction: column;
     /* align-items: center; */
     /* gap: 25px; */
-    width: 80%;
+    width: 70%;
     height: 100%;
     gap: 0px;
 `;
@@ -281,6 +283,10 @@ const SmallButtonWrapper = styled.div`
     justify-content: end;
     align-items: center;
     gap: 8px;
+
+    @media screen and (max-width: 500px) {
+        height: 100%;
+    }
 `;
 
 const TranslateWrapper = styled.div`
@@ -430,6 +436,18 @@ const TransText = styled.div`
         height: auto;
         font-weight: 600;
         font-size: 14px;
+    }
+`;
+
+const UnderLaneContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 500px) {
+        display: none;
     }
 `;
 

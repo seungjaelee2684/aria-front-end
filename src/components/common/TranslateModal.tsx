@@ -59,7 +59,8 @@ const ModalBackgroundContainer = styled.div`
         left: 0;
         z-index: 97;
         background-color: #00000080;
-        backdrop-filter: blur(5px); 
+        backdrop-filter: blur(5px);
+        display: block;
     }
 `;
 
@@ -69,7 +70,7 @@ const ModalContainer = styled.div`
     flex-direction: column;
     background-color: #222020;
     position: absolute;
-    top: 20px;
+    top: 26px;
     right: -10px;
     z-index: 98;
 
