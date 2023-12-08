@@ -149,8 +149,8 @@ const Header = () => {
                                 && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
-                        <BarContainer />
-                        {/* <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
+                        {/* <BarContainer />
+                        <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
                             <IoShareSocialOutline />
                             <TransText>
                                 Social
