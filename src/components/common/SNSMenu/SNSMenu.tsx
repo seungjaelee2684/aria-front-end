@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import './SNSMenu.css';
-import Instagram from '../../../assets/icons/insta.webp';
-import Twitter from '../../../assets/icons/twitter.webp';
-import Discord from '../../../assets/icons/discord.webp';
-import Youtube from '../../../assets/icons/youtube.webp';
+import Instagram from '../../../assets/icons/instablack.webp';
+import Twitter from '../../../assets/icons/twitterblack.webp';
+import Discord from '../../../assets/icons/discordblack.webp';
+import Youtube from '../../../assets/icons/youtubeblack.webp';
 import InstagramDefault from '../../../assets/icons/instadefault.png';
 import TwitterDefault from '../../../assets/icons/twitterdefault.png';
 import DiscordDefault from '../../../assets/icons/discorddefault.png';
@@ -115,7 +115,7 @@ const SNSMenu = () => {
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 16px;
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -203,8 +203,8 @@ const YoutubeIcon = styled.div`
 `;
 
 const MenuIcon = styled.img`
-  width: 38px;
-  height: 38px;
+  width: 24px;
+  height: 24px;
   object-fit: cover;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
