@@ -132,7 +132,6 @@ const UnderBarContainer = styled.div`
 `;
 
 const TapContainer = styled.div`
-    padding: 5px 0px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -148,6 +147,7 @@ const TapContainer = styled.div`
     transition: all 0.4s ease;
 
     &:hover {
+        /* border-bottom: 4px solid #3c3ad6; */
         color: #3c3ad6;
     }
 

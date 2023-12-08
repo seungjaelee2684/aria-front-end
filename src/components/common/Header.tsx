@@ -269,7 +269,7 @@ const HeaderRightWrapper = styled.div`
     flex-direction: column;
     /* align-items: center; */
     /* gap: 25px; */
-    width: 70%;
+    width: 80%;
     height: 100%;
     gap: 0px;
 `;
@@ -288,7 +288,7 @@ const TranslateWrapper = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #FFFFFF;
-    color: #ADADAD;
+    color: #4c4c4c;
     background-color: #FFFFFF;
     font-size: 14px;
     gap: 2px;
@@ -347,7 +347,7 @@ const HomeBtnWrapper = styled.div`
     font-family: "Pretendard";
     font-size: 14px;
     gap: 2px;
-    color: #ADADAD;
+    color: #4c4c4c;
     border: 1px solid #FFFFFF;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -367,7 +367,7 @@ const SNSModalContainer = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #FFFFFF;
-    color: #ADADAD;
+    color: #4c4c4c;
     font-size: 14px;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -419,7 +419,7 @@ const MobileNavButton = styled.div`
 const TransText = styled.div`
     font-family: "Pretendard";
     font-size: 11px;
-    font-weight: 200;
+    font-weight: 300;
     line-height: normal;
     display: flex;
     justify-content: center;
