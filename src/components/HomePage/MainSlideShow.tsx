@@ -7,10 +7,11 @@ const MainSlideShow = () => {
 
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(0);
+    const widthMove = mainSlideCurrent * 100
 
     useEffect(() => {
         if (mainSlideDivRef.current) {
-            mainSlideDivRef.current.style.transform = ``;
+            mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
         };
     }, [mainSlideCurrent]);
 
@@ -47,8 +48,12 @@ const MainSlideShow = () => {
                     </SlideButton>
                 )
             })}
-            <SlideButton>P</SlideButton>
-            <SlideButton>N</SlideButton>
+            <SlideButton onClick={onClickMainPrevHandler}>
+                P
+            </SlideButton>
+            <SlideButton onClick={onClickMainNextHandler}>
+                N
+            </SlideButton>
         </NextPrevButtonWrapper>
     </SlideShowOutContainer>
   )
@@ -99,6 +104,11 @@ const SlideButton = styled.div`
     font-weight: 600;
     line-height: normal;
     color: #222020;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #d3d3d3;
+    }
 `;
 
 export default MainSlideShow;
