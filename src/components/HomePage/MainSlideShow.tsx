@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import SlideImg from '../../assets/images/mentorimage.webp';
 import { MainBannertData } from '../../data/MainBannerData';
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const MainSlideShow = () => {
 
@@ -46,16 +48,31 @@ const MainSlideShow = () => {
         <NextPrevButtonWrapper>
             {MainBannertData?.map((item) => {
                 return (
-                    <SlideButton key={item?.id}>
+                    <SlideButton
+                        key={item?.id}
+                        style={{
+                            color: `${(mainSlideCurrent === MainBannertData?.indexOf(item)) ? "#3c3ad6" : "gold"}`,
+                            border: `1px solid ${(mainSlideCurrent === MainBannertData?.indexOf(item)) ? "#3c3ad6" : "gold"}`
+                        }}>
                         {MainBannertData?.indexOf(item) + 1}
                     </SlideButton>
                 )
             })}
-            <SlideButton onClick={onClickMainPrevHandler}>
-                P
+            <SlideButton
+                style={{
+                    color: "#222020",
+                    border: "1px solid #222020"
+                }}
+                onClick={onClickMainPrevHandler}>
+                <IoIosArrowBack />
             </SlideButton>
-            <SlideButton onClick={onClickMainNextHandler}>
-                N
+            <SlideButton
+                style={{
+                    color: "#222020",
+                    border: "1px solid #222020"
+                }}
+                onClick={onClickMainNextHandler}>
+                <IoIosArrowForward />
             </SlideButton>
         </NextPrevButtonWrapper>
     </SlideShowOutContainer>
@@ -90,14 +107,14 @@ const NextPrevButtonWrapper = styled.div`
     align-items: center;
     gap: 16px;
     position: absolute;
-    bottom: 10%;
-    left: 10%;
+    bottom: 15%;
+    left: 15%;
 `;
 
 const SlideButton = styled.div`
     width: 32px;
     height: 32px;
-    border: 1px solid yellow;
+    border: 1px solid gold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,11 +122,11 @@ const SlideButton = styled.div`
     font-size: 18px;
     font-weight: 600;
     line-height: normal;
-    color: #222020;
+    color: gold;
     cursor: pointer;
 
     &:hover {
-        background-color: #d3d3d3;
+
     }
 `;
 
