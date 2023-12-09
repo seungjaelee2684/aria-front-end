@@ -11,6 +11,7 @@ const MainSlideShow = () => {
 
     useEffect(() => {
         if (mainSlideDivRef.current) {
+            mainSlideDivRef.current.style.transition = "all 0.8s ease-in-out";
             mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
         };
     }, [mainSlideCurrent]);
@@ -18,15 +19,17 @@ const MainSlideShow = () => {
     const onClickMainPrevHandler = () => {
         if (mainSlideCurrent === 0) {
             setMainSlideCurrent(MainBannertData?.length - 1);
+        } else {
+            setMainSlideCurrent(mainSlideCurrent - 1);
         };
-        setMainSlideCurrent(mainSlideCurrent - 1);
     };
 
     const onClickMainNextHandler = () => {
         if (mainSlideCurrent === MainBannertData?.length - 1) {
             setMainSlideCurrent(0);
+        } else {
+            setMainSlideCurrent(mainSlideCurrent + 1);
         };
-        setMainSlideCurrent(mainSlideCurrent + 1);
     };
 
   return (
@@ -71,7 +74,6 @@ const SlideWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    transition: all 0.3 ease-out;
 `;
 
 const SlideImage = styled.div<{ src : string }>`
