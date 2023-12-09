@@ -7,6 +7,7 @@ import '../components/HomePage/MainImage/MainImage.css';
 import { useRecoilState } from 'recoil';
 import { MainPageNumber } from '../store/MainPageNumber';
 import SecondPageImage from '../components/HomePage/SecondPageImage';
+import MainSlideShow from '../components/HomePage/MainSlideShow';
 
 const DIVIDER_HEIGHT = 5;
 
@@ -69,7 +70,7 @@ const Home = () => {
 
   return (
     <MainLayout>
-        
+        <MainSlideShow />
     </MainLayout>
   )
 };
@@ -78,9 +79,10 @@ const MainLayout = styled.div`
     width: 100%;
     overflow-y: hidden;
     position: relative;
-    display: grid;
+    display: flex;
     justify-content: center;
     z-index: 97;
+    padding: 80px 0px 0px 0px;
 `;
 
 const MainImageContainer = styled.div`
