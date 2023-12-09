@@ -15,91 +15,61 @@ const Home = () => {
     const outerDivRef = useRef<HTMLDivElement>(null);
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
 
-    useEffect(() => {
-        const wheelEventHandler = (e : any) => {
-            if (outerDivRef.current) {
-                const { deltaY } = e;
-                const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-                const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+//     useEffect(() => {
+//         const wheelEventHandler = (e : any) => {
+//             if (outerDivRef.current) {
+//                 const { deltaY } = e;
+//                 const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+//                 const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-                if (deltaY > 0) {
-                    // 스크롤 내릴 때
-                    if (scrollTop >= 0 && scrollTop < pageHeight) {
-                    //현재 1페이지
-                    console.log("현재 1페이지, down");
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight + DIVIDER_HEIGHT,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setScrollIndex(2);
-                    };
-                } else {
-                    // 스크롤 올릴 때
-                    if (scrollTop >= 0 && scrollTop < pageHeight) {
-                    //현재 1페이지
-                    console.log("현재 1페이지, up");
-                    outerDivRef.current.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setScrollIndex(1);
-                    } else {
-                    //현재 2페이지
-                    console.log("현재 2페이지, up");
-                    outerDivRef.current.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setScrollIndex(1);
-                    }
-                }
-                }
-            };
-    if (outerDivRef.current) {
-        const outerDivRefCurrent = outerDivRef.current;
-        outerDivRefCurrent.addEventListener("wheel", wheelEventHandler);
-        return () => {
-        outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
-        };
-    };  
-  }, []);
+//                 if (deltaY > 0) {
+//                     // 스크롤 내릴 때
+//                     if (scrollTop >= 0 && scrollTop < pageHeight) {
+//                     //현재 1페이지
+//                     console.log("현재 1페이지, down");
+//                     outerDivRef.current.scrollTo({
+//                         top: pageHeight + DIVIDER_HEIGHT,
+//                         left: 0,
+//                         behavior: "smooth",
+//                     });
+//                     setScrollIndex(2);
+//                     };
+//                 } else {
+//                     // 스크롤 올릴 때
+//                     if (scrollTop >= 0 && scrollTop < pageHeight) {
+//                     //현재 1페이지
+//                     console.log("현재 1페이지, up");
+//                     outerDivRef.current.scrollTo({
+//                         top: 0,
+//                         left: 0,
+//                         behavior: "smooth",
+//                     });
+//                     setScrollIndex(1);
+//                     } else {
+//                     //현재 2페이지
+//                     console.log("현재 2페이지, up");
+//                     outerDivRef.current.scrollTo({
+//                         top: 0,
+//                         left: 0,
+//                         behavior: "smooth",
+//                     });
+//                     setScrollIndex(1);
+//                     }
+//                 }
+//                 }
+//             };
+//     if (outerDivRef.current) {
+//         const outerDivRefCurrent = outerDivRef.current;
+//         outerDivRefCurrent.addEventListener("wheel", wheelEventHandler);
+//         return () => {
+//         outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
+//         };
+//     };  
+//   }, []);
 
   return (
     <MainLayout>
-        <PageBarOutContainer>
-            <PageBarContainer>
-                <PageNumberWrapper
-                    // className={(scrollIndex === 1) ? "PageNumberWrapper" : "NonePageNumberWrapper"}
-                    style={{
-                        top: `${(scrollIndex === 1) ? "-6px" : ""}`,
-                        bottom: `${(scrollIndex === 2) ? "-6px" : ""}`
-                    }}    
-                ></PageNumberWrapper>
-                <PageNumber
-                    style={{
-                        backgroundColor: `${(scrollIndex === 1) ? "#FFFFFF" : "#ffffffbe"}`
-                    }}/>
-                <PageNumber 
-                    style={{
-                        backgroundColor: `${(scrollIndex === 2) ? "#FFFFFF" : "#ffffffbe"}`
-                    }}/>
-            </PageBarContainer>
-        </PageBarOutContainer>
-        <MainImageContainer>
-            <ImageWrapper ref={outerDivRef}>
-                <ImageBoxWrapper>
-                    <GradientContainer />
-                    <ObjectImage
-                        className={(scrollIndex === 1) ? "CharactorImage" : "NoneCharactorImage"}
-                        src={MainCharactor}/>
-                    <Images src={MainBG} alt=''/>
-                </ImageBoxWrapper>
-                <SecondPageImage />
-            </ImageWrapper>
-        </MainImageContainer>
+        
     </MainLayout>
   )
 };
