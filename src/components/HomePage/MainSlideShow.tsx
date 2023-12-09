@@ -1,10 +1,25 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import SlideImg from '../../assets/images/mentorimage.webp';
+import { MainBannertData } from '../../data/MainBannerData';
 
 const MainSlideShow = () => {
 
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
+    const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(0);
+
+    useEffect(() => {
+        if (mainSlideDivRef.current) {
+            mainSlideDivRef.current.style.transform = ``;
+        };
+    }, [mainSlideCurrent]);
+
+    const onClickMainPrevHandler = () => {
+        if (mainSlideCurrent === 0) {
+            setMainSlideCurrent(MainBannertData?.length - 1);
+        };
+        setMainSlideCurrent(mainSlideCurrent + 1);
+    };
 
   return (
     <SlideShowOutContainer>
@@ -20,6 +35,11 @@ const SlideShowOutContainer = styled.div`
     height: 600px;
     position: relative;
     background-color: #e9e9e9;
+`;
+
+const SlideWrapper = styled.div`
+    height: 100%;
+    transition: all 0.3 ease-out;
 `;
 
 const SlideImage = styled.div<{ src : string }>`
