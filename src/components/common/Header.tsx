@@ -352,6 +352,7 @@ const BarContainer = styled.div`
 `;
 
 const HomeBtnWrapper = styled.div`
+    height: 100%;
     display: flex;
     align-items: center;
     font-family: "Pretendard";
@@ -369,7 +370,7 @@ const HomeBtnWrapper = styled.div`
 
 const TranslateContainer = styled.div`
     /* min-width: 3%; */
-    height: 100%;
+    /* height: 100%; */
     position: relative;
 `;
 
