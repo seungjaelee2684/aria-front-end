@@ -136,7 +136,7 @@ const TapContainer = styled.div`
     display: flex;
     align-items: center;
     font-family: 'LINESeedKR-Bd';
-    font-size: 18px;
+    font-size: 17px;
     /* color: #999999; */
     color: #9c9c9c;
     font-weight: normal;
