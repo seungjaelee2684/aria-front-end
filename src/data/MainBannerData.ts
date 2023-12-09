@@ -1,3 +1,6 @@
+import Image from '../assets/images/mentorimage.webp';
+import Image2 from '../assets/images/mentorimage2.webp';
+
 export const MainBannertData = [
     {
         id: "1",
@@ -5,7 +8,7 @@ export const MainBannertData = [
         englishname: "MinGyu",
         nickname: "민규",
         content: "",
-        // image: Image,
+        image: Image,
         // nickimage: MentorNickname,
         status: ""
     },
@@ -15,7 +18,7 @@ export const MainBannertData = [
         englishname: "Shal.E",
         nickname: "샬e",
         content: "",
-        // image: Image2,
+        image: Image2,
         // nickimage: MentorNickname,
         status: "Left"
     },
@@ -25,7 +28,7 @@ export const MainBannertData = [
         englishname: "Chan",
         nickname: "챤",
         content: "",
-        // image: Image,
+        image: Image,
         // nickimage: MentorNickname,
         status: ""
     },
@@ -35,7 +38,7 @@ export const MainBannertData = [
         englishname: "Shumolly",
         nickname: "슈몰리",
         content: "",
-        // image: Image2,
+        image: Image2,
         // nickimage: MentorNickname,
         status: "Left"
     },
