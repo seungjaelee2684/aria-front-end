@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
+import { IoShareSocial } from "react-icons/io5";
 
 const SNSMenu = () => {
 
@@ -79,6 +80,9 @@ const SNSMenu = () => {
   
   return (
     <MenuIconContainer>
+      <SocialIcon>
+        <IoShareSocial />
+      </SocialIcon>
       {/* <DiscordIcon> */}
       <MenuIcon
           title={onTitleReadyHandler(2)}
@@ -115,19 +119,43 @@ const SNSMenu = () => {
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   height: 100%;
 
   @media screen and (max-width: 1320px) {
-    gap: 14px;
+    gap: 12px;
   }
 
   @media screen and (max-width: 836px) {
-    gap: 12px;
+    gap: 10px;
   }
 
   @media screen and (max-width: 500px) {
     display: none;
+  }
+`;
+
+const SocialIcon = styled.div`
+  width: 34px;
+  height: 34px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #56a0e0;
+  color: #FCFCFC;
+  border-radius: 100%;
+
+  @media screen and (max-width: 1320px) {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
   }
 `;
 

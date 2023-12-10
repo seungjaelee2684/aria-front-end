@@ -258,7 +258,7 @@ const HeaderLogo = styled.img`
     }
 
     @media screen and (max-width: 836px) {
-        width: 90px;
+        width: 80px;
     }
 
     @media screen and (max-width: 500px) {
@@ -278,6 +278,10 @@ const HeaderRightWrapper = styled.div`
     @media screen and (max-width: 1320px) {
         width: 80%;
     }
+
+    @media screen and (max-width: 836px) {
+        width: 78%;
+    }
 `;
 
 const SmallButtonWrapper = styled.div`
@@ -289,6 +293,7 @@ const SmallButtonWrapper = styled.div`
     gap: 12px;
 
     @media screen and (max-width: 500px) {
+        width: 100%;
         height: 100%;
     }
 `;
@@ -349,6 +354,10 @@ const BarContainer = styled.div`
     width: 1px;
     height: 10px;
     background-color: #e9e9e9;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const HomeBtnWrapper = styled.div`
@@ -365,6 +374,10 @@ const HomeBtnWrapper = styled.div`
 
     &:hover {
         color: #222020;
+    }
+
+    @media screen and (max-width: 500px) {
+        display: none;
     }
 `;
 
