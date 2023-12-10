@@ -70,6 +70,17 @@ const NotificationList = () => {
                 </TotalWrapper>
             </TitleContainer>
             <ListContainer>
+                <LineContainer style={{height: "10px"}}>
+                    <TopLaneLeftText>
+                        분류
+                    </TopLaneLeftText>
+                    <TopLaneCenterText>
+                        제목
+                    </TopLaneCenterText>
+                    <TopLaneRightText>
+                        날짜
+                    </TopLaneRightText>
+                </LineContainer>
                 {NotificationData?.map((item : any) => {
                     return (
                         (NotificationData.indexOf(item) === NotificationData.length - 1)
@@ -78,34 +89,32 @@ const NotificationList = () => {
                                 style={{borderBottom: "none"}}>
                                 <ContentWrapper>
                                     <NoticeIcon>
-                                        <AiOutlineNotification />
+                                        Notice
                                     </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
-                                <RightWrapper onClick={() => onClickNoticeHandler(item)}>
+                                <RightWrapper>
                                     <RightText>
                                         ARIA | {item?.date}
                                     </RightText>
-                                    <IoIosArrowForward />
                                 </RightWrapper>
                             </LineContainer>
                             : <LineContainer
                                 key={item.id}>
                                 <ContentWrapper>
                                     <NoticeIcon>
-                                        <AiOutlineNotification />
+                                        Notice
                                     </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
                                     </Text>  
                                 </ContentWrapper>
-                                <RightWrapper onClick={() => onClickNoticeHandler(item)}>
+                                <RightWrapper>
                                     <RightText>
                                         ARIA | {item?.date}
                                     </RightText>
-                                    <IoIosArrowForward />
                                 </RightWrapper>
                             </LineContainer>
                     )
@@ -185,6 +194,8 @@ const ListContainer = styled.div`
 `;
 
 const LineContainer = styled.div`
+    font-family: "Pretendard";
+    line-height: normal;
     height: 30px;
     padding: 30px 16px;
     display: flex;
@@ -217,7 +228,7 @@ const Text = styled.div`
     cursor: pointer;
 
     &:hover {
-        color: #8f8f8f;
+        text-decoration: underline;
     }
 
     @media screen and (max-width: 500px) {
@@ -226,9 +237,10 @@ const Text = styled.div`
 `;
 
 const NoticeIcon = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: 24px;
+    font-family: "Pretendard";
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
     color: red;
 
     @media screen and (max-width: 836px) {
@@ -244,7 +256,6 @@ const RightWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
-    cursor: pointer;
 
     @media screen and (max-width: 500px) {
         font-size: 12px;
@@ -278,6 +289,37 @@ const ArrowIcon = styled.img`
     @media screen and (max-width: 500px) {
         width: 16px;
         height: 16px;
+    }
+`;
+
+export const TopLaneLeftText = styled.div`
+    font-size: 18px;
+    font-weight: 600;
+    color: #222020;
+
+    @media screen and (max-width: 836px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    }
+`;
+
+const TopLaneCenterText = styled(TopLaneLeftText)`
+    display: flex;
+    justify-content: center;
+`;
+
+const TopLaneRightText = styled(TopLaneLeftText)`
+    margin-right: 40px;
+
+    @media screen and (max-width: 836px) {
+        margin-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+        margin-right: 20px;
     }
 `;
 

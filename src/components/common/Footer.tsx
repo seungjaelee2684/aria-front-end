@@ -172,7 +172,7 @@ const FooterContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     margin-top: 180px;
-    height: 250px;
+    height: 240px;
   }
 
   @media screen and (max-width: 500px) {
@@ -203,7 +203,7 @@ const TopLaneHeader = styled.div`
   align-items: center;
 
   @media screen and (max-width: 836px) {
-    min-height: 60px;
+    min-height: 40px;
   }
 
   @media screen and (max-width: 500px) {
@@ -217,6 +217,10 @@ const LeftTopLaneContainer = styled.div`
   gap: 50px;
   color: #e9e9e9;
 
+  @media screen and (max-width: 836px) {
+    gap: 30px;
+  }
+
   @media screen and (max-width: 500px) {
     gap: 20px;
   }
@@ -228,6 +232,10 @@ const HomeButton = styled.div`
 
   &:hover {
     color: #ADADAD;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 14px;
   }
 
   @media screen and (max-width: 500px) {
@@ -243,7 +251,7 @@ const Text = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   @media screen and (max-width: 500px) {
@@ -275,8 +283,8 @@ const IconBoxWrapper = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
   }
 `;
 
@@ -286,8 +294,8 @@ const MenuIcon = styled.img`
   object-fit: contain;
 
   @media screen and (max-width: 836px) {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 `;
 
@@ -300,7 +308,7 @@ const FooterOutWrapper = styled.div`
   margin: 40px 0px;
 
   @media screen and (max-width: 836px) {
-    gap: 80px;
+    gap: 50px;
     margin: 30px 0px;
   }
 

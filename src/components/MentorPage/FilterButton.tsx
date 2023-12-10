@@ -48,8 +48,10 @@ const FilterButton = () => {
   return (
     <FilterButtonContainer>
         <LayOutTitleContainer>
-            {/* <BarContainer /> */}
-            Artist
+            A
+            <BarContainer />
+            <TitleText>R</TitleText>
+            TIST
         </LayOutTitleContainer>
         <FilterButtonWrapper>
             <NationFilter>
@@ -73,6 +75,7 @@ const FilterButton = () => {
                     <MobileFilterButton
                         key={item?.nation}
                         style={{
+                            boxShadow: `${(nationkind === item?.nation) ? "rgba(63, 71, 77, 0.2) 0px 0px 10px 0px" : ""}`,
                             borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
                             borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
                             color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
@@ -118,21 +121,37 @@ const LayOutTitleContainer = styled.div`
     font-family: 'LINESeedKR-Bd';
     font-size: 32px;
     font-weight: 700;
-    line-height: 150%;
+    line-height: 160%;
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: linear-gradient(to right, #6df1ff, #3c3ad6, #530898, #000a3b);
-    -webkit-background-clip: text;
-    color: transparent;
+    gap: 0px;
+    color: #222020;
     user-select: none;
+    position: relative;
     /* border-left: 4px solid #3c3ad6; */
+
+    @media screen and (max-width: 500px) {
+        font-size: 24px;
+        line-height: 160%;
+    }
+`;
+
+const TitleText = styled.div`
+    color: #7769D0;
 `;
 
 const BarContainer = styled.div`
-    width: 4px;
-    height: 40px;
-    background-color: #3c3ad6;
+    width: 80px;
+    height: 4px;
+    background-color: #222020;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @media screen and (max-width: 500px) {
+        width: 50px;
+        height: 3px;
+    }
 `;
 
 const FilterButtonWrapper = styled.div`
@@ -196,7 +215,7 @@ const MobileFilterButtonWrapper = styled.div`
     @media screen and (max-width: 500px) {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 3px;
         width: 100%;
     }
 `;
@@ -221,7 +240,7 @@ const MobileFilterButton = styled.div`
         border-image-slice: 1;
         color: #ADADAD;
         font-family: "Pretendard";
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 300;
         line-height: normal;
     }

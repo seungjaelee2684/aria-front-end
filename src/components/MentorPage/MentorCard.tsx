@@ -37,7 +37,7 @@ const CardContainer = styled.div`
   /* border: 1px solid; */
   /* border-radius: 10px; */
   background-color: #FFFFFF;
-  
+  /* overflow: hidden; */
   transition: all 0.2s ease-in-out;
 
   &:hover {
