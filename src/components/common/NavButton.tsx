@@ -104,7 +104,7 @@ const TapOutContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px;
+    gap: 110px;
     height: 50px;
 
     @media screen and (max-width: 1320px) {
@@ -112,11 +112,11 @@ const TapOutContainer = styled.div`
     }
 
     @media screen and (max-width: 836px) {
-        gap: 30px;
+        gap: 20px;
     }
 
     @media screen and (max-width: 650px) {
-        gap: 24px;
+        gap: 14px;
     }
 `;
 
@@ -136,7 +136,7 @@ const TapContainer = styled.div`
     display: flex;
     align-items: center;
     font-family: 'LINESeedKR-Bd';
-    font-size: 17px;
+    font-size: 16px;
     /* color: #999999; */
     color: #9c9c9c;
     font-weight: normal;
@@ -152,10 +152,10 @@ const TapContainer = styled.div`
     }
 
     @media screen and (max-width: 1320px) {
-        font-size: 15px;
+        font-size: 14px;
     }
     @media screen and (max-width: 836px) {
-        font-size: 12px;
+        font-size: 10px;
     }
 `;
 

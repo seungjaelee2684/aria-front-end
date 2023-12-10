@@ -130,6 +130,10 @@ const MonitorContainer = styled.div`
     align-items: center;
   }
 
+  @media screen and (max-width: 836px) {
+    min-width: 500px;
+  }
+
   @media screen and (max-width: 500px) {
     min-width: 300px;
   }
@@ -184,6 +188,11 @@ const TitleContainer = styled.div`
   align-items: center;
   color: #222020;
   gap: 16px;
+
+  @media screen and (max-width: 836px) {
+    font-size: 28px;
+    gap: 12px;
+  }
 
   @media screen and (max-width: 500px) {
     font-size: 22px;
