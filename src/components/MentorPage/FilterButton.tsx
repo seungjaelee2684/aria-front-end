@@ -48,8 +48,10 @@ const FilterButton = () => {
   return (
     <FilterButtonContainer>
         <LayOutTitleContainer>
-            {/* <BarContainer /> */}
-            Artist
+            A
+            <BarContainer />
+            <TitleText>R</TitleText>
+            TIST
         </LayOutTitleContainer>
         <FilterButtonWrapper>
             <NationFilter>
@@ -121,18 +123,24 @@ const LayOutTitleContainer = styled.div`
     line-height: 150%;
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: linear-gradient(to right, #6df1ff, #3c3ad6, #530898, #000a3b);
-    -webkit-background-clip: text;
-    color: transparent;
+    gap: 0px;
+    color: #222020;
     user-select: none;
+    position: relative;
     /* border-left: 4px solid #3c3ad6; */
 `;
 
+const TitleText = styled.div`
+    color: #7769D0;
+`;
+
 const BarContainer = styled.div`
-    width: 4px;
-    height: 40px;
-    background-color: #3c3ad6;
+    width: 80px;
+    height: 4px;
+    background-color: #22202080;
+    position: absolute;
+    top: -8px;
+    right: 0;
 `;
 
 const FilterButtonWrapper = styled.div`
