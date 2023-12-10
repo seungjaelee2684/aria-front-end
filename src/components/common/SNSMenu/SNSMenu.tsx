@@ -115,7 +115,7 @@ const SNSMenu = () => {
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 24px;
   height: 100%;
 
   @media screen and (max-width: 1320px) {
