@@ -75,6 +75,7 @@ const FilterButton = () => {
                     <MobileFilterButton
                         key={item?.nation}
                         style={{
+                            boxShadow: `${(nationkind === item?.nation) ? "rgba(63, 71, 77, 0.2) 0px 0px 10px 0px" : ""}`,
                             borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
                             borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
                             color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
@@ -120,7 +121,7 @@ const LayOutTitleContainer = styled.div`
     font-family: 'LINESeedKR-Bd';
     font-size: 32px;
     font-weight: 700;
-    line-height: 150%;
+    line-height: 160%;
     display: flex;
     align-items: center;
     gap: 0px;
@@ -128,6 +129,11 @@ const LayOutTitleContainer = styled.div`
     user-select: none;
     position: relative;
     /* border-left: 4px solid #3c3ad6; */
+
+    @media screen and (max-width: 500px) {
+        font-size: 24px;
+        line-height: 160%;
+    }
 `;
 
 const TitleText = styled.div`
@@ -137,10 +143,15 @@ const TitleText = styled.div`
 const BarContainer = styled.div`
     width: 80px;
     height: 4px;
-    background-color: #22202080;
+    background-color: #222020;
     position: absolute;
-    top: -8px;
+    top: 0;
     right: 0;
+
+    @media screen and (max-width: 500px) {
+        width: 50px;
+        height: 3px;
+    }
 `;
 
 const FilterButtonWrapper = styled.div`
@@ -204,7 +215,7 @@ const MobileFilterButtonWrapper = styled.div`
     @media screen and (max-width: 500px) {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 3px;
         width: 100%;
     }
 `;
@@ -229,7 +240,7 @@ const MobileFilterButton = styled.div`
         border-image-slice: 1;
         color: #ADADAD;
         font-family: "Pretendard";
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 300;
         line-height: normal;
     }
