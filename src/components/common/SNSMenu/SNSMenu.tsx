@@ -80,9 +80,9 @@ const SNSMenu = () => {
   
   return (
     <MenuIconContainer>
-      <SocialIcon>
+      {/* <SocialIcon>
         <IoShareSocial />
-      </SocialIcon>
+      </SocialIcon> */}
       {/* <DiscordIcon> */}
       <MenuIcon
           title={onTitleReadyHandler(2)}
@@ -119,11 +119,11 @@ const SNSMenu = () => {
 const MenuIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   height: 100%;
 
   @media screen and (max-width: 1320px) {
-    gap: 12px;
+    gap: 14px;
   }
 
   @media screen and (max-width: 836px) {

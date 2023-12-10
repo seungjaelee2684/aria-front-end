@@ -21,6 +21,7 @@ import { popUpOpen } from '../../store/PopUpOpen';
 import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { GoGlobe } from "react-icons/go";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 const Header = () => {
 
@@ -144,6 +145,7 @@ const Header = () => {
                                 <TransText>
                                     {languageChange()}
                                 </TransText>
+                                <TiArrowSortedDown />
                             </TranslateWrapper>
                             {languageModal
                                 && <TranslateModal
@@ -303,7 +305,7 @@ const TranslateWrapper = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid #FFFFFF;
-    color: #4c4c4c;
+    color: #6b6b6b;
     background-color: #FFFFFF;
     font-size: 14px;
     gap: 4px;
@@ -367,7 +369,7 @@ const HomeBtnWrapper = styled.div`
     font-family: "Pretendard";
     font-size: 14px;
     gap: 2px;
-    color: #4c4c4c;
+    color: #6b6b6b;
     border: 1px solid #FFFFFF;
     transition: all 0.3s ease-in-out;
     cursor: pointer;

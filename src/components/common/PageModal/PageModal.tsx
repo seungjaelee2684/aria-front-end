@@ -49,7 +49,7 @@ const PageModal = ({ pageModal } : any) => {
 
 const ModalContainer = styled.div`
   min-width: 70px;
-  background-color: #222020;
+  background-color: #222020ea;
   display: flex;
   flex-direction: column;
   align-items: start;

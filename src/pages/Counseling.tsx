@@ -66,7 +66,7 @@ const Counseling = () => {
               </TimeCheckContainer>
               <ButtonAllWrapper>
                 <ButtonContainer
-                  onClick={() => onClickCopyHandler("code")}
+                  onClick={() => onClickCopyHandler("aria.artacademy")}
                   color="#2a9fff">
                   <IoPersonAddOutline />
                   <ButtonText>

@@ -98,7 +98,7 @@ const SlideImage = styled.div<{ src : string }>`
     height: 100%;
     background-image: url(${(props) => props.src});
     background-size: cover;
-    background-position: 100% 100%;
+    background-position: center;
     background-repeat: no-repeat;
 `;
 
