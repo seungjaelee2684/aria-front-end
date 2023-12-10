@@ -12,6 +12,8 @@ const NotificationList = () => {
 
     const language = useRecoilValue(translate);
     const navigate = useNavigate();
+    const reverseNotice = NotificationData?.reverse();
+    console.log("reverseData", reverseNotice);
 
     const onClickNoticeHandler = ( item : any ) => {
         navigate(`/notice/notification/detail/${item?.id}`);
@@ -78,12 +80,12 @@ const NotificationList = () => {
                         제목
                     </TopLaneCenterText>
                     <TopLaneRightText>
-                        날짜
+                        등록일
                     </TopLaneRightText>
                 </LineContainer>
-                {NotificationData?.map((item : any) => {
+                {reverseNotice?.map((item : any) => {
                     return (
-                        (NotificationData.indexOf(item) === NotificationData.length - 1)
+                        (reverseNotice.indexOf(item) === NotificationData.length - 1)
                             ? <LineContainer
                                 key={item.id}
                                 style={{borderBottom: "none"}}>
