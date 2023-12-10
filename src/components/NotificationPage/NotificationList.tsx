@@ -314,6 +314,10 @@ const TopLaneCenterText = styled(TopLaneLeftText)`
 const TopLaneRightText = styled(TopLaneLeftText)`
     margin-right: 40px;
 
+    @media screen and (max-width: 836px) {
+        margin-right: 30px;
+    }
+
     @media screen and (max-width: 500px) {
         margin-right: 20px;
     }
