@@ -141,7 +141,7 @@ const TitleText = styled.div`
 `;
 
 const BarContainer = styled.div`
-    width: 80px;
+    width: 70px;
     height: 4px;
     background-color: #222020;
     position: absolute;
