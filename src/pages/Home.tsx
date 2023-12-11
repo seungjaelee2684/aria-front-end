@@ -8,38 +8,12 @@ import { useRecoilState } from 'recoil';
 import { MainPageNumber } from '../store/MainPageNumber';
 import SecondPageImage from '../components/HomePage/SecondPageImage';
 import MainSlideShow from '../components/HomePage/MainSlideShow';
+import { ScrollContainer } from '../components/common/ScrollContainer';
+import { ScrollAnimation } from '../utils/ScrollAnimation';
 
 const DIVIDER_HEIGHT = 5;
 
 const Home = () => {
-
-    const outerDivRef = useRef<HTMLDivElement>(null);
-    const [isInViewport, setIsInViewport] = useState<boolean>(false);
-
-    useEffect(() => {
-        if (!outerDivRef.current) { return; }; //요소가 아직 준비되지 않은 경우
-
-        const callbackFunction = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  // 요소가 뷰포트에 나타났을 경우
-                  setIsInViewport(true);
-                } else {
-                  // 요소가 뷰포트를 벗어난 경우
-                  setIsInViewport(false);
-                }
-            });
-        };
-
-        const options = { root: null, rootMargin: "0px", threshold: 0 };
-        const observer = new IntersectionObserver(callbackFunction, options);
-        observer.observe(outerDivRef.current) // 요소 관찰 시작
-
-        return () => {
-            observer.disconnect(); //컴포넌트 언마운트 시 관찰 중단
-        };
-    }, []);
-    console.log(isInViewport);
 
 //     useEffect(() => {
 //         const wheelEventHandler = (e : any) => {
@@ -97,10 +71,9 @@ const Home = () => {
     <MainLayout>
         {/* <MainSlideShow /> */}
         <Background />
-        <MainImage 
-            src={MainCharactor}
-            ref={outerDivRef}
-            className={isInViewport ? "frame-in" : ""} />
+        <ScrollContainer>
+            <h1>안녕</h1>
+        </ScrollContainer>
         <Background />
     </MainLayout>
   )
@@ -117,11 +90,10 @@ const MainLayout = styled.div`
     padding: 80px 0px 0px 0px;
 `;
 
-const MainImage = styled.div<{ src : string }>`
-    width: 500px;
-    height: 400px;
-    background-image: url(${(props) => props.src});
-    background-size: cover;
+export const MainImage = styled.div`
+    width: 100%;
+    height: 800px;
+    background-color: #222020;
 `;
 
 const Background = styled.div`
