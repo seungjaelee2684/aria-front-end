@@ -72,7 +72,7 @@ const Home = () => {
         {/* <MainSlideShow /> */}
         <Background />
         <ScrollContainer>
-            <h1>안녕</h1>
+            안녕
         </ScrollContainer>
         <Background />
     </MainLayout>
