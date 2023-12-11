@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../style/font/font.css';
 import MainBG from '../assets/images/sanpatimainbackground.webp';
@@ -14,7 +14,32 @@ const DIVIDER_HEIGHT = 5;
 const Home = () => {
 
     const outerDivRef = useRef<HTMLDivElement>(null);
-    const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
+    const [isInViewport, setIsInViewport] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (!outerDivRef.current) { return; }; //요소가 아직 준비되지 않은 경우
+
+        const callbackFunction = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  // 요소가 뷰포트에 나타났을 경우
+                  setIsInViewport(true);
+                } else {
+                  // 요소가 뷰포트를 벗어난 경우
+                  setIsInViewport(false);
+                }
+            });
+        };
+
+        const options = { root: null, rootMargin: "0px", threshold: 0 };
+        const observer = new IntersectionObserver(callbackFunction, options);
+        observer.observe(outerDivRef.current) // 요소 관찰 시작
+
+        return () => {
+            observer.disconnect(); //컴포넌트 언마운트 시 관찰 중단
+        };
+    }, []);
+    console.log(isInViewport);
 
 //     useEffect(() => {
 //         const wheelEventHandler = (e : any) => {
@@ -70,151 +95,39 @@ const Home = () => {
 
   return (
     <MainLayout>
-        <MainSlideShow />
+        {/* <MainSlideShow /> */}
+        <Background />
+        <MainImage 
+            src={MainCharactor}
+            ref={outerDivRef}
+            className={isInViewport ? "frame-in" : ""} />
+        <Background />
     </MainLayout>
   )
 };
 
 const MainLayout = styled.div`
     width: 100%;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
     z-index: 97;
     padding: 80px 0px 0px 0px;
 `;
 
-const MainImageContainer = styled.div`
-    width: 100%;
-    height: 100vh;
-    /* margin-top: 80px; */
-    ::-webkit-scrollbar {
-        display: none;
-    }
-`;
-
-const ImageWrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    overflow-y: auto;
-    background-color: #222020;
-    /* position: absolute;
-    top: 0;
-    left: 0; */
-`;
-
-const GradientContainer = styled.div`
-    width: 100%;
-    height: 100vh;
-    background-color: #000000ac;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 96;
-    opacity: 0;
-`;
-
-const ImageBoxWrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-`;
-
-const Images = styled.img`
-    width: 100%;
-    object-fit: cover;
-
-    @media screen and (max-width: 1500px) {
-        height: 100vh;
-    }
-`;
-
-const ObjectImage = styled.div<{ src : string }>`
-    width: 100%;
-    height: 100vh;
+const MainImage = styled.div<{ src : string }>`
+    width: 500px;
+    height: 400px;
     background-image: url(${(props) => props.src});
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
 `;
 
-const ArrowIcon = styled.div`
-    width: 100px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Pretendard";
-    font-size: 100px;
-    color: #222020;
-    position: absolute;
-    left: 48%;
-    z-index: 97;
-    opacity: 0;
-
-    @media screen and (max-width: 836px) {
-        display: none;
-    }
-`;
-
-const PageBarOutContainer = styled.div`
-    position: fixed;
-    top: 49%;
-    right: 3%;
-    z-index: 98;
-
-    @media screen and (max-width: 500px) {
-        display: none;
-    }
-`;
-
-const PageBarContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
-    position: relative;
-`;
-
-const PageNumberWrapper = styled.div`
-    width: 22px;
-    height: 22px;
-    border: 2px solid #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    transition: all 0.5s ease-in-out;
-    transform: rotate(45deg);
-    /* top: -5px; */
-    /* bottom: -5px; */
-
-    @media screen and (max-width: 1320px) {
-        width: 18px;
-        height: 18px;
-    }
-`;
-
-const PageNumber = styled.div`
-    width: 14px;
-    height: 14px;
-    transition: all 0.5s ease-in-out;
-    /* border-radius: 100%; */
-    transform: rotate(45deg);
-
-    @media screen and (max-width: 1320px) {
-        width: 10px;
-        height: 10px;
-    }
+const Background = styled.div`
+    width: 100%;
+    height: 2000px;
+    background-color: #e9e9e9;
 `;
 
 export default Home;
