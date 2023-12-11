@@ -10,6 +10,7 @@ import Koreaflag from '../../assets/logos/koreaflag.webp';
 import Japanflag from '../../assets/logos/japanflag.webp';
 import Americaflag from '../../assets/logos/americaflag.webp'
 import Chinaflag from '../../assets/logos/chinaflag.webp'
+import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../../style/PageTitle';
 
 const FilterButton = () => {
 
@@ -49,8 +50,8 @@ const FilterButton = () => {
     <FilterButtonContainer>
         <LayOutTitleContainer>
             A
-            <BarContainer />
-            <TitleText>R</TitleText>
+            <TitleBarContainer />
+            <TitleColorText color="#7769D0">R</TitleColorText>
             TIST
         </LayOutTitleContainer>
         <FilterButtonWrapper>
@@ -112,45 +113,6 @@ const FilterButtonContainer = styled.div`
         justify-content: center;
         gap: 10px;
         margin: 30px auto 0px auto;
-    }
-`;
-
-const LayOutTitleContainer = styled.div`
-    /* font-family: "Pretendard"; */
-    /* font-family: "Lemon/Milk", sans-serif; */
-    font-family: 'LINESeedKR-Bd';
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 160%;
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    color: #222020;
-    user-select: none;
-    position: relative;
-    /* border-left: 4px solid #3c3ad6; */
-
-    @media screen and (max-width: 500px) {
-        font-size: 24px;
-        line-height: 160%;
-    }
-`;
-
-const TitleText = styled.div`
-    color: #7769D0;
-`;
-
-const BarContainer = styled.div`
-    width: 70px;
-    height: 4px;
-    background-color: #222020;
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    @media screen and (max-width: 500px) {
-        width: 50px;
-        height: 3px;
     }
 `;
 

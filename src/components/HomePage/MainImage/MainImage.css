@@ -97,6 +97,10 @@
     animation: none_page_number 0.5s forwards;
 }
 
+.frame-in {
+    animation: charactor_appear 1s forwards;
+}
+
 @keyframes gradient_appear {
     from {
         opacity: 0;
