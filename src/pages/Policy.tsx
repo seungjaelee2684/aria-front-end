@@ -7,6 +7,7 @@ import { policyData } from '../data/PolicyData/KRPolicyData';
 import Banner from '../components/common/Banner';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
+import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../style/PageTitle';
 
 const Policy = () => {
 
@@ -15,13 +16,12 @@ const Policy = () => {
   const policyTranslate = () => {
     if (language === "chinese") {
       return (
-        <PolicyInContainer>
-          {englishPolicyData?.map((item) => {
+          englishPolicyData?.map((item) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTitle>
+                <PolicyTopContainer>
                   {item?.title}
-                </PolicyTitle>
+                </PolicyTopContainer>
                 {item?.content.map((text) => {
                   return (
                     ((englishPolicyData.indexOf(item) + 1) === 1)
@@ -39,18 +39,16 @@ const Policy = () => {
                 })}
               </ContentWrapper>
             )
-          })}
-        </PolicyInContainer>
+          })
       );
     } else if (language === "japanese") {
       return (
-        <PolicyInContainer>
-          {japanesePolicyData?.map((item) => {
+          japanesePolicyData?.map((item) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTitle>
+                <PolicyTopContainer>
                   {item?.title}
-                </PolicyTitle>
+                </PolicyTopContainer>
                 {item?.content.map((text) => {
                   return (
                     ((japanesePolicyData.indexOf(item) + 1) === 1)
@@ -68,18 +66,16 @@ const Policy = () => {
                 })}
               </ContentWrapper>
             )
-          })}
-        </PolicyInContainer>
+          })
       );
     } else if (language === "korean") {
       return (
-        <PolicyInContainer>
-          {policyData?.map((item) => {
+          policyData?.map((item) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTitle>
+                <PolicyTopContainer>
                   {item?.title}
-                </PolicyTitle>
+                </PolicyTopContainer>
                 {item?.content.map((text) => {
                   return (
                     ((policyData.indexOf(item) + 1) === 1)
@@ -97,18 +93,16 @@ const Policy = () => {
                 })}
               </ContentWrapper>
             )
-          })}
-        </PolicyInContainer>
+          })
       );
     } else {
       return (
-        <PolicyInContainer>
-          {englishPolicyData?.map((item) => {
+          englishPolicyData?.map((item) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTitle>
+                <PolicyTopContainer>
                   {item?.title}
-                </PolicyTitle>
+                </PolicyTopContainer>
                 {item?.content.map((text) => {
                   return (
                     ((englishPolicyData.indexOf(item) + 1) === 1)
@@ -126,18 +120,19 @@ const Policy = () => {
                 })}
               </ContentWrapper>
             )
-          })}
-        </PolicyInContainer>
+          })
       );
     };
   };
 
   return (
     <LayOutContainer>
-      <Banner page={3}/>
-      <PolicyHeader>
-        Operation Policy
-      </PolicyHeader>
+      <LayOutTitleContainer>
+        <TitleBarContainer />
+        O
+        <TitleColorText color="#3C3AD6">P</TitleColorText>
+        ERATION POLICY
+      </LayOutTitleContainer>
       <PolicyOutContainer>
         {policyTranslate()}
         {/* <PolicyInContainer>
@@ -199,13 +194,11 @@ const PolicyHeader = styled.div`
 `;
 
 const PolicyOutContainer = styled.div`
-  width: 900px;
+  width: 1320px;
   min-height: 400px;
   margin: 20px auto;
-  background-color: #ebfeff;
-  border: 1px solid #ADADAD;
-  border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0px;
@@ -286,6 +279,38 @@ export const PolicyFirstContent = styled.div`
 
 const PolicyOtherContent = styled(PolicyFirstContent)`
   text-indent: 0px;
+`;
+
+const PolicyTopContainer = styled.div`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: #cacaca;
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  text-indent: 20px;
+  color: #222020;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 18px;
+  }
+`;
+
+const PolicyContentContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 120px;
+  font-family: "Pretendard";
+  line-height: 150%;
+`;
+
+const PolicySubTitleContainer = styled.div`
+  font-size: 20px;
+  font-weight: 800;
+  color: #ADADAD;
 `;
 
 export default Policy;
