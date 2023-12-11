@@ -33,6 +33,7 @@ const Header = () => {
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const scrollHeader = useRef<HTMLDivElement>(null);
+    const [isScrollDown, setIsScrollDown] = useState<boolean>(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -54,52 +55,39 @@ const Header = () => {
         };
     };
 
-    // window.addEventListener("scroll", () => {
-    //     let scrollValue = window.scrollY;
-    //     // console.log("스크롤", scrollValue);
-    //     if (scrollHeader.current) {
-    //         if (scrollValue > 300) {  
-    //             scrollHeader.current.style.position = "fixed";
-    //         } else {
-    //             scrollHeader.current.style.position = "absolute";
-  
-    //         };
-    //     };
-    // });
+    useEffect(() => {
+        if (scrollHeader.current) {
+            if (isScrollDown) {
+                scrollHeader.current.style.opacity = "0";
+                scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                scrollHeader.current.style.transform = "translateY(-80px) scaleY(0)";
+            } else {
+                scrollHeader.current.style.opacity = "1";
+                scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                scrollHeader.current.style.transform = "translateY(0px) scaleY(1)";
+            };
+        };
+    }, [isScrollDown]);
 
-    // useEffect(() => {
-    //     // setTimeout(() => {
-    //     //     setIsPopUp(true);
-    //     // }, 800);
-
-    //     const handleClickOutside = (event: any) => {
-    //       if (modalRef.current && !modalRef.current.contains(event.target)) {
-    //         setLanguageModal(false);
-    //       };
-    //       if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
-    //         setSnsOpen(false);
-    //       };
-    //     };
-    //     document.addEventListener("click", handleClickOutside);
-    //     return () => {
-    //       document.removeEventListener("click", handleClickOutside);
-    //     };
-    // }, []);
-
-    // useEffect(() => {
-    //     if (hoverRef.current) {
-    //         if (hoverEvent) {
-    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
-    //             hoverRef.current.style.opacity = "1"
-    //         } else {
-    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
-    //             hoverRef.current.style.opacity = "0.4"
-    //         };
-            
-    //     };
-    // }, [hoverEvent]);
-
-    // console.log("렌더링 발생");
+    useEffect(() => {
+        const wheelEventHandler = (e : any) => {
+            if (scrollHeader.current) {
+                const { deltaY } = e;
+                if (deltaY > 0) {
+                    setIsScrollDown(true);
+                } else {
+                    setIsScrollDown(false);
+                };
+            };  
+        };
+        if (scrollHeader.current) {
+            const scrollHeaderRefCurrent = scrollHeader.current;
+            scrollHeaderRefCurrent.addEventListener("wheel", wheelEventHandler);
+            return () => {
+                scrollHeaderRefCurrent.removeEventListener("wheel", wheelEventHandler);
+            };
+        };  
+    }, []);
 
   return (
     <div>
@@ -108,8 +96,6 @@ const Header = () => {
             ref={scrollHeader}
             style={{
                 // position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
-                opacity: `${(mainPage === 2) ? "0" : "1"}`,
-                height: `${(mainPage === 2) ? "0px" : ""}`
             }}
             // onMouseOver={() => setHoverEvent(true)}
             // onMouseOut={() => setHoverEvent(false)}
@@ -121,8 +107,6 @@ const Header = () => {
                             alt=""
                             onClick={() => {
                                 navigate("/");
-                                resetFilter();
-                                resetFlag();
                             }}/>
                     </LogoContainer>
                 {/* <RightWrapper> */}

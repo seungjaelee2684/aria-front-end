@@ -54,7 +54,7 @@ const FilterButton = () => {
             <TitleColorText color="#7769D0">R</TitleColorText>
             TIST
         </LayOutTitleContainer>
-        <FilterButtonWrapper>
+        {/* <FilterButtonWrapper>
             <NationFilter>
                 {(nationkind !== "All Country") && <NationFlag src={flag} alt=''/>}
                 {nationkind}
@@ -91,7 +91,7 @@ const FilterButton = () => {
                     </MobileFilterButton>
                 )
             })}
-        </MobileFilterButtonWrapper>
+        </MobileFilterButtonWrapper> */}
     </FilterButtonContainer>
   )
 };
@@ -100,7 +100,7 @@ const FilterButtonContainer = styled.div`
     max-width: 1320px;
     margin: 80px auto 0px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     @media screen and (max-width: 1320px) {
