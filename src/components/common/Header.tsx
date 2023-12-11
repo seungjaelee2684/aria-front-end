@@ -25,7 +25,6 @@ import { TiArrowSortedDown } from "react-icons/ti";
 
 const Header = () => {
 
-    // const language = useRecoilValue(translate);
     const language = useRecoilValue(translate);
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
@@ -33,7 +32,7 @@ const Header = () => {
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const scrollHeader = useRef<HTMLDivElement>(null);
-    const [isScrollDown, setIsScrollDown] = useState<boolean>(false);
+    const [scrollData, setScrollData] = useState<number>(0);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -56,50 +55,32 @@ const Header = () => {
     };
 
     useEffect(() => {
-        if (scrollHeader.current) {
-            if (isScrollDown) {
-                scrollHeader.current.style.opacity = "0";
-                scrollHeader.current.style.transition = "all 0.4s ease-in-out";
-                scrollHeader.current.style.transform = "translateY(-80px) scaleY(0)";
-            } else {
-                scrollHeader.current.style.opacity = "1";
-                scrollHeader.current.style.transition = "all 0.4s ease-in-out";
-                scrollHeader.current.style.transform = "translateY(0px) scaleY(1)";
-            };
-        };
-    }, [isScrollDown]);
-
-    useEffect(() => {
-        const wheelEventHandler = (e : any) => {
+        const scrollHandler = () => {
+            const currentScrollY = window.scrollY;
             if (scrollHeader.current) {
-                const { deltaY } = e;
-                if (deltaY > 0) {
-                    setIsScrollDown(true);
+                if (currentScrollY > scrollData) {
+                    scrollHeader.current.style.opacity = "0";
+                    scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                    scrollHeader.current.style.transform = "translateY(-80px)";
                 } else {
-                    setIsScrollDown(false);
+                    scrollHeader.current.style.opacity = "1";
+                    scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                    scrollHeader.current.style.transform = "translateY(0px)";
                 };
-            };  
-        };
-        if (scrollHeader.current) {
-            const scrollHeaderRefCurrent = scrollHeader.current;
-            scrollHeaderRefCurrent.addEventListener("wheel", wheelEventHandler);
-            return () => {
-                scrollHeaderRefCurrent.removeEventListener("wheel", wheelEventHandler);
             };
-        };  
-    }, []);
+            setScrollData(currentScrollY);
+        };    
+
+        window.addEventListener('wheel', scrollHandler);
+
+        return () => {
+            window.removeEventListener('wheel', scrollHandler);
+        };
+    }, [scrollData]);
 
   return (
     <div>
-        {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
-        <HeaderLayoutContainer
-            ref={scrollHeader}
-            style={{
-                // position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
-            }}
-            // onMouseOver={() => setHoverEvent(true)}
-            // onMouseOut={() => setHoverEvent(false)}
-        >
+        <HeaderLayoutContainer ref={scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                         <HeaderLogo
@@ -114,8 +95,6 @@ const Header = () => {
                     <SmallButtonWrapper>
                         <HomeBtnWrapper onClick={() => navigate("/")}>
                             <IoMdHome />
-                                {/* <TranslateText>{languageChange()}</TranslateText> */}
-                                {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                             <TransText>
                                 HOME
                             </TransText>
@@ -124,8 +103,6 @@ const Header = () => {
                         <TranslateContainer>
                             <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
                                 <GoGlobe />
-                                {/* <TranslateText>{languageChange()}</TranslateText> */}
-                                {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                                 <TransText>
                                     {languageChange()}
                                 </TransText>
@@ -135,13 +112,6 @@ const Header = () => {
                                 && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
-                        {/* <BarContainer />
-                        <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
-                            <IoShareSocialOutline />
-                            <TransText>
-                                Social
-                            </TransText>
-                        </SNSModalContainer> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
@@ -156,9 +126,6 @@ const Header = () => {
         </HeaderLayoutContainer>
         {copyHandle && <CopyAlertModal />}
         {/* {isPopUp && <PopUp />} */}
-        {/* <ScrollBarContainer> */}
-            {/* <ScrollBar /> */}
-        {/* </ScrollBarContainer> */}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
         </MobileNavButton>
