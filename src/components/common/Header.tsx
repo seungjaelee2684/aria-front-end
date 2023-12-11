@@ -25,7 +25,6 @@ import { TiArrowSortedDown } from "react-icons/ti";
 
 const Header = () => {
 
-    // const language = useRecoilValue(translate);
     const language = useRecoilValue(translate);
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
@@ -33,6 +32,7 @@ const Header = () => {
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
     const scrollHeader = useRef<HTMLDivElement>(null);
+    const [scrollData, setScrollData] = useState<number>(0);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -54,66 +54,33 @@ const Header = () => {
         };
     };
 
-    // window.addEventListener("scroll", () => {
-    //     let scrollValue = window.scrollY;
-    //     // console.log("스크롤", scrollValue);
-    //     if (scrollHeader.current) {
-    //         if (scrollValue > 300) {  
-    //             scrollHeader.current.style.position = "fixed";
-    //         } else {
-    //             scrollHeader.current.style.position = "absolute";
-  
-    //         };
-    //     };
-    // });
+    useEffect(() => {
+        const scrollHandler = () => {
+            const currentScrollY = window.scrollY;
+            if (scrollHeader.current) {
+                if (currentScrollY > scrollData) {
+                    scrollHeader.current.style.opacity = "0";
+                    scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                    scrollHeader.current.style.transform = "translateY(-80px)";
+                } else {
+                    scrollHeader.current.style.opacity = "1";
+                    scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                    scrollHeader.current.style.transform = "translateY(0px)";
+                };
+            };
+            setScrollData(currentScrollY);
+        };    
 
-    // useEffect(() => {
-    //     // setTimeout(() => {
-    //     //     setIsPopUp(true);
-    //     // }, 800);
+        window.addEventListener('wheel', scrollHandler);
 
-    //     const handleClickOutside = (event: any) => {
-    //       if (modalRef.current && !modalRef.current.contains(event.target)) {
-    //         setLanguageModal(false);
-    //       };
-    //       if (snsModalRef.current && !snsModalRef.current.contains(event.target)) {
-    //         setSnsOpen(false);
-    //       };
-    //     };
-    //     document.addEventListener("click", handleClickOutside);
-    //     return () => {
-    //       document.removeEventListener("click", handleClickOutside);
-    //     };
-    // }, []);
-
-    // useEffect(() => {
-    //     if (hoverRef.current) {
-    //         if (hoverEvent) {
-    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
-    //             hoverRef.current.style.opacity = "1"
-    //         } else {
-    //             hoverRef.current.style.transition = "all 0.2s ease-in-out"
-    //             hoverRef.current.style.opacity = "0.4"
-    //         };
-            
-    //     };
-    // }, [hoverEvent]);
-
-    // console.log("렌더링 발생");
+        return () => {
+            window.removeEventListener('wheel', scrollHandler);
+        };
+    }, [scrollData]);
 
   return (
     <div>
-        {/* {(location.pathname === "/") && <HeaderHiddenContainer ref={hoverRef} />} */}
-        <HeaderLayoutContainer
-            ref={scrollHeader}
-            style={{
-                // position: `${(location.pathname === "/") ? "relative" : "fixed"}`,
-                opacity: `${(mainPage === 2) ? "0" : "1"}`,
-                height: `${(mainPage === 2) ? "0px" : ""}`
-            }}
-            // onMouseOver={() => setHoverEvent(true)}
-            // onMouseOut={() => setHoverEvent(false)}
-        >
+        <HeaderLayoutContainer ref={scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                         <HeaderLogo
@@ -121,8 +88,6 @@ const Header = () => {
                             alt=""
                             onClick={() => {
                                 navigate("/");
-                                resetFilter();
-                                resetFlag();
                             }}/>
                     </LogoContainer>
                 {/* <RightWrapper> */}
@@ -130,8 +95,6 @@ const Header = () => {
                     <SmallButtonWrapper>
                         <HomeBtnWrapper onClick={() => navigate("/")}>
                             <IoMdHome />
-                                {/* <TranslateText>{languageChange()}</TranslateText> */}
-                                {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                             <TransText>
                                 HOME
                             </TransText>
@@ -140,8 +103,6 @@ const Header = () => {
                         <TranslateContainer>
                             <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
                                 <GoGlobe />
-                                {/* <TranslateText>{languageChange()}</TranslateText> */}
-                                {/* {languageModal ? <MdArrowDropUp /> : <MdArrowDropDown />} */}
                                 <TransText>
                                     {languageChange()}
                                 </TransText>
@@ -151,13 +112,6 @@ const Header = () => {
                                 && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
-                        {/* <BarContainer />
-                        <SNSModalContainer ref={snsModalRef} onClick={() => setSnsOpen(!snsOpen)}>
-                            <IoShareSocialOutline />
-                            <TransText>
-                                Social
-                            </TransText>
-                        </SNSModalContainer> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
@@ -172,9 +126,6 @@ const Header = () => {
         </HeaderLayoutContainer>
         {copyHandle && <CopyAlertModal />}
         {/* {isPopUp && <PopUp />} */}
-        {/* <ScrollBarContainer> */}
-            {/* <ScrollBar /> */}
-        {/* </ScrollBarContainer> */}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
         </MobileNavButton>
