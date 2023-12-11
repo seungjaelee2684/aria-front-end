@@ -54,18 +54,18 @@ const Header = () => {
         };
     };
 
-    window.addEventListener("scroll", () => {
-        let scrollValue = window.scrollY;
-        // console.log("스크롤", scrollValue);
-        if (scrollHeader.current) {
-            if (scrollValue > 300) {  
-                scrollHeader.current.style.position = "fixed";
-            } else {
-                scrollHeader.current.style.position = "absolute";
+    // window.addEventListener("scroll", () => {
+    //     let scrollValue = window.scrollY;
+    //     // console.log("스크롤", scrollValue);
+    //     if (scrollHeader.current) {
+    //         if (scrollValue > 300) {  
+    //             scrollHeader.current.style.position = "fixed";
+    //         } else {
+    //             scrollHeader.current.style.position = "absolute";
   
-            };
-        };
-    });
+    //         };
+    //     };
+    // });
 
     // useEffect(() => {
     //     // setTimeout(() => {
@@ -200,7 +200,7 @@ const HeaderLayoutContainer = styled.div`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
