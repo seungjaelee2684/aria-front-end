@@ -57,7 +57,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                         <HomeButtonInWrapper>
                             {snsModal 
                                 ? <IoShareSocialOutline />
-                                : <HomeBtnIcon src={Home}/>}
+                                : <HomeBtnIcon src={Home} alt=''/>}
                         </HomeButtonInWrapper>
                     </HomeButton>
                 <ButtonBox onClick={onClickHamburgOpenHandler}>
