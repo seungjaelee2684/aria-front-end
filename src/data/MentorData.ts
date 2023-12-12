@@ -10,7 +10,7 @@ import CurriculumDefaultTwitter from '../assets/curriculums/curriculumdefaulttwi
 import CurriculumDefaultInsta from '../assets/curriculums/curriculumdefaultinstagram.webp';
 import CurriculumDefaultArtstation from '../assets/curriculums/curriculumdefaultartstation.webp';
 import CurriculumDefaultPixiv from '../assets/curriculums/curriculumdefaultpixiv.webp';
-import SanpatiThumbnail from '../assets/images/sanpachiimage1.png';
+import SanpatiThumbnail from '../assets/curriculums/sanpati/sanpati_thumbnail.webp';
 import SanpatiSlideBack from '../assets/images/mentorimage.webp';
 import SanpatiSlideNick from '../assets/images/mentorimagetext.webp';
 import SanpatiCurriculum1 from '../assets/curriculums/sanpati/sanpaticurriculum1.png';
