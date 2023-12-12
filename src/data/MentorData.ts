@@ -140,7 +140,7 @@ export const mentorListData = [
             },
             {
                 icon: CurriculumTwitter,
-                link: ""
+                link: "https://twitter.com/esukeipu001"
             },
             {
                 icon: CurriculumDefaultInsta,
@@ -152,7 +152,7 @@ export const mentorListData = [
             },
             {
                 icon: CurriculumPixiv,
-                link: ""
+                link: "https://www.pixiv.net/users/58851418"
             }
         ],
         image: EscapeThumbnail
