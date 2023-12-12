@@ -138,7 +138,7 @@ const TapContainer = styled.div`
     font-family: 'LINESeedKR-Bd';
     font-size: 16px;
     /* color: #999999; */
-    color: #9c9c9c;
+    color: #3b3a3a;
     font-weight: normal;
     text-decoration: none;
     position: relative;
