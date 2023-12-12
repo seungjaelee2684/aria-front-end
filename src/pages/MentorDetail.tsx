@@ -24,7 +24,11 @@ const MentorDetail = () => {
                         <SNSIcons
                             key={item?.icon}
                             src={item?.icon}
-                            onClick={() => window.open(item?.link)}/>
+                            onClick={() => {
+                                if (item?.link !== "") {
+                                    window.open(item?.link)
+                                }
+                            }}/>
                     )
                 })}
             </CurriculumSNS>
@@ -36,14 +40,15 @@ const MentorDetail = () => {
                             src={item}/>  
                 )
             })}
-            {/* <TextWrapper>
-                <KeyText>{language ? "ニックネーム :" : "닉네임 :"}</KeyText>
-                <ValueText>{language ? mentorInfo[0]?.englishname : mentorInfo[0]?.nickname}</ValueText>
-            </TextWrapper>
-            <TextWrapper>
-                <KeyText>{language ? "作品 ->" : "작품 ->"}</KeyText>
-                <ImageBox src={mentorInfo[0]?.image} />
-            </TextWrapper> */}
+            <PortfolioWrapper>
+                {mentorInfo[0]?.portfolio.map((item : string) => {
+                    return (
+                        <PortfolioImage
+                            src={item}
+                            alt=''/>
+                    )
+                })}
+            </PortfolioWrapper>
         </InContainer>
     </LayoutContainer>
   )
@@ -64,15 +69,15 @@ const InContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 200px;
+    gap: 100px;
 
     @media screen and (max-width: 1100px) {
         width: 100%;
-        gap: 200px;
+        gap: 80px;
     }
 
     @media screen and (max-width: 500px) {
-        gap: 120px;
+        gap: 50px;
     }
 `;
 
@@ -101,19 +106,33 @@ const CurriculumSNS = styled.div`
 `;
 
 const SNSIcons = styled.img`
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
 
     @media screen and (max-width: 1100px) {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
     }
 
     @media screen and (max-width: 500px) {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
+`;
+
+const PortfolioWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+`;
+
+const PortfolioImage = styled.img`
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 `;
 
 export default MentorDetail;
