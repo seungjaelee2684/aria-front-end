@@ -69,7 +69,7 @@ const InContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 0px;
 
     @media screen and (max-width: 1100px) {
         width: 100%;
