@@ -87,13 +87,12 @@ const MainLayout = styled.div`
     flex-direction: column;
     /* justify-content: center; */
     z-index: 97;
-    padding: 80px 0px 0px 0px;
 `;
 
 export const MainImage = styled.div`
     width: 100%;
     height: 800px;
-    background-color: #222020;
+    /* background-color: #FFFFFF; */
 `;
 
 const Background = styled.div`
