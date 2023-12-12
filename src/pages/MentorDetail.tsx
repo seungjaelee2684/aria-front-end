@@ -94,6 +94,7 @@ const CurriculumSNS = styled.div`
     align-items: center;
     width: 100%;
     gap: 90px;
+    padding: 100px 0px;
 
     @media screen and (max-width: 1100px) {
         width: 100%;
@@ -109,6 +110,7 @@ const SNSIcons = styled.img`
     width: 80px;
     height: 80px;
     object-fit: contain;
+    cursor: pointer;
 
     @media screen and (max-width: 1100px) {
         width: 60px;

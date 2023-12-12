@@ -11,8 +11,6 @@ import MainSlideShow from '../components/HomePage/MainSlideShow';
 import { ScrollContainer } from '../components/common/ScrollContainer';
 import { ScrollAnimation } from '../utils/ScrollAnimation';
 
-const DIVIDER_HEIGHT = 5;
-
 const Home = () => {
 
 //     useEffect(() => {
@@ -87,6 +85,9 @@ const MainLayout = styled.div`
     flex-direction: column;
     /* justify-content: center; */
     z-index: 97;
+    @media (prefers-color-scheme: dark) {
+    .scheme   { background:  #ffffff; color: #fff; }
+    }
 `;
 
 export const MainImage = styled.div`
