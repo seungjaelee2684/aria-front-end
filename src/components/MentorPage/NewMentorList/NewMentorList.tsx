@@ -27,7 +27,9 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                                 : "NotActionImage"}>
                         <ImageBox src={item?.slideimage.background}/>
                         {(item?.status === "Left")
-                            ? <NicknameLeftContainer src={item?.slideimage.nickname} alt=''/>
+                            ? <NicknameLeftContainer
+                                src={item?.slideimage.nickname}
+                                alt=''/>
                             : <NicknameContainer 
                                 // className='ImageContainer'
                                 src={item?.slideimage.nickname}
@@ -104,53 +106,27 @@ const NicknameContainer = styled.img`
   height: auto;
   object-fit: cover;
   user-select: none;
-  /* padding: 0px 40px; */
   position: absolute;
   left: 10%;
   top: 35%;
 
     @media screen and (max-width: 1320px) {
-        width: 480px;
-        height: 200px;
-        top: 40%;
-    }
-
-    @media screen and (max-width: 836px) {
-        width: 330px;
-        height: 140px;
-    }
-
-    @media screen and (max-width: 500px) {
-        width: 220px;
-        height: 90px;
+        top: 50%;
     }
 `;
 
 const NicknameLeftContainer = styled.img`
-  width: 600px;
-  height: 250px;
+  width: 70%;
+  height: auto;
   object-fit: cover;
   user-select: none;
-  /* padding: 0px 40px; */
   position: absolute;
   right: 10%;
   top: 35%;
   user-select: none;
 
     @media screen and (max-width: 1320px) {
-        width: 480px;
-        height: 200px;
-        top: 40%;
-    }
-
-    @media screen and (max-width: 836px) {
-        width: 330px;
-        height: 140px;
-    }
-
-    @media screen and (max-width: 500px) {
-        width: 220px;
-        height: 90px;
+        top: 50%;
     }
 `;
 
