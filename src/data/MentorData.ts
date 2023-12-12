@@ -1,10 +1,18 @@
-import Image from '../assets/images/surveimage.jpg';
-import Image2 from '../assets/images/rapla1.png';
-import Image3 from '../assets/images/rapla2.png';
-import Image4 from '../assets/images/maincharactor.png';
-import SanpachiImage from '../assets/images/sanpachiimage1.png';
-import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
-import SanpatiCurriculum from '../assets/curriculums/sanpati/sanpaticurriculummain.jpg';
+import CurriculumHome from '../assets/curriculums/curriculumhome.webp';
+import CurriculumYoutube from '../assets/curriculums/curriculumyoutube.webp';
+import CurriculumTwitter from '../assets/curriculums/curriculumtwitter.webp';
+import CurriculumInsta from '../assets/curriculums/curriculuminstagram.webp';
+import CurriculumArtstation from '../assets/curriculums/curriculumartstation.webp';
+import CurriculumPixiv from '../assets/curriculums/curriculumpixiv.webp';
+import CurriculumDefaultHome from '../assets/curriculums/curriculumdefaulthome.webp';
+import CurriculumDefaultYoutube from '../assets/curriculums/curriculumdefaultyoutube.webp';
+import CurriculumDefaultTwitter from '../assets/curriculums/curriculumdefaulttwitter.webp';
+import CurriculumDefaultInsta from '../assets/curriculums/curriculumdefaultinstagram.webp';
+import CurriculumDefaultArtstation from '../assets/curriculums/curriculumdefaultartstation.webp';
+import CurriculumDefaultPixiv from '../assets/curriculums/curriculumdefaultpixiv.webp';
+import SanpatiThumbnail from '../assets/images/sanpachiimage1.png';
+import SanpatiSlideBack from '../assets/images/mentorimage.webp';
+import SanpatiSlideNick from '../assets/images/mentorimagetext.webp';
 import SanpatiCurriculum1 from '../assets/curriculums/sanpati/sanpaticurriculum1.png';
 import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2.png';
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';
@@ -17,12 +25,21 @@ import EscapeSlideNick from '../assets/curriculums/escape/banner_escape_02.webp'
 import EscapeCurriculum1 from '../assets/curriculums/escape/curriculum_escape_01.webp';
 import EscapeCurriculum2 from '../assets/curriculums/escape/curriculum_escape_02.webp';
 import EscapeCurriculum3 from '../assets/curriculums/escape/curriculum_escape_03.webp';
-import CurriculumHome from '../assets/curriculums/curriculumhome.webp';
-import CurriculumYoutube from '../assets/curriculums/curriculumyoutube.webp';
-import CurriculumTwitter from '../assets/curriculums/curriculumtwitter.webp';
-import CurriculumInsta from '../assets/curriculums/curriculuminstagram.webp';
-import CurriculumArtstation from '../assets/curriculums/curriculumartstation.webp';
-import CurriculumPixiv from '../assets/curriculums/curriculumpixiv.webp';
+import EscapePortfolio1 from '../assets/curriculums/escape/portfolio/p01.webp';
+import EscapePortfolio2 from '../assets/curriculums/escape/portfolio/p02.webp';
+import EscapePortfolio3 from '../assets/curriculums/escape/portfolio/p03.webp';
+import EscapePortfolio4 from '../assets/curriculums/escape/portfolio/p04.webp';
+import EscapePortfolio5 from '../assets/curriculums/escape/portfolio/p05.webp';
+import EscapePortfolio6 from '../assets/curriculums/escape/portfolio/p06.webp';
+import EscapePortfolio7 from '../assets/curriculums/escape/portfolio/p07.webp';
+import EscapePortfolio8 from '../assets/curriculums/escape/portfolio/p08.webp';
+import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/p09.webp';
+import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
+import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
+import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
+import EscapePortfolio13 from '../assets/curriculums/escape/portfolio/p13.webp';
+import EscapePortfolio14 from '../assets/curriculums/escape/portfolio/p14.webp';
+import EscapePortfolio15 from '../assets/curriculums/escape/portfolio/p15.webp';
 
 export const mentorListData = [
     {
@@ -34,14 +51,14 @@ export const mentorListData = [
         nickname: "산파치",
         isnew: true,
         slideimage: {
-            background: EscapeSlideBack,
-            nickname: EscapeSlideNick
+            status: "Left",
+            background: SanpatiSlideBack,
+            nickname: SanpatiSlideNick
         },
         portfolio: [
 
         ],
         content: [
-            // SanpatiCurriculum
             SanpatiCurriculum1,
             SanpatiCurriculum2,
             SanpatiCurriculum3,
@@ -75,36 +92,50 @@ export const mentorListData = [
                 link: ""
             }
         ],
-        image: SanpachiImage
+        image: SanpatiThumbnail
     },
     {
         id: "2",
         nation: "Japanese",
         englishname: "Escape",
-        chinesename: "圣帕蒂",
-        japanesename: "さんぱち",
+        chinesename: "伊斯凯普",
+        japanesename: "エスケープ",
         nickname: "이스케이프",
         isnew: true,
         slideimage: {
+            status: "Left",
             background: EscapeSlideBack,
             nickname: EscapeSlideNick
         },
         portfolio: [
-
+            EscapePortfolio1,
+            EscapePortfolio2,
+            EscapePortfolio3,
+            EscapePortfolio4,
+            EscapePortfolio5,
+            EscapePortfolio6,
+            EscapePortfolio7,
+            EscapePortfolio8,
+            EscapePortfolio9,
+            EscapePortfolio10,
+            EscapePortfolio11,
+            EscapePortfolio12,
+            EscapePortfolio13,
+            EscapePortfolio14,
+            EscapePortfolio15,
         ],
         content: [
-            // SanpatiCurriculum
             EscapeCurriculum1,
             EscapeCurriculum2,
             EscapeCurriculum3
         ],
         sns: [
             {
-                icon: CurriculumHome,
+                icon: CurriculumDefaultHome,
                 link: ""
             },
             {
-                icon: CurriculumYoutube,
+                icon: CurriculumDefaultYoutube,
                 link: ""
             },
             {
@@ -112,11 +143,11 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumInsta,
+                icon: CurriculumDefaultInsta,
                 link: ""
             },
             {
-                icon: CurriculumArtstation,
+                icon: CurriculumDefaultArtstation,
                 link: ""
             },
             {
