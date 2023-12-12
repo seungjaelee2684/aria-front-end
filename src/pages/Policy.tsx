@@ -162,6 +162,7 @@ const LayOutContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     margin: 50px auto 0px auto;
+    padding: 50px 0px 0px 0px;
   }
 `;
 
@@ -202,6 +203,8 @@ const PolicyOutContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 18px;
+    margin: 30px auto;
+    gap: 40px;
   }
 `;
 
@@ -222,7 +225,7 @@ const PolicyInContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     width: 86%;
-    gap: 40px;
+    gap: 30px;
   }
 `;
 
@@ -233,7 +236,7 @@ const ContentWrapper = styled.div`
   gap: 30px;
 
   @media screen and (max-width: 500px) {
-    gap: 10px;
+    gap: 16px;
   }
 `;
 
@@ -285,6 +288,12 @@ const PolicyTopContainer = styled.div`
   @media screen and (max-width: 1320px) {
     font-size: 16px;
   }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+    height: 20px;
+    text-indent: 10px;
+  }
 `;
 
 const PolicyContentContainer = styled.div`
@@ -293,13 +302,22 @@ const PolicyContentContainer = styled.div`
   justify-content: space-between;
   font-family: "Pretendard";
   line-height: 150%;
+
+  @media screen and (max-width: 500px) {
+    line-height: 120%;
+  }
 `;
 
 const PolicySubTitleContainer = styled.div`
   font-size: 20px;
   font-weight: 800;
   color: #ADADAD;
-  min-width: 100px;
+  text-indent: 20px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+    text-indent: 10px;
+  }
 `;
 
 const PolicyContentWrapper = styled.div`
@@ -310,6 +328,11 @@ const PolicyContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+    gap: 10px;
+  }
 `;
 
 const PolicyContentText = styled.div`
