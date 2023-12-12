@@ -4,16 +4,11 @@ import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
-import { nationFlag, nationKind } from '../../store/NationFilter';
-import ScrollBar from './ScrollBar';
 import SNSMenu from './SNSMenu/SNSMenu';
 import '../../style/font/font.css';
 import TranslateModal from './TranslateModal';
-import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
-import { BsGlobe2 } from 'react-icons/bs';
 import NavButton from './NavButton';
 import MobileNavBtn from './MobileNavBtn';
-import { IoShareSocialOutline } from 'react-icons/io5';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import { CopyAlert } from '../../store/CopyAlert';
 import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
@@ -29,8 +24,6 @@ const Header = () => {
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
     const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
-    const resetFilter = useResetRecoilState(nationKind);
-    const resetFlag = useResetRecoilState(nationFlag);
     const scrollHeader = useRef<HTMLDivElement>(null);
     const [scrollData, setScrollData] = useState<number>(0);
 
@@ -38,7 +31,6 @@ const Header = () => {
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
     const snsModalRef = useRef<HTMLDivElement>(null);
-    // const [snsOpen, setSnsOpen] = useState<boolean>(false);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -132,20 +124,6 @@ const Header = () => {
     </div>
   )
 };
-
-const HeaderHiddenContainer = styled.div`
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    background-color: #FFFFFF;
-
-    @media screen and (max-width: 500px) {
-        display: none;
-    }
-`;
 
 const HeaderLayoutContainer = styled.div`
     width: 100%;
@@ -282,27 +260,6 @@ const TranslateWrapper = styled.div`
     }
 `;
 
-const TranslateText = styled.div`
-    font-family: "Pretendard";
-    font-size: 16px;
-    color: #222020;
-    font-weight: 600;
-
-    @media screen and (max-width: 1320px) {
-        font-size: 14px;
-    }
-`;
-
-const ScrollBarContainer = styled.div`
-    width: 100%;
-    
-    @media screen and (max-width: 958px) {
-        position: absolute;
-        top: 75px;
-        left: 0;
-    }
-`;
-
 const BarContainer = styled.div`
     width: 1px;
     height: 10px;
@@ -338,45 +295,6 @@ const TranslateContainer = styled.div`
     /* min-width: 3%; */
     /* height: 100%; */
     position: relative;
-`;
-
-const SNSModalContainer = styled.div`
-    display: flex;
-    align-items: center;
-    border: 1px solid #FFFFFF;
-    color: #4c4c4c;
-    font-size: 14px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    gap: 2px;
-    z-index: 100;
-    cursor: pointer;
-
-    &:hover {
-        color: #41bff1;
-    }
-
-    @media screen and (max-width: 500px) {
-        display: none;
-    }
-`;
-
-const SNSModalListIcon = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0.3;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-        opacity: 1;
-    }
-
-    @media screen and (max-width: 1320px) {
-        width: 22px;
-        height: 22px;
-    }
 `;
 
 const NavButtonContainer = styled.div`

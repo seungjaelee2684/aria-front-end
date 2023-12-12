@@ -1,183 +1,47 @@
-import Image from '../assets/images/surveimage.jpg';
-import Image2 from '../assets/images/rapla1.png';
-import Image3 from '../assets/images/rapla2.png';
-import Image4 from '../assets/images/maincharactor.png';
-import SanpachiImage from '../assets/images/sanpachiimage1.png';
-import SanpachiImage2 from '../assets/images/sanpachiimage2.png';
-import SanpatiCurriculum from '../assets/curriculums/sanpati/sanpaticurriculummain.jpg';
+import CurriculumHome from '../assets/curriculums/curriculumhome.webp';
+import CurriculumYoutube from '../assets/curriculums/curriculumyoutube.webp';
+import CurriculumTwitter from '../assets/curriculums/curriculumtwitter.webp';
+import CurriculumInsta from '../assets/curriculums/curriculuminstagram.webp';
+import CurriculumArtstation from '../assets/curriculums/curriculumartstation.webp';
+import CurriculumPixiv from '../assets/curriculums/curriculumpixiv.webp';
+import CurriculumDefaultHome from '../assets/curriculums/curriculumdefaulthome.webp';
+import CurriculumDefaultYoutube from '../assets/curriculums/curriculumdefaultyoutube.webp';
+import CurriculumDefaultTwitter from '../assets/curriculums/curriculumdefaulttwitter.webp';
+import CurriculumDefaultInsta from '../assets/curriculums/curriculumdefaultinstagram.webp';
+import CurriculumDefaultArtstation from '../assets/curriculums/curriculumdefaultartstation.webp';
+import CurriculumDefaultPixiv from '../assets/curriculums/curriculumdefaultpixiv.webp';
+import SanpatiThumbnail from '../assets/images/sanpachiimage1.png';
+import SanpatiSlideBack from '../assets/images/mentorimage.webp';
+import SanpatiSlideNick from '../assets/images/mentorimagetext.webp';
 import SanpatiCurriculum1 from '../assets/curriculums/sanpati/sanpaticurriculum1.png';
 import SanpatiCurriculum2 from '../assets/curriculums/sanpati/sanpaticurriculum2.png';
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/sanpaticurriculum3.png';
 import SanpatiCurriculum4 from '../assets/curriculums/sanpati/sanpaticurriculum4.png';
 import SanpatiCurriculum5 from '../assets/curriculums/sanpati/sanpaticurriculum5.png';
 import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6.png';
-import CurriculumHome from '../assets/curriculums/curriculumhome.png';
-import CurriculumYoutube from '../assets/curriculums/curriculumyoutube.png';
-import CurriculumTwitter from '../assets/curriculums/curriculumtwitter.png';
-import CurriculumInsta from '../assets/curriculums/curriculuminsta.png';
-import CurriculumArtstation from '../assets/curriculums/curriculumartstation.png';
+import EscapeThumbnail from '../assets/curriculums/escape/Thumbnail_escape.webp';
+import EscapeSlideBack from '../assets/curriculums/escape/banner_escape_01.webp';
+import EscapeSlideNick from '../assets/curriculums/escape/banner_escape_02.webp';
+import EscapeCurriculum1 from '../assets/curriculums/escape/curriculum_escape_01.webp';
+import EscapeCurriculum2 from '../assets/curriculums/escape/curriculum_escape_02.webp';
+import EscapeCurriculum3 from '../assets/curriculums/escape/curriculum_escape_03.webp';
+import EscapePortfolio1 from '../assets/curriculums/escape/portfolio/p01.webp';
+import EscapePortfolio2 from '../assets/curriculums/escape/portfolio/p02.webp';
+import EscapePortfolio3 from '../assets/curriculums/escape/portfolio/p03.webp';
+import EscapePortfolio4 from '../assets/curriculums/escape/portfolio/p04.webp';
+import EscapePortfolio5 from '../assets/curriculums/escape/portfolio/p05.webp';
+import EscapePortfolio6 from '../assets/curriculums/escape/portfolio/p06.webp';
+import EscapePortfolio7 from '../assets/curriculums/escape/portfolio/p07.webp';
+import EscapePortfolio8 from '../assets/curriculums/escape/portfolio/p08.webp';
+import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/p09.webp';
+import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
+import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
+import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
+import EscapePortfolio13 from '../assets/curriculums/escape/portfolio/p13.webp';
+import EscapePortfolio14 from '../assets/curriculums/escape/portfolio/p14.webp';
+import EscapePortfolio15 from '../assets/curriculums/escape/portfolio/p15.webp';
 
 export const mentorListData = [
-    // {
-    //     id: "1",
-    //     nation: "Japanese",
-    //     englishname: "MinGyu",
-    //     chinesename: "民奎",
-    //     japanesename: "ミンギュ",
-    //     nickname: "민규",
-    //     content: [
-    //         // SanpatiCurriculum
-    //         SanpatiCurriculum1,
-    //         SanpatiCurriculum2,
-    //         SanpatiCurriculum3,
-    //         SanpatiCurriculum4,
-    //         SanpatiCurriculum5,
-    //         SanpatiCurriculum6
-    //     ],
-    //     sns: [
-    //         {
-    //             icon: CurriculumHome,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumYoutube,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumTwitter,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumInsta,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumArtstation,
-    //             link: ""
-    //         }
-    //     ],
-    //     image: Image
-    // },
-    // {
-    //     id: "2",
-    //     nation: "American",
-    //     englishname: "Shal.E",
-    //     chinesename: "沙尔·E",
-    //     japanesename: "シャイ",
-    //     nickname: "샬e",
-    //     content: [
-    //         // SanpatiCurriculum
-    //         SanpatiCurriculum1,
-    //         SanpatiCurriculum2,
-    //         SanpatiCurriculum3,
-    //         SanpatiCurriculum4,
-    //         SanpatiCurriculum5,
-    //         SanpatiCurriculum6
-    //     ],
-    //     sns: [
-    //         {
-    //             icon: CurriculumHome,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumYoutube,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumTwitter,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumInsta,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumArtstation,
-    //             link: ""
-    //         }
-    //     ],
-    //     image: Image2
-    // },
-    // {
-    //     id: "3",
-    //     nation: "Korean",
-    //     englishname: "Chan",
-    //     chinesename: "陈先生",
-    //     japanesename: "チャン",
-    //     nickname: "챤",
-    //     content: [
-    //         // SanpatiCurriculum
-    //         SanpatiCurriculum1,
-    //         SanpatiCurriculum2,
-    //         SanpatiCurriculum3,
-    //         SanpatiCurriculum4,
-    //         SanpatiCurriculum5,
-    //         SanpatiCurriculum6
-    //     ],
-    //     sns: [
-    //         {
-    //             icon: CurriculumHome,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumYoutube,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumTwitter,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumInsta,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumArtstation,
-    //             link: ""
-    //         }
-    //     ],
-    //     image: SanpachiImage2
-    // },
-    // {
-    //     id: "4",
-    //     nation: "Korean",
-    //     englishname: "Shumolly",
-    //     chinesename: "舒莫利",
-    //     japanesename: "シュモリ",
-    //     nickname: "슈몰리",
-    //     content: [
-    //         // SanpatiCurriculum
-    //         SanpatiCurriculum1,
-    //         SanpatiCurriculum2,
-    //         SanpatiCurriculum3,
-    //         SanpatiCurriculum4,
-    //         SanpatiCurriculum5,
-    //         SanpatiCurriculum6
-    //     ],
-    //     sns: [
-    //         {
-    //             icon: CurriculumHome,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumYoutube,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumTwitter,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumInsta,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumArtstation,
-    //             link: ""
-    //         }
-    //     ],
-    //     image: Image3
-    // },
     {
         id: "1",
         nation: "Japanese",
@@ -185,8 +49,16 @@ export const mentorListData = [
         chinesename: "圣帕蒂",
         japanesename: "さんぱち",
         nickname: "산파치",
+        isnew: true,
+        slideimage: {
+            status: "Left",
+            background: SanpatiSlideBack,
+            nickname: SanpatiSlideNick
+        },
+        portfolio: [
+
+        ],
         content: [
-            // SanpatiCurriculum
             SanpatiCurriculum1,
             SanpatiCurriculum2,
             SanpatiCurriculum3,
@@ -214,48 +86,75 @@ export const mentorListData = [
             {
                 icon: CurriculumArtstation,
                 link: ""
+            },
+            {
+                icon: CurriculumPixiv,
+                link: ""
             }
         ],
-        image: SanpachiImage
+        image: SanpatiThumbnail
     },
-    // {
-    //     id: "6",
-    //     nation: "Chinese",
-    //     englishname: "Neon",
-    //     chinesename: "氖",
-    //     japanesename: "ネオン",
-    //     nickname: "네온",
-    //     content: [
-    //         // SanpatiCurriculum
-    //         SanpatiCurriculum1,
-    //         SanpatiCurriculum2,
-    //         SanpatiCurriculum3,
-    //         SanpatiCurriculum4,
-    //         SanpatiCurriculum5,
-    //         SanpatiCurriculum6
-    //     ],
-    //     sns: [
-    //         {
-    //             icon: CurriculumHome,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumYoutube,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumTwitter,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumInsta,
-    //             link: ""
-    //         },
-    //         {
-    //             icon: CurriculumArtstation,
-    //             link: ""
-    //         }
-    //     ],
-    //     image: Image4
-    // },
+    {
+        id: "2",
+        nation: "Japanese",
+        englishname: "Escape",
+        chinesename: "伊斯凯普",
+        japanesename: "エスケープ",
+        nickname: "이스케이프",
+        isnew: true,
+        slideimage: {
+            status: "Left",
+            background: EscapeSlideBack,
+            nickname: EscapeSlideNick
+        },
+        portfolio: [
+            EscapePortfolio1,
+            EscapePortfolio2,
+            EscapePortfolio3,
+            EscapePortfolio4,
+            EscapePortfolio5,
+            EscapePortfolio6,
+            EscapePortfolio7,
+            EscapePortfolio8,
+            EscapePortfolio9,
+            EscapePortfolio10,
+            EscapePortfolio11,
+            EscapePortfolio12,
+            EscapePortfolio13,
+            EscapePortfolio14,
+            EscapePortfolio15,
+        ],
+        content: [
+            EscapeCurriculum1,
+            EscapeCurriculum2,
+            EscapeCurriculum3
+        ],
+        sns: [
+            {
+                icon: CurriculumDefaultHome,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultInsta,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultArtstation,
+                link: ""
+            },
+            {
+                icon: CurriculumPixiv,
+                link: ""
+            }
+        ],
+        image: EscapeThumbnail
+    },
 ];

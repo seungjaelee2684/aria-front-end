@@ -13,10 +13,29 @@ const Policy = () => {
 
   const language = useRecoilValue(translate);
 
+  type PolicyDataType = {
+    id: string,
+    title: string,
+    content: string[]
+  };
+
+  const subtitleTrans = (item : PolicyDataType) => {
+    switch (language) {
+      case "chinese" :
+        return `第${item?.id}条`;
+      case "japanese" :
+        return `第${item?.id}条`;
+      case "korean" :
+        return `제 ${item?.id}조`;
+      default :
+        return `Article ${item?.id}`;
+    };
+  };
+
   const policyTranslate = () => {
     if (language === "chinese") {
       return (
-          englishPolicyData?.map((item) => {
+          englishPolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
                 <PolicyTopContainer>
@@ -24,7 +43,7 @@ const Policy = () => {
                 </PolicyTopContainer>
                 <PolicyContentContainer>
                   <PolicySubTitleContainer>
-                    제 {item?.id}조
+                    {subtitleTrans(item)}
                   </PolicySubTitleContainer>
                   <PolicyContentWrapper>
                     {item?.content.map((text) => {
@@ -42,7 +61,7 @@ const Policy = () => {
       );
     } else if (language === "japanese") {
       return (
-          japanesePolicyData?.map((item) => {
+          japanesePolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
                 <PolicyTopContainer>
@@ -50,7 +69,7 @@ const Policy = () => {
                 </PolicyTopContainer>
                 <PolicyContentContainer>
                   <PolicySubTitleContainer>
-                    제 {item?.id}조
+                    {subtitleTrans(item)}
                   </PolicySubTitleContainer>
                   <PolicyContentWrapper>
                     {item?.content.map((text) => {
@@ -68,7 +87,7 @@ const Policy = () => {
       );
     } else if (language === "korean") {
       return (
-          policyData?.map((item) => {
+          policyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
                 <PolicyTopContainer>
@@ -76,7 +95,7 @@ const Policy = () => {
                 </PolicyTopContainer>
                 <PolicyContentContainer>
                   <PolicySubTitleContainer>
-                    제 {item?.id}조
+                    {subtitleTrans(item)}
                   </PolicySubTitleContainer>
                   <PolicyContentWrapper>
                     {item?.content.map((text) => {
@@ -94,7 +113,7 @@ const Policy = () => {
       );
     } else {
       return (
-          englishPolicyData?.map((item) => {
+          englishPolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
                 <PolicyTopContainer>
@@ -102,7 +121,7 @@ const Policy = () => {
                 </PolicyTopContainer>
                 <PolicyContentContainer>
                   <PolicySubTitleContainer>
-                    제 {item?.id}조
+                    {subtitleTrans(item)}
                   </PolicySubTitleContainer>
                   <PolicyContentWrapper>
                     {item?.content.map((text) => {
@@ -131,35 +150,6 @@ const Policy = () => {
       </LayOutTitleContainer>
       <PolicyOutContainer>
         {policyTranslate()}
-        {/* <PolicyInContainer>
-          <PolicyHeader>
-            운영정책
-          </PolicyHeader>
-          {policyData?.map((item) => {
-            return (
-              <ContentWrapper key={item.id}>
-                <PolicyTitle>
-                  {item?.title}
-                </PolicyTitle>
-                {item?.content.map((text) => {
-                  return (
-                    ((policyData.indexOf(item) + 1) === 1)
-                      ? ((item?.content.indexOf(text) + 1) === 1)
-                        ? <PolicyFirstContent key={text}>
-                          {text}
-                        </PolicyFirstContent>
-                        : <PolicyOtherContent key={text}>
-                          {text}
-                        </PolicyOtherContent>
-                      : <PolicyOtherContent key={text}>
-                        {text}
-                      </PolicyOtherContent>
-                  )
-                })}
-              </ContentWrapper>
-            )
-          })}
-        </PolicyInContainer> */}
       </PolicyOutContainer>
     </LayOutContainer>
   )

@@ -25,22 +25,12 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                             : (prevCurrent === NewMentorListData?.indexOf(item))
                                 ? "ImageContainer"
                                 : "NotActionImage"}>
-                        <ImageBox src={item?.image}/>
-                        {/* <IntroduceMentorContainer>
-                            {language
-                                ? item?.englishname
-                                : `${item?.nickname} 선생님`}
-                            <IntroduceText>
-                                {language
-                                    ? "内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                                    : "내용내용내용내용내용내용내용내용내용내용내용내용내용내용"}
-                            </IntroduceText>
-                        </IntroduceMentorContainer> */}
+                        <ImageBox src={item?.slideimage.background}/>
                         {(item?.status === "Left")
-                            ? <NicknameLeftContainer src={item?.nickimage} alt=''/>
+                            ? <NicknameLeftContainer src={item?.slideimage.nickname} alt=''/>
                             : <NicknameContainer 
                                 // className='ImageContainer'
-                                src={item?.nickimage}
+                                src={item?.slideimage.nickname}
                                 alt=''/>}
                     </div>
                 )
@@ -110,8 +100,8 @@ const IntroduceMentorContainer = styled.div`
 `;
 
 const NicknameContainer = styled.img`
-  width: 600px;
-  height: 250px;
+  width: 70%;
+  height: auto;
   object-fit: cover;
   user-select: none;
   /* padding: 0px 40px; */
