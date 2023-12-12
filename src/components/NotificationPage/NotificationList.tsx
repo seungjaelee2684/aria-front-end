@@ -7,6 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { NotificationData } from '../../data/NotificationData';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
+import { NoticeTrans } from '../../languages/NoticeTrans';
 
 const NotificationList = () => {
 
@@ -20,28 +21,15 @@ const NotificationList = () => {
     };
 
     const textChange = ( Num : number ) => {
-        if (Num === 0) {
-          switch (language) {
+        switch (language) {
             case "chinese" :
-                return "公告";
+                return NoticeTrans[Num]?.chinesetext;
             case "japanese" :
-                return "お知らせ";
+                return NoticeTrans[Num]?.japanesetext;
             case "korean" :
-                return "공지";
+                return NoticeTrans[Num]?.text;
             default :
-                return "Notice";
-          };
-        } else {
-            switch (language) {
-                case "chinese" :
-                    return " 件";
-                case "japanese" :
-                    return " 件";
-                case "korean" :
-                    return " 건";
-                default :
-                    return "cases";
-            };
+                return NoticeTrans[Num]?.englishtext;
         };
     };
 
@@ -74,13 +62,13 @@ const NotificationList = () => {
             <ListContainer>
                 <LineContainer style={{height: "10px"}}>
                     <TopLaneLeftText>
-                        분류
+                        {textChange(2)}
                     </TopLaneLeftText>
                     <TopLaneCenterText>
-                        제목
+                        {textChange(3)}
                     </TopLaneCenterText>
                     <TopLaneRightText>
-                        등록일
+                        {textChange(4)}
                     </TopLaneRightText>
                 </LineContainer>
                 {reverseNotice?.map((item : any) => {
@@ -91,7 +79,7 @@ const NotificationList = () => {
                                 style={{borderBottom: "none"}}>
                                 <ContentWrapper>
                                     <NoticeIcon>
-                                        Notice
+                                        {textChange(0)}
                                     </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
@@ -107,7 +95,7 @@ const NotificationList = () => {
                                 key={item.id}>
                                 <ContentWrapper>
                                     <NoticeIcon>
-                                        Notice
+                                        {textChange(0)}
                                     </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
@@ -244,13 +232,15 @@ const NoticeIcon = styled.div`
     line-height: normal;
     font-size: 16px;
     color: red;
+    display: flex;
+    align-items: center;
 
     @media screen and (max-width: 836px) {
-        font-size: 20px;
+        font-size: 14px;
     }
 
     @media screen and (max-width: 500px) {
-        font-size: 12px;
+        font-size: 10px;
     }
 `;
 
@@ -258,6 +248,7 @@ const RightWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
+    height: 100%;
 
     @media screen and (max-width: 500px) {
         font-size: 12px;
@@ -271,6 +262,8 @@ const RightText = styled.div`
     font-weight: 400;
     line-height: normal;
     color: #222020;
+    display: flex;
+    align-items: center;
 
     @media screen and (max-width: 836px) {
         font-size: 12px;
@@ -314,14 +307,16 @@ const TopLaneCenterText = styled(TopLaneLeftText)`
 `;
 
 const TopLaneRightText = styled(TopLaneLeftText)`
-    margin-right: 40px;
+    width: 110px;
+    display: flex;
+    justify-content: center;
 
     @media screen and (max-width: 836px) {
-        margin-right: 30px;
+        width: 100px;
     }
 
     @media screen and (max-width: 500px) {
-        margin-right: 20px;
+        width: 70px;
     }
 `;
 
