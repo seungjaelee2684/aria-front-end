@@ -16,14 +16,14 @@ const MentorDetail = () => {
   return (
     <LayoutContainer>
         <InContainer>
-            <CurriculumImg
-                src={mentorInfo[0]?.content[0]}/>
+            <CurriculumImg src={mentorInfo[0]?.content[0]} alt=''/>
             <CurriculumSNS>
                 {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
                     return (
                         <SNSIcons
                             key={item?.icon}
                             src={item?.icon}
+                            alt=''
                             onClick={() => {
                                 if (item?.link !== "") {
                                     window.open(item?.link)
@@ -37,7 +37,8 @@ const MentorDetail = () => {
                     (mentorInfo[0]?.content.indexOf(item) !== 0)
                         &&  <CurriculumImg
                             key={item}
-                            src={item}/>  
+                            src={item}
+                            alt=''/>  
                 )
             })}
             <PortfolioWrapper>
