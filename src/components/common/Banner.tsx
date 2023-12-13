@@ -33,27 +33,24 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
 
   return (
     <TitleContainer>
-      <BannerBackgroundImg src={textInformation[page]?.image}>
-        <TextWrapper>
+      <BannerBackgroundImg src={textInformation[page]?.image} alt=''/>
+      <TextWrapper>
           <TextBox className='TextBox'>
             {textChange()}
           </TextBox>
           <AnimationBar className='AnimationBar'/>
         </TextWrapper>
-      </BannerBackgroundImg>
     </TitleContainer>
   )
 };
 
 const TitleContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
   margin: 80px 0px 0px 0px;
   background-color: #FCFCFC;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   user-select: none;
+  position: relative;
 
   @media screen and (max-width: 836px) {
     height: 200px;
@@ -65,25 +62,20 @@ const TitleContainer = styled.div`
   }
 `;
 
-const BannerBackgroundImg = styled.div<{ src : string }>`
-  width: 100%;
+const BannerBackgroundImg = styled.img`
+  width: 60%;
   height: 100%;
-  background-image: url(${(props) => props.src});
-  background-size: cover;
-  background-position: center 10%;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Pretendard";
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 150%;
-  color: #FCFCFC;
+  object-fit: cover;
+  object-position: center 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const TextWrapper = styled.div`
-  min-height: 80px;
+  width: 1320px;
+  height: 100%;
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
