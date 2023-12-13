@@ -5,6 +5,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../../../store/CopyAlert';
 import { translate } from '../../../store/Translation';
 import { copyAlertContent } from '../../../languages/CopyAlertTrans';
+import { LuCheckCircle } from "react-icons/lu";
 
 const CopyAlertModal = () => {
 
@@ -41,6 +42,7 @@ const CopyAlertModal = () => {
   return (
     <BackgroundContainer>
         <AlertContainer ref={alertRef} className='CopyAlertContainer'>
+            <LuCheckCircle style={{color: "#b0d98f"}}/>
             {copyTextChange(0)}
         </AlertContainer>
     </BackgroundContainer>
@@ -55,13 +57,17 @@ const BackgroundContainer = styled.div`
     display: flex;
     justify-content: center;
     z-index: 100;
+
+    @media screen and (max-width: 500px) {
+        top: 50px;
+    }
 `;
 
 const AlertContainer = styled.div`
-    width: 350px;
+    width: 380px;
     height: 30px;
     border-radius: 10px;
-    background-color: #514d4deb;
+    background-color: #514d4dd6;
     font-family: "Pretendard";
     font-size: 16px;
     font-weight: 500;
@@ -69,8 +75,14 @@ const AlertContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     color: #FCFCFC;
     transition: all 0.3s;
+
+    @media screen and (max-width: 500px) {
+        width: 280px;
+        font-size: 12px;
+    }
 `;
 
 export default CopyAlertModal;

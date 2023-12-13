@@ -13,7 +13,7 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) =>
 
   return (
     <div>
-        <ModalBackgroundContainer />
+        <ModalBackgroundContainer onClick={() => setLanguageModal(false)}/>
         <ModalContainer>
             <ModalLineContainer
                 onClick={() => {
@@ -57,7 +57,7 @@ const ModalBackgroundContainer = styled.div`
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 97;
+        z-index: 100;
         background-color: #00000080;
         backdrop-filter: blur(5px);
         display: block;
@@ -72,7 +72,7 @@ const ModalContainer = styled.div`
     position: absolute;
     top: 26px;
     right: -10px;
-    z-index: 98;
+    z-index: 101;
 
     @media screen and (max-width: 500px) {
         position: fixed;
