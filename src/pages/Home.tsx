@@ -94,6 +94,13 @@ export const MainImage = styled.div`
     width: 100%;
     height: 800px;
     /* background-color: #FFFFFF; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 48px;
+    font-weight: 800;
+    line-height: normal;
 `;
 
 const Background = styled.div`
