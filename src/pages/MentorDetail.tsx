@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { mentorListData } from '../data/MentorData';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
+import PortfolioModal from '../components/MentorDetailPage/PortfolioModal/PortfolioModal';
 
 const MentorDetail = () => {
 
     const { id } = useParams();
-    console.log("id ->", id);
     const language = useRecoilValue(translate);
+
+    const [isOpenPortfolio, setIsOpenPortfolio] = useState<{
+        isopen: boolean,
+        image: string
+    }>({
+        isopen: false,
+        image: ""
+    });
+    const { isopen } = isOpenPortfolio;
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
     console.log("mentor ->", mentorInfo)
 
@@ -46,9 +55,14 @@ const MentorDetail = () => {
                     return (
                         <PortfolioImage
                             src={item}
-                            alt=''/>
+                            alt=''
+                            onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
                     )
                 })}
+                {isopen
+                    && <PortfolioModal 
+                        isOpenPortfolio={isOpenPortfolio}
+                        setIsOpenPortfolio={setIsOpenPortfolio}/>}
             </PortfolioWrapper>
         </InContainer>
     </LayoutContainer>
