@@ -56,6 +56,8 @@ const MentorDetail = () => {
                         <PortfolioImage
                             src={item}
                             alt=''
+                            loading="lazy"
+                            decoding="async"
                             onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
                     )
                 })}
@@ -150,6 +152,7 @@ const PortfolioImage = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
+    cursor: pointer;
 `;
 
 export default MentorDetail;
