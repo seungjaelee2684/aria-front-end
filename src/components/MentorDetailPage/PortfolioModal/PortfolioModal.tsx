@@ -1,6 +1,7 @@
 import React from 'react'
 import './PortfolioModal.css';
 import styled from 'styled-components';
+import { AiOutlineCloseSquare } from "react-icons/ai";
 
 interface PortfolioModalProps {
   isOpenPortfolio: {
@@ -15,15 +16,21 @@ interface PortfolioModalProps {
 
 const PortfolioModal : React.FC<PortfolioModalProps> = ({ isOpenPortfolio, setIsOpenPortfolio }) => {
   return (
-    <ModalBackgroundContainer onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: false, image: ""})}>
-      <ModalContainer>
-        <PortfolioImage src={isOpenPortfolio.image} alt=''/>
-      </ModalContainer>
-    </ModalBackgroundContainer>
+    <ModalContainer>
+      <CloseButton>
+        <AiOutlineCloseSquare
+          style={{cursor: "pointer"}}
+          onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: false, image: ""})}/>
+      </CloseButton>
+      <PortfolioImage
+        src={isOpenPortfolio.image}
+        alt=''
+        onClick={(e) => e.stopPropagation()}/>
+    </ModalContainer>
   )
 };
 
-const ModalBackgroundContainer = styled.div`
+const ModalContainer = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -31,23 +38,33 @@ const ModalBackgroundContainer = styled.div`
   left: 0;
   z-index: 101;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #22202080;
+  background-color: #222020f0;
+  overflow: hidden;
 `;
 
-const ModalContainer = styled.div`
-  width: 100%;
-  height: 90%;
-  background-color: #222020;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const CloseButton = styled.div`
+  font-size: 30px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
+
+// const ModalContainer = styled.div`
+//   width: 100%;
+//   height: 90%;
+//   background-color: #222020;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const PortfolioImage = styled.img`
-  width: 80%;
-  height: 70%;
+  width: 96%;
+  height: 96%;
   object-fit: contain;
 `;
 

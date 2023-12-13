@@ -111,7 +111,14 @@ const NicknameContainer = styled.img`
   top: 35%;
 
     @media screen and (max-width: 1320px) {
-        top: 50%;
+      top: 40%;
+      width: 85%;
+    }
+
+    @media screen and (max-width: 500px) {
+      top: 50%;
+      width: 90%;
+      left: 8%;
     }
 `;
 
@@ -126,7 +133,14 @@ const NicknameLeftContainer = styled.img`
   user-select: none;
 
     @media screen and (max-width: 1320px) {
-        top: 50%;
+      top: 40%;
+      width: 85%;
+    }
+
+    @media screen and (max-width: 500px) {
+      top: 50%;
+      width: 90%;
+      left: 8%;
     }
 `;
 
