@@ -72,7 +72,7 @@ const ListContainer = styled.div`
     gap: 20px;
 
     @media screen and (max-width: 836px) {
-        /* justify-content: center; */
+        justify-content: center;
         gap: 16px;
     }
 `;
