@@ -28,14 +28,14 @@ const CopyAlertModal = () => {
     useEffect(() => {
         setTimeout(() => {
             if (alertRef.current) {
-                alertRef.current.style.transition = "all 0.5s ease-out";
+                alertRef.current.style.transition = "all 0.3s ease-out";
                 alertRef.current.style.transform = "translateY(-10px)";
                 alertRef.current.style.opacity = "0";
             };
-        }, 3000);
+        }, 2500);
         setTimeout(() => {
             setCopyHandler(false);
-        }, 3500);
+        }, 2800);
     }, [])
 
   return (
@@ -61,7 +61,7 @@ const AlertContainer = styled.div`
     width: 350px;
     height: 30px;
     border-radius: 10px;
-    background-color: #22202090;
+    background-color: #514d4deb;
     font-family: "Pretendard";
     font-size: 16px;
     font-weight: 500;
