@@ -31,7 +31,7 @@ export const NoticeTrans : NoticeType[] = [
         text: "제목"
     },
     {
-        englishtext: "Registration Date",
+        englishtext: "Date",
         chinesetext: "注册日",
         japanesetext: "登録日",
         text: "등록일"

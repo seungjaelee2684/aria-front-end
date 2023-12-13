@@ -63,10 +63,10 @@ const Header = () => {
             setScrollData(currentScrollY);
         };    
 
-        window.addEventListener('wheel', scrollHandler);
+        window.addEventListener('scroll', scrollHandler);
 
         return () => {
-            window.removeEventListener('wheel', scrollHandler);
+            window.removeEventListener('scroll', scrollHandler);
         };
     }, [scrollData]);
 
@@ -139,7 +139,7 @@ const HeaderLayoutContainer = styled.div`
     transition: all 0.4s ease-in-out;
 
     @media screen and (max-width: 500px) {
-        background-color: #FFFFFF;
+        /* background-color: #222020; */
         height: 50px;
         border-bottom: 1px solid #e9e9e9;
     }
@@ -233,9 +233,8 @@ const TranslateWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    border: 1px solid #FFFFFF;
     color: #6b6b6b;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
     font-size: 14px;
     gap: 4px;
     transition: all 0.3s ease-in-out;
@@ -253,10 +252,6 @@ const TranslateWrapper = styled.div`
         gap: 5px;
         color: #222020;
         font-size: 20px;
-
-        &:hover {
-            border: none;
-        }
     }
 `;
 
