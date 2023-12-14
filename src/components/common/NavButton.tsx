@@ -11,7 +11,7 @@ import AlertModal from './AlertModal/AlertModal';
 const NavButton = () => {
 
     const navigate = useNavigate();
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const location = useLocation();
     // const resetFilter = useResetRecoilState(nationKind);
     // const resetFlag = useResetRecoilState(nationFlag);

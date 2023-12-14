@@ -9,7 +9,7 @@ interface TranslateModalProps {
 
 const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) => {
 
-    const [, setLanguage] = useRecoilState(translate);
+    // const [, setLanguage] = useRecoilState(translate);
 
   return (
     <div>
@@ -18,28 +18,32 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) =>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    setLanguage("english");
+                    localStorage.setItem("language", "english");
+                    window.location.reload();
                 }}>
                 English
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    setLanguage("chinese");
+                    localStorage.setItem("language", "chinese");
+                    window.location.reload();
                 }}>
                 中文
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    setLanguage("japanese");
+                    localStorage.setItem("language", "japanese");
+                    window.location.reload();
                 }}>
                 日本語
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {
                     setLanguageModal(false);
-                    setLanguage("korean");
+                    localStorage.setItem("language", "korean");
+                    window.location.reload();
                 }}>
                 한국어
             </ModalLineContainer>

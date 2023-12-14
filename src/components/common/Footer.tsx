@@ -19,7 +19,7 @@ const Footer = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   type ArrType = {

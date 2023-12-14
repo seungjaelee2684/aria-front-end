@@ -11,7 +11,7 @@ import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../styl
 
 const Policy = () => {
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
 
   type PolicyDataType = {
     id: string,

@@ -16,7 +16,7 @@ import Capture from '../assets/images/discordcapture.png';
 
 const Counseling = () => {
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
   const alertRef = useRef<HTMLDivElement>(null);
   const [, setCopyHandler] = useRecoilState(CopyAlert);
 

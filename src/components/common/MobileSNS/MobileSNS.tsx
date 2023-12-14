@@ -16,7 +16,7 @@ interface MobileSNSProps {
 
 const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
     const onClickReadyHandler = () => {
