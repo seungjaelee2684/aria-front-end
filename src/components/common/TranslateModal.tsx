@@ -77,7 +77,7 @@ const ModalContainer = styled.div`
     background-color: #222020ea;
     position: absolute;
     top: 26px;
-    right: 10%;
+    right: -5px;
     z-index: 101;
 
     @media screen and (max-width: 500px) {
