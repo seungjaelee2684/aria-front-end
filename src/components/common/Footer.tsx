@@ -22,21 +22,6 @@ const Footer = () => {
   const language = useRecoilValue(translate);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
-  const onClickReadyHandler = () => {
-    switch (language) {
-      case "english" :
-        return alert("Coming soon");
-      case "chinese" :
-        return alert("正在准备。");
-      case "japanese" :
-        return alert("準備中です。");
-      case "korean" :
-        return alert("준비중입니다.");
-      default :
-        return alert("Coming soon");
-    };
-  };
-
   type ArrType = {
     englishcontent: string,
     chinesecontent: string,
@@ -69,7 +54,13 @@ const Footer = () => {
   };
     
   return (
-    <FooterContainer style={{display: `${(location.pathname === "/") ? "none" : "block"}`}}>
+    <FooterContainer
+      style={{
+        display: `${((location.pathname === "/")
+          || (location.pathname === "/check"))
+            ? "none"
+            : "block"}`
+      }}>
       <FooterOutContainer>
         <TopLaneHeader>
           <LeftTopLaneContainer>
