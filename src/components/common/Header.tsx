@@ -102,7 +102,7 @@ const Header = () => {
                             </TranslateWrapper>
                             {languageModal
                                 && <TranslateModal
-                                    setLanguageModal={setLanguageModal}/>}
+                                setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
@@ -116,7 +116,7 @@ const Header = () => {
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        {copyHandle && <CopyAlertModal />}
+        {copyHandle && <CopyAlertModal />}      
         {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
@@ -289,7 +289,7 @@ const HomeBtnWrapper = styled.div`
 const TranslateContainer = styled.div`
     /* min-width: 3%; */
     /* height: 100%; */
-    position: relative;
+    /* position: relative; */
 `;
 
 const NavButtonContainer = styled.div`

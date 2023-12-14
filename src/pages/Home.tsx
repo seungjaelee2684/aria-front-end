@@ -85,9 +85,6 @@ const MainLayout = styled.div`
     flex-direction: column;
     /* justify-content: center; */
     z-index: 97;
-    @media (prefers-color-scheme: dark) {
-    .scheme   { background:  #ffffff; color: #fff; }
-    }
 `;
 
 export const MainImage = styled.div`

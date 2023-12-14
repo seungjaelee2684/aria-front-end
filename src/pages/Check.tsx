@@ -86,23 +86,28 @@ const Check = () => {
 };
 
 const LayoutContainer = styled.div`
-    width: 100%;
+    width: 1320px;
     height: 100vh;
     background-color: #FFF;
+    margin: 0px auto;
     position: relative;
     z-index: 101;
+
+    @media screen and (max-width: 1320px) {
+        width: 96%;
+    }
 `;
 
 const LogoContainer = styled.div`
     display: flex;
     align-items: end;
-    gap: 24px;
+    gap: 30px;
     margin-bottom: 20px;
 `;
 
 const Logo = styled.img`
     width: 160px;
-    height: 80px;
+    height: auto;
     object-fit: contain;
 `;
 
@@ -115,7 +120,7 @@ const LogoText = styled.div`
 `;
 
 const ItemContainer = styled.div`
-    width: 50%;
+    width: 100%;
     height: 100%;
     margin: 0px auto;
     /* background-color: #e9e9e9; */
@@ -136,7 +141,7 @@ const TopLineContainer = styled.div`
     font-size: 20px;
     font-weight: 600;
     line-height: normal;
-    margin-top: 120px;
+    margin-top: 20%;
     display: flex;
     justify-content: space-between;
     align-items: end;
