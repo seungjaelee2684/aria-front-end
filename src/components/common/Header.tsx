@@ -20,7 +20,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 
 const Header = () => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
     const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);

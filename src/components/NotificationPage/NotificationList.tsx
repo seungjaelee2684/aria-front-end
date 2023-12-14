@@ -11,7 +11,7 @@ import { NoticeTrans } from '../../languages/NoticeTrans';
 
 const NotificationList = () => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const navigate = useNavigate();
     const reverseNotice = NotificationData?.reverse();
     console.log("reverseData", reverseNotice);

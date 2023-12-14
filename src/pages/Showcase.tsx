@@ -6,7 +6,7 @@ import Banner from '../components/common/Banner';
 
 const Showcase = () => {
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
 
   return (
     <LayoutContainer>

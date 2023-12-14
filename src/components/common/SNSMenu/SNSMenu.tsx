@@ -18,7 +18,7 @@ import { IoShareSocial } from "react-icons/io5";
 
 const SNSMenu = () => {
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [sns, setSns] = useState<boolean>(false);
 

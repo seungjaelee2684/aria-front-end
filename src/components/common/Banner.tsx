@@ -14,7 +14,7 @@ interface BannerProps {
 
 const Banner : React.FC<BannerProps> = ({ page }) => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
 
     const textChange = () => {
       switch (language) {
