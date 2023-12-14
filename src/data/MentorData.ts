@@ -37,9 +37,6 @@ import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/p09.webp';
 import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
-import EscapePortfolio13 from '../assets/curriculums/escape/portfolio/p13.webp';
-import EscapePortfolio14 from '../assets/curriculums/escape/portfolio/p14.webp';
-import EscapePortfolio15 from '../assets/curriculums/escape/portfolio/p15.webp';
 
 export const mentorListData = [
     {
@@ -120,9 +117,6 @@ export const mentorListData = [
             EscapePortfolio10,
             EscapePortfolio11,
             EscapePortfolio12,
-            EscapePortfolio13,
-            EscapePortfolio14,
-            EscapePortfolio15,
         ],
         content: [
             EscapeCurriculum1,
