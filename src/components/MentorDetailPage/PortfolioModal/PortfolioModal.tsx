@@ -46,11 +46,12 @@ const ModalContainer = styled.div`
 `;
 
 const CloseButton = styled.div`
-  font-size: 30px;
+  font-size: 36px;
   color: #FFFFFF;
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 102;
 `;
 
 // const ModalContainer = styled.div`
