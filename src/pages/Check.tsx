@@ -15,8 +15,6 @@ const Check = () => {
 
     const checkText = ( Num : number ) => {
         switch (language) {
-            case "english" : 
-                return checkPageContent[Num]?.englishtext;
             case "chinese" : 
                 return checkPageContent[Num]?.chinesetext;
             case "japanese" : 
