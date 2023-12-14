@@ -18,7 +18,7 @@ interface MobileNavModalProps {
 
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
   const subModalRef = useRef<HTMLDivElement>(null);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [subPage, setSubPage] = useState<{ notice: boolean, support: boolean }>({

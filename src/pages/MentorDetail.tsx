@@ -9,7 +9,7 @@ import PortfolioModal from '../components/MentorDetailPage/PortfolioModal/Portfo
 const MentorDetail = () => {
 
     const { id } = useParams();
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
 
     const [isOpenPortfolio, setIsOpenPortfolio] = useState<{
         isopen: boolean,

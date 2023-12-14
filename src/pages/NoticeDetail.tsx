@@ -9,7 +9,7 @@ const NoticeDetail = () => {
 
   const { id } = useParams();
   console.log("id ->", id);
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
   const eventList = eventPosterData?.filter((item) => item.id === id);
   console.log("이벤트데이터", eventList);
 

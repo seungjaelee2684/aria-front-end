@@ -9,7 +9,7 @@ import { LuCheckCircle } from "react-icons/lu";
 
 const CopyAlertModal = () => {
 
-    const language = useRecoilValue(translate);
+    const language = localStorage.getItem("language");
     const [copyHandler, setCopyHandler] = useRecoilState(CopyAlert);
     const alertRef = useRef<HTMLDivElement>(null);
 

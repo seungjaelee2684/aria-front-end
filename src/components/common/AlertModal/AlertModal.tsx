@@ -16,7 +16,7 @@ const AlertModal = () => {
 
   console.log("모달창 데이터", alertModal.whatAlert);
 
-  const language = useRecoilValue(translate);
+  const language = localStorage.getItem("language");
 
   const alertTranslate = (Num : number) => {
     switch (language) {
