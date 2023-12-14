@@ -43,7 +43,7 @@ const ScrollTopButton = () => {
 
 const ScrollTopButtonWrapper = styled.div`
     position: fixed;
-    z-index: 101;
+    z-index: 99;
     bottom: 4%;
     right: 4%;
     font-family: "Pretendard";
