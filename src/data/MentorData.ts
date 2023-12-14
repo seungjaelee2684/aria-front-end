@@ -22,9 +22,9 @@ import SanpatiCurriculum6 from '../assets/curriculums/sanpati/sanpaticurriculum6
 import EscapeThumbnail from '../assets/curriculums/escape/Thumbnail_escape.webp';
 import EscapeSlideBack from '../assets/curriculums/escape/banner_escape_01.webp';
 import EscapeSlideNick from '../assets/curriculums/escape/banner_escape_02.webp';
-import EscapeCurriculum1 from '../assets/curriculums/escape/curriculum_escape_01.webp';
-import EscapeCurriculum2 from '../assets/curriculums/escape/curriculum_escape_02.webp';
-import EscapeCurriculum3 from '../assets/curriculums/escape/curriculum_escape_03.webp';
+import EscapeCurriculumEN1 from '../assets/curriculums/escape/curriculum_escape_01.webp';
+import EscapeCurriculumEN2 from '../assets/curriculums/escape/curriculum_escape_02.webp';
+import EscapeCurriculumEN3 from '../assets/curriculums/escape/curriculum_escape_03.webp';
 import EscapePortfolio1 from '../assets/curriculums/escape/portfolio/p01.webp';
 import EscapePortfolio2 from '../assets/curriculums/escape/portfolio/p02.webp';
 import EscapePortfolio3 from '../assets/curriculums/escape/portfolio/p03.webp';
@@ -37,9 +37,6 @@ import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/p09.webp';
 import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
-import EscapePortfolio13 from '../assets/curriculums/escape/portfolio/p13.webp';
-import EscapePortfolio14 from '../assets/curriculums/escape/portfolio/p14.webp';
-import EscapePortfolio15 from '../assets/curriculums/escape/portfolio/p15.webp';
 
 export const mentorListData = [
     {
@@ -58,14 +55,40 @@ export const mentorListData = [
         portfolio: [
 
         ],
-        content: [
-            SanpatiCurriculum1,
-            SanpatiCurriculum2,
-            SanpatiCurriculum3,
-            SanpatiCurriculum4,
-            SanpatiCurriculum5,
-            SanpatiCurriculum6
-        ],
+        content: {
+            englishcontent: [
+                SanpatiCurriculum1,
+                SanpatiCurriculum2,
+                SanpatiCurriculum3,
+                SanpatiCurriculum4,
+                SanpatiCurriculum5,
+                SanpatiCurriculum6
+            ],
+            chinesecontent: [
+                SanpatiCurriculum1,
+                SanpatiCurriculum2,
+                SanpatiCurriculum3,
+                SanpatiCurriculum4,
+                SanpatiCurriculum5,
+                SanpatiCurriculum6
+            ],
+            japanesecontent: [
+                SanpatiCurriculum1,
+                SanpatiCurriculum2,
+                SanpatiCurriculum3,
+                SanpatiCurriculum4,
+                SanpatiCurriculum5,
+                SanpatiCurriculum6
+            ],
+            koreancontent: [
+                SanpatiCurriculum1,
+                SanpatiCurriculum2,
+                SanpatiCurriculum3,
+                SanpatiCurriculum4,
+                SanpatiCurriculum5,
+                SanpatiCurriculum6
+            ],
+        },
         sns: [
             {
                 icon: CurriculumHome,
@@ -120,15 +143,35 @@ export const mentorListData = [
             EscapePortfolio10,
             EscapePortfolio11,
             EscapePortfolio12,
-            EscapePortfolio13,
-            EscapePortfolio14,
-            EscapePortfolio15,
         ],
-        content: [
-            EscapeCurriculum1,
-            EscapeCurriculum2,
-            EscapeCurriculum3
-        ],
+        content: {
+            englishcontent: [
+                EscapeCurriculumEN1,
+                EscapeCurriculumEN2,
+                EscapeCurriculumEN3
+            ],
+            chinesecontent: [
+                SanpatiCurriculum1,
+                SanpatiCurriculum2,
+                SanpatiCurriculum3,
+                SanpatiCurriculum4,
+                SanpatiCurriculum5,
+                SanpatiCurriculum6
+            ],
+            japanesecontent: [
+                SanpatiCurriculum1,
+                SanpatiCurriculum2,
+                SanpatiCurriculum3,
+                SanpatiCurriculum4,
+                SanpatiCurriculum5,
+                SanpatiCurriculum6
+            ],
+            koreancontent: [
+                EscapeCurriculumEN1,
+                EscapeCurriculumEN2,
+                EscapeCurriculumEN3
+            ],
+        },
         sns: [
             {
                 icon: CurriculumDefaultHome,

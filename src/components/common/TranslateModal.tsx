@@ -90,6 +90,7 @@ const ModalContainer = styled.div`
         left: 25%;
         width: 50%;
         border-radius: 10px;
+        background-color: #222020;
     }
 `;
 

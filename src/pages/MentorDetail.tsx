@@ -22,51 +22,197 @@ const MentorDetail = () => {
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
     console.log("mentor ->", mentorInfo)
 
+    const curriculumTranslate = () => {
+        if (language === "chinese") {
+            return (
+                <InContainer>
+                    <CurriculumImg src={mentorInfo[0]?.content.chinesecontent[0]} alt=''/>
+                    <CurriculumSNS>
+                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                            return (
+                                <SNSIcons
+                                    key={item?.icon}
+                                    src={item?.icon}
+                                    alt=''
+                                    onClick={() => {
+                                        if (item?.link !== "") {
+                                            window.open(item?.link)
+                                        }
+                                    }}/>
+                            )
+                        })}
+                    </CurriculumSNS>
+                    {mentorInfo[0]?.content.chinesecontent.map((item : string) => {
+                        return (
+                            (mentorInfo[0]?.content.chinesecontent.indexOf(item) !== 0)
+                                &&  <CurriculumImg
+                                    key={item}
+                                    src={item}
+                                    alt=''/>  
+                        )
+                    })}
+                    <PortfolioWrapper>
+                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                            return (
+                                <PortfolioImage
+                                    src={item}
+                                    alt=''
+                                    loading="lazy"
+                                    decoding="async"
+                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                            )
+                        })}
+                        {isopen
+                            && <PortfolioModal 
+                                isOpenPortfolio={isOpenPortfolio}
+                                setIsOpenPortfolio={setIsOpenPortfolio}/>}
+                    </PortfolioWrapper>
+                </InContainer>
+            );
+        } else if (language === "japanese") {
+            return (
+                <InContainer>
+                    <CurriculumImg src={mentorInfo[0]?.content.japanesecontent[0]} alt=''/>
+                    <CurriculumSNS>
+                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                            return (
+                                <SNSIcons
+                                    key={item?.icon}
+                                    src={item?.icon}
+                                    alt=''
+                                    onClick={() => {
+                                        if (item?.link !== "") {
+                                            window.open(item?.link)
+                                        }
+                                    }}/>
+                            )
+                        })}
+                    </CurriculumSNS>
+                    {mentorInfo[0]?.content.japanesecontent.map((item : string) => {
+                        return (
+                            (mentorInfo[0]?.content.japanesecontent.indexOf(item) !== 0)
+                                &&  <CurriculumImg
+                                    key={item}
+                                    src={item}
+                                    alt=''/>  
+                        )
+                    })}
+                    <PortfolioWrapper>
+                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                            return (
+                                <PortfolioImage
+                                    src={item}
+                                    alt=''
+                                    loading="lazy"
+                                    decoding="async"
+                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                            )
+                        })}
+                        {isopen
+                            && <PortfolioModal 
+                                isOpenPortfolio={isOpenPortfolio}
+                                setIsOpenPortfolio={setIsOpenPortfolio}/>}
+                    </PortfolioWrapper>
+                </InContainer>
+            );
+        } else if (language === "korean") {
+            return (
+                <InContainer>
+                    <CurriculumImg src={mentorInfo[0]?.content.koreancontent[0]} alt=''/>
+                    <CurriculumSNS>
+                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                            return (
+                                <SNSIcons
+                                    key={item?.icon}
+                                    src={item?.icon}
+                                    alt=''
+                                    onClick={() => {
+                                        if (item?.link !== "") {
+                                            window.open(item?.link)
+                                        }
+                                    }}/>
+                            )
+                        })}
+                    </CurriculumSNS>
+                    {mentorInfo[0]?.content.koreancontent.map((item : string) => {
+                        return (
+                            (mentorInfo[0]?.content.koreancontent.indexOf(item) !== 0)
+                                &&  <CurriculumImg
+                                    key={item}
+                                    src={item}
+                                    alt=''/>  
+                        )
+                    })}
+                    <PortfolioWrapper>
+                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                            return (
+                                <PortfolioImage
+                                    src={item}
+                                    alt=''
+                                    loading="lazy"
+                                    decoding="async"
+                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                            )
+                        })}
+                        {isopen
+                            && <PortfolioModal 
+                                isOpenPortfolio={isOpenPortfolio}
+                                setIsOpenPortfolio={setIsOpenPortfolio}/>}
+                    </PortfolioWrapper>
+                </InContainer>
+            );
+        } else {
+            return (
+                <InContainer>
+                    <CurriculumImg src={mentorInfo[0]?.content.englishcontent[0]} alt=''/>
+                    <CurriculumSNS>
+                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                            return (
+                                <SNSIcons
+                                    key={item?.icon}
+                                    src={item?.icon}
+                                    alt=''
+                                    onClick={() => {
+                                        if (item?.link !== "") {
+                                            window.open(item?.link)
+                                        }
+                                    }}/>
+                            )
+                        })}
+                    </CurriculumSNS>
+                    {mentorInfo[0]?.content.englishcontent.map((item : string) => {
+                        return (
+                            (mentorInfo[0]?.content.englishcontent.indexOf(item) !== 0)
+                                &&  <CurriculumImg
+                                    key={item}
+                                    src={item}
+                                    alt=''/>  
+                        )
+                    })}
+                    <PortfolioWrapper>
+                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                            return (
+                                <PortfolioImage
+                                    src={item}
+                                    alt=''
+                                    loading="lazy"
+                                    decoding="async"
+                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                            )
+                        })}
+                        {isopen
+                            && <PortfolioModal 
+                                isOpenPortfolio={isOpenPortfolio}
+                                setIsOpenPortfolio={setIsOpenPortfolio}/>}
+                    </PortfolioWrapper>
+                </InContainer>
+            );
+        };
+    };
+
   return (
     <LayoutContainer>
-        <InContainer>
-            <CurriculumImg src={mentorInfo[0]?.content[0]} alt=''/>
-            <CurriculumSNS>
-                {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
-                    return (
-                        <SNSIcons
-                            key={item?.icon}
-                            src={item?.icon}
-                            alt=''
-                            onClick={() => {
-                                if (item?.link !== "") {
-                                    window.open(item?.link)
-                                }
-                            }}/>
-                    )
-                })}
-            </CurriculumSNS>
-            {mentorInfo[0]?.content.map((item : string) => {
-                return (
-                    (mentorInfo[0]?.content.indexOf(item) !== 0)
-                        &&  <CurriculumImg
-                            key={item}
-                            src={item}
-                            alt=''/>  
-                )
-            })}
-            <PortfolioWrapper>
-                {mentorInfo[0]?.portfolio.map((item : string) => {
-                    return (
-                        <PortfolioImage
-                            src={item}
-                            alt=''
-                            loading="lazy"
-                            decoding="async"
-                            onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
-                    )
-                })}
-                {isopen
-                    && <PortfolioModal 
-                        isOpenPortfolio={isOpenPortfolio}
-                        setIsOpenPortfolio={setIsOpenPortfolio}/>}
-            </PortfolioWrapper>
-        </InContainer>
+        {curriculumTranslate()}
     </LayoutContainer>
   )
 };
@@ -116,10 +262,12 @@ const CurriculumSNS = styled.div`
     @media screen and (max-width: 1100px) {
         width: 100%;
         gap: 50px;
+        padding: 80px 0px;
     }
 
     @media screen and (max-width: 500px) {
         gap: 30px;
+        padding: 50px 0px;
     }
 `;
 

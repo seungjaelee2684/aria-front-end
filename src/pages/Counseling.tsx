@@ -12,7 +12,8 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../store/CopyAlert';
 import { translate } from '../store/Translation';
 import Monitor from '../assets/images/monitorcapture.png';
-import Capture from '../assets/images/discordcapture.png';
+import Capture from '../assets/icons/search.png';
+import PopUp from '../components/common/PopUp';
 
 const Counseling = () => {
 
@@ -48,7 +49,7 @@ const Counseling = () => {
     <LayOutContainer>
       <OutContainer>
         <MonitorContainer>
-          <MonitorImage src={Monitor} alt=''/>
+          <MonitorImage src={Monitor} data-src={<PopUp />} alt=''/>
         </MonitorContainer>
         <InContainer>
           <ContentContainer>
