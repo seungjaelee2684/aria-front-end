@@ -290,6 +290,10 @@ const TranslateContainer = styled.div`
     /* min-width: 3%; */
     /* height: 100%; */
     position: relative;
+
+    @media screen and (max-width: 500px) {
+        position: static;
+    }
 `;
 
 const NavButtonContainer = styled.div`
