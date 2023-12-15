@@ -69,7 +69,11 @@ const Home = () => {
   return (
     <MainLayout>
         {/* <MainSlideShow /> */}
-        <BackgroundImage src={MainBackground} alt=''/>
+        <BackgroundImage
+            src={MainBackground}
+            alt=''
+            loading="lazy"
+            decoding="async"/>
         <Background />
         <ScrollContainer>
             안녕

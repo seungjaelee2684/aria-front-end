@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { mentorListData } from '../data/MentorData';
 import { useRecoilValue } from 'recoil';
@@ -10,6 +10,10 @@ const MentorDetail = () => {
 
     const { id } = useParams();
     const language = localStorage.getItem("language");
+    const navigate = useNavigate();
+
+    const prevId = Number(id) - 1
+    const nextId = Number(id) + 1
 
     const [isOpenPortfolio, setIsOpenPortfolio] = useState<{
         isopen: boolean,
@@ -213,6 +217,17 @@ const MentorDetail = () => {
   return (
     <LayoutContainer>
         {curriculumTranslate()}
+        <ListBackMoveBtnContainer>
+            {/* <ListBackMoveButton onClick={() => navigate(`/mentor/detail/${prevId.toString()}`)}>
+                UP
+            </ListBackMoveButton>
+            <ListBackMoveButton onClick={() => navigate(`/mentor/detail/${nextId.toString()}`)}>
+                DOWN
+            </ListBackMoveButton> */}
+            <ListBackMoveButton onClick={() => navigate("/mentor")}>
+                목록
+            </ListBackMoveButton>
+        </ListBackMoveBtnContainer>
     </LayoutContainer>
   )
 };
@@ -235,7 +250,7 @@ const InContainer = styled.div`
     gap: 0px;
 
     @media screen and (max-width: 1100px) {
-        width: 100%;
+        width: 96%;
         gap: 60px;
     }
 
@@ -260,7 +275,7 @@ const CurriculumSNS = styled.div`
     padding: 100px 0px;
 
     @media screen and (max-width: 1100px) {
-        width: 100%;
+        width: 96%;
         gap: 50px;
         padding: 80px 0px;
     }
@@ -300,6 +315,36 @@ const PortfolioImage = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
+    cursor: pointer;
+`;
+
+const ListBackMoveBtnContainer = styled.div`
+    width: 1100px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 0px auto;
+    padding: 40px 0px 0px 0px;
+    gap: 10px;
+
+    @media screen and (max-width: 1100px) {
+        width: 96%;
+        padding: 30px 0px 0px 0px;
+    }
+`;
+
+const ListBackMoveButton = styled.div`
+    width: 80px;
+    height: 40px;
+    background-color: #222020;
+    color: #FCFCFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
     cursor: pointer;
 `;
 
