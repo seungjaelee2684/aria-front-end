@@ -9,6 +9,7 @@ import SelectBar from '../components/NoticePage/SelectBar';
 import '../style/font/font.css';
 import { eventPosterData } from '../data/EventPosterData';
 import Banner from '../components/common/Banner';
+import { etcTextTrans } from '../languages/ETCTrans';
 
 const Notice = () => {
 
@@ -50,32 +51,15 @@ const Notice = () => {
   console.log("검색창 입력값", content);
 
   const textChange = ( Num : number ) => {
-    if (Num === 0) {
-      switch (language) {
-        case "english" :
-          return "cases";
-        case "chinese" :
-          return " 件";
-        case "japanese" :
-          return " 件";
-        case "korean" :
-          return " 건";
-        default :
-          return "cases";
-      };
-    } else {
-      switch (language) {
-        case "english" :
-          return "Type a title";
-        case "chinese" :
-          return "标题搜索";
-        case "japanese" :
-          return "タイトル検索";
-        case "korean" :
-          return "제목 검색";
-        default :
-          return "Type a title";
-      };
+    switch (language) {
+      case "chinese" :
+        return etcTextTrans[Num]?.chinesetext;
+      case "japanese" :
+        return etcTextTrans[Num]?.japanesetext;
+      case "korean" :
+        return etcTextTrans[Num]?.text;
+      default :
+        return etcTextTrans[Num]?.englishtext;
     };
   };
 
@@ -196,7 +180,7 @@ const SearchBarWrapper = styled.form`
 `;
 
 const SearBarInput = styled.input`
-  width: 120px;
+  width: 130px;
   height: 34px;
   border-left: 1px solid #ADADAD;
   border-top: 1px solid #ADADAD;
@@ -204,7 +188,7 @@ const SearBarInput = styled.input`
   border-right: none;
   background: none;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 140%;
   padding: 0px 20px;
@@ -216,14 +200,15 @@ const SearBarInput = styled.input`
   }
 
   @media screen and (max-width: 836px) {
-    width: 100px;
+    width: 110px;
     height: 30px;
+    font-size: 12px;
   }
 
   @media screen and (max-width: 500px) {
     width: 110px;
     height: 26px;
-    font-size: 12px;
+    font-size: 10px;
     padding: 0px 10px;
   }
 `;

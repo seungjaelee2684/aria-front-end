@@ -338,14 +338,14 @@ const ListBackMoveBtnContainer = styled.div`
 const ListBackMoveButton = styled.div`
     width: 80px;
     height: 46px;
-    background-color: #222020;
+    background-color: #5C9DFF;
     color: #FCFCFC;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Pretendard";
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     gap: 5px;
     cursor: pointer;
