@@ -71,9 +71,7 @@ const Home = () => {
         {/* <MainSlideShow /> */}
         <BackgroundImage
             src={MainBackground}
-            alt=''
-            loading="lazy"
-            decoding="async"/>
+            alt=''/>
         <Background />
         <ScrollContainer>
             안녕
