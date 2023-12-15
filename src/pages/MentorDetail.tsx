@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { mentorListData } from '../data/MentorData';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
+import { RxHamburgerMenu } from "react-icons/rx";
 import PortfolioModal from '../components/MentorDetailPage/PortfolioModal/PortfolioModal';
 
 const MentorDetail = () => {
@@ -225,6 +226,7 @@ const MentorDetail = () => {
                 DOWN
             </ListBackMoveButton> */}
             <ListBackMoveButton onClick={() => navigate("/mentor")}>
+                <RxHamburgerMenu />
                 목록
             </ListBackMoveButton>
         </ListBackMoveBtnContainer>
@@ -335,7 +337,7 @@ const ListBackMoveBtnContainer = styled.div`
 
 const ListBackMoveButton = styled.div`
     width: 80px;
-    height: 40px;
+    height: 46px;
     background-color: #222020;
     color: #FCFCFC;
     display: flex;
@@ -345,6 +347,7 @@ const ListBackMoveButton = styled.div`
     font-size: 16px;
     font-weight: 600;
     line-height: normal;
+    gap: 5px;
     cursor: pointer;
 `;
 
