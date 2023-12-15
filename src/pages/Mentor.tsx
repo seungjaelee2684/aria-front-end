@@ -7,12 +7,9 @@ import LeftArrow from '../assets/icons/leftArrow.png';
 import RightArrow from '../assets/icons/rightArrow.png';
 import FilterButton from '../components/MentorPage/FilterButton';
 import SlideShow from '../components/MentorPage/SlideShow';
+import MentorSearchBar from '../components/MentorPage/MentorSearchBar';
 
 const Mentor = () => {
-
-  // window.onload = () => {
-  //   console.log("로딩완료");
-  // };
 
   return (
     <LayoutContainer>
@@ -21,16 +18,17 @@ const Mentor = () => {
       </LayoutInWrapper>
       <FilterButton />
       <MentorList />
+      <MentorSearchBar />
     </LayoutContainer>
   )
 };
 
 const LayoutContainer = styled.div`
   width: 100%;
-  padding: 80px 0px;
+  padding: 80px 0px 0px 0px;
 
   @media screen and (max-width: 500px) {
-    padding: 40px 0px;
+    padding: 40px 0px 0px 0px;
   }
 `;
 

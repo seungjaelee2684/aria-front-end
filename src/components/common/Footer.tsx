@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { translate } from '../../store/Translation';
-import FooterLogo from '../../assets/logos/graylogo.png';
+import FooterLogo from '../../assets/logos/graylogo.webp';
 import Instagram from '../../assets/icons/insta.png';
 import Twitter from '../../assets/icons/twitter.png';
 import Discord from '../../assets/icons/discord.png';

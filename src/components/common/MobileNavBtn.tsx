@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
-import Home from '../../assets/logos/mobilelogo.png';
+import Home from '../../assets/logos/mobilelogo.webp';
 import { NavigateFunction } from 'react-router-dom';
 import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
