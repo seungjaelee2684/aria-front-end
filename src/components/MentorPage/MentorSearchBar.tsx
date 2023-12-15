@@ -1,20 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { LuSearch } from "react-icons/lu";
+import { etcTextTrans } from '../../languages/ETCTrans';
 
 const MentorSearchBar = () => {
+
+    const language = localStorage.getItem("language");
+
+    const [mentorSearch, setMentorSearch] = useState<string>("");
+    const [searchValue, setSearchValue] = useState<string>("");
+
+    const contentTranslate = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return etcTextTrans[Num]?.chinesetext
+            case "japanese" :
+                return etcTextTrans[Num]?.japanesetext
+            case "korean" :
+                return etcTextTrans[Num]?.text
+            default :
+                return etcTextTrans[Num]?.englishtext
+        };
+    };
+
+    const onChangeMentorSearchHandler = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const searchValue = e.target.value;
+        setMentorSearch(searchValue);
+    };
+
+    const onSubmitMentorSearchHandler = (e : React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setSearchValue(mentorSearch);
+    };
+
   return (
-    <SearchBarContainer>
+    <SearchBarContainer onSubmit={onSubmitMentorSearchHandler}>
         <SearchBarWrapper>
             <TitleContaier>
                 이름
             </TitleContaier>      
             <SearchBetweenLine />
             <SearchBar
-                placeholder='검색어를 입력해주세요.'
-                />
+                type='text'
+                autoComplete="off"
+                value={mentorSearch}
+                placeholder={contentTranslate(1)}
+                onChange={onChangeMentorSearchHandler}/>
         </SearchBarWrapper>
-        <IconBox>
+        <IconBox type='submit'>
             <LuSearch />
         </IconBox>
     </SearchBarContainer>
@@ -61,7 +94,7 @@ const SearchBar = styled.input`
     height: 40px;
     font-family: "Pretendard";
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: normal;
     border: none;
     padding: 0px 16px;
@@ -79,6 +112,6 @@ const IconBox = styled.button`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-`
+`;
 
 export default MentorSearchBar;

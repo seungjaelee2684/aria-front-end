@@ -83,7 +83,7 @@ const SelectBarContainer = styled.div`
   height: 34px;
   padding: 0px 10px 0px 16px;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: normal;
   position: relative;

@@ -67,7 +67,7 @@ const Counseling = () => {
               <ButtonAllWrapper>
                 <ButtonContainer
                   style={{
-                    fontSize: (language === "english" || !language) ? "18px" : "28px"
+                    fontSize: (language === "english" || !language) ? "16px" : "24px"
                   }}
                   onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                   {counseling(5)}
@@ -252,12 +252,12 @@ const ButtonAllWrapper = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  width: 400px;
+  width: 380px;
   height: 60px;
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  text-indent: 36px;
+  text-indent: 30px;
   border: 1px solid #ADADAD;
   border-radius: 3px;
   font-family: "Pretendard";
@@ -273,14 +273,14 @@ const ButtonContainer = styled.div`
   cursor: pointer;
 
   &:hover {
-
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    /* box-shadow: #7489da 0px 0px 3px 1px; */
   }
 
   @media screen and (max-width: 500px) {
-    width: 180px;
-    height: 90px;
-    gap: 12px;
-    font-size: 26px;
+    width: 340px;
+    height: 40px;
+    text-indent: 20px;
   }
 `;
 
@@ -293,7 +293,9 @@ const ButtonText = styled.div`
   transform: rotate(25deg);
 
   @media screen and (max-width: 500px) {
-    font-size: 14px;
+    font-size: 60px;
+    right: 5%;
+    top: -5px;
   }
 `;
 
