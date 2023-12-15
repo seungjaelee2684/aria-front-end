@@ -10,6 +10,7 @@ import SecondPageImage from '../components/HomePage/SecondPageImage';
 import MainSlideShow from '../components/HomePage/MainSlideShow';
 import { ScrollContainer } from '../components/common/ScrollContainer';
 import { ScrollAnimation } from '../utils/ScrollAnimation';
+import MainBackground from '../assets/images/mainpagebg.png';
 
 const Home = () => {
 
@@ -68,11 +69,14 @@ const Home = () => {
   return (
     <MainLayout>
         {/* <MainSlideShow /> */}
+        <BackgroundImage
+            src={MainBackground}
+            alt=''/>
         <Background />
         <ScrollContainer>
             안녕
         </ScrollContainer>
-        <Background />
+        {/* <Background /> */}
     </MainLayout>
   )
 };
@@ -98,6 +102,7 @@ export const MainImage = styled.div`
     font-size: 48px;
     font-weight: 800;
     line-height: normal;
+    color: #FFFFFF;
 `;
 
 const Background = styled.div`
@@ -105,5 +110,14 @@ const Background = styled.div`
     height: 2000px;
     background-color: #e9e9e9;
 `;
+
+const BackgroundImage = styled.img`
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+`; 
 
 export default Home;

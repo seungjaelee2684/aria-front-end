@@ -5,10 +5,12 @@
 
 @keyframes scroll_btn_open {
     from {
+        display: none;
         opacity: 0;
         transform: translateY(-35px);
     }
     to {
+        display: flex;
         opacity: 1;
         transform: translateY(0);
     }
@@ -16,10 +18,12 @@
 
 @keyframes scroll_btn_close {
     from {
+        display: flex;
         opacity: 1;
         transform: translateY(0);
     }
     to {
+        display: none;
         opacity: 0;
         transform: translateY(-35px);
     }

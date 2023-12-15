@@ -1,29 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from "react-query";
 import { RecoilRoot } from 'recoil';
-import Home from './pages/Home';
-import Notice from './pages/Notice';
-import Mentor from './pages/Mentor';
-import Schedule from './pages/Schedule';
+// import Home from './pages/Home';
+// import Notice from './pages/Notice';
+// import Mentor from './pages/Mentor';
+// import Schedule from './pages/Schedule';
 import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
-import MentorDetail from './pages/MentorDetail';
+// import MentorDetail from './pages/MentorDetail';
 import ScrollBar from './components/common/ScrollBar';
 import ScrollTop from './utils/ScrollTop';
-import Notification from './pages/Notification';
-import NotificationDetail from './pages/NotificationDetail';
-import NoticeDetail from './pages/NoticeDetail';
+// import Notification from './pages/Notification';
+// import NotificationDetail from './pages/NotificationDetail';
+// import NoticeDetail from './pages/NoticeDetail';
 import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
-import Showcase from './pages/Showcase';
-import Check from './pages/Check';
+// import Showcase from './pages/Showcase';
+// import Check from './pages/Check';
 // import SNSMenu from './components/common/SNSMenu';
 import Footer from './components/common/Footer';
-import Counseling from './pages/Counseling';
-import Policy from './pages/Policy';
+import LoadingSpinner from './components/common/LoadingSpinner';
+// import Counseling from './pages/Counseling';
+// import Policy from './pages/Policy';
+
+const Home = React.lazy(() => import('./pages/Home'));
+const Check = React.lazy(() => import('./pages/Check'));
+const Notice = React.lazy(() => import('./pages/Notice'));
+const Mentor = React.lazy(() => import('./pages/Mentor'));
+const Schedule = React.lazy(() => import('./pages/Schedule'));
+const MentorDetail = React.lazy(() => import('./pages/MentorDetail'));
+const Notification = React.lazy(() => import('./pages/Notification'));
+const NotificationDetail = React.lazy(() => import('./pages/NotificationDetail'));
+const NoticeDetail = React.lazy(() => import('./pages/NoticeDetail'));
+const Showcase = React.lazy(() => import('./pages/Showcase'));
+const Counseling = React.lazy(() => import('./pages/Counseling'));
+const Policy = React.lazy(() => import('./pages/Policy'));
+
 
 const queryClient = new QueryClient();
 
@@ -33,24 +48,26 @@ function App() {
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
-            <ScrollTop />
-            <Header />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/check' element={<Check />} />
-              <Route path='/notice' element={<Notice />} />
-              <Route path='/mentor' element={<Mentor />} />
-              <Route path='/showcase' element={<Showcase />} />
-              <Route path='/schedule' element={<Schedule />} />
-              <Route path='/support/counseling' element={<Counseling />} />
-              <Route path='/support/policy' element={<Policy />} />
-              <Route path='/mentor/detail/:id' element={<MentorDetail />} />
-              <Route path='/notice/notification' element={<Notification />} />
-              <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} />
-              <Route path='/notice/detail/:id' element={<NoticeDetail />} />
-            </Routes>
-            <ScrollTopButton />
-            <Footer />
+            <Suspense fallback={<LoadingSpinner />}>
+              <ScrollTop />
+              <Header />
+              <Routes>
+                <Route path='/' element={<Home />} caseSensitive />
+                <Route path='/check' element={<Check />} caseSensitive />
+                <Route path='/notice' element={<Notice />} caseSensitive />
+                <Route path='/mentor' element={<Mentor />} caseSensitive />
+                <Route path='/showcase' element={<Showcase />} caseSensitive />
+                <Route path='/schedule' element={<Schedule />} caseSensitive />
+                <Route path='/support/counseling' element={<Counseling />} caseSensitive />
+                <Route path='/support/policy' element={<Policy />} caseSensitive />
+                <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
+                <Route path='/notice/notification' element={<Notification />} caseSensitive />
+                <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} caseSensitive />
+                <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
+              </Routes>
+              <ScrollTopButton />
+              <Footer />
+            </Suspense>
           </BrowserRouter>
         </QueryClientProvider>
       </RecoilRoot>

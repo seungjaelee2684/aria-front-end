@@ -81,6 +81,10 @@ const TextWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+  }
 `;
 
 const TextBox = styled.div`
