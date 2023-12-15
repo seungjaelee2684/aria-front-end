@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react'
 import '../style/font/font.css';
 import styled from 'styled-components';
-import ApplyClasses from '../components/CounselingPage/ApplyClasses';
-import AddFriends from '../components/CounselingPage/AddFriends';
 import { IoLogoDiscord, IoPersonAddOutline } from 'react-icons/io5';
 import { CounselingText } from '../languages/CounselingPageTrans';
 import { BsDiscord } from 'react-icons/bs';
@@ -14,6 +12,7 @@ import { translate } from '../store/Translation';
 import Monitor from '../assets/images/monitorcapture.webp';
 import Capture from '../assets/icons/search.png';
 import PopUp from '../components/common/PopUp';
+import CounselingGuide from '../components/CounselingPage/CounselingGuide';
 
 const Counseling = () => {
 
@@ -89,18 +88,22 @@ const Counseling = () => {
           </ContentContainer>
         </InContainer>
       </OutContainer>
+      <CounselingGuide />
     </LayOutContainer>
   )
 };
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 80px auto;
+  margin: 130px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
 `;
 
 const OutContainer = styled.div`
   width: 1320px;
-  margin: 130px auto 0px auto;
   display: flex;
   border-bottom: 2px solid #e9e9e9;
   padding: 0px 0px 20px 0px;
@@ -168,14 +171,6 @@ const InContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  @media screen and (max-width: 1320px) {
-    width: 100%;
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 100%;
-  }
 `;
 
 const TitleContainer = styled.div`

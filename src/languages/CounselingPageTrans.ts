@@ -1,4 +1,16 @@
+import CounselingGuideImg1 from '../assets/images/discordcounseling_01.webp';
+import CounselingGuideImg2 from '../assets/images/discordcounseling_02.webp';
+import CounselingGuideImg3 from '../assets/images/discordcounseling_03.webp';
+
 type CounselingTextType = {
+    englishtext: string,
+    chinesetext: string,
+    japanesetext: string,
+    text: string
+};
+
+type CounselingGuideType = {
+    image: string,
     englishtext: string,
     chinesetext: string,
     japanesetext: string,
@@ -42,4 +54,28 @@ export const CounselingText : CounselingTextType[] = [
         japanesetext: "受講申請に行く",
         text: "수강 신청하러 가기"
     },
-]
+];
+
+export const counselingGuide : CounselingGuideType[] = [
+    {
+        image: CounselingGuideImg1,
+        englishtext: "Going to register for a course",
+        chinesetext: "去听课申请",
+        japanesetext: "受講申請に行く",
+        text: "수강 신청하러 가기"
+    },
+    {
+        image: CounselingGuideImg2,
+        englishtext: "Going to register for a course",
+        chinesetext: "去听课申请",
+        japanesetext: "受講申請に行く",
+        text: "수강 신청하러 가기"
+    },
+    {
+        image: CounselingGuideImg3,
+        englishtext: "Going to register for a course",
+        chinesetext: "去听课申请",
+        japanesetext: "受講申請に行く",
+        text: "수강 신청하러 가기"
+    },
+];
