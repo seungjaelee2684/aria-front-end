@@ -22,21 +22,22 @@ import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
 // import Check from './pages/Check';
 // import SNSMenu from './components/common/SNSMenu';
 import Footer from './components/common/Footer';
+import LoadingSpinner from './components/common/LoadingSpinner';
 // import Counseling from './pages/Counseling';
 // import Policy from './pages/Policy';
 
-const Home = lazy(() => import('./pages/Home'));
-const Check = lazy(() => import('./pages/Check'));
-const Notice = lazy(() => import('./pages/Notice'));
-const Mentor = lazy(() => import('./pages/Mentor'));
-const Schedule = lazy(() => import('./pages/Schedule'));
-const MentorDetail = lazy(() => import('./pages/MentorDetail'));
-const Notification = lazy(() => import('./pages/Notification'));
-const NotificationDetail = lazy(() => import('./pages/NotificationDetail'));
-const NoticeDetail = lazy(() => import('./pages/NoticeDetail'));
-const Showcase = lazy(() => import('./pages/Showcase'));
-const Counseling = lazy(() => import('./pages/Counseling'));
-const Policy = lazy(() => import('./pages/Policy'));
+const Home = React.lazy(() => import('./pages/Home'));
+const Check = React.lazy(() => import('./pages/Check'));
+const Notice = React.lazy(() => import('./pages/Notice'));
+const Mentor = React.lazy(() => import('./pages/Mentor'));
+const Schedule = React.lazy(() => import('./pages/Schedule'));
+const MentorDetail = React.lazy(() => import('./pages/MentorDetail'));
+const Notification = React.lazy(() => import('./pages/Notification'));
+const NotificationDetail = React.lazy(() => import('./pages/NotificationDetail'));
+const NoticeDetail = React.lazy(() => import('./pages/NoticeDetail'));
+const Showcase = React.lazy(() => import('./pages/Showcase'));
+const Counseling = React.lazy(() => import('./pages/Counseling'));
+const Policy = React.lazy(() => import('./pages/Policy'));
 
 
 const queryClient = new QueryClient();
@@ -47,7 +48,7 @@ function App() {
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingSpinner />}>
               <ScrollTop />
               <Header />
               <Routes>
