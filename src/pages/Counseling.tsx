@@ -11,7 +11,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { CopyAlert } from '../store/CopyAlert';
 import { translate } from '../store/Translation';
-import Monitor from '../assets/images/monitorcapture.png';
+import Monitor from '../assets/images/monitorcapture.webp';
 import Capture from '../assets/icons/search.png';
 import PopUp from '../components/common/PopUp';
 
