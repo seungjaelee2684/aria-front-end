@@ -8,6 +8,7 @@ import RightArrow from '../assets/icons/rightArrow.png';
 import FilterButton from '../components/MentorPage/FilterButton';
 import SlideShow from '../components/MentorPage/SlideShow';
 import MentorSearchBar from '../components/MentorPage/MentorSearchBar';
+import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../style/PageTitle';
 
 const Mentor = () => {
 
@@ -16,7 +17,12 @@ const Mentor = () => {
       <LayoutInWrapper>
         <SlideShow />
       </LayoutInWrapper>
-      <FilterButton />
+      <MentorPageTitleContainer>
+        A
+        <TitleBarContainer />
+        <TitleColorText color="#7769D0">R</TitleColorText>
+        TIST
+      </MentorPageTitleContainer>
       <MentorList />
       <MentorSearchBar />
     </LayoutContainer>
@@ -34,6 +40,10 @@ const LayoutContainer = styled.div`
 
 const LayoutInWrapper = styled.div`
   width: 100%;
+`;
+
+const MentorPageTitleContainer = styled(LayOutTitleContainer)`
+  margin-top: 60px;
 `;
 
 const ImageOutContainer = styled.div`

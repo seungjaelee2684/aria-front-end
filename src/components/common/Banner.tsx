@@ -48,7 +48,7 @@ const TitleContainer = styled.div`
   width: 100%;
   height: 200px;
   margin: 80px 0px 0px 0px;
-  background-color: #FCFCFC;
+  background-color: #e9e9e9;
   user-select: none;
   position: relative;
 
@@ -63,7 +63,7 @@ const TitleContainer = styled.div`
 `;
 
 const BannerBackgroundImg = styled.img`
-  width: 60%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 10%;
