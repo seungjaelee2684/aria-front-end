@@ -61,6 +61,7 @@ const SearchBarContainer = styled.form`
     justify-content: end;
     align-items: center;
     gap: 8px;
+    user-select: none;
 
     @media screen and (max-width: 1320px) {
         width: 96%;
@@ -81,12 +82,30 @@ const TitleContaier = styled.div`
     font-weight: 500;
     line-height: normal;
     width: 70px;
+
+    @media screen and (max-width: 836px) {
+        width: 56px;
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 40px;
+        font-size: 10px;
+    }
 `;
 
 const SearchBetweenLine = styled.div`
     width: 1px;
     height: 34px;
     background-color: #e9e9e9;
+
+    @media screen and (max-width: 836px) {
+        height: 28px;
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 24px;
+    }
 `;
 
 const SearchBar = styled.input`
@@ -97,8 +116,25 @@ const SearchBar = styled.input`
     font-weight: 400;
     line-height: normal;
     border: none;
+    outline: none;
     padding: 0px 16px;
     color: #222020;
+
+    &:focus {
+        outline: #5C9DFF solid 1px;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 130px;
+        height: 36px;
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 100px;
+        height: 30px;
+        font-size: 10px;
+    }
 `;
 
 const IconBox = styled.button`
@@ -112,6 +148,18 @@ const IconBox = styled.button`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    @media screen and (max-width: 836px) {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+    
+    @media screen and (max-width: 500px) {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
 `;
 
 export default MentorSearchBar;
