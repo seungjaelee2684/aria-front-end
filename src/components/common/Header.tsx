@@ -233,7 +233,7 @@ const TranslateWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    color: #6b6b6b;
+    color: #272525;
     /* background-color: #FFFFFF; */
     font-size: 14px;
     gap: 4px;
@@ -272,7 +272,7 @@ const HomeBtnWrapper = styled.div`
     font-family: "Pretendard";
     font-size: 14px;
     gap: 2px;
-    color: #6b6b6b;
+    color: #272525;
     border: 1px solid #FFFFFF;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
