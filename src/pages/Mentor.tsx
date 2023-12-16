@@ -17,12 +17,12 @@ const Mentor = () => {
       <LayoutInWrapper>
         <SlideShow />
       </LayoutInWrapper>
-      <LayOutTitleContainer>
+      <MentorPageTitleContainer>
         A
         <TitleBarContainer />
         <TitleColorText color="#7769D0">R</TitleColorText>
         TIST
-      </LayOutTitleContainer>
+      </MentorPageTitleContainer>
       <MentorList />
       <MentorSearchBar />
     </LayoutContainer>
@@ -40,6 +40,10 @@ const LayoutContainer = styled.div`
 
 const LayoutInWrapper = styled.div`
   width: 100%;
+`;
+
+const MentorPageTitleContainer = styled(LayOutTitleContainer)`
+  margin-top: 60px;
 `;
 
 const ImageOutContainer = styled.div`

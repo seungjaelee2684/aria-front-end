@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import { IoIosArrowDown } from "react-icons/io";
+import { mentorSearchInput } from '../../store/MentorSearchInput';
 
 type Nation = {
     nation: string,
@@ -22,6 +23,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
     
     const [nationkind, setNationkind] = useRecoilState(nationKind);
     const [, setFlag] = useRecoilState(nationFlag);
+    const [, setMentorSearchInput] = useRecoilState(mentorSearchInput);
     const nationValue = useRecoilValue(nationKind);
     const flagValue = useRecoilValue(nationFlag);
 
@@ -51,6 +53,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
                         setNationkind(item?.nation);
                         setFlag(item?.flag);
                         setIsOpenFilter(false);
+                        setMentorSearchInput("");
                     }}
                 >{item?.nation}</FilterModalBtn>
             )
