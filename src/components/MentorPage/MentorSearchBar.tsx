@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { LuSearch } from "react-icons/lu";
 import { etcTextTrans } from '../../languages/ETCTrans';
+import { useRecoilState } from 'recoil';
+import { mentorSearchInput } from '../../store/MentorSearchInput';
+import FilterButton from './FilterButton';
 
 const MentorSearchBar = () => {
 
     const language = localStorage.getItem("language");
 
     const [mentorSearch, setMentorSearch] = useState<string>("");
-    const [searchValue, setSearchValue] = useState<string>("");
+    const [searchValue, setSearchValue] = useRecoilState(mentorSearchInput);
 
     const contentTranslate = (Num : number) => {
         switch (language) {
@@ -31,10 +34,13 @@ const MentorSearchBar = () => {
     const onSubmitMentorSearchHandler = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setSearchValue(mentorSearch);
+        setMentorSearch("");
     };
+    console.log("강사 검색 -> ", searchValue, mentorSearch);
 
   return (
     <SearchBarContainer onSubmit={onSubmitMentorSearchHandler}>
+        <FilterButton />
         <SearchBarWrapper>
             <TitleContaier>
                 이름
@@ -119,6 +125,10 @@ const SearchBar = styled.input`
     outline: none;
     padding: 0px 16px;
     color: #222020;
+
+    &:hover {
+        box-shadow: rgba(57, 55, 55, 0.338) 1px 1px 3px 1px;
+    }
 
     &:focus {
         outline: #5C9DFF solid 1px;
