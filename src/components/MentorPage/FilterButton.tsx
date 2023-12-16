@@ -10,7 +10,7 @@ import Koreaflag from '../../assets/logos/koreaflag.webp';
 import Japanflag from '../../assets/logos/japanflag.webp';
 import Americaflag from '../../assets/logos/americaflag.webp'
 import Chinaflag from '../../assets/logos/chinaflag.webp'
-import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../../style/PageTitle';
+// import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../../style/PageTitle';
 
 const FilterButton = () => {
 
@@ -47,82 +47,72 @@ const FilterButton = () => {
     }, []);
 
   return (
-    <FilterButtonContainer>
-        <LayOutTitleContainer>
-            A
-            <TitleBarContainer />
-            <TitleColorText color="#7769D0">R</TitleColorText>
-            TIST
-        </LayOutTitleContainer>
-        {/* <FilterButtonWrapper>
+    // // <FilterButtonContainer>
+    //     {/* <LayOutTitleContainer>
+    //         A
+    //         <TitleBarContainer />
+    //         <TitleColorText color="#7769D0">R</TitleColorText>
+    //         TIST
+    //     </LayOutTitleContainer> */}
+        <FilterButtonWrapper
+            ref={divRef}
+            onClick={() => setIsOpenFilter(!isOpenFilter)}>
             <NationFilter>
                 {(nationkind !== "All Country") && <NationFlag src={flag} alt=''/>}
                 {nationkind}
-            </NationFilter>
-            <FilterBtn
-                ref={divRef}
-                onClick={() => setIsOpenFilter(!isOpenFilter)}>
                 <IoIosArrowDown />
-            </FilterBtn>
+            </NationFilter>           
             {isOpenFilter
                 && <ModalWrapper>
                     <FilterModal
                         setIsOpenFilter={setIsOpenFilter}/>
                 </ModalWrapper>}
         </FilterButtonWrapper>
-        <MobileFilterButtonWrapper>
-            {nationFilter.map((item : Nation) => {
-                return (
-                    <MobileFilterButton
-                        key={item?.nation}
-                        style={{
-                            boxShadow: `${(nationkind === item?.nation) ? "rgba(63, 71, 77, 0.2) 0px 0px 10px 0px" : ""}`,
-                            borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
-                            borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
-                            color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
-                            fontWeight: `${(nationkind === item?.nation) ? "600" : ""}`
-                        }}
-                        onClick={() => {
-                            setNationkind(item?.nation);
-                            setFlag(item?.flag);
-                            setIsOpenFilter(false);
-                        }}>
-                        {item?.nation}
-                    </MobileFilterButton>
-                )
-            })}
-        </MobileFilterButtonWrapper> */}
-    </FilterButtonContainer>
+    //     {/* <MobileFilterButtonWrapper>
+    //         {nationFilter.map((item : Nation) => {
+    //             return (
+    //                 <MobileFilterButton
+    //                     key={item?.nation}
+    //                     style={{
+    //                         boxShadow: `${(nationkind === item?.nation) ? "rgba(63, 71, 77, 0.2) 0px 0px 10px 0px" : ""}`,
+    //                         borderImage: `${(nationkind === item?.nation) ? "linear-gradient(to right, #2a9fff, #2e1388)" : ""}`,
+    //                         borderImageSlice: `${(nationkind === item?.nation) ? "1" : ""}`,
+    //                         color: `${(nationkind === item?.nation) ? "#3c3ad6" : ""}`,
+    //                         fontWeight: `${(nationkind === item?.nation) ? "600" : ""}`
+    //                     }}
+    //                     onClick={() => {
+    //                         setNationkind(item?.nation);
+    //                         setFlag(item?.flag);
+    //                         setIsOpenFilter(false);
+    //                     }}>
+    //                     {item?.nation}
+    //                 </MobileFilterButton>
+    //             )
+    //         })}
+    //     </MobileFilterButtonWrapper> */}
+    // // </FilterButtonContainer>
   )
 };
 
 const FilterButtonContainer = styled.div`
-    max-width: 1320px;
-    margin: 80px auto 0px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    @media screen and (max-width: 1320px) {
-        min-width: 96%;
-        max-width: 96%;
-    }
-
-    @media screen and (max-width: 500px) {
-        flex-direction: column;
-        justify-content: center;
-        gap: 10px;
-        margin: 30px auto 0px auto;
-    }
 `;
 
 const FilterButtonWrapper = styled.div`
-    max-width: 500px;
+    width: 150px;
     display: flex;
     align-items: center;
     position: relative;
     user-select: none;
     z-index: 50;
+
+    @media screen and (max-width: 1320px) {
+        width: 140px;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 120px;
+    }
 
     @media screen and (max-width: 500px) {
         display: none;
@@ -130,44 +120,48 @@ const FilterButtonWrapper = styled.div`
 `;
 
 const NationFilter = styled.div`
-    width: 170px;
-    height: 34px;
+    width: 100%;
+    height: 38px;
     border: 1px solid #e9e9e9;
-    border-radius: 20px 0px 0px 20px;
-    gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     font-family: "Pretendard";
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 150%;
     color: #222020;
     background-color: #FFFFFF;
+    cursor: pointer;
+
+    @media screen and (max-width: 1320px) {
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 12px;
+    }
 `;
 
 const NationFlag = styled.img`
     width: 24px;
     height: 24px;
     object-fit: contain;
-`;
 
-const FilterBtn = styled.div`
-    width: 50px;
-    height: 34px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid #e9e9e9;
-    border-right: 1px solid #e9e9e9;
-    border-bottom: 1px solid #e9e9e9;
-    border-radius: 0px 20px 20px 0px;
-    background-color: #FFFFFF;
-    cursor: pointer;
+    @media screen and (max-width: 1320px) {
+        width: 20px;
+        height: 20px;
+    }
 
-    &:hover {
-        background-color: #e9e9e9;
+    @media screen and (max-width: 836px) {
+        width: 16px;
+        height: 16px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 14px;
+        height: 14px;
     }
 `;
 
