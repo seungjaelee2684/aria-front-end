@@ -36,13 +36,13 @@ const NotificationList = () => {
     const contentChange = ( item : any ) => {
         switch (language) {
             case "chinese" :
-                return item?.chinesenotice.title;
+                return item?.contents.chinesetitle;
             case "japanese" :
-                return item?.japanesenotice.title;
+                return item?.contents.japanesetitle;
             case "korean" :
-                return item?.notice.title;
+                return item?.contents.title;
             default :
-                return item?.englishnotice.title;
+                return item?.contents.englishtitle;
         };
     };
 
@@ -87,7 +87,7 @@ const NotificationList = () => {
                                 </ContentWrapper>
                                 <RightWrapper>
                                     <RightText>
-                                        ARIA | {item?.date}
+                                        ARIA | {item?.contents.date}
                                     </RightText>
                                 </RightWrapper>
                             </LineContainer>
@@ -103,7 +103,7 @@ const NotificationList = () => {
                                 </ContentWrapper>
                                 <RightWrapper>
                                     <RightText>
-                                        ARIA | {item?.date}
+                                        ARIA | {item?.contents.date}
                                     </RightText>
                                 </RightWrapper>
                             </LineContainer>
