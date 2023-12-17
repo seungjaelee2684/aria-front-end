@@ -20,6 +20,7 @@ const AlertLayout = styled.div`
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 102;
 
     @media screen and (max-width: 500px) {
         right: 40%;

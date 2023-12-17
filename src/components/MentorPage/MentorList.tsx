@@ -13,7 +13,7 @@ const MentorList = () => {
     const language = localStorage.getItem("language");
     const searchValue = useRecoilValue(mentorSearchInput);
 
-    const filterData = mentorListData?.filter((data) => data.nation === nationkind);
+    const filterData = mentorListData?.filter((data) => data.nation === nationkind?.englishpick);
     const ENFilterData = mentorListData?.filter((data) => data.englishname.includes(searchValue));
     const CNFilterData = mentorListData?.filter((data) => data.chinesename.includes(searchValue));
     const JPFilterData = mentorListData?.filter((data) => data.japanesename.includes(searchValue));
@@ -21,7 +21,7 @@ const MentorList = () => {
 
     const mentorChangeList = () => {
         if (searchValue === "") {
-            if (nationkind === "All Country") {
+            if (nationkind?.englishpick === "All Country") {
                 return (
                     mentorListData?.map((item : any) => {
                         return (

@@ -14,25 +14,24 @@ import Chinaflag from '../../assets/logos/chinaflag.webp'
 
 const FilterButton = () => {
 
-    type Nation = {
-        nation: string,
-        flag: string  
-    };
-
+    const language = localStorage.getItem("language");
     const nationkind = useRecoilValue(nationKind);
     const flag = useRecoilValue(nationFlag);
     const divRef = useRef<HTMLDivElement>(null);
     const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
-    const [, setNationkind] = useRecoilState(nationKind);
-    const [, setFlag] = useRecoilState(nationFlag);
 
-    const nationFilter : Nation[]  = [
-        {nation: "All Country", flag: ""},
-        {nation: "American", flag: Americaflag},
-        {nation: "Chinese", flag: Chinaflag},
-        {nation: "Japanese", flag: Japanflag},
-        {nation: "Korean" , flag: Koreaflag}
-    ]
+    const filterTranslate = () => {
+        switch (language) {
+            case "chinese" :
+                return nationkind?.chinesepick;
+            case "japanese" :
+                return nationkind?.japanesepick;
+            case "korean" :
+                return nationkind?.pick;
+            default :
+                return nationkind?.englishpick;
+        };
+    };
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
@@ -58,8 +57,8 @@ const FilterButton = () => {
             ref={divRef}
             onClick={() => setIsOpenFilter(!isOpenFilter)}>
             <NationFilter>
-                {(nationkind !== "All Country") && <NationFlag src={flag} alt=''/>}
-                {nationkind}
+                {(nationkind.englishpick !== "All Country") && <NationFlag src={flag} alt=''/>}
+                {filterTranslate()}
                 <IoIosArrowDown />
             </NationFilter>           
             {isOpenFilter
