@@ -14,6 +14,7 @@ import DiscordDefault from '../../assets/icons/discorddefault.webp';
 import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
+import { footerContent } from '../../languages/FooterTrans';
 
 const Footer = () => {
 
@@ -22,34 +23,18 @@ const Footer = () => {
   const language = localStorage.getItem("language");
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
-  type ArrType = {
-    englishcontent: string,
-    chinesecontent: string,
-    japanesecontent: string,
-    content: string
-  }
-
-  const textArr : ArrType[] = [
-    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
-    {englishcontent: "", chinesecontent: "", japanesecontent: "", content: ""},
-  ];
+  
 
   const translateText = (Num : number) => {
     switch (language) {
-      case "english" :
-        return textArr[Num]?.englishcontent;
       case "chinese" :
-        return textArr[Num]?.chinesecontent;
+        return footerContent[Num]?.chinesecontent;
       case "japanese" :
-        return textArr[Num]?.japanesecontent;
+        return footerContent[Num]?.japanesecontent;
       case "korean" :
-        return textArr[Num]?.content;
+        return footerContent[Num]?.content;
       default :
-        return textArr[Num]?.englishcontent;
+        return footerContent[Num]?.englishcontent;
     }
   };
     
