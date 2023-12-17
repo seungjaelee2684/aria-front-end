@@ -31,23 +31,38 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
     const nationFilter : Nation[]  = [
         {englishnation: "All Country", chinesenation: "所有国家", japanesenation: "すべての国", nation: "모든 국가", flag: ""},
-        {englishnation: "American", chinesenation: "", japanesenation: "", nation: "", flag: Americaflag},
-        {englishnation: "Chinese", chinesenation: "", japanesenation: "", nation: "", flag: Chinaflag},
-        {englishnation: "Japanese", chinesenation: "", japanesenation: "", nation: "", flag: Japanflag},
-        {englishnation: "Korean" , chinesenation: "", japanesenation: "", nation: "", flag: Koreaflag}
+        {englishnation: "U.S.A", chinesenation: "美国", japanesenation: "アメリカ", nation: "미국", flag: Americaflag},
+        {englishnation: "China", chinesenation: "中国", japanesenation: "中国", nation: "중국", flag: Chinaflag},
+        {englishnation: "Japan", chinesenation: "日本", japanesenation: "日本", nation: "일본", flag: Japanflag},
+        {englishnation: "Korea" , chinesenation: "韩国", japanesenation: "韓国", nation: "대한민국", flag: Koreaflag}
     ];
 
-    const filterTranslate = () => {
-        switch (language) {
-            case "chinese" :
-                return nationkinds?.chinesepick;
-            case "japanese" :
-                return nationkinds?.japanesepick;
-            case "korean" :
-                return nationkinds?.pick;
-            default :
-                return nationkinds?.englishpick;
+    const filterTranslate = (item : any) => {
+        if (item === null) {
+            switch (language) {
+                case "chinese" :
+                    return nationkinds?.chinesepick;
+                case "japanese" :
+                    return nationkinds?.japanesepick;
+                case "korean" :
+                    return nationkinds?.pick;
+                default :
+                    return nationkinds?.englishpick;
+            };
+        } else {
+            switch (language) {
+                case "chinese" :
+                    return item?.chinesenation;
+                case "japanese" :
+                    return item?.japanesenation;
+                case "korean" :
+                    return item?.nation;
+                default :
+                    return item?.englishnation;
+            };
         };
+        
+        
     };
 
     const noneFilter = nationFilter.filter((item) => item.englishnation !== nationkinds.englishpick);
@@ -57,7 +72,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
     <FilterModalContainer>
         <DefaultBtn>
             {flagValue && <NationFlag src={flagValue}/>}
-            {filterTranslate()}
+            {filterTranslate(null)}
             <IoIosArrowDown />
         </DefaultBtn>
         {noneFilter?.map((item : Nation) => {
@@ -77,7 +92,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
                         setIsOpenFilter(false);
                         setMentorSearchInput("");
                     }}
-                >{item?.nation}</FilterModalBtn>
+                >{filterTranslate(item)}</FilterModalBtn>
             )
         })}
     </FilterModalContainer>
