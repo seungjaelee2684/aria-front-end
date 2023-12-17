@@ -17,7 +17,6 @@ const NavButton = () => {
     // const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
-    const { isOpen, whatAlert } = alertModal;
 
     // const underLine = useRef<HTMLDivElement>(null);
     // let horizontalMenus = document.querySelectorAll("nav a");
@@ -95,7 +94,6 @@ const NavButton = () => {
                     && <PageModal
                         pageModal={pageModal} />}
             </TapContainer>
-            {(isOpen) && <AlertModal />}
         </TapOutContainer>
     )
 };
