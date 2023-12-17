@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from "react-query";
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useRecoilState } from 'recoil';
 // import Home from './pages/Home';
 // import Notice from './pages/Notice';
 // import Mentor from './pages/Mentor';
@@ -23,6 +23,8 @@ import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
 // import SNSMenu from './components/common/SNSMenu';
 import Footer from './components/common/Footer';
 import LoadingSpinner from './components/common/LoadingSpinner';
+import { AlertModalOpen } from './store/AlertModalOpen';
+import AlertContainer from './components/common/AlertContainer';
 // import Counseling from './pages/Counseling';
 // import Policy from './pages/Policy';
 
@@ -43,6 +45,7 @@ const Policy = React.lazy(() => import('./pages/Policy'));
 const queryClient = new QueryClient();
 
 function App() {
+
   return (
     <div className='App'>
       <RecoilRoot>
@@ -66,6 +69,7 @@ function App() {
                 <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
               </Routes>
               <ScrollTopButton />
+              <AlertContainer />
               <Footer />
             </Suspense>
           </BrowserRouter>

@@ -6,6 +6,8 @@ import { useRecoilValue } from 'recoil';
 import { nationKind } from '../../store/NationFilter';
 import { translate } from '../../store/Translation';
 import { mentorSearchInput } from '../../store/MentorSearchInput';
+import NotSearch from '../common/NotSearch';
+import { IoSearchOutline } from "react-icons/io5";
 
 const MentorList = () => {
 
@@ -13,15 +15,17 @@ const MentorList = () => {
     const language = localStorage.getItem("language");
     const searchValue = useRecoilValue(mentorSearchInput);
 
-    const filterData = mentorListData?.filter((data) => data.nation === nationkind);
+    const filterData = mentorListData?.filter((data) => data.nation === nationkind?.englishpick);
     const ENFilterData = mentorListData?.filter((data) => data.englishname.includes(searchValue));
     const CNFilterData = mentorListData?.filter((data) => data.chinesename.includes(searchValue));
     const JPFilterData = mentorListData?.filter((data) => data.japanesename.includes(searchValue));
     const KRFilterData = mentorListData?.filter((data) => data.nickname.includes(searchValue));
 
+    console.log("검색 결과", filterData.length);
+
     const mentorChangeList = () => {
         if (searchValue === "") {
-            if (nationkind === "All Country") {
+            if (nationkind?.englishpick === "All Country") {
                 return (
                     mentorListData?.map((item : any) => {
                         return (
@@ -36,16 +40,18 @@ const MentorList = () => {
                 );
             } else {
                 return (
-                    filterData?.map((item : any) => {    
-                        return (
-                            <div key={item?.id}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div> 
-                        )
-                    })
+                    (filterData.length === 0)
+                        ? <NotSearch />
+                        : filterData?.map((item : any) => {    
+                            return (
+                                <div key={item?.id}>
+                                    <MentorCard
+                                        item={item}
+                                        language={language}
+                                    />
+                                </div>   
+                            )
+                        })
                 );
             };
         } else {
@@ -108,9 +114,9 @@ const MentorList = () => {
   return (
     <LayoutContainer>
         <ListOutContainer>
-        <ListContainer>
-            {mentorChangeList()}
-        </ListContainer>
+            <ListContainer>
+                {mentorChangeList()}
+            </ListContainer>
         </ListOutContainer>
     </LayoutContainer>
   )
@@ -147,6 +153,24 @@ const ListContainer = styled.div`
         justify-content: center;
         gap: 16px;
     }
+`;
+
+const NotSearchContainer = styled.div`
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 140%;
+    color: #222020;
+`;
+
+const SearchIcon = styled.div`
+    font-size: 24px;
 `;
 
 export default MentorList;

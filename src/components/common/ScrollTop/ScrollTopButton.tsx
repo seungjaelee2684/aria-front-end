@@ -13,12 +13,12 @@ const ScrollTopButton = () => {
         // console.log("스크롤", scrollValue);
         if (scrollBtn.current) {
             if (scrollValue > 300) {  
-                scrollBtn.current.style.animation = "scroll_btn_open 0.6s ease-out forwards";
+                scrollBtn.current.style.animation = "scroll_btn_open 0.2s ease-out forwards";
             } else {
                 if (scrollValue === 0) {
                     scrollBtn.current.style.opacity = "0";
                 } else {
-                    scrollBtn.current.style.animation = "scroll_btn_close 0.6s ease-out forwards";
+                    scrollBtn.current.style.animation = "scroll_btn_close 0.2s ease-out forwards";
                 };   
             };
         };
@@ -64,9 +64,9 @@ const ScrollTopButtonWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
-    @media screen and (max-width: 500px) {
+    /* @media screen and (max-width: 500px) {
         display: none;
-    }
+    } */
 `;
 
 export default ScrollTopButton;

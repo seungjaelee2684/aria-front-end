@@ -10,6 +10,9 @@ import { IoIosArrowDown } from "react-icons/io";
 import { mentorSearchInput } from '../../store/MentorSearchInput';
 
 type Nation = {
+    englishnation: string,
+    chinesenation: string,
+    japanesenation: string,
     nation: string,
     flag: string  
 };
@@ -20,29 +23,56 @@ interface FilterModalProps {
 
 const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
-    
-    const [nationkind, setNationkind] = useRecoilState(nationKind);
+    const language = localStorage.getItem("language");
+    const [nationkinds, setNationkinds] = useRecoilState(nationKind);
     const [, setFlag] = useRecoilState(nationFlag);
     const [, setMentorSearchInput] = useRecoilState(mentorSearchInput);
-    const nationValue = useRecoilValue(nationKind);
     const flagValue = useRecoilValue(nationFlag);
 
     const nationFilter : Nation[]  = [
-        {nation: "All Country", flag: ""},
-        {nation: "American", flag: Americaflag},
-        {nation: "Chinese", flag: Chinaflag},
-        {nation: "Japanese", flag: Japanflag},
-        {nation: "Korean" , flag: Koreaflag}
-    ]
+        {englishnation: "All Country", chinesenation: "所有国家", japanesenation: "すべての国", nation: "모든 국가", flag: ""},
+        {englishnation: "U.S.A", chinesenation: "美国", japanesenation: "アメリカ", nation: "미국", flag: Americaflag},
+        {englishnation: "China", chinesenation: "中国", japanesenation: "中国", nation: "중국", flag: Chinaflag},
+        {englishnation: "Japan", chinesenation: "日本", japanesenation: "日本", nation: "일본", flag: Japanflag},
+        {englishnation: "Korea" , chinesenation: "韩国", japanesenation: "韓国", nation: "대한민국", flag: Koreaflag}
+    ];
 
-    const noneFilter = nationFilter.filter((item) => item.nation !== nationkind);
+    const filterTranslate = (item : any) => {
+        if (item === null) {
+            switch (language) {
+                case "chinese" :
+                    return nationkinds?.chinesepick;
+                case "japanese" :
+                    return nationkinds?.japanesepick;
+                case "korean" :
+                    return nationkinds?.pick;
+                default :
+                    return nationkinds?.englishpick;
+            };
+        } else {
+            switch (language) {
+                case "chinese" :
+                    return item?.chinesenation;
+                case "japanese" :
+                    return item?.japanesenation;
+                case "korean" :
+                    return item?.nation;
+                default :
+                    return item?.englishnation;
+            };
+        };
+        
+        
+    };
+
+    const noneFilter = nationFilter.filter((item) => item.englishnation !== nationkinds.englishpick);
     console.log("필터", noneFilter);
 
   return (
     <FilterModalContainer>
         <DefaultBtn>
             {flagValue && <NationFlag src={flagValue}/>}
-            {nationValue}
+            {filterTranslate(null)}
             <IoIosArrowDown />
         </DefaultBtn>
         {noneFilter?.map((item : Nation) => {
@@ -50,12 +80,19 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
                 <FilterModalBtn
                     key={item?.nation}
                     onClick={() => {
-                        setNationkind(item?.nation);
+                        setNationkinds({
+                            ...nationkinds,
+                            englishpick: item?.englishnation,
+                            chinesepick: item?.chinesenation,
+                            japanesepick: item?.japanesenation,
+                            pick: item?.nation,
+
+                        });
                         setFlag(item?.flag);
                         setIsOpenFilter(false);
                         setMentorSearchInput("");
                     }}
-                >{item?.nation}</FilterModalBtn>
+                >{filterTranslate(item)}</FilterModalBtn>
             )
         })}
     </FilterModalContainer>

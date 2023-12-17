@@ -43,7 +43,7 @@ const MentorSearchBar = () => {
         <FilterButton />
         <SearchBarWrapper>
             <TitleContaier>
-                이름
+                {contentTranslate(2)}
             </TitleContaier>      
             <SearchBetweenLine />
             <SearchBar
