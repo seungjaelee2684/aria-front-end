@@ -1,39 +1,45 @@
 type FooterType = {
-    englishtext: string,
-    chinesetext: string,
-    japanesetext: string,
-    text: string
+    englishcontent: string,
+    chinesecontent: string,
+    japanesecontent: string,
+    content: string
 };
 
-export const FooterTrans : FooterType[] = [
+export const footerContent : FooterType[] = [
     {
-        englishtext: "Notice",
-        chinesetext: "公告",
-        japanesetext: "お知らせ",
-        text: "공지"
+        englishcontent: "",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: ""
     },
     {
-        englishtext: "cases",
-        chinesetext: " 件",
-        japanesetext: " 件",
-        text: " 건"
+        englishcontent: "",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: ""
     },
     {
-        englishtext: "Class",
-        chinesetext: "分类",
-        japanesetext: "分類",
-        text: "분류"
+        englishcontent: "",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: ""
     },
     {
-        englishtext: "Title",
-        chinesetext: "题目",
-        japanesetext: "題目",
-        text: "제목"
+        englishcontent: "",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: ""
     },
     {
-        englishtext: "Registration Date",
-        chinesetext: "注册日",
-        japanesetext: "登録日",
-        text: "등록일"
+        englishcontent: "",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: ""
     },
-]
+    {
+        englishcontent: "",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: ""
+    },
+];
