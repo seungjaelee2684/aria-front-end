@@ -41,7 +41,7 @@ import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
 export const mentorListData = [
     {
         id: "1",
-        nation: "Japanese",
+        nation: "Japan",
         englishname: "Sanpati",
         chinesename: "圣帕蒂",
         japanesename: "さんぱち",
@@ -119,7 +119,7 @@ export const mentorListData = [
     },
     {
         id: "2",
-        nation: "Japanese",
+        nation: "Japan",
         englishname: "Escape",
         chinesename: "伊斯凯普",
         japanesename: "エスケープ",
