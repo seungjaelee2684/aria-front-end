@@ -1,17 +1,34 @@
 import React from 'react'
 import styled from 'styled-components';
-import { IoSearchOutline } from "react-icons/io5";
+import { MdOutlineYoutubeSearchedFor } from "react-icons/md";
+import { etcTextTrans } from '../../languages/ETCTrans';
 
 const NotSearch = () => {
 
     const language = localStorage.getItem("language");
+
+    const textTranslate = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return etcTextTrans[Num]?.chinesetext;
+            case "japanese" :
+                return etcTextTrans[Num]?.japanesetext;
+            case "korean" :
+                return etcTextTrans[Num]?.text;
+            default :
+                return etcTextTrans[Num]?.englishtext;
+        };
+    };
     
   return (
     <NotSearchContainer>
         <SearchIcon>
-            <IoSearchOutline />
+            <MdOutlineYoutubeSearchedFor />
         </SearchIcon>
-        NotSearch
+        {textTranslate(3)}
+        <ContentContainer>
+            {textTranslate(4)}
+        </ContentContainer>
     </NotSearchContainer>
   )
 };
@@ -28,11 +45,16 @@ const NotSearchContainer = styled.div`
     font-weight: 600;
     line-height: 140%;
     color: #ADADAD;
-    gap: 24px;
+    gap: 16px;
 `;
 
 const SearchIcon = styled.div`
-    font-size: 80px;
+    font-size: 100px;
+`;
+
+const ContentContainer = styled.div`
+    font-size: 18px;
+    font-weight: 500;
 `;
 
 export default NotSearch;
