@@ -73,52 +73,31 @@ const NotificationList = () => {
                 </LineContainer>
                 {NotificationData?.map((item : any) => {
                     return (
-                        (NotificationData?.indexOf(item) === NotificationData.length - 1)
-                            ? <LineContainer
-                                key={item.id}
-                                style={{borderBottom: "none"}}>
-                                <ContentWrapper>
-                                    <NoticeIcon
-                                        style={{
-                                            color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
-                                        }}>
-                                        {(item?.status === "notice")
-                                            ? textChange(0)
-                                            : textChange(1)}
-                                    </NoticeIcon>
-                                    <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {contentChange(item)}
-                                    </Text>  
-                                </ContentWrapper>   
-                                <RightWrapper>
-                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                                    <RightText>
-                                        ARIA | {item?.contents.date}
-                                    </RightText>
-                                </RightWrapper>
-                            </LineContainer>
-                            : <LineContainer
-                                key={item.id}>
-                                <ContentWrapper>
-                                    <NoticeIcon
-                                        style={{
-                                            color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
-                                        }}>
-                                        {(item?.status === "notice")
-                                            ? textChange(0)
-                                            : textChange(1)}
-                                    </NoticeIcon>
-                                    <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {contentChange(item)}
-                                    </Text>  
-                                </ContentWrapper>
-                                <RightWrapper>
-                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                                    <RightText>
-                                        ARIA | {item?.contents.date}
-                                    </RightText>
-                                </RightWrapper>
-                            </LineContainer>
+                        <LineContainer
+                            key={item.id}
+                            style={{
+                                borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                            }}>
+                            <ContentWrapper>
+                                <NoticeIcon
+                                    style={{
+                                        color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                    }}>
+                                    {(item?.status === "notice")
+                                        ? textChange(0)
+                                        : textChange(1)}
+                                </NoticeIcon>
+                                <Text onClick={() => onClickNoticeHandler(item)}>
+                                    {contentChange(item)}
+                                </Text>  
+                            </ContentWrapper>   
+                            <RightWrapper>
+                                {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                                <RightText>
+                                    ARIA | {item?.contents.date}
+                                </RightText>
+                            </RightWrapper>
+                        </LineContainer>
                     )
                 })}
             </ListContainer>
@@ -338,7 +317,7 @@ const TopLaneCenterText = styled(TopLaneLeftText)`
 `;
 
 const TopLaneRightText = styled(TopLaneLeftText)`
-    width: 110px;
+    width: 120px;
     display: flex;
     justify-content: center;
 
@@ -347,7 +326,7 @@ const TopLaneRightText = styled(TopLaneLeftText)`
     }
 
     @media screen and (max-width: 500px) {
-        width: 70px;
+        width: 80px;
     }
 `;
 
