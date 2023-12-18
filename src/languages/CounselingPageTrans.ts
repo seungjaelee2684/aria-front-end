@@ -31,10 +31,10 @@ export const CounselingText : CounselingTextType[] = [
         text: "상담안내"
     },
     {
-        englishtext: "Feel free to ask any questions regarding enrollment,class consultations, \nor any other inquiries after adding our academy account as a friend on Discord.\nWe'll be happy to provide you with helpful and friendly responses.",
-        chinesetext: "在将我们的学院帐户添加为好友并提出选课咨询、\n课程咨询或其他问题后，我们将很乐意为您提供详细回答。",
-        japanesetext: "Discordで学校のアカウントを友達追加した後、受講に関するお問い合わせ、\nクラス相談、その他のご質問がありましたらお知らせください。丁寧にお答えいたします。",
-        text: "디스코드에서 학원 계정을 친구 추가 후 수강문의,\n클래스 상담 그 외 문의사항을 말씀해 주시면 친절히 답변드리겠습니다."
+        englishtext: "Feel free to ask any questions regarding enrollment,class\nconsultations, or any other inquiries after joining our Discord server. We'll be happy to provide you with helpful and friendly responses.",
+        chinesetext: "在Discord中添加ARIA服务器后,请告知听课咨询\n授课相关问题等咨询事项,我们会亲切地回答。",
+        japanesetext: "DiscordでARIAのサーバーを追加し、受講に関するお問い合わせ\nクラスに関するご相談など、お問い合わせいただければ親切にお答えします。",
+        text: "디스코드에서 ARIA서버를 추가 후 수강문의, 클래스 상담 등\n문의사항을 말씀해 주시면 친절히 답변드리겠습니다."
     },
     {
         englishtext: "Counseling Hours: 9 AM to 11 PM",
@@ -54,28 +54,34 @@ export const CounselingText : CounselingTextType[] = [
         japanesetext: "ARIAディスコードサーバーに移動",
         text: "ARIA 디스코드 서버로 이동"
     },
+    {
+        englishtext: "Please add our Discord server by pressing Go to ARIA discord server.",
+        chinesetext: "请在Discord中添加ARIA服务器。",
+        japanesetext: "ARIAサーバーをディスコードから追加してください。",
+        text: "ARIA 서버를 디스코드에서 추가해주세요."
+    },
 ];
 
 export const counselingGuide : CounselingGuideType[] = [
     {
         image: CounselingGuideImg1,
-        englishtext: "Going to register for a course",
+        englishtext: "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
         chinesetext: "去听课申请",
-        japanesetext: "受講申請に行く",
-        text: "수강 신청하러 가기"
+        japanesetext: "# SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
+        text: "#Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다."
     },
     {
         image: CounselingGuideImg2,
-        englishtext: "Going to register for a course",
+        englishtext: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
         chinesetext: "去听课申请",
-        japanesetext: "受講申請に行く",
-        text: "수강 신청하러 가기"
+        japanesetext: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+        text: "티켓은 좌측에 생성됩니다. 문의 사항을 남겨 주시면 영업시간에 담당자와 상담이 가능합니다."
     },
     {
         image: CounselingGuideImg3,
-        englishtext: "Going to register for a course",
+        englishtext: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
         chinesetext: "去听课申请",
-        japanesetext: "受講申請に行く",
-        text: "수강 신청하러 가기"
+        japanesetext: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+        text: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. 수강신청은 상담 후  안내에 따라 진행됩니다."
     },
 ];
