@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { counselingGuide } from '../../languages/CounselingPageTrans';
+import { CounselingText, counselingGuide } from '../../languages/CounselingPageTrans';
 
 const CounselingGuide = () => {
 
@@ -14,65 +14,47 @@ const CounselingGuide = () => {
         text: string
     };
 
-    const counselingContentTrans = () => {
-        if (language === "chinese") {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.chinesetext}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
-        } else if (language === "japanese") {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.japanesetext}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
-        } else if (language === "korean") {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.text}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
-        } else {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.englishtext}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
+    const counselingContentTrans = (item : any) => {
+        switch (language) {
+            case "chinese" :
+                return item?.chinesetext;
+            case "japanese" :
+                return item?.japanesetext;
+            case "korean" :
+                return item?.text;
+            default :
+                return item?.englishtext;
+        };
+    };
+
+    const counselingTitleTrans = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return CounselingText[Num]?.chinesetext;
+            case "japanese" :
+                return CounselingText[Num]?.japanesetext;
+            case "korean" :
+                return CounselingText[Num]?.text;
+            default :
+                return CounselingText[Num]?.englishtext;
         };
     };
 
   return (
     <CounselingContainer>
-        {counselingContentTrans()}
+        <GuideContent>
+            {counselingTitleTrans(6)}
+        </GuideContent>
+        {counselingGuide?.map((item : CounselingGuideType) => {
+            return (
+                <GuideWrapper key={item.text}>
+                    <GuideImage src={item?.image} alt=''/>
+                    <GuideContent>
+                        {counselingContentTrans(item)}
+                    </GuideContent>
+                </GuideWrapper>
+            );
+        })}
     </CounselingContainer>
   )
 };
@@ -85,10 +67,14 @@ const CounselingContainer = styled.div`
     align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     line-height: normal;
     color: #222020;
+
+    @media screen and (max-width: 900px) {
+        width: 96%;
+    }
 `;
 
 const GuideWrapper = styled.div`
@@ -96,7 +82,7 @@ const GuideWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 36px;
 `;
 
 const GuideImage = styled.img`
@@ -109,6 +95,7 @@ const GuideImage = styled.img`
 const GuideContent = styled.div`
     width: 100%;
     text-align: left;
+    white-space: pre-line;
 `;
 
 export default CounselingGuide;

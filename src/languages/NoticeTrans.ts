@@ -7,10 +7,22 @@ type NoticeType = {
 
 export const NoticeTrans : NoticeType[] = [
     {
+        englishtext: "All",
+        chinesetext: "整个",
+        japanesetext: "全体",
+        text: "전체"
+    },
+    {
         englishtext: "Notice",
         chinesetext: "公告",
         japanesetext: "お知らせ",
         text: "공지"
+    },
+    {
+        englishtext: "Event",
+        chinesetext: "活动",
+        japanesetext: "イベント",
+        text: "이벤트"
     },
     {
         englishtext: "cases",
@@ -36,4 +48,4 @@ export const NoticeTrans : NoticeType[] = [
         japanesetext: "登録日",
         text: "등록일"
     },
-]
+];

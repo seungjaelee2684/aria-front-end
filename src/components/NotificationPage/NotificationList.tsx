@@ -9,7 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
 import { NoticeTrans } from '../../languages/NoticeTrans';
 
-const NotificationList = () => {
+interface NotificationListProps {
+    noticeFilter: string;
+};
+
+const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) => {
 
     const language = localStorage.getItem("language");
     const navigate = useNavigate();
@@ -47,71 +51,48 @@ const NotificationList = () => {
     };
 
   return (
-    <ListLayoutContainer>
-        <OutWrapper>
-            <TitleContainer>
-                {textChange(0)}
-                <TotalWrapper>
-                    Total
-                    <Total>
-                        {NotificationData.length}
-                    </Total>
-                    {textChange(1)}
-                </TotalWrapper>
-            </TitleContainer>
-            <ListContainer>
-                <LineContainer style={{height: "10px"}}>
-                    <TopLaneLeftText>
-                        {textChange(2)}
-                    </TopLaneLeftText>
-                    <TopLaneCenterText>
-                        {textChange(3)}
-                    </TopLaneCenterText>
-                    <TopLaneRightText>
-                        {textChange(4)}
-                    </TopLaneRightText>
+    <ListContainer>
+        <LineContainer style={{height: "60px"}}>
+            <TopLaneLeftText>
+                {textChange(4)}
+            </TopLaneLeftText>
+            <TopLaneCenterText>
+                {textChange(5)}
+            </TopLaneCenterText>
+            <TopLaneRightText>
+                {textChange(6)}
+            </TopLaneRightText>
+        </LineContainer>
+        {NotificationData?.map((item : any) => {
+            return (
+                <LineContainer
+                    key={item.id}
+                    style={{
+                        borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                    }}>
+                    <ContentWrapper>
+                        <NoticeIcon
+                            style={{
+                                color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                            }}>
+                            {(item?.status === "notice")
+                                ? textChange(1)
+                                : textChange(2)}
+                        </NoticeIcon>
+                        <Text onClick={() => onClickNoticeHandler(item)}>
+                            {contentChange(item)}
+                        </Text>
+                        {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                    </ContentWrapper>   
+                    <RightWrapper>        
+                        <RightText>
+                            ARIA | {item?.contents.date}
+                        </RightText>
+                    </RightWrapper>
                 </LineContainer>
-                {reverseNotice?.map((item : any) => {
-                    return (
-                        (reverseNotice.indexOf(item) === NotificationData.length - 1)
-                            ? <LineContainer
-                                key={item.id}
-                                style={{borderBottom: "none"}}>
-                                <ContentWrapper>
-                                    <NoticeIcon>
-                                        {textChange(0)}
-                                    </NoticeIcon>
-                                    <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {contentChange(item)}
-                                    </Text>  
-                                </ContentWrapper>
-                                <RightWrapper>
-                                    <RightText>
-                                        ARIA | {item?.contents.date}
-                                    </RightText>
-                                </RightWrapper>
-                            </LineContainer>
-                            : <LineContainer
-                                key={item.id}>
-                                <ContentWrapper>
-                                    <NoticeIcon>
-                                        {textChange(0)}
-                                    </NoticeIcon>
-                                    <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {contentChange(item)}
-                                    </Text>  
-                                </ContentWrapper>
-                                <RightWrapper>
-                                    <RightText>
-                                        ARIA | {item?.contents.date}
-                                    </RightText>
-                                </RightWrapper>
-                            </LineContainer>
-                    )
-                })}
-            </ListContainer>
-        </OutWrapper>
-    </ListLayoutContainer>
+            )
+        })}
+    </ListContainer>
   )
 };
 
@@ -135,49 +116,6 @@ const OutWrapper = styled.div`
     }
 `;
 
-const TitleContainer = styled.div`
-    font-family: "Pretendard";
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 140%;
-    width: 100%;
-    display: flex;
-    align-items: end;
-    color: #222020;
-    gap: 16px;
-
-    @media screen and (max-width: 500px) {
-        font-size: 18px;
-        gap: 8px;
-    }
-`;
-
-const TotalWrapper = styled.div`
-    font-family: "Pretendard";
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 140%;
-    color: #222020;
-    display: flex;
-    align-items: end;
-    gap: 8px;
-
-    @media screen and (max-width: 500px) {
-        font-size: 12px;
-        gap: 5px;
-    }
-`;
-
-const Total = styled.div`
-    color: #0c1fc9;
-    font-size: 20px;
-    font-weight: 600;
-
-    @media screen and (max-width: 500px) {
-        font-size: 16px;
-    }
-`;
-
 const ListContainer = styled.div`
     border-top: 2px solid #222020;
     border-bottom: 2px solid #222020;
@@ -186,8 +124,8 @@ const ListContainer = styled.div`
 const LineContainer = styled.div`
     font-family: "Pretendard";
     line-height: normal;
-    height: 30px;
-    padding: 30px 16px;
+    height: 80px;
+    padding: 0px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -202,6 +140,7 @@ const LineContainer = styled.div`
 const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
+    height: 100%;
     gap: 24px;
 
     @media screen and (max-width: 500px) {
@@ -231,16 +170,22 @@ const NoticeIcon = styled.div`
     font-weight: 700;
     line-height: normal;
     font-size: 16px;
-    color: red;
+    color: #db0e0e;
     display: flex;
+    align-items: center;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 
     @media screen and (max-width: 836px) {
         font-size: 14px;
+        min-width: 50px;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 10px;
+        min-width: 30px;
     }
 `;
 
@@ -263,27 +208,37 @@ const RightText = styled.div`
     line-height: normal;
     color: #222020;
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 120px;
 
     @media screen and (max-width: 836px) {
         font-size: 12px;
+        width: 100px;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 8px;
+        width: 80px;
     }
 `;
 
-const ArrowIcon = styled.img`
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    opacity: 0.8;
-    cursor: pointer;
+const LaneImage = styled.img`
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    margin-left: 60px;
+
+    @media screen and (max-width: 836px) {
+        width: 38px;
+        height: 38px;
+        margin-left: 30px;
+    }
 
     @media screen and (max-width: 500px) {
-        width: 16px;
-        height: 16px;
+        width: 26px;
+        height: 26px;
+        margin-left: 0px;
     }
 `;
 
@@ -291,13 +246,19 @@ export const TopLaneLeftText = styled.div`
     font-size: 18px;
     font-weight: 600;
     color: #222020;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (max-width: 836px) {
         font-size: 16px;
+        min-width: 50px;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 12px;
+        min-width: 30px;
     }
 `;
 
@@ -307,7 +268,7 @@ const TopLaneCenterText = styled(TopLaneLeftText)`
 `;
 
 const TopLaneRightText = styled(TopLaneLeftText)`
-    width: 110px;
+    width: 120px;
     display: flex;
     justify-content: center;
 
@@ -316,7 +277,7 @@ const TopLaneRightText = styled(TopLaneLeftText)`
     }
 
     @media screen and (max-width: 500px) {
-        width: 70px;
+        width: 80px;
     }
 `;
 
