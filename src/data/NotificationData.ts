@@ -28,7 +28,7 @@ export const NotificationData = [
                     "",
                 ],
             },
-            image: Image
+            image: null
         },
         status: "notice",
     },
@@ -56,7 +56,7 @@ export const NotificationData = [
                     "",
                 ],
             },
-            image: Image
+            image: null
         },
         status: "notice",
     },
@@ -84,7 +84,7 @@ export const NotificationData = [
                     "",
                 ],
             },
-            image: Image
+            image: null
         },
         status: "notice",
     },
@@ -112,7 +112,7 @@ export const NotificationData = [
                     "",
                 ],
             },
-            image: Image
+            image: null
         },
         status: "notice",
     },
@@ -140,7 +140,7 @@ export const NotificationData = [
                     "",
                 ],
             },
-            image: Image
+            image: null
         },
         status: "notice",
     },
