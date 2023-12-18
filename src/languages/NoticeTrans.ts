@@ -13,6 +13,12 @@ export const NoticeTrans : NoticeType[] = [
         text: "공지"
     },
     {
+        englishtext: "Event",
+        chinesetext: "活动",
+        japanesetext: "イベント",
+        text: "이벤트"
+    },
+    {
         englishtext: "cases",
         chinesetext: " 件",
         japanesetext: " 件",

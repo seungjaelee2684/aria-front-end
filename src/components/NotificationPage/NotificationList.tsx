@@ -56,30 +56,35 @@ const NotificationList = () => {
                     <Total>
                         {NotificationData.length}
                     </Total>
-                    {textChange(1)}
+                    {textChange(2)}
                 </TotalWrapper>
             </TitleContainer>
             <ListContainer>
                 <LineContainer style={{height: "10px"}}>
                     <TopLaneLeftText>
-                        {textChange(2)}
+                        {textChange(3)}
                     </TopLaneLeftText>
                     <TopLaneCenterText>
-                        {textChange(3)}
+                        {textChange(4)}
                     </TopLaneCenterText>
                     <TopLaneRightText>
-                        {textChange(4)}
+                        {textChange(5)}
                     </TopLaneRightText>
                 </LineContainer>
-                {reverseNotice?.map((item : any) => {
+                {NotificationData?.map((item : any) => {
                     return (
-                        (reverseNotice.indexOf(item) === NotificationData.length - 1)
+                        (NotificationData?.indexOf(item) === NotificationData.length - 1)
                             ? <LineContainer
                                 key={item.id}
                                 style={{borderBottom: "none"}}>
                                 <ContentWrapper>
-                                    <NoticeIcon>
-                                        {textChange(0)}
+                                    <NoticeIcon
+                                        style={{
+                                            color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                        }}>
+                                        {(item?.status === "notice")
+                                            ? textChange(0)
+                                            : textChange(1)}
                                     </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
@@ -94,8 +99,13 @@ const NotificationList = () => {
                             : <LineContainer
                                 key={item.id}>
                                 <ContentWrapper>
-                                    <NoticeIcon>
-                                        {textChange(0)}
+                                    <NoticeIcon
+                                        style={{
+                                            color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                        }}>
+                                        {(item?.status === "notice")
+                                            ? textChange(0)
+                                            : textChange(1)}
                                     </NoticeIcon>
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
@@ -231,16 +241,22 @@ const NoticeIcon = styled.div`
     font-weight: 700;
     line-height: normal;
     font-size: 16px;
-    color: red;
+    color: #db0e0e;
     display: flex;
+    align-items: center;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 
     @media screen and (max-width: 836px) {
         font-size: 14px;
+        min-width: 50px;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 10px;
+        min-width: 30px;
     }
 `;
 
@@ -291,13 +307,19 @@ export const TopLaneLeftText = styled.div`
     font-size: 18px;
     font-weight: 600;
     color: #222020;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (max-width: 836px) {
         font-size: 16px;
+        min-width: 50px;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 12px;
+        min-width: 30px;
     }
 `;
 
