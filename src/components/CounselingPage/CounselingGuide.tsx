@@ -67,7 +67,7 @@ const CounselingContainer = styled.div`
     align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     line-height: normal;
     color: #222020;
@@ -82,7 +82,7 @@ const GuideWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 36px;
 `;
 
 const GuideImage = styled.img`

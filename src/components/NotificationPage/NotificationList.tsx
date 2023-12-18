@@ -9,7 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
 import { NoticeTrans } from '../../languages/NoticeTrans';
 
-const NotificationList = () => {
+interface NotificationListProps {
+    noticeFilter: string;
+};
+
+const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) => {
 
     const language = localStorage.getItem("language");
     const navigate = useNavigate();
@@ -47,62 +51,48 @@ const NotificationList = () => {
     };
 
   return (
-    <ListLayoutContainer>
-        <OutWrapper>
-            <TitleContainer>
-                {textChange(0)}
-                <TotalWrapper>
-                    Total
-                    <Total>
-                        {NotificationData.length}
-                    </Total>
-                    {textChange(2)}
-                </TotalWrapper>
-            </TitleContainer>
-            <ListContainer>
-                <LineContainer style={{height: "10px"}}>
-                    <TopLaneLeftText>
-                        {textChange(3)}
-                    </TopLaneLeftText>
-                    <TopLaneCenterText>
-                        {textChange(4)}
-                    </TopLaneCenterText>
-                    <TopLaneRightText>
-                        {textChange(5)}
-                    </TopLaneRightText>
-                </LineContainer>
-                {NotificationData?.map((item : any) => {
-                    return (
-                        <LineContainer
-                            key={item.id}
+    <ListContainer>
+        <LineContainer style={{height: "60px"}}>
+            <TopLaneLeftText>
+                {textChange(3)}
+            </TopLaneLeftText>
+            <TopLaneCenterText>
+                {textChange(4)}
+            </TopLaneCenterText>
+            <TopLaneRightText>
+                {textChange(5)}
+            </TopLaneRightText>
+        </LineContainer>
+        {NotificationData?.map((item : any) => {
+            return (
+                <LineContainer
+                    key={item.id}
+                    style={{
+                        borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                    }}>
+                    <ContentWrapper>
+                        <NoticeIcon
                             style={{
-                                borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                                color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
                             }}>
-                            <ContentWrapper>
-                                <NoticeIcon
-                                    style={{
-                                        color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
-                                    }}>
-                                    {(item?.status === "notice")
-                                        ? textChange(0)
-                                        : textChange(1)}
-                                </NoticeIcon>
-                                <Text onClick={() => onClickNoticeHandler(item)}>
-                                    {contentChange(item)}
-                                </Text>  
-                            </ContentWrapper>   
-                            <RightWrapper>
-                                {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                                <RightText>
-                                    ARIA | {item?.contents.date}
-                                </RightText>
-                            </RightWrapper>
-                        </LineContainer>
-                    )
-                })}
-            </ListContainer>
-        </OutWrapper>
-    </ListLayoutContainer>
+                            {(item?.status === "notice")
+                                ? textChange(0)
+                                : textChange(1)}
+                        </NoticeIcon>
+                        <Text onClick={() => onClickNoticeHandler(item)}>
+                            {contentChange(item)}
+                        </Text>
+                        {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                    </ContentWrapper>   
+                    <RightWrapper>        
+                        <RightText>
+                            ARIA | {item?.contents.date}
+                        </RightText>
+                    </RightWrapper>
+                </LineContainer>
+            )
+        })}
+    </ListContainer>
   )
 };
 
@@ -126,49 +116,6 @@ const OutWrapper = styled.div`
     }
 `;
 
-const TitleContainer = styled.div`
-    font-family: "Pretendard";
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 140%;
-    width: 100%;
-    display: flex;
-    align-items: end;
-    color: #222020;
-    gap: 16px;
-
-    @media screen and (max-width: 500px) {
-        font-size: 18px;
-        gap: 8px;
-    }
-`;
-
-const TotalWrapper = styled.div`
-    font-family: "Pretendard";
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 140%;
-    color: #222020;
-    display: flex;
-    align-items: end;
-    gap: 8px;
-
-    @media screen and (max-width: 500px) {
-        font-size: 12px;
-        gap: 5px;
-    }
-`;
-
-const Total = styled.div`
-    color: #0c1fc9;
-    font-size: 20px;
-    font-weight: 600;
-
-    @media screen and (max-width: 500px) {
-        font-size: 16px;
-    }
-`;
-
 const ListContainer = styled.div`
     border-top: 2px solid #222020;
     border-bottom: 2px solid #222020;
@@ -177,8 +124,8 @@ const ListContainer = styled.div`
 const LineContainer = styled.div`
     font-family: "Pretendard";
     line-height: normal;
-    height: 30px;
-    padding: 30px 16px;
+    height: 80px;
+    padding: 0px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -193,6 +140,7 @@ const LineContainer = styled.div`
 const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
+    height: 100%;
     gap: 24px;
 
     @media screen and (max-width: 500px) {
@@ -276,18 +224,21 @@ const RightText = styled.div`
 `;
 
 const LaneImage = styled.img`
-    min-width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     object-fit: cover;
+    margin-left: 60px;
 
     @media screen and (max-width: 836px) {
-        min-width: 38px;
+        width: 38px;
         height: 38px;
+        margin-left: 30px;
     }
 
     @media screen and (max-width: 500px) {
-        min-width: 26px;
+        width: 26px;
         height: 26px;
+        margin-left: 0px;
     }
 `;
 
