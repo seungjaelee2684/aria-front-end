@@ -32,16 +32,18 @@ const Notification = () => {
         <OutWrapper>
           <TitleOutContainer>
             <TitleContainer>
-              {textChange(0)}
+              {textChange(1)}
               <TotalWrapper>
                 Total
                 <Total>
                   {NotificationData?.length}
                 </Total>
-                {textChange(2)}
+                {textChange(3)}
               </TotalWrapper>
             </TitleContainer>
-            <NotificationFilter setNoticeFilter={setNoticeFilter}/>
+            <NotificationFilter
+              noticeFilter={noticeFilter}
+              setNoticeFilter={setNoticeFilter}/>
           </TitleOutContainer>
           <NotificationList noticeFilter={noticeFilter}/>
         </OutWrapper>
