@@ -8,6 +8,7 @@ import { mentorSearchInput } from '../store/MentorSearchInput';
 const ScrollTop = () => {
 
     const { pathname } = useLocation();
+    const language = localStorage.getItem("language");
     
     const resetFilter = useResetRecoilState(nationKind);
     const resetFlag = useResetRecoilState(nationFlag);
@@ -20,7 +21,7 @@ const ScrollTop = () => {
         resetFlag();
         resetPageNumber();
         resetMentorSearch();
-    }, [pathname]);
+    }, [pathname, language]);
 
   return null
 };
