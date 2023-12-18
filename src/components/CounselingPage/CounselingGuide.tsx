@@ -14,65 +14,31 @@ const CounselingGuide = () => {
         text: string
     };
 
-    const counselingContentTrans = () => {
-        if (language === "chinese") {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.chinesetext}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
-        } else if (language === "japanese") {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.japanesetext}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
-        } else if (language === "korean") {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.text}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
-        } else {
-            return (
-                counselingGuide?.map((item : CounselingGuideType) => {
-                    return (
-                        <GuideWrapper key={item.text}>
-                            <GuideImage src={item?.image} alt=''/>
-                            <GuideContent>
-                                {item?.englishtext}
-                            </GuideContent>
-                        </GuideWrapper>
-                    );
-                })
-            );
+    const counselingContentTrans = (item : any) => {
+        switch (language) {
+            case "chinese" :
+                return item?.chinesetext;
+            case "japanese" :
+                return item?.japanesetext;
+            case "korean" :
+                return item?.text;
+            default :
+                return item?.englishtext;
         };
     };
 
   return (
     <CounselingContainer>
-        {counselingContentTrans()}
+        {counselingGuide?.map((item : CounselingGuideType) => {
+            return (
+                <GuideWrapper key={item.text}>
+                    <GuideImage src={item?.image} alt=''/>
+                    <GuideContent>
+                        {counselingContentTrans(item)}
+                    </GuideContent>
+                </GuideWrapper>
+            );
+        })}
     </CounselingContainer>
   )
 };
@@ -89,6 +55,10 @@ const CounselingContainer = styled.div`
     font-weight: 500;
     line-height: normal;
     color: #222020;
+
+    @media screen and (max-width: 900px) {
+        width: 96%;
+    }
 `;
 
 const GuideWrapper = styled.div`
