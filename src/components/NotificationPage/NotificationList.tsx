@@ -89,8 +89,9 @@ const NotificationList = () => {
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
                                     </Text>  
-                                </ContentWrapper>
+                                </ContentWrapper>   
                                 <RightWrapper>
+                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
                                     <RightText>
                                         ARIA | {item?.contents.date}
                                     </RightText>
@@ -112,6 +113,7 @@ const NotificationList = () => {
                                     </Text>  
                                 </ContentWrapper>
                                 <RightWrapper>
+                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
                                     <RightText>
                                         ARIA | {item?.contents.date}
                                     </RightText>
@@ -279,27 +281,34 @@ const RightText = styled.div`
     line-height: normal;
     color: #222020;
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 120px;
 
     @media screen and (max-width: 836px) {
         font-size: 12px;
+        width: 100px;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 8px;
+        width: 80px;
     }
 `;
 
-const ArrowIcon = styled.img`
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    opacity: 0.8;
-    cursor: pointer;
+const LaneImage = styled.img`
+    min-width: 44px;
+    height: 44px;
+    object-fit: cover;
+
+    @media screen and (max-width: 836px) {
+        min-width: 38px;
+        height: 38px;
+    }
 
     @media screen and (max-width: 500px) {
-        width: 16px;
-        height: 16px;
+        min-width: 26px;
+        height: 26px;
     }
 `;
 
