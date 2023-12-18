@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { counselingGuide } from '../../languages/CounselingPageTrans';
+import { CounselingText, counselingGuide } from '../../languages/CounselingPageTrans';
 
 const CounselingGuide = () => {
 
@@ -27,8 +27,24 @@ const CounselingGuide = () => {
         };
     };
 
+    const counselingTitleTrans = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return CounselingText[Num]?.chinesetext;
+            case "japanese" :
+                return CounselingText[Num]?.japanesetext;
+            case "korean" :
+                return CounselingText[Num]?.text;
+            default :
+                return CounselingText[Num]?.englishtext;
+        };
+    };
+
   return (
     <CounselingContainer>
+        <GuideContent>
+            {counselingTitleTrans(6)}
+        </GuideContent>
         {counselingGuide?.map((item : CounselingGuideType) => {
             return (
                 <GuideWrapper key={item.text}>
@@ -79,6 +95,7 @@ const GuideImage = styled.img`
 const GuideContent = styled.div`
     width: 100%;
     text-align: left;
+    white-space: pre-line;
 `;
 
 export default CounselingGuide;
