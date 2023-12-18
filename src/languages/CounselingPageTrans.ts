@@ -49,10 +49,10 @@ export const CounselingText : CounselingTextType[] = [
         text: "계정 친구추가"
     },
     {
-        englishtext: "Going to register for a course",
-        chinesetext: "去听课申请",
-        japanesetext: "受講申請に行く",
-        text: "수강 신청하러 가기"
+        englishtext: "Go to ARIA discord server",
+        chinesetext: "移动到ARIA Discord服务器",
+        japanesetext: "ARIAディスコードサーバーに移動",
+        text: "ARIA 디스코드 서버로 이동"
     },
 ];
 

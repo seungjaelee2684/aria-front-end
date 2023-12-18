@@ -66,9 +66,6 @@ const Counseling = () => {
               </TimeCheckContainer>
               <ButtonAllWrapper>
                 <ButtonContainer
-                  style={{
-                    fontSize: (language === "english" || !language) ? "16px" : "24px"
-                  }}
                   onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                   {counseling(5)}
                   <ButtonText>
@@ -252,7 +249,7 @@ const ButtonAllWrapper = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  width: 380px;
+  width: 360px;
   height: 60px;
   display: flex;
   /* justify-content: center; */
@@ -261,7 +258,7 @@ const ButtonContainer = styled.div`
   border: 1px solid #ADADAD;
   border-radius: 3px;
   font-family: "Pretendard";
-  /* font-size: 20px; */
+  font-size: 18px;
   font-weight: 600;
   line-height: normal;
   position: relative;
@@ -278,7 +275,7 @@ const ButtonContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    width: 340px;
+    width: 320px;
     height: 40px;
     text-indent: 20px;
   }
