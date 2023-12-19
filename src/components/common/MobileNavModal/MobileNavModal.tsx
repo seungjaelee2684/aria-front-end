@@ -7,6 +7,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../../store/NationFilter';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
+import Logo from '../../../assets/logos/whitelogo.webp';
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -60,6 +61,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         // className='ModalContainer'
       >
         <CloseBtnContainer>
+          <TopLogoContainer src={Logo} alt=''/>
           <CloseBtn onClick={onClickHamburgCloseHandler}>
             <MdClose />
           </CloseBtn>
@@ -142,7 +144,7 @@ const BackgroundContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 98;
+  z-index: 97;
   /* opacity: 0; */
   visibility: hidden;
   background-color: #22202050;
@@ -153,24 +155,29 @@ const ModalContainer = styled.div`
   height: 100%;
   background-color: #FFFFFF;
   position: fixed;
-  bottom: 0;
+  top: 50px;
   left: -70%;
   display: flex;
   flex-direction: column;
-  border-radius: 0px 15px 15px 0px;
   background-color: #ebfeff;
-  z-index: 100;
+  z-index: 97;
   user-select: none;
   transition: all 0.5s;
-  box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+  box-shadow: rgba(63, 71, 77, 0.2) 5px 5px 10px 0px;
 `;
 
 const CloseBtnContainer = styled.div`
-  width: 96%;
+  width: 90%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   margin: 10px auto 0px auto;
+`;
+
+const TopLogoContainer = styled.img`
+  width: 100px;
+  height: auto;
+  object-fit: cover;
 `;
 
 const CloseBtn = styled.div`
