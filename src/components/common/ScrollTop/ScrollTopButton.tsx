@@ -64,9 +64,10 @@ const ScrollTopButtonWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
-    /* @media screen and (max-width: 500px) {
-        display: none;
-    } */
+    @media screen and (max-width: 500px) {
+        bottom: 50px;
+        right: 0
+    }
 `;
 
 export default ScrollTopButton;
