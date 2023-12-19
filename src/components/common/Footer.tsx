@@ -8,10 +8,10 @@ import Instagram from '../../assets/icons/insta.png';
 import Twitter from '../../assets/icons/twitter.png';
 import Discord from '../../assets/icons/discord.png';
 import Youtube from '../../assets/icons/youtube.png';
-import InstagramDefault from '../../assets/icons/instadefault.webp';
-import TwitterDefault from '../../assets/icons/twitterdefault.webp';
-import DiscordDefault from '../../assets/icons/discorddefault.webp';
-import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
+import InstagramDefault from '../../assets/icons/instablack.webp';
+import TwitterDefault from '../../assets/icons/twitterblack.webp';
+import DiscordDefault from '../../assets/icons/discordblack.webp';
+import YoutubeDefault from '../../assets/icons/youtubeblack.webp';
 import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
@@ -115,7 +115,7 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-color: #2a2c35;
   color: #ADADAD;
   font-family: "Pretendard";
@@ -127,6 +127,7 @@ const FooterContainer = styled.div`
   z-index: 99;
   margin-top: 80px;
   transition: all 0.2s ease-in-out;
+  position: relative;
 
   @media screen and (max-width: 1320px) {
     margin-top: 60px;
@@ -134,7 +135,7 @@ const FooterContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     margin-top: 40px;
-    height: 160px;
+    height: 180px;
   }
 
   @media screen and (max-width: 500px) {
@@ -214,8 +215,9 @@ const Text = styled.div`
 
 const MenuIconContainer = styled.div`
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: end;
+  gap: 12px;
+  height: 100%;
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -223,32 +225,33 @@ const MenuIconContainer = styled.div`
 `;
 
 const IconBoxWrapper = styled.div`
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #191b20;
+  background-color: #ADADAD;
+  border-radius: 100%;
   cursor: pointer;
   
   &:hover {
-    background-color: #232529;
+    background-color: #e9e9e9;
   }
 
   @media screen and (max-width: 836px) {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
 `;
 
 const MenuIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
 
   @media screen and (max-width: 836px) {
-    width: 24px;
-    height: 24px;
+    width: 12px;
+    height: 12px;
   }
 `;
 
@@ -256,24 +259,25 @@ const FooterOutWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: start;
-  gap: 100px;
 
-  @media screen and (max-width: 836px) {
-    gap: 50px;
+  /* @media screen and (max-width: 836px) {
     margin: 30px 0px;
   }
 
   @media screen and (max-width: 500px) {
-    gap: 40px;
     margin: 16px 0px;
-  }
+  } */
 `;
 
 const LogoContainer = styled.img`
-  width: 150px;
+  width: 130px;
   height: auto;
   object-fit: cover;
+  position: absolute;
+  top: 20px;
+  right: 2%;
 
   @media screen and (max-width: 836px) {
     width: 120px;
@@ -315,6 +319,7 @@ const ContentBox = styled.div`
   font-size: 11px;
   display: flex;
   flex-direction: column;
+  line-height: normal;
   gap: 8px;
 
   @media screen and (max-width: 836px) {
@@ -328,7 +333,12 @@ const ContentBox = styled.div`
 `;
 
 const Content = styled.div`
-  line-height: normal;
+  display: flex;
+  align-items: center;
+`;
+
+const Link = styled.div`
+  
 `;
 
 export default Footer;
