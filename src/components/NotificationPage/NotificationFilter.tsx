@@ -28,25 +28,28 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
     };
   
     return (
-    <FilterOutWrapper>
-        {filterState?.map((item : string) => {
-            return (
-                <FilterButtonWrapper
-                    key={item}
-                    style={{
-                        color: (noticeFilter === item) ? "#222020" : "#ADADAD",
-                        fontWeight: (noticeFilter === item) ? "600" : "400"
-                    }}
-                    onClick={() => setNoticeFilter(item)}>
-                    <Point />
-                    <Text>
-                        {filterTrans(filterState.indexOf(item))}
-                    </Text>
-                </FilterButtonWrapper>
-            )
-        })}
-    </FilterOutWrapper>
-  )
+        <FilterOutWrapper>
+            {filterState?.map((item : string) => {
+                return (
+                    <FilterButtonWrapper
+                        key={item}
+                        style={{
+                            color: (noticeFilter === item) ? "#222020" : "#ADADAD",
+                            fontWeight: (noticeFilter === item) ? "700" : "400"
+                        }}
+                        onClick={() => setNoticeFilter(item)}>
+                        <Point 
+                            style={{
+                                backgroundColor: (noticeFilter === item) ? "#222020" : "#ADADAD",
+                            }}/>
+                        <Text>
+                            {filterTrans(filterState.indexOf(item))}
+                        </Text>
+                    </FilterButtonWrapper>
+                )
+            })}
+        </FilterOutWrapper>
+    )
 };
 
 const FilterOutWrapper = styled.div`
