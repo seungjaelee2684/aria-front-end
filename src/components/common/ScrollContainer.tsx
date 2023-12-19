@@ -12,9 +12,9 @@ export const ScrollContainer : React.FC<ScrollContainerProps> = ({ children }) =
   
     return (
     <MainImage
-        ref={scrollDivRef}
-        className={isInObject ? "frame-in" : ""}>
-        {children}
+      ref={scrollDivRef}
+      className={isInObject ? "frame-in" : ""}>
+      {children}
     </MainImage>
   )
 };

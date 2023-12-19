@@ -5,10 +5,10 @@ import ClipLoader from "react-spinners/ClipLoader";
 const LoadingSpinner = () => {
   return (
     <SpinnerContainer>
-        <ClipLoader 
-            color='#3c3ad6'
-            size={150}
-        />
+      <ClipLoader 
+        color='#3c3ad6'
+        size={150}
+      />
     </SpinnerContainer>
   )
 };
