@@ -17,19 +17,6 @@ import CounselingGuide from '../components/CounselingPage/CounselingGuide';
 const Counseling = () => {
 
   const language = localStorage.getItem("language");
-  const alertRef = useRef<HTMLDivElement>(null);
-  const [, setCopyHandler] = useRecoilState(CopyAlert);
-
-  const onClickCopyHandler = async ( text : string ) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopyHandler(true)
-      console.log("복사된 링크 -> ", text);
-    } catch (e) {
-      alert("복사에 실패하였습니다.");
-      console.log("Error -> ", e);
-    };
-  };
 
   const counseling = (Num : number) => {
     switch (language) {
@@ -48,7 +35,7 @@ const Counseling = () => {
     <LayOutContainer>
       <OutContainer>
         <MonitorContainer>
-          <MonitorImage src={Monitor} data-src={<PopUp />} alt=''/>
+          <MonitorImage src={Monitor} alt=''/>
         </MonitorContainer>
         <InContainer>
           <ContentContainer>
@@ -89,6 +76,11 @@ const LayOutContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 70px;
+
+  @media screen and (max-width: 500px) {
+    margin: 70px auto 0px auto;
+    gap: 50px;
+  }
 `;
 
 const OutContainer = styled.div`
@@ -106,7 +98,6 @@ const OutContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    margin: 80px auto 0px auto;
     gap: 30px;
   }
 `;
@@ -275,9 +266,10 @@ const ButtonContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    width: 320px;
+    width: 280px;
     height: 40px;
     text-indent: 20px;
+    font-size: 14px;
   }
 `;
 

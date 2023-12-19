@@ -75,6 +75,11 @@ const CounselingContainer = styled.div`
     @media screen and (max-width: 900px) {
         width: 96%;
     }
+
+    @media screen and (max-width: 500px) {
+        gap: 50px;
+        font-size: 14px;
+    }
 `;
 
 const GuideWrapper = styled.div`
@@ -83,6 +88,10 @@ const GuideWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 36px;
+
+    @media screen and (max-width: 500px) {
+        gap: 16px;
+    }
 `;
 
 const GuideImage = styled.img`
