@@ -121,13 +121,13 @@ const FilterModalContainer = styled.div`
 
 const FilterModalBtn = styled.div`
     width: 150px;
-    height: 38px;
+    height: 40px;
     color: #39373A;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 140%;
     background-color: #FFFFFF;
@@ -141,12 +141,12 @@ const FilterModalBtn = styled.div`
 
     @media screen and (max-width: 1320px) {
         width: 140px;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     @media screen and (max-width: 836px) {
         width: 120px;
-        font-size: 10px;
+        font-size: 11px;
     }
 
     @media screen and (max-width: 500px) {
