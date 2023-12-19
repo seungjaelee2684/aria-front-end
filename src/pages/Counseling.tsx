@@ -78,7 +78,7 @@ const LayOutContainer = styled.div`
   gap: 70px;
 
   @media screen and (max-width: 500px) {
-    margin: 70px auto 0px auto;
+    margin: 50px auto 0px auto;
     gap: 50px;
   }
 `;

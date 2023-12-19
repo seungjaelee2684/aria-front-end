@@ -7,7 +7,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../../../store/NationFilter';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
-import Logo from '../../../assets/logos/whitelogo.webp';
+import Logo from '../../../assets/logos/logosimple.webp';
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -144,7 +144,7 @@ const BackgroundContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 97;
+  z-index: 98;
   /* opacity: 0; */
   visibility: hidden;
   background-color: #22202050;
@@ -155,12 +155,12 @@ const ModalContainer = styled.div`
   height: 100%;
   background-color: #FFFFFF;
   position: fixed;
-  top: 50px;
+  top: 0;
   left: -70%;
   display: flex;
   flex-direction: column;
   background-color: #ebfeff;
-  z-index: 97;
+  z-index: 100;
   user-select: none;
   transition: all 0.5s;
   box-shadow: rgba(63, 71, 77, 0.2) 5px 5px 10px 0px;

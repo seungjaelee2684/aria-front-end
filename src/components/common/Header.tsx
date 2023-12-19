@@ -15,12 +15,14 @@ import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
 import { popUpOpen } from '../../store/PopUpOpen';
 import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
-import { GoGlobe } from "react-icons/go";
+import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Header = () => {
 
     const language = localStorage.getItem("language");
+    
     const mainPage = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
     const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
@@ -86,14 +88,15 @@ const Header = () => {
     <div>
         <HeaderLayoutContainer ref={scrollHeader}>
             <HeaderOutWrapper>
+                <PrevButton onClick={() => window.history.back()}>
+                    <IoIosArrowBack />
+                </PrevButton>
                 <LogoContainer>
-                        <HeaderLogo
-                            src={logo}
-                            alt=""
-                            onClick={() => {
-                                navigate("/");
-                            }}/>
-                    </LogoContainer>
+                    <HeaderLogo
+                        src={logo}
+                        alt=""
+                        onClick={() => navigate("/")}/>
+                </LogoContainer>
                 {/* <RightWrapper> */}
                 <HeaderRightWrapper>
                     <SmallButtonWrapper>
@@ -106,7 +109,7 @@ const Header = () => {
                         <BarContainer />
                         <TranslateContainer ref={modalRef}>
                             <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                                <GoGlobe />
+                                <BsGlobe2 />
                                 <TransText>
                                     {languageChange()}
                                 </TransText>
@@ -156,9 +159,10 @@ const HeaderLayoutContainer = styled.div`
     transition: all 0.4s ease-in-out;
 
     @media screen and (max-width: 500px) {
-        /* background-color: #222020; */
+        background-color: none;
         height: 50px;
-        border-bottom: 1px solid #e9e9e9;
+        /* border-bottom: 1px solid #e9e9e9; */
+        box-shadow: none;
     }
 `;
 
@@ -184,7 +188,8 @@ const LogoContainer = styled.div`
     height: 80px;
 
     @media screen and (max-width: 500px) {
-        height: 40px;
+        /* height: 40px; */
+        display: none;
     }
 `;
 
@@ -230,6 +235,10 @@ const HeaderRightWrapper = styled.div`
     @media screen and (max-width: 836px) {
         width: 78%;
     }
+
+    @media screen and (max-width: 500px) {
+        width: 8%;
+    }
 `;
 
 const SmallButtonWrapper = styled.div`
@@ -266,8 +275,8 @@ const TranslateWrapper = styled.div`
         height: 100%;
         border: none;
         flex-direction: row;
-        gap: 5px;
         color: #222020;
+        gap: 2px;
         font-size: 20px;
     }
 `;
@@ -339,10 +348,11 @@ const TransText = styled.div`
     align-items: center;
 
     @media screen and (max-width: 500px) {
-        width: auto;
+        /* width: auto;
         height: auto;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 14px; */
+        display: none;
     }
 `;
 
@@ -360,6 +370,15 @@ const UnderLaneContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         display: none;
+    }
+`;
+
+const PrevButton = styled.div`
+    display: none;
+    font-size: 22px;
+
+    @media screen and (max-width: 500px) {
+        display: block;
     }
 `;
 

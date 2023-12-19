@@ -43,7 +43,6 @@ const SlideShow = () => {
   // console.log("슬라이드 번호", slideCurrent);
 
   return (
-    <div>
     <ImageOutContainer>
       <SlideLeftButtonBox
         onClick={prevButton}>
@@ -81,8 +80,6 @@ const SlideShow = () => {
         })}
       </SlideNumberContainer>
     </ImageOutContainer>
-    
-    </div>
   )
 };
 
@@ -93,7 +90,10 @@ const ImageOutContainer = styled.div`
   position: relative;
 
   @media screen and (max-width: 836px) {
-    height: 300px;
+    height: 260px;
+    width: 96%;
+    margin: 0px auto;
+    border-radius: 10px;
   }
 `;
 
@@ -125,7 +125,7 @@ const SlideLeftButtonBox = styled.div`
 
   @media screen and (max-width: 836px) {
     left: 10px;
-    top: 135px;
+    top: 115px;
     width: 30px;
     height: 30px;
     font-size: 20px;
@@ -160,7 +160,7 @@ const SlideRightButtonBox = styled.div`
 
   @media screen and (max-width: 836px) {
     right: 10px;
-    top: 135px;
+    top: 115px;
     width: 30px;
     height: 30px;
     font-size: 20px;
