@@ -44,7 +44,7 @@ const Footer = () => {
         display: `${((location.pathname === "/")
           || (location.pathname === "/check"))
             ? "none"
-            : "block"}`
+            : "flex"}`
       }}>
       <FooterOutContainer>
         <TopLaneHeader>
@@ -52,16 +52,35 @@ const Footer = () => {
             <HomeButton onClick={() => navigate("/")}>
               <AiFillHome />
             </HomeButton>
+            |
             <Text>
               개인정보 처리방침
             </Text>
+            |
             <Text>
               내용내용
             </Text>
+            |
             <Text>
               내용내용
             </Text>
           </LeftTopLaneContainer>
+        </TopLaneHeader>
+        <FooterOutWrapper>
+          <FirstWrapper>
+            <ContentBox>
+              <Content>
+                주소: 서울특별시
+              </Content>
+              <Content>
+                개인정보 처리방침
+              </Content> 
+              <Content>
+                개인정보 처리방침
+              </Content> 
+            </ContentBox>
+          </FirstWrapper>
+          <LogoContainer src={FooterLogo} alt=''/>
           <MenuIconContainer>
             <IconBoxWrapper>
               <MenuIcon
@@ -88,41 +107,6 @@ const Footer = () => {
                 onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
             </IconBoxWrapper>
           </MenuIconContainer>
-        </TopLaneHeader>
-        <FooterOutWrapper>
-          <LogoContainer src={FooterLogo} alt=''/>
-          <FirstWrapper>
-            <Title>
-              개인정보 처리방침
-            </Title>
-            <ContentBox>
-              <Content>
-                주소: 서울특별시
-              </Content>
-              <Content>
-                개인정보 처리방침
-              </Content> 
-              <Content>
-                개인정보 처리방침
-              </Content> 
-            </ContentBox>
-          </FirstWrapper>
-          {/* <FirstWrapper>
-            <Title>
-              개인정보 처리방침
-            </Title>
-            <ContentBox>
-              <Content>
-                주소: 서울특별시 블라블라 블라블라
-              </Content>
-              <Content>
-                개인정보 처리방침
-              </Content> 
-              <Content>
-                개인정보 처리방침
-              </Content> 
-            </ContentBox>
-          </FirstWrapper> */}
         </FooterOutWrapper>
       </FooterOutContainer>
     </FooterContainer>
@@ -131,39 +115,41 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 250px;
-  background-color: #333030;
+  height: 180px;
+  background-color: #2a2c35;
   color: #ADADAD;
   font-family: "Pretendard";
   font-size: 14px;
   font-weight: 500;
   line-height: 140%;
+  justify-content: center;
+  align-items: center;
   z-index: 99;
-  margin-top: 100px;
+  margin-top: 80px;
   transition: all 0.2s ease-in-out;
 
   @media screen and (max-width: 1320px) {
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   @media screen and (max-width: 836px) {
-    margin-top: 50px;
-    height: 240px;
+    margin-top: 40px;
+    height: 160px;
   }
 
   @media screen and (max-width: 500px) {
     margin-bottom: 50px;
     height: 150px;
-    margin-top: 100px;
+    margin-top: 30px;
   }
 `;
 
 const FooterOutContainer = styled.div`
   width: 1320px;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
-  margin: 0px auto;
+  gap: 10px;
 
   @media screen and (max-width: 1320px) {
     width: 96%;
@@ -172,38 +158,37 @@ const FooterOutContainer = styled.div`
 
 const TopLaneHeader = styled.div`
   width: 100%;
-  min-height: 50px;
-  border-bottom: 1px solid #ADADAD;
+  min-height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @media screen and (max-width: 836px) {
-    min-height: 40px;
+    min-height: 30px;
   }
 
   @media screen and (max-width: 500px) {
-    min-height: 30px;
+    min-height: 20px;
   }
 `;
 
 const LeftTopLaneContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 5px;
   color: #e9e9e9;
 
   @media screen and (max-width: 836px) {
-    gap: 30px;
+    gap: 3px;
   }
 
   @media screen and (max-width: 500px) {
-    gap: 20px;
+    gap: 2px;
   }
 `;
 
 const HomeButton = styled.div`
-  font-size: 18px;
+  font-size: 10px;
   cursor: pointer;
 
   &:hover {
@@ -211,27 +196,19 @@ const HomeButton = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 14px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 12px;
+    font-size: 8px;
   }
 `;
 
 const Text = styled.div`
-  font-size: 16px;
+  font-size: 13px;
 
   @media screen and (max-width: 1320px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-width: 836px) {
     font-size: 12px;
   }
 
-  @media screen and (max-width: 500px) {
-    font-size: 10px;
+  @media screen and (max-width: 836px) {
+    font-size: 11px;
   }
 `;
 
@@ -251,11 +228,11 @@ const IconBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #252424;
+  background-color: #191b20;
   cursor: pointer;
   
   &:hover {
-    background-color: #525050;
+    background-color: #232529;
   }
 
   @media screen and (max-width: 836px) {
@@ -281,7 +258,6 @@ const FooterOutWrapper = styled.div`
   display: flex;
   align-items: start;
   gap: 100px;
-  margin: 40px 0px;
 
   @media screen and (max-width: 836px) {
     gap: 50px;
@@ -336,17 +312,17 @@ const Title = styled.div`
 `;
 
 const ContentBox = styled.div`
-  font-size: 12px;
+  font-size: 11px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 
   @media screen and (max-width: 836px) {
     font-size: 10px;
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 8px;
+    font-size: 9px;
     gap: 5px;
   }
 `;
