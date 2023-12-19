@@ -13,8 +13,6 @@ const NavButton = () => {
     const navigate = useNavigate();
     const language = localStorage.getItem("language");
     const location = useLocation();
-    // const resetFilter = useResetRecoilState(nationKind);
-    // const resetFlag = useResetRecoilState(nationFlag);
     const [pageModal, setPageModal] = useState<string>("");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
