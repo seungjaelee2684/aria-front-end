@@ -62,38 +62,38 @@ const NavButton = () => {
                 onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
                 SHOWCASE
             </TapContainer>
-            <TapContainer
+            <HoverTapContainer
                 // href='#'
                 // onMouseOver={() => setPageModal("Notice")}
                 // onMouseOut={() => setPageModal("")}
                 >
-                <div
+                <TapContainer
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
                         // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
                         navigate("/notice/notification");
                     }}>
                     NOTICE
-                </div>
+                </TapContainer>
                 {(pageModal === "Notice")
                     && <PageModal
                         pageModal={pageModal} />}
-            </TapContainer>
-            <TapContainer
+            </HoverTapContainer>
+            <HoverTapContainer
                 // href='#'
                 onMouseOver={() => setPageModal("Support")}
                 onMouseOut={() => setPageModal("")}>
-                <div
+                <TapContainer
                     style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
                         navigate("/support/counseling");
                     }}>
                     SUPPORT
-                </div>
+                </TapContainer>
                 {(pageModal === "Support")
                     && <PageModal
                         pageModal={pageModal} />}
-            </TapContainer>
+            </HoverTapContainer>
         </TapOutContainer>
     )
 };
@@ -155,6 +155,11 @@ const TapContainer = styled.div`
     @media screen and (max-width: 836px) {
         font-size: 12px;
     }
+`;
+
+const HoverTapContainer = styled.div`
+    height: 100%;
+    position: relative;
 `;
 
 export default NavButton;
