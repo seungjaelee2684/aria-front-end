@@ -47,6 +47,17 @@ const Header = () => {
     };
 
     useEffect(() => {
+        
+    }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+              setLanguageModal(false);
+            }
+          };
+          document.addEventListener("click", handleClickOutside);
+
         const scrollHandler = () => {
             const currentScrollY = window.scrollY;
             if (scrollHeader.current) {
@@ -66,6 +77,7 @@ const Header = () => {
         window.addEventListener('scroll', scrollHandler);
 
         return () => {
+            document.removeEventListener("click", handleClickOutside);
             window.removeEventListener('scroll', scrollHandler);
         };
     }, [scrollData]);
@@ -92,8 +104,8 @@ const Header = () => {
                             </TransText>
                         </HomeBtnWrapper>
                         <BarContainer />
-                        <TranslateContainer>
-                            <TranslateWrapper ref={modalRef} onClick={() => setLanguageModal(!languageModal)}>
+                        <TranslateContainer ref={modalRef}>
+                            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
                                 <GoGlobe />
                                 <TransText>
                                     {languageChange()}
@@ -103,6 +115,11 @@ const Header = () => {
                             {languageModal
                                 && <TranslateModal
                                 setLanguageModal={setLanguageModal}/>}
+                            <MobileTranslateContainer>
+                                {languageModal
+                                    && <TranslateModal
+                                    setLanguageModal={setLanguageModal}/>}
+                            </MobileTranslateContainer>
                         </TranslateContainer>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
@@ -286,13 +303,15 @@ const HomeBtnWrapper = styled.div`
     }
 `;
 
-const TranslateContainer = styled.div`
-    /* min-width: 3%; */
-    /* height: 100%; */
+export const TranslateContainer = styled.div`
     position: relative;
+`;
+
+const MobileTranslateContainer = styled(TranslateContainer)`
+    display: none;
 
     @media screen and (max-width: 500px) {
-        position: static;
+        display: block;
     }
 `;
 
