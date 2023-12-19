@@ -38,10 +38,7 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
                             fontWeight: (noticeFilter === item) ? "700" : "400"
                         }}
                         onClick={() => setNoticeFilter(item)}>
-                        <Point 
-                            style={{
-                                backgroundColor: (noticeFilter === item) ? "#222020" : "#ADADAD",
-                            }}/>
+                        {(noticeFilter === item) && <Point />}
                         <Text>
                             {filterTrans(filterState.indexOf(item))}
                         </Text>
@@ -75,7 +72,7 @@ const Point = styled.div`
 
 const Text = styled.div`
     font-family: "Pretendard";
-    font-size: 14px;
+    font-size: 15px;
     line-height: normal;
 `;
 
