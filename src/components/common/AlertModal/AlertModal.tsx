@@ -34,13 +34,17 @@ const AlertModal = () => {
   const alertContentChange = () => {
     if (alertModal.whatAlert === 0) {
       return (
-        <ExclamationIcon color="#fce169">
+        <ExclamationIcon
+          className='ExclamationIcon'
+          color="#fce169">
           <IoIosTimer />
         </ExclamationIcon>
       );
     } else {
       return (
-        <ExclamationIcon color="#b0d990">
+        <ExclamationIcon
+          className='ExclamationIcon'
+          color="#b0d990">
           <GoCheckCircle />
         </ExclamationIcon>
       );
@@ -118,6 +122,7 @@ const ExclamationIcon = styled.div<{ color : string }>`
   font-size: 55px;
   color: ${(props) => props.color};
   margin: 0px 0px 10px 0px;
+  opacity: 0;
 `;
 
 const ModalTitle = styled.div`
