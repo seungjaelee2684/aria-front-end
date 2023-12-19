@@ -41,33 +41,51 @@ const CounselingGuide = () => {
     };
 
   return (
-    <CounselingContainer>
-        <GuideContent>
+    <CounselingOutContainer>
+        <GuideTitleContainer>
             {counselingTitleTrans(6)}
-        </GuideContent>
-        {counselingGuide?.map((item : CounselingGuideType) => {
-            return (
-                <GuideWrapper key={item.text}>
-                    <GuideImage src={item?.image} alt=''/>
-                    <GuideContent>
-                        {counselingContentTrans(item)}
-                    </GuideContent>
-                </GuideWrapper>
-            );
-        })}
-    </CounselingContainer>
+        </GuideTitleContainer>
+        <CounselingContainer>
+            {counselingGuide?.map((item : CounselingGuideType) => {
+                return (
+                    <GuideWrapper key={item.text}>
+                        <GuideImage src={item?.image} alt=''/>
+                        <GuideContent>
+                            {counselingContentTrans(item)}
+                        </GuideContent>
+                    </GuideWrapper>
+                );
+            })}
+        </CounselingContainer>
+    </CounselingOutContainer>
   )
 };
 
-const CounselingContainer = styled.div`
+const CounselingOutContainer = styled.div`
     width: 900px;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 50px;
+`;
+
+const GuideTitleContainer = styled.div`
+    font-size: 24px;
+    font-family: "Pretendard";
+    font-weight: 600;
+    line-height: 150%;
+    color: #222020;
+`;
+
+const CounselingContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: normal;
     color: #222020;
