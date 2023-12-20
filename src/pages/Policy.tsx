@@ -162,7 +162,7 @@ const LayOutContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     margin: 50px auto 0px auto;
-    padding: 50px 0px 0px 0px;
+    padding: 0px;
   }
 `;
 
@@ -203,7 +203,8 @@ const PolicyOutContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 18px;
-    margin: 30px auto;
+    margin: 16px auto;
+    padding: 0px;
     gap: 40px;
   }
 `;

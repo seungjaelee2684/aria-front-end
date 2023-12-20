@@ -20,6 +20,8 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
     const reverseNotice = NotificationData?.reverse();
     console.log("reverseData", reverseNotice);
 
+    const filterNoticeData = NotificationData.filter((item : any) => item?.status === noticeFilter);
+
     const onClickNoticeHandler = ( item : any ) => {
         navigate(`/notice/notification/detail/${item?.id}`);
     };
@@ -63,35 +65,65 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                 {textChange(6)}
             </TopLaneRightText>
         </LineContainer>
-        {NotificationData?.map((item : any) => {
-            return (
-                <LineContainer
-                    key={item.id}
-                    style={{
-                        borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
-                    }}>
-                    <ContentWrapper>
-                        <NoticeIcon
-                            style={{
-                                color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
-                            }}>
-                            {(item?.status === "notice")
-                                ? textChange(1)
-                                : textChange(2)}
-                        </NoticeIcon>
-                        <Text onClick={() => onClickNoticeHandler(item)}>
-                            {contentChange(item)}
-                        </Text>
-                        {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                    </ContentWrapper>   
-                    <RightWrapper>        
-                        <RightText>
-                            ARIA | {item?.contents.date}
-                        </RightText>
-                    </RightWrapper>
-                </LineContainer>
-            )
-        })}
+        {(noticeFilter === "all")
+            ? NotificationData?.map((item : any) => {
+                return (
+                    <LineContainer
+                        key={item.id}
+                        style={{
+                            borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                        }}>
+                        <ContentWrapper>
+                            <NoticeIcon
+                                style={{
+                                    color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                }}>
+                                {(item?.status === "notice")
+                                    ? textChange(1)
+                                    : textChange(2)}
+                            </NoticeIcon>
+                            <Text onClick={() => onClickNoticeHandler(item)}>
+                                {contentChange(item)}
+                            </Text>
+                            {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                        </ContentWrapper>   
+                        <RightWrapper>        
+                            <RightText>
+                                ARIA | {item?.contents.date}
+                            </RightText>
+                        </RightWrapper>
+                    </LineContainer>
+                )
+            })
+            : filterNoticeData?.map((item : any) => {
+                return (
+                    <LineContainer
+                        key={item.id}
+                        style={{
+                            borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                        }}>
+                        <ContentWrapper>
+                            <NoticeIcon
+                                style={{
+                                    color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                }}>
+                                {(item?.status === "notice")
+                                    ? textChange(1)
+                                    : textChange(2)}
+                            </NoticeIcon>
+                            <Text onClick={() => onClickNoticeHandler(item)}>
+                                {contentChange(item)}
+                            </Text>
+                            {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                        </ContentWrapper>   
+                        <RightWrapper>        
+                            <RightText>
+                                ARIA | {item?.contents.date}
+                            </RightText>
+                        </RightWrapper>
+                    </LineContainer>
+                )
+            })}
     </ListContainer>
   )
 };

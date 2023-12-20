@@ -44,7 +44,7 @@ const Footer = () => {
         display: `${((location.pathname === "/")
           || (location.pathname === "/check"))
             ? "none"
-            : "block"}`
+            : "flex"}`
       }}>
       <FooterOutContainer>
         <TopLaneHeader>
@@ -52,77 +52,56 @@ const Footer = () => {
             <HomeButton onClick={() => navigate("/")}>
               <AiFillHome />
             </HomeButton>
+            |
             <Text>
               개인정보 처리방침
             </Text>
-            <Text>
-              내용내용
-            </Text>
-            <Text>
-              내용내용
+            |
+            <Text onClick={() => navigate("/support/policy")}>
+             운영정책
             </Text>
           </LeftTopLaneContainer>
-          <MenuIconContainer>
-            <IconBoxWrapper>
-              <MenuIcon
-                src={DiscordDefault}
-                alt=''
-                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
-            </IconBoxWrapper>
-            <IconBoxWrapper>
-              <MenuIcon
-                src={TwitterDefault}
-                alt=''
-                onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
-            </IconBoxWrapper>
-            <IconBoxWrapper>
-              <MenuIcon
-                src={InstagramDefault}
-                alt=''
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
-            </IconBoxWrapper>
-            <IconBoxWrapper>
-              <MenuIcon
-                src={YoutubeDefault}
-                alt=''
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
-            </IconBoxWrapper>
-          </MenuIconContainer>
         </TopLaneHeader>
         <FooterOutWrapper>
-          <LogoContainer src={FooterLogo} alt=''/>
           <FirstWrapper>
-            <Title>
-              개인정보 처리방침
-            </Title>
             <ContentBox>
               <Content>
-                주소: 서울특별시
+                주소 : 서울특별시 | 대표자 : 김민규
               </Content>
               <Content>
-                개인정보 처리방침
+                이메일 : aria.academy@gmail.com
               </Content> 
               <Content>
-                개인정보 처리방침
-              </Content> 
+                사업자등록번호 : 205-5421-9942
+              </Content>
+              <ContentUnderWrapper>
+                @copyright ARIA All rights reserved
+              </ContentUnderWrapper>
             </ContentBox>
           </FirstWrapper>
-          {/* <FirstWrapper>
-            <Title>
-              개인정보 처리방침
-            </Title>
-            <ContentBox>
-              <Content>
-                주소: 서울특별시 블라블라 블라블라
-              </Content>
-              <Content>
-                개인정보 처리방침
-              </Content> 
-              <Content>
-                개인정보 처리방침
-              </Content> 
-            </ContentBox>
-          </FirstWrapper> */}
+          <LogoContainer src={FooterLogo} alt=''/>
+          <MenuIconContainer>
+            <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+              <MenuIcon
+                src={DiscordDefault}
+                alt=''/>
+            </IconBoxWrapper>
+            <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
+              <MenuIcon
+                src={TwitterDefault}
+                alt=''/>
+            </IconBoxWrapper>
+            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+              <MenuIcon
+                src={InstagramDefault}
+                alt=''/>
+            </IconBoxWrapper>
+            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+              <MenuIcon
+                src={YoutubeDefault}
+                alt=''/>
+            </IconBoxWrapper>
+          </MenuIconContainer>
         </FooterOutWrapper>
       </FooterOutContainer>
     </FooterContainer>
@@ -131,39 +110,41 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 250px;
-  background-color: #333030;
+  height: 220px;
+  background-color: #2a2c35;
   color: #ADADAD;
   font-family: "Pretendard";
   font-size: 14px;
   font-weight: 500;
   line-height: 140%;
-  z-index: 99;
-  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
   transition: all 0.2s ease-in-out;
+  position: relative;
 
   @media screen and (max-width: 1320px) {
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   @media screen and (max-width: 836px) {
-    margin-top: 50px;
-    height: 240px;
+    margin-top: 40px;
+    height: 200px;
   }
 
   @media screen and (max-width: 500px) {
     margin-bottom: 50px;
     height: 150px;
-    margin-top: 100px;
+    margin-top: 30px;
   }
 `;
 
 const FooterOutContainer = styled.div`
   width: 1320px;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
-  margin: 0px auto;
+  gap: 10px;
 
   @media screen and (max-width: 1320px) {
     width: 96%;
@@ -172,38 +153,37 @@ const FooterOutContainer = styled.div`
 
 const TopLaneHeader = styled.div`
   width: 100%;
-  min-height: 50px;
-  border-bottom: 1px solid #ADADAD;
+  min-height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @media screen and (max-width: 836px) {
-    min-height: 40px;
+    min-height: 30px;
   }
 
   @media screen and (max-width: 500px) {
-    min-height: 30px;
+    min-height: 20px;
   }
 `;
 
 const LeftTopLaneContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 5px;
   color: #e9e9e9;
 
   @media screen and (max-width: 836px) {
-    gap: 30px;
+    gap: 3px;
   }
 
   @media screen and (max-width: 500px) {
-    gap: 20px;
+    gap: 2px;
   }
 `;
 
 const HomeButton = styled.div`
-  font-size: 18px;
+  font-size: 10px;
   cursor: pointer;
 
   &:hover {
@@ -211,34 +191,36 @@ const HomeButton = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 14px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 12px;
+    font-size: 8px;
   }
 `;
 
 const Text = styled.div`
-  font-size: 16px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    color: #ADADAD;
+  }
 
   @media screen and (max-width: 1320px) {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   @media screen and (max-width: 836px) {
     font-size: 12px;
   }
-
-  @media screen and (max-width: 500px) {
-    font-size: 10px;
-  }
 `;
 
 const MenuIconContainer = styled.div`
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: start;
+  gap: 16px;
+  height: 100%;
+
+  @media screen and (max-width: 1320px) {
+    gap: 12px;
+  }
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -246,56 +228,59 @@ const MenuIconContainer = styled.div`
 `;
 
 const IconBoxWrapper = styled.div`
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #252424;
+  /* background-color: #ADADAD; */
+  border-radius: 100%;
+  border: 2px solid #ADADAD;
   cursor: pointer;
   
   &:hover {
-    background-color: #525050;
+    /* background-color: #e9e9e9; */
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 1320px) {
+    width: 38px;
+    height: 38px;
   }
 
   @media screen and (max-width: 836px) {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ADADAD;
   }
 `;
 
 const MenuIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  /* width: 22px;
+  height: 22px; */
+  width: 90%;
+  height: 90%;
   object-fit: contain;
-
-  @media screen and (max-width: 836px) {
-    width: 24px;
-    height: 24px;
-  }
 `;
 
 const FooterOutWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: start;
-  gap: 100px;
-  margin: 40px 0px;
 
-  @media screen and (max-width: 836px) {
-    gap: 50px;
+  /* @media screen and (max-width: 836px) {
     margin: 30px 0px;
   }
 
   @media screen and (max-width: 500px) {
-    gap: 40px;
     margin: 16px 0px;
-  }
+  } */
 `;
 
 const LogoContainer = styled.img`
-  width: 150px;
+  width: 180px;
   height: auto;
   object-fit: cover;
 
@@ -304,7 +289,7 @@ const LogoContainer = styled.img`
   }
 
   @media screen and (max-width: 500px) {
-    width: 80px;
+    width: 130px;
   }
 `;
 
@@ -323,36 +308,34 @@ const FirstWrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
-  font-size: 14px;
+const ContentUnderWrapper = styled.div`
+  margin-top: 16px;
+`;
+
+const ContentBox = styled.div`
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  gap: 8px;
 
   @media screen and (max-width: 836px) {
     font-size: 12px;
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 10px;
-  }
-`;
-
-const ContentBox = styled.div`
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  @media screen and (max-width: 836px) {
-    font-size: 10px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 8px;
+    font-size: 11px;
     gap: 5px;
   }
 `;
 
 const Content = styled.div`
-  line-height: normal;
+  display: flex;
+  align-items: center;
+`;
+
+const Link = styled.div`
+  
 `;
 
 export default Footer;

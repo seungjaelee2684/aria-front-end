@@ -120,7 +120,7 @@ const FilterButtonWrapper = styled.div`
 
 const NationFilter = styled.div`
     width: 100%;
-    height: 38px;
+    height: 40px;
     border: 1px solid #e9e9e9;
     display: flex;
     justify-content: center;
@@ -179,6 +179,7 @@ const ModalWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
 `;
 
 const MobileFilterButton = styled.div`

@@ -55,10 +55,10 @@ export const CounselingText : CounselingTextType[] = [
         text: "ARIA 디스코드 서버로 이동"
     },
     {
-        englishtext: "Please add our Discord server by pressing Go to ARIA discord server.",
-        chinesetext: "请在Discord中添加ARIA服务器。",
-        japanesetext: "ARIAサーバーをディスコードから追加してください。",
-        text: "ARIA 서버를 디스코드에서 추가해주세요."
+        englishtext: "※ Please add our Discord server by pressing Go to ARIA discord server.",
+        chinesetext: "※ 请在Discord中添加ARIA服务器。",
+        japanesetext: "※ ARIAサーバーをディスコードから追加してください。",
+        text: "※ ARIA 서버를 디스코드에서 추가해주세요."
     },
 ];
 

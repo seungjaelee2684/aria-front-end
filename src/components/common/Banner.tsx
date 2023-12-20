@@ -47,7 +47,7 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
 const TitleContainer = styled.div`
   width: 100%;
   height: 200px;
-  margin: 80px 0px 0px 0px;
+  margin: 80px auto 0px auto;
   background-color: #e9e9e9;
   user-select: none;
   position: relative;
@@ -57,8 +57,10 @@ const TitleContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
+    width: 96%;
     height: 150px;
-    margin: 40px 0px 0px 0px;
+    margin: 50px auto 0px auto;
+    border-radius: 10px;
   }
 `;
 

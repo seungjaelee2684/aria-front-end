@@ -91,7 +91,7 @@ const UnderHeaderContainer = styled.div`
     left: 0;
     background-color: #FFFFFF;
     user-select: none;
-    z-index: 99;
+    z-index: 101;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
 `;
 
