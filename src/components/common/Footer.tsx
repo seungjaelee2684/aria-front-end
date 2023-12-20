@@ -77,34 +77,33 @@ const Footer = () => {
               </Content> 
               <Content>
                 개인정보 처리방침
-              </Content> 
+              </Content>
+              <ContentUnderWrapper>
+                @copyright ARIA
+              </ContentUnderWrapper>
             </ContentBox>
           </FirstWrapper>
           <LogoContainer src={FooterLogo} alt=''/>
           <MenuIconContainer>
-            <IconBoxWrapper>
+            <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
               <MenuIcon
                 src={DiscordDefault}
-                alt=''
-                onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
+                alt=''/>
             </IconBoxWrapper>
-            <IconBoxWrapper>
+            <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
               <MenuIcon
                 src={TwitterDefault}
-                alt=''
-                onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
+                alt=''/>
             </IconBoxWrapper>
-            <IconBoxWrapper>
+            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
               <MenuIcon
                 src={InstagramDefault}
-                alt=''
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
+                alt=''/>
             </IconBoxWrapper>
-            <IconBoxWrapper>
+            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
               <MenuIcon
                 src={YoutubeDefault}
-                alt=''
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
+                alt=''/>
             </IconBoxWrapper>
           </MenuIconContainer>
         </FooterOutWrapper>
@@ -124,7 +123,6 @@ const FooterContainer = styled.div`
   line-height: 140%;
   justify-content: center;
   align-items: center;
-  z-index: 99;
   margin-top: 80px;
   transition: all 0.2s ease-in-out;
   position: relative;
@@ -202,22 +200,31 @@ const HomeButton = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 13px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    color: #ADADAD;
+  }
 
   @media screen and (max-width: 1320px) {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 11px;
+    font-size: 12px;
   }
 `;
 
 const MenuIconContainer = styled.div`
   display: flex;
-  align-items: end;
-  gap: 12px;
+  align-items: start;
+  gap: 16px;
   height: 100%;
+
+  @media screen and (max-width: 1320px) {
+    gap: 12px;
+  }
 
   @media screen and (max-width: 500px) {
     display: none;
@@ -225,8 +232,8 @@ const MenuIconContainer = styled.div`
 `;
 
 const IconBoxWrapper = styled.div`
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,6 +245,11 @@ const IconBoxWrapper = styled.div`
     background-color: #e9e9e9;
   }
 
+  @media screen and (max-width: 1320px) {
+    width: 38px;
+    height: 38px;
+  }
+
   @media screen and (max-width: 836px) {
     width: 30px;
     height: 30px;
@@ -245,9 +257,14 @@ const IconBoxWrapper = styled.div`
 `;
 
 const MenuIcon = styled.img`
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
+
+  @media screen and (max-width: 1320px) {
+    width: 18px;
+    height: 18px;
+  }
 
   @media screen and (max-width: 836px) {
     width: 12px;
@@ -272,12 +289,9 @@ const FooterOutWrapper = styled.div`
 `;
 
 const LogoContainer = styled.img`
-  width: 130px;
+  width: 180px;
   height: auto;
   object-fit: cover;
-  position: absolute;
-  top: 20px;
-  right: 2%;
 
   @media screen and (max-width: 836px) {
     width: 120px;
@@ -303,31 +317,23 @@ const FirstWrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
-  font-size: 14px;
-
-  @media screen and (max-width: 836px) {
-    font-size: 12px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 10px;
-  }
+const ContentUnderWrapper = styled.div`
+  margin-top: 16px;
 `;
 
 const ContentBox = styled.div`
-  font-size: 11px;
+  font-size: 13px;
   display: flex;
   flex-direction: column;
   line-height: normal;
   gap: 8px;
 
   @media screen and (max-width: 836px) {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 9px;
+    font-size: 11px;
     gap: 5px;
   }
 `;
