@@ -57,12 +57,8 @@ const Footer = () => {
               개인정보 처리방침
             </Text>
             |
-            <Text>
-              내용내용
-            </Text>
-            |
-            <Text>
-              내용내용
+            <Text onClick={() => navigate("/support/policy")}>
+             운영정책
             </Text>
           </LeftTopLaneContainer>
         </TopLaneHeader>
@@ -254,6 +250,7 @@ const IconBoxWrapper = styled.div`
   @media screen and (max-width: 836px) {
     width: 30px;
     height: 30px;
+    border: 1px solid #ADADAD;
   }
 `;
 
@@ -263,16 +260,6 @@ const MenuIcon = styled.img`
   width: 90%;
   height: 90%;
   object-fit: contain;
-
-  @media screen and (max-width: 1320px) {
-    width: 18px;
-    height: 18px;
-  }
-
-  @media screen and (max-width: 836px) {
-    width: 12px;
-    height: 12px;
-  }
 `;
 
 const FooterOutWrapper = styled.div`
@@ -301,7 +288,7 @@ const LogoContainer = styled.img`
   }
 
   @media screen and (max-width: 500px) {
-    width: 80px;
+    width: 130px;
   }
 `;
 
