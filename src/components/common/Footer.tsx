@@ -8,10 +8,10 @@ import Instagram from '../../assets/icons/insta.png';
 import Twitter from '../../assets/icons/twitter.png';
 import Discord from '../../assets/icons/discord.png';
 import Youtube from '../../assets/icons/youtube.png';
-import InstagramDefault from '../../assets/icons/instablack.webp';
-import TwitterDefault from '../../assets/icons/twitterblack.webp';
-import DiscordDefault from '../../assets/icons/discordblack.webp';
-import YoutubeDefault from '../../assets/icons/youtubeblack.webp';
+import InstagramDefault from '../../assets/icons/instadefault.webp';
+import TwitterDefault from '../../assets/icons/twitterdefault.webp';
+import DiscordDefault from '../../assets/icons/discorddefault.webp';
+import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
@@ -73,13 +73,13 @@ const Footer = () => {
                 주소: 서울특별시
               </Content>
               <Content>
-                개인정보 처리방침
+                이메일 : asdfe@gmail.com
               </Content> 
               <Content>
                 개인정보 처리방침
               </Content>
               <ContentUnderWrapper>
-                @copyright ARIA
+                @copyright ARIA All rights reserved
               </ContentUnderWrapper>
             </ContentBox>
           </FirstWrapper>
@@ -114,7 +114,7 @@ const Footer = () => {
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 200px;
+  height: 220px;
   background-color: #2a2c35;
   color: #ADADAD;
   font-family: "Pretendard";
@@ -133,7 +133,7 @@ const FooterContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     margin-top: 40px;
-    height: 180px;
+    height: 200px;
   }
 
   @media screen and (max-width: 500px) {
@@ -237,13 +237,14 @@ const IconBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ADADAD;
+  /* background-color: #ADADAD; */
   border-radius: 100%;
+  border: 2px solid #ADADAD;
   cursor: pointer;
   
-  &:hover {
+  /* &:hover {
     background-color: #e9e9e9;
-  }
+  } */
 
   @media screen and (max-width: 1320px) {
     width: 38px;
@@ -257,8 +258,10 @@ const IconBoxWrapper = styled.div`
 `;
 
 const MenuIcon = styled.img`
-  width: 22px;
-  height: 22px;
+  /* width: 22px;
+  height: 22px; */
+  width: 90%;
+  height: 90%;
   object-fit: contain;
 
   @media screen and (max-width: 1320px) {
