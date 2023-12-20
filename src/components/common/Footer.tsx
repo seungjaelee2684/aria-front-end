@@ -66,13 +66,13 @@ const Footer = () => {
           <FirstWrapper>
             <ContentBox>
               <Content>
-                주소: 서울특별시
+                주소 : 서울특별시 | 대표자 : 김민규
               </Content>
               <Content>
-                이메일 : asdfe@gmail.com
+                이메일 : aria.academy@gmail.com
               </Content> 
               <Content>
-                개인정보 처리방침
+                사업자등록번호 : 205-5421-9942
               </Content>
               <ContentUnderWrapper>
                 @copyright ARIA All rights reserved
@@ -238,9 +238,10 @@ const IconBoxWrapper = styled.div`
   border: 2px solid #ADADAD;
   cursor: pointer;
   
-  /* &:hover {
-    background-color: #e9e9e9;
-  } */
+  &:hover {
+    /* background-color: #e9e9e9; */
+    opacity: 0.8;
+  }
 
   @media screen and (max-width: 1320px) {
     width: 38px;
