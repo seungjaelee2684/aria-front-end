@@ -32,7 +32,7 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
-    const snsModalRef = useRef<HTMLDivElement>(null);
+    const mobileModalRef = useRef<HTMLDivElement>(null);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
 
     const languageChange = () => {
@@ -54,7 +54,10 @@ const Header = () => {
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
-            if (modalRef.current && !modalRef.current.contains(event.target)) {
+            if (modalRef.current
+                    && !modalRef.current.contains(event.target)
+                    && mobileModalRef.current
+                    && !mobileModalRef.current.contains(event.target)) {
               setLanguageModal(false);
             }
           };
@@ -88,9 +91,6 @@ const Header = () => {
     <div>
         <HeaderLayoutContainer ref={scrollHeader}>
             <HeaderOutWrapper>
-                <PrevButton onClick={() => window.history.back()}>
-                    <IoIosArrowBack />
-                </PrevButton>
                 <LogoContainer>
                     <HeaderLogo
                         src={logo}
@@ -136,6 +136,22 @@ const Header = () => {
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
+        <MobileHeaderContainer>
+            <HeaderOutWrapper>
+                <PrevButton onClick={() => window.history.back()}>
+                    <IoIosArrowBack />
+                </PrevButton>
+                <TranslateContainer ref={mobileModalRef} style={{position: "static"}}>
+                    <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                        <BsGlobe2 />
+                        <TiArrowSortedDown />
+                    </TranslateWrapper>
+                    {languageModal
+                        && <TranslateModal
+                        setLanguageModal={setLanguageModal}/>}
+                </TranslateContainer>
+            </HeaderOutWrapper>
+        </MobileHeaderContainer>
         {copyHandle && <CopyAlertModal />}      
         {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
@@ -159,10 +175,7 @@ const HeaderLayoutContainer = styled.div`
     transition: all 0.4s ease-in-out;
 
     @media screen and (max-width: 500px) {
-        background-color: none;
-        height: 50px;
-        /* border-bottom: 1px solid #e9e9e9; */
-        box-shadow: none;
+        display: none;
     }
 `;
 
@@ -374,8 +387,18 @@ const UnderLaneContainer = styled.div`
 `;
 
 const PrevButton = styled.div`
-    display: none;
     font-size: 22px;
+`;
+
+const MobileHeaderContainer = styled.div`
+    width: 100%;
+    height: 50px;  
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.4s ease-in-out;
+    display: none;
 
     @media screen and (max-width: 500px) {
         display: block;
