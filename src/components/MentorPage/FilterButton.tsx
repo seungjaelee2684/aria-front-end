@@ -179,6 +179,7 @@ const ModalWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
 `;
 
 const MobileFilterButton = styled.div`
