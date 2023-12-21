@@ -12,11 +12,16 @@ import { ScrollContainer } from '../components/common/ScrollContainer';
 import { ScrollAnimation } from '../utils/ScrollAnimation';
 import MainBackground from '../assets/images/mainpagebg.png';
 import { mainPageText } from '../languages/HomeTrans';
+import FirstPageImage from '../components/HomePage/FirstPageImage';
+import ThirdPageImage from '../components/HomePage/ThirdPageImage';
+import FourthPageImage from '../components/HomePage/FourthPageImage';
+import FifthPageImage from '../components/HomePage/FifthPageImage';
 
 const Home = () => {
 
     const language = localStorage.getItem("language");
-    const scrollIndex = useRecoilValue(MainPageNumber);
+    const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
+    const outerDivRef = useRef<HTMLDivElement>(null);
 
     const mainPageTextChange = (Num : number) => {
         switch (language) {
@@ -85,15 +90,11 @@ const Home = () => {
 
   return (
     <MainLayout>
-        {/* <MainSlideShow /> */}
-        <BackgroundImage
-            src={MainBackground}
-            alt=''/>
-        <Background />
-        <ScrollContainer>
-            Hello
-        </ScrollContainer>
-        {/* <Background /> */}
+        <FirstPageImage />
+        <SecondPageImage />
+        <ThirdPageImage />
+        <FourthPageImage />
+        <FifthPageImage/>
     </MainLayout>
   )
 };

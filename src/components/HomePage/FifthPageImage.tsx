@@ -3,7 +3,12 @@ import './MainImage/MainImage.css';
 import styled from 'styled-components';
 import { ImageBoxWrapper } from './FirstPageImage';
 
-const FifthPageImage = () => {
+interface FifthPageImageProps {
+
+};
+
+const FifthPageImage : React.FC<FifthPageImageProps> = () => {
+    
   return (
     <ImageBoxWrapper>FifthPageImage</ImageBoxWrapper>
   )

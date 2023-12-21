@@ -3,7 +3,11 @@ import './MainImage/MainImage.css';
 import styled from 'styled-components';
 import { ImageBoxWrapper } from './FirstPageImage';
 
-const ThirdPageImage = () => {
+interface ThirdPageImageProps {
+
+};
+
+const ThirdPageImage : React.FC<ThirdPageImageProps> = () => {
   return (
     <ImageBoxWrapper>ThirdPageImage</ImageBoxWrapper>
   )
