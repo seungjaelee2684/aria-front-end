@@ -6,11 +6,15 @@ import { MainPageNumber } from '../../store/MainPageNumber';
 import { mainPageText } from '../../languages/HomeTrans';
 import { ImageBoxWrapper } from './FirstPageImage';
 
-const SecondPageImage = () => {
+interface SecondPageImageProps {
+    
+};
+
+const SecondPageImage : React.FC<SecondPageImageProps> = () => {
 
     return (
         <ImageBoxWrapper>
-
+            SecondPageImage
         </ImageBoxWrapper>
     )
 };

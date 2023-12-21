@@ -2,7 +2,11 @@ import React from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
 
-const FirstPageImage = () => {
+interface FirstPageImageProps {
+
+};
+
+const FirstPageImage : React.FC<FirstPageImageProps> = () => {
     
   return (
     <ImageBoxWrapper>
