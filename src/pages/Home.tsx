@@ -4,15 +4,32 @@ import '../style/font/font.css';
 import MainBG from '../assets/images/sanpatimainbackground.webp';
 import MainCharactor from '../assets/images/maincharactorimage.webp';
 import '../components/HomePage/MainImage/MainImage.css';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../store/MainPageNumber';
 import SecondPageImage from '../components/HomePage/SecondPageImage';
 import MainSlideShow from '../components/HomePage/MainSlideShow';
 import { ScrollContainer } from '../components/common/ScrollContainer';
 import { ScrollAnimation } from '../utils/ScrollAnimation';
 import MainBackground from '../assets/images/mainpagebg.png';
+import { mainPageText } from '../languages/HomeTrans';
 
 const Home = () => {
+
+    const language = localStorage.getItem("language");
+    const scrollIndex = useRecoilValue(MainPageNumber);
+
+    const mainPageTextChange = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return mainPageText[Num]?.chinesetext;
+            case "japanese" :
+                return mainPageText[Num]?.japanesetext;
+            case "korean" :
+                return mainPageText[Num]?.text;
+            default :
+                return mainPageText[Num]?.englishtext;
+        }
+    };
 
 //     useEffect(() => {
 //         const wheelEventHandler = (e : any) => {
@@ -74,7 +91,7 @@ const Home = () => {
             alt=''/>
         <Background />
         <ScrollContainer>
-            안녕
+            Hello
         </ScrollContainer>
         {/* <Background /> */}
     </MainLayout>
@@ -98,7 +115,7 @@ export const MainImage = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Pretendard";
+    font-family: "ZingRustDemo";
     font-size: 48px;
     font-weight: 800;
     line-height: normal;
