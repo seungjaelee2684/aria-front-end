@@ -60,3 +60,24 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'CallOfOpsDuty';
+  src: url('./CallOfOpsDuty.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UniSansThin';
+  src: url('./Uni-Sans-Thin.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ZingRustDemo';
+  src: url('./ZingRustDemo-Base.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
