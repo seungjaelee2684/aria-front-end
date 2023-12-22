@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { ImageBoxWrapper } from './FirstPageImage';
 
 interface ThirdPageImageProps {
-
+  mainPageTextChange: Function;
 };
 
-const ThirdPageImage : React.FC<ThirdPageImageProps> = () => {
+const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) => {
   return (
     <ImageBoxWrapper>ThirdPageImage</ImageBoxWrapper>
   )

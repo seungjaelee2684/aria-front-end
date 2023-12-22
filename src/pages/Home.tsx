@@ -22,6 +22,7 @@ const Home = () => {
     const language = localStorage.getItem("language");
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
     const outerDivRef = useRef<HTMLDivElement>(null);
+    const DIVIDER_HEIGHT = 5;
 
     const mainPageTextChange = (Num : number) => {
         switch (language) {
@@ -36,76 +37,84 @@ const Home = () => {
         }
     };
 
-//     useEffect(() => {
-//         const wheelEventHandler = (e : any) => {
-//             if (outerDivRef.current) {
-//                 const { deltaY } = e;
-//                 const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-//                 const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+    useEffect(() => {
+        const wheelEventHandler = (e : any) => {
+            if (outerDivRef.current) {
+                const { deltaY } = e;
+                const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+                const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-//                 if (deltaY > 0) {
-//                     // 스크롤 내릴 때
-//                     if (scrollTop >= 0 && scrollTop < pageHeight) {
-//                     //현재 1페이지
-//                     console.log("현재 1페이지, down");
-//                     outerDivRef.current.scrollTo({
-//                         top: pageHeight + DIVIDER_HEIGHT,
-//                         left: 0,
-//                         behavior: "smooth",
-//                     });
-//                     setScrollIndex(2);
-//                     };
-//                 } else {
-//                     // 스크롤 올릴 때
-//                     if (scrollTop >= 0 && scrollTop < pageHeight) {
-//                     //현재 1페이지
-//                     console.log("현재 1페이지, up");
-//                     outerDivRef.current.scrollTo({
-//                         top: 0,
-//                         left: 0,
-//                         behavior: "smooth",
-//                     });
-//                     setScrollIndex(1);
-//                     } else {
-//                     //현재 2페이지
-//                     console.log("현재 2페이지, up");
-//                     outerDivRef.current.scrollTo({
-//                         top: 0,
-//                         left: 0,
-//                         behavior: "smooth",
-//                     });
-//                     setScrollIndex(1);
-//                     }
-//                 }
-//                 }
-//             };
-//     if (outerDivRef.current) {
-//         const outerDivRefCurrent = outerDivRef.current;
-//         outerDivRefCurrent.addEventListener("wheel", wheelEventHandler);
-//         return () => {
-//         outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
-//         };
-//     };  
-//   }, []);
+                if (deltaY > 0) {
+                    // 스크롤 내릴 때
+                    if (scrollTop >= 0 && scrollTop < pageHeight) {
+                        //현재 1페이지
+                        console.log("현재 1페이지, down");
+                        outerDivRef.current.scrollTo({
+                            top: pageHeight + DIVIDER_HEIGHT,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(2);
+                    };
+                } else {
+                    // 스크롤 올릴 때
+                    if (scrollTop >= 0 && scrollTop < pageHeight) {
+                        //현재 1페이지
+                        console.log("현재 1페이지, up");
+                        outerDivRef.current.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(1);
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 2) {
+                        //현재 2페이지
+                        console.log("현재 2페이지, up");
+                        outerDivRef.current.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(1);
+                    } else {
+                        // 현재 3페이지
+                        console.log("현재 3페이지, up");
+                        outerDivRef.current.scrollTo({
+                          top: pageHeight + DIVIDER_HEIGHT,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                    };
+                }
+                }
+            };
+    if (outerDivRef.current) {
+        const outerDivRefCurrent = outerDivRef.current;
+        outerDivRefCurrent.addEventListener("wheel", wheelEventHandler);
+        return () => {
+        outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
+        };
+    };  
+  }, []);
 
   return (
-    <MainLayout>
-        <FirstPageImage />
-        <SecondPageImage />
-        <ThirdPageImage />
-        <FourthPageImage />
-        <FifthPageImage/>
+    <MainLayout ref={outerDivRef}>
+        <FirstPageImage mainPageTextChange={mainPageTextChange}/>
+        <SecondPageImage mainPageTextChange={mainPageTextChange}/>
+        <ThirdPageImage mainPageTextChange={mainPageTextChange}/>
+        <FourthPageImage mainPageTextChange={mainPageTextChange}/>
+        <FifthPageImage mainPageTextChange={mainPageTextChange}/>
     </MainLayout>
   )
 };
 
 const MainLayout = styled.div`
     width: 100%;
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     z-index: 97;
 `;
 

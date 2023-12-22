@@ -7,10 +7,10 @@ import { mainPageText } from '../../languages/HomeTrans';
 import { ImageBoxWrapper } from './FirstPageImage';
 
 interface SecondPageImageProps {
-    
+    mainPageTextChange: Function;
 };
 
-const SecondPageImage : React.FC<SecondPageImageProps> = () => {
+const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }) => {
 
     return (
         <ImageBoxWrapper>
