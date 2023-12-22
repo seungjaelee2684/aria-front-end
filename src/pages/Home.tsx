@@ -112,7 +112,7 @@ const Home = () => {
                         //현재 3페이지
                         console.log("현재 3페이지, up");
                         outerDivRef.current.scrollTo({
-                            top: pageHeight  + DIVIDER_HEIGHT,
+                            top: pageHeight * 1  + DIVIDER_HEIGHT * 1,
                             left: 0,
                             behavior: "smooth",
                         });
@@ -126,13 +126,13 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(3);
-                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 5) {
-                        //현재 5페이지
+                    } else {
+                        // 현재 5페이지
                         console.log("현재 5페이지, up");
                         outerDivRef.current.scrollTo({
-                            top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
-                            left: 0,
-                            behavior: "smooth",
+                          top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                          left: 0,
+                          behavior: "smooth",
                         });
                         setScrollIndex(4);
                     };
@@ -151,10 +151,15 @@ const Home = () => {
   return (
     <MainLayout ref={outerDivRef}>
         <FirstPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
         <SecondPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
         <ThirdPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
         <FourthPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
         <FifthPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
     </MainLayout>
   )
 };
@@ -196,6 +201,12 @@ const BackgroundImage = styled.img`
     position: absolute;
     top: 0;
     left: 0;
-`; 
+`;
+
+const SpaceBetweenContainer = styled.div`
+    width: 100%;
+    min-height: 5px;
+    background-color: gray;
+`;
 
 export default Home;
