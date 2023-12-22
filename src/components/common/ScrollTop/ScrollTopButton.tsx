@@ -65,8 +65,11 @@ const ScrollTopButtonWrapper = styled.div`
     cursor: pointer;
 
     @media screen and (max-width: 500px) {
-        bottom: 50px;
-        right: 0
+        bottom: 60px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
     }
 `;
 

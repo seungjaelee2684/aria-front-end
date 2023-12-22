@@ -84,7 +84,7 @@ const Home = () => {
                           left: 0,
                           behavior: "smooth",
                         });
-                    };
+                    }
                 }
                 }
             };
