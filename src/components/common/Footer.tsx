@@ -54,12 +54,12 @@ const Footer = () => {
               <AiFillHome />
             </HomeButton>
             |
-            <Text>
-              개인정보 처리방침
+            <Text onClick={() => navigate("/support/policy")}>
+             운영정책
             </Text>
             |
             <Text onClick={() => navigate("/support/policy")}>
-             운영정책
+             CONTACT
             </Text>
           </LeftTopLaneContainer>
         </TopLaneHeader>
