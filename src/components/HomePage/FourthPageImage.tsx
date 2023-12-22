@@ -10,7 +10,9 @@ interface FourthPageImageProps {
 const FourthPageImage : React.FC<FourthPageImageProps> = ({ mainPageTextChange }) => {
   
   return (
-    <ImageBoxWrapper>FourthPageImage</ImageBoxWrapper>
+    <ImageBoxWrapper>
+      FourthPageImage
+    </ImageBoxWrapper>
   )
 };
 

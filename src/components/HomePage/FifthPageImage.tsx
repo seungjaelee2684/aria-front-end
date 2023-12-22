@@ -10,7 +10,9 @@ interface FifthPageImageProps {
 const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) => {
     
   return (
-    <ImageBoxWrapper>FifthPageImage</ImageBoxWrapper>
+    <ImageBoxWrapper>
+      FifthPageImage
+    </ImageBoxWrapper>
   )
 };
 

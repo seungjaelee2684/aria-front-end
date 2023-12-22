@@ -10,7 +10,7 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
     
   return (
     <ImageBoxWrapper>
-        FirstPageImage
+      FirstPageImage
     </ImageBoxWrapper>
   )
 };
@@ -20,6 +20,7 @@ export const ImageBoxWrapper = styled.div`
     height: 100vh;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid #ADADAD;
 `;
 
 export default FirstPageImage;
