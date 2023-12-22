@@ -176,7 +176,7 @@ const MainLayout = styled.div`
 
 export const MainImage = styled.div`
     width: 100%;
-    height: 800px;
+    height: 100vh;
     /* background-color: #FFFFFF; */
     display: flex;
     justify-content: center;
@@ -206,7 +206,7 @@ const BackgroundImage = styled.img`
 const SpaceBetweenContainer = styled.div`
     width: 100%;
     min-height: 5px;
-    background-color: gray;
+    background-color: #090e28;
 `;
 
 export default Home;

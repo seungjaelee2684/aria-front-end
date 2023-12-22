@@ -4,8 +4,9 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import { mainPageText } from '../../languages/HomeTrans';
-import { ImageBoxWrapper } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper } from './FirstPageImage';
 import { ScrollContainer } from '../common/ScrollContainer';
+import SecondBG from '../../assets/images/mainpage/2.webp';
 
 interface SecondPageImageProps {
     mainPageTextChange: Function;
@@ -15,7 +16,8 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
 
     return (
         <ImageBoxWrapper color="black">
-           <ScrollContainer>
+            <BackgroundImage src={SecondBG} alt=''/>
+            <ScrollContainer>
                 Second
             </ScrollContainer>
         </ImageBoxWrapper>
