@@ -331,7 +331,7 @@ const ListBackMoveBtnContainer = styled.div`
 
     @media screen and (max-width: 1100px) {
         width: 96%;
-        padding: 30px 0px 0px 0px;
+        padding: 20px 0px 0px 0px;
     }
 `;
 
@@ -349,6 +349,12 @@ const ListBackMoveButton = styled.div`
     line-height: normal;
     gap: 5px;
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        width: 50px;
+        height: 30px;
+        font-size: 12px;
+    }
 `;
 
 export default MentorDetail;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../../style/font/font.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
@@ -53,12 +54,12 @@ const Footer = () => {
               <AiFillHome />
             </HomeButton>
             |
-            <Text>
-              개인정보 처리방침
+            <Text onClick={() => navigate("/support/policy")}>
+             운영정책
             </Text>
             |
             <Text onClick={() => navigate("/support/policy")}>
-             운영정책
+             CONTACT
             </Text>
           </LeftTopLaneContainer>
         </TopLaneHeader>
@@ -75,7 +76,7 @@ const Footer = () => {
                 사업자등록번호 : 205-5421-9942
               </Content>
               <ContentUnderWrapper>
-                @copyright ARIA All rights reserved
+                @COPYRIGHT ARIA ACADEMY ALL RIGHTS RESERVED
               </ContentUnderWrapper>
             </ContentBox>
           </FirstWrapper>
@@ -309,6 +310,7 @@ const FirstWrapper = styled.div`
 `;
 
 const ContentUnderWrapper = styled.div`
+  font-family: "UniSansThin";
   margin-top: 16px;
 `;
 

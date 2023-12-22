@@ -1,92 +1,30 @@
 import React from 'react'
+import './MainImage/MainImage.css';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { translate } from '../../store/Translation';
 import { MainPageNumber } from '../../store/MainPageNumber';
-import MainWhiteLogo from '../../assets/logos/whitelogo.png';
 import { mainPageText } from '../../languages/HomeTrans';
-import FirstMainFrameImage from '../../assets/images/maincharacter.png';
-import SecondMainFrameImage from '../../assets/images/maincharactorimage.png';
-import ThirdMainFrameImage from '../../assets/images/rapla1.png';
-import MainBlackBG from '../../assets/images/mainblackbackground.jpg';
+import { BackgroundImage, ImageBoxWrapper } from './FirstPageImage';
+import { ScrollContainer } from '../common/ScrollContainer';
+import SecondBG from '../../assets/images/mainpage/2.webp';
 
-const SecondPageImage = () => {
+interface SecondPageImageProps {
+    mainPageTextChange: Function;
+};
 
-    const language = localStorage.getItem("language");
-    const scrollIndex = useRecoilValue(MainPageNumber);
-
-    const mainPageTextHanlder = (Num : number) => {
-        switch (language) {
-            case "english" :
-                return mainPageText[Num]?.englishtext;
-            case "chinese" :
-                return mainPageText[Num]?.chinesetext;
-            case "japanese" :
-                return mainPageText[Num]?.japanesetext;
-            case "korean" :
-                return mainPageText[Num]?.text;
-            default :
-                return mainPageText[Num]?.englishtext;
-        }
-    };
+const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }) => {
 
     return (
-        <ImageBoxWrapper>
-            <GradientContainer className={(scrollIndex === 2) ? "GradientContainer" : ""} />
-            <TextContainer>
-                <MainTextOutWrapper>
-                    <MainTitleImage
-                        className={(scrollIndex === 2) ? "MainTitle" : ""}
-                        src={MainWhiteLogo} />
-                    <MainSubTitle className={(scrollIndex === 2) ? "MainContent" : ""}>
-                        GROBAL ART ACADEMY
-                    </MainSubTitle>
-                    <MainContent className={(scrollIndex === 2) ? "MainSecondContent" : ""}>
-                        {mainPageTextHanlder(1)}
-                    </MainContent>
-                    <MainContent className={(scrollIndex === 2) ? "MainThirdContent" : ""}>
-                        {mainPageTextHanlder(2)}
-                    </MainContent>
-                </MainTextOutWrapper>
-                <ButtonOutContainer>
-                    <ButtonBoxWapper className={(scrollIndex === 2) ? "FirstFrame" : ""}>
-                        <ButtonGradient />
-                        <ButtonHoverBox className='FirstMainContent'>
-                            수강신청 하러가기
-                        </ButtonHoverBox>
-                        <ButtonBackgroundImage src={FirstMainFrameImage} alt=''/>
-                    </ButtonBoxWapper>
-                    <ButtonBoxWapper className={(scrollIndex === 2) ? "SecondFrame" : ""}>
-                        <ButtonGradient />
-                        <ButtonHoverBox className='SecondMainContent'>
-                            수강신청 하러가기
-                        </ButtonHoverBox>
-                        <ButtonBackgroundImage src={FirstMainFrameImage} alt=''/>
-                    </ButtonBoxWapper>
-                    <ButtonBoxWapper className={(scrollIndex === 2) ? "ThirdFrame" : ""}>
-                        <ButtonGradient />
-                        <ButtonHoverBox className='ThirdMainContent'>
-                            수강신청 하러가기
-                        </ButtonHoverBox>
-                        <ButtonBackgroundImage src={FirstMainFrameImage} alt=''/>
-                    </ButtonBoxWapper>
-                </ButtonOutContainer>
-            </TextContainer>
-            <Images src={MainBlackBG} alt=''/>
+        <ImageBoxWrapper color="black">
+            <BackgroundImage src={SecondBG} alt=''/>
+            <ScrollContainer>
+                Second
+            </ScrollContainer>
         </ImageBoxWrapper>
     )
 };
 
-const ImageBoxWrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
 
-    @media screen and (max-width: 500px) {
-        display: none;
-    }
-`;
 
 const Images = styled.img`
     width: 100%;

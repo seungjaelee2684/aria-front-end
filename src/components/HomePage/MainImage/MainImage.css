@@ -1,3 +1,8 @@
+.body {
+    margin: 0;
+    overflow-y: hidden;
+}
+
 .GradientContainer {
     animation: gradient_appear 1.5s forwards;
     animation-delay: 0.5s;

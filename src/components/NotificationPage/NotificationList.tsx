@@ -17,8 +17,6 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
 
     const language = localStorage.getItem("language");
     const navigate = useNavigate();
-    const reverseNotice = NotificationData?.reverse();
-    console.log("reverseData", reverseNotice);
 
     const filterNoticeData = NotificationData.filter((item : any) => item?.status === noticeFilter);
 

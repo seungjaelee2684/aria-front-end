@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../style/font/font.css';
 import styled from 'styled-components';
 import { CounselingText, counselingGuide } from '../../languages/CounselingPageTrans';
 
@@ -72,7 +73,7 @@ const CounselingOutContainer = styled.div`
 
 const GuideTitleContainer = styled.div`
     font-size: 24px;
-    font-family: "Pretendard";
+    font-family: "UniSansThin";
     font-weight: 600;
     line-height: 150%;
     color: #222020;
