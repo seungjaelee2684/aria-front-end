@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import '../components/HomePage/MainImage/MainImage.css';
 import styled from 'styled-components';
 import '../style/font/font.css';
 import MainBG from '../assets/images/sanpatimainbackground.webp';
@@ -40,6 +41,7 @@ const Home = () => {
     useEffect(() => {
         const wheelEventHandler = (e : any) => {
             if (outerDivRef.current) {
+                e.preventDefault();
                 const { deltaY } = e;
                 const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
                 const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
@@ -55,6 +57,36 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(2);
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 2) {
+                        //현재 2페이지
+                        console.log("현재 2페이지, down");
+                        outerDivRef.current.scrollTo({
+                            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(3);
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 3) {
+                        //현재 3페이지
+                        console.log("현재 3페이지, down");
+                        outerDivRef.current.scrollTo({
+                            top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(4);
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
+                        //현재 4페이지
+                        console.log("현재 4페이지, down");
+                        outerDivRef.current.scrollTo({
+                            top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(5);
+                    } else {
+                        //현재 5페이지
+                        e.preventDefault();
                     };
                 } else {
                     // 스크롤 올릴 때
@@ -76,15 +108,34 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(1);
-                    } else {
-                        // 현재 3페이지
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 3) {
+                        //현재 3페이지
                         console.log("현재 3페이지, up");
                         outerDivRef.current.scrollTo({
-                          top: pageHeight + DIVIDER_HEIGHT,
-                          left: 0,
-                          behavior: "smooth",
+                            top: pageHeight  + DIVIDER_HEIGHT,
+                            left: 0,
+                            behavior: "smooth",
                         });
-                    }
+                        setScrollIndex(2);
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
+                        //현재 4페이지
+                        console.log("현재 4페이지, up");
+                        outerDivRef.current.scrollTo({
+                            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(3);
+                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 5) {
+                        //현재 5페이지
+                        console.log("현재 5페이지, up");
+                        outerDivRef.current.scrollTo({
+                            top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                        setScrollIndex(4);
+                    };
                 }
                 }
             };
@@ -110,11 +161,11 @@ const Home = () => {
 
 const MainLayout = styled.div`
     width: 100%;
+    height: 100vh;
     overflow-y: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     z-index: 97;
 `;
 

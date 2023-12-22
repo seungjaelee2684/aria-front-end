@@ -9,18 +9,18 @@ interface FirstPageImageProps {
 const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) => {
     
   return (
-    <ImageBoxWrapper>
+    <ImageBoxWrapper color="red">
       FirstPageImage
     </ImageBoxWrapper>
   )
 };
 
-export const ImageBoxWrapper = styled.div`
+export const ImageBoxWrapper = styled.div<{ color : string }>`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid #ADADAD;
+    background-color: ${(props) => props.color};
 `;
 
 export default FirstPageImage;
