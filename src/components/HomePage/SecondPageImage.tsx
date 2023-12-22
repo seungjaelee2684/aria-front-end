@@ -13,7 +13,7 @@ interface SecondPageImageProps {
 const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }) => {
 
     return (
-        <ImageBoxWrapper>
+        <ImageBoxWrapper color="black">
             SecondPageImage
         </ImageBoxWrapper>
     )

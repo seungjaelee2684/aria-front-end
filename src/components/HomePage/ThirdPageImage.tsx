@@ -9,7 +9,7 @@ interface ThirdPageImageProps {
 
 const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) => {
   return (
-    <ImageBoxWrapper>
+    <ImageBoxWrapper color="blue">
       ThirdPageImage
     </ImageBoxWrapper>
   )
