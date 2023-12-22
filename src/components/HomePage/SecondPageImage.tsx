@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import { mainPageText } from '../../languages/HomeTrans';
 import { ImageBoxWrapper } from './FirstPageImage';
+import { ScrollContainer } from '../common/ScrollContainer';
 
 interface SecondPageImageProps {
     mainPageTextChange: Function;
@@ -14,7 +15,9 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
 
     return (
         <ImageBoxWrapper color="black">
-            SecondPageImage
+           <ScrollContainer>
+                Second
+            </ScrollContainer>
         </ImageBoxWrapper>
     )
 };

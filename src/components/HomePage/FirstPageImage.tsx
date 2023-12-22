@@ -1,6 +1,7 @@
 import React from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
+import { ScrollContainer } from '../common/ScrollContainer';
 
 interface FirstPageImageProps {
   mainPageTextChange: Function;
@@ -10,7 +11,9 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
     
   return (
     <ImageBoxWrapper color="red">
-      FirstPageImage
+      <ScrollContainer>
+        First
+      </ScrollContainer>
     </ImageBoxWrapper>
   )
 };
