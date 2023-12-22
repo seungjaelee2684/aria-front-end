@@ -3,10 +3,10 @@ import './MainImage/MainImage.css';
 import styled from 'styled-components';
 
 interface FirstPageImageProps {
-
+  mainPageTextChange: Function;
 };
 
-const FirstPageImage : React.FC<FirstPageImageProps> = () => {
+const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) => {
     
   return (
     <ImageBoxWrapper>
