@@ -46,7 +46,7 @@ const Home = () => {
                 const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
                 const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-                if (deltaY > 0) {
+                if (deltaY >= 0) {
                     // 스크롤 내릴 때
                     if (scrollTop >= 0 && scrollTop < pageHeight) {
                         //현재 1페이지
