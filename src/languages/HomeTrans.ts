@@ -5,18 +5,18 @@ type TextType = {
     text: string
 }
 
-export const mainPageText : TextType[] = [
+export const homeTrans : TextType[] = [
     {
-        englishtext: "",
-        chinesetext: "",
-        japanesetext: "",
-        text: "는"
+        englishtext: "ARIA ART ACADEMY IS A GLOBAL ILLUSTRATION ACADEMY WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM GLOBAL TEACHERS",
+        chinesetext: "ARIA ART ACADEMY IS A GLOBAL ILLUSTRATION ACADEMY WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM GLOBAL TEACHERS",
+        japanesetext: "ARIA ART ACADEMY IS A GLOBAL ILLUSTRATION ACADEMY WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM GLOBAL TEACHERS",
+        text: "ARIA ART ACADEMY IS A GLOBAL ILLUSTRATION ACADEMY WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM GLOBAL TEACHERS"
     },
     {
-        englishtext: "We will establish a global illustration academy platform where you can learn about different painting cultures of the East and the West in one place,",
-        chinesetext: "东西方不同的绘画文化可以在一个全球插画学院平台上学习。",
-        japanesetext: "東洋と西洋の異なる絵画文化を一ヶ所で学べるグローバルイラストアカデミープラットフォームを構築し,",
-        text: "동서양의 다른 그림 문화를 한곳에서 배울 수 있는 글로벌 일러스트 아카데미 플랫폼을 설립하여,"
+        englishtext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY",
+        chinesetext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY",
+        japanesetext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY",
+        text: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY"
     },
     {
         englishtext: "create a space where you can learn from various artists around the world regardless of nationality.",

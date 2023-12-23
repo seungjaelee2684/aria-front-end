@@ -12,7 +12,7 @@ import MainSlideShow from '../components/HomePage/MainSlideShow';
 import { ScrollContainer } from '../components/common/ScrollContainer';
 import { ScrollAnimation } from '../utils/ScrollAnimation';
 import MainBackground from '../assets/images/mainpagebg.png';
-import { mainPageText } from '../languages/HomeTrans';
+import { homeTrans } from '../languages/HomeTrans';
 import FirstPageImage from '../components/HomePage/FirstPageImage';
 import ThirdPageImage from '../components/HomePage/ThirdPageImage';
 import FourthPageImage from '../components/HomePage/FourthPageImage';
@@ -28,13 +28,13 @@ const Home = () => {
     const mainPageTextChange = (Num : number) => {
         switch (language) {
             case "chinese" :
-                return mainPageText[Num]?.chinesetext;
+                return homeTrans[Num]?.chinesetext;
             case "japanese" :
-                return mainPageText[Num]?.japanesetext;
+                return homeTrans[Num]?.japanesetext;
             case "korean" :
-                return mainPageText[Num]?.text;
+                return homeTrans[Num]?.text;
             default :
-                return mainPageText[Num]?.englishtext;
+                return homeTrans[Num]?.englishtext;
         }
     };
 
