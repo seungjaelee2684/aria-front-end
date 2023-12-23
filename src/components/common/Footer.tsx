@@ -236,7 +236,7 @@ const IconBoxWrapper = styled.div`
   align-items: center;
   /* background-color: #ADADAD; */
   border-radius: 100%;
-  border: 2px solid #ADADAD;
+  border: 1px solid #ADADAD;
   cursor: pointer;
   
   &:hover {
@@ -252,7 +252,6 @@ const IconBoxWrapper = styled.div`
   @media screen and (max-width: 836px) {
     width: 30px;
     height: 30px;
-    border: 1px solid #ADADAD;
   }
 `;
 

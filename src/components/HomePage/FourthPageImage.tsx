@@ -12,7 +12,7 @@ interface FourthPageImageProps {
 const FourthPageImage : React.FC<FourthPageImageProps> = ({ mainPageTextChange }) => {
   
   return (
-    <ImageBoxWrapper color="green">
+    <ImageBoxWrapper>
       <BackgroundImage src={FourthBG} alt=''/>
       <ScrollContainer>
         Fourth
