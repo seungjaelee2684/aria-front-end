@@ -2,8 +2,8 @@
     animation: first_logo_appear 1s forwards;
 }
 
-.second-content {
-    animation: second_content_appear 1s forwards;
+.second-title {
+    animation: second_title_appear 1s forwards;
     /* animation-delay: 1.3s; */
 }
 
@@ -18,7 +18,7 @@
     }
 }
 
-@keyframes second_content_appear {
+@keyframes second_title_appear {
     from {
         opacity: 0;
         transform: translateX(-30%);

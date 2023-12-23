@@ -15,6 +15,7 @@ import FirstPageImage from '../components/HomePage/FirstPageImage';
 import ThirdPageImage from '../components/HomePage/ThirdPageImage';
 import FourthPageImage from '../components/HomePage/FourthPageImage';
 import FifthPageImage from '../components/HomePage/FifthPageImage';
+import PageNumber from '../components/HomePage/PageNumber';
 
 const Home = () => {
 
@@ -158,6 +159,7 @@ const Home = () => {
         <SpaceBetweenContainer />
         <FifthPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
+        <PageNumber />
     </MainLayout>
   )
 };

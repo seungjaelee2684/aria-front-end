@@ -24,8 +24,8 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                     <SecondPageTitle
                         src={SecondTitle}
                         alt=''
-                        className={(scrollIndex === 2) ? "second-content" : ""}/>
-                    <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
+                        className={(scrollIndex === 2) ? "second-title" : ""}/>
+                    <SecondPageContentContainer className={(scrollIndex === 2) ? "second-title" : ""}>
                         <SecondPageContent>
                             {mainPageTextChange(0)}
                         </SecondPageContent>
