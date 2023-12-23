@@ -14,13 +14,18 @@ interface SecondPageImageProps {
 
 const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }) => {
 
+    const scrollIndex = useRecoilValue(MainPageNumber);
+
     return (
         <ImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
             <MainImage>
                 <SecondPageOutContainer>
-                    <SecondPageTitle src={SecondTitle} alt=''/>
-                    <SecondPageContentContainer>
+                    <SecondPageTitle
+                        src={SecondTitle}
+                        alt=''
+                        className={(scrollIndex === 2) ? "second-content" : ""}/>
+                    <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
                         <SecondPageContent>
                             {mainPageTextChange(0)}
                         </SecondPageContent>
@@ -44,12 +49,14 @@ const SecondPageTitle = styled.img`
     width: 500px;
     height: auto;
     object-fit: cover;
+    opacity: 0;
 `;
 
 const SecondPageContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    opacity: 0;
 `;
 
 const SecondPageContent = styled.div`
