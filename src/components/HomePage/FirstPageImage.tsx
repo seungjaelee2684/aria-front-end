@@ -1,7 +1,6 @@
 import React from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
-import { ScrollContainer } from '../common/ScrollContainer';
 import FirstBG from '../../assets/images/mainpage/1.webp';
 import Logo from '../../assets/images/mainpage/Asset 95.webp';
 
@@ -14,9 +13,7 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
   return (
     <ImageBoxWrapper>
       <BackgroundImage src={FirstBG} alt=''/>
-      <ScrollContainer>
-        <LogoImage src={Logo} alt=''/>
-      </ScrollContainer>
+      <LogoImage src={Logo} alt=''/>
     </ImageBoxWrapper>
   )
 };
