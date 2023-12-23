@@ -9,8 +9,6 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../store/MainPageNumber';
 import SecondPageImage from '../components/HomePage/SecondPageImage';
 import MainSlideShow from '../components/HomePage/MainSlideShow';
-import { ScrollContainer } from '../components/common/ScrollContainer';
-import { ScrollAnimation } from '../utils/ScrollAnimation';
 import MainBackground from '../assets/images/mainpagebg.png';
 import { homeTrans } from '../languages/HomeTrans';
 import FirstPageImage from '../components/HomePage/FirstPageImage';
