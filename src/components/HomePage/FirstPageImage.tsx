@@ -3,6 +3,8 @@ import './MainImage/MainImage.css';
 import styled from 'styled-components';
 import FirstBG from '../../assets/images/mainpage/1.webp';
 import Logo from '../../assets/images/mainpage/Asset 95.webp';
+import { useRecoilValue } from 'recoil';
+import { MainPageNumber } from '../../store/MainPageNumber';
 
 interface FirstPageImageProps {
   mainPageTextChange: Function;
@@ -10,10 +12,17 @@ interface FirstPageImageProps {
 
 const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) => {
     
+  const scrollIndex = useRecoilValue(MainPageNumber);
+
   return (
     <ImageBoxWrapper>
       <BackgroundImage src={FirstBG} alt=''/>
-      <LogoImage src={Logo} alt=''/>
+      <MainImage>
+        <LogoImage
+          src={Logo}
+          alt=''
+          className={(scrollIndex === 1) ? "frame-in" : ""}/>
+      </MainImage>
     </ImageBoxWrapper>
   )
 };
@@ -29,6 +38,22 @@ export const BackgroundImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+export const MainImage = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "ZingRustDemo";
+  font-size: 48px;
+  font-weight: 800;
+  line-height: normal;
+  color: #FFFFFF;
   position: absolute;
   top: 0;
   left: 0;
