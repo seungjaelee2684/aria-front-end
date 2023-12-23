@@ -21,7 +21,7 @@ export const ScrollContainer : React.FC<ScrollContainerProps> = ({ children }) =
         isInObject
           ? (scrollIndex === 1)
             ? "frame-in"
-            : "Button"
+            : "second-content"
           : ""
       }>
       {children}

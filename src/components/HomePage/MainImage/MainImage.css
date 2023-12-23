@@ -1,13 +1,13 @@
-.Button {
-    animation: button_appear 1s forwards;
+.frame-in {
+    animation: first_logo_appear 1s forwards;
+}
+
+.second-content {
+    animation: second_content_appear 1s forwards;
     /* animation-delay: 1.3s; */
 }
 
-.frame-in {
-    animation: content_appear 1s forwards;
-}
-
-@keyframes content_appear {
+@keyframes first_logo_appear {
     from {
         opacity: 0;
         transform: scale(0.6) translateY(-20%);
@@ -18,10 +18,10 @@
     }
 }
 
-@keyframes button_appear {
+@keyframes second_content_appear {
     from {
         opacity: 0;
-        transform: translateX(100%);
+        transform: translateX(-30%);
     }
     to {
         opacity: 1;
