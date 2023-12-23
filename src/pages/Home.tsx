@@ -172,35 +172,6 @@ const MainLayout = styled.div`
     z-index: 97;
 `;
 
-export const MainImage = styled.div`
-    width: 100%;
-    height: 100vh;
-    /* background-color: #FFFFFF; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "ZingRustDemo";
-    font-size: 48px;
-    font-weight: 800;
-    line-height: normal;
-    color: #FFFFFF;
-`;
-
-const Background = styled.div`
-    width: 100%;
-    height: 2000px;
-    background-color: #e9e9e9;
-`;
-
-const BackgroundImage = styled.img`
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-`;
-
 const SpaceBetweenContainer = styled.div`
     width: 100%;
     min-height: 5px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
-import { BackgroundImage, ImageBoxWrapper } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
 import FifthBG from '../../assets/images/mainpage/5.webp';
 
 interface FifthPageImageProps {
@@ -13,7 +13,9 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
   return (
     <ImageBoxWrapper>
       <BackgroundImage src={FifthBG} alt=''/>
-      Fifth
+      <MainImage>
+        Fifth
+      </MainImage>
     </ImageBoxWrapper>
   )
 };

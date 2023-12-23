@@ -10,7 +10,7 @@
 @keyframes first_logo_appear {
     from {
         opacity: 0;
-        transform: scale(0.6) translateY(-20%);
+        transform: scale(0.6) translateY(-50%);
     }
     to {
         opacity: 1;
