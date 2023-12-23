@@ -15,7 +15,7 @@ interface SecondPageImageProps {
 const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }) => {
 
     return (
-        <ImageBoxWrapper color="black">
+        <ImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
             <ScrollContainer>
                 Second

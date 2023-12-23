@@ -11,7 +11,7 @@ interface ThirdPageImageProps {
 
 const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) => {
   return (
-    <ImageBoxWrapper color="blue">
+    <ImageBoxWrapper>
       <BackgroundImage src={ThirdBG} alt=''/>
       <ScrollContainer>
         Third

@@ -3,6 +3,7 @@ import './MainImage/MainImage.css';
 import styled from 'styled-components';
 import { ScrollContainer } from '../common/ScrollContainer';
 import FirstBG from '../../assets/images/mainpage/1.webp';
+import Logo from '../../assets/images/mainpage/Asset 95.webp';
 
 interface FirstPageImageProps {
   mainPageTextChange: Function;
@@ -11,21 +12,20 @@ interface FirstPageImageProps {
 const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) => {
     
   return (
-    <ImageBoxWrapper color="red">
+    <ImageBoxWrapper>
       <BackgroundImage src={FirstBG} alt=''/>
       <ScrollContainer>
-        First
+        <LogoImage src={Logo} alt=''/>
       </ScrollContainer>
     </ImageBoxWrapper>
   )
 };
 
-export const ImageBoxWrapper = styled.div<{ color : string }>`
+export const ImageBoxWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: ${(props) => props.color};
 `;
 
 export const BackgroundImage = styled.img`
@@ -35,6 +35,12 @@ export const BackgroundImage = styled.img`
   position: absolute;
   top: 0;
   left: 0;
+`;
+
+const LogoImage = styled.img`
+  width: 550px;
+  height: auto;
+  object-fit: cover;
 `;
 
 export default FirstPageImage;
