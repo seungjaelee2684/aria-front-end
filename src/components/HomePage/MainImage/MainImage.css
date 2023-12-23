@@ -1,246 +1,30 @@
-.body {
-    margin: 0;
-    overflow-y: hidden;
-}
-
-.GradientContainer {
-    animation: gradient_appear 1.5s forwards;
-    animation-delay: 0.5s;
-}
-
-.NoneGradientContainer {
-    animation: gradient_disappear 0.5s forwards;
-}
-
-.CharactorImage {
-    animation: charactor_appear 1s forwards;
-    animation-delay: 0.5s;
-}
-
-.NoneCharactorImage {
-    animation: charactor_disappear 1s forwards;
-}
-
-.MainContent {
-    animation: content_appear 1.2s forwards;
-    animation-delay: 1.7s;
-}
-
-.MainSecondContent {
-    animation: content_appear 1s forwards;
-    animation-delay: 2.1s;
-}
-
-.MainThirdContent {
-    animation: content_appear 1s forwards;
-    animation-delay: 2.5s;
-}
-
-.MainTitle {
-    animation: logo_title_appear 1s forwards;
-    animation-delay: 1s;
-}
-
-.Button {
-    animation: button_appear 0.8s forwards;
-    animation-delay: 1.3s;
-}
-
-.SecondButton {
-    animation: button_appear 0.8s forwards;
-    animation-delay: 1.6s;
-}
-
-.UpArrow {
-    animation: up_arrow_appear 1s infinite;
-    animation-delay: 3s;
-}
-
-.DownArrow {
-    animation: down_arrow_appear 1s infinite;
-    animation-delay: 3s;
-}
-
-.FirstFrame {
-    animation: frame_appear 0.8s forwards;
-    animation-delay: 2.7s;
-}
-
-.SecondFrame {
-    animation: frame_appear 0.8s forwards;
-    animation-delay: 3s;
-}
-
-.ThirdFrame {
-    animation: frame_appear 0.8s forwards;
-    animation-delay: 3.3s;
-}
-
-.FirstFrame:hover {
-    .FirstMainContent {
-        opacity: 1;
-    }
-}
-
-.SecondFrame:hover {
-    .SecondMainContent {
-        opacity: 1;
-    }
-}
-
-.ThirdFrame:hover {
-    .ThirdMainContent {
-        opacity: 1;
-    }
-}
-
-.PageNumberWrapper {
-    animation: page_number 0.5s forwards;
-}
-
-.NonePageNumberWrapper {
-    animation: none_page_number 0.5s forwards;
-}
-
 .frame-in {
-    animation: charactor_appear 1s forwards;
+    animation: first_logo_appear 1s forwards;
 }
 
-@keyframes gradient_appear {
+.second-title {
+    animation: second_title_appear 1s forwards;
+    /* animation-delay: 1.3s; */
+}
+
+@keyframes first_logo_appear {
     from {
         opacity: 0;
+        transform: scale(0.6) translateY(-100%);
     }
     to {
         opacity: 1;
+        transform: scale(1) translateY(0%);
     }
 }
 
-@keyframes gradient_disappear {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes charactor_appear {
+@keyframes second_title_appear {
     from {
         opacity: 0;
-        transform: translateX(-80%);
-    }
-    /* 60% {
-        opacity: 1;
-        transform: translateX(30%);
-    } */
-    to {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-}
-
-@keyframes charactor_disappear {
-    from {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes content_appear {
-    from {
-        opacity: 0;
-        transform: translateY(-30%);
+        transform: translateX(-30%);
     }
     to {
         opacity: 1;
         transform: translateX(0%);
-    }
-}
-
-@keyframes second_content_appear {
-    from {
-        opacity: 0;
-        transform: translateY(-30%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-}
-
-@keyframes logo_title_appear {
-    from {
-        opacity: 0;
-        transform: translateY(-50%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0%);
-    }
-}
-
-@keyframes button_appear {
-    from {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-}
-
-@keyframes up_arrow_appear {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    to {
-        opacity: 0.8;
-        transform: translateY(0%);
-    }
-}
-
-@keyframes down_arrow_appear {
-    from {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-    to {
-        opacity: 0.5;
-        transform: translateY(0%);
-    }
-}
-
-@keyframes frame_appear {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes page_number {
-    from {
-        transform: translateY(0px) rotate(45deg);
-    }
-    to {
-        transform: translateY(49px) rotate(45deg);
-    }
-}
-
-@keyframes none_page_number {
-    from {
-        transform: translateY(0px) rotate(45deg);
-    }
-    to {
-        transform: translateY(-49px) rotate(45deg);
     }
 }
