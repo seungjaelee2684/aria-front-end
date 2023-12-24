@@ -49,7 +49,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
           {MainBannertData?.map((item : any) => {
             return (
               (mainSlideCurrent === MainBannertData?.indexOf(item))
-                ? <SlideNumber />
+                ? <SlideNumber style={{backgroundColor: "#FCFCFC"}}/>
                 : <SlideNumber />
             )
           })}
@@ -92,7 +92,8 @@ const SlideNumber = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background-color: #ADADAD;
+  background-color: #868686;
+  cursor: pointer;
 `;
 
 export default ThirdPageImage;
