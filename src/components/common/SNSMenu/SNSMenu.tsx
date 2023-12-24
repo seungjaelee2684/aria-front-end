@@ -8,8 +8,6 @@ import Youtube from '../../../assets/icons/youtubeblack.webp';
 import InstagramDefault from '../../../assets/icons/instadefault.png';
 import TwitterDefault from '../../../assets/icons/twitterdefault.png';
 import DiscordDefault from '../../../assets/icons/discorddefault.png';
-import YoutubeDefault from '../../../assets/icons/youtubedefault.png';
-import SNSModal from '../SNSModal';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
