@@ -21,13 +21,13 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
         <ImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
             <MainImage>
-                <TriangleContainer src={Triangle} alt=''/>
+                <TriangleContainer src={Triangle} alt='' className={(scrollIndex === 2) ? "second-triangle" : ""}/>
                 <SecondPageTitle
                     src={SecondTitle}
                     alt=''
                     className={(scrollIndex === 2) ? "second-title" : ""}/>
-                <BarContainer />
-                <SecondPageContentContainer className={(scrollIndex === 2) ? "second-title" : ""}>
+                <BarContainer className={(scrollIndex === 2) ? "second-bar" : ""}/>
+                <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
                     <SecondPageContent>
                         {mainPageTextChange(0)}
                     </SecondPageContent>
@@ -47,6 +47,7 @@ const TriangleContainer = styled.img`
     position: absolute;
     top: 35%;
     left: 0;
+    opacity: 0;
 `;
 
 const SecondPageTitle = styled.img`
@@ -86,6 +87,7 @@ const BarContainer = styled.div`
     position: absolute;
     bottom: 0;
     left: 22%;
+    opacity: 0;
 `;
 
 export default SecondPageImage;
