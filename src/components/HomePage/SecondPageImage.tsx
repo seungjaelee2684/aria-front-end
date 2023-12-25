@@ -18,7 +18,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
     const scrollIndex = useRecoilValue(MainPageNumber);
 
     let titleArr : any = [];
-    const secondPageTitle : string = "ABOUT US";
+    const secondPageTitle : string = "ABOUT US:";
     for (let i = 0; i < secondPageTitle.length; i++) {
         titleArr.push({
             title: secondPageTitle[i],
@@ -82,6 +82,8 @@ const SecondPageTitle = styled.div`
     top: 28%;
     left: 15%;
     display: flex;
+    align-items: center;
+    user-select: none;
 `;
 
 const TitleText = styled.span`
