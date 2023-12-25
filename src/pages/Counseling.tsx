@@ -249,7 +249,7 @@ const ButtonContainer = styled.div`
   border: 1px solid #ADADAD;
   border-radius: 3px;
   font-family: "Pretendard";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: normal;
   position: relative;
@@ -269,16 +269,16 @@ const ButtonContainer = styled.div`
     width: 280px;
     height: 40px;
     text-indent: 20px;
-    font-size: 14px;
+    font-size: 13px;
   }
 `;
 
 const ButtonText = styled.div`
-  font-size: 80px;
+  font-size: 70px;
   color: #FCFCFC;
   position: absolute;
   top: -10px;
-  right: 8%;
+  right: 6%;
   transform: rotate(25deg);
 
   @media screen and (max-width: 500px) {

@@ -8,6 +8,7 @@ import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
 import SecondBG from '../../assets/images/mainpage/2.webp';
 import SecondTitle from '../../assets/images/mainpage/Asset 89.webp';
 import Triangle from '../../assets/images/mainpage/Asset 88.webp';
+import Bar from '../../assets/images/mainpage/Asset 87.webp';
 
 interface SecondPageImageProps {
     mainPageTextChange: Function;
@@ -40,26 +41,30 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                                     key={item?.key}
                                     className={(scrollIndex === 2) ? "second-title" : ""}
                                     style={{
-                                        animationDelay: `${1.2 + index * 0.1}s`,
+                                        animationDelay: `${0.8 + index * 0.1}s`,
                                     }}/>
                                 : <TitleText
                                     key={item?.key}
                                     className={(scrollIndex === 2) ? "second-title" : ""}
                                     style={{
-                                        animationDelay: `${1.2 + index * 0.1}s`,
+                                        animationDelay: `${0.8 + index * 0.1}s`,
                                     }}>
                                     {item?.title}
                                 </TitleText>
                         )
                     })}
                 </SecondPageTitle>
-                <BarContainer className={(scrollIndex === 2) ? "second-bar" : ""}/>
+                <BarContainer src={Bar} alt='' className={(scrollIndex === 2) ? "second-bar" : ""}/>
                 <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
                     <SecondPageContent>
                         {mainPageTextChange(0)}
+                        <ColorText>{mainPageTextChange(1)}</ColorText>
+                        {mainPageTextChange(2)}
+                        <ColorText>{mainPageTextChange(3)}</ColorText>
                     </SecondPageContent>
                     <SecondPageContent>
-                        {mainPageTextChange(1)}
+                        {mainPageTextChange(4)}
+                        <ColorText>{mainPageTextChange(5)}</ColorText>
                     </SecondPageContent>
                 </SecondPageContentContainer>
             </MainImage>
@@ -79,7 +84,7 @@ const TriangleContainer = styled.img`
 
 const SecondPageTitle = styled.div`
     position: absolute;
-    top: 28%;
+    top: 30%;
     left: 15%;
     display: flex;
     align-items: center;
@@ -104,7 +109,7 @@ const SecondPageContentContainer = styled.div`
     gap: 16px;
     opacity: 0;
     position: absolute;
-    bottom: 29%;
+    bottom: 32%;
     left: 24%;
 `;
 
@@ -113,15 +118,20 @@ const SecondPageContent = styled.div`
     font-size: 28px;
     line-height: normal;
     color: #FCFCFC;
-    white-space: pre-line;
+    /* white-space: pre-line; */
     user-select: none;
     text-align: left;
+    display: flex;
 `;
 
-const BarContainer = styled.div`
+const ColorText = styled.div`
+    color: #ff3ea3;
+`;
+
+const BarContainer = styled.img`
     width: 4px;
     height: 52%;
-    background-color: #ff3f5f;
+    object-fit: cover;
     position: absolute;
     bottom: 0;
     left: 22%;

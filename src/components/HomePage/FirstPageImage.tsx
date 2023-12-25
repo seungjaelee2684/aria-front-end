@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
 import FirstBG from '../../assets/images/mainpage/1.webp';
@@ -13,6 +13,7 @@ interface FirstPageImageProps {
 const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) => {
     
   const scrollIndex = useRecoilValue(MainPageNumber);
+  const [imageLoad, setImageLoad] = useState<boolean>(false);
 
   return (
     <ImageBoxWrapper>
@@ -21,7 +22,14 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
         <LogoImage
           src={Logo}
           alt=''
-          className={(scrollIndex === 1) ? "frame-in" : ""}/>
+          onLoad={() => setImageLoad(true)}
+          className={
+            (imageLoad)
+              ? (scrollIndex === 1)
+                ? "frame-in"
+                : ""
+              : ""
+          }/>
       </MainImage>
     </ImageBoxWrapper>
   )

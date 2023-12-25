@@ -51,6 +51,7 @@ const FourthLayOut = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   gap: 50px;
 `;
 
