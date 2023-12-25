@@ -57,14 +57,20 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                 <BarContainer src={Bar} alt='' className={(scrollIndex === 2) ? "second-bar" : ""}/>
                 <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
                     <SecondPageContent>
-                        {mainPageTextChange(0)}
+                        <Text>{mainPageTextChange(0)}</Text>
                         <ColorText>{mainPageTextChange(1)}</ColorText>
-                        {mainPageTextChange(2)}
-                        <ColorText>{mainPageTextChange(3)}</ColorText>
+                        <Text>{mainPageTextChange(2)}</Text>
                     </SecondPageContent>
                     <SecondPageContent>
-                        {mainPageTextChange(4)}
-                        <ColorText>{mainPageTextChange(5)}</ColorText>
+                        <Text>{mainPageTextChange(3)}</Text>
+                        <ColorText>{mainPageTextChange(4)}</ColorText>
+                    </SecondPageContent>
+                    <SecondPageContent style={{marginTop: "24px"}}>
+                        <Text>{mainPageTextChange(5)}</Text>
+                    </SecondPageContent>
+                    <SecondPageContent>
+                        <Text>{mainPageTextChange(6)}</Text>
+                        <ColorText>{mainPageTextChange(7)}</ColorText>
                     </SecondPageContent>
                 </SecondPageContentContainer>
             </MainImage>
@@ -106,7 +112,7 @@ const EmptyTitle = styled.div`
 const SecondPageContentContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0px;
     opacity: 0;
     position: absolute;
     bottom: 32%;
@@ -115,13 +121,17 @@ const SecondPageContentContainer = styled.div`
 
 const SecondPageContent = styled.div`
     font-family: "ZingRustDemo";
-    font-size: 28px;
+    font-size: 30px;
     line-height: normal;
     color: #FCFCFC;
-    /* white-space: pre-line; */
     user-select: none;
     text-align: left;
     display: flex;
+    gap: 10px;
+`;
+
+const Text = styled.div`
+    color: #FFFFFF;
 `;
 
 const ColorText = styled.div`

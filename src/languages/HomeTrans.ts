@@ -7,22 +7,28 @@ type TextType = {
 
 export const homeTrans : TextType[] = [
     {
-        englishtext: "ARIA ART ACADEMY IS A ",
+        englishtext: "ARIA ART ACADEMY IS A",
         chinesetext: "ARIA ART ACADEMY IS A ",
         japanesetext: "ARIA ART ACADEMY IS A ",
         text: "ARIA ART ACADEMY IS A "
     },
     {
-        englishtext: "GLOBAL ILLUSTRATION ACADEMY ",
+        englishtext: "GLOBAL ILLUSTRATION ACADEMY",
         chinesetext: "GLOBAL ILLUSTRATION ACADEMY ",
         japanesetext: "GLOBAL ILLUSTRATION ACADEMY ",
         text: "GLOBAL ILLUSTRATION ACADEMY "
     },
     {
-        englishtext: "WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM ",
-        chinesetext: "WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM ",
-        japanesetext: "WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM ",
-        text: "WHERE ONE CAN LEARN\nVARIOUS ASPECTS OF GLOBAL ART TRENDS FROM "
+        englishtext: "WHERE ONE CAN LEARN",
+        chinesetext: "WHERE ONE CAN LEARN",
+        japanesetext: "WHERE ONE CAN LEARN",
+        text: "WHERE ONE CAN LEARN"
+    },
+    {
+        englishtext: "VARIOUS ASPECTS OF GLOBAL ART TRENDS FROM",
+        chinesetext: "VARIOUS ASPECTS OF GLOBAL ART TRENDS FROM",
+        japanesetext: "VARIOUS ASPECTS OF GLOBAL ART TRENDS FROM",
+        text: "VARIOUS ASPECTS OF GLOBAL ART TRENDS FROM"
     },
     {
         englishtext: "GLOBAL TEACHERS",
@@ -31,10 +37,16 @@ export const homeTrans : TextType[] = [
         text: "GLOBAL TEACHERS"
     },
     {
-        englishtext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN ",
-        chinesetext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN ",
-        japanesetext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN ",
-        text: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD\n CAN "
+        englishtext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD",
+        chinesetext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD",
+        japanesetext: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD",
+        text: "WE ASPIRE TO CREATE A SPACE WHERE STUDENTS FROM AROUND THE WORLD"
+    },
+    {
+        englishtext: "CAN",
+        chinesetext: "CAN",
+        japanesetext: "CAN",
+        text: "CAN"
     },
     {
         englishtext: "LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY",
