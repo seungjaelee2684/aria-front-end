@@ -2,10 +2,6 @@
     animation: first_logo_appear 1s forwards;
 }
 
-.second-triangle {
-    animation: second_title_appear 1s forwards;
-}
-
 .second-bar {
     animation: second_bar_appear 1s forwards;
     animation-delay: 0.3s;
@@ -16,12 +12,16 @@
 }
 
 .second-content {
-    animation: second_content_appear 1s forwards;
+    animation: opacity_controll 1s forwards;
     animation-delay: 1.6s;
 }
 
+.second-color-content {
+    animation: second_content_appear 1.5s forwards;
+}
+
 .Third-content {
-    animation: opacity_controll 2.5s forwards;
+    animation: opacity_controll 2s forwards;
     animation-delay: 0.5s;
 }
 

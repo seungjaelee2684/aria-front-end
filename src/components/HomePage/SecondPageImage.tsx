@@ -32,7 +32,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
         <ImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
             <MainImage>
-                <TriangleContainer src={Triangle} alt='' className={(scrollIndex === 2) ? "second-triangle" : ""}/>
+                <TriangleContainer src={Triangle} alt=''/>
                 <SecondPageTitle>
                     {titleArr?.map((item : any, index : number) => {
                         return (
@@ -55,22 +55,34 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                     })}
                 </SecondPageTitle>
                 <BarContainer src={Bar} alt='' className={(scrollIndex === 2) ? "second-bar" : ""}/>
-                <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
+                <SecondPageContentContainer>
                     <SecondPageContent>
-                        <Text>{mainPageTextChange(0)}</Text>
-                        <ColorText>{mainPageTextChange(1)}</ColorText>
-                        <Text>{mainPageTextChange(2)}</Text>
+                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(0)}</Text>
+                        <ColorText
+                            className={(scrollIndex === 2) ? "second-color-content" : ""}
+                            style={{animationDelay: "1.7s"}}>
+                            {mainPageTextChange(1)}
+                        </ColorText>
+                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(2)}</Text>
                     </SecondPageContent>
                     <SecondPageContent>
-                        <Text>{mainPageTextChange(3)}</Text>
-                        <ColorText>{mainPageTextChange(4)}</ColorText>
+                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(3)}</Text>
+                        <ColorText
+                            className={(scrollIndex === 2) ? "second-color-content" : ""}
+                            style={{animationDelay: "1.9s"}}>
+                            {mainPageTextChange(4)}
+                        </ColorText>
                     </SecondPageContent>
                     <SecondPageContent style={{marginTop: "24px"}}>
-                        <Text>{mainPageTextChange(5)}</Text>
+                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(5)}</Text>
                     </SecondPageContent>
                     <SecondPageContent>
-                        <Text>{mainPageTextChange(6)}</Text>
-                        <ColorText>{mainPageTextChange(7)}</ColorText>
+                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(6)}</Text>
+                        <ColorText
+                            className={(scrollIndex === 2) ? "second-color-content" : ""}
+                            style={{animationDelay: "2.1s"}}>
+                            {mainPageTextChange(7)}
+                        </ColorText>
                     </SecondPageContent>
                 </SecondPageContentContainer>
             </MainImage>
@@ -85,7 +97,6 @@ const TriangleContainer = styled.img`
     position: absolute;
     top: 35%;
     left: 0;
-    opacity: 0;
 `;
 
 const SecondPageTitle = styled.div`
@@ -113,7 +124,6 @@ const SecondPageContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0px;
-    opacity: 0;
     position: absolute;
     bottom: 32%;
     left: 24%;
@@ -132,10 +142,12 @@ const SecondPageContent = styled.div`
 
 const Text = styled.div`
     color: #FFFFFF;
+    opacity: 0;
 `;
 
 const ColorText = styled.div`
     color: #ff3ea3;
+    opacity: 0;
 `;
 
 const BarContainer = styled.img`
