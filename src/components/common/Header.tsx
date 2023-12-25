@@ -89,7 +89,7 @@ const Header = () => {
 
   return (
     <div>
-        <HeaderLayoutContainer ref={scrollHeader}>
+        <HeaderLayoutContainer ref={(location.pathname === "/") ? null : scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                     <HeaderLogo
