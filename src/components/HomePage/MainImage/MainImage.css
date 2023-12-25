@@ -2,9 +2,27 @@
     animation: first_logo_appear 1s forwards;
 }
 
+.second-bar {
+    animation: second_bar_appear 1s forwards;
+    animation-delay: 0.3s;
+}
+
 .second-title {
-    animation: second_title_appear 1s forwards;
-    /* animation-delay: 1.3s; */
+    animation: second_title_appear 0.6s forwards;
+}
+
+.second-content {
+    animation: opacity_controll 1s forwards;
+    animation-delay: 1.6s;
+}
+
+.second-color-content {
+    animation: second_content_appear 1.5s forwards;
+}
+
+.Third-content {
+    animation: opacity_controll 2s forwards;
+    animation-delay: 0.5s;
 }
 
 @keyframes first_logo_appear {
@@ -18,13 +36,55 @@
     }
 }
 
+@keyframes second_triangle_appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes second_bar_appear {
+    from {
+        opacity: 1;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
 @keyframes second_title_appear {
     from {
         opacity: 0;
-        transform: translateX(-30%);
+        transform: translateX(-40%);
     }
     to {
         opacity: 1;
         transform: translateX(0%);
+    }
+}
+
+@keyframes second_content_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes opacity_controll {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
