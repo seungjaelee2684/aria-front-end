@@ -17,15 +17,42 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
 
     const scrollIndex = useRecoilValue(MainPageNumber);
 
+    let titleArr : any = [];
+    const secondPageTitle : string = "ABOUT US";
+    for (let i = 0; i < secondPageTitle.length; i++) {
+        titleArr.push({
+            title: secondPageTitle[i],
+            key: i
+        });
+    };
+    console.log("두번째 슬라이드 타이틀 -> ", titleArr);
+
     return (
         <ImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
             <MainImage>
                 <TriangleContainer src={Triangle} alt='' className={(scrollIndex === 2) ? "second-triangle" : ""}/>
-                <SecondPageTitle
-                    src={SecondTitle}
-                    alt=''
-                    className={(scrollIndex === 2) ? "second-title" : ""}/>
+                <SecondPageTitle>
+                    {titleArr?.map((item : any, index : number) => {
+                        return (
+                            (item?.title === " ")
+                                ? <EmptyTitle
+                                    key={item?.key}
+                                    className={(scrollIndex === 2) ? "second-title" : ""}
+                                    style={{
+                                        animationDelay: `${1.5 + index * 0.1}s`,
+                                    }}/>
+                                : <TitleText
+                                    key={item?.key}
+                                    className={(scrollIndex === 2) ? "second-title" : ""}
+                                    style={{
+                                        animationDelay: `${1.5 + index * 0.1}s`,
+                                    }}>
+                                    {item?.title}
+                                </TitleText>
+                        )
+                    })}
+                </SecondPageTitle>
                 <BarContainer className={(scrollIndex === 2) ? "second-bar" : ""}/>
                 <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
                     <SecondPageContent>
@@ -50,13 +77,22 @@ const TriangleContainer = styled.img`
     opacity: 0;
 `;
 
-const SecondPageTitle = styled.img`
-    width: 500px;
-    height: auto;
-    object-fit: cover;
+const SecondPageTitle = styled.div`
     position: absolute;
     top: 28%;
     left: 15%;
+    display: flex;
+`;
+
+const TitleText = styled.span`
+    font-family: "UniSansThin";
+    font-size: 100px;
+    line-height: normal;
+    opacity: 0;
+`;
+
+const EmptyTitle = styled.div`
+    min-width: 40px;
     opacity: 0;
 `;
 
