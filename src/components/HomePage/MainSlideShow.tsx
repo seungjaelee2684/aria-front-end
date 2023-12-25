@@ -27,9 +27,7 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
         <SlideWrapper ref={mainSlideDivRef}>
             {MainBannertData?.map((item) => {
                 return (
-                    <SlideImage key={item?.id} src={item?.image}>
-                        MainSlideShow
-                    </SlideImage>
+                    <SlideImage key={item?.id} src={item?.image}/>
                 )
             })}
         </SlideWrapper>

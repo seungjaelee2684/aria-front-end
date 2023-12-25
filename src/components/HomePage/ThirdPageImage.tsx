@@ -19,21 +19,21 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   
   const scrollIndex = useRecoilValue(MainPageNumber);
 
-  const onClickMainPrevHandler = () => {
-    if (mainSlideCurrent === 0) {
-      setMainSlideCurrent(MainBannertData?.length - 1);
-    } else {
-      setMainSlideCurrent(mainSlideCurrent - 1);
-    };
-  };
+  // const onClickMainPrevHandler = () => {
+  //   if (mainSlideCurrent === 0) {
+  //     setMainSlideCurrent(MainBannertData?.length - 1);
+  //   } else {
+  //     setMainSlideCurrent(mainSlideCurrent - 1);
+  //   };
+  // };
 
-  const onClickMainNextHandler = () => {
-    if (mainSlideCurrent === MainBannertData?.length - 1) {
-      setMainSlideCurrent(0);
-    } else {
-      setMainSlideCurrent(mainSlideCurrent + 1);
-    };
-  };
+  // const onClickMainNextHandler = () => {
+  //   if (mainSlideCurrent === MainBannertData?.length - 1) {
+  //     setMainSlideCurrent(0);
+  //   } else {
+  //     setMainSlideCurrent(mainSlideCurrent + 1);
+  //   };
+  // };
 
   return (
     <ImageBoxWrapper>
@@ -46,11 +46,15 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
             setMainSlideCurrent={setMainSlideCurrent}/>
         </SlideContainer>
         <SlideNumberWrapper>
-          {MainBannertData?.map((item : any) => {
+          {MainBannertData?.map((item : any, index) => {
             return (
-              (mainSlideCurrent === MainBannertData?.indexOf(item))
-                ? <SlideNumber style={{backgroundColor: "#FCFCFC"}}/>
-                : <SlideNumber />
+              (mainSlideCurrent === index)
+                ? <SlideNumber
+                  key={item?.key}
+                  style={{backgroundColor: "#FCFCFC"}}/>
+                : <SlideNumber
+                  key={item?.key}
+                  onClick={() => setMainSlideCurrent(index)}/>
             )
           })}
         </SlideNumberWrapper>
