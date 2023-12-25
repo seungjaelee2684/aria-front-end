@@ -17,11 +17,64 @@ const FourthPageImage : React.FC<FourthPageImageProps> = ({ mainPageTextChange }
   return (
     <ImageBoxWrapper>
       <BackgroundImage src={FourthBG} alt=''/>
-      <MainImage>
-        Fourth
-      </MainImage>
+      <FourthMainLayout>
+        <FourthLayOut>
+          <CardBox>
+
+          </CardBox>
+          <CardBox>
+            
+          </CardBox>
+          <CardBox>
+            
+          </CardBox>
+        </FourthLayOut>
+        <PageNumberWrapper>
+          <PageNumber style={{backgroundColor: "#FFFFFF"}}/>
+          <PageNumber />
+          <PageNumber />
+          <PageNumber />
+        </PageNumberWrapper>
+      </FourthMainLayout>
     </ImageBoxWrapper>
   )
 };
+
+const FourthMainLayout = styled(MainImage)`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`;
+
+const FourthLayOut = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+`;
+
+const CardBox = styled.div`
+  width: 300px;
+  height: 400px;
+  border: 4px solid #222020;
+  background-color: #FFFFFF;
+`;
+
+const PageNumberWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+`;
+
+const PageNumber = styled.div`
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: #ADADAD;
+  cursor: pointer;
+`;
 
 export default FourthPageImage;

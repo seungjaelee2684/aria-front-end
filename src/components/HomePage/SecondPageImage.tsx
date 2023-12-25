@@ -88,7 +88,7 @@ const SecondPageTitle = styled.div`
 
 const TitleText = styled.span`
     font-family: "UniSansThin";
-    font-size: 100px;
+    font-size: 90px;
     line-height: normal;
     opacity: 0;
 `;
