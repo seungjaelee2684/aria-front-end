@@ -13,12 +13,11 @@
 
 .second-title {
     animation: second_title_appear 1s forwards;
-    animation-delay: 1.5s;
 }
 
 .second-content {
     animation: second_content_appear 1s forwards;
-    animation-delay: 1.8s;
+    animation-delay: 3s;
 }
 
 @keyframes first_logo_appear {
