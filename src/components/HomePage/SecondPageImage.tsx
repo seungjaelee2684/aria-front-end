@@ -40,13 +40,13 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                                     key={item?.key}
                                     className={(scrollIndex === 2) ? "second-title" : ""}
                                     style={{
-                                        animationDelay: `${1.5 + index * 0.1}s`,
+                                        animationDelay: `${1.2 + index * 0.1}s`,
                                     }}/>
                                 : <TitleText
                                     key={item?.key}
                                     className={(scrollIndex === 2) ? "second-title" : ""}
                                     style={{
-                                        animationDelay: `${1.5 + index * 0.1}s`,
+                                        animationDelay: `${1.2 + index * 0.1}s`,
                                     }}>
                                     {item?.title}
                                 </TitleText>

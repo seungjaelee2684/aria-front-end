@@ -66,6 +66,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
 const MainThirdContainer = styled(MainImage)`
   flex-direction: column;
   gap: 30px;
+  opacity: 0;
 `;
 
 const SlideContainer = styled.div`
