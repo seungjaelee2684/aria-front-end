@@ -108,14 +108,14 @@ const SecondPageTitle = styled.div`
     user-select: none;
 `;
 
-const TitleText = styled.span`
+export const TitleText = styled.span`
     font-family: "UniSansThin";
     font-size: 90px;
     line-height: normal;
     opacity: 0;
 `;
 
-const EmptyTitle = styled.div`
+export const EmptyTitle = styled.div`
     min-width: 40px;
     opacity: 0;
 `;
