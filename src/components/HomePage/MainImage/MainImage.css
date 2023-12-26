@@ -12,17 +12,26 @@
 }
 
 .second-content {
-    animation: opacity_controll 1s forwards;
-    animation-delay: 1.6s;
+    animation: opacity_controll 2s forwards;
+    animation-delay: 1.3s;
 }
 
 .second-color-content {
     animation: second_content_appear 1.5s forwards;
 }
 
-.Third-content {
-    animation: opacity_controll 2s forwards;
+.third-content {
+    animation: opacity_controll 1s forwards;
     animation-delay: 0.5s;
+}
+
+.fifth-title {
+    animation: fifth_title_appear 0.6s forwards;
+}
+
+.fifth-button {
+    animation: opacity_controll 1.2s forwards;
+    animation-delay: 1.6s;
 }
 
 @keyframes first_logo_appear {
@@ -86,5 +95,16 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes fifth_title_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }

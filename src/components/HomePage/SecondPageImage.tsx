@@ -60,7 +60,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                         <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(0)}</Text>
                         <ColorText
                             className={(scrollIndex === 2) ? "second-color-content" : ""}
-                            style={{animationDelay: "1.7s"}}>
+                            style={{animationDelay: "2.3s"}}>
                             {mainPageTextChange(1)}
                         </ColorText>
                         <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(2)}</Text>
@@ -69,7 +69,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                         <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(3)}</Text>
                         <ColorText
                             className={(scrollIndex === 2) ? "second-color-content" : ""}
-                            style={{animationDelay: "1.9s"}}>
+                            style={{animationDelay: "2.5s"}}>
                             {mainPageTextChange(4)}
                         </ColorText>
                     </SecondPageContent>
@@ -80,7 +80,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                         <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(6)}</Text>
                         <ColorText
                             className={(scrollIndex === 2) ? "second-color-content" : ""}
-                            style={{animationDelay: "2.1s"}}>
+                            style={{animationDelay: "2.7s"}}>
                             {mainPageTextChange(7)}
                         </ColorText>
                     </SecondPageContent>
@@ -108,14 +108,15 @@ const SecondPageTitle = styled.div`
     user-select: none;
 `;
 
-const TitleText = styled.span`
-    font-family: "UniSansThin";
+export const TitleText = styled.span`
+    font-family: "CinzelRegular";
     font-size: 90px;
+    font-weight: 600;
     line-height: normal;
     opacity: 0;
 `;
 
-const EmptyTitle = styled.div`
+export const EmptyTitle = styled.div`
     min-width: 40px;
     opacity: 0;
 `;
@@ -132,6 +133,7 @@ const SecondPageContentContainer = styled.div`
 const SecondPageContent = styled.div`
     font-family: "ZingRustDemo";
     font-size: 30px;
+    font-weight: 400;
     line-height: normal;
     color: #FCFCFC;
     user-select: none;
