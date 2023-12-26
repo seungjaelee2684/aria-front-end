@@ -38,7 +38,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   return (
     <ImageBoxWrapper>
       <BackgroundImage src={ThirdBG} alt=''/>
-      <MainThirdContainer className={(scrollIndex === 3) ? "Third-content" : ""}>
+      <MainThirdContainer className={(scrollIndex === 3) ? "third-content" : ""}>
         <SlideContainer>
           <SlideBorderLine src={SlideBG} alt=''/>
           <MainSlideShow
