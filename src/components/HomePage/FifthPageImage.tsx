@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
 import { EmptyTitle, TitleText } from './SecondPageImage';
 import FifthBG from '../../assets/images/mainpage/5.webp';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import { useNavigate } from 'react-router-dom';
+import { CopyAlert } from '../../store/CopyAlert';
 
 interface FifthPageImageProps {
   mainPageTextChange: Function;
@@ -17,6 +18,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
     
   const navigate = useNavigate();
   const scrollIndex = useRecoilValue(MainPageNumber);
+  const [copyHandler, setCopyHandler] = useRecoilState(CopyAlert);
 
   let titleArr : any = [];
   const secondPageTitle : string = "CONTACT US";
@@ -25,6 +27,15 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
       title: secondPageTitle[i],
       key: i
     });
+  };
+
+  const handleCopyClipBoard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopyHandler(true);
+    } catch (e) {
+      alert('복사에 실패하였습니다');
+    }
   };
  
   return (
@@ -49,7 +60,8 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
         <ButtonWrapper>
           <Button
             className={(scrollIndex === 5) ? "fifth-button" : ""}
-            color="#e83698">
+            color="#e83698"
+            onClick={() => handleCopyClipBoard("dadf31234@gmail.com")}>
             CLICK TO COPY EMAIL
           </Button>
           <Button
@@ -67,7 +79,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
 const FifthLayout = styled(MainImage)`
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 100px;
 `;
 
 const FifthTitle = styled.div`
@@ -99,6 +111,10 @@ const Button = styled.div<{ color: string }>`
   opacity: 0;
   user-select: none;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.color}eb;
+  }
 `;
 
 export default FifthPageImage;
