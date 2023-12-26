@@ -23,10 +23,11 @@ const Header = () => {
 
     const language = localStorage.getItem("language");
     
-    const mainPage = useRecoilValue(MainPageNumber);
+    const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
     const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
     const scrollHeader = useRef<HTMLDivElement>(null);
+    const mainScrollHeader = useRef<HTMLDivElement>(null);
     const [scrollData, setScrollData] = useState<number>(0);
 
     const navigate = useNavigate();
@@ -53,6 +54,16 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
+        if (mainScrollHeader.current) {
+            if (mainScrollIndex === 1) {
+                mainScrollHeader.current.style.transition = "all 0.3s ease-in-out";
+                mainScrollHeader.current.style.transform = "translateY(0px)";
+            } else {
+                mainScrollHeader.current.style.transition = "all 0.3s ease-in-out";
+                mainScrollHeader.current.style.transform = "translateY(-80px)";
+            };
+            
+        };
         const handleClickOutside = (event: any) => {
             if (modalRef.current
                     && !modalRef.current.contains(event.target)
@@ -85,11 +96,11 @@ const Header = () => {
             document.removeEventListener("click", handleClickOutside);
             window.removeEventListener('scroll', scrollHandler);
         };
-    }, [scrollData]);
+    }, [scrollData, mainScrollIndex]);
 
   return (
     <div>
-        <HeaderLayoutContainer ref={(location.pathname === "/") ? null : scrollHeader}>
+        <HeaderLayoutContainer ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                     <HeaderLogo
