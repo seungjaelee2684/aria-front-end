@@ -107,7 +107,7 @@ const Button = styled.div<{ color: string }>`
   font-weight: 400;
   line-height: normal;
   color: #FFFFFF;
-  padding: 10px 50px;
+  padding: 10px 60px;
   opacity: 0;
   user-select: none;
   cursor: pointer;

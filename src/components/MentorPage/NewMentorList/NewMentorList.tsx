@@ -15,7 +15,7 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
     return (
         <ImageSlideContainer>
             {/* <MentorWrapper> */}
-            {NewMentorListData?.map((item : any) => {
+            {NewMentorListData?.map((item : any, index : number) => {
                 return (
                     <div
                         ref={imageRef}
@@ -30,8 +30,11 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                             ? <NicknameLeftContainer
                                 src={item?.slideimage.nickname}
                                 alt=''/>
-                            : <NicknameContainer 
-                                // className='ImageContainer'
+                            : (index === 0)
+                              ? <FirstNicknameContainer 
+                                src={item?.slideimage.nickname}
+                                alt=''/>
+                              : <NicknameContainer 
                                 src={item?.slideimage.nickname}
                                 alt=''/>}
                     </div>
@@ -110,16 +113,37 @@ const NicknameContainer = styled.img`
   left: 10%;
   top: 35%;
 
-    @media screen and (max-width: 1320px) {
-      top: 40%;
-      width: 85%;
-    }
+  @media screen and (max-width: 1320px) {
+    top: 40%;
+    width: 85%;
+  }
 
-    @media screen and (max-width: 500px) {
-      top: 50%;
-      width: 90%;
-      left: 8%;
-    }
+  @media screen and (max-width: 500px) {
+    top: 50%;
+    width: 90%;
+    left: 8%;
+  }
+`;
+
+const FirstNicknameContainer = styled.img`
+  width: 42%;
+  height: auto;
+  object-fit: cover;
+  user-select: none;
+  position: absolute;
+  left: 10%;
+  top: 35%;
+
+  @media screen and (max-width: 1320px) {
+    top: 40%;
+    width: 48%;
+  }
+
+  @media screen and (max-width: 500px) {
+    top: 50%;
+    width: 50%;
+    left: 8%;
+  }
 `;
 
 const NicknameLeftContainer = styled.img`
