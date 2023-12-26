@@ -81,3 +81,24 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'CinzelBlack';
+  src: url('./Cinzel-Black.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CinzelBold';
+  src: url('./Cinzel-Bold.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CinzelRegular';
+  src: url('./Cinzel-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}

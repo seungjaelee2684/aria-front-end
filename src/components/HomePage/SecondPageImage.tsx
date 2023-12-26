@@ -109,8 +109,9 @@ const SecondPageTitle = styled.div`
 `;
 
 export const TitleText = styled.span`
-    font-family: "UniSansThin";
+    font-family: "CinzelRegular";
     font-size: 90px;
+    font-weight: 600;
     line-height: normal;
     opacity: 0;
 `;
@@ -132,6 +133,7 @@ const SecondPageContentContainer = styled.div`
 const SecondPageContent = styled.div`
     font-family: "ZingRustDemo";
     font-size: 30px;
+    font-weight: 400;
     line-height: normal;
     color: #FCFCFC;
     user-select: none;

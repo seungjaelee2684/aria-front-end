@@ -11,8 +11,8 @@ import CurriculumDefaultInsta from '../assets/curriculums/curriculumdefaultinsta
 import CurriculumDefaultArtstation from '../assets/curriculums/curriculumdefaultartstation.webp';
 import CurriculumDefaultPixiv from '../assets/curriculums/curriculumdefaultpixiv.webp';
 import SanpatiThumbnail from '../assets/curriculums/sanpati/sanpati_thumbnail.webp';
-import SanpatiSlideBack from '../assets/images/mentorimage.webp';
-import SanpatiSlideNick from '../assets/images/mentorimagetext.webp';
+import SanpatiSlideBack from '../assets/curriculums/sanpati/banner_sanpati_01.webp';
+import SanpatiSlideNick from '../assets/curriculums/sanpati/banner_sanpati_02.webp';
 import SanpatiCurriculum1 from '../assets/curriculums/sanpati/curriculum_sanpati_01.webp';
 import SanpatiCurriculum2 from '../assets/curriculums/sanpati/curriculum_sanpati_02.webp';
 import SanpatiCurriculum3 from '../assets/curriculums/sanpati/curriculum_sanpati_03.webp';
