@@ -126,13 +126,13 @@ const SecondPageContentContainer = styled.div`
     flex-direction: column;
     gap: 0px;
     position: absolute;
-    bottom: 32%;
+    bottom: 29%;
     left: 24%;
 `;
 
 const SecondPageContent = styled.div`
     font-family: "ZingRustDemo";
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 400;
     line-height: normal;
     color: #FCFCFC;
