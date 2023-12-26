@@ -1,5 +1,5 @@
-import Image from '../assets/images/mentorimage.webp';
-import Image2 from '../assets/images/mentorimage2.webp';
+import Image from '../assets/curriculums/sanpati/banner_sanpati_01.webp';
+import Image2 from '../assets/curriculums/escape/banner_escape_01.webp';
 
 export const MainBannertData = [
     {
