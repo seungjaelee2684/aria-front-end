@@ -1,11 +1,11 @@
 import React from 'react'
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { MainPageNumber } from '../../store/MainPageNumber';
 
 const PageNumber = () => {
 
-  const scrollIndex = useRecoilValue(MainPageNumber);
+  const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
   const pages : number[] = [1, 2, 3, 4, 5];
 
   return (
@@ -21,6 +21,9 @@ const PageNumber = () => {
             </DefaultPageNumberBox>
         )
       })}
+      <PageNumberBox style={{cursor: "pointer"}} onClick={() => setScrollIndex(1)}>
+        TOP
+      </PageNumberBox>
     </PageNumberContainer>
   )
 };
