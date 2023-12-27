@@ -1,24 +1,26 @@
 import React from 'react'
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { MainPageNumber } from '../../store/MainPageNumber';
 
 const PageNumber = () => {
+
+  const scrollIndex = useRecoilValue(MainPageNumber);
+  const pages : number[] = [1, 2, 3, 4, 5];
+
   return (
     <PageNumberContainer>
-      <PageNumberBox>
-        PageNumber
-      </PageNumberBox>
-      <PageNumberBox>
-        PageNumber
-      </PageNumberBox>
-      <PageNumberBox>
-        PageNumber
-      </PageNumberBox>
-      <PageNumberBox>
-        PageNumber
-      </PageNumberBox>
-      <PageNumberBox>
-        PageNumber
-      </PageNumberBox>
+      {pages?.map((item : number, index : number) => {
+        return (
+          (scrollIndex === item)
+            ? <PageNumberBox key={item}>
+              0{item}
+            </PageNumberBox>
+            : <DefaultPageNumberBox key={item}>
+              0{item}
+            </DefaultPageNumberBox>
+        )
+      })}
     </PageNumberContainer>
   )
 };
@@ -26,7 +28,7 @@ const PageNumber = () => {
 const PageNumberContainer = styled.div`
   height: 150px;
   position: fixed;
-  top: 45%;
+  top: 40%;
   right: 10px;
   display: flex;
   flex-direction: column;
@@ -34,12 +36,20 @@ const PageNumberContainer = styled.div`
   gap: 16px;
 `;
 
-const PageNumberBox = styled.div`
+export const DefaultPageNumberBox = styled.div`
   font-family: "Pretendard";
   font-size: 16px;
-  color: #FFFFFF;
+  font-weight: 300;
+  line-height: normal;
+  color: #ADADAD;
   display: flex;
   align-items: center;
+`;
+
+const PageNumberBox = styled(DefaultPageNumberBox)`
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
 `;
 
 export default PageNumber;
