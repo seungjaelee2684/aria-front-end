@@ -37,6 +37,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -83,6 +86,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -129,6 +135,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -175,6 +184,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -292,7 +304,7 @@ const SNSIcons = styled.img`
     width: 80px;
     height: 80px;
     object-fit: contain;
-    cursor: pointer;
+    /* cursor: pointer; */
 
     @media screen and (max-width: 1100px) {
         width: 60px;
