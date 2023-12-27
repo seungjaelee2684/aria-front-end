@@ -56,8 +56,8 @@ const FourthLayOut = styled.div`
 `;
 
 const CardBox = styled.div`
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   border: 4px solid #222020;
   background-color: #FFFFFF;
 `;

@@ -50,7 +50,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
                 : <TitleText
                   className={(scrollIndex === 5) ? "fifth-title" : ""}
                   style={{
-                    animationDelay: `${0.5 + index * 0.05}s`
+                    animationDelay: `${0.5 + index * 0.08}s`
                   }}>
                   {item?.title}
                 </TitleText>

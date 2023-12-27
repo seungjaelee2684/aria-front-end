@@ -30,6 +30,7 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
                     <SlideImage key={item?.id} src={item?.image}/>
                 )
             })}
+            <SlideImage key={MainBannertData[0]?.id} src={MainBannertData[0]?.image}/>
         </SlideWrapper>
     </SlideShowOutContainer>
   )
