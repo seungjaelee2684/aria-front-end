@@ -126,7 +126,7 @@ const SecondPageContentContainer = styled.div`
     flex-direction: column;
     gap: 0px;
     position: absolute;
-    bottom: 29%;
+    top: 47%;
     left: 24%;
 `;
 
