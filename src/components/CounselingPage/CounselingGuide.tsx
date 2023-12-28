@@ -7,24 +7,42 @@ const CounselingGuide = () => {
 
     const language = localStorage.getItem("language");
 
+    type CounselingContentType =  {
+        isred: boolean,
+        content: string[]
+    };
+    
     type CounselingGuideType = {
         image: string,
-        englishtext: string,
-        chinesetext: string,
-        japanesetext: string,
-        text: string
+        englishtext: CounselingContentType,
+        chinesetext: CounselingContentType,
+        japanesetext: CounselingContentType,
+        text: CounselingContentType
+    };
+
+    const counselingEmphasisTrans = (item : any) => {
+        switch (language) {
+            case "chinese" :
+                return item?.chinesetext.isred;
+            case "japanese" :
+                return item?.japanesetext.isred;
+            case "korean" :
+                return item?.text.isred;
+            default :
+                return item?.englishtext.isred;
+        };
     };
 
     const counselingContentTrans = (item : any) => {
         switch (language) {
             case "chinese" :
-                return item?.chinesetext;
+                return item?.chinesetext.content;
             case "japanese" :
-                return item?.japanesetext;
+                return item?.japanesetext.content;
             case "korean" :
-                return item?.text;
+                return item?.text.content;
             default :
-                return item?.englishtext;
+                return item?.englishtext.content;
         };
     };
 
@@ -49,7 +67,7 @@ const CounselingGuide = () => {
         <CounselingContainer>
             {counselingGuide?.map((item : CounselingGuideType) => {
                 return (
-                    <GuideWrapper key={item.text}>
+                    <GuideWrapper key={item.text.content[0]}>
                         <GuideImage src={item?.image} alt=''/>
                         <GuideContentWrapper>
                             #
@@ -94,7 +112,7 @@ const CounselingContainer = styled.div`
     gap: 120px;
     font-family: "Pretendard";
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     color: #222020;
 
@@ -131,13 +149,19 @@ const GuideContentWrapper = styled.div`
     width: 100%;
     display: flex;
     align-items: start;
-    gap: 8px;
 `;
 
 const GuideContent = styled.div`
     width: 100%;
     text-align: left;
     white-space: pre-line;
+`;
+
+const ColorGuideContent = styled.div`
+    text-align: left;
+    white-space: pre-line;
+    color: #ff3ea3;
+    font-weight: 600;
 `;
 
 export default CounselingGuide;
