@@ -13,17 +13,20 @@ const PageNumber = () => {
       {pages?.map((item : number, index : number) => {
         return (
           (scrollIndex === item)
-            ? <PageNumberBox key={item}>
-              0{item}
-            </PageNumberBox>
-            : <DefaultPageNumberBox key={item}>
-              0{item}
-            </DefaultPageNumberBox>
+            ? <PageNumberBox key={item} />
+            : <DefaultPageNumberBox key={item} />
         )
       })}
-      <PageNumberBox style={{cursor: "pointer"}} onClick={() => setScrollIndex(1)}>
+      {/* <PageNumberBox style={{
+        cursor: "pointer",
+        backgroundColor: "transparent",
+        fontFamily: "Pretendard",
+        fontSize: "20px",
+        fontWeight: "600",
+        lineHeight: "normal"
+      }} onClick={() => setScrollIndex(1)}>
         TOP
-      </PageNumberBox>
+      </PageNumberBox> */}
     </PageNumberContainer>
   )
 };
@@ -32,27 +35,27 @@ const PageNumberContainer = styled.div`
   height: 150px;
   position: fixed;
   top: 40%;
-  right: 10px;
+  right: 2%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 `;
 
 export const DefaultPageNumberBox = styled.div`
-  font-family: "Pretendard";
-  font-size: 16px;
-  font-weight: 300;
-  line-height: normal;
-  color: #ADADAD;
+  width: 28px;
+  min-height: 28px;
+  background-color: #adadadbe;
+  color: #FFFFFF;
   display: flex;
+  justify-content: center;
   align-items: center;
+  user-select: none;
 `;
 
 const PageNumberBox = styled(DefaultPageNumberBox)`
-  font-size: 18px;
-  font-weight: 600;
-  color: #FFFFFF;
+  background-color: #ffffffc7;
 `;
 
 export default PageNumber;

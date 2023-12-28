@@ -55,32 +55,26 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                     })}
                 </SecondPageTitle>
                 <BarContainer src={Bar} alt='' className={(scrollIndex === 2) ? "second-bar" : ""}/>
-                <SecondPageContentContainer>
+                <SecondPageContentContainer className={(scrollIndex === 2) ? "second-content" : ""}>
                     <SecondPageContent>
-                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(0)}</Text>
-                        <ColorText
-                            className={(scrollIndex === 2) ? "second-color-content" : ""}
-                            style={{animationDelay: "2.3s"}}>
+                        <Text>{mainPageTextChange(0)}</Text>
+                        <ColorText>
                             {mainPageTextChange(1)}
                         </ColorText>
-                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(2)}</Text>
+                        <Text>{mainPageTextChange(2)}</Text>
                     </SecondPageContent>
                     <SecondPageContent>
-                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(3)}</Text>
-                        <ColorText
-                            className={(scrollIndex === 2) ? "second-color-content" : ""}
-                            style={{animationDelay: "2.5s"}}>
+                        <Text>{mainPageTextChange(3)}</Text>
+                        <ColorText>
                             {mainPageTextChange(4)}
                         </ColorText>
                     </SecondPageContent>
                     <SecondPageContent style={{marginTop: "24px"}}>
-                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(5)}</Text>
+                        <Text>{mainPageTextChange(5)}</Text>
                     </SecondPageContent>
                     <SecondPageContent>
-                        <Text className={(scrollIndex === 2) ? "second-content" : ""}>{mainPageTextChange(6)}</Text>
-                        <ColorText
-                            className={(scrollIndex === 2) ? "second-color-content" : ""}
-                            style={{animationDelay: "2.7s"}}>
+                        <Text>{mainPageTextChange(6)}</Text>
+                        <ColorText>
                             {mainPageTextChange(7)}
                         </ColorText>
                     </SecondPageContent>
@@ -128,6 +122,7 @@ const SecondPageContentContainer = styled.div`
     position: absolute;
     top: 47%;
     left: 24%;
+    opacity: 0;
 `;
 
 const SecondPageContent = styled.div`
@@ -144,12 +139,10 @@ const SecondPageContent = styled.div`
 
 const Text = styled.div`
     color: #FFFFFF;
-    opacity: 0;
 `;
 
 const ColorText = styled.div`
     color: #ff3ea3;
-    opacity: 0;
 `;
 
 const BarContainer = styled.img`

@@ -61,7 +61,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
           <Button
             className={(scrollIndex === 5) ? "fifth-button" : ""}
             color="#e83698"
-            onClick={() => handleCopyClipBoard("dadf31234@gmail.com")}>
+            onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}>
             CLICK TO COPY EMAIL
           </Button>
           <Button

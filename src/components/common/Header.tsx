@@ -78,16 +78,6 @@ const Header = () => {
     };
 
     useEffect(() => {
-        if (mainScrollHeader.current) {
-            if (mainScrollIndex === 1) {
-                mainScrollHeader.current.style.transition = "all 0.3s ease-in-out";
-                mainScrollHeader.current.style.transform = "translateY(0px)";
-            } else {
-                mainScrollHeader.current.style.transition = "all 0.3s ease-in-out";
-                mainScrollHeader.current.style.transform = "translateY(-80px)";
-            };
-            
-        };
         const handleClickOutside = (event: any) => {
             if (modalRef.current
                     && !modalRef.current.contains(event.target)
@@ -124,7 +114,7 @@ const Header = () => {
 
   return (
     <div>
-        <HeaderLayoutContainer ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
+        <HeaderLayoutContainer ref={(location.pathname === "/") ? null : scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                     <HeaderLogo
@@ -443,7 +433,7 @@ const MobileHeaderContainer = styled.div`
 
 const MobileHeaderPageContainer = styled.div`
     font-family: "LINESeedKR-Bd";
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: normal;
     color: #222020;

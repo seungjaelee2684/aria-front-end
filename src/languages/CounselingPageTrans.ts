@@ -67,8 +67,8 @@ export const counselingGuide : CounselingGuideType[] = [
         image: CounselingGuideImg1,
         englishtext: "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
         chinesetext: "去听课申请",
-        japanesetext: "# SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
-        text: "#Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다."
+        japanesetext: "SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
+        text: "Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다."
     },
     {
         image: CounselingGuideImg2,
