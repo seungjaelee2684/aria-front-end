@@ -154,12 +154,14 @@ const CounselingContainer = styled.div`
     color: #222020;
 
     @media screen and (max-width: 900px) {
-        width: 96%;
+        width: 650px;
+        font-size: 12px;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 650px) {
+        width: 96%;
         gap: 50px;
-        font-size: 14px;
+        font-size: 8px;
     }
 `;
 
@@ -188,6 +190,10 @@ const GuideContentWrapper = styled.div`
     /* flex-wrap: wrap; */
     align-items: end;
     gap: 8px;
+
+    @media screen and (max-width: 650px) {
+        gap: 2px;
+    }
 `;
 
 const GuideContent = styled.div`
@@ -199,6 +205,15 @@ const ColorGuideContent = styled.div`
     font-weight: 800;
     font-size: 19px;
     /* text-decoration: underline; */
+
+    @media screen and (max-width: 900px) {
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 650px) {
+        font-size: 9px;
+        font-weight: 700;
+    }
 `;
 
 export default CounselingGuide;
