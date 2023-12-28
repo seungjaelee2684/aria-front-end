@@ -277,11 +277,11 @@ export const counselingGuide : CounselingGuideType[] = [
         text: [
             {
                 isred: false,
-                content: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. ",
+                content: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행할 수 있습니다. ",
             },
             {
                 isred: true,
-                content: "수강신청은 상담 후  안내에 따라 진행됩니다.",
+                content: "수강신청은 상담 후 안내에 따라 진행됩니다.",
             },
         ]
     },
