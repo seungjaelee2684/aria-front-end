@@ -51,9 +51,12 @@ const CounselingGuide = () => {
                 return (
                     <GuideWrapper key={item.text}>
                         <GuideImage src={item?.image} alt=''/>
-                        <GuideContent>
-                            {counselingContentTrans(item)}
-                        </GuideContent>
+                        <GuideContentWrapper>
+                            #
+                            <GuideContent>
+                                {counselingContentTrans(item)}
+                            </GuideContent>
+                        </GuideContentWrapper>
                     </GuideWrapper>
                 );
             })}
@@ -90,8 +93,8 @@ const CounselingContainer = styled.div`
     align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     line-height: normal;
     color: #222020;
 
@@ -122,6 +125,13 @@ const GuideImage = styled.img`
     height: auto;
     object-fit: cover;
     margin: 0px auto;
+`;
+
+const GuideContentWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: start;
+    gap: 8px;
 `;
 
 const GuideContent = styled.div`

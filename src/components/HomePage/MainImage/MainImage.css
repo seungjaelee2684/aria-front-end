@@ -12,8 +12,8 @@
 }
 
 .second-content {
-    animation: opacity_controll 2s forwards;
-    animation-delay: 1.3s;
+    animation: opacity_controll 1.6s forwards;
+    animation-delay: 1.8s;
 }
 
 .second-color-content {
