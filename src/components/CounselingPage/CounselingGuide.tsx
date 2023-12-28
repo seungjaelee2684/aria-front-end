@@ -35,21 +35,53 @@ const CounselingGuide = () => {
 
     const counselingContentTrans = (item : any) => {
         if (language === "chinese") {
-            item?.chinesetext.map((text : CounselingContentType) => {
-                // return (
-                //     ()
-                // )
+            return item?.chinesetext.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent>
+                            {text?.content}
+                        </GuideContent>
+                )
             })
-        };
-        switch (language) {
-            case "chinese" :
-                return item?.chinesetext.content;
-            case "japanese" :
-                return item?.japanesetext.content;
-            case "korean" :
-                return item?.text.content;
-            default :
-                return item?.englishtext.content;
+        } else if (language === "japanese") {
+            return item?.japanesetext.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
+        } else if (language === "korean") {
+            return item?.text.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
+        } else {
+            return item?.englishtext.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
         };
     };
 
@@ -78,9 +110,7 @@ const CounselingGuide = () => {
                         <GuideImage src={item?.image} alt=''/>
                         <GuideContentWrapper>
                             #
-                            <GuideContent>
-                                {counselingContentTrans(item)}
-                            </GuideContent>
+                            {counselingContentTrans(item)}
                         </GuideContentWrapper>
                     </GuideWrapper>
                 );
@@ -118,7 +148,7 @@ const CounselingContainer = styled.div`
     align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: normal;
     color: #222020;
@@ -155,20 +185,20 @@ const GuideImage = styled.img`
 const GuideContentWrapper = styled.div`
     width: 100%;
     display: flex;
-    align-items: start;
+    /* flex-wrap: wrap; */
+    align-items: end;
+    gap: 8px;
 `;
 
 const GuideContent = styled.div`
-    width: 100%;
-    text-align: left;
-    white-space: pre-line;
+    color: #222020;
 `;
 
 const ColorGuideContent = styled.div`
-    text-align: left;
-    white-space: pre-line;
     color: #ff3ea3;
-    font-weight: 600;
+    font-weight: 800;
+    font-size: 19px;
+    /* text-decoration: underline; */
 `;
 
 export default CounselingGuide;
