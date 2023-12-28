@@ -69,6 +69,10 @@ const CounselingOutContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 50px;
+
+    @media screen and (max-width: 900px) {
+        width: 96%;
+    }
 `;
 
 const GuideTitleContainer = styled.div`

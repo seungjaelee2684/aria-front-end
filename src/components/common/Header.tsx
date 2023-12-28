@@ -17,7 +17,7 @@ import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { IoIosArrowBack } from "react-icons/io";
+import { MdOutlineArrowBack } from "react-icons/md";
 
 const Header = () => {
 
@@ -49,9 +49,33 @@ const Header = () => {
         };
     };
 
-    useEffect(() => {
-        
-    }, []);
+    const mobilePage = () => {
+        if (location.pathname.includes("/mentor")) {
+            return (
+                <MobileHeaderPageContainer>
+                    Mentor
+                </MobileHeaderPageContainer>
+            );
+        } else if (location.pathname.includes("/showcase")) {
+            return (
+                <MobileHeaderPageContainer>
+                    Showcase
+                </MobileHeaderPageContainer>
+            )
+        } else if (location.pathname.includes("/notice")) {
+            return (
+                <MobileHeaderPageContainer>
+                    Notice
+                </MobileHeaderPageContainer>
+            )
+        } else if (location.pathname.includes("/support")) {
+            return (
+                <MobileHeaderPageContainer>
+                    Support
+                </MobileHeaderPageContainer>
+            )
+        };
+    };
 
     useEffect(() => {
         if (mainScrollHeader.current) {
@@ -150,8 +174,9 @@ const Header = () => {
         <MobileHeaderContainer>
             <HeaderOutWrapper>
                 <PrevButton onClick={() => window.history.back()}>
-                    <IoIosArrowBack />
+                    <MdOutlineArrowBack />
                 </PrevButton>
+                {mobilePage()}
                 <TranslateContainer ref={mobileModalRef} style={{position: "static"}}>
                     <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
                         <BsGlobe2 />
@@ -414,6 +439,14 @@ const MobileHeaderContainer = styled.div`
     @media screen and (max-width: 500px) {
         display: block;
     }
+`;
+
+const MobileHeaderPageContainer = styled.div`
+    font-family: "LINESeedKR-Bd";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: #222020;
 `;
 
 export default Header;
