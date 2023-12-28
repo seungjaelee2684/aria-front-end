@@ -11,15 +11,15 @@ type CounselingTextType = {
 
 type CounselingContentType =  {
     isred: boolean,
-    content: string[]
+    content: string
 };
 
 type CounselingGuideType = {
     image: string,
-    englishtext: CounselingContentType,
-    chinesetext: CounselingContentType,
-    japanesetext: CounselingContentType,
-    text: CounselingContentType
+    englishtext: CounselingContentType[],
+    chinesetext: CounselingContentType[],
+    japanesetext: CounselingContentType[],
+    text: CounselingContentType[]
 };
 
 export const CounselingText : CounselingTextType[] = [
@@ -70,83 +70,227 @@ export const CounselingText : CounselingTextType[] = [
 export const counselingGuide : CounselingGuideType[] = [
     {
         image: CounselingGuideImg1,
-        englishtext: {
-            isred: false,
-            content: [
-                "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
-            ]
-        },
-        chinesetext: {
-            isred: false,
-            content: [
-                "去听课申请",
-            ],
-        },
-        japanesetext: {
-            isred: false,
-            content: [
-                "SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
-            ]
-        },
-        text: {
-            isred: false,
-            content: [
-                "Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다.",
-            ]
-        }
+        englishtext: [
+            {
+                isred: false,
+                content: "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
+            },
+            {
+                isred: false,
+                content: "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
+            },
+            {
+                isred: false,
+                content: "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
+            },
+            {
+                isred: false,
+                content: "Create a ticket by clicking “Create ticket” at  #Support. The ticket will be created after a few second.",
+            },
+        ],
+        chinesetext: [
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+        ],
+        japanesetext: [
+            {
+                isred: false,
+                content: "SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
+            },
+            {
+                isred: false,
+                content: "SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
+            },
+            {
+                isred: false,
+                content: "SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
+            },
+            {
+                isred: false,
+                content: "SuportでCreate ticketをクリックしてチケットを作成します。 まもなくチケットが作成されます。",
+            },
+        ],
+        text: [
+            {
+                isred: false,
+                content: "Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다.",
+            },
+            {
+                isred: false,
+                content: "Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다.",
+            },
+            {
+                isred: false,
+                content: "Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다.",
+            },
+            {
+                isred: false,
+                content: "Support에서 “Create ticket”을 눌러 티켓을 생성합니다. 잠시 후 티켓이 생성 됩니다.",
+            },
+        ]
     },
     {
         image: CounselingGuideImg2,
-        englishtext: {
-            isred: false,
-            content: [
-                "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
-            ]
-        },
-        chinesetext: {
-            isred: false,
-            content: [
-                "去听课申请",
-            ]
-        },
-        japanesetext: {
-            isred: false,
-            content: [
-                "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
-            ]
-        },
-        text: {
-            isred: false,
-            content: [
-                "티켓은 좌측에 생성됩니다. 문의 사항을 남겨 주시면 영업시간에 담당자와 상담이 가능합니다."
-            ]
-        }
+        englishtext: [
+            {
+                isred: false,
+                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
+            },
+            {
+                isred: false,
+                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
+            },
+            {
+                isred: false,
+                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
+            },
+            {
+                isred: false,
+                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
+            },
+        ],
+        chinesetext: [
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+        ],
+        japanesetext: [
+            {
+                isred: false,
+                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+            },
+            {
+                isred: false,
+                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+            },
+            {
+                isred: false,
+                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+            },
+            {
+                isred: false,
+                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+            },
+        ],
+        text: [
+            {
+                isred: false,
+                content: "티켓은 좌측에 생성됩니다. 문의 사항을 남겨 주시면 영업시간에 담당자와 상담이 가능합니다."
+            },
+            {
+                isred: false,
+                content: "티켓은 좌측에 생성됩니다. 문의 사항을 남겨 주시면 영업시간에 담당자와 상담이 가능합니다."
+            },
+            {
+                isred: false,
+                content: "티켓은 좌측에 생성됩니다. 문의 사항을 남겨 주시면 영업시간에 담당자와 상담이 가능합니다."
+            },
+            {
+                isred: false,
+                content: "티켓은 좌측에 생성됩니다. 문의 사항을 남겨 주시면 영업시간에 담당자와 상담이 가능합니다."
+            },
+        ]
     },
     {
         image: CounselingGuideImg3,
-        englishtext: {
-            isred: false,
-            content: [
-                "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
-            ]
-        },
-        chinesetext: {
-            isred: false,
-            content: [
-                "去听课申请",
-            ]
-        },
-        japanesetext: {
-            isred: false,
-            content: [
-                "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
-            ]
-        },
-        text: {
-            isred: false,
-            content: [
-                "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. 수강신청은 상담 후  안내에 따라 진행됩니다.",
-            ]
-        }
+        englishtext: [
+            {
+                isred: false,
+                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
+            },
+            {
+                isred: false,
+                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
+            },
+            {
+                isred: false,
+                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
+            },
+            {
+                isred: false,
+                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
+            },
+        ],
+        chinesetext: [
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+            {
+                isred: false,
+                content: "去听课申请",
+            },
+        ],
+        japanesetext: [
+            {
+                isred: false,
+                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+            },
+            {
+                isred: false,
+                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+            },
+            {
+                isred: false,
+                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+            },
+            {
+                isred: false,
+                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+            },
+        ],
+        text: [
+            {
+                isred: false,
+                content: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. 수강신청은 상담 후  안내에 따라 진행됩니다.",
+            },
+            {
+                isred: false,
+                content: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. 수강신청은 상담 후  안내에 따라 진행됩니다.",
+            },
+            {
+                isred: false,
+                content: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. 수강신청은 상담 후  안내에 따라 진행됩니다.",
+            },
+            {
+                isred: false,
+                content: "티켓에서 해당 부분의 계정 정보가 맞는지 확인 후 상담을 진행 할 수 있습니다. 수강신청은 상담 후  안내에 따라 진행됩니다.",
+            },
+        ]
     },
 ];
