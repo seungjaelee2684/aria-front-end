@@ -5,7 +5,6 @@ import FirstBG from '../../assets/images/mainpage/1.webp';
 import Logo from '../../assets/images/mainpage/Asset 95.webp';
 import { useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../../store/MainPageNumber';
-import { titleLogo } from '../../data/MainTitleLogoData';
 import Logo_A from '../../assets/images/mainpage/Asset-95_01.webp';
 import Logo_R from '../../assets/images/mainpage/Asset-95_02.webp';
 import Logo_I from '../../assets/images/mainpage/Asset-95_03.webp';
