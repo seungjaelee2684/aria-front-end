@@ -17,6 +17,10 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
 
     useEffect(() => {
         if (mainSlideDivRef.current) {
+            if (mainSlideCurrent === MainBannertData?.length) {
+                mainSlideDivRef.current.style.transition = "none";
+                mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
+            };
             mainSlideDivRef.current.style.transition = "all 0.8s ease-in-out";
             mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
         };

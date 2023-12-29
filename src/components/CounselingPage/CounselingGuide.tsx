@@ -38,10 +38,10 @@ const CounselingGuide = () => {
             return item?.chinesetext.map((text : CounselingContentType) => {
                 return (
                     (text?.isred)
-                        ? <ColorGuideContent>
+                        ? <ColorGuideContent key={text?.content}>
                             {text?.content}
                         </ColorGuideContent>
-                        : <GuideContent>
+                        : <GuideContent key={text?.content}>
                             {text?.content}
                         </GuideContent>
                 )
@@ -50,10 +50,10 @@ const CounselingGuide = () => {
             return item?.japanesetext.map((text : CounselingContentType) => {
                 return (
                     (text?.isred)
-                        ? <ColorGuideContent>
+                        ? <ColorGuideContent key={text?.content}>
                             {text?.content}
                         </ColorGuideContent>
-                        : <GuideContent>
+                        : <GuideContent key={text?.content}>
                             {text?.content}
                         </GuideContent>
                 )
@@ -62,10 +62,10 @@ const CounselingGuide = () => {
             return item?.text.map((text : CounselingContentType) => {
                 return (
                     (text?.isred)
-                        ? <ColorGuideContent>
+                        ? <ColorGuideContent key={text?.content}>
                             {text?.content}
                         </ColorGuideContent>
-                        : <GuideContent>
+                        : <GuideContent key={text?.content}>
                             {text?.content}
                         </GuideContent>
                 )
@@ -74,10 +74,10 @@ const CounselingGuide = () => {
             return item?.englishtext.map((text : CounselingContentType) => {
                 return (
                     (text?.isred)
-                        ? <ColorGuideContent>
+                        ? <ColorGuideContent key={text?.content}>
                             {text?.content}
                         </ColorGuideContent>
-                        : <GuideContent>
+                        : <GuideContent key={text?.content}>
                             {text?.content}
                         </GuideContent>
                 )
