@@ -1,5 +1,21 @@
-.frame-in {
-    animation: first_logo_appear 1s forwards;
+.first-frame-in {
+    animation: first_logo_appear_a 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+.second-frame-in {
+    animation: first_logo_appear_r 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+.third-frame-in {
+    animation: first_logo_appear_i 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+.fourth-frame-in {
+    animation: first_logo_appear_a2 1.5s forwards;
+    animation-delay: 0.5s;
 }
 
 .second-bar {
@@ -34,14 +50,47 @@
     animation-delay: 1.6s;
 }
 
-@keyframes first_logo_appear {
+@keyframes first_logo_appear_a {
     from {
         opacity: 0;
-        transform: scale(0.6) translateY(-100%);
+        transform: scale(1.5) translateX(-150%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes first_logo_appear_r {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(-70%);
     }
     to {
         opacity: 1;
         transform: scale(1) translateY(0%);
+    }
+}
+
+@keyframes first_logo_appear_i {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(70%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes first_logo_appear_a2 {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(150%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
     }
 }
 

@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import './MainImage/MainImage.css';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import FirstBG from '../../assets/images/mainpage/1.webp';
 import Logo from '../../assets/images/mainpage/Asset 95.webp';
 import { useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../../store/MainPageNumber';
+import { titleLogo } from '../../data/MainTitleLogoData';
+import Logo_A from '../../assets/images/mainpage/Asset-95_01.webp';
+import Logo_R from '../../assets/images/mainpage/Asset-95_02.webp';
+import Logo_I from '../../assets/images/mainpage/Asset-95_03.webp';
+import Logo_A2 from '../../assets/images/mainpage/Asset-95_04.webp';
 
 interface FirstPageImageProps {
   mainPageTextChange: Function;
@@ -19,17 +24,48 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
     <ImageBoxWrapper>
       <BackgroundImage src={FirstBG} alt=''/>
       <MainImage>
-        <LogoImage
-          src={Logo}
-          alt=''
-          onLoad={() => setImageLoad(true)}
-          className={
-            (imageLoad)
-              ? (scrollIndex === 1)
-                ? "frame-in"
+        <LogoImageContainer onLoad={() => setImageLoad(true)}>
+          <LogoImage
+            src={Logo_A}
+            alt=''
+            className={
+              (imageLoad)
+                ? (scrollIndex === 1)
+                  ? "first-frame-in"
+                  : ""
                 : ""
-              : ""
-          }/>
+            }/>
+          <LogoImage
+            src={Logo_R}
+            alt=''
+            className={
+              (imageLoad)
+                ? (scrollIndex === 1)
+                  ? "second-frame-in"
+                  : ""
+                : ""
+            }/>
+          <LogoImage
+            src={Logo_I}
+            alt=''
+            className={
+              (imageLoad)
+                ? (scrollIndex === 1)
+                  ? "third-frame-in"
+                  : ""
+                : ""
+            }/>
+          <LogoImage
+            src={Logo_A2}
+            alt=''
+            className={
+              (imageLoad)
+                ? (scrollIndex === 1)
+                  ? "fourth-frame-in"
+                  : ""
+                : ""
+            }/>
+        </LogoImageContainer>
       </MainImage>
     </ImageBoxWrapper>
   )
@@ -67,10 +103,26 @@ export const MainImage = styled.div`
   left: 0;
 `;
 
+const LogoImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+`;
+
 const LogoImage = styled.img`
-  width: 550px;
-  height: auto;
+  width: auto;
+  height: 180px;
   object-fit: cover;
+  opacity: 0;
+`;
+
+const TitleAnimation = keyframes`
+  from {
+
+  }
+  to {
+
+  }
 `;
 
 export default FirstPageImage;
