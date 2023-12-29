@@ -48,7 +48,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
               (item?.title === " ")
                 ? <EmptyTitle />
                 : <TitleText
-                  className={(scrollIndex === 5) ? "fifth-title" : ""}
+                  className={(scrollIndex === 4) ? "fifth-title" : ""}
                   style={{
                     animationDelay: `${0.5 + index * 0.08}s`
                   }}>
@@ -59,13 +59,13 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
         </FifthTitle>
         <ButtonWrapper>
           <Button
-            className={(scrollIndex === 5) ? "fifth-button" : ""}
+            className={(scrollIndex === 4) ? "fifth-button" : ""}
             color="#e83698"
             onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}>
             CLICK TO COPY EMAIL
           </Button>
           <Button
-            className={(scrollIndex === 5) ? "fifth-button" : ""}
+            className={(scrollIndex === 4) ? "fifth-button" : ""}
             color="#7489da"
             onClick={() => navigate("/support/counseling")}>
             GO TO STUDENT COUNSELING PAGE
