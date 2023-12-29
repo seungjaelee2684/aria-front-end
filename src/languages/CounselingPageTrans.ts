@@ -152,19 +152,11 @@ export const counselingGuide : CounselingGuideType[] = [
         englishtext: [
             {
                 isred: false,
-                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
+                content: "The ticket will be created at the left side. If you leave any questions,",
             },
             {
-                isred: false,
-                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
-            },
-            {
-                isred: false,
-                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
-            },
-            {
-                isred: false,
-                content: "The ticket will be created at the left side. If you leave any questions, we will answer your questions during business hours.",
+                isred: true,
+                content: "we will answer your questions during business hours.",
             },
         ],
         chinesetext: [
@@ -223,19 +215,11 @@ export const counselingGuide : CounselingGuideType[] = [
         englishtext: [
             {
                 isred: false,
-                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
+                content: "Please check your account information at the ticket beforehand.",
             },
             {
-                isred: false,
-                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
-            },
-            {
-                isred: false,
-                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
-            },
-            {
-                isred: false,
-                content: "Please check your account information at the ticket beforehand. Course registration will be conducted according to the guidance after consultation.",
+                isred: true,
+                content: "Course registration will be conducted according to the guidance after consultation.",
             },
         ],
         chinesetext: [

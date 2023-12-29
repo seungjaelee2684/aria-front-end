@@ -110,7 +110,9 @@ const CounselingGuide = () => {
                         <GuideImage src={item?.image} alt=''/>
                         <GuideContentWrapper>
                             #
-                            {counselingContentTrans(item)}
+                            <ContentInWrapper>
+                                {counselingContentTrans(item)}
+                            </ContentInWrapper>
                         </GuideContentWrapper>
                     </GuideWrapper>
                 );
@@ -129,16 +131,28 @@ const CounselingOutContainer = styled.div`
     gap: 50px;
 
     @media screen and (max-width: 900px) {
+        width: 650px;
+    }
+
+    @media screen and (max-width: 650px) {
         width: 96%;
     }
 `;
 
 const GuideTitleContainer = styled.div`
     font-size: 24px;
-    font-family: "UniSansThin";
+    font-family: "Pretendard";
     font-weight: 600;
     line-height: 150%;
     color: #222020;
+
+    @media screen and (max-width: 900px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 650px) {
+        font-size: 14px;
+    }
 `;
 
 const CounselingContainer = styled.div`
@@ -148,20 +162,20 @@ const CounselingContainer = styled.div`
     align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     line-height: normal;
     color: #222020;
 
     @media screen and (max-width: 900px) {
         width: 650px;
-        font-size: 12px;
+        font-size: 18px;
     }
 
     @media screen and (max-width: 650px) {
+        font-size: 12px;
         width: 96%;
         gap: 50px;
-        font-size: 8px;
     }
 `;
 
@@ -187,7 +201,14 @@ const GuideImage = styled.img`
 const GuideContentWrapper = styled.div`
     width: 100%;
     display: flex;
-    /* flex-wrap: wrap; */
+    align-items: start;
+    gap: 8px;
+`;
+
+const ContentInWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     align-items: end;
     gap: 8px;
 
@@ -203,15 +224,15 @@ const GuideContent = styled.div`
 const ColorGuideContent = styled.div`
     color: #ff3ea3;
     font-weight: 800;
-    font-size: 19px;
+    font-size: 21px;
     /* text-decoration: underline; */
 
     @media screen and (max-width: 900px) {
-        font-size: 13px;
+        font-size: 19px;
     }
 
     @media screen and (max-width: 650px) {
-        font-size: 9px;
+        font-size: 13px;
         font-weight: 700;
     }
 `;
