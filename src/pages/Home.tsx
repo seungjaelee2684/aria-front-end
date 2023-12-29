@@ -85,19 +85,23 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(4);
-                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
-                        //현재 4페이지
-                        console.log("현재 4페이지, down");
-                        outerDivRef.current.scrollTo({
-                            top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
-                            left: 0,
-                            behavior: "smooth",
-                        });
-                        setScrollIndex(5);
                     } else {
-                        //현재 5페이지
                         e.preventDefault();
-                    };
+                    }
+                    // else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
+                    //     //현재 4페이지
+                    //     console.log("현재 4페이지, down");
+                    //     outerDivRef.current.scrollTo({
+                    //         top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                    //         left: 0,
+                    //         behavior: "smooth",
+                    //     });
+                    //     setScrollIndex(5);
+                    // }
+                    // else {
+                    //     //현재 5페이지
+                    //     e.preventDefault();
+                    // };
                 } else {
                     // 스크롤 올릴 때
                     if (scrollTop >= 0 && scrollTop < pageHeight) {
@@ -127,7 +131,7 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(2);
-                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
+                    } else {
                         //현재 4페이지
                         console.log("현재 4페이지, up");
                         outerDivRef.current.scrollTo({
@@ -136,16 +140,17 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(3);
-                    } else {
-                        // 현재 5페이지
-                        console.log("현재 5페이지, up");
-                        outerDivRef.current.scrollTo({
-                          top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
-                          left: 0,
-                          behavior: "smooth",
-                        });
-                        setScrollIndex(4);
-                    };
+                    }
+                    // else {
+                    //     // 현재 5페이지
+                    //     console.log("현재 5페이지, up");
+                    //     outerDivRef.current.scrollTo({
+                    //       top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                    //       left: 0,
+                    //       behavior: "smooth",
+                    //     });
+                    //     setScrollIndex(4);
+                    // };
                 }
                 }
             };
@@ -166,8 +171,8 @@ const Home = () => {
         <SpaceBetweenContainer />
         <ThirdPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
-        <FourthPageImage mainPageTextChange={mainPageTextChange}/>
-        <SpaceBetweenContainer />
+        {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer /> */}
         <FifthPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
         <PageNumber />
