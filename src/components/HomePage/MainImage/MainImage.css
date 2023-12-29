@@ -42,7 +42,7 @@
 }
 
 .fifth-title {
-    animation: fifth_title_appear 0.6s forwards;
+    animation: opacity_controll 0.6s forwards;
 }
 
 .fifth-button {
@@ -143,6 +143,21 @@
         opacity: 0;
     }
     to {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity_controll_2 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }

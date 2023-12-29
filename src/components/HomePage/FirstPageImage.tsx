@@ -105,23 +105,14 @@ export const MainImage = styled.div`
 const LogoImageContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 `;
 
 const LogoImage = styled.img`
   width: auto;
-  height: 180px;
+  height: 230px;
   object-fit: cover;
   opacity: 0;
-`;
-
-const TitleAnimation = keyframes`
-  from {
-
-  }
-  to {
-
-  }
 `;
 
 export default FirstPageImage;
