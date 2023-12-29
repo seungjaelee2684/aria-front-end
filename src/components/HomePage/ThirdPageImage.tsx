@@ -30,7 +30,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
 
   const onClickMainNextHandler = () => {
     if (mainSlideCurrent === MainBannertData?.length - 1) {
-      setMainSlideCurrent(0);
+      setMainSlideCurrent(MainBannertData?.length);
     } else {
       setMainSlideCurrent(mainSlideCurrent + 1);
     };
@@ -117,7 +117,7 @@ export const PrevButton = styled.div`
   align-items: center;
   color: #FFFFFF;
   position: absolute;
-  top: 42%;
+  top: 45%;
   left: -5%;
   cursor: pointer;
 
