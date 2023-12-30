@@ -110,9 +110,17 @@ const LogoImageContainer = styled.div`
 
 const LogoImage = styled.img`
   width: auto;
-  height: 230px;
+  height: 260px;
   object-fit: cover;
   opacity: 0;
+
+  @media screen and (max-width: 1320px) {
+    height: 220px;
+  }
+
+  @media screen and (max-width: 836px) {
+    height: 180px;
+  }
 `;
 
 export default FirstPageImage;
