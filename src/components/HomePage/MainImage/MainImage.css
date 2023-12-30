@@ -1,21 +1,25 @@
+.background-close {
+    animation: opacity_controll_close 1s ease-in forwards;
+}
+
 .first-frame-in {
     animation: first_logo_appear_a 1.5s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.7s;
 }
 
 .second-frame-in {
     animation: first_logo_appear_r 1.5s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.7s;
 }
 
 .third-frame-in {
     animation: first_logo_appear_i 1.5s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.7s;
 }
 
 .fourth-frame-in {
     animation: first_logo_appear_a2 1.5s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.7s;
 }
 
 .second-bar {
@@ -147,18 +151,12 @@
     }
 }
 
-@keyframes opacity_controll_2 {
-    0% {
-        opacity: 0;
-    }
-    30% {
+@keyframes opacity_controll_close {
+    from {
         opacity: 1;
     }
-    70% {
+    to {
         opacity: 0;
-    }
-    100% {
-        opacity: 1;
     }
 }
 
