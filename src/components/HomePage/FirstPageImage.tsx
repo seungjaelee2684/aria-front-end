@@ -21,9 +21,18 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
 
   return (
     <ImageBoxWrapper>
-      <BackgroundImage src={FirstBG} alt=''/>
+      <BackgroundContainer
+        className={
+          (imageLoad)
+            ? "background-close"
+            // ? (scrollIndex === 1)
+            //   ? "background-close"
+            //   : ""
+            : ""}
+        />
+      <BackgroundImage src={FirstBG} alt='' onLoad={() => setImageLoad(true)}/>
       <MainImage>
-        <LogoImageContainer onLoad={() => setImageLoad(true)}>
+        <LogoImageContainer>
           <LogoImage
             src={Logo_A}
             alt=''
@@ -100,6 +109,17 @@ export const MainImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+`;
+
+export const BackgroundContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #090e2899;
+  z-index: 99;
 `;
 
 const LogoImageContainer = styled.div`
