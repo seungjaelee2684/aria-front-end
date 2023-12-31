@@ -40,7 +40,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
  
   return (
     <ImageBoxWrapper>
-      <BackgroundImage src={FifthBG} alt=''/>
+      <FifthBackgroundImage src={FifthBG} alt=''/>
       <FifthLayout>
         <FifthTitle>
           {titleArr?.map((item : any, index: number) => {
@@ -75,6 +75,10 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
     </ImageBoxWrapper>
   )
 };
+
+const FifthBackgroundImage = styled(BackgroundImage)`
+  margin-top: 80px;
+`;
 
 const FifthLayout = styled(MainImage)`
   display: flex;
