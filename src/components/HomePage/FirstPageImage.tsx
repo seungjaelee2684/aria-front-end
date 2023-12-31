@@ -88,7 +88,6 @@ export const ImageBoxWrapper = styled.div`
 `;
 
 export const BackgroundImage = styled.img`
-  margin-top: 80px;
   width: 100%;
   height: 100%;
   object-fit: cover;
