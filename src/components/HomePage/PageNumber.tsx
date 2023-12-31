@@ -6,7 +6,7 @@ import { MainPageNumber } from '../../store/MainPageNumber';
 const PageNumber = () => {
 
   const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
-  const pages : number[] = [1, 2, 3, 4, 5];
+  const pages : number[] = [1, 2, 3, 4];
 
   return (
     <PageNumberContainer>
