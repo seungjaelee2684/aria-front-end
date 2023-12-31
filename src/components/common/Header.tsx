@@ -78,7 +78,12 @@ const Header = () => {
     };
 
     useEffect(() => {
-        
+
+        if (mainScrollHeader.current) {
+            mainScrollHeader.current.style.opacity = "1";
+            mainScrollHeader.current.style.transition = "all 0.4s ease-in-out";
+            mainScrollHeader.current.style.transform = "translateY(0px)";
+        };
 
         const handleClickOutside = (event: any) => {
             if (modalRef.current
@@ -112,11 +117,11 @@ const Header = () => {
             document.removeEventListener("click", handleClickOutside);
             window.removeEventListener('scroll', scrollHandler);
         };
-    }, [scrollData, mainScrollIndex]);
+    }, [scrollData, mainScrollIndex, location.pathname]);
 
   return (
     <div>
-        <HeaderLayoutContainer ref={(location.pathname === "/") ? null : scrollHeader}>
+        <HeaderLayoutContainer ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                     <HeaderLogo

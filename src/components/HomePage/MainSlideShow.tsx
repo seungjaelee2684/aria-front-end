@@ -21,7 +21,7 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
                 mainSlideDivRef.current.style.transition = "none";
                 mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
             };
-            mainSlideDivRef.current.style.transition = "all 0.8s ease-in-out";
+            mainSlideDivRef.current.style.transition = "all 1.3s ease-out";
             mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
         };
     }, [mainSlideCurrent]);
