@@ -117,6 +117,10 @@ const FifthTitle = styled.div`
   @media screen and (max-width: 836px) {
     font-size: 60px;
   }
+
+  @media screen and (max-width: 680px) {
+    font-size: 50px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
