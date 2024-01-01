@@ -105,6 +105,16 @@ const TriangleContainer = styled.img`
     position: absolute;
     top: 35%;
     left: 0;
+
+    @media screen and (max-width: 1320px) {
+        width: 80px;
+        top: 30%;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 60px;
+        top: 25%;
+    }
 `;
 
 const SecondPageTitle = styled.div`
@@ -114,6 +124,14 @@ const SecondPageTitle = styled.div`
     display: flex;
     align-items: center;
     user-select: none;
+
+    @media screen and (max-width: 1320px) {
+        top: 25%;
+    }
+
+    @media screen and (max-width: 836px) {
+        top: 20%;
+    }
 `;
 
 export const TitleText = styled.span`
@@ -122,11 +140,27 @@ export const TitleText = styled.span`
     font-weight: 600;
     line-height: normal;
     opacity: 0;
+
+    @media screen and (max-width: 1320px) {
+        font-size: 70px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 50px;
+    }
 `;
 
 export const EmptyTitle = styled.div`
     min-width: 40px;
     opacity: 0;
+
+    @media screen and (max-width: 1320px) {
+        min-width: 30px;
+    }
+
+    @media screen and (max-width: 836px) {
+        min-width: 20px;
+    }
 `;
 
 const SecondPageContentContainer = styled.div`
@@ -137,6 +171,16 @@ const SecondPageContentContainer = styled.div`
     top: 47%;
     left: 24%;
     opacity: 0;
+
+    @media screen and (max-width: 1320px) {
+        top: 40%;
+        left: 20%;
+    }
+
+    @media screen and (max-width: 836px) {
+        top: 32%;
+        left: 16%;
+    }
 `;
 
 const SecondPageContent = styled.div`
@@ -149,6 +193,16 @@ const SecondPageContent = styled.div`
     text-align: left;
     display: flex;
     gap: 10px;
+
+    @media screen and (max-width: 1320px) {
+        font-size: 22px;
+        gap: 8px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 14px;
+        gap: 3px;
+    }
 `;
 
 const Text = styled.div`
@@ -167,6 +221,16 @@ const BarContainer = styled.img`
     bottom: 0;
     left: 22%;
     opacity: 0;
+
+    @media screen and (max-width: 1320px) {
+        left: 18%;
+        height: 59%;
+    }
+
+    @media screen and (max-width: 836px) {
+        left: 14%;
+        height: 68%;
+    }
 `;
 
 export default SecondPageImage;
