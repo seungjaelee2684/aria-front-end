@@ -28,11 +28,11 @@
 }
 
 .second-title {
-    animation: second_title_appear 0.6s forwards;
+    animation: second_title_appear 0.6s ease-out forwards;
 }
 
 .second-content {
-    animation: opacity_controll 1.6s forwards;
+    animation: opacity_controll 1.6s ease-out forwards;
     animation-delay: 1.8s;
 }
 
