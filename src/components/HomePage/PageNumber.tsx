@@ -54,6 +54,10 @@ const PageNumberContainer = styled.div`
     height: fit-content;
     width: 100%;
   }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const DefaultPageNumberBox = styled.div`

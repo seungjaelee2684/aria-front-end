@@ -91,6 +91,14 @@ const FifthMainLayout = styled(MainLayout)`
   display: flex;
   flex-direction: column;
   gap: 100px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 80px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 50px;
+  }
 `;
 
 const FifthTitle = styled.div`
@@ -101,6 +109,14 @@ const FifthTitle = styled.div`
   display: flex;
   align-items: center;
   user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 80px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 60px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -109,6 +125,14 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 60px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 50px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 30px;
+  }
 `;
 
 const Button = styled.div<{ color: string }>`
@@ -125,6 +149,18 @@ const Button = styled.div<{ color: string }>`
 
   &:hover {
     background-color: ${(props) => props.color}eb;
+  }
+
+  @media screen and (max-width: 1320px) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
   }
 `;
 
