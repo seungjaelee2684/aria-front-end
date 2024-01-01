@@ -2,7 +2,7 @@ import React from 'react'
 import '../../style/font/font.css';
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
-import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper, MainLayout } from './FirstPageImage';
 import { EmptyTitle, TitleText } from './SecondPageImage';
 import FifthBG from '../../assets/images/mainpage/5.webp';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -39,9 +39,9 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
   };
  
   return (
-    <ImageBoxWrapper>
+    <FifthImageBoxWrapper>
       <FifthBackgroundImage src={FifthBG} alt=''/>
-      <FifthLayout>
+      <FifthMainLayout>
         <FifthTitle>
           {titleArr?.map((item : any, index: number) => {
             return (
@@ -71,16 +71,23 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
             GO TO STUDENT COUNSELING PAGE
           </Button>
         </ButtonWrapper>
-      </FifthLayout>
-    </ImageBoxWrapper>
+      </FifthMainLayout>
+    </FifthImageBoxWrapper>
   )
 };
+
+const FifthImageBoxWrapper = styled(ImageBoxWrapper)`
+
+  @media screen and (max-width: 500px) {
+        
+  }
+`;
 
 const FifthBackgroundImage = styled(BackgroundImage)`
   margin-top: 80px;
 `;
 
-const FifthLayout = styled(MainImage)`
+const FifthMainLayout = styled(MainLayout)`
   display: flex;
   flex-direction: column;
   gap: 100px;
