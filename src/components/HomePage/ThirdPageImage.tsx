@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
-import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper, MainLayout } from './FirstPageImage';
 import ThirdBG from '../../assets/images/mainpage/3.webp';
 import { useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../../store/MainPageNumber';
@@ -37,9 +37,9 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   };
 
   return (
-    <ImageBoxWrapper>
+    <ThirdImageBoxWrapper>
       <BackgroundImage src={ThirdBG} alt=''/>
-      <MainThirdContainer className={(scrollIndex === 3) ? "third-content" : ""}>
+      <ThirdMainLayout className={(scrollIndex === 3) ? "third-content" : ""}>
         <SlideContainer>
           <SlideBorderLine src={SlideBG} alt=''/>
           <MainSlideShow
@@ -65,12 +65,19 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
             )
           })}
         </SlideNumberWrapper>
-      </MainThirdContainer>
-    </ImageBoxWrapper>
+      </ThirdMainLayout>
+    </ThirdImageBoxWrapper>
   )
 };
 
-const MainThirdContainer = styled(MainImage)`
+const ThirdImageBoxWrapper = styled(ImageBoxWrapper)`
+
+  @media screen and (max-width: 500px) {
+        
+  }
+`;
+
+const ThirdMainLayout = styled(MainLayout)`
   flex-direction: column;
   gap: 30px;
   opacity: 0;

@@ -31,7 +31,7 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
             : ""}
         />
       <BackgroundImage src={FirstBG} alt='' onLoad={() => setImageLoad(true)}/>
-      <MainImage>
+      <MainLayout>
         <LogoImageContainer>
           <LogoImage
             src={Logo_A}
@@ -74,7 +74,7 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
                 : ""
             }/>
         </LogoImageContainer>
-      </MainImage>
+      </MainLayout>
     </ImageBoxWrapper>
   )
 };
@@ -96,7 +96,7 @@ export const BackgroundImage = styled.img`
   left: 0;
 `;
 
-export const MainImage = styled.div`
+export const MainLayout = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -127,6 +127,14 @@ const LogoImageContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 30px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 16px;
+  }
 `;
 
 const LogoImage = styled.img`
@@ -140,7 +148,7 @@ const LogoImage = styled.img`
   }
 
   @media screen and (max-width: 836px) {
-    height: 180px;
+    height: 130px;
   }
 `;
 

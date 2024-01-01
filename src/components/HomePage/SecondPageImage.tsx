@@ -4,7 +4,7 @@ import '../../style/font/font.css';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { MainPageNumber } from '../../store/MainPageNumber';
-import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper, MainLayout } from './FirstPageImage';
 import SecondBG from '../../assets/images/mainpage/2.webp';
 import SecondTitle from '../../assets/images/mainpage/Asset 89.webp';
 import Triangle from '../../assets/images/mainpage/Asset 88.webp';
@@ -29,9 +29,9 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
     console.log("두번째 슬라이드 타이틀 -> ", titleArr);
 
     return (
-        <ImageBoxWrapper>
+        <SecondImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
-            <MainImage>
+            <SecondMainLayout>
                 <TriangleContainer src={Triangle} alt=''/>
                 <SecondPageTitle>
                     {titleArr?.map((item : any, index : number) => {
@@ -79,10 +79,24 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                         </ColorText>
                     </SecondPageContent>
                 </SecondPageContentContainer>
-            </MainImage>
-        </ImageBoxWrapper>
+            </SecondMainLayout>
+        </SecondImageBoxWrapper>
     )
 };
+
+const SecondImageBoxWrapper = styled(ImageBoxWrapper)`
+
+    @media screen and (max-width: 500px) {
+        
+    }
+`;
+
+const SecondMainLayout = styled(MainLayout)`
+
+    @media screen and (max-width: 500px) {
+        
+    }
+`;
 
 const TriangleContainer = styled.img`
     width: 120px;
