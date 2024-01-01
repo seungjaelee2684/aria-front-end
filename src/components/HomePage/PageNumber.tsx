@@ -41,6 +41,19 @@ const PageNumberContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 0px;
+    top: 80px;
+    right: 0;
+    flex-direction: row;
+    height: fit-content;
+    width: 100%;
+  }
 `;
 
 export const DefaultPageNumberBox = styled.div`
@@ -52,10 +65,24 @@ export const DefaultPageNumberBox = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    width: 20px;
+    min-height: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 100%;
+    min-height: 4px;
+  }
 `;
 
 const PageNumberBox = styled(DefaultPageNumberBox)`
   background-color: #ffffffc7;
+
+  @media screen and (max-width: 836px) {
+    background-color: #5350ffc6;
+  }
 `;
 
 export default PageNumber;

@@ -87,6 +87,16 @@ const SlideContainer = styled.div`
   width: 76%;
   height: 50%;
   position: relative;
+
+  @media screen and (max-width: 1320px) {
+    width: 85%;
+    height: 45%;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 90%;
+    height: 30%;
+  }
 `;
 
 const SlideBorderLine = styled.img`
@@ -105,6 +115,14 @@ const SlideNumberWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 16px;
+  }
 `;
 
 const SlideNumber = styled.div`
@@ -113,6 +131,16 @@ const SlideNumber = styled.div`
   border-radius: 100%;
   background-color: #868686;
   cursor: pointer;
+
+  @media screen and (max-width: 1320px) {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 12px;
+    height: 12px;
+  }
 `;
 
 export const PrevButton = styled.div`
@@ -131,11 +159,25 @@ export const PrevButton = styled.div`
   &:hover {
     color: #ADADAD;
   }
+
+  @media screen and (max-width: 1320px) {
+    font-size: 40px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 34px;
+    top: 44%;
+    left: -6%;
+  }
 `;
 
 const NextButton = styled(PrevButton)`
   left: auto;
   right: -5%;
+
+  @media screen and (max-width: 836px) {
+    right: -6%;
+  }
 `;
 
 export default ThirdPageImage;
