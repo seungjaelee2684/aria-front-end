@@ -37,14 +37,23 @@ const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, se
         <FilterOutWrapper>
             {filterState?.map((item : FilterType, index : number) => {
                 return (
-                    <FilterButtonWrapper
-                        key={index}
-                        onClick={() => {
-                            setNoticeFilter(item?.englishstate);
-                            setIsModalOpen(false)
-                        }}>
-                        {filterModalTrans(index)}
-                    </FilterButtonWrapper>
+                    (index === 1)
+                        ? <SelectFilterButton
+                            key={index}
+                            onClick={() => {
+                                setNoticeFilter(item?.englishstate);
+                                setIsModalOpen(false)
+                            }}>
+                            {filterModalTrans(index)}
+                        </SelectFilterButton>
+                        : <FilterButtonWrapper
+                            key={index}
+                            onClick={() => {
+                                setNoticeFilter(item?.englishstate);
+                                setIsModalOpen(false)
+                            }}>
+                            {filterModalTrans(index)}
+                        </FilterButtonWrapper>
                 )
             })}
         </FilterOutWrapper>
@@ -82,9 +91,15 @@ const FilterButtonWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-        background-color: #ADADAD;
+        background-color: #1e4eeb;
+        color: #FCFCFC;
         font-weight: 600;
     }
+`;
+
+const SelectFilterButton = styled(FilterButtonWrapper)`
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
 `;
 
 export default NoticeFilterModal;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { NoticeTrans, filterState } from '../../languages/NoticeTrans';
 import { NotificationData } from '../../data/NotificationData';
@@ -20,6 +20,7 @@ type FilterType = {
 const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, setNoticeFilter }) => {
   
     const language = localStorage.getItem("language");
+    const filterRef = useRef<HTMLDivElement>(null);
     const filterStateData = filterState.filter((item : FilterType) => item?.englishstate === noticeFilter);
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -36,9 +37,23 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
                 return filterStateData[0]?.englishstate;
         };
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+          if (filterRef.current && !filterRef.current.contains(event.target)) {
+            setIsModalOpen(false);
+          }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+          document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
   
     return (
-        <FilterOutWrapper onClick={() => setIsModalOpen(!isModalOpen)}>
+        <FilterOutWrapper
+            ref={filterRef}
+            onClick={() => setIsModalOpen(!isModalOpen)}>
             {filterTrans()}
             <TiArrowSortedDown />
             {(isModalOpen)
