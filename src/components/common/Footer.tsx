@@ -16,6 +16,7 @@ import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
+import { MdOutlineSupervisorAccount } from "react-icons/md";
 
 const Footer = () => {
 
@@ -67,13 +68,13 @@ const Footer = () => {
           <FirstWrapper>
             <ContentBox>
               <Content>
-                주소 : 서울특별시 | 대표자 : 김민규
+                Address : 서울특별시 | Boss : 김민규
               </Content>
               <Content>
-                이메일 : aria.academy@gmail.com
+                E-mail : aria.academy@gmail.com
               </Content> 
               <Content>
-                사업자등록번호 : 205-5421-9942
+                Business number : 205-5421-9942
               </Content>
               <ContentUnderWrapper>
                 @COPYRIGHT ARIA ACADEMY ALL RIGHTS RESERVED
@@ -81,28 +82,36 @@ const Footer = () => {
             </ContentBox>
           </FirstWrapper>
           <LogoContainer src={FooterLogo} alt=''/>
-          <MenuIconContainer>
-            <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
-              <MenuIcon
-                src={DiscordDefault}
-                alt=''/>
-            </IconBoxWrapper>
-            <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
-              <MenuIcon
-                src={TwitterDefault}
-                alt=''/>
-            </IconBoxWrapper>
-            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-              <MenuIcon
-                src={InstagramDefault}
-                alt=''/>
-            </IconBoxWrapper>
-            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-              <MenuIcon
-                src={YoutubeDefault}
-                alt=''/>
-            </IconBoxWrapper>
-          </MenuIconContainer>
+          <IconOutContainer>
+            <IconTitleWrapper>
+              <MdOutlineSupervisorAccount />
+              <IconTitle>
+                SNS
+              </IconTitle>
+            </IconTitleWrapper>
+            <MenuIconContainer>
+              <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+                <MenuIcon
+                  src={DiscordDefault}
+                  alt=''/>
+              </IconBoxWrapper>
+              <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
+                <MenuIcon
+                  src={TwitterDefault}
+                  alt=''/>
+              </IconBoxWrapper>
+              <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+                <MenuIcon
+                  src={InstagramDefault}
+                  alt=''/>
+              </IconBoxWrapper>
+              <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+                <MenuIcon
+                  src={YoutubeDefault}
+                  alt=''/>
+              </IconBoxWrapper>
+            </MenuIconContainer>
+          </IconOutContainer>
         </FooterOutWrapper>
       </FooterOutContainer>
     </FooterContainer>
@@ -211,6 +220,29 @@ const Text = styled.div`
   @media screen and (max-width: 836px) {
     font-size: 12px;
   }
+`;
+
+const IconOutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+`;
+
+const IconTitleWrapper = styled.div`
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  font-size: 24px;
+  color: #e9e9e9;
+`;
+
+const IconTitle = styled.div`
+  font-family: "UniSansThin";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  color: #e9e9e9;
 `;
 
 const MenuIconContainer = styled.div`
