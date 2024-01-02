@@ -17,19 +17,32 @@ interface ThirdPageImageProps {
 const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) => {
 
   const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
+  const [isLoop, setIsLoop] = useState<boolean>(false);
   
   const scrollIndex = useRecoilValue(MainPageNumber);
 
   const onClickMainPrevHandler = () => {
     if (mainSlideCurrent === 0) {
+      setIsLoop(false);
       setMainSlideCurrent(MainBannertData?.length - 1);
     } else {
+      if (mainSlideCurrent === 1) {
+        setIsLoop(true);
+      } else {
+        setIsLoop(false);
+      };
       setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (MainBannertData.length));
     };
   };
 
   const onClickMainNextHandler = () => {
-    setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+    if (mainSlideCurrent === MainBannertData.length) {
+      setIsLoop(true);
+      setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+    } else {
+      setIsLoop(false);
+      setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+    };
   };
 
   return (
@@ -40,7 +53,9 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
           <SlideBorderLine src={SlideBG} alt=''/>
           <MainSlideShow
             mainSlideCurrent={mainSlideCurrent}
-            setMainSlideCurrent={setMainSlideCurrent}/>
+            setMainSlideCurrent={setMainSlideCurrent}
+            isLoop={isLoop}
+            setIsLoop={setIsLoop}/>
             <PrevButton onClick={onClickMainPrevHandler}>
               <IoIosArrowBack />
             </PrevButton>
