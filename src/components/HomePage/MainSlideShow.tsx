@@ -8,9 +8,11 @@ import { IoIosArrowBack } from "react-icons/io";
 interface MainSlideShowProps {
     mainSlideCurrent: number;
     setMainSlideCurrent: React.Dispatch<React.SetStateAction<number>>;
+    isLoop: boolean;
+    setIsLoop: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMainSlideCurrent }) => {
+const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMainSlideCurrent, isLoop, setIsLoop }) => {
 
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const widthMove = mainSlideCurrent * 100
@@ -25,7 +27,7 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
         }, 1000);
 
         if (mainSlideDivRef.current) {
-            if ((mainSlideCurrent === 1)) {
+            if (((mainSlideCurrent === 1) && (isLoop === true)) || ((mainSlideCurrent === MainBannertData?.length) && (isLoop === true))) {
                 mainSlideDivRef.current.style.transition = "";
             } else {
                 mainSlideDivRef.current.style.transition = "all 1s ease-out";
