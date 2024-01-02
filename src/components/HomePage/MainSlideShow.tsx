@@ -16,19 +16,32 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     const widthMove = mainSlideCurrent * 100
 
     useEffect(() => {
-        if (mainSlideDivRef.current) {
-            if (mainSlideCurrent === MainBannertData?.length) {
-                mainSlideDivRef.current.style.transition = "none";
-                mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
+        const mainSlideInterval = setInterval(() => {
+            if (mainSlideCurrent === 0) {
+                setMainSlideCurrent(MainBannertData?.length);
+            } else if (mainSlideCurrent === MainBannertData?.length + 1) {
+                setMainSlideCurrent(1);
             };
-            mainSlideDivRef.current.style.transition = "all 1.3s ease-out";
+        }, 1000);
+
+        if (mainSlideDivRef.current) {
+            if ((mainSlideCurrent === 1)) {
+                mainSlideDivRef.current.style.transition = "";
+            } else {
+                mainSlideDivRef.current.style.transition = "all 1s ease-out";
+            }; 
             mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
+        };
+
+        return () => {
+            clearInterval(mainSlideInterval);
         };
     }, [mainSlideCurrent]);
 
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
+            <SlideImage key={MainBannertData[0]?.id} src={MainBannertData[MainBannertData?.length - 1]?.image}/>
             {MainBannertData?.map((item) => {
                 return (
                     <SlideImage key={item?.id} src={item?.image}/>

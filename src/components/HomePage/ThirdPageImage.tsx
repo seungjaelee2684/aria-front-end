@@ -16,7 +16,7 @@ interface ThirdPageImageProps {
 
 const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) => {
 
-  const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(0);
+  const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
   
   const scrollIndex = useRecoilValue(MainPageNumber);
 
@@ -24,16 +24,12 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
     if (mainSlideCurrent === 0) {
       setMainSlideCurrent(MainBannertData?.length - 1);
     } else {
-      setMainSlideCurrent(mainSlideCurrent - 1);
+      setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (MainBannertData.length));
     };
   };
 
   const onClickMainNextHandler = () => {
-    if (mainSlideCurrent === MainBannertData?.length - 1) {
-      setMainSlideCurrent(MainBannertData?.length);
-    } else {
-      setMainSlideCurrent(mainSlideCurrent + 1);
-    };
+    setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
   };
 
   return (
@@ -55,7 +51,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
         <SlideNumberWrapper>
           {MainBannertData?.map((item : any, index) => {
             return (
-              (mainSlideCurrent === index)
+              (mainSlideCurrent === index + 1)
                 ? <SlideNumber
                   key={item?.key}
                   style={{backgroundColor: "#FCFCFC"}}/>
