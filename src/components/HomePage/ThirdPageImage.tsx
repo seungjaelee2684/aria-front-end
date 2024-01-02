@@ -23,19 +23,21 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
 
   useEffect(() => {
     const slideShowInterval = setInterval(() => {
-      if (mainSlideCurrent === MainBannertData.length) {
-        setIsLoop(true);
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
-      } else {
-        setIsLoop(false);
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+      if (scrollIndex === 3) {
+        if (mainSlideCurrent === MainBannertData.length) {
+          setIsLoop(true);
+          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+        } else {
+          setIsLoop(false);
+          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+        };
       };
     }, 5000);
 
     return () => {
       clearInterval(slideShowInterval);
     };
-  }, [mainSlideCurrent]);
+  }, [mainSlideCurrent, scrollIndex]);
 
   const onClickMainPrevHandler = () => {
     if (mainSlideCurrent === 0) {
