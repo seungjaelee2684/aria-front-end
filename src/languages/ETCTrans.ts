@@ -31,9 +31,9 @@ export const etcTextTrans : ETCTextTransType[] = [
         text: "검색결과 없음"
     },
     {
-        englishtext: "Please enter the correct search term or set up a filter and try again.",
+        englishtext: "Please enter the correct search term\nor set up a filter and try again.",
         chinesetext: "请输入正确的搜索词或设置过滤器后再次尝试。",
-        japanesetext: "正しい検索ワードを入力するか、フィルターを設定してから再試行してください。",
-        text: "올바른 검색어를 입력하거나 필터를 설정한 후 다시 시도해주세요."
+        japanesetext: "正しい検索ワードを入力するか、\nフィルターを設定してから再試行してください。",
+        text: "올바른 검색어를 입력하거나\n필터를 설정한 후 다시 시도해주세요."
     },
 ];

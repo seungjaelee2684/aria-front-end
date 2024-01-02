@@ -74,11 +74,16 @@ const Header = () => {
                     Support
                 </MobileHeaderPageContainer>
             )
+        } else if (location.pathname === "/") {
+            return (
+                <MobileHeaderPageContainer>
+                    Home
+                </MobileHeaderPageContainer>
+            )
         };
     };
 
     useEffect(() => {
-
         if (mainScrollHeader.current) {
             mainScrollHeader.current.style.opacity = "1";
             mainScrollHeader.current.style.transition = "all 0.4s ease-in-out";
@@ -425,7 +430,7 @@ const PrevButton = styled.div`
 
 const MobileHeaderContainer = styled.div`
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: #FFFFFF;
     position: absolute;
     top: 0;
