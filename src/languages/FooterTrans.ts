@@ -7,39 +7,45 @@ type FooterType = {
 
 export const footerContent : FooterType[] = [
     {
-        englishcontent: "",
+        englishcontent: "Operational policy",
         chinesecontent: "",
         japanesecontent: "",
-        content: ""
+        content: "운영정책"
     },
     {
-        englishcontent: "",
+        englishcontent: "address",
         chinesecontent: "",
         japanesecontent: "",
-        content: ""
+        content: "주소"
     },
     {
-        englishcontent: "",
+        englishcontent: "Seoul",
         chinesecontent: "",
         japanesecontent: "",
-        content: ""
+        content: "서울특별시"
     },
     {
-        englishcontent: "",
+        englishcontent: "boss",
         chinesecontent: "",
         japanesecontent: "",
-        content: ""
+        content: "대표자"
     },
     {
-        englishcontent: "",
+        englishcontent: "Kim MinGyu",
         chinesecontent: "",
         japanesecontent: "",
-        content: ""
+        content: "김민규"
     },
     {
-        englishcontent: "",
+        englishcontent: "e-mail",
         chinesecontent: "",
         japanesecontent: "",
-        content: ""
+        content: "이메일"
+    },
+    {
+        englishcontent: "registration no.",
+        chinesecontent: "",
+        japanesecontent: "",
+        content: "사업자등록번호"
     },
 ];
