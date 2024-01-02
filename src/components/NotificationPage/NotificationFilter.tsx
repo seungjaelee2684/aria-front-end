@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { NoticeTrans } from '../../languages/NoticeTrans';
 import { NotificationData } from '../../data/NotificationData';
+import NoticeFilterModal from './NoticeFilterModal';
+import { TiArrowSortedDown } from "react-icons/ti";
 
 interface NotificationFilterProps {
     noticeFilter: string;
@@ -12,6 +14,7 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
   
     const language = localStorage.getItem("language");
 
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const filterState : string[] = ["all", "notice", "event"];
 
     const filterTrans = (Num : number) => {
@@ -28,52 +31,36 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
     };
   
     return (
-        <FilterOutWrapper>
-            {filterState?.map((item : string) => {
-                return (
-                    <FilterButtonWrapper
-                        key={item}
-                        style={{
-                            color: (noticeFilter === item) ? "#222020" : "#ADADAD",
-                            fontWeight: (noticeFilter === item) ? "700" : "400"
-                        }}
-                        onClick={() => setNoticeFilter(item)}>
-                        {(noticeFilter === item) && <Point />}
-                        <Text>
-                            {filterTrans(filterState.indexOf(item))}
-                        </Text>
-                    </FilterButtonWrapper>
-                )
-            })}
+        <FilterOutWrapper onClick={() => setIsModalOpen(!isModalOpen)}>
+            {filterTrans(0)}
+            <TiArrowSortedDown />
+            {(isModalOpen)
+                && <NoticeFilterModal
+                    noticeFilter={noticeFilter}
+                    setNoticeFilter={setNoticeFilter}
+                    isModalOpen={isModalOpen}
+                    setIsModalOpen={setIsModalOpen}/>}
         </FilterOutWrapper>
     )
 };
 
 const FilterOutWrapper = styled.div`
+    width: 88px;
+    height: 34px;
+    padding: 0px 16px;
     display: flex;
+    justify-content: end;
     align-items: center;
-    gap: 16px;
-    user-select: none;
-`;
-
-const FilterButtonWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-`;
-
-const Point = styled.div`
-    width: 5px;
-    height: 5px;
-    background-color: #222020;
-    border-radius: 100%;
-`;
-
-const Text = styled.div`
+    background-color: #FFFFFF;
+    border: 1px solid #e9e9e9;
     font-family: "Pretendard";
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 500;
     line-height: normal;
+    gap: 28px;
+    user-select: none;
+    position: relative;
+    cursor: pointer;
 `;
 
 export default NotificationFilter;

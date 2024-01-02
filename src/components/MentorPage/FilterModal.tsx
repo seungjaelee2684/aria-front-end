@@ -6,7 +6,7 @@ import Chinaflag from '../../assets/logos/chinaflag.webp'
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
-import { IoIosArrowDown } from "react-icons/io";
+import { TiArrowSortedDown } from "react-icons/ti";
 import { mentorSearchInput } from '../../store/MentorSearchInput';
 
 type Nation = {
@@ -73,7 +73,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
         <DefaultBtn>
             {flagValue && <NationFlag src={flagValue}/>}
             {filterTranslate(null)}
-            <IoIosArrowDown />
+            <TiArrowSortedDown />
         </DefaultBtn>
         {noneFilter?.map((item : Nation) => {
             return (

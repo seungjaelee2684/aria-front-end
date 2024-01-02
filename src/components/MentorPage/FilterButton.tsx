@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import FilterModal from './FilterModal';
-import { IoIosArrowDown } from "react-icons/io";
+import { TiArrowSortedDown } from "react-icons/ti";
 import { IoIosArrowUp } from "react-icons/io";
 import Koreaflag from '../../assets/logos/koreaflag.webp';
 import Japanflag from '../../assets/logos/japanflag.webp';
@@ -59,7 +59,7 @@ const FilterButton = () => {
             <NationFilter>
                 {(nationkind.englishpick !== "All Country") && <NationFlag src={flag} alt=''/>}
                 {filterTranslate()}
-                <IoIosArrowDown />
+                <TiArrowSortedDown />
             </NationFilter>           
             {isOpenFilter
                 && <ModalWrapper>
