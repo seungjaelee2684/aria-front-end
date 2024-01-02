@@ -5,6 +5,13 @@ type NoticeType = {
     text: string
 };
 
+type FilterType = {
+    englishstate: string,
+    chinesestate: string,
+    japanesestate: string,
+    state: string
+};
+
 export const NoticeTrans : NoticeType[] = [
     {
         englishtext: "All",
@@ -48,4 +55,25 @@ export const NoticeTrans : NoticeType[] = [
         japanesetext: "登録日",
         text: "등록일"
     },
+];
+
+export const filterState : FilterType[] = [
+    {
+        englishstate: "All",
+        chinesestate: "整个",
+        japanesestate: "全体",
+        state: "전체"
+    },
+    {
+        englishstate: "Notice",
+        chinesestate: "公告",
+        japanesestate: "お知らせ",
+        state: "공지"
+    },
+    {
+        englishstate: "Event",
+        chinesestate: "活动",
+        japanesestate: "イベント",
+        state: "이벤트"
+    }
 ];

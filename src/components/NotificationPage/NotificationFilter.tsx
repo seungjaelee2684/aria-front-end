@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { NoticeTrans } from '../../languages/NoticeTrans';
+import { NoticeTrans, filterState } from '../../languages/NoticeTrans';
 import { NotificationData } from '../../data/NotificationData';
 import NoticeFilterModal from './NoticeFilterModal';
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -10,29 +10,36 @@ interface NotificationFilterProps {
     setNoticeFilter: React.Dispatch<React.SetStateAction<string>>;
 };
 
+type FilterType = {
+    englishstate: string,
+    chinesestate: string,
+    japanesestate: string,
+    state: string
+};
+
 const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, setNoticeFilter }) => {
   
     const language = localStorage.getItem("language");
+    const filterStateData = filterState.filter((item : FilterType) => item?.englishstate === noticeFilter);
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const filterState : string[] = ["all", "notice", "event"];
 
-    const filterTrans = (Num : number) => {
+    const filterTrans = () => {
         switch (language) {
             case "chinese" :
-                return NoticeTrans[Num]?.chinesetext;
+                return filterStateData[0]?.chinesestate;
             case "japanese" :
-                return NoticeTrans[Num]?.japanesetext;
+                return filterStateData[0]?.japanesestate;
             case "korean" :
-                return NoticeTrans[Num]?.text;
+                return filterStateData[0]?.state;
             default :
-                return NoticeTrans[Num]?.englishtext;
+                return filterStateData[0]?.englishstate;
         };
     };
   
     return (
         <FilterOutWrapper onClick={() => setIsModalOpen(!isModalOpen)}>
-            {filterTrans(0)}
+            {filterTrans()}
             <TiArrowSortedDown />
             {(isModalOpen)
                 && <NoticeFilterModal
@@ -45,9 +52,9 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
 };
 
 const FilterOutWrapper = styled.div`
-    width: 88px;
+    width: 110px;
     height: 34px;
-    padding: 0px 16px;
+    padding: 0px 10px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -57,7 +64,7 @@ const FilterOutWrapper = styled.div`
     font-size: 14px;
     font-weight: 500;
     line-height: normal;
-    gap: 28px;
+    gap: 38px;
     user-select: none;
     position: relative;
     cursor: pointer;

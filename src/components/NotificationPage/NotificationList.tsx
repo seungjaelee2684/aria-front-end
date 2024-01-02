@@ -63,7 +63,7 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                 {textChange(6)}
             </TopLaneRightText>
         </LineContainer>
-        {(noticeFilter === "all")
+        {(noticeFilter === "All")
             ? NotificationData?.map((item : any) => {
                 return (
                     <LineContainer
@@ -74,9 +74,9 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                         <ContentWrapper>
                             <NoticeIcon
                                 style={{
-                                    color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                    color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
                                 }}>
-                                {(item?.status === "notice")
+                                {(item?.status === "Notice")
                                     ? textChange(1)
                                     : textChange(2)}
                             </NoticeIcon>
@@ -103,9 +103,9 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                         <ContentWrapper>
                             <NoticeIcon
                                 style={{
-                                    color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                    color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
                                 }}>
-                                {(item?.status === "notice")
+                                {(item?.status === "Notice")
                                     ? textChange(1)
                                     : textChange(2)}
                             </NoticeIcon>
