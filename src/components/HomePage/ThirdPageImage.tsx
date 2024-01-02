@@ -8,7 +8,7 @@ import { MainPageNumber } from '../../store/MainPageNumber';
 import MainSlideShow from './MainSlideShow';
 import SlideBG from '../../assets/images/mainpage/Asset 94.webp';
 import { MainBannertData } from '../../data/MainBannerData';
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
 interface ThirdPageImageProps {
   mainPageTextChange: Function;
@@ -30,7 +30,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
         setIsLoop(false);
         setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
       };
-    }, 6000);
+    }, 5000);
 
     return () => {
       clearInterval(slideShowInterval);
@@ -73,10 +73,10 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
             isLoop={isLoop}
             setIsLoop={setIsLoop}/>
             <PrevButton onClick={onClickMainPrevHandler}>
-              <IoIosArrowBack />
+              <IoIosArrowRoundBack />
             </PrevButton>
             <NextButton onClick={onClickMainNextHandler}>
-              <IoIosArrowForward />
+              <IoIosArrowRoundForward />
             </NextButton>
         </SlideContainer>
         <SlideNumberWrapper>
@@ -111,8 +111,8 @@ const ThirdMainLayout = styled(MainLayout)`
 `;
 
 const SlideContainer = styled.div`
-  width: 76%;
-  height: 50%;
+  width: 86%;
+  height: 60%;
   position: relative;
 
   @media screen and (max-width: 1320px) {
@@ -171,40 +171,44 @@ const SlideNumber = styled.div`
 `;
 
 export const PrevButton = styled.div`
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FFFFFF;
+  border-radius: 100%;
+  background-color: #e9e9e9;
+  color: #222020;
   position: absolute;
-  top: 45%;
-  left: -5%;
+  top: 48%;
+  left: 2%;
+  z-index: 99;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    color: #ADADAD;
+    color: #e9e9e9;
+    background-color: #222020;
   }
 
   @media screen and (max-width: 1320px) {
-    font-size: 40px;
+    width: 36px;
+    height: 36px;
+    font-size: 32px;
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 34px;
-    top: 44%;
-    left: -6%;
+    width: 28px;
+    height: 28px;
+    font-size: 24px;
+    top: 47%;
   }
 `;
 
 const NextButton = styled(PrevButton)`
   left: auto;
-  right: -5%;
-
-  @media screen and (max-width: 836px) {
-    right: -6%;
-  }
+  right: 2%;
 `;
 
 export default ThirdPageImage;
