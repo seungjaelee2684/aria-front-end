@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
 import { BackgroundImage, ImageBoxWrapper, MainLayout } from './FirstPageImage';
@@ -20,6 +20,22 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   const [isLoop, setIsLoop] = useState<boolean>(false);
   
   const scrollIndex = useRecoilValue(MainPageNumber);
+
+  useEffect(() => {
+    const slideShowInterval = setInterval(() => {
+      if (mainSlideCurrent === MainBannertData.length) {
+        setIsLoop(true);
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+      } else {
+        setIsLoop(false);
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+      };
+    }, 6000);
+
+    return () => {
+      clearInterval(slideShowInterval);
+    };
+  }, [mainSlideCurrent]);
 
   const onClickMainPrevHandler = () => {
     if (mainSlideCurrent === 0) {
