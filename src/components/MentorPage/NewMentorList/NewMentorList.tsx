@@ -20,9 +20,9 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                     <div
                         ref={imageRef}
                         key={item?.id}
-                        className={(slideCurrent === NewMentorListData?.indexOf(item))
+                        className={(slideCurrent === index)
                             ? "ImageSlideContainer"
-                            : (prevCurrent === NewMentorListData?.indexOf(item))
+                            : (prevCurrent === index)
                                 ? "ImageContainer"
                                 : "NotActionImage"}>
                         <ImageBox src={item?.slideimage.background}/>
