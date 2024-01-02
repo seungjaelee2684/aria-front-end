@@ -56,7 +56,7 @@ const Footer = () => {
             </HomeButton>
             |
             <Text onClick={() => navigate("/support/policy")}>
-             운영정책
+             {translateText(0)}
             </Text>
             |
             <Text onClick={() => navigate("/support/policy")}>
@@ -68,13 +68,26 @@ const Footer = () => {
           <FirstWrapper>
             <ContentBox>
               <Content>
-                Address : 서울특별시 | Boss : 김민규
+                {translateText(1)} : 
+                <ColorContent>
+                  {translateText(2)}
+                </ColorContent>
+                | {translateText(3)} :
+                 <ColorContent>
+                  {translateText(4)}
+                 </ColorContent>
               </Content>
               <Content>
-                E-mail : aria.academy@gmail.com
+                {translateText(5)} :
+                <ColorContent>
+                  aria.academy@gmail.com
+                </ColorContent>
               </Content> 
               <Content>
-                Business number : 205-5421-9942
+                {translateText(6)} :
+                <ColorContent>
+                  205-5421-9942
+                </ColorContent>
               </Content>
               <ContentUnderWrapper>
                 @COPYRIGHT ARIA ACADEMY ALL RIGHTS RESERVED
@@ -365,10 +378,14 @@ const ContentBox = styled.div`
 const Content = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
+  font-family: "CinzelRegular";
 `;
 
-const Link = styled.div`
-  
+const ColorContent = styled.div`
+  color: #e9e9e9;
+  font-weight: 400;
+  font-family: "Pretendard";
 `;
 
 export default Footer;
