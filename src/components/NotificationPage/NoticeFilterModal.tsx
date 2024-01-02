@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { NoticeTrans } from '../../languages/NoticeTrans';
+import { NoticeTrans, filterState } from '../../languages/NoticeTrans';
 
 interface NoticeFilterModalProps {
     noticeFilter: string;
@@ -9,33 +9,27 @@ interface NoticeFilterModalProps {
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+type FilterType = {
+    englishstate: string,
+    chinesestate: string,
+    japanesestate: string,
+    state: string
+};
+
 const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, setNoticeFilter, isModalOpen, setIsModalOpen }) => {
 
     const language = localStorage.getItem("language");
 
-    type FilterType = {
-        englishstate: string,
-        chinesestate: string,
-        japanesestate: string,
-        koreanstate: string,
-        state: string
-    }
-    const filterState : FilterType[] = [
-        { englishstate: "All", chinesestate: "", japanesestate: "", koreanstate: "", state: "all" },
-        { englishstate: "Notice", chinesestate: "", japanesestate: "", koreanstate: "", state: "notice" },
-        { englishstate: "Event", chinesestate: "", japanesestate: "", koreanstate: "", state: "event" }
-    ];
-
-    const filterTrans = (Num: number) => {
+    const filterModalTrans = (Num: number) => {
         switch (language) {
             case "chinese":
-                return NoticeTrans[Num]?.chinesetext;
+                return filterState[Num]?.chinesestate;
             case "japanese":
-                return NoticeTrans[Num]?.japanesetext;
+                return filterState[Num]?.japanesestate;
             case "korean":
-                return NoticeTrans[Num]?.text;
+                return filterState[Num]?.state;
             default:
-                return NoticeTrans[Num]?.englishtext;
+                return filterState[Num]?.englishstate;
         };
     };
 
@@ -46,10 +40,10 @@ const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, se
                     <FilterButtonWrapper
                         key={index}
                         onClick={() => {
-                            setNoticeFilter(item?.state);
+                            setNoticeFilter(item?.englishstate);
                             setIsModalOpen(false)
                         }}>
-                        {(NoticeTrans[0]?.englishtext === item?.englishstate)}
+                        {filterModalTrans(index)}
                     </FilterButtonWrapper>
                 )
             })}
@@ -58,24 +52,24 @@ const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, se
 };
 
 const FilterOutWrapper = styled.div`
-    width: 120px;
+    width: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
     user-select: none;
     font-family: "Pretendard";
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     line-height: normal;
     color: #222020;
-    border-left: 1px solid #e9e9e9;
-    border-right: 1px solid #e9e9e9;
-    border-bottom: 1px solid #e9e9e9;
+    border: 1px solid #e9e9e9;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 35px;
+    left: -1px;
     z-index: 100;
     background-color: #FFFFFF;
+    overflow: hidden;
+    border-radius: 8px;
 `;
 
 const FilterButtonWrapper = styled.div`

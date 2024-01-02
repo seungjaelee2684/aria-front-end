@@ -30,7 +30,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "2",
@@ -58,7 +58,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "3",
@@ -86,7 +86,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "4",
@@ -114,7 +114,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "5",
@@ -142,7 +142,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "6",
@@ -170,7 +170,7 @@ export const NotificationData = [
             },
             image: Image
         },
-        status: "event",
+        status: "Event",
     },
     {
         id: "7",
@@ -198,7 +198,7 @@ export const NotificationData = [
             },
             image: Image2
         },
-        status: "event",
+        status: "Event",
     },
     {
         id: "8",
@@ -226,6 +226,6 @@ export const NotificationData = [
             },
             image: Image3
         },
-        status: "event",
+        status: "Event",
     },
 ];

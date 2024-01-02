@@ -10,7 +10,7 @@ const Notification = () => {
 
   const language = localStorage.getItem("language");
 
-  const [noticeFilter, setNoticeFilter] = useState<string>("all");
+  const [noticeFilter, setNoticeFilter] = useState<string>("All");
 
   const textChange = ( Num : number ) => {
     switch (language) {
