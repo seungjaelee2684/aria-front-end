@@ -59,7 +59,7 @@ const TitleContainer = styled.div`
   @media screen and (max-width: 500px) {
     width: 96%;
     height: 150px;
-    margin: 50px auto 0px auto;
+    margin: 60px auto 0px auto;
     border-radius: 10px;
   }
 `;

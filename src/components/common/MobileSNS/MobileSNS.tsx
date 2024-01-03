@@ -82,6 +82,12 @@ const BackgroundContainer = styled.div`
   background-color: #22202070;
 `;
 
+const MobileSNSModalContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+`;
+
 const IconBox = styled.div<{ bordercolor : string }>`
     width: 50px;
     height: 50px;

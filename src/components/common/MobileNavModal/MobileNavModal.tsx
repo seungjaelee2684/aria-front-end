@@ -8,6 +8,11 @@ import { nationFlag, nationKind } from '../../../store/NationFilter';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import Logo from '../../../assets/logos/logosimple.webp';
+import { TiArrowSortedDown } from "react-icons/ti";
+import { TiArrowSortedUp } from "react-icons/ti";
+import { BsGlobe2 } from "react-icons/bs";
+import { TranslateWrapper } from '../Header';
+import TranslateModal from '../TranslateModal';
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -21,6 +26,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
 
   const language = localStorage.getItem("language");
   const subModalRef = useRef<HTMLDivElement>(null);
+  const [languageModal, setLanguageModal] = useState<boolean>(false);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [subPage, setSubPage] = useState<{ notice: boolean, support: boolean }>({
     notice: false,
@@ -34,6 +40,19 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
       mobileModalRef.current.style.transform = "translateX(-110%)";
     };
     setHamburg(false);
+  };
+
+  const languageChange = () => {
+    switch (language) {
+      case "chinese" :
+        return "中文";
+      case "japanese" :
+        return "日本語";
+      case "korean" :
+        return "한국어";
+      default :
+        return "ENG";
+    };
   };
 
   useEffect(() => {
@@ -62,9 +81,15 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
       >
         <CloseBtnContainer>
           <TopLogoContainer src={Logo} alt=''/>
-          <CloseBtn onClick={onClickHamburgCloseHandler}>
-            <MdClose />
-          </CloseBtn>
+          <TranslateContainer ref={mobileModalRef}>
+            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+              <BsGlobe2 />
+              <TranslateText>
+                {languageChange()}
+              </TranslateText> 
+              <TiArrowSortedDown />
+              </TranslateWrapper>
+          </TranslateContainer>
         </CloseBtnContainer>
         <TextWrapper>
           <Text
@@ -113,6 +138,9 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               setSubPage({...subPage, notice: false, support: !support})
             }}>
             Support
+            {(support)
+              ? <TiArrowSortedUp style={{marginRight: "30px"}}/>
+              : <TiArrowSortedDown style={{marginRight: "30px"}}/>}
           </Text>
           {(support)
             && <SubPageButtonWrapper>
@@ -134,6 +162,9 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
             </SubPageButtonWrapper>}
         </TextWrapper>
       </ModalContainer>
+      {languageModal
+        && <TranslateModal
+        setLanguageModal={setLanguageModal}/>}
     </div>
   )
 };
@@ -161,7 +192,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   z-index: 100;
   user-select: none;
-  transition: all 0.5s;
+  transition: all 0.3s;
   box-shadow: rgba(63, 71, 77, 0.2) 5px 5px 10px 0px;
 `;
 
@@ -182,7 +213,7 @@ const TopLogoContainer = styled.img`
 const CloseBtn = styled.div`
   width: 24px;
   height: 24px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   font-family: "Pretendard";
@@ -191,9 +222,10 @@ const CloseBtn = styled.div`
   line-height: normal;
   background-color: #2c2a2ae1;
   color: #FFFFFF;
-  position: absolute;
+  position: fixed;
   top: 10px;
-  right: -40px;
+  right: 10px;
+  z-index: 101;
 
   &:active {
     color: #2c2a2a;
@@ -210,16 +242,17 @@ const TextWrapper = styled.div`
   color: #222020;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 30px;
   transition: all 0.3s;
 `;
 
 const Text = styled.div`
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px 0px;
-  text-indent: 30px;
+  padding: 24px 0px;
+  text-indent: 40px;
 `;
 
 const SubPageButtonWrapper = styled.div`
@@ -236,6 +269,20 @@ const SubPageButton = styled.div`
   text-indent: 50px;
   color: #222020;
   font-size: 14px;
+`;
+
+const TranslateContainer = styled.div`
+
+`;
+
+const TranslateText = styled.div`
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default MobileNavModal;

@@ -16,6 +16,9 @@ import { VscFeedback } from "react-icons/vsc";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { LuMoreHorizontal } from "react-icons/lu";
 import { MdClose } from 'react-icons/md';
+import { TbMessageDots } from "react-icons/tb";
+import { mobileHeaderTrans } from '../../languages/ETCTrans';
+import { MdOutlineHeadsetMic } from "react-icons/md";
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -23,12 +26,21 @@ interface MobileNavBtnProps {
 
 const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
+    const language = localStorage.getItem("language");
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const [hamburg, setHamburg] = useState<boolean>(false);
     const [snsModal, setSnsModal] = useState<boolean>(false);
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
     const { isOpen } = alertModal;
+
+    const onClickHamburgCloseHandler = () => {
+        if (mobileModalRef.current && backgroundRef.current) {
+          backgroundRef.current.style.visibility = "hidden";
+          mobileModalRef.current.style.transform = "translateX(-110%)";
+        };
+        setHamburg(false);
+    };
 
     const onClickHamburgOpenHandler = () => {
         if (mobileModalRef.current && backgroundRef.current) {
@@ -47,14 +59,31 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
         setHamburg(!hamburg);
     };
 
+    const headerTrans = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return mobileHeaderTrans[Num]?.chinesetext;
+            case "japanese" :
+                return mobileHeaderTrans[Num]?.japanesetext;
+            case "korean" :
+                return mobileHeaderTrans[Num]?.text;
+            default :
+                return mobileHeaderTrans[Num]?.englishtext;
+        };
+    };
+
   return (
     <div style={{position: "relative"}}>
         <MobileHeader>
             <MobileHeaderInContainer>
                 <HomeBtnLogoIcon src={Home} alt='' onClick={() => navigate("/")}/>
-                <MenuIcon>
-                    <RxHamburgerMenu />
-                </MenuIcon>
+                {(hamburg)
+                    ? <MenuIcon onClick={onClickHamburgCloseHandler}>
+                        <MdClose />
+                    </MenuIcon>
+                    : <MenuIcon onClick={onClickHamburgOpenHandler}>
+                        <RxHamburgerMenu />
+                    </MenuIcon>}
             </MobileHeaderInContainer>
         </MobileHeader>
         <UnderHeaderContainer>
@@ -63,25 +92,31 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     <ButtonWrapper>
                         <GoHome />
                     </ButtonWrapper>
-                    Home
+                    {headerTrans(0)}
                 </ButtonBox>
                 <ButtonBox onClick={() => navigate("/mentor")}>
                     <ButtonWrapper>
                         <VscFeedback />
                     </ButtonWrapper>
-                    Mentor
+                    {headerTrans(1)}
                 </ButtonBox>
                 <ButtonBox onClick={() => navigate("/notice/notification")}>
                     <ButtonWrapper>
                         <IoNotificationsOutline />
                     </ButtonWrapper>
-                    Notice
+                    {headerTrans(2)}
                 </ButtonBox>
-                <ButtonBox onClick={onClickHamburgOpenHandler}>
+                <ButtonBox onClick={() => navigate("/support/counseling")}>
                     <ButtonWrapper>
-                        <LuMoreHorizontal />
+                        <MdOutlineHeadsetMic />
                     </ButtonWrapper>
-                    More
+                    {headerTrans(3)}
+                </ButtonBox>
+                <ButtonBox>
+                    <ButtonWrapper>
+                        <TbMessageDots />
+                    </ButtonWrapper>
+                    {headerTrans(4)}
                 </ButtonBox>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
@@ -139,14 +174,14 @@ const UnderHeaderContainer = styled.div`
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #FFFFFF;
+    background-color: #222020;
     user-select: none;
     z-index: 101;
-    border-top: 1px solid #e9e9e9;
+    border-top: 1px solid #ADADAD;
 `;
 
 const ButtonOutWrapper = styled.div`
-    width: 70%;
+    width: 80%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -159,7 +194,7 @@ const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #222020;
+    color: #FFFFFF;
 `;
 
 const ButtonBox = styled.div`
@@ -171,7 +206,8 @@ const ButtonBox = styled.div`
     font-family: "Pretendard";
     gap: 2px;
     font-size: 9px;
-    font-weight: 600;
+    font-weight: 500;
+    color: #FFFFFF;
 `;
 
 const HomeButtonInWrapper = styled.div`

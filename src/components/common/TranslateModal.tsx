@@ -89,8 +89,8 @@ const ModalContainer = styled.div`
         top: 30%;
         left: 25%;
         width: 50%;
-        border-radius: 10px;
-        background-color: #222020;
+        border-radius: 5px;
+        background-color: #222020d5;
     }
 `;
 
