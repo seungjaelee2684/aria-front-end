@@ -25,18 +25,6 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
     const language = localStorage.getItem("language");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
-    const onClickReadyHandler = () => {
-        setSnsModal(false);
-        switch (language) {
-          case "english" :
-              return alert("Coming soon");
-          case "japanese" :
-              return alert("準備中です。");
-          default :
-              return alert("준비중입니다.");
-        };
-    };
-
   return (
     <MobileSNSModalContainer className='mobile-SNS-modal'>
         <CloseButton onClick={() => setSnsModal(false)}>
@@ -148,7 +136,8 @@ const IconWrapper = styled.div`
 
 export const InstaIconBox = styled.div`
     width: 80%;
-    height: 50px;
+    height: 60px;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,18 +166,18 @@ const YoutubeIconBox = styled(InstaIconBox)`
 `;
 
 const Icon = styled.div`
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 30px;
-    font-size: 26px;
+    gap: 40px;
+    font-size: 28px;
 `;
 
 const Text = styled.div`
     font-family: "CinzelBlack";
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 400;
     line-height: normal;
 `;
