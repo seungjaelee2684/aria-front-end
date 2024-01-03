@@ -86,12 +86,9 @@ const Header = () => {
 
     useEffect(() => {
         if (mainScrollHeader.current) {
-            if (location.pathname === "/") {
-                mainScrollHeader.current.style.opacity = "0";
-                mainScrollHeader.current.style.transition = "";
-                mainScrollHeader.current.style.animation = "main_header_appear 0.5s ease-out forwards";
-                mainScrollHeader.current.style.animationDelay = "2s";
-            };
+            mainScrollHeader.current.style.opacity = "1";
+            mainScrollHeader.current.style.transition = "opacity 0.4s ease-in-out 2s";
+            mainScrollHeader.current.style.transform = "translateY(0px)";
         };
 
         const handleClickOutside = (event: any) => {
@@ -130,7 +127,9 @@ const Header = () => {
 
   return (
     <div>
-        <HeaderLayoutContainer ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
+        <HeaderLayoutContainer
+            style={{opacity: `${(location.pathname === "/") ? "0" : "1"}`}}
+            ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                     <HeaderLogo
@@ -211,9 +210,9 @@ const HeaderLayoutContainer = styled.div`
     top: 0;
     left: 0;
     z-index: 100;
-    /* opacity: 0.5; */
     background-color: #FFFFFF;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+    transition: all 0.4s ease-in-out;
 
     @media screen and (max-width: 500px) {
         display: none;

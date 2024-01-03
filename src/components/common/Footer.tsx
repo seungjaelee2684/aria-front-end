@@ -248,6 +248,7 @@ const IconTitleWrapper = styled.div`
   gap: 8px;
   font-size: 24px;
   color: #e9e9e9;
+  user-select: none;
 `;
 
 const IconTitle = styled.div`
@@ -263,6 +264,7 @@ const MenuIconContainer = styled.div`
   align-items: start;
   gap: 16px;
   height: 100%;
+  user-select: none;
 
   @media screen and (max-width: 1320px) {
     gap: 12px;
@@ -328,6 +330,7 @@ const LogoContainer = styled.img`
   width: 180px;
   height: auto;
   object-fit: cover;
+  user-select: none;
 
   @media screen and (max-width: 836px) {
     width: 120px;
