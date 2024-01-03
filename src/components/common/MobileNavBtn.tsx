@@ -112,7 +112,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     </ButtonWrapper>
                     {headerTrans(3)}
                 </ButtonBox>
-                <ButtonBox>
+                <ButtonBox onClick={() => setSnsModal(true)}>
                     <ButtonWrapper>
                         <TbMessageDots />
                     </ButtonWrapper>
