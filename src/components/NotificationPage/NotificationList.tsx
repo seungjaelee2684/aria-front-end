@@ -8,6 +8,7 @@ import { NotificationData } from '../../data/NotificationData';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
 import { NoticeTrans } from '../../languages/NoticeTrans';
+import NotSearch from '../common/NotSearch';
 
 interface NotificationListProps {
     noticeFilter: string;
@@ -63,65 +64,70 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                 {textChange(6)}
             </TopLaneRightText>
         </LineContainer>
-        {(noticeFilter === "All")
-            ? NotificationData?.map((item : any) => {
-                return (
-                    <LineContainer
-                        key={item.id}
-                        style={{
-                            borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
-                        }}>
-                        <ContentWrapper>
-                            <NoticeIcon
+        {(NotificationData?.length !== 0)
+            ? (noticeFilter === "All")
+                ? NotificationData?.map((item : any) => {
+                    return (
+                        <LineContainer
+                            key={item.id}
+                            style={{
+                                borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                            }}>
+                            <ContentWrapper>
+                                <NoticeIcon
+                                    style={{
+                                        color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                    }}>
+                                    {(item?.status === "Notice")
+                                        ? textChange(1)
+                                        : textChange(2)}
+                                </NoticeIcon>
+                                <Text onClick={() => onClickNoticeHandler(item)}>
+                                    {contentChange(item)}
+                                </Text>
+                                {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                            </ContentWrapper>   
+                            <RightWrapper>        
+                                <RightText>
+                                    ARIA | {item?.contents.date}
+                                </RightText>
+                            </RightWrapper>
+                        </LineContainer>
+                    )
+                })
+                : (filterNoticeData?.length !== 0)
+                    ? filterNoticeData?.map((item : any) => {
+                        return (
+                            <LineContainer
+                                key={item.id}
                                 style={{
-                                    color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                    borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
                                 }}>
-                                {(item?.status === "Notice")
-                                    ? textChange(1)
-                                    : textChange(2)}
-                            </NoticeIcon>
-                            <Text onClick={() => onClickNoticeHandler(item)}>
-                                {contentChange(item)}
-                            </Text>
-                            {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                        </ContentWrapper>   
-                        <RightWrapper>        
-                            <RightText>
-                                ARIA | {item?.contents.date}
-                            </RightText>
-                        </RightWrapper>
-                    </LineContainer>
-                )
-            })
-            : filterNoticeData?.map((item : any) => {
-                return (
-                    <LineContainer
-                        key={item.id}
-                        style={{
-                            borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
-                        }}>
-                        <ContentWrapper>
-                            <NoticeIcon
-                                style={{
-                                    color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
-                                }}>
-                                {(item?.status === "Notice")
-                                    ? textChange(1)
-                                    : textChange(2)}
-                            </NoticeIcon>
-                            <Text onClick={() => onClickNoticeHandler(item)}>
-                                {contentChange(item)}
-                            </Text>
-                            {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                        </ContentWrapper>   
-                        <RightWrapper>        
-                            <RightText>
-                                ARIA | {item?.contents.date}
-                            </RightText>
-                        </RightWrapper>
-                    </LineContainer>
-                )
-            })}
+                                <ContentWrapper>
+                                    <NoticeIcon
+                                        style={{
+                                            color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                        }}>
+                                        {(item?.status === "Notice")
+                                            ? textChange(1)
+                                            : textChange(2)}
+                                    </NoticeIcon>
+                                    <Text onClick={() => onClickNoticeHandler(item)}>
+                                        {contentChange(item)}
+                                    </Text>
+                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                                </ContentWrapper>   
+                                <RightWrapper>        
+                                    <RightText>
+                                        ARIA | {item?.contents.date}
+                                    </RightText>
+                                </RightWrapper>
+                            </LineContainer>
+                        ) 
+                    })
+                : <NotSearch />
+            : <NotSearch />
+        }
     </ListContainer>
   )
 };

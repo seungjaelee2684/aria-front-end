@@ -97,18 +97,6 @@ export const counselingGuide : CounselingGuideType[] = [
                 isred: false,
                 content: "去听课申请",
             },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
         ],
         japanesetext: [
             {
@@ -164,35 +152,15 @@ export const counselingGuide : CounselingGuideType[] = [
                 isred: false,
                 content: "去听课申请",
             },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
         ],
         japanesetext: [
             {
                 isred: false,
-                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+                content: "チケットは左側に作成されますご不明な点を残していただければ、",
             },
             {
-                isred: false,
-                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
-            },
-            {
-                isred: false,
-                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
-            },
-            {
-                isred: false,
-                content: "チケットは左側に作成されますご不明な点を残していただければ、営業時間に担当者と相談できます。",
+                isred: true,
+                content: "営業時間に担当者と相談できます。",
             },
         ],
         text: [
@@ -227,35 +195,15 @@ export const counselingGuide : CounselingGuideType[] = [
                 isred: false,
                 content: "去听课申请",
             },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-            {
-                isred: false,
-                content: "去听课申请",
-            },
         ],
         japanesetext: [
             {
                 isred: false,
-                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。",
             },
             {
-                isred: false,
-                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
-            },
-            {
-                isred: false,
-                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
-            },
-            {
-                isred: false,
-                content: "チケットで該当部分のアカウント情報が合っているか確認後、相談を進めることができます。 受講申請は相談後、案内に従って行われます。",
+                isred: true,
+                content: "受講申請は相談後、案内に従って行われます。",
             },
         ],
         text: [
