@@ -249,6 +249,19 @@ const IconTitleWrapper = styled.div`
   font-size: 24px;
   color: #e9e9e9;
   user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 16px;
+    gap: 3px;
+  }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const IconTitle = styled.div`
@@ -257,6 +270,14 @@ const IconTitle = styled.div`
   font-weight: 700;
   line-height: normal;
   color: #e9e9e9;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 16px;
+  }
 `;
 
 const MenuIconContainer = styled.div`

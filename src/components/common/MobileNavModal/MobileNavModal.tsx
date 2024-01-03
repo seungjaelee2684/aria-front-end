@@ -31,7 +31,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
   const onClickHamburgCloseHandler = () => {
     if (mobileModalRef.current && backgroundRef.current) {
       backgroundRef.current.style.visibility = "hidden";
-      mobileModalRef.current.style.transform = "translateX(-70%)";
+      mobileModalRef.current.style.transform = "translateX(-110%)";
     };
     setHamburg(false);
   };
@@ -151,15 +151,14 @@ const BackgroundContainer = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  width: 70%;
+  width: 90%;
   height: 100%;
   background-color: #FFFFFF;
   position: fixed;
   top: 0;
-  left: -70%;
+  left: -110%;
   display: flex;
   flex-direction: column;
-  background-color: #ebfeff;
   z-index: 100;
   user-select: none;
   transition: all 0.5s;
@@ -181,19 +180,23 @@ const TopLogoContainer = styled.img`
 `;
 
 const CloseBtn = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
   font-family: "Pretendard";
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 600;
   line-height: normal;
-  color: #222020;
+  background-color: #2c2a2ae1;
+  color: #FFFFFF;
+  position: absolute;
+  top: 10px;
+  right: -40px;
 
   &:active {
+    color: #2c2a2a;
     background-color: #e9e9e9;
   }
 `;
@@ -201,13 +204,14 @@ const CloseBtn = styled.div`
 const TextWrapper = styled.div`
   width: 100%;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: normal;
   color: #222020;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  transition: all 0.3s;
 `;
 
 const Text = styled.div`

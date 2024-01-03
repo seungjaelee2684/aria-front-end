@@ -53,7 +53,7 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
 
   return (
     <ListContainer>
-        <LineContainer style={{height: "60px"}}>
+        <TopLineContainer>
             <TopLaneLeftText>
                 {textChange(4)}
             </TopLaneLeftText>
@@ -63,7 +63,7 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
             <TopLaneRightText>
                 {textChange(6)}
             </TopLaneRightText>
-        </LineContainer>
+        </TopLineContainer>
         {(NotificationData?.length !== 0)
             ? (noticeFilter === "All")
                 ? NotificationData?.map((item : any) => {
@@ -157,7 +157,7 @@ const ListContainer = styled.div`
     border-bottom: 2px solid #222020;
 `;
 
-const LineContainer = styled.div`
+export const LineContainer = styled.div`
     font-family: "Pretendard";
     line-height: normal;
     height: 80px;
@@ -166,6 +166,15 @@ const LineContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e9e9e9;
+
+    @media screen and (max-width: 500px) {
+        height: 20px;
+        padding: 14px 10px;
+    }
+`;
+
+const TopLineContainer = styled(LineContainer)`
+    height: 60px;
 
     @media screen and (max-width: 500px) {
         height: 20px;

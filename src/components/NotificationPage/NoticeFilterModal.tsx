@@ -79,6 +79,20 @@ const FilterOutWrapper = styled.div`
     background-color: #FFFFFF;
     overflow: hidden;
     border-radius: 8px;
+
+    @media screen and (max-width: 836px) {
+        width: 110px;
+        top: 31px;
+        font-size: 11px;
+        border-radius: 6px;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 90px;
+        top: 27px;
+        font-size: 9px;
+        border-radius: 5px;
+    }
 `;
 
 const FilterButtonWrapper = styled.div`
@@ -91,9 +105,16 @@ const FilterButtonWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-        background-color: #1e4eeb;
-        color: #FCFCFC;
+        background-color: #e9e9e9;
         font-weight: 600;
+    }
+
+    @media screen and (max-width: 836px) {
+        height: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 26px;
     }
 `;
 

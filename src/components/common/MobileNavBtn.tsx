@@ -1,17 +1,21 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components';
-import Home from '../../assets/logos/mobilelogo.webp';
+import Home from '../../assets/logos/whitelogo.webp';
 import { NavigateFunction } from 'react-router-dom';
 import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
 import MobileSNS from './MobileSNS/MobileSNS';
 import { IoShareSocialOutline } from 'react-icons/io5';
-import { IoHomeOutline } from 'react-icons/io5';
+import { GoHome } from "react-icons/go";
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { BsBoxArrowLeft } from 'react-icons/bs';
 import { useRecoilState } from 'recoil';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import AlertModal from './AlertModal/AlertModal';
+import { VscFeedback } from "react-icons/vsc";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { LuMoreHorizontal } from "react-icons/lu";
+import { MdClose } from 'react-icons/md';
 
 interface MobileNavBtnProps {
     navigate: NavigateFunction;
@@ -32,12 +36,12 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
             //   mobileModalRef.current.style.opacity = "0";
                 // backgroundRef.current.style.opacity = "0";
                 backgroundRef.current.style.visibility = "hidden";
-                mobileModalRef.current.style.transform = "translateX(-70%)";
+                mobileModalRef.current.style.transform = "translateX(-110%)";
             } else {
             //   mobileModalRef.current.style.opacity = "1";
                 // backgroundRef.current.style.opacity = "1";
                 backgroundRef.current.style.visibility = "visible";
-                mobileModalRef.current.style.transform = "translateX(98%)";
+                mobileModalRef.current.style.transform = "translateX(120%)";
             };
         };
         setHamburg(!hamburg);
@@ -45,26 +49,39 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
   return (
     <div style={{position: "relative"}}>
+        <MobileHeader>
+            <MobileHeaderInContainer>
+                <HomeBtnLogoIcon src={Home} alt='' onClick={() => navigate("/")}/>
+                <MenuIcon>
+                    <RxHamburgerMenu />
+                </MenuIcon>
+            </MobileHeaderInContainer>
+        </MobileHeader>
         <UnderHeaderContainer>
             <ButtonOutWrapper>
                 <ButtonBox onClick={() => navigate("/")}>
                     <ButtonWrapper>
-                        <IoHomeOutline />
+                        <GoHome />
                     </ButtonWrapper>
                     Home
                 </ButtonBox>
-                    <HomeButton onClick={() => setSnsModal(!snsModal)}>
-                        <HomeButtonInWrapper>
-                            {snsModal 
-                                ? <IoShareSocialOutline />
-                                : <HomeBtnIcon src={Home} alt=''/>}
-                        </HomeButtonInWrapper>
-                    </HomeButton>
+                <ButtonBox onClick={() => navigate("/mentor")}>
+                    <ButtonWrapper>
+                        <VscFeedback />
+                    </ButtonWrapper>
+                    Mentor
+                </ButtonBox>
+                <ButtonBox onClick={() => navigate("/notice/notification")}>
+                    <ButtonWrapper>
+                        <IoNotificationsOutline />
+                    </ButtonWrapper>
+                    Notice
+                </ButtonBox>
                 <ButtonBox onClick={onClickHamburgOpenHandler}>
                     <ButtonWrapper>
-                        {hamburg ? <BsBoxArrowLeft /> : <RxHamburgerMenu />}
+                        <LuMoreHorizontal />
                     </ButtonWrapper>
-                    Menu
+                    More
                 </ButtonBox>
             </ButtonOutWrapper>
         </UnderHeaderContainer>
@@ -83,20 +100,53 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
   )
 };
 
-const UnderHeaderContainer = styled.div`
+const MobileHeader = styled.div`
     width: 100%;
     height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #222020;
+`;
+
+const MobileHeaderInContainer = styled.div`
+    width: 96%;
+    height: 100%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const HomeBtnLogoIcon = styled.img`
+    width: auto;
+    height: 36px;
+    object-fit: cover;
+`;
+
+const MenuIcon = styled.div`
+    font-size: 30px;
+    color: #FFFFFF;
+    height: 100%;
+    display: flex;
+    align-items: center;
+`;
+
+const UnderHeaderContainer = styled.div`
+    width: 100%;
+    height: 40px;
     position: fixed;
     bottom: 0;
     left: 0;
     background-color: #FFFFFF;
     user-select: none;
     z-index: 101;
-    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+    border-top: 1px solid #e9e9e9;
 `;
 
 const ButtonOutWrapper = styled.div`
-    width: 66%;
+    width: 70%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -105,7 +155,7 @@ const ButtonOutWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-    font-size: 24px;
+    font-size: 22px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,7 +170,7 @@ const ButtonBox = styled.div`
     align-items: center;
     font-family: "Pretendard";
     gap: 2px;
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 600;
 `;
 
@@ -159,12 +209,6 @@ const HomeButtonContainer = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-`;
-
-const HomeBtnIcon = styled.img`
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
 `;
 
 export default MobileNavBtn;
