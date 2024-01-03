@@ -329,7 +329,7 @@ const PortfolioImage = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
-    cursor: pointer;
+    cursor: zoom-in;
 `;
 
 const ListBackMoveBtnContainer = styled.div`
