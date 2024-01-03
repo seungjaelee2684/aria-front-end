@@ -83,6 +83,20 @@ const FilterOutWrapper = styled.div`
     user-select: none;
     position: relative;
     cursor: pointer;
+
+    @media screen and (max-width: 836px) {
+        width: 90px;
+        height: 30px;
+        font-size: 12px;
+        gap: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 70px;
+        height: 26px;
+        font-size: 10px;
+        gap: 20px;
+    }
 `;
 
 export default NotificationFilter;

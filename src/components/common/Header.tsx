@@ -432,7 +432,7 @@ const PrevButton = styled.div`
 
 const MobileHeaderContainer = styled.div`
     width: 100%;
-    height: 40px;
+    height: 50px;
     background-color: #FFFFFF;
     position: absolute;
     top: 0;

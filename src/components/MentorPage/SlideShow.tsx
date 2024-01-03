@@ -130,6 +130,10 @@ const SlideLeftButtonBox = styled.div`
     height: 30px;
     font-size: 20px;
   }
+
+  @media screen and (max-width: 500px) {
+    border: 1px solid #FFFFFF;
+  }
 `;
 
 const SlideRightButtonBox = styled.div`
@@ -164,6 +168,10 @@ const SlideRightButtonBox = styled.div`
     width: 30px;
     height: 30px;
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 500px) {
+    border: 1px solid #FFFFFF;
   }
 `;
 
