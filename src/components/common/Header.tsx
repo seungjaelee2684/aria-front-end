@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import '../HomePage/MainImage/MainImage.css';
 import styled from 'styled-components';
 import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -85,9 +86,12 @@ const Header = () => {
 
     useEffect(() => {
         if (mainScrollHeader.current) {
-            mainScrollHeader.current.style.opacity = "1";
-            mainScrollHeader.current.style.transition = "all 0.4s ease-in-out";
-            mainScrollHeader.current.style.transform = "translateY(0px)";
+            if (location.pathname === "/") {
+                mainScrollHeader.current.style.opacity = "0";
+                mainScrollHeader.current.style.transition = "";
+                mainScrollHeader.current.style.animation = "main_header_appear 0.5s ease-out forwards";
+                mainScrollHeader.current.style.animationDelay = "2s";
+            };
         };
 
         const handleClickOutside = (event: any) => {
@@ -210,7 +214,6 @@ const HeaderLayoutContainer = styled.div`
     /* opacity: 0.5; */
     background-color: #FFFFFF;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
-    transition: all 0.4s ease-in-out;
 
     @media screen and (max-width: 500px) {
         display: none;
