@@ -15,7 +15,9 @@ const ScrollTop = () => {
     const resetMentorSearch = useResetRecoilState(mentorSearchInput);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+          top: 0
+        });
         resetFilter();
         resetFlag();
         resetPageNumber();
