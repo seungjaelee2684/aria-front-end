@@ -34,7 +34,7 @@ const LayoutContainer = styled.div`
   padding: 80px 0px 0px 0px;
 
   @media screen and (max-width: 500px) {
-    padding: 50px 0px 0px 0px;
+    padding: 60px 0px 0px 0px;
   }
 `;
 

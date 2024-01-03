@@ -50,39 +50,39 @@ const Header = () => {
         };
     };
 
-    const mobilePage = () => {
-        if (location.pathname.includes("/mentor")) {
-            return (
-                <MobileHeaderPageContainer>
-                    Mentor
-                </MobileHeaderPageContainer>
-            );
-        } else if (location.pathname.includes("/showcase")) {
-            return (
-                <MobileHeaderPageContainer>
-                    Showcase
-                </MobileHeaderPageContainer>
-            )
-        } else if (location.pathname.includes("/notice")) {
-            return (
-                <MobileHeaderPageContainer>
-                    Notice
-                </MobileHeaderPageContainer>
-            )
-        } else if (location.pathname.includes("/support")) {
-            return (
-                <MobileHeaderPageContainer>
-                    Support
-                </MobileHeaderPageContainer>
-            )
-        } else if (location.pathname === "/") {
-            return (
-                <MobileHeaderPageContainer>
-                    Home
-                </MobileHeaderPageContainer>
-            )
-        };
-    };
+    // const mobilePage = () => {
+    //     if (location.pathname.includes("/mentor")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Mentor
+    //             </MobileHeaderPageContainer>
+    //         );
+    //     } else if (location.pathname.includes("/showcase")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Showcase
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     } else if (location.pathname.includes("/notice")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Notice
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     } else if (location.pathname.includes("/support")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Support
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     } else if (location.pathname === "/") {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Home
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     };
+    // };
 
     useEffect(() => {
         if (mainScrollHeader.current) {
@@ -176,7 +176,7 @@ const Header = () => {
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        <MobileHeaderContainer>
+        {/* <MobileHeaderContainer>
             <HeaderOutWrapper>
                 <PrevButton onClick={() => window.history.back()}>
                     <MdOutlineArrowBack />
@@ -192,7 +192,7 @@ const Header = () => {
                         setLanguageModal={setLanguageModal}/>}
                 </TranslateContainer>
             </HeaderOutWrapper>
-        </MobileHeaderContainer>
+        </MobileHeaderContainer> */}
         {copyHandle && <CopyAlertModal />}      
         {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
@@ -308,7 +308,7 @@ const SmallButtonWrapper = styled.div`
     }
 `;
 
-const TranslateWrapper = styled.div`
+export const TranslateWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
@@ -329,8 +329,8 @@ const TranslateWrapper = styled.div`
         border: none;
         flex-direction: row;
         color: #222020;
-        gap: 2px;
-        font-size: 20px;
+        gap: 5px;
+        font-size: 14px;
     }
 `;
 

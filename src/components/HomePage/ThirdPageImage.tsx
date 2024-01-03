@@ -126,6 +126,11 @@ const SlideContainer = styled.div`
     width: 90%;
     height: 30%;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 30%;
+  }
 `;
 
 const SlideBorderLine = styled.img`
