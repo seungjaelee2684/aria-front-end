@@ -17,6 +17,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
 import { MdOutlineSupervisorAccount } from "react-icons/md";
+import { BsInstagram, BsDiscord, BsYoutube, BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
 
@@ -104,24 +105,24 @@ const Footer = () => {
             </IconTitleWrapper>
             <MenuIconContainer>
               <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
-                <MenuIcon
-                  src={DiscordDefault}
-                  alt=''/>
+                <MenuIcon>
+                  <BsDiscord />
+                </MenuIcon>
               </IconBoxWrapper>
               <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
-                <MenuIcon
-                  src={TwitterDefault}
-                  alt=''/>
+                <MenuIcon>
+                  <BsTwitterX />
+                </MenuIcon>
               </IconBoxWrapper>
               <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-                <MenuIcon
-                  src={InstagramDefault}
-                  alt=''/>
+                <MenuIcon>
+                  <BsInstagram />
+                </MenuIcon>
               </IconBoxWrapper>
               <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-                <MenuIcon
-                  src={YoutubeDefault}
-                  alt=''/>
+                <MenuIcon>
+                  <BsYoutube />
+                </MenuIcon>
               </IconBoxWrapper>
             </MenuIconContainer>
           </IconOutContainer>
@@ -323,12 +324,22 @@ const IconBoxWrapper = styled.div`
   }
 `;
 
-const MenuIcon = styled.img`
-  /* width: 22px;
-  height: 22px; */
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
+const MenuIcon = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #ADADAD;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 14px;
+  }
 `;
 
 const FooterOutWrapper = styled.div`

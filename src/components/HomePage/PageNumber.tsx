@@ -14,7 +14,7 @@ const PageNumber = () => {
         return (
           (scrollIndex === item)
             ? <PageNumberBox key={item} />
-            : <DefaultPageNumberBox key={item} />
+            : <DefaultPageNumberBox key={item} onClick={() => setScrollIndex(item)}/>
         )
       })}
       {/* <PageNumberBox style={{
@@ -41,6 +41,7 @@ const PageNumberContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
+  z-index: 100;
 
   @media screen and (max-width: 1320px) {
     gap: 20px;
@@ -69,6 +70,7 @@ export const DefaultPageNumberBox = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
+  cursor: pointer;
 
   @media screen and (max-width: 1320px) {
     width: 20px;
@@ -83,6 +85,7 @@ export const DefaultPageNumberBox = styled.div`
 
 const PageNumberBox = styled(DefaultPageNumberBox)`
   background-color: #ffffffc7;
+  cursor: default;
 
   @media screen and (max-width: 836px) {
     background-color: #5350ffc6;

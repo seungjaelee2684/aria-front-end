@@ -47,6 +47,24 @@ const Home = () => {
                     left: 0,
                     behavior: "smooth",
                 });
+            } else if (scrollIndex === 2) {
+                outerDivRef.current.scrollTo({
+                    top: pageHeight + DIVIDER_HEIGHT,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            } else if (scrollIndex === 3) {
+                outerDivRef.current.scrollTo({
+                    top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            } else if (scrollIndex === 4) {
+                outerDivRef.current.scrollTo({
+                    top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                    left: 0,
+                    behavior: "smooth",
+                });
             };
         };
         const wheelEventHandler = (e : any) => {
@@ -162,6 +180,8 @@ const Home = () => {
         };
     };  
   }, [scrollIndex]);
+
+  console.log("스크롤페이지 번호", scrollIndex);
 
   return (
     <MainLayout ref={outerDivRef}>
