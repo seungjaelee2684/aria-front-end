@@ -29,7 +29,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
     console.log("두번째 슬라이드 타이틀 -> ", titleArr);
 
     return (
-        <SecondImageBoxWrapper>
+        <ImageBoxWrapper>
             <BackgroundImage src={SecondBG} alt=''/>
             <SecondMainLayout>
                 <TriangleContainer src={Triangle} alt=''/>
@@ -80,7 +80,7 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
                     </SecondPageContent>
                 </SecondPageContentContainer>
             </SecondMainLayout>
-        </SecondImageBoxWrapper>
+        </ImageBoxWrapper>
     )
 };
 
@@ -99,11 +99,11 @@ const SecondMainLayout = styled(MainLayout)`
 `;
 
 const TriangleContainer = styled.img`
-    width: 120px;
+    width: 100px;
     height: auto;
     object-fit: cover;
     position: absolute;
-    top: 35%;
+    top: 34%;
     left: 0;
 
     @media screen and (max-width: 1320px) {
@@ -119,8 +119,8 @@ const TriangleContainer = styled.img`
 
 const SecondPageTitle = styled.div`
     position: absolute;
-    top: 30%;
-    left: 15%;
+    top: 28%;
+    left: 16%;
     display: flex;
     align-items: center;
     user-select: none;
@@ -136,13 +136,13 @@ const SecondPageTitle = styled.div`
 
 export const TitleText = styled.span`
     font-family: "CinzelRegular";
-    font-size: 90px;
+    font-size: 70px;
     font-weight: 600;
     line-height: normal;
     opacity: 0;
 
     @media screen and (max-width: 1320px) {
-        font-size: 70px;
+        font-size: 60px;
     }
 
     @media screen and (max-width: 836px) {
@@ -185,7 +185,7 @@ const SecondPageContentContainer = styled.div`
 
 const SecondPageContent = styled.div`
     font-family: "ZingRustDemo";
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 400;
     line-height: normal;
     color: #FCFCFC;

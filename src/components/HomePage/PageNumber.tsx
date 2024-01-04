@@ -40,11 +40,11 @@ const PageNumberContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   z-index: 100;
 
   @media screen and (max-width: 1320px) {
-    gap: 20px;
+    gap: 12px;
   }
 
   @media screen and (max-width: 836px) {
@@ -62,8 +62,8 @@ const PageNumberContainer = styled.div`
 `;
 
 export const DefaultPageNumberBox = styled.div`
-  width: 28px;
-  min-height: 28px;
+  width: 22px;
+  min-height: 22px;
   background-color: #adadadbe;
   color: #FFFFFF;
   display: flex;
@@ -73,8 +73,8 @@ export const DefaultPageNumberBox = styled.div`
   cursor: pointer;
 
   @media screen and (max-width: 1320px) {
-    width: 20px;
-    min-height: 20px;
+    width: 18px;
+    min-height: 18px;
   }
 
   @media screen and (max-width: 836px) {

@@ -64,7 +64,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   };
 
   return (
-    <ThirdImageBoxWrapper>
+    <ImageBoxWrapper>
       <BackgroundImage src={ThirdBG} alt=''/>
       <ThirdMainLayout className={(scrollIndex === 3) ? "third-content" : ""}>
         <SlideContainer>
@@ -95,7 +95,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
           })}
         </SlideNumberWrapper>
       </ThirdMainLayout>
-    </ThirdImageBoxWrapper>
+    </ImageBoxWrapper>
   )
 };
 
@@ -113,8 +113,8 @@ const ThirdMainLayout = styled(MainLayout)`
 `;
 
 const SlideContainer = styled.div`
-  width: 86%;
-  height: 60%;
+  width: 70%;
+  height: 50%;
   position: relative;
 
   @media screen and (max-width: 1320px) {
