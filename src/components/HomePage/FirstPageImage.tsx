@@ -85,6 +85,10 @@ export const ImageBoxWrapper = styled.div`
   position: relative;
   overflow: hidden;
   background-color: #090e28;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const BackgroundImage = styled.img`
@@ -126,10 +130,10 @@ export const BackgroundContainer = styled.div`
 const LogoImageContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 
   @media screen and (max-width: 1320px) {
-    gap: 30px;
+    gap: 20px;
   }
 
   @media screen and (max-width: 836px) {
@@ -139,7 +143,7 @@ const LogoImageContainer = styled.div`
 
 const LogoImage = styled.img`
   width: auto;
-  height: 260px;
+  height: 180px;
   object-fit: cover;
   opacity: 0;
 

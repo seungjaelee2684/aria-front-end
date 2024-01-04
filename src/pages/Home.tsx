@@ -16,6 +16,7 @@ import ThirdPageImage from '../components/HomePage/ThirdPageImage';
 import FourthPageImage from '../components/HomePage/FourthPageImage';
 import FifthPageImage from '../components/HomePage/FifthPageImage';
 import PageNumber from '../components/HomePage/PageNumber';
+import MobileMain from '../components/HomePage/MobileMain';
 
 const Home = () => {
 
@@ -195,6 +196,7 @@ const Home = () => {
         <SpaceBetweenContainer /> */}
         <FifthPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
+        <MobileMain mainPageTextChange={mainPageTextChange}/>
         <PageNumber />
     </MainLayout>
   )
@@ -208,12 +210,21 @@ const MainLayout = styled.div`
     display: flex;
     flex-direction: column;
     z-index: 97;
+
+    @media screen and (max-width: 500px) {
+        overflow-y: visible;
+        height: fit-content;
+    }
 `;
 
 const SpaceBetweenContainer = styled.div`
     width: 100%;
     min-height: 5px;
     background-color: #090e28;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 export default Home;

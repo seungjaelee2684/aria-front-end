@@ -39,7 +39,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
   };
  
   return (
-    <FifthImageBoxWrapper>
+    <ImageBoxWrapper>
       <FifthBackgroundImage src={FifthBG} alt=''/>
       <FifthMainLayout>
         <FifthTitle>
@@ -72,7 +72,7 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
           </Button>
         </ButtonWrapper>
       </FifthMainLayout>
-    </FifthImageBoxWrapper>
+    </ImageBoxWrapper>
   )
 };
 
@@ -90,10 +90,10 @@ const FifthBackgroundImage = styled(BackgroundImage)`
 const FifthMainLayout = styled(MainLayout)`
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
 
   @media screen and (max-width: 1320px) {
-    gap: 80px;
+    gap: 70px;
   }
 
   @media screen and (max-width: 836px) {
@@ -103,7 +103,7 @@ const FifthMainLayout = styled(MainLayout)`
 
 const FifthTitle = styled.div`
   font-family: "UniSansThin";
-  font-size: 90px;
+  font-size: 70px;
   line-height: normal;
   color: #FFFFFF;
   display: flex;
@@ -111,15 +111,15 @@ const FifthTitle = styled.div`
   user-select: none;
 
   @media screen and (max-width: 1320px) {
-    font-size: 80px;
-  }
-
-  @media screen and (max-width: 836px) {
     font-size: 60px;
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 836px) {
     font-size: 50px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 40px;
   }
 `;
 
@@ -128,10 +128,10 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
 
   @media screen and (max-width: 1320px) {
-    gap: 50px;
+    gap: 40px;
   }
 
   @media screen and (max-width: 836px) {
@@ -142,7 +142,7 @@ const ButtonWrapper = styled.div`
 const Button = styled.div<{ color: string }>`
   background-color: ${(props) => props.color};
   font-family: "ZingRustDemo";
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
   line-height: normal;
   color: #FFFFFF;
