@@ -10,9 +10,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import { MdClose } from 'react-icons/md';
-import { BsInstagram, BsDiscord } from "react-icons/bs";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FiYoutube } from "react-icons/fi";
+import { BsInstagram, BsDiscord, BsYoutube, BsTwitterX } from "react-icons/bs";
 import { MdOutlineSupervisorAccount } from "react-icons/md";
 
 interface MobileSNSProps {
@@ -50,7 +48,7 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
                     setSnsModal(false);
                 }}>
                 <Icon>
-                    <RiTwitterXFill />
+                    <BsTwitterX />
                     <Text>
                         TwitterX
                     </Text>
@@ -71,7 +69,7 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
             <YoutubeIconBox
                 onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
                 <Icon>
-                    <FiYoutube />
+                    <BsYoutube />
                     <Text>
                         Youtube
                     </Text>

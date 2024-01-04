@@ -13,27 +13,13 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import { IoShareSocial } from "react-icons/io5";
+import { BsInstagram, BsDiscord, BsYoutube, BsTwitterX } from "react-icons/bs";
 
 const SNSMenu = () => {
 
   const language = localStorage.getItem("language");
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [sns, setSns] = useState<boolean>(false);
-
-  const onClickReadyHandler = () => {
-    switch (language) {
-      case "english" :
-        return alert("Coming soon");
-      case "chinese" :
-        return alert("正在准备。");
-      case "japanese" :
-        return alert("準備中です。");
-      case "korean" :
-        return alert("준비중입니다.");
-      default :
-        return alert("Coming soon");
-    };
-  };
 
   const onTitleReadyHandler = ( Num : number ) => {
     if (Num === 0) {
@@ -83,32 +69,32 @@ const SNSMenu = () => {
       </SocialIcon> */}
       {/* <DiscordIcon> */}
       <MenuIcon
-          title={onTitleReadyHandler(2)}
-          src={Discord}
-          alt=''
-          onClick={() => window.open("https://discord.gg/N7SEvBds4F")}/>
+        title={onTitleReadyHandler(2)}
+        onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+        <BsDiscord />
+      </MenuIcon>
       {/* </DiscordIcon> */}
       {/* <TwitterIcon> */}
       <MenuIcon
-          title={onTitleReadyHandler(1)}
-          src={Twitter}
-          alt=''
-          onClick={() => window.open("https://twitter.com/ARIA_Academy")}/>
+        title={onTitleReadyHandler(1)}
+        onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
+        <BsTwitterX />
+      </MenuIcon>
       {/* </TwitterIcon> */}
       {/* <InstaIcon> */}
-        <MenuIcon
-          // className='MenuIcon'
-          title={onTitleReadyHandler(0)}
-          src={Instagram}
-          alt=''
-          onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
+      <MenuIcon
+        // className='MenuIcon'
+        title={onTitleReadyHandler(0)}
+        onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+        <BsInstagram />
+      </MenuIcon>
       {/* </InstaIcon> */}
       {/* <YoutubeIcon> */}
-        <MenuIcon
-          title={onTitleReadyHandler(0)}
-          src={Youtube}
-          alt=''
-          onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}/>
+      <MenuIcon
+        title={onTitleReadyHandler(0)}
+        onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+        <BsYoutube />
+      </MenuIcon>
       {/* </YoutubeIcon> */}
     </MenuIconContainer>
   )
@@ -237,21 +223,18 @@ const YoutubeIcon = styled.div`
   }
 `;
 
-const MenuIcon = styled.img`
-  width: 22px;
-  height: 22px;
-  object-fit: cover;
+const MenuIcon = styled.div`
+  font-size: 22px;
+  color: #000000;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   @media screen and (max-width: 1320px) {
-    width: 20px;
-    height: 20px;
+    font-size: 20px;
   }
 
   @media screen and (max-width: 836px) {
-    width: 18px;
-    height: 18px;
+    font-size: 18px;
   }
 `;
 
