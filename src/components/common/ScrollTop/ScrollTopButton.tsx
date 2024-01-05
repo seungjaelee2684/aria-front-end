@@ -73,9 +73,10 @@ const ScrollTopButtonWrapper = styled.div`
     justify-content: center;
     align-items: center;
     /* background-color: rgba(255, 255, 255, 0.788); */
-    background-color: #FFFFFF;
+    background-color: #ffffffd8;
     border-radius: 100%;
     border: 1px solid #d0d0d0;
+    box-shadow: #50505080 0px 3px 8px 0px;
     width: 50px;
     height: 50px;
     opacity: 0;

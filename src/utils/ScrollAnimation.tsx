@@ -1,36 +1,36 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const ScrollAnimation = () => {
 
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            // entry의 target으로 DOM에 접근합니다.
-            const $target = entry.target;
+    const [isInViewport, setIsInViewport] = useState(false);
+    const ref = useRef<HTMLDivElement | null>(null);
 
-            // 화면에 노출 상태에 따라 해당 엘리먼트의 class를 컨트롤 합니다.
-            if (entry.isIntersecting) {
-                $target.classList.add("screening");
-            } else {
-                $target.classList.remove("screening");
-            }
-        });
-    });
+    useEffect(() => {
+        if (!ref.current) return; // 요소가 아직 준비되지 않은 경우 중단
 
-    // 옵저버할 대상 DOM을 선택하여 관찰을 시작합니다.
-    const $items = document.querySelectorAll("li");
-    $items.forEach((item) => {
-        io.observe(item);
-    });
+        const callback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // 요소가 뷰포트에 나타났을 경우
+                    setIsInViewport(true);
+                } else {
+                    // 요소가 뷰포트를 벗어난 경우
+                    setIsInViewport(false);
+                }
+            });
+        };
 
-    // 특정 요소만 옵저버를 해제합니다.
-    // io.unobserve(targetElement);
+        const options = { root: null, rootMargin: "0px", threshold: 0 };
 
-    // 옵저버 전체를 해제합니다.
-    // io.disconnect();
+        const observer = new IntersectionObserver(callback, options);
+        observer.observe(ref.current); // 요소 관찰 시작
 
-    return (
-        <div>ScrollAnimation</div>
-    )
+        return () => {
+            observer.disconnect(); // 컴포넌트 언마운트 시 관찰 중단
+        };
+    }, []);
+
+    return { isInViewport, ref }
 };
 
 export default ScrollAnimation;

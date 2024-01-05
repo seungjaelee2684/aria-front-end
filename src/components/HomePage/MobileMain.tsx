@@ -4,6 +4,7 @@ import '../../style/font/font.css';
 import styled from 'styled-components';
 import MainSlideShow from './MainSlideShow';
 import { MainBannertData } from '../../data/MainBannerData';
+import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
 
 interface MobileMainProps {
     mainPageTextChange: Function;
@@ -62,38 +63,59 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     setMainSlideCurrent={setMainSlideCurrent}
                     isLoop={isLoop}
                     setIsLoop={setIsLoop} />
+                <SlideNumberWrapper>
+                    {MainBannertData?.map((item : any, index : number) => {
+                        return (
+                            (mainSlideCurrent === (index + 1))
+                                ? <SlideNumber
+                                    key={item?.id}
+                                    height='6px'
+                                    color='#FFFFFF' />
+                                : <SlideNumber
+                                    key={item?.id}
+                                    height='4px'
+                                    color='#ADADAD' />
+                        )
+                    })}
+                </SlideNumberWrapper>
             </MobileSlideShow>          
             <InformContentContainer>
-                <InformTitleContainer>
-                    <InformTitle>
-                        GLOBAL ART
-                    </InformTitle>
-                    <InformTitle>
-                        ACADEMY
-                    </InformTitle>
-                </InformTitleContainer>         
-                <InformContentWrapper>
-                    <ContentText>
-                        {mainPageTextChange(8)}
-                    </ContentText>
-                    <ContentText>
-                        {mainPageTextChange(9)}
-                    </ContentText>
-                    <ContentText>
-                        {mainPageTextChange(10)}
-                    </ContentText>
-                </InformContentWrapper>
-                <InformContentWrapper>
-                    <ContentText>
-                        {mainPageTextChange(11)}
-                    </ContentText>
-                    <ContentText>
-                        {mainPageTextChange(12)}
-                    </ContentText>
-                    <ContentText>
-                        {mainPageTextChange(13)}
-                    </ContentText>
-                </InformContentWrapper>
+                <ScrollAniContainer>
+                    <InformTitleContainer>
+                        <InformTitle>
+                            GLOBAL ART
+                        </InformTitle>
+                        <InformTitle>
+                            ACADEMY
+                        </InformTitle>
+                    </InformTitleContainer>
+                </ScrollAniContainer>
+                <ScrollAniContainer>
+                    <InformContentWrapper>
+                        <ContentText>
+                            {mainPageTextChange(8)}
+                        </ContentText>
+                        <ContentText>
+                            {mainPageTextChange(9)}
+                        </ContentText>
+                        <ContentText>
+                            {mainPageTextChange(10)}
+                        </ContentText>
+                    </InformContentWrapper>
+                </ScrollAniContainer>
+                <ScrollAniContainer>
+                    <InformContentWrapper>
+                        <ContentText>
+                            {mainPageTextChange(11)}
+                        </ContentText>
+                        <ContentText>
+                            {mainPageTextChange(12)}
+                        </ContentText>
+                        <ContentText>
+                            {mainPageTextChange(13)}
+                        </ContentText>
+                    </InformContentWrapper>
+                </ScrollAniContainer>
             </InformContentContainer>
         </MobileMainLayout>
     )
@@ -118,6 +140,25 @@ const MobileMainLayout = styled.div`
 const MobileSlideShow = styled.div`
     width: 100%;
     height: 300px;
+    position: relative;
+`;
+
+const SlideNumberWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    gap: 2px;
+`;
+
+const SlideNumber = styled.div<{ color : string, height : string }>`
+    width: 100%;
+    box-shadow: #5b5b5b78 0px -2px 4px 0px;
+    height: ${(props) => props.height};
+    background-color: ${(props) => props.color};
+    transition: all 0.6s;
 `;
 
 const InformTitleContainer = styled.div`
