@@ -161,7 +161,7 @@ const LayOutContainer = styled.div`
   padding: 80px 0px 0px 0px;
 
   @media screen and (max-width: 500px) {
-    margin: 60px auto 0px auto;
+    margin: 100px auto 0px auto;
     padding: 0px;
   }
 `;

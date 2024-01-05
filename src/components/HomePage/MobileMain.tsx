@@ -128,7 +128,6 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
 const MobileMainLayout = styled.div`
     width: 100%;
-    height: 1000px;
     padding: 50px auto 0px auto;
     /* background-color: #222020; */
     display: none;
@@ -175,20 +174,20 @@ const InformTitleContainer = styled.div`
 
 const InformTitle = styled.div`
     font-family: "Pretendard";
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     line-height: normal;
     letter-spacing: 8px;
-    color: #4787d1;
+    color: #0a65cc;
 `;
 
 const InformContentContainer = styled.div`
-    margin-top: 200px;
+    margin-top: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: 120px;
     position: relative;
 `;
 
@@ -201,19 +200,19 @@ const InformContentWrapper = styled.div`
 
 const ContentText = styled.div`
     font-family: "Pretendard";
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     line-height: normal;
     color: #222020;
 `;
 
 const CharactorImage = styled.img`
-    width: 180px;
-    height: 400px;
-    object-fit: contain;
+    width: 240px;
+    height: 600px;
+    object-fit: cover;
     position: absolute;
     top: 0;
-    left: 50px;
+    left: 30px;
 `;
 
 export default MobileMain;

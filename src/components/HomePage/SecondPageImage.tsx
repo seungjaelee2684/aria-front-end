@@ -135,9 +135,9 @@ const SecondPageTitle = styled.div`
 `;
 
 export const TitleText = styled.span`
-    font-family: "CinzelRegular";
+    font-family: "LatinCondensed";
     font-size: 70px;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
     opacity: 0;
 

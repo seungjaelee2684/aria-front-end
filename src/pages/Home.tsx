@@ -70,7 +70,7 @@ const Home = () => {
         };
         const wheelEventHandler = (e : any) => {
             if (outerDivRef.current) {
-                e.preventDefault();
+                // e.preventDefault();
                 const { deltaY } = e;
                 const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
                 const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
@@ -214,6 +214,7 @@ const MainLayout = styled.div`
     @media screen and (max-width: 500px) {
         overflow-y: visible;
         height: fit-content;
+        padding: 0px 0px 80px 0px;
     }
 `;
 
