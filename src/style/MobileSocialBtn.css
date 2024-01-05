@@ -1,0 +1,15 @@
+.Mobile-Social-Button {
+    animation: social_twinkle 2s infinite;
+}
+
+@keyframes social_twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

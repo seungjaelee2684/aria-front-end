@@ -102,3 +102,17 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'LatinCondensed';
+  src: url('./LatinCondensed.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vahika_A';
+  src: url('./vahika_.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}

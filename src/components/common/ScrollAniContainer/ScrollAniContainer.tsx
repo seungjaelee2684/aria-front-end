@@ -20,6 +20,7 @@ const ScrollAniContainer: React.FC<ScrollAniContainerProps> = ({ children }) => 
 
 export const AnimationContainer = styled.div`
     width: 100%;
+    height: fit-content;
     position: relative;
     opacity: 0;
 `;

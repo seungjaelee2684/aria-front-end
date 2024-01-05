@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
+import '../../style/MobileSocialBtn.css';
 import styled from 'styled-components';
 import Home from '../../assets/logos/whitelogo.webp';
-import { NavigateFunction } from 'react-router-dom';
+import { NavigateFunction, useLocation } from 'react-router-dom';
 import NavigateBtn from '../../assets/icons/list.png';
 import MobileNavModal from './MobileNavModal/MobileNavModal';
 import MobileSNS from './MobileSNS/MobileSNS';
@@ -27,6 +28,7 @@ interface MobileNavBtnProps {
 const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
     const language = localStorage.getItem("language");
+    const location = useLocation();
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
     const [hamburg, setHamburg] = useState<boolean>(false);
@@ -88,31 +90,41 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
         </MobileHeader>
         <UnderHeaderContainer>
             <ButtonOutWrapper>
-                <ButtonBox onClick={() => navigate("/")}>
+                <ButtonBox
+                    style={{color: `${(location.pathname === "/") ? "#FFFFFF" : "#ADADAD"}`}}
+                    onClick={() => navigate("/")}>
                     <ButtonWrapper>
                         <GoHome />
                     </ButtonWrapper>
                     {headerTrans(0)}
                 </ButtonBox>
-                <ButtonBox onClick={() => navigate("/mentor")}>
+                <ButtonBox
+                    style={{color: `${(location.pathname.includes("/mentor")) ? "#FFFFFF" : "#ADADAD"}`}}
+                    onClick={() => navigate("/mentor")}>
                     <ButtonWrapper>
                         <VscFeedback />
                     </ButtonWrapper>
                     {headerTrans(1)}
                 </ButtonBox>
-                <ButtonBox onClick={() => navigate("/notice/notification")}>
+                <ButtonBox
+                    style={{color: `${(location.pathname.includes("/notice")) ? "#FFFFFF" : "#ADADAD"}`}}
+                    onClick={() => navigate("/notice/notification")}>
                     <ButtonWrapper>
                         <IoNotificationsOutline />
                     </ButtonWrapper>
                     {headerTrans(2)}
                 </ButtonBox>
-                <ButtonBox onClick={() => navigate("/support/counseling")}>
+                <ButtonBox
+                    style={{color: `${(location.pathname === "/support/counseling") ? "#FFFFFF" : "#ADADAD"}`}}
+                    onClick={() => navigate("/support/counseling")}>
                     <ButtonWrapper>
                         <MdOutlineHeadsetMic />
                     </ButtonWrapper>
                     {headerTrans(3)}
                 </ButtonBox>
-                <ButtonBox onClick={() => setSnsModal(true)}>
+                <ButtonBox
+                    className="Mobile-Social-Button"
+                    onClick={() => setSnsModal(true)}>
                     <ButtonWrapper>
                         <TbMessageDots />
                     </ButtonWrapper>
@@ -194,7 +206,6 @@ const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
 `;
 
 const ButtonBox = styled.div`
