@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import MainSlideShow from './MainSlideShow';
 import { MainBannertData } from '../../data/MainBannerData';
 import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
+import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
+import Charactor from '../../assets/images/rapla2.png';
 
 interface MobileMainProps {
     mainPageTextChange: Function;
@@ -80,6 +82,9 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                 </SlideNumberWrapper>
             </MobileSlideShow>          
             <InformContentContainer>
+                <IllustContainer>
+                    <CharactorImage src={Charactor} alt=''/>
+                </IllustContainer> 
                 <ScrollAniContainer>
                     <InformTitleContainer>
                         <InformTitle>
@@ -184,6 +189,7 @@ const InformContentContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 70px;
+    position: relative;
 `;
 
 const InformContentWrapper = styled.div`
@@ -199,6 +205,15 @@ const ContentText = styled.div`
     font-weight: 400;
     line-height: normal;
     color: #222020;
+`;
+
+const CharactorImage = styled.img`
+    width: 180px;
+    height: 400px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 50px;
 `;
 
 export default MobileMain;
