@@ -18,10 +18,10 @@ const IllustContainer : React.FC<IllustContainerProps> = ({ children }) => {
 };
 
 const IllustImageContainer = styled.div`
-    width: 100%;
-    height: fit-content;
-    position: relative;
     opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
 
 export default IllustContainer;
