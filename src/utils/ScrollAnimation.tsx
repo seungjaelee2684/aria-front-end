@@ -20,7 +20,7 @@ const ScrollAnimation = () => {
             });
         };
 
-        const options = { root: null, rootMargin: "0px", threshold: 0 };
+        const options = { root: null, rootMargin: "0px", threshold: 0, delay: 0 };
 
         const observer = new IntersectionObserver(callback, options);
         observer.observe(ref.current); // 요소 관찰 시작

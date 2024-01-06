@@ -207,12 +207,9 @@ const ContentText = styled.div`
 `;
 
 const CharactorImage = styled.img`
-    width: 240px;
-    height: 600px;
+    width: 400px;
+    height: auto;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 30px;
 `;
 
 export default MobileMain;
