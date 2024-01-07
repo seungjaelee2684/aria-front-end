@@ -41,32 +41,32 @@ export const etcTextTrans : ETCTextTransType[] = [
 export const mobileHeaderTrans : ETCTextTransType[] = [
     {
         englishtext: "Home",
-        chinesetext: " 件",
-        japanesetext: " 件",
+        chinesetext: "本垒",
+        japanesetext: "ホーム",
         text: "홈으로"
     },
     {
         englishtext: "Mentor",
-        chinesetext: "请输入搜索词。",
-        japanesetext: "検索ワードを入力してください。",
+        chinesetext: "查看讲师",
+        japanesetext: "講師",
         text: "강사보기"
     },
     {
         englishtext: "Notice",
-        chinesetext: "名字",
-        japanesetext: "名前",
+        chinesetext: "公告事项",
+        japanesetext: "お知らせ",
         text: "공지사항"
     },
     {
         englishtext: "Counseling",
-        chinesetext: "无搜索结果",
-        japanesetext: "検索結果なし",
+        chinesetext: "咨询指南",
+        japanesetext: "相談案内",
         text: "상담안내"
     },
     {
         englishtext: "Social",
-        chinesetext: "请输入正确的搜索词或设置过滤器后再次尝试。",
-        japanesetext: "正しい検索ワードを入力するか、\nフィルターを設定してから再試行してください。",
+        chinesetext: "社交媒体",
+        japanesetext: "ソーシャル",
         text: "소셜계정"
     },
 ];

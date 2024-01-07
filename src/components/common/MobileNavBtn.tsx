@@ -182,7 +182,7 @@ const MenuIcon = styled.div`
 
 const UnderHeaderContainer = styled.div`
     width: 100%;
-    height: 40px;
+    height: 42px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -216,7 +216,7 @@ const ButtonBox = styled.div`
     align-items: center;
     font-family: "Pretendard";
     gap: 2px;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 500;
     color: #FFFFFF;
 `;
