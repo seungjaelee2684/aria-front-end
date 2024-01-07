@@ -3,7 +3,7 @@
 }
 
 .Illust-InView {
-    animation: illust_viewport_in 1s forwards;
+    animation: illust_viewport_in 1s forwards 0.3s;
 }
 
 @keyframes scroll_viewport_in {

@@ -7,6 +7,7 @@ import { MainBannertData } from '../../data/MainBannerData';
 import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
 import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
 import Charactor from '../../assets/images/rapla2.png';
+import Logo from '../../assets/logos/logosimple.webp';
 
 interface MobileMainProps {
     mainPageTextChange: Function;
@@ -71,12 +72,12 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                             (mainSlideCurrent === (index + 1))
                                 ? <SlideNumber
                                     key={item?.id}
-                                    height='6px'
-                                    color='#FFFFFF' />
+                                    height='7px'
+                                    color='#ffffffc0' />
                                 : <SlideNumber
                                     key={item?.id}
-                                    height='4px'
-                                    color='#ADADAD' />
+                                    height='5px'
+                                    color='#8080806f' />
                         )
                     })}
                 </SlideNumberWrapper>
@@ -84,7 +85,10 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
             <InformContentContainer>
                 <IllustContainer>
                     <CharactorImage src={Charactor} alt=''/>
-                </IllustContainer> 
+                </IllustContainer>
+                <ScrollAniContainer>
+                    <InformLogoContainer src={Logo} alt=''/>
+                </ScrollAniContainer>
                 <ScrollAniContainer>
                     <InformTitleContainer>
                         <InformTitle>
@@ -150,16 +154,17 @@ const MobileSlideShow = styled.div`
 const SlideNumberWrapper = styled.div`
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: end;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     gap: 2px;
 `;
 
 const SlideNumber = styled.div<{ color : string, height : string }>`
-    width: 100%;
-    box-shadow: #5b5b5b78 0px -2px 4px 0px;
+    width: 50px;
+    box-shadow: #5b5b5b78 0px 2px 4px 0px;
     height: ${(props) => props.height};
     background-color: ${(props) => props.color};
     transition: all 0.6s;
@@ -172,6 +177,12 @@ const InformTitleContainer = styled.div`
     gap: 8px;
 `;
 
+const InformLogoContainer = styled.img`
+    width: 150px;
+    height: 70px;
+    object-fit: cover;
+`;
+
 const InformTitle = styled.div`
     font-family: "Pretendard";
     font-size: 16px;
@@ -182,7 +193,7 @@ const InformTitle = styled.div`
 `;
 
 const InformContentContainer = styled.div`
-    margin-top: 300px;
+    margin-top: 100px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -207,7 +218,7 @@ const ContentText = styled.div`
 `;
 
 const CharactorImage = styled.img`
-    width: 400px;
+    width: 300px;
     height: auto;
     object-fit: cover;
 `;

@@ -20,7 +20,7 @@ const IllustContainer : React.FC<IllustContainerProps> = ({ children }) => {
 const IllustImageContainer = styled.div`
     opacity: 0;
     position: absolute;
-    top: 0;
+    top: 250px;
     left: 0;
 `;
 
