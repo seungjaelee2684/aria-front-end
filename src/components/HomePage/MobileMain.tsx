@@ -13,7 +13,7 @@ interface MobileMainProps {
     mainPageTextChange: Function;
 };
 
-const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
+const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
     const [isLoop, setIsLoop] = useState<boolean>(false);
@@ -67,7 +67,7 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     isLoop={isLoop}
                     setIsLoop={setIsLoop} />
                 <SlideNumberWrapper>
-                    {MainBannertData?.map((item : any, index : number) => {
+                    {MainBannertData?.map((item: any, index: number) => {
                         return (
                             (mainSlideCurrent === (index + 1))
                                 ? <SlideNumber
@@ -81,13 +81,13 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                         )
                     })}
                 </SlideNumberWrapper>
-            </MobileSlideShow>          
+            </MobileSlideShow>
             <InformContentContainer>
                 <IllustContainer>
-                    <CharactorImage src={Charactor} alt=''/>
+                    <CharactorImage src={Charactor} alt='' />
                 </IllustContainer>
                 <ScrollAniContainer>
-                    <InformLogoContainer src={Logo} alt=''/>
+                    <InformLogoContainer src={Logo} alt='' />
                 </ScrollAniContainer>
                 <ScrollAniContainer>
                     <InformTitleContainer>
@@ -125,6 +125,18 @@ const MobileMain : React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                         </ContentText>
                     </InformContentWrapper>
                 </ScrollAniContainer>
+                <ButtonWrapper>
+                    <Button>
+                        <Icon>
+                        CLICK TO COPY EMAIL
+                        </Icon>
+                    </Button>
+                    <Button>
+                        <Icon>
+                        GO TO STUDENT COUNSELING PAGE
+                        </Icon>
+                    </Button>
+                </ButtonWrapper>
             </InformContentContainer>
         </MobileMainLayout>
     )
@@ -162,7 +174,7 @@ const SlideNumberWrapper = styled.div`
     gap: 2px;
 `;
 
-const SlideNumber = styled.div<{ color : string, height : string }>`
+const SlideNumber = styled.div<{ color: string, height: string }>`
     width: 50px;
     box-shadow: #5b5b5b78 0px 2px 4px 0px;
     height: ${(props) => props.height};
@@ -221,6 +233,47 @@ const CharactorImage = styled.img`
     width: 300px;
     height: auto;
     object-fit: cover;
+`;
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 30px;
+`;
+
+const Icon = styled.span`
+    &:after {
+        content: "\00bb";
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: -10px;
+    }
+`;
+
+const Button = styled.div`
+    width: 200px;
+    cursor: pointer;
+    position: relative;
+    font-family: "Pretendard";
+    font-size: 9px;
+    font-weight: 600;
+    line-height: normal;
+    color: #222020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: 0.5s;
+
+    &:hover {
+        padding-right: 10px;
+    }
+
+    &:hover ${Icon}:after {
+        opacity: 1;
+        right: 0;
+    }
 `;
 
 export default MobileMain;
