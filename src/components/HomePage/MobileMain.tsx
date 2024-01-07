@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './MainImage/MainImage.css';
+import '../../style/CommonStyle.css';
 import '../../style/font/font.css';
 import styled from 'styled-components';
 import MainSlideShow from './MainSlideShow';
 import { MainBannertData } from '../../data/MainBannerData';
 import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
 import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
-import Charactor from '../../assets/images/rapla2.png';
+import Charactor from '../../assets/curriculums/sanpati/portfolio/p06.webp';
 import Logo from '../../assets/logos/logosimple.webp';
 
 interface MobileMainProps {
@@ -126,15 +127,15 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     </InformContentWrapper>
                 </ScrollAniContainer>
                 <ButtonWrapper>
-                    <Button>
-                        <Icon>
-                        CLICK TO COPY EMAIL
-                        </Icon>
+                    <Button className='SeeMoreButton'>
+                        <span>
+                            CLICK TO COPY EMAIL
+                        </span>
                     </Button>
-                    <Button>
-                        <Icon>
-                        GO TO STUDENT COUNSELING PAGE
-                        </Icon>
+                    <Button className='SeeMoreButton'>
+                        <span>
+                            GO TO STUDENT COUNSELING PAGE
+                        </span>
                     </Button>
                 </ButtonWrapper>
             </InformContentContainer>
@@ -210,7 +211,7 @@ const InformContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 120px;
+    gap: 100px;
     position: relative;
 `;
 
@@ -230,7 +231,7 @@ const ContentText = styled.div`
 `;
 
 const CharactorImage = styled.img`
-    width: 300px;
+    width: 100%;
     height: auto;
     object-fit: cover;
 `;
@@ -238,25 +239,13 @@ const CharactorImage = styled.img`
 const ButtonWrapper = styled.div`
     display: flex;
     align-items: center;
-    gap: 30px;
-`;
-
-const Icon = styled.span`
-    &:after {
-        content: "\00bb";
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        right: -10px;
-    }
+    gap: 10px;
 `;
 
 const Button = styled.div`
-    width: 200px;
-    cursor: pointer;
-    position: relative;
+    width: 190px;
     font-family: "Pretendard";
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 600;
     line-height: normal;
     color: #222020;
@@ -264,16 +253,6 @@ const Button = styled.div`
     justify-content: center;
     align-items: center;
     user-select: none;
-    transition: 0.5s;
-
-    &:hover {
-        padding-right: 10px;
-    }
-
-    &:hover ${Icon}:after {
-        opacity: 1;
-        right: 0;
-    }
 `;
 
 export default MobileMain;

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import '../../../style/CommonStyle.css';
 import styled from 'styled-components';
 import Notice from '../../../assets/icons/notification.png';
 import { useRecoilValue } from 'recoil';
