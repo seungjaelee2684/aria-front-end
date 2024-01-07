@@ -9,6 +9,9 @@ import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer'
 import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
 import Charactor from '../../assets/curriculums/sanpati/portfolio/p06.webp';
 import Logo from '../../assets/logos/logosimple.webp';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { CopyAlert } from '../../store/CopyAlert';
 
 interface MobileMainProps {
     mainPageTextChange: Function;
@@ -16,8 +19,20 @@ interface MobileMainProps {
 
 const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
+    const navigate = useNavigate();
+    const [, setCopyHandler] = useRecoilState(CopyAlert);
+
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
     const [isLoop, setIsLoop] = useState<boolean>(false);
+
+    const handleCopyClipBoard = async (text: string) => {
+        try {
+          await navigator.clipboard.writeText(text);
+          setCopyHandler(true);
+        } catch (e) {
+          alert('복사에 실패하였습니다');
+        }
+    };
 
     useEffect(() => {
         const slideShowInterval = setInterval(() => {
@@ -35,29 +50,29 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
         };
     }, [mainSlideCurrent]);
 
-    const onClickMainPrevHandler = () => {
-        if (mainSlideCurrent === 0) {
-            setIsLoop(false);
-            setMainSlideCurrent(MainBannertData?.length - 1);
-        } else {
-            if (mainSlideCurrent === 1) {
-                setIsLoop(true);
-            } else {
-                setIsLoop(false);
-            };
-            setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (MainBannertData.length));
-        };
-    };
+    // const onClickMainPrevHandler = () => {
+    //     if (mainSlideCurrent === 0) {
+    //         setIsLoop(false);
+    //         setMainSlideCurrent(MainBannertData?.length - 1);
+    //     } else {
+    //         if (mainSlideCurrent === 1) {
+    //             setIsLoop(true);
+    //         } else {
+    //             setIsLoop(false);
+    //         };
+    //         setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (MainBannertData.length));
+    //     };
+    // };
 
-    const onClickMainNextHandler = () => {
-        if (mainSlideCurrent === MainBannertData.length) {
-            setIsLoop(true);
-            setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
-        } else {
-            setIsLoop(false);
-            setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
-        };
-    };
+    // const onClickMainNextHandler = () => {
+    //     if (mainSlideCurrent === MainBannertData.length) {
+    //         setIsLoop(true);
+    //         setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+    //     } else {
+    //         setIsLoop(false);
+    //         setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+    //     };
+    // };
 
     return (
         <MobileMainLayout>
@@ -127,12 +142,16 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     </InformContentWrapper>
                 </ScrollAniContainer>
                 <ButtonWrapper>
-                    <Button className='SeeMoreButton'>
+                    <Button
+                        onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}
+                        className='SeeMoreButton'>
                         <span>
                             CLICK TO COPY EMAIL
                         </span>
                     </Button>
-                    <Button className='SeeMoreButton'>
+                    <Button
+                        onClick={() => navigate("/support/counseling")}
+                        className='SeeMoreButton'>
                         <span>
                             GO TO STUDENT COUNSELING PAGE
                         </span>
@@ -160,7 +179,7 @@ const MobileMainLayout = styled.div`
 
 const MobileSlideShow = styled.div`
     width: 100%;
-    height: 300px;
+    height: 460px;
     position: relative;
 `;
 
@@ -206,7 +225,7 @@ const InformTitle = styled.div`
 `;
 
 const InformContentContainer = styled.div`
-    margin-top: 100px;
+    margin-top: 200px;
     width: 100%;
     display: flex;
     flex-direction: column;

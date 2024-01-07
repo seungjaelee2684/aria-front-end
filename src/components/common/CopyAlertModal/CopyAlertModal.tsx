@@ -59,7 +59,7 @@ const BackgroundContainer = styled.div`
     z-index: 100;
 
     @media screen and (max-width: 500px) {
-        top: 50px;
+        top: 60px;
     }
 `;
 
