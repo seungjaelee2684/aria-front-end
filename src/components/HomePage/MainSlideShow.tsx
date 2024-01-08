@@ -43,13 +43,13 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            <SlideImage key={MainBannertData[0]?.id} src={MainBannertData[MainBannertData?.length - 1]?.image}/>
-            {MainBannertData?.map((item) => {
+            <SlideImage src={MainBannertData[MainBannertData?.length - 1]?.image}/>
+            {MainBannertData?.map((item : any, index : number) => {
                 return (
                     <SlideImage key={item?.id} src={item?.image}/>
                 )
             })}
-            <SlideImage key={MainBannertData[0]?.id} src={MainBannertData[0]?.image}/>
+            <SlideImage src={MainBannertData[0]?.image}/>
         </SlideWrapper>
     </SlideShowOutContainer>
   )

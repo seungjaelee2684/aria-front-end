@@ -149,7 +149,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
 const MobileHeader = styled.div`
     width: 100%;
-    height: 50px;
+    height: 40px;
     position: fixed;
     top: 0;
     left: 0;
@@ -168,12 +168,12 @@ const MobileHeaderInContainer = styled.div`
 
 const HomeBtnLogoIcon = styled.img`
     width: auto;
-    height: 36px;
+    height: 32px;
     object-fit: cover;
 `;
 
 const MenuIcon = styled.div`
-    font-size: 30px;
+    font-size: 26px;
     color: #FFFFFF;
     height: 100%;
     display: flex;
