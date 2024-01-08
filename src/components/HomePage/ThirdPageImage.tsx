@@ -87,7 +87,10 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
               (mainSlideCurrent === index + 1)
                 ? <SlideNumber
                   key={item?.key}
-                  style={{backgroundColor: "#FCFCFC"}}/>
+                  style={{
+                    backgroundColor: "#FCFCFC",
+                    boxShadow: "#ffffff 0px 1px 4px 0px"
+                  }}/>
                 : <SlideNumber
                   key={item?.key}
                   onClick={() => setMainSlideCurrent(index)}/>
@@ -185,8 +188,9 @@ export const PrevButton = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  background-color: #e9e9e9;
-  color: #222020;
+  background-color: #e9e9e9c0;
+  box-shadow: #818181 0px 1px 5px 0px;
+  color: #22202091;
   position: absolute;
   top: 48%;
   left: 2%;
@@ -196,7 +200,7 @@ export const PrevButton = styled.div`
 
   &:hover {
     color: #e9e9e9;
-    background-color: #222020;
+    background-color: #222020c0;
   }
 
   @media screen and (max-width: 1320px) {

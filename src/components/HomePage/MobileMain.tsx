@@ -7,7 +7,7 @@ import MainSlideShow from './MainSlideShow';
 import { MainBannertData } from '../../data/MainBannerData';
 import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
 import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
-import Charactor from '../../assets/curriculums/sanpati/portfolio/p06.webp';
+import Charactor from '../../assets/curriculums/sanpati/portfolio/p04.webp';
 import Logo from '../../assets/logos/logosimple.webp';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -142,20 +142,24 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     </InformContentWrapper>
                 </ScrollAniContainer>
                 <ButtonWrapper>
-                    <Button
-                        onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}
-                        className='SeeMoreButton'>
-                        <span>
-                            CLICK TO COPY EMAIL
-                        </span>
-                    </Button>
-                    <Button
-                        onClick={() => navigate("/support/counseling")}
-                        className='SeeMoreButton'>
-                        <span>
-                            GO TO STUDENT COUNSELING PAGE
-                        </span>
-                    </Button>
+                    <ScrollAniContainer>
+                        <Button
+                            onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}
+                            className='SeeMoreButton'>
+                            <span>
+                                CLICK TO COPY EMAIL
+                            </span>
+                        </Button>
+                    </ScrollAniContainer>
+                    <ScrollAniContainer>
+                        <Button
+                            onClick={() => navigate("/support/counseling")}
+                            className='SeeMoreButton'>
+                            <span>
+                                GO TO STUDENT COUNSELING PAGE
+                            </span>
+                        </Button>
+                    </ScrollAniContainer>
                 </ButtonWrapper>
             </InformContentContainer>
         </MobileMainLayout>
@@ -169,7 +173,7 @@ const MobileMainLayout = styled.div`
     display: none;
     /* justify-content: center; */
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
 
     @media screen and (max-width: 500px) {
         display: flex;
@@ -213,6 +217,7 @@ const InformLogoContainer = styled.img`
     width: 150px;
     height: 70px;
     object-fit: cover;
+    margin-top: 100px;
 `;
 
 const InformTitle = styled.div`
@@ -225,12 +230,12 @@ const InformTitle = styled.div`
 `;
 
 const InformContentContainer = styled.div`
-    margin-top: 200px;
+    /* margin-top: 200px; */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 70px;
     position: relative;
 `;
 
@@ -242,7 +247,7 @@ const InformContentWrapper = styled.div`
 `;
 
 const ContentText = styled.div`
-    font-family: "Pretendard";
+    font-family: "ZingRustDemo";
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
@@ -251,7 +256,7 @@ const ContentText = styled.div`
 
 const CharactorImage = styled.img`
     width: 100%;
-    height: auto;
+    height: 700px;
     object-fit: cover;
 `;
 
