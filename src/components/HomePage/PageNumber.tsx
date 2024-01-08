@@ -13,8 +13,8 @@ const PageNumber = () => {
       {pages?.map((item : number, index : number) => {
         return (
           (scrollIndex === item)
-            ? <PageNumberBox key={item} />
-            : <DefaultPageNumberBox key={item} onClick={() => setScrollIndex(item)}/>
+            ? <PageNumberBox key={index} />
+            : <DefaultPageNumberBox key={index} onClick={() => setScrollIndex(item)}/>
         )
       })}
       {/* <PageNumberBox style={{

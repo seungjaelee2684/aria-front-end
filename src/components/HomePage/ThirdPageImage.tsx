@@ -82,17 +82,17 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
             </NextButton>
         </SlideContainer>
         <SlideNumberWrapper>
-          {MainBannertData?.map((item : any, index) => {
+          {MainBannertData?.map((item : any, index : number) => {
             return (
               (mainSlideCurrent === index + 1)
                 ? <SlideNumber
-                  key={item?.key}
+                  key={item?.id}
                   style={{
                     backgroundColor: "#FCFCFC",
                     boxShadow: "#ffffff 0px 1px 4px 0px"
                   }}/>
                 : <SlideNumber
-                  key={item?.key}
+                  key={item?.id}
                   onClick={() => setMainSlideCurrent(index)}/>
             )
           })}

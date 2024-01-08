@@ -46,8 +46,9 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
           {titleArr?.map((item : any, index: number) => {
             return (
               (item?.title === " ")
-                ? <EmptyTitle />
+                ? <EmptyTitle key={item?.key}/>
                 : <TitleText
+                  key={item?.key}
                   className={(scrollIndex === 4) ? "fifth-title" : ""}
                   style={{
                     animationDelay: `${0.5 + index * 0.08}s`
