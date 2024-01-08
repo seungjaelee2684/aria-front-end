@@ -85,6 +85,7 @@ export const DefaultPageNumberBox = styled.div`
 
 const PageNumberBox = styled(DefaultPageNumberBox)`
   background-color: #ffffffc7;
+  box-shadow: #ffffff 0px 0px 6px 0px;
   cursor: default;
 
   @media screen and (max-width: 836px) {

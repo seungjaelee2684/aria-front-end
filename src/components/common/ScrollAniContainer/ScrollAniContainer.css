@@ -3,7 +3,7 @@
 }
 
 .Illust-InView {
-    animation: illust_viewport_in 1s forwards 0.3s;
+    animation: illust_viewport_in 1s forwards 0.2s;
 }
 
 @keyframes scroll_viewport_in {
@@ -20,10 +20,8 @@
 @keyframes illust_viewport_in {
     from {
         opacity: 0;
-        transform: translateX(-20%);
     }
     to {
         opacity: 0.2;
-        transform: translateX(0%);
     }
 }

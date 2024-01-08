@@ -236,6 +236,10 @@ const IconOutContainer = styled.div`
   flex-direction: column;
   align-items: start;
   gap: 16px;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const IconTitleWrapper = styled.div`
@@ -253,10 +257,6 @@ const IconTitleWrapper = styled.div`
   @media screen and (max-width: 836px) {
     font-size: 16px;
     gap: 3px;
-  }
-
-  @media screen and (max-width: 500px) {
-    display: none;
   }
 `;
 
