@@ -188,7 +188,7 @@ const UnderHeaderContainer = styled.div`
     background-color: #222020;
     user-select: none;
     z-index: 101;
-    border-top: 1px solid #ADADAD;
+    border-top: 1px solid #5f5f5f;
 `;
 
 const ButtonOutWrapper = styled.div`

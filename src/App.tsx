@@ -56,6 +56,7 @@ function App() {
               <Header />
               <Routes>
                 <Route path='/' element={<Home />} caseSensitive />
+                <Route element={<MainLayout />}>
                 <Route path='/check' element={<Check />} caseSensitive />
                 <Route path='/notice' element={<Notice />} caseSensitive />
                 <Route path='/mentor' element={<Mentor />} caseSensitive />
@@ -67,6 +68,7 @@ function App() {
                 <Route path='/notice/notification' element={<Notification />} caseSensitive />
                 <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} caseSensitive />
                 <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
+                </Route>
               </Routes>
               <ScrollTopButton />
               <AlertContainer />
