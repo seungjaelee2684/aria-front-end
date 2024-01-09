@@ -14,6 +14,7 @@ import { useRecoilState } from 'recoil';
 import { CopyAlert } from '../../store/CopyAlert';
 import MentorEscape from '../../assets/curriculums/escape/portfolio/p04.webp';
 import { mentorListData } from '../../data/MentorData';
+import { MdKeyboardArrowRight, MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 interface MobileMainProps {
     mainPageTextChange: Function;
@@ -101,22 +102,29 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                 </SlideNumberWrapper>
             </MobileSlideShow>
             <InformContentContainer>
+                {/* <WrapperContainer /> */}
                 <InformTitleContainer>
                     <InformTitle>
                         Artist
                     </InformTitle>
-                    <MoreButton>
+                    <MoreButton onClick={() => navigate("/mentor")}>
                         More
+                        <MdKeyboardArrowRight />
                     </MoreButton>
                 </InformTitleContainer>
                 <CardListContainer>
                     {mentorListData?.map((item : any, index : number) => {
                         return (
-                            <Card key={item?.id}>
+                            <Card
+                                key={item?.id}
+                                onClick={() => navigate(`/mentor/detail/${item?.id}`)}>
                                 <MentorImage src={item?.portfolio[3]} alt=''/>
                                 <HoverContainer />
                                 <ButtonText>
                                     {item?.englishname}
+                                    <ArrowContainer>
+                                        <MdKeyboardDoubleArrowRight />
+                                    </ArrowContainer>
                                 </ButtonText>
                             </Card>
                         )
@@ -238,25 +246,25 @@ const SlideNumber = styled.div<{ color: string, height: string }>`
 
 const InformTitleContainer = styled.div`
     width: 100%;
-    padding-top: 30px;
     display: flex;
     justify-content: start;
     align-items: end;
-    gap: 16px;
+    gap: 8px;
 `;
 
-const InformLogoContainer = styled.div`
-    font-family: "CallOfOpsDuty";
-    font-size: 44px;
-    font-weight: 500;
-    line-height: normal;
-    color: #0a65cc;
-    letter-spacing: 3px;
+const WrapperContainer = styled.div`
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    z-index: 100;
+    background-color: #FFFFFF;
 `;
 
 const InformTitle = styled.div`
     font-family: "Pretendard";
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     line-height: normal;
     color: #222020;
@@ -269,6 +277,9 @@ const MoreButton = styled.div`
     font-size: 12px;
     font-weight: 400;
     line-height: normal;
+    display: flex;
+    align-items: center;
+    gap: 2px;
     cursor: pointer;
 `;
 
@@ -287,6 +298,7 @@ const InformContentContainer = styled.div`
     background-color: #FFFFFF;
     border-radius: 16px 16px 0px 0px;
     box-shadow: #8a8a8a57 0 -2px 5px 0;
+    padding-top: 30px;
 `;
 
 const GrayContainer = styled.div`
@@ -330,11 +342,21 @@ const ButtonText = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
+    gap: 10px;
     color: #FFFFFF;
     font-family: "Pretendard";
     font-size: 24px;
     font-weight: 600;
     line-height: normal;
+    transition: all 0.2s;
+`;
+
+const ArrowContainer = styled.div`
+    font-size: 32px;
+    color: #FFFFFF;
+    display: flex;
+    opacity: 0;
+    transition: all 0.2s;
 `;
 
 const Card = styled.div`
@@ -351,12 +373,21 @@ const Card = styled.div`
     &:hover ${HoverContainer} {
         opacity: 1;
     }
+
+    &:hover ${ButtonText} {
+        gap: 20px;
+    }
+
+    &:hover ${ArrowContainer} {
+        opacity: 1;
+    }
 `;
 
 const MentorImage = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 0 20%;
     position: absolute;
     top: 0;
     left: 0;
