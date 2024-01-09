@@ -36,6 +36,18 @@ export const etcTextTrans : ETCTextTransType[] = [
         japanesetext: "正しい検索ワードを入力するか、\nフィルターを設定してから再試行してください。",
         text: "올바른 검색어를 입력하거나\n필터를 설정한 후 다시 시도해주세요."
     },
+    {
+        englishtext: "Popular Artist",
+        chinesetext: "无搜索结果",
+        japanesetext: "検索結果なし",
+        text: "인기 강사"
+    },
+    {
+        englishtext: "more",
+        chinesetext: "无搜索结果",
+        japanesetext: "検索結果なし",
+        text: "더보기"
+    },
 ];
 
 export const mobileHeaderTrans : ETCTextTransType[] = [
