@@ -218,7 +218,7 @@ const ButtonBox = styled.div`
     gap: 1px;
     font-size: 9px;
     font-weight: 500;
-    color: #FFFFFF;
+   /* color: #FFFFFF; */
 `;
 
 const HomeButtonInWrapper = styled.div`

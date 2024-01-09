@@ -31,10 +31,10 @@ const Mentor = () => {
 
 const LayoutContainer = styled.div`
   width: 100%;
-  padding: 80px 0px 0px 0px;
+  padding: 80px 0px 120px 0px;
 
   @media screen and (max-width: 500px) {
-    padding: 50px 0px 0px 0px;
+    padding: 50px 0px 80px 0px;
   }
 `;
 

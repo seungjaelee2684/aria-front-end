@@ -65,7 +65,7 @@ export const DefaultPageNumberBox = styled.div`
   width: 22px;
   min-height: 22px;
   background-color: #adadadbe;
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
   display: flex;
   justify-content: center;
   align-items: center;

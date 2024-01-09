@@ -150,7 +150,7 @@ const Title = styled.div<{ textwidth : number }>`
     font-size: 16px;
     font-weight: 600;
     line-height: 140%;
-    color: #222020;
+   /* color: #222020; */
 
     @media screen and (max-width: 836px) {
         min-width: ${(props) => `${props.textwidth - 10}px`};
@@ -232,7 +232,7 @@ const SeeMoreButton = styled.button`
     width: 130px;
     height: 30px;
     border: none;
-    color: #222020;
+   /* color: #222020; */
     background-color: #FFF;
     font-family: "Pretendard";
     font-size: 16px;

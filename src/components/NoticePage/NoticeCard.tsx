@@ -156,7 +156,7 @@ const Text = styled.div`
     font-family: "Pretendard";
     font-weight: 400;
     line-height: 140%;
-    color: #222020;
+   /* color: #222020; */
     justify-content: start;
     user-select: none;
     text-align: start;

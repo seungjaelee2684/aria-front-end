@@ -320,7 +320,7 @@ export const TranslateWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-       color: #222020;
+      /* color: #222020; */
     }
 
     @media screen and (max-width: 500px) {
@@ -328,8 +328,8 @@ export const TranslateWrapper = styled.div`
         height: 100%;
         border: none;
         flex-direction: row;
-        color: #222020;
-        gap: 5px;
+       /* color: #222020; */
+        gap: 3px;
         font-size: 14px;
     }
 `;
@@ -357,7 +357,7 @@ const HomeBtnWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-        color: #222020;
+       /* color: #222020; */
     }
 
     @media screen and (max-width: 500px) {
@@ -451,7 +451,7 @@ const MobileHeaderPageContainer = styled.div`
     font-size: 20px;
     font-weight: 400;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
 `;
 
 export default Header;

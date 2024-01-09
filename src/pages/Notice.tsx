@@ -146,7 +146,7 @@ const TotalTextWrapper = styled.div`
   line-height: normal;
   display: flex;
   align-items: center;
-  color: #222020;
+ /* color: #222020; */
   gap: 8px;
 
   @media screen and (max-width: 500px) {

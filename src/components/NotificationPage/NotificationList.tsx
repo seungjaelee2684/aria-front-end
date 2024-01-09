@@ -198,7 +198,7 @@ const Text = styled.div`
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
-    color: #39373A;
+    /* color: #39373A; */
     cursor: pointer;
 
     &:hover {
@@ -251,7 +251,7 @@ const RightText = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -290,7 +290,7 @@ const LaneImage = styled.img`
 export const TopLaneLeftText = styled.div`
     font-size: 18px;
     font-weight: 600;
-    color: #222020;
+   /* color: #222020; */
     min-width: 80px;
     display: flex;
     justify-content: center;

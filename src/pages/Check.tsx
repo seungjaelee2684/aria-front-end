@@ -114,7 +114,7 @@ const LogoText = styled.div`
     font-size: 40px;
     font-weight: 600;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
 `;
 
 const ItemContainer = styled.div`
@@ -122,7 +122,7 @@ const ItemContainer = styled.div`
     height: 100%;
     margin: 0px auto;
     /* background-color: #e9e9e9; */
-    color: #222020;
+   /* color: #222020; */
 `;
 
 const ItemWrapper = styled.div`

@@ -71,14 +71,14 @@ const Counseling = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 130px auto 0px auto;
+  padding: 130px 0px 100px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 70px;
 
   @media screen and (max-width: 500px) {
-    margin: 50px auto 0px auto;
+    padding: 50px 0px 100px 0px;
     gap: 40px;
   }
 `;
@@ -162,7 +162,7 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #222020;
+ /* color: #222020; */
   gap: 16px;
 
   @media screen and (max-width: 836px) {
@@ -207,7 +207,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   font-family: "Pretendard";
   white-space: pre-line;
-  color: #222020;
+ /* color: #222020; */
   gap: 24px;
   margin-bottom: 50px;
 
@@ -251,7 +251,7 @@ const ButtonContainer = styled.div`
   /* justify-content: center; */
   align-items: center;
   text-indent: 30px;
-  border: 1px solid #ADADAD;
+  /* border: 1px solid #ADADAD; */
   border-radius: 3px;
   font-family: "Pretendard";
   font-size: 16px;
@@ -262,6 +262,7 @@ const ButtonContainer = styled.div`
   background-color: #7489da;
   color: #FCFCFC;
   transition: all 0.3s ease-in-out;
+  overflow: hidden;
   user-select: none;
   cursor: pointer;
 
@@ -272,7 +273,7 @@ const ButtonContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     width: 260px;
-    height: 30px;
+    height: 36px;
     text-indent: 18px;
     font-size: 12px;
   }

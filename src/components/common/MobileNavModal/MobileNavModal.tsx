@@ -13,6 +13,7 @@ import { TiArrowSortedUp } from "react-icons/ti";
 import { BsGlobe2 } from "react-icons/bs";
 import { TranslateWrapper } from '../Header';
 import TranslateModal from '../TranslateModal';
+import { MdOutlineDarkMode } from "react-icons/md";
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -25,6 +26,7 @@ interface MobileNavModalProps {
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
   const language = localStorage.getItem("language");
+  const darkmode = localStorage.getItem("darkmode");
   const subModalRef = useRef<HTMLDivElement>(null);
   const [languageModal, setLanguageModal] = useState<boolean>(false);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
@@ -77,21 +79,43 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         onClick={onClickHamburgCloseHandler}/>
       <ModalContainer
         ref={mobileModalRef}
+        style={{backgroundColor: `${(darkmode === "dark") ? "#222020" : "#FFFFFF"}`}}
         // className='ModalContainer'
       >
         <CloseBtnContainer>
           <TopLogoContainer src={Logo} alt=''/>
           <TranslateContainer ref={mobileModalRef}>
-            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+            <TranslateWrapper
+              style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}
+              onClick={() => setLanguageModal(!languageModal)}>
               <BsGlobe2 />
               <TranslateText>
                 {languageChange()}
               </TranslateText> 
               <TiArrowSortedDown />
-              </TranslateWrapper>
+            </TranslateWrapper>
+            <TranslateWrapper
+              style={{
+                color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`,
+                fontSize: "18px"
+              }}
+              onClick={() => {
+                if (darkmode === "dark") {
+                  localStorage.setItem("darkmode", "light");
+                  window.location.reload();
+                } else {
+                  localStorage.setItem("darkmode", "dark");
+                  window.location.reload();
+                };
+              }}>
+              <MdOutlineDarkMode />
+              <TranslateText style={{fontFamily: "Pretendard", fontWeight: "500"}}>
+                {(darkmode === "dark") ? "Light" : "Dark"}
+              </TranslateText> 
+            </TranslateWrapper>
           </TranslateContainer>
         </CloseBtnContainer>
-        <TextWrapper>
+        <TextWrapper style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}>
           <Text
             onClick={() => {
               navigate("/mentor")
@@ -143,9 +167,12 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               : <TiArrowSortedDown style={{marginRight: "30px"}}/>}
           </Text>
           {(support)
-            && <SubPageButtonWrapper>
+            && <SubPageButtonWrapper
+              style={{
+                backgroundColor: `${(darkmode === "dark") ? "#3b3939" : "#FFFFFF"}`,
+              }}>
               <SubPageButton
-                style={{borderBottom: "1px dotted #e9e9e9"}}
+                style={{borderBottom: `${(darkmode === "dark") ? "1px dotted #ADADAD" :"1px dotted #e9e9e9"}`}}
                 onClick={() => {
                   navigate("/support/counseling")
                   onClickHamburgCloseHandler()
@@ -221,7 +248,7 @@ const CloseBtn = styled.div`
   font-weight: 600;
   line-height: normal;
   background-color: #2c2a2ae1;
-  color: #FFFFFF;
+ /* color: #FFFFFF; */
   position: fixed;
   top: 10px;
   right: 10px;
@@ -239,7 +266,7 @@ const TextWrapper = styled.div`
   font-size: 18px;
   font-weight: 600;
   line-height: normal;
-  color: #222020;
+ /* color: #222020; */
   display: flex;
   flex-direction: column;
   margin-top: 30px;
@@ -267,12 +294,14 @@ const SubPageButton = styled.div`
   align-items: center;
   padding: 20px 0px 20px 0px;
   text-indent: 50px;
-  color: #222020;
+ /* color: #222020; */
   font-size: 14px;
 `;
 
 const TranslateContainer = styled.div`
-
+  display: flex;
+  align-items: center;
+  gap: 16px;
 `;
 
 const TranslateText = styled.div`

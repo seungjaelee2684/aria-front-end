@@ -48,6 +48,12 @@ export const etcTextTrans : ETCTextTransType[] = [
         japanesetext: "検索結果なし",
         text: "더보기"
     },
+    {
+        englishtext: "List",
+        chinesetext: "无搜索结果",
+        japanesetext: "検索結果なし",
+        text: "목록"
+    },
 ];
 
 export const mobileHeaderTrans : ETCTextTransType[] = [

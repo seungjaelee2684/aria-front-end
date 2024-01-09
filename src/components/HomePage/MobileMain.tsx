@@ -433,7 +433,7 @@ const MentorImage = styled.img`
 //     font-size: 14px;
 //     font-weight: 400;
 //     line-height: normal;
-//     color: #222020;
+//    /* color: #222020; */
 // `;
 
 // const CharactorImage = styled.img`
@@ -454,7 +454,7 @@ const MentorImage = styled.img`
 //     font-size: 10px;
 //     font-weight: 600;
 //     line-height: normal;
-//     color: #222020;
+//    /* color: #222020; */
 //     display: flex;
 //     justify-content: center;
 //     align-items: center;
