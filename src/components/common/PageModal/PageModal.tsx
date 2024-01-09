@@ -8,13 +8,17 @@ import { AlertModalOpen } from '../../../store/AlertModalOpen';
 
 const PageModal = ({ pageModal } : any) => {
 
+  const darkmode = localStorage.getItem("darkmode");
+  
   const navigate = useNavigate();
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   const modalTitle = () => {
     if (pageModal === "Notice") {
       return (
-        <ModalContainer className='ModalContainerDiv'>
+        <ModalContainer
+          style={{backgroundColor: (darkmode === "dark") ? "#FCFCFCea" : "#222020ea"}}
+          className='ModalContainerDiv'>
           <ModalText onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
             Event
           </ModalText>
@@ -25,7 +29,9 @@ const PageModal = ({ pageModal } : any) => {
       )
     } else if (pageModal === "Support") {
       return (
-        <ModalContainer className='ModalContainerBig'>
+        <ModalContainer
+          style={{backgroundColor: (darkmode === "dark") ? "#FCFCFCea" : "#222020ea"}}
+          className='ModalContainerBig'>
           {/* <ModalText onClick={() => navigate("/schedule")}>
             Schedule
           </ModalText> */}
@@ -57,7 +63,7 @@ const ModalContainer = styled.div`
   top: 50px;
   left: 0;
   z-index: 100;
-  color: #FCFCFC;
+  /* color: #FCFCFC; */
   padding: 5px;
 
   @media screen and (max-width: 1320px) {
