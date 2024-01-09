@@ -17,6 +17,7 @@ const AlertModal = () => {
   console.log("모달창 데이터", alertModal.whatAlert);
 
   const language = localStorage.getItem("language");
+  const darkmode = localStorage.getItem("darkmode");
 
   const alertTranslate = (Num : number) => {
     switch (language) {
@@ -55,6 +56,8 @@ const AlertModal = () => {
     <BackgroudContainer
       onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
       <ModalContainer
+        color={(darkmode) ? "#222020" : "#FFFFFF"}
+        background={(darkmode) ? "#FCFCFC" : "#222020"}
         onClick={(e) => e.stopPropagation()}
         className='AlertModalContainer'>
         {alertContentChange()}
@@ -90,11 +93,11 @@ const BackgroudContainer = styled.div`
   }
 `;
 
-const ModalContainer = styled.div`
+const ModalContainer = styled.div<{ color : string, background : string }>`
   width: 300px;
   height: 180px;
   background-color: #FFFFFF;
- /* color: #222020; */
+  color: ${(props) => props.background};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,6 +108,7 @@ const ModalContainer = styled.div`
   position: relative;
   box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
   padding: 0px 30px;
+  background-color: ${(props) => props.color};
 
   @media screen and (max-width: 500px) {
     width: 300px;
@@ -160,7 +164,7 @@ const CloseButton = styled.button`
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
-  color: #FCFCFC;
+  /* color: #FCFCFC; */
   border: 2px solid #d2d1f8;
   cursor: pointer;
 
