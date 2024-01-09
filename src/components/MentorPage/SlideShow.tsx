@@ -103,7 +103,7 @@ const SlideLeftButtonBox = styled.div`
   position: absolute;
   top: 325px;
   left: 70px;
-  color: #FFFFFF;
+ /* color: #FFFFFF; */
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
@@ -142,7 +142,7 @@ const SlideRightButtonBox = styled.div`
   position: absolute;
   top: 325px;
   right: 70px;
-  color: #FFFFFF;
+ /* color: #FFFFFF; */
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;

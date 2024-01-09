@@ -57,17 +57,17 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} caseSensitive />
                 <Route element={<MainLayout />}>
-                <Route path='/check' element={<Check />} caseSensitive />
-                <Route path='/notice' element={<Notice />} caseSensitive />
-                <Route path='/mentor' element={<Mentor />} caseSensitive />
-                <Route path='/showcase' element={<Showcase />} caseSensitive />
-                <Route path='/schedule' element={<Schedule />} caseSensitive />
-                <Route path='/support/counseling' element={<Counseling />} caseSensitive />
-                <Route path='/support/policy' element={<Policy />} caseSensitive />
-                <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
-                <Route path='/notice/notification' element={<Notification />} caseSensitive />
-                <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} caseSensitive />
-                <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
+                  <Route path='/check' element={<Check />} caseSensitive />
+                  <Route path='/notice' element={<Notice />} caseSensitive />
+                  <Route path='/mentor' element={<Mentor />} caseSensitive />
+                  <Route path='/showcase' element={<Showcase />} caseSensitive />
+                  <Route path='/schedule' element={<Schedule />} caseSensitive />
+                  <Route path='/support/counseling' element={<Counseling />} caseSensitive />
+                  <Route path='/support/policy' element={<Policy />} caseSensitive />
+                  <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
+                  <Route path='/notice/notification' element={<Notification />} caseSensitive />
+                  <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} caseSensitive />
+                  <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
                 </Route>
               </Routes>
               <ScrollTopButton />

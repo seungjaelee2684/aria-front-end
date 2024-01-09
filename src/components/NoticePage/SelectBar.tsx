@@ -139,7 +139,7 @@ const SelectIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #222020;
+ /* color: #222020; */
 `;
 
 export default SelectBar;

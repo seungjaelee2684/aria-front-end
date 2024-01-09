@@ -171,7 +171,7 @@ const NicknameLeftContainer = styled.img`
 const IntroduceText = styled.div`
   font-family: "Pretendard";
   font-size: 16px;
-  color: #222020;
+ /* color: #222020; */
   font-weight: 400;
   line-height: 140%;
 `;

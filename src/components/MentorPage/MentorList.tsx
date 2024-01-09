@@ -166,7 +166,7 @@ const NotSearchContainer = styled.div`
     font-size: 18px;
     font-weight: 600;
     line-height: 140%;
-    color: #222020;
+   /* color: #222020; */
 `;
 
 const SearchIcon = styled.div`

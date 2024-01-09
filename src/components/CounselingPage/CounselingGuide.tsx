@@ -144,7 +144,7 @@ const GuideTitleContainer = styled.div`
     font-family: "Pretendard";
     font-weight: 600;
     line-height: 150%;
-    color: #222020;
+   /* color: #222020; */
 
     @media screen and (max-width: 900px) {
         font-size: 18px;
@@ -165,7 +165,7 @@ const CounselingContainer = styled.div`
     font-size: 20px;
     font-weight: 500;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
 
     @media screen and (max-width: 900px) {
         width: 650px;
@@ -218,7 +218,7 @@ const ContentInWrapper = styled.div`
 `;
 
 const GuideContent = styled.div`
-    color: #222020;
+   /* color: #222020; */
     text-align: start;
 `;
 

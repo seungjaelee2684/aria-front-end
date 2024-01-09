@@ -36,8 +36,7 @@ const CardContainer = styled.div`
   height: 375px;
   /* border: 1px solid; */
   /* border-radius: 10px; */
-  background-color: #FFFFFF;
-  /* overflow: hidden; */
+  /* background-color: #FFFFFF; */
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -103,7 +102,6 @@ const ContentContainer = styled.div`
   font-family: "Pretendard";
   font-size: 14px;
   line-height: 140%;
-  color: #39373A;
 
   @media screen and (max-width: 1320px) {
     margin-top: 0px;
@@ -123,7 +121,7 @@ const ContentContainer = styled.div`
 const NicknameContainer = styled.div`
   font-family: "Pretendard";
   font-size: 18px;
-  color: #222020;
+ /* color: #222020; */
   font-weight: 600;
   line-height: 150%;
 

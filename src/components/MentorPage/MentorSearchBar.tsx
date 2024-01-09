@@ -103,7 +103,7 @@ const TitleContaier = styled.div`
 const SearchBetweenLine = styled.div`
     width: 1px;
     height: 34px;
-    background-color: #e9e9e9;
+    /* background-color: #e9e9e9; */
 
     @media screen and (max-width: 836px) {
         height: 28px;
@@ -124,7 +124,7 @@ const SearchBar = styled.input`
     border: none;
     outline: none;
     padding: 0px 16px;
-    color: #222020;
+   /* color: #222020; */
 
     &:hover {
         box-shadow: rgba(57, 55, 55, 0.338) 1px 1px 3px 1px;
@@ -144,6 +144,7 @@ const SearchBar = styled.input`
         width: 100px;
         height: 30px;
         font-size: 10px;
+        background-color: transparent;
     }
 `;
 

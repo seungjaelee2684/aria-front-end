@@ -9,7 +9,7 @@ export const LayOutTitleContainer = styled.div`
     display: inline-flex;
     align-items: center;
     gap: 0px;
-    color: #222020;
+   /* color: #222020; */
     user-select: none;
     position: relative;
 

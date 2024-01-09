@@ -284,7 +284,7 @@ const PolicyTopContainer = styled.div`
   font-weight: 700;
   line-height: normal;
   text-indent: 20px;
-  color: #222020;
+ /* color: #222020; */
 
   @media screen and (max-width: 1320px) {
     font-size: 16px;
@@ -325,7 +325,7 @@ const PolicyContentWrapper = styled.div`
   width: 80%;
   font-size: 18px;
   font-weight: 500;
-  color: #222020;
+ /* color: #222020; */
   display: flex;
   flex-direction: column;
   gap: 20px;

@@ -70,7 +70,7 @@ const FilterOutWrapper = styled.div`
     font-size: 13px;
     font-weight: 400;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
     border: 1px solid #e9e9e9;
     position: absolute;
     top: 35px;

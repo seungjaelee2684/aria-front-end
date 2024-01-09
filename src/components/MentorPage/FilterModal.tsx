@@ -166,7 +166,7 @@ const DefaultBtn = styled.div`
     font-size: 14px;
     font-weight: 600;
     line-height: 150%;
-    color: #222020;
+   /* color: #222020; */
     background-color: #FFFFFF;
 
     @media screen and (max-width: 1320px) {

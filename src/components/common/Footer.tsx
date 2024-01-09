@@ -143,12 +143,10 @@ const FooterContainer = styled.div`
   line-height: 140%;
   justify-content: center;
   align-items: center;
-  margin-top: 120px;
   transition: all 0.2s ease-in-out;
   position: relative;
 
   @media screen and (max-width: 836px) {
-    margin-top: 80px;
     height: 200px;
   }
 

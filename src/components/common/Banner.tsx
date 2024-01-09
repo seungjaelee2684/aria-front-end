@@ -32,25 +32,36 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
     };
 
   return (
-    <TitleContainer>
-      <BannerBackgroundImg src={textInformation[page]?.image} alt=''/>
-      <TextWrapper>
-          <TextBox className='TextBox'>
-            {textChange()}
-          </TextBox>
-          <AnimationBar className='AnimationBar'/>
-        </TextWrapper>
-    </TitleContainer>
+    <BannerLayoutContainer>
+      <TitleContainer>
+        <BannerBackgroundImg src={textInformation[page]?.image} alt=''/>
+        <TextWrapper>
+            <TextBox className='TextBox'>
+              {textChange()}
+            </TextBox>
+            <AnimationBar className='AnimationBar'/>
+          </TextWrapper>
+      </TitleContainer>
+    </BannerLayoutContainer>
   )
 };
+
+const BannerLayoutContainer = styled.div`
+  width: 100%;
+  padding: 80px 0px 0px 0px;
+
+  @media screen and (max-width: 500px) {
+    padding: 50px 0px 0px 0px;
+  }
+`;
 
 const TitleContainer = styled.div`
   width: 100%;
   height: 200px;
-  margin: 80px auto 0px auto;
   background-color: #e9e9e9;
   user-select: none;
   position: relative;
+  margin: 0px auto;
 
   @media screen and (max-width: 836px) {
     height: 200px;
@@ -59,7 +70,6 @@ const TitleContainer = styled.div`
   @media screen and (max-width: 500px) {
     width: 96%;
     height: 150px;
-    margin: 50px auto 0px auto;
     border-radius: 10px;
   }
 `;

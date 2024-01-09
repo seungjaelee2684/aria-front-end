@@ -68,7 +68,7 @@ const ScrollTopButtonWrapper = styled.div`
     font-size: 24px;
     font-weight: 400;
     line-height: 150%;
-    color: #222020;
+   /* color: #222020; */
     display: flex;
     justify-content: center;
     align-items: center;
