@@ -151,7 +151,7 @@ const GuideTitleContainer = styled.div`
     }
 
     @media screen and (max-width: 650px) {
-        font-size: 14px;
+        font-size: 12px;
     }
 `;
 
@@ -173,7 +173,7 @@ const CounselingContainer = styled.div`
     }
 
     @media screen and (max-width: 650px) {
-        font-size: 12px;
+        font-size: 11px;
         width: 96%;
         gap: 50px;
     }
@@ -213,18 +213,20 @@ const ContentInWrapper = styled.div`
     gap: 8px;
 
     @media screen and (max-width: 650px) {
-        gap: 2px;
+        gap: 4px;
     }
 `;
 
 const GuideContent = styled.div`
     color: #222020;
+    text-align: start;
 `;
 
 const ColorGuideContent = styled.div`
     color: #ff3ea3;
     font-weight: 800;
     font-size: 21px;
+    text-align: start;
     /* text-decoration: underline; */
 
     @media screen and (max-width: 900px) {
@@ -232,7 +234,7 @@ const ColorGuideContent = styled.div`
     }
 
     @media screen and (max-width: 650px) {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
     }
 `;
