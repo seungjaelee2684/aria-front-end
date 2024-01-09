@@ -91,6 +91,9 @@ const ImageOutContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     height: 260px;
+  }
+
+  @media screen and (max-width: 500px) {
     width: 96%;
     margin: 0px auto;
     border-radius: 10px;
@@ -103,7 +106,7 @@ const SlideLeftButtonBox = styled.div`
   position: absolute;
   top: 325px;
   left: 70px;
- /* color: #FFFFFF; */
+  color: #FFFFFF;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;
@@ -142,7 +145,7 @@ const SlideRightButtonBox = styled.div`
   position: absolute;
   top: 325px;
   right: 70px;
- /* color: #FFFFFF; */
+  color: #FFFFFF;
   border: 2px solid #FFFFFF;
   border-radius: 100%;
   display: flex;

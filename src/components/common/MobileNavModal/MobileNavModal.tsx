@@ -8,6 +8,7 @@ import { nationFlag, nationKind } from '../../../store/NationFilter';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import Logo from '../../../assets/logos/logosimple.webp';
+import WhiteLogo from '../../../assets/logos/whitelogo.webp';
 import { TiArrowSortedDown } from "react-icons/ti";
 import { TiArrowSortedUp } from "react-icons/ti";
 import { BsGlobe2 } from "react-icons/bs";
@@ -83,7 +84,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         // className='ModalContainer'
       >
         <CloseBtnContainer>
-          <TopLogoContainer src={Logo} alt=''/>
+          <TopLogoContainer src={(darkmode === "dark") ? WhiteLogo : Logo} alt=''/>
           <TranslateContainer ref={mobileModalRef}>
             <TranslateWrapper
               style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}

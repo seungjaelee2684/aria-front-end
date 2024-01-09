@@ -20,6 +20,7 @@ type FilterType = {
 const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, setNoticeFilter }) => {
   
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const filterRef = useRef<HTMLDivElement>(null);
     const filterStateData = filterState.filter((item : FilterType) => item?.englishstate === noticeFilter);
 
@@ -52,6 +53,7 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
   
     return (
         <FilterOutWrapper
+            style={{backgroundColor: (darkmode === "dark") ? "#535353" : "#FFFFFF"}}
             ref={filterRef}
             onClick={() => setIsModalOpen(!isModalOpen)}>
             {filterTrans()}

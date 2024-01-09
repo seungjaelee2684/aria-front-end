@@ -15,6 +15,7 @@ import Chinaflag from '../../assets/logos/chinaflag.webp'
 const FilterButton = () => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const nationkind = useRecoilValue(nationKind);
     const flag = useRecoilValue(nationFlag);
     const divRef = useRef<HTMLDivElement>(null);
@@ -55,6 +56,7 @@ const FilterButton = () => {
     //     </LayOutTitleContainer> */}
         <FilterButtonWrapper
             ref={divRef}
+            style={{backgroundColor: `${(darkmode === "dark") ? "#535353" : "#FFFFFF"}`}}
             onClick={() => setIsOpenFilter(!isOpenFilter)}>
             <NationFilter>
                 {(nationkind.englishpick !== "All Country") && <NationFlag src={flag} alt=''/>}
@@ -131,7 +133,7 @@ const NationFilter = styled.div`
     font-weight: 600;
     line-height: 150%;
    /* color: #222020; */
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
     cursor: pointer;
 
     @media screen and (max-width: 1320px) {
