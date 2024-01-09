@@ -27,6 +27,7 @@ interface MobileNavBtnProps {
 const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const location = useLocation();
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
@@ -75,7 +76,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
   return (
     <div style={{position: "relative"}}>
-        <MobileHeader>
+        <MobileHeader style={{borderBottom: `${(darkmode === "dark") ? "1px solid #5f5f5f" : "none"}`}}>
             <MobileHeaderInContainer>
                 <HomeBtnLogoIcon src={Home} alt='' onClick={() => navigate("/")}/>
                 {(hamburg)
@@ -153,7 +154,7 @@ const MobileHeader = styled.div`
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: #222020;
+    background-color: #000000;
 `;
 
 const MobileHeaderInContainer = styled.div`
@@ -185,7 +186,7 @@ const UnderHeaderContainer = styled.div`
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #222020;
+    background-color: #000000;
     user-select: none;
     z-index: 101;
     border-top: 1px solid #5f5f5f;

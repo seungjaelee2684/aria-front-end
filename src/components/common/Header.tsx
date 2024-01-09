@@ -19,10 +19,12 @@ import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { MdOutlineArrowBack } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Header = () => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     
     const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
@@ -158,11 +160,37 @@ const Header = () => {
                             {languageModal
                                 && <TranslateModal
                                 setLanguageModal={setLanguageModal}/>}
-                            <MobileTranslateContainer>
+                            {/* <MobileTranslateContainer>
                                 {languageModal
                                     && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
-                            </MobileTranslateContainer>
+                            </MobileTranslateContainer> */}
+                        </TranslateContainer>
+                        <BarContainer />
+                        <TranslateContainer>
+                            <TranslateWrapper
+                                onClick={() => {
+                                    if (darkmode === "dark") {
+                                        localStorage.setItem("darkmode", "light");
+                                        window.location.reload();
+                                      } else {
+                                        localStorage.setItem("darkmode", "dark");
+                                        window.location.reload();
+                                      };
+                                }}>
+                                <MdOutlineDarkMode />
+                                <TransText>
+                                    {(darkmode === "dark") ? "Light" : "Dark"}
+                                </TransText>
+                            </TranslateWrapper>
+                            {languageModal
+                                && <TranslateModal
+                                setLanguageModal={setLanguageModal}/>}
+                            {/* <MobileTranslateContainer>
+                                {languageModal
+                                    && <TranslateModal
+                                    setLanguageModal={setLanguageModal}/>}
+                            </MobileTranslateContainer> */}
                         </TranslateContainer>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>

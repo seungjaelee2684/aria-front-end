@@ -17,6 +17,7 @@ interface NotificationListProps {
 const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const navigate = useNavigate();
 
     const filterNoticeData = NotificationData.filter((item : any) => item?.status === noticeFilter);
@@ -52,7 +53,11 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
     };
 
   return (
-    <ListContainer>
+    <ListContainer
+        style={{
+            borderTop: (darkmode === "dark") ? "2px solid #FCFCFC" : "2px solid #222020",
+            borderBottom: (darkmode === "dark") ? "2px solid #FCFCFC" : "2px solid #222020"
+        }}>
         <TopLineContainer>
             <TopLaneLeftText>
                 {textChange(4)}
@@ -71,7 +76,9 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                         <LineContainer
                             key={item.id}
                             style={{
-                                borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                                borderBottom: (darkmode === "dark")
+                                    ? (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #797979"
+                                    : (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
                             }}>
                             <ContentWrapper>
                                 <NoticeIcon
