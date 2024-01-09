@@ -15,7 +15,6 @@ import { AlertModalOpen } from '../../store/AlertModalOpen';
 import AlertModal from './AlertModal/AlertModal';
 import { VscFeedback } from "react-icons/vsc";
 import { IoNotificationsOutline } from "react-icons/io5";
-import { LuMoreHorizontal } from "react-icons/lu";
 import { MdClose } from 'react-icons/md';
 import { TbMessageDots } from "react-icons/tb";
 import { mobileHeaderTrans } from '../../languages/ETCTrans';
@@ -182,7 +181,7 @@ const MenuIcon = styled.div`
 
 const UnderHeaderContainer = styled.div`
     width: 100%;
-    height: 42px;
+    height: 46px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -202,7 +201,8 @@ const ButtonOutWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 800;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -215,8 +215,8 @@ const ButtonBox = styled.div`
     justify-content: center;
     align-items: center;
     font-family: "Pretendard";
-    gap: 2px;
-    font-size: 8px;
+    gap: 1px;
+    font-size: 9px;
     font-weight: 500;
     color: #FFFFFF;
 `;

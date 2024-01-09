@@ -15,6 +15,8 @@ import { CopyAlert } from '../../store/CopyAlert';
 import MentorEscape from '../../assets/curriculums/escape/portfolio/p04.webp';
 import { mentorListData } from '../../data/MentorData';
 import { MdKeyboardArrowRight, MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { etcTextTrans } from '../../languages/ETCTrans';
+import { FaUserTie } from "react-icons/fa6";
 
 interface MobileMainProps {
     mainPageTextChange: Function;
@@ -23,18 +25,23 @@ interface MobileMainProps {
 const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     const navigate = useNavigate();
+    const language = localStorage.getItem("language");
     const [, setCopyHandler] = useRecoilState(CopyAlert);
 
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
     const [isLoop, setIsLoop] = useState<boolean>(false);
 
-    const handleCopyClipBoard = async (text: string) => {
-        try {
-          await navigator.clipboard.writeText(text);
-          setCopyHandler(true);
-        } catch (e) {
-          alert('복사에 실패하였습니다');
-        }
+    const mobileTextTrans = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return etcTextTrans[Num]?.chinesetext;
+            case "japanese" :
+                return etcTextTrans[Num]?.japanesetext;
+            case "korean" :
+                return etcTextTrans[Num]?.text;
+            default :
+                return etcTextTrans[Num]?.englishtext;
+        };
     };
 
     useEffect(() => {
@@ -96,7 +103,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                                 : <SlideNumber
                                     key={item?.id}
                                     height='5px'
-                                    color='#8080806f' />
+                                    color='#808080ae' />
                         )
                     })}
                 </SlideNumberWrapper>
@@ -105,10 +112,13 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                 {/* <WrapperContainer /> */}
                 <InformTitleContainer>
                     <InformTitle>
-                        Artist
+                        <MentorIcon>
+                            <FaUserTie />
+                        </MentorIcon>
+                        {mobileTextTrans(5)}
                     </InformTitle>
                     <MoreButton onClick={() => navigate("/mentor")}>
-                        More
+                        {mobileTextTrans(6)}
                         <MdKeyboardArrowRight />
                     </MoreButton>
                 </InformTitleContainer>
@@ -238,7 +248,7 @@ const SlideNumberWrapper = styled.div`
 
 const SlideNumber = styled.div<{ color: string, height: string }>`
     width: 20px;
-    box-shadow: #5b5b5b78 0px 2px 4px 0px;
+    box-shadow: #5b5b5b8d 0px 1px 5px 0px;
     height: ${(props) => props.height};
     background-color: ${(props) => props.color};
     transition: all 0.6s;
@@ -250,6 +260,19 @@ const InformTitleContainer = styled.div`
     justify-content: start;
     align-items: end;
     gap: 8px;
+`;
+
+const MentorIcon = styled.div`
+    width: 14px;
+    height: 14px;
+    border: 1px solid #706efa;
+    border-radius: 100%;
+    font-size: 10px;
+    font-weight: 700;
+    color: #706efa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const WrapperContainer = styled.div`
@@ -268,7 +291,11 @@ const InformTitle = styled.div`
     font-weight: 600;
     line-height: normal;
     color: #222020;
-    text-indent: 20px;
+    /* text-indent: 20px; */
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding-left: 20px;
 `;
 
 const MoreButton = styled.div`

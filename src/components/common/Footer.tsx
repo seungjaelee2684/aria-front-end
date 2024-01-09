@@ -153,7 +153,7 @@ const FooterContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    margin-bottom: 42px;
+    margin-bottom: 46px;
     height: 150px;
   }
 `;
@@ -210,7 +210,7 @@ const HomeButton = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 8px;
+    font-size: 7px;
   }
 `;
 
@@ -227,7 +227,7 @@ const Text = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
@@ -400,7 +400,7 @@ const ContentBox = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 11px;
+    font-size: 9px;
     gap: 5px;
   }
 `;
