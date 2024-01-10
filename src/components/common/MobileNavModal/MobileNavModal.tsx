@@ -170,7 +170,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           {(support)
             && <SubPageButtonWrapper
               style={{
-                backgroundColor: `${(darkmode === "dark") ? "#3b3939" : "#FFFFFF"}`,
+                backgroundColor: `${(darkmode === "dark") ? "#3b3939" : "#f9f9f9"}`,
               }}>
               <SubPageButton
                 style={{borderBottom: `${(darkmode === "dark") ? "1px dotted #ADADAD" :"1px dotted #e9e9e9"}`}}
@@ -285,7 +285,7 @@ const Text = styled.div`
 
 const SubPageButtonWrapper = styled.div`
   width: 100%;
-  background-color: #FFFFFF;
+  /* background-color: #e9e9e9; */
   box-shadow: inset rgba(63, 71, 77, 0.2) 2px 2px 5px 0px;
 `;
 
