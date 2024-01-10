@@ -48,12 +48,9 @@ const PageNumberContainer = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    gap: 0px;
-    top: 80px;
-    right: 0;
-    flex-direction: row;
-    height: fit-content;
-    width: 100%;
+    top: 42%;
+    right: 1%;
+    gap: 10px;
   }
 
   @media screen and (max-width: 500px) {
@@ -78,8 +75,8 @@ export const DefaultPageNumberBox = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    width: 100%;
-    min-height: 4px;
+    width: 14px;
+    min-height: 14px;
   }
 `;
 
@@ -87,10 +84,6 @@ const PageNumberBox = styled(DefaultPageNumberBox)`
   background-color: #ffffffc7;
   box-shadow: #ffffff 0px 0px 6px 0px;
   cursor: default;
-
-  @media screen and (max-width: 836px) {
-    background-color: #5350ffc6;
-  }
 `;
 
 export default PageNumber;

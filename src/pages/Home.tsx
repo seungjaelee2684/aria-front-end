@@ -213,8 +213,8 @@ const MainLayout = styled.div`
 
     @media screen and (max-width: 500px) {
         overflow-y: visible;
-        height: fit-content;
-        padding: 0px 0px 80px 0px;
+        height: 100vh;
+        /* padding: 0px 0px 80px 0px; */
     }
 `;
 
