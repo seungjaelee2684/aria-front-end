@@ -82,7 +82,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         // className='ModalContainer'
       >
         <CloseBtnContainer>
-          <TopLogoContainer src={WhiteLogo} alt=''/>
+          <TopLogoContainer src={Logo} alt=''/>
           <TranslateContainer ref={mobileModalRef}>
             <TranslateWrapper
               onClick={() => setLanguageModal(!languageModal)}>
