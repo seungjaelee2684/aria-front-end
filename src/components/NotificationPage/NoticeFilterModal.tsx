@@ -19,7 +19,6 @@ type FilterType = {
 const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, setNoticeFilter, isModalOpen, setIsModalOpen }) => {
 
     const language = localStorage.getItem("language");
-    const darkmode = localStorage.getItem("darkmode");
 
     const filterModalTrans = (Num: number) => {
         switch (language) {
@@ -40,7 +39,6 @@ const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, se
                 return (
                     (index === 1)
                         ? <SelectFilterButton
-                            style={{backgroundColor: (darkmode === "dark") ? "#535353" : "#FFFFFF"}}
                             key={index}
                             onClick={() => {
                                 setNoticeFilter(item?.englishstate);
@@ -49,7 +47,6 @@ const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, se
                             {filterModalTrans(index)}
                         </SelectFilterButton>
                         : <FilterButtonWrapper
-                            style={{backgroundColor: (darkmode === "dark") ? "#535353" : "#FFFFFF"}}
                             key={index}
                             onClick={() => {
                                 setNoticeFilter(item?.englishstate);

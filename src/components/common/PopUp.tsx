@@ -9,7 +9,7 @@ const PopUp = () => {
 
   return (
     <PopUpContainer onClick={() => setIsPopUp(false)}>
-        PopUp
+      PopUp
     </PopUpContainer>
   )
 };
