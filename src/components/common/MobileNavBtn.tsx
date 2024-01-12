@@ -27,7 +27,6 @@ interface MobileNavBtnProps {
 const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
     const language = localStorage.getItem("language");
-    const darkmode = localStorage.getItem("darkmode");
     const location = useLocation();
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const backgroundRef = useRef<HTMLDivElement>(null);
@@ -76,7 +75,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
   return (
     <div style={{position: "relative"}}>
-        <MobileHeader style={{borderBottom: `${(darkmode === "dark") ? "1px solid #5f5f5f" : "none"}`}}>
+        <MobileHeader>
             <MobileHeaderInContainer>
                 <HomeBtnLogoIcon src={Home} alt='' onClick={() => navigate("/")}/>
                 {(hamburg)
@@ -91,7 +90,6 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
         <UnderHeaderContainer>
             <ButtonOutWrapper>
                 <ButtonBox
-                    style={{color: `${(location.pathname === "/") ? "#FFFFFF" : "#ADADAD"}`}}
                     onClick={() => navigate("/")}>
                     <ButtonWrapper>
                         <GoHome />
@@ -99,7 +97,6 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     {headerTrans(0)}
                 </ButtonBox>
                 <ButtonBox
-                    style={{color: `${(location.pathname.includes("/mentor")) ? "#FFFFFF" : "#ADADAD"}`}}
                     onClick={() => navigate("/mentor")}>
                     <ButtonWrapper>
                         <VscFeedback />
@@ -107,7 +104,6 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     {headerTrans(1)}
                 </ButtonBox>
                 <ButtonBox
-                    style={{color: `${(location.pathname.includes("/notice")) ? "#FFFFFF" : "#ADADAD"}`}}
                     onClick={() => navigate("/notice/notification")}>
                     <ButtonWrapper>
                         <IoNotificationsOutline />
@@ -115,7 +111,6 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     {headerTrans(2)}
                 </ButtonBox>
                 <ButtonBox
-                    style={{color: `${(location.pathname === "/support/counseling") ? "#FFFFFF" : "#ADADAD"}`}}
                     onClick={() => navigate("/support/counseling")}>
                     <ButtonWrapper>
                         <MdOutlineHeadsetMic />

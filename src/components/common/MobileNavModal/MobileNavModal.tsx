@@ -27,7 +27,6 @@ interface MobileNavModalProps {
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
   const language = localStorage.getItem("language");
-  const darkmode = localStorage.getItem("darkmode");
   const subModalRef = useRef<HTMLDivElement>(null);
   const [languageModal, setLanguageModal] = useState<boolean>(false);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
@@ -80,14 +79,12 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         onClick={onClickHamburgCloseHandler}/>
       <ModalContainer
         ref={mobileModalRef}
-        style={{backgroundColor: `${(darkmode === "dark") ? "#222020" : "#FFFFFF"}`}}
         // className='ModalContainer'
       >
         <CloseBtnContainer>
-          <TopLogoContainer src={(darkmode === "dark") ? WhiteLogo : Logo} alt=''/>
+          <TopLogoContainer src={WhiteLogo} alt=''/>
           <TranslateContainer ref={mobileModalRef}>
             <TranslateWrapper
-              style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}
               onClick={() => setLanguageModal(!languageModal)}>
               <BsGlobe2 />
               <TranslateText>
@@ -116,7 +113,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
             </TranslateWrapper> */}
           </TranslateContainer>
         </CloseBtnContainer>
-        <TextWrapper style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}>
+        <TextWrapper>
           <Text
             onClick={() => {
               navigate("/mentor")
@@ -168,12 +165,8 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               : <TiArrowSortedDown style={{marginRight: "30px"}}/>}
           </Text>
           {(support)
-            && <SubPageButtonWrapper
-              style={{
-                backgroundColor: `${(darkmode === "dark") ? "#3b3939" : "#f9f9f9"}`,
-              }}>
+            && <SubPageButtonWrapper>
               <SubPageButton
-                style={{borderBottom: `${(darkmode === "dark") ? "1px dotted #ADADAD" :"1px dotted #e9e9e9"}`}}
                 onClick={() => {
                   navigate("/support/counseling")
                   onClickHamburgCloseHandler()

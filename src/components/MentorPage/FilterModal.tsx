@@ -24,7 +24,6 @@ interface FilterModalProps {
 const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
     const language = localStorage.getItem("language");
-    const darkmode = localStorage.getItem("darkmode");
     const [nationkinds, setNationkinds] = useRecoilState(nationKind);
     const [, setFlag] = useRecoilState(nationFlag);
     const [, setMentorSearchInput] = useRecoilState(mentorSearchInput);
@@ -71,8 +70,7 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
   return (
     <FilterModalContainer>
-        <DefaultBtn
-            style={{backgroundColor: `${(darkmode === "dark") ? "#535353" : "#FFFFFF"}`}}>
+        <DefaultBtn>
             {flagValue && <NationFlag src={flagValue}/>}
             {filterTranslate(null)}
             <TiArrowSortedDown />
@@ -81,7 +79,6 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
             return (
                 <FilterModalBtn
                     key={item?.nation}
-                    style={{backgroundColor: `${(darkmode === "dark") ? "#535353" : "#FFFFFF"}`}}
                     onClick={() => {
                         setNationkinds({
                             ...nationkinds,
