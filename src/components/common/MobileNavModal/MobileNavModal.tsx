@@ -95,7 +95,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               </TranslateText> 
               <TiArrowSortedDown />
             </TranslateWrapper>
-            <TranslateWrapper
+            {/* <TranslateWrapper
               style={{
                 color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`,
                 fontSize: "18px"
@@ -113,7 +113,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               <TranslateText style={{fontFamily: "Pretendard", fontWeight: "500"}}>
                 {(darkmode === "dark") ? "Light" : "Dark"}
               </TranslateText> 
-            </TranslateWrapper>
+            </TranslateWrapper> */}
           </TranslateContainer>
         </CloseBtnContainer>
         <TextWrapper style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}>
