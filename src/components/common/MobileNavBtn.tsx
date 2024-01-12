@@ -90,6 +90,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
         <UnderHeaderContainer>
             <ButtonOutWrapper>
                 <ButtonBox
+                    style={{color: (location.pathname === "/") ? "#FFFFFF" : "#ADADAD"}}
                     onClick={() => navigate("/")}>
                     <ButtonWrapper>
                         <GoHome />
@@ -97,6 +98,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     {headerTrans(0)}
                 </ButtonBox>
                 <ButtonBox
+                    style={{color: (location.pathname.includes("/mentor")) ? "#FFFFFF" : "#ADADAD"}}
                     onClick={() => navigate("/mentor")}>
                     <ButtonWrapper>
                         <VscFeedback />
@@ -104,6 +106,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     {headerTrans(1)}
                 </ButtonBox>
                 <ButtonBox
+                    style={{color: (location.pathname.includes("/notice")) ? "#FFFFFF" : "#ADADAD"}}
                     onClick={() => navigate("/notice/notification")}>
                     <ButtonWrapper>
                         <IoNotificationsOutline />
@@ -111,6 +114,7 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                     {headerTrans(2)}
                 </ButtonBox>
                 <ButtonBox
+                    style={{color: (location.pathname === "/support/counseling") ? "#FFFFFF" : "#ADADAD"}}
                     onClick={() => navigate("/support/counseling")}>
                     <ButtonWrapper>
                         <MdOutlineHeadsetMic />
@@ -214,7 +218,7 @@ const ButtonBox = styled.div`
     gap: 1px;
     font-size: 9px;
     font-weight: 500;
-   /* color: #FFFFFF; */
+    color: #FFFFFF;
 `;
 
 const HomeButtonInWrapper = styled.div`

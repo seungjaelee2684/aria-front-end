@@ -164,12 +164,12 @@ const YoutubeIconBox = styled(InstaIconBox)`
 `;
 
 const Icon = styled.div`
-    width: 60%;
+    width: 70%;
     height: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
     font-size: 28px;
 `;
 
