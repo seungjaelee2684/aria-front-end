@@ -12,7 +12,6 @@ import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../styl
 const Policy = () => {
 
   const language = localStorage.getItem("language");
-  const darkmode = localStorage.getItem("darkmode");
 
   type PolicyDataType = {
     id: string,
@@ -39,8 +38,7 @@ const Policy = () => {
           englishPolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer
-                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
+                <PolicyTopContainer>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -66,8 +64,7 @@ const Policy = () => {
           japanesePolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer
-                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
+                <PolicyTopContainer>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -93,8 +90,7 @@ const Policy = () => {
           policyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer
-                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
+                <PolicyTopContainer>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -120,8 +116,7 @@ const Policy = () => {
           englishPolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer
-                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
+                <PolicyTopContainer>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>

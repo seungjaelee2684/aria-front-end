@@ -24,7 +24,6 @@ import { MdOutlineDarkMode } from "react-icons/md";
 const Header = () => {
 
     const language = localStorage.getItem("language");
-    const darkmode = localStorage.getItem("darkmode");
     
     const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
@@ -94,14 +93,11 @@ const Header = () => {
         };
 
         const handleClickOutside = (event: any) => {
-            if (modalRef.current
-                    && !modalRef.current.contains(event.target)
-                    && mobileModalRef.current
-                    && !mobileModalRef.current.contains(event.target)) {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
               setLanguageModal(false);
             }
           };
-          document.addEventListener("click", handleClickOutside);
+        document.addEventListener("click", handleClickOutside);
 
         const scrollHandler = () => {
             const currentScrollY = window.scrollY;
