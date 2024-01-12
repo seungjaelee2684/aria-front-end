@@ -166,7 +166,7 @@ const Header = () => {
                                     setLanguageModal={setLanguageModal}/>}
                             </MobileTranslateContainer> */}
                         </TranslateContainer>
-                        <BarContainer />
+                        {/* <BarContainer />
                         <TranslateContainer>
                             <TranslateWrapper
                                 onClick={() => {
@@ -183,15 +183,7 @@ const Header = () => {
                                     {(darkmode === "dark") ? "Light" : "Dark"}
                                 </TransText>
                             </TranslateWrapper>
-                            {languageModal
-                                && <TranslateModal
-                                setLanguageModal={setLanguageModal}/>}
-                            {/* <MobileTranslateContainer>
-                                {languageModal
-                                    && <TranslateModal
-                                    setLanguageModal={setLanguageModal}/>}
-                            </MobileTranslateContainer> */}
-                        </TranslateContainer>
+                        </TranslateContainer> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
