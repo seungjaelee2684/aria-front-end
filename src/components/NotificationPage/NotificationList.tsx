@@ -8,6 +8,7 @@ import { NotificationData } from '../../data/NotificationData';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
 import { NoticeTrans } from '../../languages/NoticeTrans';
+import NotSearch from '../common/NotSearch';
 
 interface NotificationListProps {
     noticeFilter: string;
@@ -16,6 +17,7 @@ interface NotificationListProps {
 const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const navigate = useNavigate();
 
     const filterNoticeData = NotificationData.filter((item : any) => item?.status === noticeFilter);
@@ -51,8 +53,12 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
     };
 
   return (
-    <ListContainer>
-        <LineContainer style={{height: "60px"}}>
+    <ListContainer
+        style={{
+            borderTop: (darkmode === "dark") ? "2px solid #FCFCFC" : "2px solid #222020",
+            borderBottom: (darkmode === "dark") ? "2px solid #FCFCFC" : "2px solid #222020"
+        }}>
+        <TopLineContainer>
             <TopLaneLeftText>
                 {textChange(4)}
             </TopLaneLeftText>
@@ -62,66 +68,73 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
             <TopLaneRightText>
                 {textChange(6)}
             </TopLaneRightText>
-        </LineContainer>
-        {(noticeFilter === "all")
-            ? NotificationData?.map((item : any) => {
-                return (
-                    <LineContainer
-                        key={item.id}
-                        style={{
-                            borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
-                        }}>
-                        <ContentWrapper>
-                            <NoticeIcon
+        </TopLineContainer>
+        {(NotificationData?.length !== 0)
+            ? (noticeFilter === "All")
+                ? NotificationData?.map((item : any) => {
+                    return (
+                        <LineContainer
+                            key={item.id}
+                            style={{
+                                borderBottom: (darkmode === "dark")
+                                    ? (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #797979"
+                                    : (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
+                            }}>
+                            <ContentWrapper>
+                                <NoticeIcon
+                                    style={{
+                                        color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                    }}>
+                                    {(item?.status === "Notice")
+                                        ? textChange(1)
+                                        : textChange(2)}
+                                </NoticeIcon>
+                                <Text onClick={() => onClickNoticeHandler(item)}>
+                                    {contentChange(item)}
+                                </Text>
+                                {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                            </ContentWrapper>   
+                            <RightWrapper>        
+                                <RightText>
+                                    ARIA | {item?.contents.date}
+                                </RightText>
+                            </RightWrapper>
+                        </LineContainer>
+                    )
+                })
+                : (filterNoticeData?.length !== 0)
+                    ? filterNoticeData?.map((item : any) => {
+                        return (
+                            <LineContainer
+                                key={item.id}
                                 style={{
-                                    color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
+                                    borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
                                 }}>
-                                {(item?.status === "notice")
-                                    ? textChange(1)
-                                    : textChange(2)}
-                            </NoticeIcon>
-                            <Text onClick={() => onClickNoticeHandler(item)}>
-                                {contentChange(item)}
-                            </Text>
-                            {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                        </ContentWrapper>   
-                        <RightWrapper>        
-                            <RightText>
-                                ARIA | {item?.contents.date}
-                            </RightText>
-                        </RightWrapper>
-                    </LineContainer>
-                )
-            })
-            : filterNoticeData?.map((item : any) => {
-                return (
-                    <LineContainer
-                        key={item.id}
-                        style={{
-                            borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
-                        }}>
-                        <ContentWrapper>
-                            <NoticeIcon
-                                style={{
-                                    color: (item?.status === "notice") ? "#db0e0e" : "#3c3ad6"
-                                }}>
-                                {(item?.status === "notice")
-                                    ? textChange(1)
-                                    : textChange(2)}
-                            </NoticeIcon>
-                            <Text onClick={() => onClickNoticeHandler(item)}>
-                                {contentChange(item)}
-                            </Text>
-                            {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
-                        </ContentWrapper>   
-                        <RightWrapper>        
-                            <RightText>
-                                ARIA | {item?.contents.date}
-                            </RightText>
-                        </RightWrapper>
-                    </LineContainer>
-                )
-            })}
+                                <ContentWrapper>
+                                    <NoticeIcon
+                                        style={{
+                                            color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                        }}>
+                                        {(item?.status === "Notice")
+                                            ? textChange(1)
+                                            : textChange(2)}
+                                    </NoticeIcon>
+                                    <Text onClick={() => onClickNoticeHandler(item)}>
+                                        {contentChange(item)}
+                                    </Text>
+                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                                </ContentWrapper>   
+                                <RightWrapper>        
+                                    <RightText>
+                                        ARIA | {item?.contents.date}
+                                    </RightText>
+                                </RightWrapper>
+                            </LineContainer>
+                        ) 
+                    })
+                : <NotSearch />
+            : <NotSearch />
+        }
     </ListContainer>
   )
 };
@@ -151,7 +164,7 @@ const ListContainer = styled.div`
     border-bottom: 2px solid #222020;
 `;
 
-const LineContainer = styled.div`
+export const LineContainer = styled.div`
     font-family: "Pretendard";
     line-height: normal;
     height: 80px;
@@ -160,6 +173,15 @@ const LineContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e9e9e9;
+
+    @media screen and (max-width: 500px) {
+        height: 20px;
+        padding: 14px 10px;
+    }
+`;
+
+const TopLineContainer = styled(LineContainer)`
+    height: 60px;
 
     @media screen and (max-width: 500px) {
         height: 20px;
@@ -183,7 +205,7 @@ const Text = styled.div`
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
-    color: #39373A;
+    /* color: #39373A; */
     cursor: pointer;
 
     &:hover {
@@ -236,7 +258,7 @@ const RightText = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -275,7 +297,7 @@ const LaneImage = styled.img`
 export const TopLaneLeftText = styled.div`
     font-size: 18px;
     font-weight: 600;
-    color: #222020;
+   /* color: #222020; */
     min-width: 80px;
     display: flex;
     justify-content: center;

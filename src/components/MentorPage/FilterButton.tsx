@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { nationFlag, nationKind } from '../../store/NationFilter';
 import FilterModal from './FilterModal';
-import { IoIosArrowDown } from "react-icons/io";
+import { TiArrowSortedDown } from "react-icons/ti";
 import { IoIosArrowUp } from "react-icons/io";
 import Koreaflag from '../../assets/logos/koreaflag.webp';
 import Japanflag from '../../assets/logos/japanflag.webp';
@@ -15,6 +15,7 @@ import Chinaflag from '../../assets/logos/chinaflag.webp'
 const FilterButton = () => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const nationkind = useRecoilValue(nationKind);
     const flag = useRecoilValue(nationFlag);
     const divRef = useRef<HTMLDivElement>(null);
@@ -55,11 +56,12 @@ const FilterButton = () => {
     //     </LayOutTitleContainer> */}
         <FilterButtonWrapper
             ref={divRef}
+            style={{backgroundColor: `${(darkmode === "dark") ? "#535353" : "#FFFFFF"}`}}
             onClick={() => setIsOpenFilter(!isOpenFilter)}>
             <NationFilter>
                 {(nationkind.englishpick !== "All Country") && <NationFlag src={flag} alt=''/>}
                 {filterTranslate()}
-                <IoIosArrowDown />
+                <TiArrowSortedDown />
             </NationFilter>           
             {isOpenFilter
                 && <ModalWrapper>
@@ -130,8 +132,8 @@ const NationFilter = styled.div`
     font-size: 14px;
     font-weight: 600;
     line-height: 150%;
-    color: #222020;
-    background-color: #FFFFFF;
+   /* color: #222020; */
+    /* background-color: #FFFFFF; */
     cursor: pointer;
 
     @media screen and (max-width: 1320px) {

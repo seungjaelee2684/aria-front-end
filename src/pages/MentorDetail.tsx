@@ -6,6 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 import { RxHamburgerMenu } from "react-icons/rx";
 import PortfolioModal from '../components/MentorDetailPage/PortfolioModal/PortfolioModal';
+import { etcTextTrans } from '../languages/ETCTrans';
 
 const MentorDetail = () => {
 
@@ -27,6 +28,19 @@ const MentorDetail = () => {
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
     console.log("mentor ->", mentorInfo)
 
+    const ListTranslate = (Num : number) => {
+        switch (language) {
+            case "chinese" :
+                return etcTextTrans[Num]?.chinesetext;
+            case "japanese" :
+                return etcTextTrans[Num]?.japanesetext;
+            case "korean" :
+                return etcTextTrans[Num]?.text;
+            default :
+                return etcTextTrans[Num]?.englishtext;
+        };
+    };
+
     const curriculumTranslate = () => {
         if (language === "chinese") {
             return (
@@ -37,6 +51,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -83,6 +100,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -129,6 +149,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -175,6 +198,9 @@ const MentorDetail = () => {
                             return (
                                 <SNSIcons
                                     key={item?.icon}
+                                    style={{
+                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
+                                    }}
                                     src={item?.icon}
                                     alt=''
                                     onClick={() => {
@@ -227,7 +253,7 @@ const MentorDetail = () => {
             </ListBackMoveButton> */}
             <ListBackMoveButton onClick={() => navigate("/mentor")}>
                 <RxHamburgerMenu />
-                목록
+                {ListTranslate(7)}
             </ListBackMoveButton>
         </ListBackMoveBtnContainer>
     </LayoutContainer>
@@ -236,10 +262,10 @@ const MentorDetail = () => {
 
 const LayoutContainer = styled.div`
     width: 100%;
-    padding: 80px 0px 0px 0px;
+    padding: 80px 0px 120px 0px;
 
-    @media screen and (max-width: 650px) {
-        padding: 50px 0px 0px 0px;
+    @media screen and (max-width: 500px) {
+        padding: 40px 0px 80px 0px;
     }
 `;
 
@@ -292,7 +318,7 @@ const SNSIcons = styled.img`
     width: 80px;
     height: 80px;
     object-fit: contain;
-    cursor: pointer;
+    /* cursor: pointer; */
 
     @media screen and (max-width: 1100px) {
         width: 60px;
@@ -317,7 +343,7 @@ const PortfolioImage = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
-    cursor: pointer;
+    cursor: zoom-in;
 `;
 
 const ListBackMoveBtnContainer = styled.div`

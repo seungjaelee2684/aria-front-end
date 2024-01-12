@@ -9,6 +9,7 @@ import FilterButton from './FilterButton';
 const MentorSearchBar = () => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
 
     const [mentorSearch, setMentorSearch] = useState<string>("");
     const [searchValue, setSearchValue] = useRecoilState(mentorSearchInput);
@@ -45,8 +46,9 @@ const MentorSearchBar = () => {
             <TitleContaier>
                 {contentTranslate(2)}
             </TitleContaier>      
-            <SearchBetweenLine />
+            <SearchBetweenLine style={{backgroundColor: `${(darkmode === "dark") ? "#FCFCFC" : "#e9e9e9"}`}}/>
             <SearchBar
+                style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}
                 type='text'
                 autoComplete="off"
                 value={mentorSearch}
@@ -103,7 +105,7 @@ const TitleContaier = styled.div`
 const SearchBetweenLine = styled.div`
     width: 1px;
     height: 34px;
-    background-color: #e9e9e9;
+    /* background-color: #e9e9e9; */
 
     @media screen and (max-width: 836px) {
         height: 28px;
@@ -124,7 +126,8 @@ const SearchBar = styled.input`
     border: none;
     outline: none;
     padding: 0px 16px;
-    color: #222020;
+    background-color: transparent;
+   /* color: #222020; */
 
     &:hover {
         box-shadow: rgba(57, 55, 55, 0.338) 1px 1px 3px 1px;

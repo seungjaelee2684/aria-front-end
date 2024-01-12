@@ -12,6 +12,7 @@ import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../styl
 const Policy = () => {
 
   const language = localStorage.getItem("language");
+  const darkmode = localStorage.getItem("darkmode");
 
   type PolicyDataType = {
     id: string,
@@ -38,7 +39,8 @@ const Policy = () => {
           englishPolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
+                <PolicyTopContainer
+                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -64,7 +66,8 @@ const Policy = () => {
           japanesePolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
+                <PolicyTopContainer
+                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -90,7 +93,8 @@ const Policy = () => {
           policyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
+                <PolicyTopContainer
+                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -116,7 +120,8 @@ const Policy = () => {
           englishPolicyData?.map((item : PolicyDataType) => {
             return (
               <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
+                <PolicyTopContainer
+                  style={{backgroundColor: `${(darkmode === "dark") ? "#000000" : "cacaca"}`}}>
                   {item?.title}
                 </PolicyTopContainer>
                 <PolicyContentContainer>
@@ -157,12 +162,11 @@ const Policy = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 80px auto 0px auto;
-  padding: 80px 0px 0px 0px;
+  padding: 80px 0px 120px 0px;
+  margin: 0px auto;
 
   @media screen and (max-width: 500px) {
-    margin: 50px auto 0px auto;
-    padding: 0px;
+    padding: 60px 0px 80px 0px;
   }
 `;
 
@@ -284,7 +288,7 @@ const PolicyTopContainer = styled.div`
   font-weight: 700;
   line-height: normal;
   text-indent: 20px;
-  color: #222020;
+ /* color: #222020; */
 
   @media screen and (max-width: 1320px) {
     font-size: 16px;
@@ -325,7 +329,7 @@ const PolicyContentWrapper = styled.div`
   width: 80%;
   font-size: 18px;
   font-weight: 500;
-  color: #222020;
+ /* color: #222020; */
   display: flex;
   flex-direction: column;
   gap: 20px;

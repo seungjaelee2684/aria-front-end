@@ -71,15 +71,15 @@ const Counseling = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  margin: 130px auto 0px auto;
+  padding: 130px 0px 100px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 70px;
 
   @media screen and (max-width: 500px) {
-    margin: 50px auto 0px auto;
-    gap: 50px;
+    padding: 50px 0px 100px 0px;
+    gap: 40px;
   }
 `;
 
@@ -134,7 +134,7 @@ const MonitorImage = styled.img`
   }
 
   @media screen and (max-width: 500px) {
-    width: 60%;
+    width: 40%;
   }
 `;
 
@@ -162,7 +162,7 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #222020;
+ /* color: #222020; */
   gap: 16px;
 
   @media screen and (max-width: 836px) {
@@ -171,8 +171,8 @@ const TitleContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 22px;
-    gap: 8px;
+    font-size: 20px;
+    gap: 6px;
   }
 `;
 
@@ -207,12 +207,13 @@ const ContentWrapper = styled.div`
   align-items: center;
   font-family: "Pretendard";
   white-space: pre-line;
-  color: #222020;
+ /* color: #222020; */
   gap: 24px;
   margin-bottom: 50px;
 
   @media screen and (max-width: 500px) {
     margin-bottom: 20px;
+    gap: 16px;
   }
 `;
 
@@ -220,8 +221,12 @@ const TimeCheckContainer = styled.div`
   color: #9c8282;
   font-size: 17px;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 836px) {
     font-size: 14px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
   }
 `;
 
@@ -246,7 +251,7 @@ const ButtonContainer = styled.div`
   /* justify-content: center; */
   align-items: center;
   text-indent: 30px;
-  border: 1px solid #ADADAD;
+  /* border: 1px solid #ADADAD; */
   border-radius: 3px;
   font-family: "Pretendard";
   font-size: 16px;
@@ -257,19 +262,20 @@ const ButtonContainer = styled.div`
   background-color: #7489da;
   color: #FCFCFC;
   transition: all 0.3s ease-in-out;
+  overflow: hidden;
   user-select: none;
   cursor: pointer;
 
   &:hover {
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px #8ba0f1b7;
     /* box-shadow: #7489da 0px 0px 3px 1px; */
   }
 
   @media screen and (max-width: 500px) {
-    width: 280px;
-    height: 40px;
-    text-indent: 20px;
-    font-size: 13px;
+    width: 260px;
+    height: 36px;
+    text-indent: 18px;
+    font-size: 12px;
   }
 `;
 
@@ -282,7 +288,7 @@ const ButtonText = styled.div`
   transform: rotate(25deg);
 
   @media screen and (max-width: 500px) {
-    font-size: 60px;
+    font-size: 40px;
     right: 5%;
     top: -5px;
   }

@@ -6,6 +6,10 @@
     animation: mobile_modal_close 0.5s forwards;
 }
 
+.CloseButton {
+    animation: mobile_close_button 0.3s forwards;
+}
+
 @keyframes mobile_modal_open {
     from {
         opacity: 0;
@@ -23,5 +27,18 @@
     }
     to {
         transform: translateY(-500px);
+    }
+}
+
+@keyframes mobile_close_button {
+    from {
+        display: none;
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
     }
 }

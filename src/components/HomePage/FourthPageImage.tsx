@@ -1,7 +1,7 @@
 import React from 'react'
 import './MainImage/MainImage.css';
 import styled from 'styled-components'
-import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper, MainLayout } from './FirstPageImage';
 import FourthBG from '../../assets/images/mainpage/4.webp';
 import { useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../../store/MainPageNumber';
@@ -15,7 +15,7 @@ const FourthPageImage : React.FC<FourthPageImageProps> = ({ mainPageTextChange }
   const scrollIndex = useRecoilValue(MainPageNumber);
   
   return (
-    <ImageBoxWrapper>
+    <FourthImageBoxWrapper>
       <BackgroundImage src={FourthBG} alt=''/>
       <FourthMainLayout>
         <FourthLayOut>
@@ -36,11 +36,18 @@ const FourthPageImage : React.FC<FourthPageImageProps> = ({ mainPageTextChange }
           <PageNumber />
         </PageNumberWrapper>
       </FourthMainLayout>
-    </ImageBoxWrapper>
+    </FourthImageBoxWrapper>
   )
 };
 
-const FourthMainLayout = styled(MainImage)`
+const FourthImageBoxWrapper = styled(ImageBoxWrapper)`
+
+  @media screen and (max-width: 500px) {
+        
+  }
+`;
+
+const FourthMainLayout = styled(MainLayout)`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -56,8 +63,8 @@ const FourthLayOut = styled.div`
 `;
 
 const CardBox = styled.div`
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   border: 4px solid #222020;
   background-color: #FFFFFF;
 `;

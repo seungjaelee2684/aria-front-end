@@ -1,0 +1,27 @@
+.start-animation {
+    animation: scroll_viewport_in 0.5s forwards;
+}
+
+.Illust-InView {
+    animation: illust_viewport_in 1s forwards 0.2s;
+}
+
+@keyframes scroll_viewport_in {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes illust_viewport_in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.2;
+    }
+}

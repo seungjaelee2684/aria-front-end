@@ -8,6 +8,13 @@ import { nationFlag, nationKind } from '../../../store/NationFilter';
 import { translate } from '../../../store/Translation';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import Logo from '../../../assets/logos/logosimple.webp';
+import WhiteLogo from '../../../assets/logos/whitelogo.webp';
+import { TiArrowSortedDown } from "react-icons/ti";
+import { TiArrowSortedUp } from "react-icons/ti";
+import { BsGlobe2 } from "react-icons/bs";
+import { TranslateWrapper } from '../Header';
+import TranslateModal from '../TranslateModal';
+import { MdOutlineDarkMode } from "react-icons/md";
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
@@ -20,7 +27,9 @@ interface MobileNavModalProps {
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
   const language = localStorage.getItem("language");
+  const darkmode = localStorage.getItem("darkmode");
   const subModalRef = useRef<HTMLDivElement>(null);
+  const [languageModal, setLanguageModal] = useState<boolean>(false);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const [subPage, setSubPage] = useState<{ notice: boolean, support: boolean }>({
     notice: false,
@@ -31,9 +40,22 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
   const onClickHamburgCloseHandler = () => {
     if (mobileModalRef.current && backgroundRef.current) {
       backgroundRef.current.style.visibility = "hidden";
-      mobileModalRef.current.style.transform = "translateX(-70%)";
+      mobileModalRef.current.style.transform = "translateX(-110%)";
     };
     setHamburg(false);
+  };
+
+  const languageChange = () => {
+    switch (language) {
+      case "chinese" :
+        return "中文";
+      case "japanese" :
+        return "日本語";
+      case "korean" :
+        return "한국어";
+      default :
+        return "ENG";
+    };
   };
 
   useEffect(() => {
@@ -58,15 +80,43 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         onClick={onClickHamburgCloseHandler}/>
       <ModalContainer
         ref={mobileModalRef}
+        style={{backgroundColor: `${(darkmode === "dark") ? "#222020" : "#FFFFFF"}`}}
         // className='ModalContainer'
       >
         <CloseBtnContainer>
-          <TopLogoContainer src={Logo} alt=''/>
-          <CloseBtn onClick={onClickHamburgCloseHandler}>
-            <MdClose />
-          </CloseBtn>
+          <TopLogoContainer src={(darkmode === "dark") ? WhiteLogo : Logo} alt=''/>
+          <TranslateContainer ref={mobileModalRef}>
+            <TranslateWrapper
+              style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}
+              onClick={() => setLanguageModal(!languageModal)}>
+              <BsGlobe2 />
+              <TranslateText>
+                {languageChange()}
+              </TranslateText> 
+              <TiArrowSortedDown />
+            </TranslateWrapper>
+            {/* <TranslateWrapper
+              style={{
+                color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`,
+                fontSize: "18px"
+              }}
+              onClick={() => {
+                if (darkmode === "dark") {
+                  localStorage.setItem("darkmode", "light");
+                  window.location.reload();
+                } else {
+                  localStorage.setItem("darkmode", "dark");
+                  window.location.reload();
+                };
+              }}>
+              <MdOutlineDarkMode />
+              <TranslateText style={{fontFamily: "Pretendard", fontWeight: "500"}}>
+                {(darkmode === "dark") ? "Light" : "Dark"}
+              </TranslateText> 
+            </TranslateWrapper> */}
+          </TranslateContainer>
         </CloseBtnContainer>
-        <TextWrapper>
+        <TextWrapper style={{color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`}}>
           <Text
             onClick={() => {
               navigate("/mentor")
@@ -113,11 +163,17 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               setSubPage({...subPage, notice: false, support: !support})
             }}>
             Support
+            {(support)
+              ? <TiArrowSortedUp style={{marginRight: "30px"}}/>
+              : <TiArrowSortedDown style={{marginRight: "30px"}}/>}
           </Text>
           {(support)
-            && <SubPageButtonWrapper>
+            && <SubPageButtonWrapper
+              style={{
+                backgroundColor: `${(darkmode === "dark") ? "#3b3939" : "#f9f9f9"}`,
+              }}>
               <SubPageButton
-                style={{borderBottom: "1px dotted #e9e9e9"}}
+                style={{borderBottom: `${(darkmode === "dark") ? "1px dotted #ADADAD" :"1px dotted #e9e9e9"}`}}
                 onClick={() => {
                   navigate("/support/counseling")
                   onClickHamburgCloseHandler()
@@ -134,6 +190,9 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
             </SubPageButtonWrapper>}
         </TextWrapper>
       </ModalContainer>
+      {languageModal
+        && <TranslateModal
+        setLanguageModal={setLanguageModal}/>}
     </div>
   )
 };
@@ -151,18 +210,17 @@ const BackgroundContainer = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  width: 70%;
+  width: 90%;
   height: 100%;
   background-color: #FFFFFF;
   position: fixed;
   top: 0;
-  left: -70%;
+  left: -110%;
   display: flex;
   flex-direction: column;
-  background-color: #ebfeff;
   z-index: 100;
   user-select: none;
-  transition: all 0.5s;
+  transition: all 0.3s;
   box-shadow: rgba(63, 71, 77, 0.2) 5px 5px 10px 0px;
 `;
 
@@ -181,19 +239,24 @@ const TopLogoContainer = styled.img`
 `;
 
 const CloseBtn = styled.div`
-  width: 32px;
-  height: 32px;
-  display: flex;
+  width: 24px;
+  height: 24px;
+  display: none;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
   font-family: "Pretendard";
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 600;
   line-height: normal;
-  color: #222020;
+  background-color: #2c2a2ae1;
+ /* color: #FFFFFF; */
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 101;
 
   &:active {
+    color: #2c2a2a;
     background-color: #e9e9e9;
   }
 `;
@@ -201,26 +264,28 @@ const CloseBtn = styled.div`
 const TextWrapper = styled.div`
   width: 100%;
   font-family: "Pretendard";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: normal;
-  color: #222020;
+ /* color: #222020; */
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 30px;
+  transition: all 0.3s;
 `;
 
 const Text = styled.div`
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px 0px;
-  text-indent: 30px;
+  padding: 24px 0px;
+  text-indent: 40px;
 `;
 
 const SubPageButtonWrapper = styled.div`
   width: 100%;
-  background-color: #FFFFFF;
+  /* background-color: #e9e9e9; */
   box-shadow: inset rgba(63, 71, 77, 0.2) 2px 2px 5px 0px;
 `;
 
@@ -230,8 +295,24 @@ const SubPageButton = styled.div`
   align-items: center;
   padding: 20px 0px 20px 0px;
   text-indent: 50px;
-  color: #222020;
+ /* color: #222020; */
   font-size: 14px;
+`;
+
+const TranslateContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
+const TranslateText = styled.div`
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default MobileNavModal;

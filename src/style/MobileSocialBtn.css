@@ -1,0 +1,18 @@
+.Mobile-Social-Button {
+    animation: social_twinkle 2.6s infinite;
+}
+
+@keyframes social_twinkle {
+    0% {
+        /* opacity: 0.5; */
+        color: #ADADAD;
+    }
+    50% {
+        /* opacity: 1; */
+       /* color: #FFFFFF; */
+    }
+    100% {
+        /* opacity: 0.5; */
+        color: #ADADAD;
+    }
+}

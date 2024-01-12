@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import '../style/font/font.css';
 
 export const LayOutTitleContainer = styled.div`
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'CinzelBold';
     font-size: 32px;
     font-weight: 700;
     line-height: 160%;
     display: inline-flex;
     align-items: center;
     gap: 0px;
-    color: #222020;
+   /* color: #222020; */
     user-select: none;
     position: relative;
 
@@ -24,7 +25,7 @@ export const TitleColorText = styled.div<{ color : string }>`
 
 export const TitleBarContainer = styled.div`
     width: 45%;
-    height: 4px;
+    height: 2px;
     background-color: #222020;
     position: absolute;
     top: 0;

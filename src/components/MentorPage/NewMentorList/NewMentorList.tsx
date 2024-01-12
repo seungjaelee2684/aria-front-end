@@ -20,9 +20,9 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                     <div
                         ref={imageRef}
                         key={item?.id}
-                        className={(slideCurrent === NewMentorListData?.indexOf(item))
+                        className={(slideCurrent === index)
                             ? "ImageSlideContainer"
-                            : (prevCurrent === NewMentorListData?.indexOf(item))
+                            : (prevCurrent === index)
                                 ? "ImageContainer"
                                 : "NotActionImage"}>
                         <ImageBox src={item?.slideimage.background}/>
@@ -171,7 +171,7 @@ const NicknameLeftContainer = styled.img`
 const IntroduceText = styled.div`
   font-family: "Pretendard";
   font-size: 16px;
-  color: #222020;
+ /* color: #222020; */
   font-weight: 400;
   line-height: 140%;
 `;

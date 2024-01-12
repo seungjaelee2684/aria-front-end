@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import '../HomePage/MainImage/MainImage.css';
 import styled from 'styled-components';
 import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -17,11 +18,13 @@ import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { IoIosArrowBack } from "react-icons/io";
+import { MdOutlineArrowBack } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Header = () => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     
     const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
@@ -49,21 +52,47 @@ const Header = () => {
         };
     };
 
-    useEffect(() => {
-        
-    }, []);
+    // const mobilePage = () => {
+    //     if (location.pathname.includes("/mentor")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Mentor
+    //             </MobileHeaderPageContainer>
+    //         );
+    //     } else if (location.pathname.includes("/showcase")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Showcase
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     } else if (location.pathname.includes("/notice")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Notice
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     } else if (location.pathname.includes("/support")) {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Support
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     } else if (location.pathname === "/") {
+    //         return (
+    //             <MobileHeaderPageContainer>
+    //                 Home
+    //             </MobileHeaderPageContainer>
+    //         )
+    //     };
+    // };
 
     useEffect(() => {
         if (mainScrollHeader.current) {
-            if (mainScrollIndex === 1) {
-                mainScrollHeader.current.style.transition = "all 0.3s ease-in-out";
-                mainScrollHeader.current.style.transform = "translateY(0px)";
-            } else {
-                mainScrollHeader.current.style.transition = "all 0.3s ease-in-out";
-                mainScrollHeader.current.style.transform = "translateY(-80px)";
-            };
-            
+            mainScrollHeader.current.style.opacity = "1";
+            mainScrollHeader.current.style.transition = "opacity 0.4s ease-in-out 2s";
+            mainScrollHeader.current.style.transform = "translateY(0px)";
         };
+
         const handleClickOutside = (event: any) => {
             if (modalRef.current
                     && !modalRef.current.contains(event.target)
@@ -96,11 +125,13 @@ const Header = () => {
             document.removeEventListener("click", handleClickOutside);
             window.removeEventListener('scroll', scrollHandler);
         };
-    }, [scrollData, mainScrollIndex]);
+    }, [scrollData, mainScrollIndex, location.pathname]);
 
   return (
     <div>
-        <HeaderLayoutContainer ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
+        <HeaderLayoutContainer
+            style={{opacity: `${(location.pathname === "/") ? "0" : "1"}`}}
+            ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
             <HeaderOutWrapper>
                 <LogoContainer>
                     <HeaderLogo
@@ -129,12 +160,30 @@ const Header = () => {
                             {languageModal
                                 && <TranslateModal
                                 setLanguageModal={setLanguageModal}/>}
-                            <MobileTranslateContainer>
+                            {/* <MobileTranslateContainer>
                                 {languageModal
                                     && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
-                            </MobileTranslateContainer>
+                            </MobileTranslateContainer> */}
                         </TranslateContainer>
+                        {/* <BarContainer />
+                        <TranslateContainer>
+                            <TranslateWrapper
+                                onClick={() => {
+                                    if (darkmode === "dark") {
+                                        localStorage.setItem("darkmode", "light");
+                                        window.location.reload();
+                                      } else {
+                                        localStorage.setItem("darkmode", "dark");
+                                        window.location.reload();
+                                      };
+                                }}>
+                                <MdOutlineDarkMode />
+                                <TransText>
+                                    {(darkmode === "dark") ? "Light" : "Dark"}
+                                </TransText>
+                            </TranslateWrapper>
+                        </TranslateContainer> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
@@ -147,11 +196,12 @@ const Header = () => {
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        <MobileHeaderContainer>
+        {/* <MobileHeaderContainer>
             <HeaderOutWrapper>
                 <PrevButton onClick={() => window.history.back()}>
-                    <IoIosArrowBack />
+                    <MdOutlineArrowBack />
                 </PrevButton>
+                {mobilePage()}
                 <TranslateContainer ref={mobileModalRef} style={{position: "static"}}>
                     <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
                         <BsGlobe2 />
@@ -162,7 +212,7 @@ const Header = () => {
                         setLanguageModal={setLanguageModal}/>}
                 </TranslateContainer>
             </HeaderOutWrapper>
-        </MobileHeaderContainer>
+        </MobileHeaderContainer> */}
         {copyHandle && <CopyAlertModal />}      
         {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
@@ -180,7 +230,6 @@ const HeaderLayoutContainer = styled.div`
     top: 0;
     left: 0;
     z-index: 100;
-    /* opacity: 0.5; */
     background-color: #FFFFFF;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
     transition: all 0.4s ease-in-out;
@@ -279,7 +328,7 @@ const SmallButtonWrapper = styled.div`
     }
 `;
 
-const TranslateWrapper = styled.div`
+export const TranslateWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
@@ -291,7 +340,7 @@ const TranslateWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-       color: #222020;
+      /* color: #222020; */
     }
 
     @media screen and (max-width: 500px) {
@@ -299,9 +348,9 @@ const TranslateWrapper = styled.div`
         height: 100%;
         border: none;
         flex-direction: row;
-        color: #222020;
-        gap: 2px;
-        font-size: 20px;
+       /* color: #222020; */
+        gap: 3px;
+        font-size: 14px;
     }
 `;
 
@@ -328,7 +377,7 @@ const HomeBtnWrapper = styled.div`
     cursor: pointer;
 
     &:hover {
-        color: #222020;
+       /* color: #222020; */
     }
 
     @media screen and (max-width: 500px) {
@@ -403,7 +452,8 @@ const PrevButton = styled.div`
 
 const MobileHeaderContainer = styled.div`
     width: 100%;
-    height: 50px;  
+    height: 50px;
+    background-color: #FFFFFF;
     position: absolute;
     top: 0;
     left: 0;
@@ -414,6 +464,14 @@ const MobileHeaderContainer = styled.div`
     @media screen and (max-width: 500px) {
         display: block;
     }
+`;
+
+const MobileHeaderPageContainer = styled.div`
+    font-family: "LINESeedKR-Bd";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+   /* color: #222020; */
 `;
 
 export default Header;

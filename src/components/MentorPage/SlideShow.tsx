@@ -91,6 +91,9 @@ const ImageOutContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     height: 260px;
+  }
+
+  @media screen and (max-width: 500px) {
     width: 96%;
     margin: 0px auto;
     border-radius: 10px;
@@ -130,6 +133,10 @@ const SlideLeftButtonBox = styled.div`
     height: 30px;
     font-size: 20px;
   }
+
+  @media screen and (max-width: 500px) {
+    border: 1px solid #FFFFFF;
+  }
 `;
 
 const SlideRightButtonBox = styled.div`
@@ -164,6 +171,10 @@ const SlideRightButtonBox = styled.div`
     width: 30px;
     height: 30px;
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 500px) {
+    border: 1px solid #FFFFFF;
   }
 `;
 

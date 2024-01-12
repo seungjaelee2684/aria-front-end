@@ -90,7 +90,7 @@ const ModalContainer = styled.div`
   border-right: 1px solid #ADADAD;
   background-color: #FFF;
   border-radius: 0px 0px 5px 5px;
-  color: #222020;
+ /* color: #222020; */
 
   @media screen and (max-width: 836px) {
     min-width: 100px;

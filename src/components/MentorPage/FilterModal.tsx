@@ -6,7 +6,7 @@ import Chinaflag from '../../assets/logos/chinaflag.webp'
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
-import { IoIosArrowDown } from "react-icons/io";
+import { TiArrowSortedDown } from "react-icons/ti";
 import { mentorSearchInput } from '../../store/MentorSearchInput';
 
 type Nation = {
@@ -24,6 +24,7 @@ interface FilterModalProps {
 const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
     const language = localStorage.getItem("language");
+    const darkmode = localStorage.getItem("darkmode");
     const [nationkinds, setNationkinds] = useRecoilState(nationKind);
     const [, setFlag] = useRecoilState(nationFlag);
     const [, setMentorSearchInput] = useRecoilState(mentorSearchInput);
@@ -70,15 +71,17 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
 
   return (
     <FilterModalContainer>
-        <DefaultBtn>
+        <DefaultBtn
+            style={{backgroundColor: `${(darkmode === "dark") ? "#535353" : "#FFFFFF"}`}}>
             {flagValue && <NationFlag src={flagValue}/>}
             {filterTranslate(null)}
-            <IoIosArrowDown />
+            <TiArrowSortedDown />
         </DefaultBtn>
         {noneFilter?.map((item : Nation) => {
             return (
                 <FilterModalBtn
                     key={item?.nation}
+                    style={{backgroundColor: `${(darkmode === "dark") ? "#535353" : "#FFFFFF"}`}}
                     onClick={() => {
                         setNationkinds({
                             ...nationkinds,
@@ -122,7 +125,6 @@ const FilterModalContainer = styled.div`
 const FilterModalBtn = styled.div`
     width: 150px;
     height: 40px;
-    color: #39373A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,7 +168,7 @@ const DefaultBtn = styled.div`
     font-size: 14px;
     font-weight: 600;
     line-height: 150%;
-    color: #222020;
+   /* color: #222020; */
     background-color: #FFFFFF;
 
     @media screen and (max-width: 1320px) {

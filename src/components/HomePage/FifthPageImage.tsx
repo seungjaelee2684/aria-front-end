@@ -2,7 +2,7 @@ import React from 'react'
 import '../../style/font/font.css';
 import './MainImage/MainImage.css';
 import styled from 'styled-components';
-import { BackgroundImage, ImageBoxWrapper, MainImage } from './FirstPageImage';
+import { BackgroundImage, ImageBoxWrapper, MainLayout } from './FirstPageImage';
 import { EmptyTitle, TitleText } from './SecondPageImage';
 import FifthBG from '../../assets/images/mainpage/5.webp';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -40,17 +40,18 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
  
   return (
     <ImageBoxWrapper>
-      <BackgroundImage src={FifthBG} alt=''/>
-      <FifthLayout>
+      <FifthBackgroundImage src={FifthBG} alt=''/>
+      <FifthMainLayout>
         <FifthTitle>
           {titleArr?.map((item : any, index: number) => {
             return (
               (item?.title === " ")
-                ? <EmptyTitle />
+                ? <EmptyTitle key={item?.key}/>
                 : <TitleText
-                  className={(scrollIndex === 5) ? "fifth-title" : ""}
+                  key={item?.key}
+                  className={(scrollIndex === 4) ? "fifth-title" : ""}
                   style={{
-                    animationDelay: `${0.5 + index * 0.05}s`
+                    animationDelay: `${0.5 + index * 0.08}s`
                   }}>
                   {item?.title}
                 </TitleText>
@@ -59,37 +60,68 @@ const FifthPageImage : React.FC<FifthPageImageProps> = ({ mainPageTextChange }) 
         </FifthTitle>
         <ButtonWrapper>
           <Button
-            className={(scrollIndex === 5) ? "fifth-button" : ""}
+            className={(scrollIndex === 4) ? "fifth-button" : ""}
             color="#e83698"
-            onClick={() => handleCopyClipBoard("dadf31234@gmail.com")}>
+            onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}>
             CLICK TO COPY EMAIL
           </Button>
           <Button
-            className={(scrollIndex === 5) ? "fifth-button" : ""}
+            className={(scrollIndex === 4) ? "fifth-button" : ""}
             color="#7489da"
             onClick={() => navigate("/support/counseling")}>
             GO TO STUDENT COUNSELING PAGE
           </Button>
         </ButtonWrapper>
-      </FifthLayout>
+      </FifthMainLayout>
     </ImageBoxWrapper>
   )
 };
 
-const FifthLayout = styled(MainImage)`
+const FifthImageBoxWrapper = styled(ImageBoxWrapper)`
+
+  @media screen and (max-width: 500px) {
+        
+  }
+`;
+
+const FifthBackgroundImage = styled(BackgroundImage)`
+  margin-top: 80px;
+`;
+
+const FifthMainLayout = styled(MainLayout)`
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 70px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 50px;
+  }
 `;
 
 const FifthTitle = styled.div`
   font-family: "UniSansThin";
-  font-size: 90px;
+  font-size: 70px;
   line-height: normal;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 60px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 50px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 40px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -97,13 +129,21 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
+
+  @media screen and (max-width: 1320px) {
+    gap: 40px;
+  }
+
+  @media screen and (max-width: 836px) {
+    gap: 30px;
+  }
 `;
 
 const Button = styled.div<{ color: string }>`
   background-color: ${(props) => props.color};
   font-family: "ZingRustDemo";
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
   line-height: normal;
   color: #FFFFFF;
@@ -114,6 +154,18 @@ const Button = styled.div<{ color: string }>`
 
   &:hover {
     background-color: ${(props) => props.color}eb;
+  }
+
+  @media screen and (max-width: 1320px) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
   }
 `;
 

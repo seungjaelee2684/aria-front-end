@@ -8,28 +8,48 @@ import { IoIosArrowBack } from "react-icons/io";
 interface MainSlideShowProps {
     mainSlideCurrent: number;
     setMainSlideCurrent: React.Dispatch<React.SetStateAction<number>>;
+    isLoop: boolean;
+    setIsLoop: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMainSlideCurrent }) => {
+const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMainSlideCurrent, isLoop, setIsLoop }) => {
 
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const widthMove = mainSlideCurrent * 100
 
     useEffect(() => {
+        const mainSlideInterval = setInterval(() => {
+            if (mainSlideCurrent === 0) {
+                setMainSlideCurrent(MainBannertData?.length);
+            } else if (mainSlideCurrent === MainBannertData?.length + 1) {
+                setMainSlideCurrent(1);
+            };
+        }, 1000);
+
         if (mainSlideDivRef.current) {
-            mainSlideDivRef.current.style.transition = "all 0.8s ease-in-out";
+            if (((mainSlideCurrent === 1) && (isLoop === true)) || ((mainSlideCurrent === MainBannertData?.length) && (isLoop === true))) {
+                mainSlideDivRef.current.style.transition = "";
+            } else {
+                mainSlideDivRef.current.style.transition = "all 1s ease-out";
+            }; 
             mainSlideDivRef.current.style.transform = `translateX(-${widthMove}%)`;
+        };
+
+        return () => {
+            clearInterval(mainSlideInterval);
         };
     }, [mainSlideCurrent]);
 
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            {MainBannertData?.map((item) => {
+            <SlideImage src={MainBannertData[MainBannertData?.length - 1]?.image}/>
+            {MainBannertData?.map((item : any, index : number) => {
                 return (
                     <SlideImage key={item?.id} src={item?.image}/>
                 )
             })}
+            <SlideImage src={MainBannertData[0]?.image}/>
         </SlideWrapper>
     </SlideShowOutContainer>
   )

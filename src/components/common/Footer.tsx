@@ -16,6 +16,8 @@ import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
+import { MdOutlineSupervisorAccount } from "react-icons/md";
+import { BsInstagram, BsDiscord, BsYoutube, BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
 
@@ -55,7 +57,7 @@ const Footer = () => {
             </HomeButton>
             |
             <Text onClick={() => navigate("/support/policy")}>
-             운영정책
+             {translateText(0)}
             </Text>
             |
             <Text onClick={() => navigate("/support/policy")}>
@@ -67,13 +69,26 @@ const Footer = () => {
           <FirstWrapper>
             <ContentBox>
               <Content>
-                주소 : 서울특별시 | 대표자 : 김민규
+                {translateText(1)} : 
+                <ColorContent>
+                  {translateText(2)}
+                </ColorContent>
+                | {translateText(3)} :
+                 <ColorContent>
+                  {translateText(4)}
+                 </ColorContent>
               </Content>
               <Content>
-                이메일 : aria.academy@gmail.com
+                {translateText(5)} :
+                <ColorContent>
+                  aria.academy@gmail.com
+                </ColorContent>
               </Content> 
               <Content>
-                사업자등록번호 : 205-5421-9942
+                {translateText(6)} :
+                <ColorContent>
+                  205-5421-9942
+                </ColorContent>
               </Content>
               <ContentUnderWrapper>
                 @COPYRIGHT ARIA ACADEMY ALL RIGHTS RESERVED
@@ -81,28 +96,36 @@ const Footer = () => {
             </ContentBox>
           </FirstWrapper>
           <LogoContainer src={FooterLogo} alt=''/>
-          <MenuIconContainer>
-            <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
-              <MenuIcon
-                src={DiscordDefault}
-                alt=''/>
-            </IconBoxWrapper>
-            <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
-              <MenuIcon
-                src={TwitterDefault}
-                alt=''/>
-            </IconBoxWrapper>
-            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-              <MenuIcon
-                src={InstagramDefault}
-                alt=''/>
-            </IconBoxWrapper>
-            <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
-              <MenuIcon
-                src={YoutubeDefault}
-                alt=''/>
-            </IconBoxWrapper>
-          </MenuIconContainer>
+          <IconOutContainer>
+            <IconTitleWrapper>
+              <MdOutlineSupervisorAccount />
+              <IconTitle>
+                SNS
+              </IconTitle>
+            </IconTitleWrapper>
+            <MenuIconContainer>
+              <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+                <MenuIcon>
+                  <BsDiscord />
+                </MenuIcon>
+              </IconBoxWrapper>
+              <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
+                <MenuIcon>
+                  <BsTwitterX />
+                </MenuIcon>
+              </IconBoxWrapper>
+              <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+                <MenuIcon>
+                  <BsInstagram />
+                </MenuIcon>
+              </IconBoxWrapper>
+              <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+                <MenuIcon>
+                  <BsYoutube />
+                </MenuIcon>
+              </IconBoxWrapper>
+            </MenuIconContainer>
+          </IconOutContainer>
         </FooterOutWrapper>
       </FooterOutContainer>
     </FooterContainer>
@@ -120,23 +143,16 @@ const FooterContainer = styled.div`
   line-height: 140%;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
   transition: all 0.2s ease-in-out;
   position: relative;
 
-  @media screen and (max-width: 1320px) {
-    margin-top: 60px;
-  }
-
   @media screen and (max-width: 836px) {
-    margin-top: 40px;
     height: 200px;
   }
 
   @media screen and (max-width: 500px) {
-    margin-bottom: 50px;
+    margin-bottom: 46px;
     height: 150px;
-    margin-top: 30px;
   }
 `;
 
@@ -192,7 +208,7 @@ const HomeButton = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 8px;
+    font-size: 7px;
   }
 `;
 
@@ -209,7 +225,52 @@ const Text = styled.div`
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 12px;
+    font-size: 10px;
+  }
+`;
+
+const IconOutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const IconTitleWrapper = styled.div`
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  font-size: 24px;
+  color: #e9e9e9;
+  user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 16px;
+    gap: 3px;
+  }
+`;
+
+const IconTitle = styled.div`
+  font-family: "UniSansThin";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  color: #e9e9e9;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 16px;
   }
 `;
 
@@ -218,6 +279,7 @@ const MenuIconContainer = styled.div`
   align-items: start;
   gap: 16px;
   height: 100%;
+  user-select: none;
 
   @media screen and (max-width: 1320px) {
     gap: 12px;
@@ -255,12 +317,22 @@ const IconBoxWrapper = styled.div`
   }
 `;
 
-const MenuIcon = styled.img`
-  /* width: 22px;
-  height: 22px; */
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
+const MenuIcon = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #ADADAD;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 836px) {
+    font-size: 14px;
+  }
 `;
 
 const FooterOutWrapper = styled.div`
@@ -283,6 +355,7 @@ const LogoContainer = styled.img`
   width: 180px;
   height: auto;
   object-fit: cover;
+  user-select: none;
 
   @media screen and (max-width: 836px) {
     width: 120px;
@@ -325,7 +398,7 @@ const ContentBox = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 11px;
+    font-size: 9px;
     gap: 5px;
   }
 `;
@@ -333,10 +406,14 @@ const ContentBox = styled.div`
 const Content = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
+  font-family: "CinzelRegular";
 `;
 
-const Link = styled.div`
-  
+const ColorContent = styled.div`
+  color: #e9e9e9;
+  font-weight: 400;
+  font-family: "Pretendard";
 `;
 
 export default Footer;

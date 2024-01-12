@@ -7,24 +7,81 @@ const CounselingGuide = () => {
 
     const language = localStorage.getItem("language");
 
+    type CounselingContentType =  {
+        isred: boolean,
+        content: string
+    };
+    
     type CounselingGuideType = {
         image: string,
-        englishtext: string,
-        chinesetext: string,
-        japanesetext: string,
-        text: string
+        englishtext: CounselingContentType[],
+        chinesetext: CounselingContentType[],
+        japanesetext: CounselingContentType[],
+        text: CounselingContentType[]
+    };
+
+    const counselingEmphasisTrans = (item : any) => {
+        switch (language) {
+            case "chinese" :
+                return item?.chinesetext.isred;
+            case "japanese" :
+                return item?.japanesetext.isred;
+            case "korean" :
+                return item?.text.isred;
+            default :
+                return item?.englishtext.isred;
+        };
     };
 
     const counselingContentTrans = (item : any) => {
-        switch (language) {
-            case "chinese" :
-                return item?.chinesetext;
-            case "japanese" :
-                return item?.japanesetext;
-            case "korean" :
-                return item?.text;
-            default :
-                return item?.englishtext;
+        if (language === "chinese") {
+            return item?.chinesetext.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent key={text?.content}>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent key={text?.content}>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
+        } else if (language === "japanese") {
+            return item?.japanesetext.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent key={text?.content}>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent key={text?.content}>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
+        } else if (language === "korean") {
+            return item?.text.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent key={text?.content}>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent key={text?.content}>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
+        } else {
+            return item?.englishtext.map((text : CounselingContentType) => {
+                return (
+                    (text?.isred)
+                        ? <ColorGuideContent key={text?.content}>
+                            {text?.content}
+                        </ColorGuideContent>
+                        : <GuideContent key={text?.content}>
+                            {text?.content}
+                        </GuideContent>
+                )
+            })
         };
     };
 
@@ -49,11 +106,14 @@ const CounselingGuide = () => {
         <CounselingContainer>
             {counselingGuide?.map((item : CounselingGuideType) => {
                 return (
-                    <GuideWrapper key={item.text}>
+                    <GuideWrapper key={item.text[0].content}>
                         <GuideImage src={item?.image} alt=''/>
-                        <GuideContent>
-                            {counselingContentTrans(item)}
-                        </GuideContent>
+                        <GuideContentWrapper>
+                            #
+                            <ContentInWrapper>
+                                {counselingContentTrans(item)}
+                            </ContentInWrapper>
+                        </GuideContentWrapper>
                     </GuideWrapper>
                 );
             })}
@@ -69,14 +129,30 @@ const CounselingOutContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 50px;
+
+    @media screen and (max-width: 900px) {
+        width: 650px;
+    }
+
+    @media screen and (max-width: 650px) {
+        width: 96%;
+    }
 `;
 
 const GuideTitleContainer = styled.div`
     font-size: 24px;
-    font-family: "UniSansThin";
+    font-family: "Pretendard";
     font-weight: 600;
     line-height: 150%;
-    color: #222020;
+   /* color: #222020; */
+
+    @media screen and (max-width: 900px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 650px) {
+        font-size: 12px;
+    }
 `;
 
 const CounselingContainer = styled.div`
@@ -86,18 +162,20 @@ const CounselingContainer = styled.div`
     align-items: center;
     gap: 120px;
     font-family: "Pretendard";
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     line-height: normal;
-    color: #222020;
+   /* color: #222020; */
 
     @media screen and (max-width: 900px) {
-        width: 96%;
+        width: 650px;
+        font-size: 18px;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 650px) {
+        font-size: 11px;
+        width: 96%;
         gap: 50px;
-        font-size: 14px;
     }
 `;
 
@@ -120,10 +198,45 @@ const GuideImage = styled.img`
     margin: 0px auto;
 `;
 
-const GuideContent = styled.div`
+const GuideContentWrapper = styled.div`
     width: 100%;
-    text-align: left;
-    white-space: pre-line;
+    display: flex;
+    align-items: start;
+    gap: 8px;
+`;
+
+const ContentInWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 8px;
+
+    @media screen and (max-width: 650px) {
+        gap: 4px;
+    }
+`;
+
+const GuideContent = styled.div`
+   /* color: #222020; */
+    text-align: start;
+`;
+
+const ColorGuideContent = styled.div`
+    color: #ff3ea3;
+    font-weight: 800;
+    font-size: 21px;
+    text-align: start;
+    /* text-decoration: underline; */
+
+    @media screen and (max-width: 900px) {
+        font-size: 19px;
+    }
+
+    @media screen and (max-width: 650px) {
+        font-size: 12px;
+        font-weight: 700;
+    }
 `;
 
 export default CounselingGuide;

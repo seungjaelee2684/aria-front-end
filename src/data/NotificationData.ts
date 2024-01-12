@@ -30,7 +30,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "2",
@@ -58,7 +58,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "3",
@@ -86,7 +86,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "4",
@@ -114,7 +114,7 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
     {
         id: "5",
@@ -142,90 +142,90 @@ export const NotificationData = [
             },
             image: null
         },
-        status: "notice",
+        status: "Notice",
     },
-    {
-        id: "6",
-        contents: {
-            englishtitle: "Slogan Contest",
-            chinesetitle: "标语征集活动",
-            japanesetitle: "スローガンコンテスト",
-            title: "슬로건 공모전",
-            period: "2022.07.18 ~ 2022.08.19",
-            date: "2022.07.18",
-            status: "Proceeding",
-            content: {
-                englishcontent: [
-                    "",
-                ],
-                chinesecontent: [
-                    "",
-                ],
-                japanesecontent: [
-                    "",
-                ],
-                content: [
-                    "",
-                ],
-            },
-            image: Image
-        },
-        status: "event",
-    },
-    {
-        id: "7",
-        contents: {
-            englishtitle: "Character Contest",
-            chinesetitle: "卡通征集活动",
-            japanesetitle: "キャラクターコンテスト",
-            title: "캐릭터 공모전",
-            period: "2021.10.01 ~ 2021.10.29",
-            date: "2021.10.01",
-            status: "Deadline",
-            content: {
-                englishcontent: [
-                    "",
-                ],
-                chinesecontent: [
-                    "",
-                ],
-                japanesecontent: [
-                    "",
-                ],
-                content: [
-                    "",
-                ],
-            },
-            image: Image2
-        },
-        status: "event",
-    },
-    {
-        id: "8",
-        contents: {
-            englishtitle: "Game Culture Creative Content Contest",
-            chinesetitle: "游戏文化创作内容征集活动",
-            japanesetitle: "ゲーム文化創作コンテンツコンテスト",
-            title: "게임문화 창작콘텐츠 공모전",
-            period: "2020.07.06 ~ 2020.08.17",
-            date: "2020.07.06",
-            status: "Upcoming",
-            content: {
-                englishcontent: [
-                    "",
-                ],
-                chinesecontent: [
-                    "",
-                ],
-                japanesecontent: [
-                    "",
-                ],
-                content: [
-                    "",
-                ],
-            },
-            image: Image3
-        },
-        status: "event",
-    },
+    // {
+    //     id: "6",
+    //     contents: {
+    //         englishtitle: "Slogan Contest",
+    //         chinesetitle: "标语征集活动",
+    //         japanesetitle: "スローガンコンテスト",
+    //         title: "슬로건 공모전",
+    //         period: "2022.07.18 ~ 2022.08.19",
+    //         date: "2022.07.18",
+    //         status: "Proceeding",
+    //         content: {
+    //             englishcontent: [
+    //                 "",
+    //             ],
+    //             chinesecontent: [
+    //                 "",
+    //             ],
+    //             japanesecontent: [
+    //                 "",
+    //             ],
+    //             content: [
+    //                 "",
+    //             ],
+    //         },
+    //         image: Image
+    //     },
+    //     status: "Event",
+    // },
+    // {
+    //     id: "7",
+    //     contents: {
+    //         englishtitle: "Character Contest",
+    //         chinesetitle: "卡通征集活动",
+    //         japanesetitle: "キャラクターコンテスト",
+    //         title: "캐릭터 공모전",
+    //         period: "2021.10.01 ~ 2021.10.29",
+    //         date: "2021.10.01",
+    //         status: "Deadline",
+    //         content: {
+    //             englishcontent: [
+    //                 "",
+    //             ],
+    //             chinesecontent: [
+    //                 "",
+    //             ],
+    //             japanesecontent: [
+    //                 "",
+    //             ],
+    //             content: [
+    //                 "",
+    //             ],
+    //         },
+    //         image: Image2
+    //     },
+    //     status: "Event",
+    // },
+    // {
+    //     id: "8",
+    //     contents: {
+    //         englishtitle: "Game Culture Creative Content Contest",
+    //         chinesetitle: "游戏文化创作内容征集活动",
+    //         japanesetitle: "ゲーム文化創作コンテンツコンテスト",
+    //         title: "게임문화 창작콘텐츠 공모전",
+    //         period: "2020.07.06 ~ 2020.08.17",
+    //         date: "2020.07.06",
+    //         status: "Upcoming",
+    //         content: {
+    //             englishcontent: [
+    //                 "",
+    //             ],
+    //             chinesecontent: [
+    //                 "",
+    //             ],
+    //             japanesecontent: [
+    //                 "",
+    //             ],
+    //             content: [
+    //                 "",
+    //             ],
+    //         },
+    //         image: Image3
+    //     },
+    //     status: "Event",
+    // },
 ];

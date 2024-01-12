@@ -10,7 +10,7 @@ const Notification = () => {
 
   const language = localStorage.getItem("language");
 
-  const [noticeFilter, setNoticeFilter] = useState<string>("all");
+  const [noticeFilter, setNoticeFilter] = useState<string>("All");
 
   const textChange = ( Num : number ) => {
     switch (language) {
@@ -54,6 +54,11 @@ const Notification = () => {
 
 const LayoutContainer = styled.div`
   width: 100%;
+  padding: 0px 0px 120px 0px;
+
+  @media screen and (max-width: 500px) {
+    padding: 0px 0px 80px 0px;
+  }
 `;
 
 const ListLayoutContainer = styled.div`
@@ -85,7 +90,7 @@ const TitleOutContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #222020;
+ /* color: #222020; */
 `;
 
 const TitleContainer = styled.div`
@@ -104,7 +109,7 @@ const TotalWrapper = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 140%;
-  color: #222020;
+ /* color: #222020; */
   display: flex;
   align-items: end;
   gap: 8px;

@@ -1,5 +1,25 @@
-.frame-in {
-    animation: first_logo_appear 1s forwards;
+.background-close {
+    animation: opacity_controll_close 1s ease-in forwards;
+}
+
+.first-frame-in {
+    animation: first_logo_appear_a 1.5s forwards;
+    animation-delay: 0.7s;
+}
+
+.second-frame-in {
+    animation: first_logo_appear_r 1.5s forwards;
+    animation-delay: 0.7s;
+}
+
+.third-frame-in {
+    animation: first_logo_appear_i 1.5s forwards;
+    animation-delay: 0.7s;
+}
+
+.fourth-frame-in {
+    animation: first_logo_appear_a2 1.5s forwards;
+    animation-delay: 0.7s;
 }
 
 .second-bar {
@@ -12,8 +32,8 @@
 }
 
 .second-content {
-    animation: opacity_controll 2s forwards;
-    animation-delay: 1.3s;
+    animation: opacity_controll 1.6s ease-out forwards;
+    animation-delay: 1.8s;
 }
 
 .second-color-content {
@@ -26,7 +46,7 @@
 }
 
 .fifth-title {
-    animation: fifth_title_appear 0.6s forwards;
+    animation: opacity_controll 0.6s forwards;
 }
 
 .fifth-button {
@@ -34,14 +54,47 @@
     animation-delay: 1.6s;
 }
 
-@keyframes first_logo_appear {
+@keyframes first_logo_appear_a {
     from {
         opacity: 0;
-        transform: scale(0.6) translateY(-100%);
+        transform: scale(1.5) translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes first_logo_appear_r {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(-50%);
     }
     to {
         opacity: 1;
         transform: scale(1) translateY(0%);
+    }
+}
+
+@keyframes first_logo_appear_i {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(50%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes first_logo_appear_a2 {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
     }
 }
 
@@ -70,7 +123,7 @@
 @keyframes second_title_appear {
     from {
         opacity: 0;
-        transform: translateX(-40%);
+        transform: translateX(-50%);
     }
     to {
         opacity: 1;
@@ -98,10 +151,30 @@
     }
 }
 
+@keyframes opacity_controll_close {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 @keyframes fifth_title_appear {
     from {
         opacity: 0;
         transform: translateY(-40%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes main_header_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-80px);
     }
     to {
         opacity: 1;

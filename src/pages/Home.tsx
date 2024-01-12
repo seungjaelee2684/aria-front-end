@@ -16,6 +16,7 @@ import ThirdPageImage from '../components/HomePage/ThirdPageImage';
 import FourthPageImage from '../components/HomePage/FourthPageImage';
 import FifthPageImage from '../components/HomePage/FifthPageImage';
 import PageNumber from '../components/HomePage/PageNumber';
+import MobileMain from '../components/HomePage/MobileMain';
 
 const Home = () => {
 
@@ -38,9 +39,38 @@ const Home = () => {
     };
 
     useEffect(() => {
+        if (outerDivRef.current) {
+            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+            if (scrollIndex === 1) {
+                outerDivRef.current.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            } else if (scrollIndex === 2) {
+                outerDivRef.current.scrollTo({
+                    top: pageHeight + DIVIDER_HEIGHT,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            } else if (scrollIndex === 3) {
+                outerDivRef.current.scrollTo({
+                    top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            } else if (scrollIndex === 4) {
+                outerDivRef.current.scrollTo({
+                    top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            };
+        };
         const wheelEventHandler = (e : any) => {
             if (outerDivRef.current) {
-                e.preventDefault();
+                // e.preventDefault();
                 const { deltaY } = e;
                 const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
                 const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
@@ -74,19 +104,23 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(4);
-                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
-                        //현재 4페이지
-                        console.log("현재 4페이지, down");
-                        outerDivRef.current.scrollTo({
-                            top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
-                            left: 0,
-                            behavior: "smooth",
-                        });
-                        setScrollIndex(5);
                     } else {
-                        //현재 5페이지
                         e.preventDefault();
-                    };
+                    }
+                    // else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
+                    //     //현재 4페이지
+                    //     console.log("현재 4페이지, down");
+                    //     outerDivRef.current.scrollTo({
+                    //         top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                    //         left: 0,
+                    //         behavior: "smooth",
+                    //     });
+                    //     setScrollIndex(5);
+                    // }
+                    // else {
+                    //     //현재 5페이지
+                    //     e.preventDefault();
+                    // };
                 } else {
                     // 스크롤 올릴 때
                     if (scrollTop >= 0 && scrollTop < pageHeight) {
@@ -116,7 +150,7 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(2);
-                    } else if (scrollTop >= 0 && scrollTop < pageHeight * 4) {
+                    } else {
                         //현재 4페이지
                         console.log("현재 4페이지, up");
                         outerDivRef.current.scrollTo({
@@ -125,16 +159,17 @@ const Home = () => {
                             behavior: "smooth",
                         });
                         setScrollIndex(3);
-                    } else {
-                        // 현재 5페이지
-                        console.log("현재 5페이지, up");
-                        outerDivRef.current.scrollTo({
-                          top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
-                          left: 0,
-                          behavior: "smooth",
-                        });
-                        setScrollIndex(4);
-                    };
+                    }
+                    // else {
+                    //     // 현재 5페이지
+                    //     console.log("현재 5페이지, up");
+                    //     outerDivRef.current.scrollTo({
+                    //       top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                    //       left: 0,
+                    //       behavior: "smooth",
+                    //     });
+                    //     setScrollIndex(4);
+                    // };
                 }
                 }
             };
@@ -145,7 +180,9 @@ const Home = () => {
         outerDivRefCurrent.removeEventListener("wheel", wheelEventHandler);
         };
     };  
-  }, []);
+  }, [scrollIndex]);
+
+  console.log("스크롤페이지 번호", scrollIndex);
 
   return (
     <MainLayout ref={outerDivRef}>
@@ -155,10 +192,11 @@ const Home = () => {
         <SpaceBetweenContainer />
         <ThirdPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
-        <FourthPageImage mainPageTextChange={mainPageTextChange}/>
-        <SpaceBetweenContainer />
+        {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer /> */}
         <FifthPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
+        <MobileMain mainPageTextChange={mainPageTextChange}/>
         <PageNumber />
     </MainLayout>
   )
@@ -172,12 +210,22 @@ const MainLayout = styled.div`
     display: flex;
     flex-direction: column;
     z-index: 97;
+
+    @media screen and (max-width: 500px) {
+        overflow-y: visible;
+        height: 100vh;
+        /* padding: 0px 0px 80px 0px; */
+    }
 `;
 
 const SpaceBetweenContainer = styled.div`
     width: 100%;
     min-height: 5px;
     background-color: #090e28;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 export default Home;

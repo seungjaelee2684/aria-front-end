@@ -53,5 +53,41 @@ export const homeTrans : TextType[] = [
         chinesetext: "LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY",
         japanesetext: "LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY",
         text: "LEARN FROM ILLUSTRATORS WITHOUT BEING BOUND BY NATIONALITY"
-    }
+    },
+    {
+        englishtext: "Aria Art Academy is a global illustration academy",
+        chinesetext: "Aria Art Academy is a global illustration academy",
+        japanesetext: "Aria Art Academy is a global illustration academy",
+        text: "Aria Art Academy is a global illustration academy"
+    },
+    {
+        englishtext: "Where one can learn",
+        chinesetext: "Where one can learn",
+        japanesetext: "Where one can learn",
+        text: "Where one can learn"
+    },
+    {
+        englishtext: "various aspects of global art trends from global teachers",
+        chinesetext: "various aspects of global art trends from global teachers",
+        japanesetext: "various aspects of global art trends from global teachers",
+        text: "various aspects of global art trends from global teachers"
+    },
+    {
+        englishtext: "We aspire to create a space where students",
+        chinesetext: "We aspire to create a space where students",
+        japanesetext: "We aspire to create a space where students",
+        text: "We aspire to create a space where students"
+    },
+    {
+        englishtext: "from around the world can learn from illustrators",
+        chinesetext: "from around the world can learn from illustrators",
+        japanesetext: "from around the world can learn from illustrators",
+        text: "from around the world can learn from illustrators"
+    },
+    {
+        englishtext: "without being bound by nationality",
+        chinesetext: "without being bound by nationality",
+        japanesetext: "without being bound by nationality",
+        text: "without being bound by nationality"
+    },
 ];
