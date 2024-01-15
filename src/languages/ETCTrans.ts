@@ -38,20 +38,20 @@ export const etcTextTrans : ETCTextTransType[] = [
     },
     {
         englishtext: "Popular Artist",
-        chinesetext: "无搜索结果",
-        japanesetext: "検索結果なし",
+        chinesetext: "热门讲师",
+        japanesetext: "人気講師",
         text: "인기 강사"
     },
     {
         englishtext: "more",
-        chinesetext: "无搜索结果",
-        japanesetext: "検索結果なし",
+        chinesetext: "查看更多",
+        japanesetext: "もっと見る",
         text: "더보기"
     },
     {
         englishtext: "List",
-        chinesetext: "无搜索结果",
-        japanesetext: "検索結果なし",
+        chinesetext: "目录",
+        japanesetext: "目録",
         text: "목록"
     },
 ];
