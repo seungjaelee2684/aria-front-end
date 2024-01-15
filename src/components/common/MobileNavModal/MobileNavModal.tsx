@@ -130,7 +130,8 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </Text>
           <Text
             onClick={() => {
-              navigate("/notice/notification");
+              setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+              // navigate("/notice/notification");
               onClickHamburgCloseHandler()
               // setSubPage({...subPage, notice: !notice, support: false})
             }}>

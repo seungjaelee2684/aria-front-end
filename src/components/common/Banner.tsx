@@ -36,11 +36,11 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
       <TitleContainer>
         <BannerBackgroundImg src={textInformation[page]?.image} alt=''/>
         <TextWrapper>
-            <TextBox className='TextBox'>
-              {textChange()}
-            </TextBox>
-            <AnimationBar className='AnimationBar'/>
-          </TextWrapper>
+          <AnimationBar className='AnimationBar'/>
+          <TextBox className='TextBox'>
+            {textChange()}
+          </TextBox>
+        </TextWrapper>
       </TitleContainer>
     </BannerLayoutContainer>
   )
@@ -89,10 +89,10 @@ const TextWrapper = styled.div`
   height: 100%;
   margin: 0px auto;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   position: relative;
+  gap: 20px;
 
   @media screen and (max-width: 1320px) {
     width: 96%;
@@ -106,6 +106,7 @@ const TextBox = styled.div`
   font-weight: 700;
   line-height: 150%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0;
 
   @media screen and (max-width: 500px) {
     font-size: 28px;
@@ -113,8 +114,8 @@ const TextBox = styled.div`
 `;
 
 const AnimationBar = styled.div`
-  width: 80px;
-  height: 3px;
+  width: 4px;
+  height: 40px;
   background-color: #FCFCFC;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;

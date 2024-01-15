@@ -107,7 +107,10 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                 </ButtonBox>
                 <ButtonBox
                     style={{color: (location.pathname.includes("/notice")) ? "#FFFFFF" : "#ADADAD"}}
-                    onClick={() => navigate("/notice/notification")}>
+                    onClick={() => {
+                        // navigate("/notice/notification")
+                        setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                    }}>
                     <ButtonWrapper>
                         <IoNotificationsOutline />
                     </ButtonWrapper>
