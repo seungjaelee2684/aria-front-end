@@ -19,9 +19,9 @@ import SanpatiCurriculumENG3 from '../assets/curriculums/sanpati/ENG/Sanpati_Cur
 import SanpatiCurriculumJPN1 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum1_JPN.webp';
 import SanpatiCurriculumJPN2 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum2_JPN.webp';
 import SanpatiCurriculumJPN3 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum3_JPN.webp';
-import SanpatiCurriculumKOR1 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum1_JPN.webp';
-import SanpatiCurriculumKOR2 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum2_JPN.webp';
-import SanpatiCurriculumKOR3 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum3_JPN.webp';
+import SanpatiCurriculumKOR1 from '../assets/curriculums/sanpati/KOR/Sanpati_Curriculum1_KOR.webp';
+import SanpatiCurriculumKOR2 from '../assets/curriculums/sanpati/KOR/Sanpati_Curriculum2_KOR.webp';
+import SanpatiCurriculumKOR3 from '../assets/curriculums/sanpati/KOR/Sanpati_Curriculum3_KOR.webp';
 import SanpatiPortfolio1 from '../assets/curriculums/sanpati/portfolio/p01.webp';
 import SanpatiPortfolio2 from '../assets/curriculums/sanpati/portfolio/p02.webp';
 import SanpatiPortfolio3 from '../assets/curriculums/sanpati/portfolio/p03.webp';
@@ -46,9 +46,9 @@ import EscapeCurriculumENG3 from '../assets/curriculums/escape/ENG/Escape_Curric
 import EscapeCurriculumJPN1 from '../assets/curriculums/escape/JPN/Escape_Curriculum1_JPN.webp';
 import EscapeCurriculumJPN2 from '../assets/curriculums/escape/JPN/Escape_Curriculum2_JPN.webp';
 import EscapeCurriculumJPN3 from '../assets/curriculums/escape/JPN/Escape_Curriculum3_JPN.webp';
-import EscapeCurriculumKOR1 from '../assets/curriculums/escape/JPN/Escape_Curriculum1_JPN.webp';
-import EscapeCurriculumKOR2 from '../assets/curriculums/escape/JPN/Escape_Curriculum2_JPN.webp';
-import EscapeCurriculumKOR3 from '../assets/curriculums/escape/JPN/Escape_Curriculum3_JPN.webp';
+import EscapeCurriculumKOR1 from '../assets/curriculums/escape/KOR/Escape_Curriculum1_KOR.webp';
+import EscapeCurriculumKOR2 from '../assets/curriculums/escape/KOR/Escape_Curriculum2_KOR.webp';
+import EscapeCurriculumKOR3 from '../assets/curriculums/escape/KOR/Escape_Curriculum3_KOR.webp';
 import EscapePortfolio1 from '../assets/curriculums/escape/portfolio/p01.webp';
 import EscapePortfolio2 from '../assets/curriculums/escape/portfolio/p02.webp';
 import EscapePortfolio3 from '../assets/curriculums/escape/portfolio/p03.webp';
