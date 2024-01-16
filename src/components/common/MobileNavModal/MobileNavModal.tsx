@@ -82,7 +82,7 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         // className='ModalContainer'
       >
         <CloseBtnContainer>
-          <TopLogoContainer src={WhiteLogo} alt=''/>
+          <TopLogoContainer src={Logo} alt=''/>
           <TranslateContainer ref={mobileModalRef}>
             <TranslateWrapper
               onClick={() => setLanguageModal(!languageModal)}>
@@ -130,7 +130,8 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </Text>
           <Text
             onClick={() => {
-              navigate("/notice/notification");
+              setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+              // navigate("/notice/notification");
               onClickHamburgCloseHandler()
               // setSubPage({...subPage, notice: !notice, support: false})
             }}>

@@ -157,7 +157,7 @@ const Policy = () => {
 
 const LayOutContainer = styled.div`
   width: 100%;
-  padding: 80px 0px 120px 0px;
+  padding: 120px 0px 120px 0px;
   margin: 0px auto;
 
   @media screen and (max-width: 500px) {

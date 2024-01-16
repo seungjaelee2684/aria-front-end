@@ -71,7 +71,7 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
                         <LineContainer
                             key={item.id}
                             style={{
-                                borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #797979"
+                                borderBottom: (NotificationData?.indexOf(item) === NotificationData.length - 1) ? "none" : "1px solid #e9e9e9"
                             }}>
                             <ContentWrapper>
                                 <NoticeIcon
