@@ -27,14 +27,18 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                                 : "NotActionImage"}>
                         <ImageBox src={item?.slideimage.background}/>
                         {(item?.status === "Left")
-                            ? <NicknameLeftContainer
+                            ? (item?.slideimage.bigger)
+                              ? <SmallNicknameRightContainer
                                 src={item?.slideimage.nickname}
                                 alt=''/>
-                            : (index === 0)
-                              ? <FirstNicknameContainer 
+                              : <BigNicknameRightContainer
                                 src={item?.slideimage.nickname}
                                 alt=''/>
-                              : <NicknameContainer 
+                            : (item?.slideimage.bigger)
+                              ? <SmallNicknameContainer 
+                                src={item?.slideimage.nickname}
+                                alt=''/>
+                              : <BigNicknameContainer 
                                 src={item?.slideimage.nickname}
                                 alt=''/>}
                     </div>
@@ -54,19 +58,6 @@ const ImageSlideContainer = styled.div`
   position: relative;
 `;
 
-const MentorWrapper = styled.div`
-  min-width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  /* gap: 24px; */
-  margin: 0px auto;
-
-  @media screen and (max-width: 1320px) {
-        min-width: 100%;
-    }
-`;
-
 const ImageBox = styled.div<{ src: string }>`
   width: 100%;
   height: 700px;
@@ -84,27 +75,7 @@ const ImageBox = styled.div<{ src: string }>`
   }
 `;
 
-const IntroduceMentorContainer = styled.div`
-  font-family: 'Pretendard';
-  font-size: 48px;
-  color: #da438e;
-  font-weight: 800;
-  line-height: 150%;
-  max-width: 15%;
-  max-height: 550px;
-  display: grid;
-  gap: 20px;
-  user-select: none;
-  padding: 0px 40px;
-  position: absolute;
-  left: 20%;
-  top: 40%;
-  background-color: #FCFCFC90;
-  padding: 40px;
-  border-radius: 10px;
-`;
-
-const NicknameContainer = styled.img`
+const BigNicknameContainer = styled.img`
   width: 70%;
   height: auto;
   object-fit: cover;
@@ -125,7 +96,7 @@ const NicknameContainer = styled.img`
   }
 `;
 
-const FirstNicknameContainer = styled.img`
+const SmallNicknameContainer = styled.img`
   width: 42%;
   height: auto;
   object-fit: cover;
@@ -146,7 +117,7 @@ const FirstNicknameContainer = styled.img`
   }
 `;
 
-const NicknameLeftContainer = styled.img`
+const BigNicknameRightContainer = styled.img`
   width: 70%;
   height: auto;
   object-fit: cover;
@@ -156,24 +127,38 @@ const NicknameLeftContainer = styled.img`
   top: 35%;
   user-select: none;
 
-    @media screen and (max-width: 1320px) {
-      top: 40%;
-      width: 85%;
-    }
+  @media screen and (max-width: 1320px) {
+    top: 40%;
+    width: 48%;
+  }
 
-    @media screen and (max-width: 500px) {
-      top: 50%;
-      width: 90%;
-      left: 8%;
-    }
+  @media screen and (max-width: 500px) {
+    top: 50%;
+    width: 50%;
+    right: 8%;
+  }
 `;
 
-const IntroduceText = styled.div`
-  font-family: "Pretendard";
-  font-size: 16px;
- /* color: #222020; */
-  font-weight: 400;
-  line-height: 140%;
+const SmallNicknameRightContainer = styled.img`
+  width: 42%;
+  height: auto;
+  object-fit: cover;
+  user-select: none;
+  position: absolute;
+  right: 10%;
+  top: 35%;
+  user-select: none;
+
+  @media screen and (max-width: 1320px) {
+    top: 40%;
+    width: 85%;
+  }
+
+  @media screen and (max-width: 500px) {
+    top: 50%;
+    width: 90%;
+    left: 8%;
+  }
 `;
 
 export default NewMentorList;
