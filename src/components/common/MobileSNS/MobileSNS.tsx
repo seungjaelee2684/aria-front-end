@@ -106,7 +106,7 @@ const MobileSNSModalContainer = styled.div`
 `;
 
 const ModalTitleContainer = styled.div`
-    font-family: "CinzelBlack";
+    font-family: "Pretendard";
     font-size: 32px;
     font-weight: 700;
     line-height: normal;
@@ -174,10 +174,11 @@ const Icon = styled.div`
 `;
 
 const Text = styled.div`
-    font-family: "CinzelBlack";
+    font-family: "Pretendard";
     font-size: 26px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
+    letter-spacing: 2px;
 `;
 
 export default MobileSNS;

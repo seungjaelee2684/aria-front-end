@@ -4,6 +4,7 @@ import SlideImg from '../../assets/images/mentorimage.webp';
 import { MainBannertData } from '../../data/MainBannerData';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { mentorListData } from '../../data/MentorData';
 
 interface MainSlideShowProps {
     mainSlideCurrent: number;
@@ -20,14 +21,14 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     useEffect(() => {
         const mainSlideInterval = setInterval(() => {
             if (mainSlideCurrent === 0) {
-                setMainSlideCurrent(MainBannertData?.length);
-            } else if (mainSlideCurrent === MainBannertData?.length + 1) {
+                setMainSlideCurrent(mentorListData?.length);
+            } else if (mainSlideCurrent === mentorListData?.length + 1) {
                 setMainSlideCurrent(1);
             };
         }, 1000);
 
         if (mainSlideDivRef.current) {
-            if (((mainSlideCurrent === 1) && (isLoop === true)) || ((mainSlideCurrent === MainBannertData?.length) && (isLoop === true))) {
+            if (((mainSlideCurrent === 1) && (isLoop === true)) || ((mainSlideCurrent === mentorListData?.length) && (isLoop === true))) {
                 mainSlideDivRef.current.style.transition = "";
             } else {
                 mainSlideDivRef.current.style.transition = "all 1s ease-out";
@@ -43,13 +44,13 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            <SlideImage src={MainBannertData[MainBannertData?.length - 1]?.image}/>
-            {MainBannertData?.map((item : any, index : number) => {
+            <SlideImage src={mentorListData[mentorListData?.length - 1]?.slideimage.background}/>
+            {mentorListData?.map((item : any, index : number) => {
                 return (
-                    <SlideImage key={item?.id} src={item?.image}/>
+                    <SlideImage key={item?.id} src={item?.slideimage.background}/>
                 )
             })}
-            <SlideImage src={MainBannertData[0]?.image}/>
+            <SlideImage src={mentorListData[0]?.slideimage.background}/>
         </SlideWrapper>
     </SlideShowOutContainer>
   )

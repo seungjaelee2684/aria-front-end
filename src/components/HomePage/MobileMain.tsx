@@ -46,12 +46,12 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     useEffect(() => {
         const slideShowInterval = setInterval(() => {
-            if (mainSlideCurrent === MainBannertData.length) {
+            if (mainSlideCurrent === mentorListData.length) {
                 setIsLoop(true);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
             } else {
                 setIsLoop(false);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
             };
         }, 5000);
 
@@ -93,7 +93,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     isLoop={isLoop}
                     setIsLoop={setIsLoop} />
                 <SlideNumberWrapper>
-                    {MainBannertData?.map((item: any, index: number) => {
+                    {mentorListData?.map((item: any, index: number) => {
                         return (
                             (mainSlideCurrent === (index + 1))
                                 ? <SlideNumber
