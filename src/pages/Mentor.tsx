@@ -24,7 +24,7 @@ const Mentor = () => {
         TIST
       </MentorPageTitleContainer>
       <MentorList />
-      <MentorSearchBar />
+      {/* <MentorSearchBar /> */}
     </LayoutContainer>
   )
 };
