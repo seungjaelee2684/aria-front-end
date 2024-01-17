@@ -9,6 +9,7 @@ import MainSlideShow from './MainSlideShow';
 import SlideBG from '../../assets/images/mainpage/Asset 94.webp';
 import { MainBannertData } from '../../data/MainBannerData';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+import { mentorListData } from '../../data/MentorData';
 
 interface ThirdPageImageProps {
   mainPageTextChange: Function;
@@ -25,12 +26,12 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   useEffect(() => {
     const slideShowInterval = setInterval(() => {
       if (scrollIndex === 3) {
-        if (mainSlideCurrent === MainBannertData.length) {
+        if (mainSlideCurrent === mentorListData.length) {
           setIsLoop(true);
-          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
         } else {
           setIsLoop(false);
-          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
         };
       };
     }, 5000);
@@ -46,14 +47,14 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
     timer = setTimeout(() => {
       if (mainSlideCurrent === 0) {
         setIsLoop(false);
-        setMainSlideCurrent(MainBannertData?.length - 1);
+        setMainSlideCurrent(mentorListData?.length - 1);
       } else {
         if (mainSlideCurrent === 1) {
           setIsLoop(true);
         } else {
           setIsLoop(false);
         };
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (MainBannertData.length));
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (mentorListData.length));
       };
     }, 1000);
   };
@@ -62,12 +63,12 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
     clearTimeout(timer);
 
     timer = setTimeout(() => {
-      if (mainSlideCurrent === MainBannertData.length) {
+      if (mainSlideCurrent === mentorListData.length) {
         setIsLoop(true);
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
       } else {
         setIsLoop(false);
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (MainBannertData.length + 2));
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
       };
     }, 1000);
   };
@@ -91,7 +92,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
             </NextButton>
         </SlideContainer>
         <SlideNumberWrapper>
-          {MainBannertData?.map((item : any, index : number) => {
+          {mentorListData?.map((item : any, index : number) => {
             return (
               (mainSlideCurrent === index + 1)
                 ? <SlideNumber
