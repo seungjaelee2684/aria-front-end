@@ -44,13 +44,25 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            <SlideImage src={mentorListData[mentorListData?.length - 1]?.slideimage.background}/>
+            <SlideImage src={mentorListData[mentorListData?.length - 1]?.slideimage.background}>
+                {(mentorListData[mentorListData?.length - 1]?.slideimage.bigger)
+                    ? <SmallNickname src={mentorListData[mentorListData?.length - 1]?.slideimage.nickname}/>
+                    : <BigNickname src={mentorListData[mentorListData?.length - 1]?.slideimage.nickname}/>}
+            </SlideImage>
             {mentorListData?.map((item : any, index : number) => {
                 return (
-                    <SlideImage key={item?.id} src={item?.slideimage.background}/>
+                    <SlideImage key={item?.id} src={item?.slideimage.background}>
+                        {(item?.slideimage.bigger)
+                            ? <SmallNickname src={item?.slideimage.nickname}/>
+                            : <BigNickname src={item?.slideimage.nickname}/>}
+                    </SlideImage>
                 )
             })}
-            <SlideImage src={mentorListData[0]?.slideimage.background}/>
+            <SlideImage src={mentorListData[0]?.slideimage.background}>
+                {(mentorListData[0]?.slideimage.bigger)
+                    ? <SmallNickname src={mentorListData[0]?.slideimage.nickname}/>
+                    : <BigNickname src={mentorListData[0]?.slideimage.nickname}/>}
+            </SlideImage>
         </SlideWrapper>
     </SlideShowOutContainer>
   )
@@ -77,35 +89,48 @@ const SlideImage = styled.div<{ src : string }>`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    user-select: none;
 `;
 
-const NextPrevButtonWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 16px;
+const SmallNickname = styled.img`
+    width: 42%;
+    height: auto;
+    object-fit: cover;
     position: absolute;
-    bottom: -5%;
-    left: 15%;
-    z-index: 100;
+    top: 35%;
+    left: 10%;
+    user-select: none;
 `;
 
-const SlideButton = styled.div`
-    width: 32px;
-    height: 32px;
-    border: 1px solid gold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Pretendard";
-    font-size: 18px;
-    font-weight: 600;
-    line-height: normal;
-    color: gold;
-    cursor: pointer;
+const BigNickname = styled.img`
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    user-select: none;
+`;
 
-    &:hover {
+const SmallNicknameRight = styled.img`
+    width: 42%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    user-select: none;
+`;
 
-    }
+const BigNicknameRight = styled.img`
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    user-select: none;
 `;
 
 export default MainSlideShow;
