@@ -73,6 +73,7 @@ export const mentorListData = [
         isnew: true,
         slideimage: {
             status: "Left",
+            bigger: true,
             background: SanpatiSlideBack,
             nickname: SanpatiSlideNick
         },
@@ -153,6 +154,7 @@ export const mentorListData = [
         isnew: true,
         slideimage: {
             status: "Left",
+            bigger: false,
             background: EscapeSlideBack,
             nickname: EscapeSlideNick
         },
