@@ -61,10 +61,12 @@ import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/p09.webp';
 import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
+import HaruriThumbnail from '../assets/curriculums/haruri/Thumbnail_haruri.webp';
 
 export const mentorListData = [
     {
         id: "1",
+        isready: true,
         nation: "Japan",
         englishname: "Sanpati",
         chinesename: "圣帕蒂",
@@ -146,6 +148,7 @@ export const mentorListData = [
     },
     {
         id: "2",
+        isready: true,
         nation: "Japan",
         englishname: "Escape",
         chinesename: "伊斯凯普",
@@ -221,5 +224,84 @@ export const mentorListData = [
             }
         ],
         image: EscapeThumbnail
+    },
+    {
+        id: "3",
+        isready: false,
+        nation: "Korean",
+        englishname: "Haruri",
+        chinesename: "Haruri",
+        japanesename: "Haruri",
+        nickname: "하루리",
+        isnew: true,
+        slideimage: {
+            status: "Left",
+            bigger: false,
+            background: EscapeSlideBack,
+            nickname: EscapeSlideNick
+        },
+        portfolio: [
+            EscapePortfolio1,
+            EscapePortfolio2,
+            EscapePortfolio3,
+            EscapePortfolio4,
+            EscapePortfolio5,
+            EscapePortfolio6,
+            EscapePortfolio7,
+            EscapePortfolio8,
+            EscapePortfolio9,
+            EscapePortfolio10,
+            EscapePortfolio11,
+            EscapePortfolio12,
+        ],
+        content: {
+            englishcontent: [
+                EscapeCurriculumENG1,
+                EscapeCurriculumENG2,
+                EscapeCurriculumENG3
+            ],
+            chinesecontent: [
+                EscapeCurriculumENG1,
+                EscapeCurriculumENG2,
+                EscapeCurriculumENG3
+            ],
+            japanesecontent: [
+                EscapeCurriculumJPN1,
+                EscapeCurriculumJPN2,
+                EscapeCurriculumJPN3
+            ],
+            koreancontent: [
+                EscapeCurriculumKOR1,
+                EscapeCurriculumKOR2,
+                EscapeCurriculumKOR3
+            ],
+        },
+        sns: [
+            {
+                icon: CurriculumDefaultHome,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: "https://twitter.com/esukeipu001"
+            },
+            {
+                icon: CurriculumDefaultInsta,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultArtstation,
+                link: ""
+            },
+            {
+                icon: CurriculumPixiv,
+                link: "https://www.pixiv.net/users/58851418"
+            }
+        ],
+        image: HaruriThumbnail
     },
 ];
