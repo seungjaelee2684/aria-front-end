@@ -2,10 +2,13 @@ import React from 'react'
 import styled from 'styled-components';
 import Image from '../../assets/images/surveimage.jpg';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { AlertModalOpen } from '../../store/AlertModalOpen';
 
 const MentorCard = ({ item, language } : any) => {
 
   const navigate = useNavigate();
+  const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   const languageTrans = () => {
     switch (language) {
@@ -20,8 +23,16 @@ const MentorCard = ({ item, language } : any) => {
     };
   };
 
+  const onClickMovePageHandler = () => {
+    if (item?.isready) {
+      navigate(`/mentor/detail/${item?.id}`)
+    } else {
+      setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+    };
+  };
+
   return (
-    <CardContainer onClick={() => navigate(`/mentor/detail/${item?.id}`)}>
+    <CardContainer onClick={onClickMovePageHandler}>
       <CardImage src={item?.image}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
