@@ -230,15 +230,15 @@ export const mentorListData = [
         isready: false,
         nation: "Korean",
         englishname: "Haruri",
-        chinesename: "Haruri",
-        japanesename: "Haruri",
+        chinesename: "哈鲁里",
+        japanesename: "ハルリ",
         nickname: "하루리",
         isnew: true,
         slideimage: {
             status: "Left",
             bigger: false,
-            background: EscapeSlideBack,
-            nickname: EscapeSlideNick
+            background: "",
+            nickname: ""
         },
         portfolio: [
             EscapePortfolio1,
@@ -287,7 +287,7 @@ export const mentorListData = [
             },
             {
                 icon: CurriculumTwitter,
-                link: "https://twitter.com/esukeipu001"
+                link: "https://x.com/HARURI52?s=20"
             },
             {
                 icon: CurriculumDefaultInsta,
@@ -299,7 +299,7 @@ export const mentorListData = [
             },
             {
                 icon: CurriculumPixiv,
-                link: "https://www.pixiv.net/users/58851418"
+                link: ""
             }
         ],
         image: HaruriThumbnail

@@ -177,7 +177,7 @@ const SlideNumber = styled.div`
   height: 20px;
   border-radius: 100%;
   background-color: #868686;
-  cursor: pointer;
+  /* cursor: pointer; */
 
   @media screen and (max-width: 1320px) {
     width: 18px;
