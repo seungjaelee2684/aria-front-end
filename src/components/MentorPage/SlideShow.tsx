@@ -60,9 +60,9 @@ const SlideShow = () => {
         setPrevCurrent={setPrevCurrent}
         />
       <SlideNumberContainer>
-        {NewMentorListData?.map((item : any) => {
+        {NewMentorListData?.map((item : any, index: number) => {
           return (
-            (slideCurrent === NewMentorListData.indexOf(item))
+            (slideCurrent === index)
               ? <SlideNumber
                 key={item?.id}
                 style={{
@@ -73,7 +73,7 @@ const SlideShow = () => {
               : <SlideNumber
                 key={item?.id}
                 onClick={() => {
-                  setSlideCurrent((item?.id) - 1);
+                  setSlideCurrent(index);
                   setPrevCurrent(slideCurrent);
                 }}/>
           )
