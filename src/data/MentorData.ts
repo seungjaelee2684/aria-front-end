@@ -233,7 +233,7 @@ export const mentorListData = [
         chinesename: "哈鲁里",
         japanesename: "ハルリ",
         nickname: "하루리",
-        isnew: true,
+        isnew: false,
         slideimage: {
             status: "Left",
             bigger: false,
@@ -241,39 +241,20 @@ export const mentorListData = [
             nickname: ""
         },
         portfolio: [
-            EscapePortfolio1,
-            EscapePortfolio2,
-            EscapePortfolio3,
-            EscapePortfolio4,
-            EscapePortfolio5,
-            EscapePortfolio6,
-            EscapePortfolio7,
-            EscapePortfolio8,
-            EscapePortfolio9,
-            EscapePortfolio10,
-            EscapePortfolio11,
-            EscapePortfolio12,
+            
         ],
         content: {
             englishcontent: [
-                EscapeCurriculumENG1,
-                EscapeCurriculumENG2,
-                EscapeCurriculumENG3
+                
             ],
             chinesecontent: [
-                EscapeCurriculumENG1,
-                EscapeCurriculumENG2,
-                EscapeCurriculumENG3
+                
             ],
             japanesecontent: [
-                EscapeCurriculumJPN1,
-                EscapeCurriculumJPN2,
-                EscapeCurriculumJPN3
+                
             ],
             koreancontent: [
-                EscapeCurriculumKOR1,
-                EscapeCurriculumKOR2,
-                EscapeCurriculumKOR3
+                
             ],
         },
         sns: [
@@ -298,7 +279,7 @@ export const mentorListData = [
                 link: ""
             },
             {
-                icon: CurriculumPixiv,
+                icon: CurriculumDefaultPixiv,
                 link: ""
             }
         ],
