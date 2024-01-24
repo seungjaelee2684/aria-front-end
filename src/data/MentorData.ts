@@ -66,6 +66,66 @@ import HaruriThumbnail from '../assets/curriculums/haruri/Thumbnail_haruri.webp'
 export const mentorListData = [
     {
         id: "1",
+        isready: false,
+        nation: "Korean",
+        englishname: "Haruri",
+        chinesename: "哈鲁里",
+        japanesename: "ハルリ",
+        nickname: "하루리",
+        isnew: false,
+        slideimage: {
+            status: "Left",
+            bigger: false,
+            background: "",
+            nickname: ""
+        },
+        portfolio: [
+            
+        ],
+        content: {
+            englishcontent: [
+                
+            ],
+            chinesecontent: [
+                
+            ],
+            japanesecontent: [
+                
+            ],
+            koreancontent: [
+                
+            ],
+        },
+        sns: [
+            {
+                icon: CurriculumDefaultHome,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: "https://x.com/HARURI52?s=20"
+            },
+            {
+                icon: CurriculumDefaultInsta,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultArtstation,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultPixiv,
+                link: ""
+            }
+        ],
+        image: HaruriThumbnail
+    },
+    {
+        id: "2",
         isready: true,
         nation: "Japan",
         englishname: "Sanpati",
@@ -147,7 +207,7 @@ export const mentorListData = [
         image: SanpatiThumbnail
     },
     {
-        id: "2",
+        id: "3",
         isready: true,
         nation: "Japan",
         englishname: "Escape",
@@ -224,65 +284,5 @@ export const mentorListData = [
             }
         ],
         image: EscapeThumbnail
-    },
-    {
-        id: "3",
-        isready: false,
-        nation: "Korean",
-        englishname: "Haruri",
-        chinesename: "哈鲁里",
-        japanesename: "ハルリ",
-        nickname: "하루리",
-        isnew: false,
-        slideimage: {
-            status: "Left",
-            bigger: false,
-            background: "",
-            nickname: ""
-        },
-        portfolio: [
-            
-        ],
-        content: {
-            englishcontent: [
-                
-            ],
-            chinesecontent: [
-                
-            ],
-            japanesecontent: [
-                
-            ],
-            koreancontent: [
-                
-            ],
-        },
-        sns: [
-            {
-                icon: CurriculumDefaultHome,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultYoutube,
-                link: ""
-            },
-            {
-                icon: CurriculumTwitter,
-                link: "https://x.com/HARURI52?s=20"
-            },
-            {
-                icon: CurriculumDefaultInsta,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultArtstation,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultPixiv,
-                link: ""
-            }
-        ],
-        image: HaruriThumbnail
     },
 ];
