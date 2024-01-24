@@ -18,17 +18,21 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const widthMove = mainSlideCurrent * 100
 
+    const newSlideDataList = mentorListData?.filter((data) => data?.slideimage.background !== "");
+
+    console.log("필터된 멘토 데이터", newSlideDataList);
+
     useEffect(() => {
         const mainSlideInterval = setInterval(() => {
             if (mainSlideCurrent === 0) {
-                setMainSlideCurrent(mentorListData?.length);
-            } else if (mainSlideCurrent === mentorListData?.length + 1) {
+                setMainSlideCurrent(newSlideDataList?.length);
+            } else if (mainSlideCurrent === newSlideDataList?.length + 1) {
                 setMainSlideCurrent(1);
             };
         }, 1000);
 
         if (mainSlideDivRef.current) {
-            if (((mainSlideCurrent === 1) && (isLoop === true)) || ((mainSlideCurrent === mentorListData?.length) && (isLoop === true))) {
+            if (((mainSlideCurrent === 1) && (isLoop === true)) || ((mainSlideCurrent === newSlideDataList?.length) && (isLoop === true))) {
                 mainSlideDivRef.current.style.transition = "";
             } else {
                 mainSlideDivRef.current.style.transition = "all 1s ease-out";
@@ -44,12 +48,12 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            <SlideImage src={mentorListData[mentorListData?.length - 1]?.slideimage.background}>
-                {(mentorListData[mentorListData?.length - 1]?.slideimage.bigger)
-                    ? <SmallNickname src={mentorListData[mentorListData?.length - 1]?.slideimage.nickname}/>
-                    : <BigNickname src={mentorListData[mentorListData?.length - 1]?.slideimage.nickname}/>}
+            <SlideImage src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.background}>
+                {(newSlideDataList[newSlideDataList?.length - 1]?.slideimage.bigger)
+                    ? <SmallNickname src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.nickname}/>
+                    : <BigNickname src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.nickname}/>}
             </SlideImage>
-            {mentorListData?.map((item : any, index : number) => {
+            {newSlideDataList?.map((item : any, index : number) => {
                 return (
                     <SlideImage key={item?.id} src={item?.slideimage.background}>
                         {(item?.slideimage.bigger)
@@ -58,10 +62,10 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
                     </SlideImage>
                 )
             })}
-            <SlideImage src={mentorListData[0]?.slideimage.background}>
-                {(mentorListData[0]?.slideimage.bigger)
-                    ? <SmallNickname src={mentorListData[0]?.slideimage.nickname}/>
-                    : <BigNickname src={mentorListData[0]?.slideimage.nickname}/>}
+            <SlideImage src={newSlideDataList[0]?.slideimage.background}>
+                {(newSlideDataList[0]?.slideimage.bigger)
+                    ? <SmallNickname src={newSlideDataList[0]?.slideimage.nickname}/>
+                    : <BigNickname src={newSlideDataList[0]?.slideimage.nickname}/>}
             </SlideImage>
         </SlideWrapper>
     </SlideShowOutContainer>
