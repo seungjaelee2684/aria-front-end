@@ -61,13 +61,74 @@ import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/p09.webp';
 import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
-import HaruriThumbnail from '../assets/curriculums/haruri/Thumbnail_haruri.webp';
+import HaruriThumbnail from '../assets/curriculums/haruri/haruri_thumbnail.webp';
+import ShimanunThumbnail from '../assets/curriculums/shimanun/shimanun_thumbnail.webp';
 
 export const mentorListData = [
     {
         id: "1",
         isready: false,
-        nation: "Korean",
+        nation: "Japan",
+        englishname: "Shimanun",
+        chinesename: "岛勋",
+        japanesename: "しまぬん",
+        nickname: "시마눈",
+        isnew: false,
+        slideimage: {
+            status: "Left",
+            bigger: false,
+            background: "",
+            nickname: ""
+        },
+        portfolio: [
+            
+        ],
+        content: {
+            englishcontent: [
+                
+            ],
+            chinesecontent: [
+                
+            ],
+            japanesecontent: [
+                
+            ],
+            koreancontent: [
+                
+            ],
+        },
+        sns: [
+            {
+                icon: CurriculumDefaultHome,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: "https://x.com/shimanunEO?s=20"
+            },
+            {
+                icon: CurriculumDefaultInsta,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultArtstation,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultPixiv,
+                link: ""
+            }
+        ],
+        image: ShimanunThumbnail
+    },
+    {
+        id: "2",
+        isready: false,
+        nation: "Korea",
         englishname: "Haruri",
         chinesename: "哈鲁里",
         japanesename: "ハルリ",
@@ -125,7 +186,7 @@ export const mentorListData = [
         image: HaruriThumbnail
     },
     {
-        id: "2",
+        id: "3",
         isready: true,
         nation: "Japan",
         englishname: "Sanpati",
@@ -207,7 +268,7 @@ export const mentorListData = [
         image: SanpatiThumbnail
     },
     {
-        id: "3",
+        id: "4",
         isready: true,
         nation: "Japan",
         englishname: "Escape",
