@@ -74,9 +74,10 @@ const MentorDetail = () => {
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
+                                    key={index}
                                     src={item}
                                     alt=''
                                     loading="lazy"
@@ -123,9 +124,10 @@ const MentorDetail = () => {
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
+                                    key={index}
                                     src={item}
                                     alt=''
                                     loading="lazy"
@@ -172,9 +174,10 @@ const MentorDetail = () => {
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
+                                    key={index}
                                     src={item}
                                     alt=''
                                     loading="lazy"
@@ -221,9 +224,10 @@ const MentorDetail = () => {
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string) => {
+                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
+                                    key={index}
                                     src={item}
                                     alt=''
                                     loading="lazy"
