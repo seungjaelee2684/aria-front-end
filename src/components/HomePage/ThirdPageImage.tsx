@@ -20,7 +20,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
   const [isLoop, setIsLoop] = useState<boolean>(false);
 
-  const newSlideDataList = mentorListData?.filter((data) => data?.slideimage.background !== "");
+  const newSlideDataList = mentorListData?.filter((data) => data?.isready);
 
   let timer : any;
   
@@ -59,7 +59,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
         };
         setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (newSlideDataList.length));
       };
-    }, 1000);
+    }, 500);
   };
 
   const onClickMainNextHandler = () => {
@@ -73,7 +73,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
         setIsLoop(false);
         setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
       };
-    }, 1000);
+    }, 500);
   };
 
   return (

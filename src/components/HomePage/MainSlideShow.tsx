@@ -18,7 +18,7 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const widthMove = mainSlideCurrent * 100
 
-    const newSlideDataList = mentorListData?.filter((data) => data?.slideimage.background !== "");
+    const newSlideDataList = mentorListData?.filter((data) => data?.isready);
 
     console.log("필터된 멘토 데이터", newSlideDataList);
 
