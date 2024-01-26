@@ -123,7 +123,7 @@ export const mentorListData = [
                 link: ""
             }
         ],
-        image: ShimanunThumbnail
+        thumbnail: ShimanunThumbnail
     },
     {
         id: "2",
@@ -183,7 +183,7 @@ export const mentorListData = [
                 link: ""
             }
         ],
-        image: HaruriThumbnail
+        thumbnail: HaruriThumbnail
     },
     {
         id: "3",
@@ -265,7 +265,7 @@ export const mentorListData = [
                 link: ""
             }
         ],
-        image: SanpatiThumbnail
+        thumbnail: SanpatiThumbnail
     },
     {
         id: "4",
@@ -344,6 +344,6 @@ export const mentorListData = [
                 link: "https://www.pixiv.net/users/58851418"
             }
         ],
-        image: EscapeThumbnail
+        thumbnail: EscapeThumbnail
     },
 ];

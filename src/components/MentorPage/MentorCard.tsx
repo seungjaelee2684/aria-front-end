@@ -33,7 +33,7 @@ const MentorCard = ({ item, language } : any) => {
 
   return (
     <CardContainer onClick={onClickMovePageHandler}>
-      <CardImage src={item?.image}/>
+      <CardImage src={item?.thumbnail}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
         {languageTrans()}
