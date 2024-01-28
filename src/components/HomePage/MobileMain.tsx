@@ -4,7 +4,6 @@ import '../../style/CommonStyle.css';
 import '../../style/font/font.css';
 import styled from 'styled-components';
 import MainSlideShow from './MainSlideShow';
-import { MainBannertData } from '../../data/MainBannerData';
 import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
 import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
 import Charactor from '../../assets/curriculums/sanpati/portfolio/p04.webp';
