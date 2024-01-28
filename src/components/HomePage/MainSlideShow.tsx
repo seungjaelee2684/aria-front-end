@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import SlideImg from '../../assets/images/mentorimage.webp';
-import { MainBannertData } from '../../data/MainBannerData';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { mentorListData } from '../../data/MentorData';
