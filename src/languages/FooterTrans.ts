@@ -19,10 +19,10 @@ export const footerContent : FooterType[] = [
         content: "주소"
     },
     {
-        englishcontent: "Seoul",
-        chinesecontent: "Seoul",
-        japanesecontent: "Seoul",
-        content: "서울특별시"
+        englishcontent: "6, Dunchon-daero 171beon-gil, Jungwon-gu, Seongnam-si, Gyeonggi-do, Republic of Korea",
+        chinesecontent: "6, Dunchon-daero 171beon-gil, Jungwon-gu, Seongnam-si, Gyeonggi-do, Republic of Korea",
+        japanesecontent: "6, Dunchon-daero 171beon-gil, Jungwon-gu, Seongnam-si, Gyeonggi-do, Republic of Korea",
+        content: "경기도 성남시 중원구 둔촌대로171번길 6, 107동 1302호(성담동, 금호어울림아파트)"
     },
     {
         englishcontent: "boss",
