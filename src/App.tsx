@@ -72,7 +72,7 @@ function App() {
               </Routes>
               <ScrollTopButton />
               <AlertContainer />
-              {/* <Footer /> */}
+              <Footer />
             </Suspense>
           </BrowserRouter>
         </QueryClientProvider>
