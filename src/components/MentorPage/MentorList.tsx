@@ -146,12 +146,12 @@ const ListOutContainer = styled.div`
 const ListContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: 20px;
 
     @media screen and (max-width: 836px) {
         gap: 16px;
+        justify-content: center;
     }
 `;
 

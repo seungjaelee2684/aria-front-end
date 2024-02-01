@@ -139,7 +139,7 @@ const SlideContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     width: 90%;
-    height: 30%;
+    height: 40%;
   }
 
   @media screen and (max-width: 500px) {

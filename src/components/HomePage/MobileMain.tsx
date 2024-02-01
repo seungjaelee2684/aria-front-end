@@ -27,6 +27,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
     const language = localStorage.getItem("language");
     const [, setCopyHandler] = useRecoilState(CopyAlert);
 
+    const newSlideDataList = mentorListData?.filter((data) => data?.isready);
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
     const [isLoop, setIsLoop] = useState<boolean>(false);
 
@@ -45,12 +46,12 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     useEffect(() => {
         const slideShowInterval = setInterval(() => {
-            if (mainSlideCurrent === mentorListData.length) {
+            if (mainSlideCurrent === newSlideDataList.length) {
                 setIsLoop(true);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
             } else {
                 setIsLoop(false);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
             };
         }, 5000);
 
@@ -92,7 +93,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     isLoop={isLoop}
                     setIsLoop={setIsLoop} />
                 <SlideNumberWrapper>
-                    {mentorListData?.map((item: any, index: number) => {
+                    {newSlideDataList?.map((item: any, index: number) => {
                         return (
                             (mainSlideCurrent === (index + 1))
                                 ? <SlideNumber
