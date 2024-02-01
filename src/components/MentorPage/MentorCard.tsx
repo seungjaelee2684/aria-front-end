@@ -27,7 +27,7 @@ const MentorCard = ({ item, language } : any) => {
     if (item?.isready) {
       navigate(`/mentor/detail/${item?.id}`)
     } else {
-      setAlertModal({...alertModal, isOpen: true, whatAlert: 1});
+      setAlertModal({...alertModal, isOpen: true, whatAlert: 1, content: item?.sns[2].link});
     };
   };
 
