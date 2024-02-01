@@ -105,10 +105,6 @@ const SearchBetweenLine = styled.div`
     height: 34px;
     /* background-color: #e9e9e9; */
 
-    @media screen and (max-width: 836px) {
-        height: 28px;
-    }
-
     @media screen and (max-width: 500px) {
         height: 24px;
     }
@@ -137,7 +133,6 @@ const SearchBar = styled.input`
 
     @media screen and (max-width: 836px) {
         width: 130px;
-        height: 36px;
         font-size: 13px;
     }
 
@@ -161,8 +156,6 @@ const IconBox = styled.button`
     cursor: pointer;
 
     @media screen and (max-width: 836px) {
-        width: 36px;
-        height: 36px;
         font-size: 18px;
     }
     
