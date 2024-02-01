@@ -9,12 +9,14 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import { IoIosTimer } from "react-icons/io";
 import { translate } from '../../../store/Translation';
+import { IoIosInformationCircleOutline } from "react-icons/io";
 
 const AlertModal = () => {
 
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   console.log("모달창 데이터", alertModal.whatAlert);
+  console.log("링크 데이터", alertModal.content);
 
   const language = localStorage.getItem("language");
 
@@ -49,7 +51,10 @@ const AlertModal = () => {
             {alertTranslate(1)}
           </ModalContent>
           <ButtonContainer>
-            <CloseButton onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+            <CloseButton
+              bgcolor='#3c3ad6'
+              border='2px solid #d2d1f8'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
               OK
             </CloseButton>
           </ButtonContainer>
@@ -61,9 +66,10 @@ const AlertModal = () => {
           onClick={(e) => e.stopPropagation()}
           className='AlertModalContainer'>
           <ExclamationIcon
-            className='ExclamationIcon'
-            color="#fce169">
-            <IoIosTimer />
+            className='InformationIcon'
+            color="#abdff3"
+            style={{margin:" 0px 0px 5px 0px"}}>
+            <IoIosInformationCircleOutline />
           </ExclamationIcon>
           <ModalTitle>
             {alertTranslate(0)}
@@ -72,8 +78,20 @@ const AlertModal = () => {
             {alertTranslate(1)}
           </ModalContent>
           <ButtonContainer>
-            <CloseButton onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
-              OK
+            <CloseButton
+              bgcolor='#6de290'
+              border='2px solid #d0f0da'
+              onClick={() => {
+                setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 });
+                window.open(alertModal.content);
+              }}>
+              Yes
+            </CloseButton>
+            <CloseButton
+              bgcolor='#f55a89'
+              border='2px solid #f3d1db'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              No
             </CloseButton>
           </ButtonContainer>
         </ModalContainer>
@@ -95,7 +113,10 @@ const AlertModal = () => {
             {alertTranslate(1)}
           </ModalContent>
           <ButtonContainer>
-            <CloseButton onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+            <CloseButton
+              bgcolor='#3c3ad6'
+              border='2px solid #d2d1f8'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
               OK
             </CloseButton>
           </ButtonContainer>
@@ -181,6 +202,7 @@ const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 5px;
+  white-space: break-spaces;
 `;
 
 const ButtonContainer = styled.div`
@@ -188,19 +210,20 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: end;
   margin-top: 10px;
+  gap: 8px;
 `;
 
-const CloseButton = styled.button`
+const CloseButton = styled.button<{ bgcolor : string, border : string }>`
   width: 45px;
   height: 28px;
-  background-color: #3c3ad6;
+  background-color: ${(props) => props.bgcolor};
   border-radius: 5px;
   font-family: "Pretendard";
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
   color: #FCFCFC;
-  border: 2px solid #d2d1f8;
+  border: ${(props) => props.border};
   cursor: pointer;
 
   &:hover {

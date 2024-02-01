@@ -99,7 +99,7 @@ const NicknameContainer = styled.img`
 
   @media screen and (max-width: 1320px) {
     top: 40%;
-    width: 65%;
+    width: 80%;
   }
 
   @media screen and (max-width: 500px) {
@@ -143,7 +143,7 @@ const NicknameRightContainer = styled.img`
 
   @media screen and (max-width: 1320px) {
     top: 40%;
-    width: 65%;
+    width: 80%;
   }
 
   @media screen and (max-width: 500px) {

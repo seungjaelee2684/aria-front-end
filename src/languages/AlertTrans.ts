@@ -25,9 +25,9 @@ export const alertInformation: AlertType[] = [
     alert: "3월 오픈 예정!"
   },
   {
-    englishalert: "Would you like to visit your instructor's Twitter account, where the class will begin soon?",
+    englishalert: "Would you like to visit your instructor's Twitter account,\nwhere the class will begin soon?",
     chinesealert: "您确定要访问即将开始上课的讲师的推特账户吗？",
-    japanesealert: "まもなく授業が始まる講師のツイッターアカウントを訪問しますか？",
-    alert: "곧 수업이 시작되는 강사님의 트위터 계정을 방문하시겠습니까?"
+    japanesealert: "まもなく授業が始まる講師のツイッターアカウントを\n訪問しますか？",
+    alert: "곧 수업이 시작되는 강사님의 트위터 계정을\n방문하시겠습니까?"
   },
 ];
