@@ -123,7 +123,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     </MoreButton>
                 </InformTitleContainer>
                 <CardListContainer>
-                    {mentorListData?.map((item : any, index : number) => {
+                    {newSlideDataList?.map((item : any, index : number) => {
                         return (
                             <Card
                                 key={item?.id}
