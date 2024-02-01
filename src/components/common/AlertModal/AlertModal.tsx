@@ -11,22 +11,22 @@ import { IoIosTimer } from "react-icons/io";
 import { translate } from '../../../store/Translation';
 
 const AlertModal = () => {
-  
+
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   console.log("모달창 데이터", alertModal.whatAlert);
 
   const language = localStorage.getItem("language");
 
-  const alertTranslate = (Num : number) => {
+  const alertTranslate = (Num: number) => {
     switch (language) {
-      case "chinese" :
+      case "chinese":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.chinesealert;
-      case "japanese" :
+      case "japanese":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.japanesealert;
-      case "korean" :
+      case "korean":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.alert;
-      default :
+      default:
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.englishalert;
     }
   };
@@ -34,42 +34,81 @@ const AlertModal = () => {
   const alertContentChange = () => {
     if (alertModal.whatAlert === 0) {
       return (
-        <ExclamationIcon
-          className='ExclamationIcon'
-          color="#fce169">
-          <IoIosTimer />
-        </ExclamationIcon>
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='ExclamationIcon'
+            color="#fce169">
+            <IoIosTimer />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              OK
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
       );
+    } else if (alertModal.whatAlert === 1) {
+      return (
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='ExclamationIcon'
+            color="#fce169">
+            <IoIosTimer />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              OK
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
+      )
     } else {
       return (
-        <ExclamationIcon
-          className='ExclamationIcon'
-          color="#b0d990">
-          <GoCheckCircle />
-        </ExclamationIcon>
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='ExclamationIcon'
+            color="#b0d990">
+            <GoCheckCircle />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              OK
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
+
       );
     };
   };
-  
+
   return (
     <BackgroudContainer
-      onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
-      <ModalContainer
-        onClick={(e) => e.stopPropagation()}
-        className='AlertModalContainer'>
-        {alertContentChange()}
-        <ModalTitle>
-          {alertTranslate(0)}
-        </ModalTitle>
-        <ModalContent>
-          {alertTranslate(1)}
-        </ModalContent>
-        <ButtonContainer>
-          <CloseButton onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
-            OK
-          </CloseButton>
-        </ButtonContainer>
-      </ModalContainer>
+      onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+      {alertContentChange()}
     </BackgroudContainer>
   )
 };
@@ -115,7 +154,7 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ExclamationIcon = styled.div<{ color : string }>`
+const ExclamationIcon = styled.div<{ color: string }>`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -169,7 +208,7 @@ const CloseButton = styled.button`
   }
 `;
 
-const CloseTimer = styled.div<{ width : number }>`
+const CloseTimer = styled.div<{ width: number }>`
   width: ${(props) => props.width}%;
   height: 4px;
   position: absolute;
