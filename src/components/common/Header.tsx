@@ -20,6 +20,8 @@ import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
+import { IoSettingsOutline } from "react-icons/io5";
+import CertifyModal from './CertifyModal/CertifyModal';
 
 const Header = () => {
 
@@ -37,6 +39,7 @@ const Header = () => {
     const modalRef = useRef<HTMLDivElement>(null);
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
+    const [setting, setSetting] = useState<boolean>(false);
 
     const languageChange = () => {
         switch (language) {
@@ -50,40 +53,6 @@ const Header = () => {
                 return "ENG";
         };
     };
-
-    // const mobilePage = () => {
-    //     if (location.pathname.includes("/mentor")) {
-    //         return (
-    //             <MobileHeaderPageContainer>
-    //                 Mentor
-    //             </MobileHeaderPageContainer>
-    //         );
-    //     } else if (location.pathname.includes("/showcase")) {
-    //         return (
-    //             <MobileHeaderPageContainer>
-    //                 Showcase
-    //             </MobileHeaderPageContainer>
-    //         )
-    //     } else if (location.pathname.includes("/notice")) {
-    //         return (
-    //             <MobileHeaderPageContainer>
-    //                 Notice
-    //             </MobileHeaderPageContainer>
-    //         )
-    //     } else if (location.pathname.includes("/support")) {
-    //         return (
-    //             <MobileHeaderPageContainer>
-    //                 Support
-    //             </MobileHeaderPageContainer>
-    //         )
-    //     } else if (location.pathname === "/") {
-    //         return (
-    //             <MobileHeaderPageContainer>
-    //                 Home
-    //             </MobileHeaderPageContainer>
-    //         )
-    //     };
-    // };
 
     useEffect(() => {
         if (mainScrollHeader.current) {
@@ -162,24 +131,10 @@ const Header = () => {
                                     setLanguageModal={setLanguageModal}/>}
                             </MobileTranslateContainer> */}
                         </TranslateContainer>
-                        {/* <BarContainer />
-                        <TranslateContainer>
-                            <TranslateWrapper
-                                onClick={() => {
-                                    if (darkmode === "dark") {
-                                        localStorage.setItem("darkmode", "light");
-                                        window.location.reload();
-                                      } else {
-                                        localStorage.setItem("darkmode", "dark");
-                                        window.location.reload();
-                                      };
-                                }}>
-                                <MdOutlineDarkMode />
-                                <TransText>
-                                    {(darkmode === "dark") ? "Light" : "Dark"}
-                                </TransText>
-                            </TranslateWrapper>
-                        </TranslateContainer> */}
+                        {/* <BarContainer /> */}
+                        <SettingWrapper onClick={() => setSetting(!setting)}>
+                            <IoSettingsOutline />
+                        </SettingWrapper>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
@@ -192,24 +147,8 @@ const Header = () => {
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        {/* <MobileHeaderContainer>
-            <HeaderOutWrapper>
-                <PrevButton onClick={() => window.history.back()}>
-                    <MdOutlineArrowBack />
-                </PrevButton>
-                {mobilePage()}
-                <TranslateContainer ref={mobileModalRef} style={{position: "static"}}>
-                    <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                        <BsGlobe2 />
-                        <TiArrowSortedDown />
-                    </TranslateWrapper>
-                    {languageModal
-                        && <TranslateModal
-                        setLanguageModal={setLanguageModal}/>}
-                </TranslateContainer>
-            </HeaderOutWrapper>
-        </MobileHeaderContainer> */}
-        {copyHandle && <CopyAlertModal />}      
+        {copyHandle && <CopyAlertModal />}
+        {setting && <CertifyModal setting={setting} setSetting={setSetting}/>}
         {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
@@ -329,7 +268,6 @@ export const TranslateWrapper = styled.div`
     display: flex;
     align-items: center;
     color: #272525;
-    /* background-color: #FFFFFF; */
     font-size: 14px;
     gap: 4px;
     transition: all 0.3s ease-in-out;
@@ -442,32 +380,19 @@ const UnderLaneContainer = styled.div`
     }
 `;
 
-const PrevButton = styled.div`
-    font-size: 22px;
-`;
+const SettingWrapper = styled.div`
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #ADADAD;
+    font-size: 14px;
+    gap: 4px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
-const MobileHeaderContainer = styled.div`
-    width: 100%;
-    height: 50px;
-    background-color: #FFFFFF;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    transition: all 0.4s ease-in-out;
-    display: none;
-
-    @media screen and (max-width: 500px) {
-        display: block;
+    &:hover {
+        color: #272525;
     }
-`;
-
-const MobileHeaderPageContainer = styled.div`
-    font-family: "LINESeedKR-Bd";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: normal;
-   /* color: #222020; */
 `;
 
 export default Header;
