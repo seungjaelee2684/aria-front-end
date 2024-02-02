@@ -20,7 +20,7 @@ import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { IoSettingsOutline } from "react-icons/io5";
+import { LuKeyRound } from "react-icons/lu";
 import CertifyModal from './CertifyModal/CertifyModal';
 
 const Header = () => {
@@ -133,7 +133,9 @@ const Header = () => {
                         </TranslateContainer>
                         {/* <BarContainer /> */}
                         <SettingWrapper onClick={() => setSetting(!setting)}>
-                            <IoSettingsOutline />
+                            <Setting>
+                                <LuKeyRound />
+                            </Setting>
                         </SettingWrapper>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
@@ -384,14 +386,27 @@ const SettingWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    color: #ADADAD;
-    font-size: 14px;
     gap: 4px;
     transition: all 0.2s ease-in-out;
+    
+`;
+
+const Setting = styled.div`
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ADADAD;
+    border-radius: 3px;
+    color: #ADADAD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
     cursor: pointer;
 
     &:hover {
-        color: #272525;
+        color: #FFFFFF;
+        border: 1px solid #222020;
+        background-color: #222020;
     }
 `;
 

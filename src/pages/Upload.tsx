@@ -1,31 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import { LayOutTitleContainer, TitleBarContainer, TitleColorText } from '../style/PageTitle';
+import InformUpload from '../components/UploadPage/InformUpload';
+import SingleImageUpload from '../components/UploadPage/SingleImageUpload';
+import CurriculumUpload from '../components/UploadPage/CurriculumUpload';
+import PortfolioUpload from '../components/UploadPage/PortfolioUpload';
+import EtcUpload from '../components/UploadPage/EtcUpload';
 
 const Upload = () => {
   
   const uploadRef = useRef<HTMLDivElement>(null);
   const [mentorImage, setMentorImage] = useState<any>({
-    banner_image: "",
-    nickname_image: "",
-    thumbnail_image: "",
+    banner_image: null,
+    nickname_image: null,
+    thumbnail_image: null,
     curriculum_image: [],
     portfolio_image: [],
   });
   const [mentorInfo, setMentorInfo] = useState<any>({
-    englishname: "",
-    chinesename: "",
-    japanesename: "",
-    nickname: "",
-    nation: ""
+    englishname: null,
+    chinesename: null,
+    japanesename: null,
+    nickname: null,
+    nation: null,
+    open: null
   });
   const [snsLink, setSnsLink] = useState<any>({
-    home: "",
-    youtube: "",
-    twitter: "",
-    instagram: "",
-    artstation: "",
-    pixiv: ""
+    home: null,
+    youtube: null,
+    twitter: null,
+    instagram: null,
+    artstation: null,
+    pixiv: null
   });
 
   const slidePage : string[] = [
@@ -41,7 +47,7 @@ const Upload = () => {
 
   useEffect(() => {
     if (uploadRef.current) {
-      uploadRef.current.style.transform = `translateX(-${slideResult})`;
+      uploadRef.current.style.transform = `translateX(-${slideResult}%)`;
     };
   }, [uploadSlide]);
 
@@ -85,7 +91,11 @@ const Upload = () => {
         </PositionWrapper>
         <SlideContainer>
           <SlideWrapper ref={uploadRef}>
-
+            <InformUpload />
+            <SingleImageUpload />
+            <CurriculumUpload />
+            <PortfolioUpload />
+            <EtcUpload />
           </SlideWrapper>
         </SlideContainer>
         <PrevNextButtonWrapper>
@@ -139,7 +149,7 @@ const PositionButton = styled.div<{ bgcolor : string, color : string }>`
   width: 100%;
   height: 50px;
   font-family: "Pretendard";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 100%;
   color: #222020;
@@ -165,7 +175,7 @@ const SlideWrapper = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 `;
 
 const PrevNextButtonWrapper = styled.div`
