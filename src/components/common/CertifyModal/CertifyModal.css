@@ -1,5 +1,5 @@
 .certifyModal {
-    animation: certify_modal_open 0.4s forwards;
+    animation: certify_modal_open 0.3s forwards;
 }
 
 @keyframes certify_modal_open {
