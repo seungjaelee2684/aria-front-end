@@ -17,14 +17,7 @@ const Upload = () => {
     curriculum_image: [],
     portfolio_image: [],
   });
-  const [mentorInfo, setMentorInfo] = useState<any>({
-    englishname: null,
-    chinesename: null,
-    japanesename: null,
-    nickname: null,
-    nation: null,
-    open: null
-  });
+  
   const [snsLink, setSnsLink] = useState<any>({
     home: null,
     youtube: null,
@@ -39,7 +32,7 @@ const Upload = () => {
     "배너 및 썸네일 이미지 등록",
     "강사 커리큘럼 등록",
     "강사 포트폴리오 등록",
-    "강사 "
+    "소셜계정 입력"
   ];
 
   const [uploadSlide, setUploadSlide] = useState<number>(0);
@@ -152,7 +145,6 @@ const PositionButton = styled.div<{ bgcolor : string, color : string }>`
   font-size: 18px;
   font-weight: 700;
   line-height: 100%;
-  color: #222020;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,6 +152,7 @@ const PositionButton = styled.div<{ bgcolor : string, color : string }>`
   user-select: none;
   background-color: ${(props) => props.bgcolor};
   color: ${(props) => props.color};
+  border-radius: 8px 8px 0px 0px;
 `;
 
 const SlideContainer = styled.div`
@@ -167,7 +160,7 @@ const SlideContainer = styled.div`
   height: 550px;
   position: relative;
   overflow: hidden;
-  border-top: 2px solid #222020;
+  border-top: 2px solid #ADADAD;
   border-bottom: 2px solid #ADADAD;
 `;
 
