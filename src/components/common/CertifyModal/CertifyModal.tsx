@@ -62,7 +62,7 @@ const BackgroundContainer = styled.div`
     top: 0;
     left: 0;
     background-color: #00000080;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
     display: flex;
     justify-content: center;
     align-items: center;
