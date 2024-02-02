@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './CertifyModal.css';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 interface CertifyModalProps {
     setting: boolean;
@@ -9,6 +10,8 @@ interface CertifyModalProps {
 
 const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => {
   
+    const navigate = useNavigate();
+
     const [certifyKey, setCertifyKey] = useState<{ password: string }>({
         password: ""
     });
@@ -23,7 +26,7 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
   
     return (
     <BackgroundContainer onClick={() => setSetting(false)}>
-        <ModalContainer onClick={(e) => e.stopPropagation()}>
+        <ModalContainer className='certifyModal' onClick={(e) => e.stopPropagation()}>
             <TopLaneContainer>
                 운영자 KEY 인증
             </TopLaneContainer>
@@ -36,13 +39,13 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
                     placeholder='ex)  DE25QL4D8V29...'
                     onChange={(e) => onChangePasswordHandler(e)}/>
                 <InformationContent>
-                    * 운영자 모드로 돌입하려면 정확인 인증 허가 Key를 입력해주십시오.
+                    * 운영자 모드로 돌입하려면 정확한 인증 허가 Key를 입력해주십시오.
                 </InformationContent>
                 <ButtonWrapper>
-                    <Button color='#61a0ff'>
+                    <Button color='#61a0ff' onClick={() => navigate("/upload")}>
                         ENTER
                     </Button>
-                    <Button color='#f5adad'>
+                    <Button color='#f5adad' onClick={() => setSetting(false)}>
                         CLOSE
                     </Button>
                 </ButtonWrapper>
