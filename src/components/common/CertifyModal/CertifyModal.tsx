@@ -15,18 +15,38 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
 
     const onChangePasswordHandler = (e : React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
+        setCertifyKey({
+            ...certifyKey,
+            [name]: value
+        });
     };
   
     return (
     <BackgroundContainer onClick={() => setSetting(false)}>
         <ModalContainer onClick={(e) => e.stopPropagation()}>
             <TopLaneContainer>
-                KEY 인증
+                운영자 KEY 인증
             </TopLaneContainer>
             <ContentContainer>
-                <InputBar>
-                </InputBar>
-            </ContentContainer> 
+                <InputBar
+                    type='text'
+                    autoComplete="off"
+                    name='password'
+                    value={certifyKey.password}
+                    placeholder='ex)  DE25QL4D8V29...'
+                    onChange={(e) => onChangePasswordHandler(e)}/>
+                <InformationContent>
+                    * 운영자 모드로 돌입하려면 정확인 인증 허가 Key를 입력해주십시오.
+                </InformationContent>
+                <ButtonWrapper>
+                    <Button color='#61a0ff'>
+                        ENTER
+                    </Button>
+                    <Button color='#f5adad'>
+                        CLOSE
+                    </Button>
+                </ButtonWrapper>
+            </ContentContainer>
         </ModalContainer>
     </BackgroundContainer>
   )
@@ -53,7 +73,7 @@ const ModalContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: #FFFFFF;
     overflow: hidden;
     position: relative;
@@ -64,13 +84,14 @@ const ModalContainer = styled.div`
 
 const TopLaneContainer = styled.div`
     width: 100%;
-    min-height: 70px;
+    min-height: 60px;
     background-color: #5C9DFF;
     display: flex;
     align-items: center;
     text-indent: 30px;
     font-size: 20px;
     font-weight: 600;
+    user-select: none;
 `;
 
 const ContentContainer = styled.form`
@@ -80,20 +101,61 @@ const ContentContainer = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 24px;
 `;
 
 const InputBar = styled.input`
     width: 408px;
-    height: 50px;
+    height: 46px;
     background-color: #FCFCFC;
     border: 1px solid #ADADAD;
     padding: 0px 16px;
     border-radius: 3px;
+    font-family: "Pretendard";
+    font-size: 18px;
+    font-weight: 500;
     outline: none;
+
+    &::placeholder {
+        color: #ADADAD;
+    }
 
     &:focus {
         border: 1px solid #5C9DFF;
     }
+`;
+
+const InformationContent = styled.div`
+    width: 440px;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: #ADADAD;
+    text-align: start;
+    user-select: none;
+`;
+
+const ButtonWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+`;
+
+const Button = styled.button<{ color : string }>`
+    width: 130px;
+    height: 36px;
+    border: none;
+    background-color: ${(props) => props.color};
+    color: #FFFFFF;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 500px;
+    line-height: normal;
+    border-radius: 3px;
+    cursor: pointer;
 `;
 
 export default CertifyModal;
