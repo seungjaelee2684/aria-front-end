@@ -2,20 +2,24 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 
 interface InformUploadProps {
-    
+    mentorInfo: any;
+    setMentorInfo: React.Dispatch<React.SetStateAction<any>>;
 };
 
-const InformUpload: React.FC<InformUploadProps> = () => {
+const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }) => {
 
-    const [mentorInfo, setMentorInfo] = useState<any>({
-        englishname: "",
-        chinesename: "",
-        japanesename: "",
-        nickname: "",
-        nation: "",
-        opendate: ""
-    });
     const { englishname, chinesename, japanesename, nickname, nation, opendate } = mentorInfo;
+
+    type nationKindType = {
+        name: string,
+        status: string
+    };
+    const nationKind : nationKindType[] = [
+        {name: "미국", status: "America"},
+        {name: "중국", status: "China"},
+        {name: "일본", status: "Japan"},
+        {name: "대한민국", status: "Korea"},
+    ];
 
     const onChangeInputHanlder = (e : React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -31,7 +35,7 @@ const InformUpload: React.FC<InformUploadProps> = () => {
             <ContentOutContainer>
                 <RequireLaneContainer>
                     <RequireTitle>
-                        ◎ 강사 이름
+                        ◈ 강사 이름
                     </RequireTitle>
                     <InputLaneContainer>
                         <InputTag
@@ -89,9 +93,9 @@ const InformUpload: React.FC<InformUploadProps> = () => {
                         </ExplanationContent>
                     </ExplanationContainer>
                 </RequireLaneContainer>
-                <RequireLaneContainer style={{borderBottom: "none"}}>
+                <RequireLaneContainer>
                     <RequireTitle>
-                        ◎ 클래스 오픈 예정일
+                        ◈ 클래스 오픈 예정일
                     </RequireTitle>
                     <InputLaneContainer>
                         <InputTag
@@ -114,15 +118,30 @@ const InformUpload: React.FC<InformUploadProps> = () => {
                 </RequireLaneContainer>
                 <RequireLaneContainer style={{borderBottom: "none"}}>
                     <RequireTitle>
-                        ◎ 클래스 오픈 예정일
+                        ◈ 국적
                     </RequireTitle>
-                    
+                    <SelectNationContainer>
+                        {nationKind?.map((item : nationKindType) => {
+                            return (
+                                <SelectNation
+                                    key={item?.status}
+                                    onClick={() => setMentorInfo({...mentorInfo, nation: item?.status})}>
+                                    {(item?.status === nation)
+                                        ? <DefaultSelect style={{border: "1px solid #5C9DFF"}}>
+                                            <SelectBox />
+                                        </DefaultSelect>
+                                        : <DefaultSelect />}
+                                    {item?.name}
+                                </SelectNation>
+                            )
+                        })}
+                    </SelectNationContainer>
                     <ExplanationContainer>
                         <ExplanationContent>
                             * 필수 항목입니다.
                         </ExplanationContent>
                         <ExplanationContent>
-                            * 수업 시작일을 예시의 형식에 맞게 정확히 입력해주세요. ('-' 포함)
+                            * 강사의 국적을 선택해주세요.
                         </ExplanationContent>
                     </ExplanationContainer>
                 </RequireLaneContainer>
@@ -221,6 +240,45 @@ const ExplanationContent = styled.div`
     font-weight: 400;
     line-height: 100%;
     color: #ADADAD;
+`;
+
+const SelectNationContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+`;
+
+const SelectNation = styled.div`
+    width: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    user-select: none;
+    cursor: pointer;
+`;
+
+const DefaultSelect = styled.div`
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    border: 1px solid #ADADAD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const SelectBox = styled.div`
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: #5C9DFF;
 `;
 
 export default InformUpload;
