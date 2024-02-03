@@ -46,28 +46,21 @@ const Upload = () => {
 
   const prevNextMoveHandler = (prev : boolean) => {
     if (prev) {
-      if (uploadSlide === 0) {
-        return;
-      } else {
-        setUploadSlide(uploadSlide - 1);
-      };
+      setUploadSlide(uploadSlide - 1);
     } else {
-      if (uploadSlide === 4) {
-        return;
-      } else {
-        setUploadSlide(uploadSlide + 1);
-      };
+      setUploadSlide(uploadSlide + 1);
     };
   };
 
   return (
+    <AllContainer>
     <LayoutContainer>
-      <LayOutTitleContainer>
+      <UploadTitleContainer>
         <TitleBarContainer />
         MEN
         <TitleColorText color="#7769D0">T</TitleColorText>
         OR ADD
-      </LayOutTitleContainer>
+      </UploadTitleContainer>
       <ContentContainer>
         <PositionWrapper>
           {slidePage?.map((item : string, index : number) => {
@@ -92,30 +85,42 @@ const Upload = () => {
           </SlideWrapper>
         </SlideContainer>
         <PrevNextButtonWrapper>
-          <PrevNextButton onClick={() => prevNextMoveHandler(true)}>
-            이전
-          </PrevNextButton>
-          <PrevNextButton onClick={() => prevNextMoveHandler(false)}>
-            다음
-          </PrevNextButton>
+          {(uploadSlide !== 0)
+            ? <PrevNextButton onClick={() => prevNextMoveHandler(true)}>
+              이전
+            </PrevNextButton>
+            : <NotButton />}
+          {(uploadSlide !== 4)
+            ? <PrevNextButton onClick={() => prevNextMoveHandler(false)}>
+              다음
+            </PrevNextButton>
+            : <NotButton />}
         </PrevNextButtonWrapper>
       </ContentContainer>
     </LayoutContainer>
+    </AllContainer>
   )
 };
+
+const AllContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #e9e9e9;
+`;
 
 const LayoutContainer = styled.div`
   width: 1320px;
   margin: 0px auto;
-  padding: 120px 0px;
+  padding: 80px 0px 40px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  background-color: #FFFFFF;
 
   @media screen and (max-width: 1320px) {
-    width: 96%;
+    width: 100%;
   }
 
   @media screen and (max-width: 500px) {
@@ -123,12 +128,24 @@ const LayoutContainer = styled.div`
   }
 `;
 
+const UploadTitleContainer = styled(LayOutTitleContainer)`
+  margin-top: 20px;
+`;
+
 const ContentContainer = styled.div`
-  width: 100%;
+  width: 1150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1320px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 100%;
+  }
 `;
 
 const PositionWrapper = styled.div`
@@ -142,7 +159,7 @@ const PositionButton = styled.div<{ bgcolor : string, color : string }>`
   width: 100%;
   height: 50px;
   font-family: "Pretendard";
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 100%;
   display: flex;
@@ -153,15 +170,20 @@ const PositionButton = styled.div<{ bgcolor : string, color : string }>`
   background-color: ${(props) => props.bgcolor};
   color: ${(props) => props.color};
   border-radius: 8px 8px 0px 0px;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 12px;
+  }
 `;
 
 const SlideContainer = styled.div`
   width: 100%;
-  height: 550px;
+  height: 600px;
   position: relative;
   overflow: hidden;
   border-top: 2px solid #ADADAD;
   border-bottom: 2px solid #ADADAD;
+  box-shadow: #22202050 0px 4px 20px 2px;
 `;
 
 const SlideWrapper = styled.div`
@@ -194,6 +216,17 @@ const PrevNextButton = styled.div`
   line-height: normal;
   user-select: none;
   cursor: pointer;
+
+  @media screen and (max-width: 1320px) {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+  }
+`;
+
+const NotButton = styled(PrevNextButton)`
+  background-color: #FFFFFF;
+  cursor: default;
 `;
 
 export default Upload;

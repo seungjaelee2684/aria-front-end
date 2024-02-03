@@ -16,6 +16,14 @@ const InformUpload: React.FC<InformUploadProps> = () => {
         open: null
     });
 
+    const onChangeInputHanlder = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setMentorInfo({
+            ...mentorInfo,
+            [name]: value
+        });
+    };
+
     return (
         <BoxContainer>
             InformUpload
@@ -26,7 +34,7 @@ const InformUpload: React.FC<InformUploadProps> = () => {
 export const BoxContainer = styled.div`
     min-width: 100%;
     height: 100%;
-    background-color: #FCFCFC;
+    background-color: #f3f3f3;
 `;
 
 export default InformUpload;
