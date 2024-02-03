@@ -66,10 +66,10 @@ const Upload = () => {
           {slidePage?.map((item : string, index : number) => {
             return (
               (uploadSlide === index)
-                ? <PositionButton bgcolor='#222020' color='#FFFFFF'>
+                ? <PositionButton key={index} background='#222020' color='#FFFFFF'>
                   {item}
                 </PositionButton>
-                : <PositionButton bgcolor='' color='#222020'>
+                : <PositionButton key={index} background='' color='#222020'>
                   {item}
                 </PositionButton>
             )
@@ -155,7 +155,7 @@ const PositionWrapper = styled.div`
   align-items: center;
 `;
 
-const PositionButton = styled.div<{ bgcolor : string, color : string }>`
+const PositionButton = styled.div<{ background : string, color : string }>`
   width: 100%;
   height: 50px;
   font-family: "Pretendard";
@@ -167,7 +167,7 @@ const PositionButton = styled.div<{ bgcolor : string, color : string }>`
   align-items: center;
   transition: all 0.2s;
   user-select: none;
-  background-color: ${(props) => props.bgcolor};
+  background-color: ${(props) => props.background};
   color: ${(props) => props.color};
   border-radius: 8px 8px 0px 0px;
 
