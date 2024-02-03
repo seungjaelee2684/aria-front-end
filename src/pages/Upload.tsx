@@ -17,14 +17,21 @@ const Upload = () => {
     curriculum_image: [],
     portfolio_image: [],
   });
-  
+  const [mentorInfo, setMentorInfo] = useState<any>({
+    englishname: "",
+    chinesename: "",
+    japanesename: "",
+    nickname: "",
+    nation: "",
+    opendate: ""
+  }); 
   const [snsLink, setSnsLink] = useState<any>({
-    home: null,
-    youtube: null,
-    twitter: null,
-    instagram: null,
-    artstation: null,
-    pixiv: null
+    home: "",
+    youtube: "",
+    twitter: "",
+    instagram: "",
+    artstation: "",
+    pixiv: ""
   });
 
   const slidePage : string[] = [
@@ -77,7 +84,7 @@ const Upload = () => {
         </PositionWrapper>
         <SlideContainer>
           <SlideWrapper ref={uploadRef}>
-            <InformUpload />
+            <InformUpload mentorInfo={mentorInfo} setMentorInfo={setMentorInfo}/>
             <SingleImageUpload />
             <CurriculumUpload />
             <PortfolioUpload />
