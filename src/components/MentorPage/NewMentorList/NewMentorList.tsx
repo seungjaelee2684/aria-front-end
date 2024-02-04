@@ -89,7 +89,7 @@ const BigNicknameContainer = styled.img`
 `;
 
 const NicknameContainer = styled.img`
-  width: 80%;
+  width: 70%;
   height: auto;
   object-fit: cover;
   user-select: none;
@@ -98,12 +98,17 @@ const NicknameContainer = styled.img`
   top: 40%;
 
   @media screen and (max-width: 1320px) {
+    top: 50%;
+    width: 80%;
+  }
+
+  @media screen and (max-width: 836px) {
     top: 35%;
     width: 70%;
   }
 
   @media screen and (max-width: 500px) {
-    top: 50%;
+    top: 45%;
     width: 90%;
     left: 8%;
   }
@@ -138,11 +143,11 @@ const NicknameRightContainer = styled.img`
   user-select: none;
   position: absolute;
   right: 10%;
-  top: 35%;
+  top: 40%;
   user-select: none;
 
   @media screen and (max-width: 1320px) {
-    top: 40%;
+    top: 35%;
     width: 80%;
   }
 
