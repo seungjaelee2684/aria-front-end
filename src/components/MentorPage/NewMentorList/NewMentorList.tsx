@@ -89,17 +89,17 @@ const BigNicknameContainer = styled.img`
 `;
 
 const NicknameContainer = styled.img`
-  width: 70%;
+  width: 80%;
   height: auto;
   object-fit: cover;
   user-select: none;
   position: absolute;
   left: 10%;
-  top: 35%;
+  top: 40%;
 
   @media screen and (max-width: 1320px) {
-    top: 40%;
-    width: 80%;
+    top: 35%;
+    width: 70%;
   }
 
   @media screen and (max-width: 500px) {

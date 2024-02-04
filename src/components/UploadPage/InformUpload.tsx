@@ -275,8 +275,8 @@ const DefaultSelect = styled.div`
 `;
 
 const SelectBox = styled.div`
-    width: 8px;
-    height: 8px;
+    min-width: 10px;
+    height: 10px;
     border-radius: 100%;
     background-color: #5C9DFF;
 `;

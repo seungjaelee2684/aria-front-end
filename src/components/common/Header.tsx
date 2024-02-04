@@ -132,11 +132,11 @@ const Header = () => {
                             </MobileTranslateContainer> */}
                         </TranslateContainer>
                         {/* <BarContainer /> */}
-                        <SettingWrapper onClick={() => setSetting(!setting)}>
+                        {/* <SettingWrapper onClick={() => setSetting(!setting)}>
                             <Setting>
                                 <LuKeyRound />
                             </Setting>
-                        </SettingWrapper>
+                        </SettingWrapper> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
@@ -392,15 +392,15 @@ const SettingWrapper = styled.div`
 `;
 
 const Setting = styled.div`
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border: 1px solid #ADADAD;
     border-radius: 3px;
     color: #ADADAD;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
 
     &:hover {

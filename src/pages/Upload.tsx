@@ -22,7 +22,7 @@ const Upload = () => {
     chinesename: "",
     japanesename: "",
     nickname: "",
-    nation: "",
+    nation: "America",
     opendate: ""
   }); 
   const [snsLink, setSnsLink] = useState<any>({

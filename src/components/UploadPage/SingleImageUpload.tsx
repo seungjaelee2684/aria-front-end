@@ -5,7 +5,7 @@ import { BoxContainer } from './InformUpload';
 const SingleImageUpload = () => {
   return (
     <BoxContainer>
-        SingleImageUpload
+      SingleImageUpload
     </BoxContainer>
   )
 };
