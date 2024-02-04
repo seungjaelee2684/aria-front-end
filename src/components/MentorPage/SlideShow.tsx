@@ -205,8 +205,8 @@ const SlideNumber = styled.div`
   min-width: 10px;
   height: 10px;
   border-radius: 100%;
-  background-color: #ADADAD;
-  box-shadow: 1px 1px 6px 0px #5a5a5a;
+  background-color: #4e4e4e;
+  box-shadow: 1px 1px 6px 0px #535353;
   transition: all 0.6s ease-in-out;
   cursor: pointer;
 `;
