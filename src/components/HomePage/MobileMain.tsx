@@ -4,7 +4,6 @@ import '../../style/CommonStyle.css';
 import '../../style/font/font.css';
 import styled from 'styled-components';
 import MainSlideShow from './MainSlideShow';
-import { MainBannertData } from '../../data/MainBannerData';
 import ScrollAniContainer from '../common/ScrollAniContainer/ScrollAniContainer';
 import IllustContainer from '../common/ScrollAniContainer/IllustContainer';
 import Charactor from '../../assets/curriculums/sanpati/portfolio/p04.webp';
@@ -28,6 +27,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
     const language = localStorage.getItem("language");
     const [, setCopyHandler] = useRecoilState(CopyAlert);
 
+    const newSlideDataList = mentorListData?.filter((data) => data?.isready);
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
     const [isLoop, setIsLoop] = useState<boolean>(false);
 
@@ -46,12 +46,12 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     useEffect(() => {
         const slideShowInterval = setInterval(() => {
-            if (mainSlideCurrent === mentorListData.length) {
+            if (mainSlideCurrent === newSlideDataList.length) {
                 setIsLoop(true);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
             } else {
                 setIsLoop(false);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (mentorListData.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
             };
         }, 5000);
 
@@ -93,7 +93,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     isLoop={isLoop}
                     setIsLoop={setIsLoop} />
                 <SlideNumberWrapper>
-                    {mentorListData?.map((item: any, index: number) => {
+                    {newSlideDataList?.map((item: any, index: number) => {
                         return (
                             (mainSlideCurrent === (index + 1))
                                 ? <SlideNumber
@@ -123,7 +123,7 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     </MoreButton>
                 </InformTitleContainer>
                 <CardListContainer>
-                    {mentorListData?.map((item : any, index : number) => {
+                    {newSlideDataList?.map((item : any, index : number) => {
                         return (
                             <Card
                                 key={item?.id}

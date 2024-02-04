@@ -5,6 +5,7 @@ import { etcTextTrans } from '../../languages/ETCTrans';
 import { useRecoilState } from 'recoil';
 import { mentorSearchInput } from '../../store/MentorSearchInput';
 import FilterButton from './FilterButton';
+import PageButton from './PageButton';
 
 const MentorSearchBar = () => {
 
@@ -39,39 +40,52 @@ const MentorSearchBar = () => {
     console.log("강사 검색 -> ", searchValue, mentorSearch);
 
   return (
-    <SearchBarContainer onSubmit={onSubmitMentorSearchHandler}>
-        <FilterButton />
-        <SearchBarWrapper>
-            <TitleContaier>
-                {contentTranslate(2)}
-            </TitleContaier>      
-            <SearchBetweenLine />
-            <SearchBar
-                type='text'
-                autoComplete="off"
-                value={mentorSearch}
-                placeholder={contentTranslate(1)}
-                onChange={onChangeMentorSearchHandler}/>
-        </SearchBarWrapper>
-        <IconBox type='submit'>
-            <LuSearch />
-        </IconBox>
-    </SearchBarContainer>
+    <SearchBarOutContainer>
+        <SearchBarContainer onSubmit={onSubmitMentorSearchHandler}>
+            <FilterButton />
+            <SearchBarWrapper>
+                <TitleContaier>
+                    {contentTranslate(2)}
+                </TitleContaier>      
+                <SearchBetweenLine />
+                <SearchBar
+                    type='text'
+                    autoComplete="off"
+                    value={mentorSearch}
+                    placeholder={contentTranslate(1)}
+                    onChange={onChangeMentorSearchHandler}/>
+            </SearchBarWrapper>
+            <IconBox type='submit'>
+                <LuSearch />
+            </IconBox>
+        </SearchBarContainer>
+        {/* <PageButton /> */}
+    </SearchBarOutContainer>
   )
 };
 
-const SearchBarContainer = styled.form`
+const SearchBarOutContainer = styled.div`
     width: 1320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 0px auto;
+
+    @media screen and (max-width: 1320px) {
+        width: 96%;
+    }
+`;
+
+const SearchBarContainer = styled.form`
+    width: 100%;
     margin: 0px auto;
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 8px;
     user-select: none;
-
-    @media screen and (max-width: 1320px) {
-        width: 96%;
-    }
 `;
 
 const SearchBarWrapper = styled.div`
@@ -105,10 +119,6 @@ const SearchBetweenLine = styled.div`
     height: 34px;
     /* background-color: #e9e9e9; */
 
-    @media screen and (max-width: 836px) {
-        height: 28px;
-    }
-
     @media screen and (max-width: 500px) {
         height: 24px;
     }
@@ -137,7 +147,6 @@ const SearchBar = styled.input`
 
     @media screen and (max-width: 836px) {
         width: 130px;
-        height: 36px;
         font-size: 13px;
     }
 
@@ -161,8 +170,6 @@ const IconBox = styled.button`
     cursor: pointer;
 
     @media screen and (max-width: 836px) {
-        width: 36px;
-        height: 36px;
         font-size: 18px;
     }
     

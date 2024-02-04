@@ -7,8 +7,15 @@
 }
 
 .ExclamationIcon {
-    animation: icon_open 0.4s ease-in-out forwards;
+    animation: icon_open 0.3s ease-in-out forwards;
     animation-timing-function: linear;
+    animation-delay: 0.1s;
+}
+
+.InformationIcon {
+    animation: icon_open2 0.3s ease-in-out forwards;
+    animation-timing-function: linear;
+    animation-delay: 0.1s;
 }
 
 @keyframes alert_modal_open {
@@ -42,5 +49,17 @@
     }
     100% {
         transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes icon_open2 {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(45deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
     }
 }

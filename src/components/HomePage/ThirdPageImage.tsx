@@ -7,7 +7,6 @@ import { useRecoilValue } from 'recoil';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import MainSlideShow from './MainSlideShow';
 import SlideBG from '../../assets/images/mainpage/Asset 94.webp';
-import { MainBannertData } from '../../data/MainBannerData';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { mentorListData } from '../../data/MentorData';
 
@@ -140,7 +139,7 @@ const SlideContainer = styled.div`
 
   @media screen and (max-width: 836px) {
     width: 90%;
-    height: 30%;
+    height: 40%;
   }
 
   @media screen and (max-width: 500px) {

@@ -69,25 +69,25 @@ const Footer = () => {
           <FirstWrapper>
             <ContentBox>
               <Content>
-                {translateText(1)} : 
+                {translateText(3)} :
                 <ColorContent>
-                  {translateText(2)}
-                </ColorContent>
-                | {translateText(3)} :
-                 <ColorContent>
                   {translateText(4)}
-                 </ColorContent>
-              </Content>
-              <Content>
-                {translateText(5)} :
+                </ColorContent>
+                | {translateText(5)} :
                 <ColorContent>
                   aria.academy@gmail.com
                 </ColorContent>
               </Content> 
               <Content>
+                {translateText(1)} : 
+                <ColorContent>
+                  {translateText(2)}
+                </ColorContent>
+              </Content>
+              <Content>
                 {translateText(6)} :
                 <ColorContent>
-                  205-5421-9942
+                  309-51-00836
                 </ColorContent>
               </Content>
               <ContentUnderWrapper>
@@ -95,13 +95,13 @@ const Footer = () => {
               </ContentUnderWrapper>
             </ContentBox>
           </FirstWrapper>
-          <LogoContainer src={FooterLogo} alt=''/>
           <IconOutContainer>
             <IconTitleWrapper>
               <MdOutlineSupervisorAccount />
               <IconTitle>
                 SNS
               </IconTitle>
+              {/* <LogoContainer src={FooterLogo} alt=''/> */}
             </IconTitleWrapper>
             <MenuIconContainer>
               <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
@@ -235,7 +235,7 @@ const IconOutContainer = styled.div`
   align-items: start;
   gap: 16px;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 660px) {
     display: none;
   }
 `;
@@ -285,7 +285,7 @@ const MenuIconContainer = styled.div`
     gap: 12px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 660px) {
     display: none;
   }
 `;
@@ -352,17 +352,25 @@ const FooterOutWrapper = styled.div`
 `;
 
 const LogoContainer = styled.img`
-  width: 180px;
+  width: 70px;
   height: auto;
   object-fit: cover;
   user-select: none;
+  margin-left: 70px;
 
-  @media screen and (max-width: 836px) {
-    width: 120px;
+  @media screen and (max-width: 1100px) {
+    width: 150px;
+    left: 55%;
+  }
+
+  @media screen and (max-width: 900px) {
+    display: none;
   }
 
   @media screen and (max-width: 500px) {
-    width: 130px;
+    display: block;
+    left: 75%;
+    width: 110px;
   }
 `;
 

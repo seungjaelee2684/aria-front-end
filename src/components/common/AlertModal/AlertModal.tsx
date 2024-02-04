@@ -9,24 +9,26 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import { IoIosTimer } from "react-icons/io";
 import { translate } from '../../../store/Translation';
+import { IoIosInformationCircleOutline } from "react-icons/io";
 
 const AlertModal = () => {
-  
+
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   console.log("모달창 데이터", alertModal.whatAlert);
+  console.log("링크 데이터", alertModal.content);
 
   const language = localStorage.getItem("language");
 
-  const alertTranslate = (Num : number) => {
+  const alertTranslate = (Num: number) => {
     switch (language) {
-      case "chinese" :
+      case "chinese":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.chinesealert;
-      case "japanese" :
+      case "japanese":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.japanesealert;
-      case "korean" :
+      case "korean":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.alert;
-      default :
+      default:
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.englishalert;
     }
   };
@@ -34,42 +36,100 @@ const AlertModal = () => {
   const alertContentChange = () => {
     if (alertModal.whatAlert === 0) {
       return (
-        <ExclamationIcon
-          className='ExclamationIcon'
-          color="#fce169">
-          <IoIosTimer />
-        </ExclamationIcon>
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='ExclamationIcon'
+            color="#fce169">
+            <IoIosTimer />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton
+              bgcolor='#3c3ad6'
+              border='2px solid #d2d1f8'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              OK
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
       );
+    } else if (alertModal.whatAlert === 1) {
+      return (
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='InformationIcon'
+            color="#abdff3"
+            style={{margin:" 0px 0px 5px 0px"}}>
+            <IoIosInformationCircleOutline />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton
+              bgcolor='#6de290'
+              border='2px solid #d0f0da'
+              onClick={() => {
+                setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 });
+                window.open(alertModal.content);
+              }}>
+              Yes
+            </CloseButton>
+            <CloseButton
+              bgcolor='#f55a89'
+              border='2px solid #f3d1db'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              No
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
+      )
     } else {
       return (
-        <ExclamationIcon
-          className='ExclamationIcon'
-          color="#b0d990">
-          <GoCheckCircle />
-        </ExclamationIcon>
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='ExclamationIcon'
+            color="#b0d990">
+            <GoCheckCircle />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton
+              bgcolor='#3c3ad6'
+              border='2px solid #d2d1f8'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              OK
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
+
       );
     };
   };
-  
+
   return (
     <BackgroudContainer
-      onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
-      <ModalContainer
-        onClick={(e) => e.stopPropagation()}
-        className='AlertModalContainer'>
-        {alertContentChange()}
-        <ModalTitle>
-          {alertTranslate(0)}
-        </ModalTitle>
-        <ModalContent>
-          {alertTranslate(1)}
-        </ModalContent>
-        <ButtonContainer>
-          <CloseButton onClick={() => setAlertModal({...alertModal, isOpen: false, whatAlert: 100})}>
-            OK
-          </CloseButton>
-        </ButtonContainer>
-      </ModalContainer>
+      onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+      {alertContentChange()}
     </BackgroudContainer>
   )
 };
@@ -115,7 +175,7 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ExclamationIcon = styled.div<{ color : string }>`
+const ExclamationIcon = styled.div<{ color: string }>`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -142,6 +202,7 @@ const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 5px;
+  white-space: break-spaces;
 `;
 
 const ButtonContainer = styled.div`
@@ -149,19 +210,20 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: end;
   margin-top: 10px;
+  gap: 8px;
 `;
 
-const CloseButton = styled.button`
+const CloseButton = styled.button<{ bgcolor : string, border : string }>`
   width: 45px;
   height: 28px;
-  background-color: #3c3ad6;
+  background-color: ${(props) => props.bgcolor};
   border-radius: 5px;
   font-family: "Pretendard";
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
   color: #FCFCFC;
-  border: 2px solid #d2d1f8;
+  border: ${(props) => props.border};
   cursor: pointer;
 
   &:hover {
@@ -169,7 +231,7 @@ const CloseButton = styled.button`
   }
 `;
 
-const CloseTimer = styled.div<{ width : number }>`
+const CloseTimer = styled.div<{ width: number }>`
   width: ${(props) => props.width}%;
   height: 4px;
   position: absolute;

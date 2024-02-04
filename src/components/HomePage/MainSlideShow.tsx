@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import SlideImg from '../../assets/images/mentorimage.webp';
-import { MainBannertData } from '../../data/MainBannerData';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { mentorListData } from '../../data/MentorData';
@@ -49,23 +48,17 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
             <SlideImage src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.background}>
-                {(newSlideDataList[newSlideDataList?.length - 1]?.slideimage.bigger)
-                    ? <SmallNickname src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.nickname}/>
-                    : <BigNickname src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.nickname}/>}
+                <Nickname src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.nickname}/>
             </SlideImage>
             {newSlideDataList?.map((item : any, index : number) => {
                 return (
                     <SlideImage key={item?.id} src={item?.slideimage.background}>
-                        {(item?.slideimage.bigger)
-                            ? <SmallNickname src={item?.slideimage.nickname}/>
-                            : <BigNickname src={item?.slideimage.nickname}/>}
+                        <Nickname src={item?.slideimage.nickname}/>
                     </SlideImage>
                 )
             })}
             <SlideImage src={newSlideDataList[0]?.slideimage.background}>
-                {(newSlideDataList[0]?.slideimage.bigger)
-                    ? <SmallNickname src={newSlideDataList[0]?.slideimage.nickname}/>
-                    : <BigNickname src={newSlideDataList[0]?.slideimage.nickname}/>}
+                <Nickname src={newSlideDataList[0]?.slideimage.nickname}/>
             </SlideImage>
         </SlideWrapper>
     </SlideShowOutContainer>
@@ -97,18 +90,8 @@ const SlideImage = styled.div<{ src : string }>`
     user-select: none;
 `;
 
-const SmallNickname = styled.img`
-    width: 42%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 35%;
-    left: 10%;
-    user-select: none;
-`;
-
-const BigNickname = styled.img`
-    width: 70%;
+const Nickname = styled.img`
+    width: 80%;
     height: auto;
     object-fit: cover;
     position: absolute;

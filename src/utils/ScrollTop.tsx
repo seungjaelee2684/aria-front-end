@@ -4,6 +4,7 @@ import { useResetRecoilState } from 'recoil';
 import { nationFlag, nationKind } from '../store/NationFilter';
 import { MainPageNumber } from '../store/MainPageNumber';
 import { mentorSearchInput } from '../store/MentorSearchInput';
+import { pageNumber } from '../store/Pages';
 
 const ScrollTop = () => {
 
@@ -13,6 +14,7 @@ const ScrollTop = () => {
     const resetFlag = useResetRecoilState(nationFlag);
     const resetPageNumber = useResetRecoilState(MainPageNumber);
     const resetMentorSearch = useResetRecoilState(mentorSearchInput);
+    const resetPage = useResetRecoilState(pageNumber);
 
     useEffect(() => {
         window.scrollTo({
@@ -22,6 +24,7 @@ const ScrollTop = () => {
         resetFlag();
         resetPageNumber();
         resetMentorSearch();
+        resetPage();
     }, [pathname]);
 
   return null

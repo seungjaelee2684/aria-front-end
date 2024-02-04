@@ -27,18 +27,10 @@ const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, 
                                 : "NotActionImage"}>
                         <ImageBox src={item?.slideimage.background}/>
                         {(item?.status === "Left")
-                            ? (item?.slideimage.bigger)
-                              ? <SmallNicknameRightContainer
+                            ? <NicknameRightContainer
                                 src={item?.slideimage.nickname}
                                 alt=''/>
-                              : <BigNicknameRightContainer
-                                src={item?.slideimage.nickname}
-                                alt=''/>
-                            : (item?.slideimage.bigger)
-                              ? <SmallNicknameContainer 
-                                src={item?.slideimage.nickname}
-                                alt=''/>
-                              : <BigNicknameContainer 
+                            : <NicknameContainer 
                                 src={item?.slideimage.nickname}
                                 alt=''/>}
                     </div>
@@ -96,23 +88,28 @@ const BigNicknameContainer = styled.img`
   }
 `;
 
-const SmallNicknameContainer = styled.img`
-  width: 42%;
+const NicknameContainer = styled.img`
+  width: 70%;
   height: auto;
   object-fit: cover;
   user-select: none;
   position: absolute;
   left: 10%;
-  top: 35%;
+  top: 40%;
 
   @media screen and (max-width: 1320px) {
-    top: 40%;
-    width: 48%;
+    top: 50%;
+    width: 80%;
+  }
+
+  @media screen and (max-width: 836px) {
+    top: 35%;
+    width: 70%;
   }
 
   @media screen and (max-width: 500px) {
-    top: 50%;
-    width: 50%;
+    top: 45%;
+    width: 90%;
     left: 8%;
   }
 `;
@@ -139,19 +136,19 @@ const BigNicknameRightContainer = styled.img`
   }
 `;
 
-const SmallNicknameRightContainer = styled.img`
-  width: 42%;
+const NicknameRightContainer = styled.img`
+  width: 70%;
   height: auto;
   object-fit: cover;
   user-select: none;
   position: absolute;
   right: 10%;
-  top: 35%;
+  top: 40%;
   user-select: none;
 
   @media screen and (max-width: 1320px) {
-    top: 40%;
-    width: 85%;
+    top: 35%;
+    width: 80%;
   }
 
   @media screen and (max-width: 500px) {
