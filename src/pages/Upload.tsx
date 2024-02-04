@@ -85,7 +85,7 @@ const Upload = () => {
         <SlideContainer>
           <SlideWrapper ref={uploadRef}>
             <InformUpload mentorInfo={mentorInfo} setMentorInfo={setMentorInfo}/>
-            <SingleImageUpload />
+            <SingleImageUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <CurriculumUpload />
             <PortfolioUpload />
             <EtcUpload />
@@ -197,7 +197,6 @@ const SlideWrapper = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  transition: all 0.4s ease-in-out;
 `;
 
 const PrevNextButtonWrapper = styled.div`
@@ -206,6 +205,11 @@ const PrevNextButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px 0px 0px;
+
+  @media screen and (max-width: 836px) {
+    width: 96%;
+    padding: 10px 0px 0px 0px;
+  }
 `;
 
 const PrevNextButton = styled.div`

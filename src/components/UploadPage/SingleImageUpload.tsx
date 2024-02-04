@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import styled from 'styled-components';
 import { BoxContainer } from './InformUpload';
 
-const SingleImageUpload = () => {
+interface SingleImageUploadProps {
+  mentorImage: any;
+  setMentorImage: React.Dispatch<React.SetStateAction<any>>;
+};
+
+const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, setMentorImage }) => {
+  
+  const { banner_image, nickname_image, thumbnail_image } = mentorImage;
+  
+  
+
   return (
     <BoxContainer>
-      SingleImageUpload
+      
     </BoxContainer>
   )
 };
+
+
 
 export default SingleImageUpload;
