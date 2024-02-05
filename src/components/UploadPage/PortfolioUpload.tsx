@@ -1,9 +1,32 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import styled from 'styled-components';
 import { BoxContainer } from './InformUpload';
+import Example from '../../assets/images/discordcounseling_01.webp';
+import { IoClose } from "react-icons/io5";
+import { MdDriveFolderUpload } from "react-icons/md";
+import {
+  DefaultBox,
+  ExampleImage,
+  ExplainContainer,
+  FileInput,
+  Icon,
+  ImagePreviewBox,
+  ImageUploadContainer,
+  ImageWrapper,
+  InputLabel,
+  InputWrapper,
+  PreviewImage,
+  RemoveButton,
+  Text
+} from './CurriculumUpload';
 
-const PortfolioUpload = () => {
-  const { curriculum_image } = mentorImage;
+interface PortfolioUploadProps {
+  mentorImage: any;
+  setMentorImage: React.Dispatch<React.SetStateAction<any>>;
+};
+
+const PortfolioUpload : React.FC<PortfolioUploadProps> = ({ mentorImage, setMentorImage }) => {
+  const { portfolio_image } = mentorImage;
 
   const [imageList, setImageList] = useState<string[]>([]);
 
@@ -13,22 +36,22 @@ const PortfolioUpload = () => {
       for (let i = 0; i < fileList.length; i++) {
         const blobImage = fileList[i];
         const imageUrl = URL.createObjectURL(fileList[i]);
-        curriculum_image.push(blobImage);
+        portfolio_image.push(blobImage);
         imageList.push(imageUrl);
-        setMentorImage({ ...mentorImage, curriculum_image: curriculum_image });
+        setMentorImage({ ...mentorImage, portfolio_image: portfolio_image });
         setImageList(imageList);
       };
     };
   };
 
   const onClickRemoveHandler = (id: number) => {
-    const newCurriculum = curriculum_image.filter((item: File, index: number) => index !== id);
+    const newPortfolio = portfolio_image.filter((item: File, index: number) => index !== id);
     const newImageList = imageList.filter((item, index) => index !== id);
-    setMentorImage({ ...mentorImage, curriculum_image: newCurriculum });
+    setMentorImage({ ...mentorImage, portfolio_image: newPortfolio });
     setImageList(newImageList);
   };
 
-  console.log("통신 데이터", curriculum_image, "URL", imageList);
+  console.log("통신 데이터", portfolio_image, "URL", imageList);
 
   return (
     <BoxContainer>
@@ -48,7 +71,7 @@ const PortfolioUpload = () => {
                 )
               })}
             </ImagePreviewBox>
-            : <InputLabel htmlFor='files'>
+            : <InputLabel htmlFor='portfolioFiles'>
               <DefaultBox>
                 <Icon>
                   <MdDriveFolderUpload />
@@ -58,7 +81,7 @@ const PortfolioUpload = () => {
             </InputLabel>}
           <FileInput
             type='file'
-            id='files'
+            id='portfolioFiles'
             multiple
             onChange={onChangeFileAddHandler} />
         </InputWrapper>
@@ -67,10 +90,10 @@ const PortfolioUpload = () => {
             * 예시 사진처럼 표시된 부분에 필요한 이미지를 이곳에 업로드해주세요.
           </Text>
           <Text>
-            * 커리큘럼 이미지의 파일명을 규칙에 맞게 변경한 뒤 업로드해주세요.
+            * 포트폴리오 이미지의 파일명을 규칙에 맞게 변경한 뒤 업로드해주세요.
           </Text>
           <Text>
-            (ex: Sanpati_Curriculum1_ENG.webp)
+            (ex: p01.webp)
           </Text>
         </ExplainContainer>
       </ImageUploadContainer>
