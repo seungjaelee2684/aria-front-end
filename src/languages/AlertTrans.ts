@@ -19,15 +19,15 @@ export const alertInformation: AlertType[] = [
     alert: "현재 컨텐츠를 준비중이오니 조금만 기다려주십시오."
   },
   {
-    englishalert: "It's scheduled to open in March!",
+    englishalert: "Open in March!",
     chinesealert: "预计3月份开业！",
     japanesealert: "3月オープン予定！",
     alert: "3월 오픈 예정!"
   },
   {
-    englishalert: "Would you like to visit your instructor's Twitter account,\nwhere the class will begin soon?",
+    englishalert: "Would you like to visit your instructor's Twitter account?",
     chinesealert: "您确定要访问即将开始上课的讲师的推特账户吗？",
-    japanesealert: "まもなく授業が始まる講師のツイッターアカウントを\n訪問しますか？",
+    japanesealert: "講師のツイッターアカウントを\n訪問してみませんか？",
     alert: "곧 수업이 시작되는 강사님의 트위터 계정을\n방문하시겠습니까?"
   },
 ];
