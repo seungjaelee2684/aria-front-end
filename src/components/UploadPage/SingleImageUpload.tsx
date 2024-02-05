@@ -92,9 +92,14 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
               type='file'
               id='bannerFile'
               onChange={(e) => onChangeBannerFileUpload(e, "bannerFile")}/>
-            <ExplainText>
-              * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (배너)
-            </ExplainText>
+            <Textwrapper>
+              <ExplainText style={{color: "#de0000", fontWeight: "500"}}>
+                * 필수 항목입니다.
+              </ExplainText>
+              <ExplainText>
+                * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (배너)
+              </ExplainText>
+            </Textwrapper>
           </InputWrapper>
         </LaneContainer>
         <LaneContainer>
@@ -123,9 +128,14 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
               type='file'
               id='nicknameFile'
               onChange={(e) => onChangeBannerFileUpload(e, "nicknameFile")}/>
-            <ExplainText>
-              * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (닉네임)
-            </ExplainText>
+            <Textwrapper>
+              <ExplainText style={{color: "#de0000", fontWeight: "500"}}>
+                * 필수 항목입니다.
+              </ExplainText>
+              <ExplainText>
+                * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (닉네임)
+              </ExplainText>
+            </Textwrapper>
           </InputWrapper>
         </LaneContainer>
         <LaneContainer>
@@ -154,9 +164,14 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
               type='file'
               id='thumbnailFile'
               onChange={(e) => onChangeBannerFileUpload(e, "thumbnailFile")}/>
-            <ExplainText>
-              * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (썸네일)
-            </ExplainText>
+            <Textwrapper>
+              <ExplainText style={{color: "#de0000", fontWeight: "500"}}>
+                * 필수 항목입니다.
+              </ExplainText>
+              <ExplainText>
+                * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (썸네일)
+              </ExplainText>
+            </Textwrapper>
           </InputWrapper>
         </LaneContainer>
       </ContentContainer>
@@ -240,13 +255,20 @@ const InputTag = styled.input`
   display: none;
 `;
 
+const Textwrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
 const ExplainText = styled.div`
   width: 100%;
   font-family: "Pretendard";
   font-size: 14px;
   font-weight: 400;
   line-height: 100%;
-  color: #ADADAD;
+  color: #6a6a6a;
   text-align: start;
 `;
 
