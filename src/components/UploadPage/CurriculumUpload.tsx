@@ -87,7 +87,7 @@ const CurriculumUpload : React.FC<CurriculumUploadProps> = ({ mentorImage, setMe
   )
 };
 
-const ImageUploadContainer = styled.div`
+export const ImageUploadContainer = styled.div`
   width: 96%;
   height: 98%;
   display: flex;
@@ -97,13 +97,13 @@ const ImageUploadContainer = styled.div`
   gap: 30px;
 `;
 
-const ExampleImage = styled.img`
-  width: 500px;
+export const ExampleImage = styled.img`
+  width: 450px;
   height: auto;
   object-fit: cover;
 `;
 
-const InputWrapper = styled.div`
+export const InputWrapper = styled.div`
   width: 90%;
   height: 120px;
   position: relative;
@@ -113,7 +113,7 @@ const InputWrapper = styled.div`
   background-color: #e9e9e9;
 `;
 
-const DefaultBox = styled.div`
+export const DefaultBox = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
@@ -123,14 +123,14 @@ const DefaultBox = styled.div`
   color: #222020;
 `;
 
-const Icon = styled.div`
+export const Icon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
 `;
 
-const InputLabel = styled.label`
+export const InputLabel = styled.label`
   width: 100%;
   height: 100%;
   display: flex;
@@ -142,11 +142,11 @@ const InputLabel = styled.label`
   cursor: pointer;
 `;
 
-const FileInput = styled.input`
+export const FileInput = styled.input`
   display: none;
 `;
 
-const ImagePreviewBox = styled.div`
+export const ImagePreviewBox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -159,7 +159,7 @@ const ImagePreviewBox = styled.div`
   left: 0;
 `;
 
-const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 3px;
@@ -167,13 +167,13 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const PreviewImage = styled.img`
+export const PreviewImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-const RemoveButton = styled.div`
+export const RemoveButton = styled.div`
   width: 16px;
   height: 16px;
   font-size: 14px;
@@ -189,7 +189,7 @@ const RemoveButton = styled.div`
   cursor: pointer;
 `;
 
-const ExplainContainer = styled.div`
+export const ExplainContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -200,7 +200,7 @@ const ExplainContainer = styled.div`
   color: #222020;
 `;
 
-const Text = styled.div`
+export const Text = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 100%;
