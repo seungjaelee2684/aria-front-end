@@ -91,7 +91,7 @@ const Upload = () => {
             <InformUpload mentorInfo={mentorInfo} setMentorInfo={setMentorInfo}/>
             <SingleImageUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <CurriculumUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
-            <PortfolioUpload />
+            <PortfolioUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <EtcUpload />
           </SlideWrapper>
         </SlideContainer>
