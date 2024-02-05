@@ -59,6 +59,10 @@ const Upload = () => {
     };
   };
 
+  const uploadHandler = () => {
+
+  };
+
   return (
     <AllContainer>
     <LayoutContainer>
@@ -101,7 +105,9 @@ const Upload = () => {
             ? <PrevNextButton onClick={() => prevNextMoveHandler(false)}>
               다음
             </PrevNextButton>
-            : <NotButton />}
+            : <PrevNextButton onClick={uploadHandler}>
+              등록
+            </PrevNextButton>}
         </PrevNextButtonWrapper>
       </ContentContainer>
     </LayoutContainer>

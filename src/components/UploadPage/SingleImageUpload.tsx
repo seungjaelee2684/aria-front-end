@@ -1,8 +1,10 @@
 import React, { ChangeEvent, useState } from 'react'
+import '../../style/font/font.css';
 import styled from 'styled-components';
 import { BoxContainer } from './InformUpload';
 import Example from '../../assets/images/discordcounseling_01.webp';
 import { MdDriveFolderUpload } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
 
 interface SingleImageUploadProps {
   mentorImage: any;
@@ -13,7 +15,53 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
   
   const { banner_image, nickname_image, thumbnail_image } = mentorImage;
   
-  
+  type ImageDataType = {
+    banner: string,
+    nickname: string,
+    thumbnail: string
+  };
+  const [imageData, setImageData] = useState<ImageDataType>({
+    banner: "",
+    nickname: "",
+    thumbnail: ""
+  });
+  const { banner, nickname, thumbnail } = imageData;
+
+  const onChangeBannerFileUpload = (e : ChangeEvent<HTMLInputElement>, id : string) => {
+    const fileData = e?.target.files;
+    if (fileData && fileData.length > 0) {
+      for (let i = 0; i < fileData.length; i++) {
+        const blobImage = fileData[i];
+        const imageName = blobImage.name;
+
+        if (id === "bannerFile") {
+          setMentorImage({...mentorImage, banner_image: blobImage});
+          setImageData({...imageData, banner: imageName});
+        } else if (id === "nicknameFile") {
+          setMentorImage({...mentorImage, nickname_image: blobImage});
+          setImageData({...imageData, nickname: imageName});
+        } else if (id === "thumbnailFile") {
+          setMentorImage({...mentorImage, thumbnail_image: blobImage});
+          setImageData({...imageData, thumbnail: imageName});
+        };
+      };
+    };
+  };
+
+  const onClickRemoveDataHandler = (id : string) => {
+    if (id === "bannerFile") {
+      setMentorImage({...mentorImage, banner_image: null});
+      setImageData({...imageData, banner: ""});
+    } else if (id === "nicknameFile") {
+      setMentorImage({...mentorImage, nickname_image: null});
+      setImageData({...imageData, nickname: ""});
+    } else if (id === "thumbnailFile") {
+      setMentorImage({...mentorImage, thumbnail_image: null});
+      setImageData({...imageData, thumbnail: ""});
+    };
+  };
+
+  console.log("업로드", { banner_image, nickname_image, thumbnail_image }, "프리뷰", imageData);
 
   return (
     <BoxContainer>
@@ -21,15 +69,94 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
         <LaneContainer>
           <ImageExample src={Example} alt=''/>
           <InputWrapper>
-            <InputLabel htmlFor='uploadFile'>
-              <InputStyleBox>
-                <Icon>
-                  <MdDriveFolderUpload />
-                </Icon>
-                파일 업로드
-              </InputStyleBox>
-            </InputLabel>
-            <InputTag type='file' id='uploadFile'/>
+            <LabelWrapper>
+            {(banner === "")
+              ? <InputLabel htmlFor='bannerFile'>
+                <InputStyleBox>
+                  <Icon>
+                    <MdDriveFolderUpload />
+                  </Icon>
+                  클릭해서 이미지 업로드 (드래그 X)
+                </InputStyleBox>
+              </InputLabel>
+              : <UploadImageNameWrapper>
+                <UploadImageNameBox>
+                  <RemoveButton onClick={() => onClickRemoveDataHandler("bannerFile")}>
+                    <IoClose />
+                  </RemoveButton>
+                  {banner}
+                </UploadImageNameBox>
+              </UploadImageNameWrapper>}
+            </LabelWrapper>
+            <InputTag
+              type='file'
+              id='bannerFile'
+              onChange={(e) => onChangeBannerFileUpload(e, "bannerFile")}/>
+            <ExplainText>
+              * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (배너)
+            </ExplainText>
+          </InputWrapper>
+        </LaneContainer>
+        <LaneContainer>
+          <ImageExample src={Example} alt=''/>
+          <InputWrapper>
+            <LabelWrapper>
+              {(nickname === "")
+                ? <InputLabel htmlFor='nicknameFile'>
+                  <InputStyleBox>
+                    <Icon>
+                      <MdDriveFolderUpload />
+                    </Icon>
+                    클릭해서 이미지 업로드 (드래그 X)
+                  </InputStyleBox>
+                </InputLabel>
+                : <UploadImageNameWrapper>
+                  <UploadImageNameBox>
+                    <RemoveButton onClick={() => onClickRemoveDataHandler("nicknameFile")}>
+                      <IoClose />
+                    </RemoveButton>
+                    {nickname}
+                  </UploadImageNameBox>
+                </UploadImageNameWrapper>}
+            </LabelWrapper>
+            <InputTag
+              type='file'
+              id='nicknameFile'
+              onChange={(e) => onChangeBannerFileUpload(e, "nicknameFile")}/>
+            <ExplainText>
+              * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (닉네임)
+            </ExplainText>
+          </InputWrapper>
+        </LaneContainer>
+        <LaneContainer>
+          <ImageExample src={Example} alt=''/>
+          <InputWrapper>
+            <LabelWrapper>
+              {(thumbnail === "")
+                ? <InputLabel htmlFor='thumbnailFile'>
+                  <InputStyleBox>
+                    <Icon>
+                      <MdDriveFolderUpload />
+                    </Icon>
+                    클릭해서 이미지 업로드 (드래그 X)
+                  </InputStyleBox>
+                </InputLabel>
+                : <UploadImageNameWrapper>
+                  <UploadImageNameBox>
+                    <RemoveButton onClick={() => onClickRemoveDataHandler("thumbnailFile")}>
+                      <IoClose />
+                    </RemoveButton>
+                    {thumbnail}
+                  </UploadImageNameBox>
+                </UploadImageNameWrapper>}
+            </LabelWrapper>
+            <InputTag
+              type='file'
+              id='thumbnailFile'
+              onChange={(e) => onChangeBannerFileUpload(e, "thumbnailFile")}/>
+            <ExplainText>
+              * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (썸네일)
+            </ExplainText>
           </InputWrapper>
         </LaneContainer>
       </ContentContainer>
@@ -70,13 +197,21 @@ const InputWrapper = styled.div`
   gap: 24px;
 `;
 
-const InputLabel = styled.label`
+const LabelWrapper = styled.div`
   width: 100%;
   height: 60px;
   background-color: #e9e9e9;
   border: 1px solid #ADADAD;
   border-radius: 3px;
   position: relative;
+`;
+
+const InputLabel = styled.label`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   cursor: pointer;
 `;
 
@@ -99,24 +234,64 @@ const InputStyleBox = styled.div`
 
 const Icon = styled.div`
   font-size: 30px;
-  width: 80px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #222020;
-  border-radius: 8px;
-  background-color: #abcdff;
-  color: #222020;
 `;
 
 const InputTag = styled.input`
   display: none;
 `;
 
+const ExplainText = styled.div`
+  width: 100%;
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #ADADAD;
+  text-align: start;
+`;
+
+const UploadImageNameWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0px 0px 0px 40px;
+  display: flex;
+  align-items: center;
+`;
+
 const UploadImageNameBox = styled.div`
-  width: 150px;
   height: 36px;
+  background-color: #5C9DFF;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "CinzelRegular";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  color: #FFFFFF;
+  padding: 0px 16px;
+`;
+
+const RemoveButton = styled.div`
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  color: #222020;
+  position: absolute;
+  border: 1px solid #ADADAD;
+  top: -3px;
+  right: -4px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export default SingleImageUpload;

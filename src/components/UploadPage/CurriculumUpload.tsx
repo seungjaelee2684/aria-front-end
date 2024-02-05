@@ -73,10 +73,13 @@ const CurriculumUpload : React.FC<CurriculumUploadProps> = ({ mentorImage, setMe
         </InputWrapper>
         <ExplainContainer>
           <Text>
-            * 예시 사진에 표시된 이미지를 이곳에 업로드해주세요.
+            * 예시 사진처럼 표시된 부분에 필요한 이미지를 이곳에 업로드해주세요.
           </Text>
           <Text>
-            * 커리큘럼 이미지의 파일명을 규칙에 맞게 변경한 뒤 업로드해주세요. (ex: Sanpati_Curriculum_ENG.webp)
+            * 커리큘럼 이미지의 파일명을 규칙에 맞게 변경한 뒤 업로드해주세요.
+          </Text>
+          <Text>
+            (ex: Sanpati_Curriculum1_ENG.webp)
           </Text>
         </ExplainContainer>
       </ImageUploadContainer>
@@ -201,6 +204,10 @@ const Text = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  text-align: start;
 `;
 
 export default CurriculumUpload;
