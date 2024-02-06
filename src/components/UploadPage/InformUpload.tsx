@@ -85,7 +85,7 @@ const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }
                         </LanguageSortText>
                     </InputLaneContainer>
                     <ExplanationContainer>
-                        <ExplanationContent>
+                        <ExplanationContent style={{color: "#de0000", fontWeight: "500"}}>
                             * 필수 항목입니다.
                         </ExplanationContent>
                         <ExplanationContent>
@@ -108,7 +108,7 @@ const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }
                             onChange={(e) => onChangeInputHanlder(e)}/>
                     </InputLaneContainer>
                     <ExplanationContainer>
-                        <ExplanationContent>
+                        <ExplanationContent style={{color: "#de0000", fontWeight: "500"}}>
                             * 필수 항목입니다.
                         </ExplanationContent>
                         <ExplanationContent>
@@ -137,7 +137,7 @@ const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }
                         })}
                     </SelectNationContainer>
                     <ExplanationContainer>
-                        <ExplanationContent>
+                        <ExplanationContent style={{color: "#de0000", fontWeight: "500"}}>
                             * 필수 항목입니다.
                         </ExplanationContent>
                         <ExplanationContent>

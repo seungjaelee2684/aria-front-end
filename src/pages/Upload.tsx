@@ -59,6 +59,10 @@ const Upload = () => {
     };
   };
 
+  const uploadHandler = () => {
+
+  };
+
   return (
     <AllContainer>
     <LayoutContainer>
@@ -87,7 +91,7 @@ const Upload = () => {
             <InformUpload mentorInfo={mentorInfo} setMentorInfo={setMentorInfo}/>
             <SingleImageUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <CurriculumUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
-            <PortfolioUpload />
+            <PortfolioUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <EtcUpload />
           </SlideWrapper>
         </SlideContainer>
@@ -101,7 +105,9 @@ const Upload = () => {
             ? <PrevNextButton onClick={() => prevNextMoveHandler(false)}>
               다음
             </PrevNextButton>
-            : <NotButton />}
+            : <PrevNextButton onClick={uploadHandler}>
+              등록
+            </PrevNextButton>}
         </PrevNextButtonWrapper>
       </ContentContainer>
     </LayoutContainer>
