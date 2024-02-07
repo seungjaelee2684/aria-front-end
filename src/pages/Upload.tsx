@@ -92,7 +92,7 @@ const Upload = () => {
             <SingleImageUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <CurriculumUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
             <PortfolioUpload mentorImage={mentorImage} setMentorImage={setMentorImage}/>
-            <EtcUpload />
+            <EtcUpload snsLink={snsLink} setSnsLink={setSnsLink}/>
           </SlideWrapper>
         </SlideContainer>
         <PrevNextButtonWrapper>
