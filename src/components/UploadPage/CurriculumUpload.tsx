@@ -76,10 +76,10 @@ const CurriculumUpload : React.FC<CurriculumUploadProps> = ({ mentorImage, setMe
             * 예시 사진처럼 표시된 부분에 필요한 이미지를 이곳에 업로드해주세요.
           </Text>
           <Text>
-            * 커리큘럼 이미지의 파일명을 규칙에 맞게 변경한 뒤 업로드해주세요.
+            * 커리큘럼 이미지의 파일명을 규칙에 맞게 변경한 후 업로드해주세요.
           </Text>
           <Text>
-            (ex: Sanpati_Curriculum1_ENG.webp)
+            (ex: sanpati_curriculum_01_ENG.webp)
           </Text>
         </ExplainContainer>
       </ImageUploadContainer>
@@ -151,16 +151,17 @@ export const ImagePreviewBox = styled.div`
   height: 100%;
   display: flex;
   /* flex-direction: column; */
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 24px;
+  padding: 0px 30px;
   position: absolute;
   top: 0;
   left: 0;
 `;
 
 export const ImageWrapper = styled.div`
-  width: 80px;
+  min-width: 80px;
   height: 80px;
   border-radius: 3px;
   box-shadow: #22202080 0px 0px 4px 0px;
@@ -171,6 +172,7 @@ export const PreviewImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  user-select: none;
 `;
 
 export const RemoveButton = styled.div`

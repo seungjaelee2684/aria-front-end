@@ -99,6 +99,12 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
               <ExplainText>
                 * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (배너)
               </ExplainText>
+              <ExplainText>
+                * 파일명을 정해진 규칙에 맞게 변경한 후 업로드해주세요
+              </ExplainText>
+              <ExplainText>
+                (ex: sanpati_banner.webp)
+              </ExplainText>
             </Textwrapper>
           </InputWrapper>
         </LaneContainer>
@@ -135,10 +141,16 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
               <ExplainText>
                 * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (닉네임)
               </ExplainText>
+              <ExplainText>
+                * 파일명을 정해진 규칙에 맞게 변경한 후 업로드해주세요
+              </ExplainText>
+              <ExplainText>
+                (ex: sanpati_nickname.webp)
+              </ExplainText>
             </Textwrapper>
           </InputWrapper>
         </LaneContainer>
-        <LaneContainer>
+        <LaneContainer style={{borderBottom: "none"}}>
           <ImageExample src={Example} alt=''/>
           <InputWrapper>
             <LabelWrapper>
@@ -171,6 +183,12 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
               <ExplainText>
                 * 예시 사진처럼 표시된 부분에 필요한 이미지를 업로드해주세요. (썸네일)
               </ExplainText>
+              <ExplainText>
+                * 파일명을 정해진 규칙에 맞게 변경한 후 업로드해주세요
+              </ExplainText>
+              <ExplainText>
+                (ex: sanpati_thumbnail.webp)
+              </ExplainText>
             </Textwrapper>
           </InputWrapper>
         </LaneContainer>
@@ -193,7 +211,7 @@ const LaneContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
-  padding: 16px 10px;
+  padding: 24px 10px;
   border-bottom: 1px dotted #ADADAD;
 `;
 
@@ -209,7 +227,7 @@ const InputWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 24px;
+  gap: 16px;
 `;
 
 const LabelWrapper = styled.div`
@@ -259,7 +277,7 @@ const Textwrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 `;
 
 const ExplainText = styled.div`
@@ -284,9 +302,9 @@ const UploadImageNameWrapper = styled.div`
 `;
 
 const UploadImageNameBox = styled.div`
-  height: 36px;
+  height: 34px;
   background-color: #5C9DFF;
-  border-radius: 3px;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -297,6 +315,7 @@ const UploadImageNameBox = styled.div`
   line-height: 100%;
   color: #FFFFFF;
   padding: 0px 16px;
+  user-select: none;
 `;
 
 const RemoveButton = styled.div`

@@ -90,10 +90,10 @@ const PortfolioUpload : React.FC<PortfolioUploadProps> = ({ mentorImage, setMent
             * 예시 사진처럼 표시된 부분에 필요한 이미지를 이곳에 업로드해주세요.
           </Text>
           <Text>
-            * 포트폴리오 이미지의 파일명을 규칙에 맞게 변경한 뒤 업로드해주세요.
+            * 포트폴리오 이미지의 파일명을 규칙에 맞게 변경한 후 업로드해주세요.
           </Text>
           <Text>
-            (ex: p01.webp)
+            (ex: sanpati_portfolio_01.webp)
           </Text>
         </ExplainContainer>
       </ImageUploadContainer>
