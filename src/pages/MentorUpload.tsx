@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import { LayOutTitleContainer, TitleBarContainer, TitleColorText } from '../style/PageTitle';
-import InformUpload from '../components/UploadPage/InformUpload';
-import SingleImageUpload from '../components/UploadPage/SingleImageUpload';
-import CurriculumUpload from '../components/UploadPage/CurriculumUpload';
-import PortfolioUpload from '../components/UploadPage/PortfolioUpload';
-import EtcUpload from '../components/UploadPage/EtcUpload';
+import InformUpload from '../components/MentorUploadPage/InformUpload';
+import SingleImageUpload from '../components/MentorUploadPage/SingleImageUpload';
+import CurriculumUpload from '../components/MentorUploadPage/CurriculumUpload';
+import PortfolioUpload from '../components/MentorUploadPage/PortfolioUpload';
+import EtcUpload from '../components/MentorUploadPage/EtcUpload';
 
 const Upload = () => {
   

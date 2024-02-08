@@ -40,7 +40,7 @@ const NoticeDetail = React.lazy(() => import('./pages/NoticeDetail'));
 const Showcase = React.lazy(() => import('./pages/Showcase'));
 const Counseling = React.lazy(() => import('./pages/Counseling'));
 const Policy = React.lazy(() => import('./pages/Policy'));
-const Upload = React.lazy(() => import('./pages/Upload'));
+const Upload = React.lazy(() => import('./pages/MentorUpload'));
 
 
 const queryClient = new QueryClient();
@@ -58,7 +58,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} caseSensitive />
                 <Route element={<MainLayout />}>
-                  <Route path='/upload' element={<Upload />} caseSensitive />
+                  <Route path='/upload/mentor' element={<Upload />} caseSensitive />
                   <Route path='/check' element={<Check />} caseSensitive />
                   <Route path='/notice' element={<Notice />} caseSensitive />
                   <Route path='/mentor' element={<Mentor />} caseSensitive />
