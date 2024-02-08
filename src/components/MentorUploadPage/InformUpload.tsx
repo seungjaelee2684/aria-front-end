@@ -27,7 +27,7 @@ const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }
             ...mentorInfo,
             [name]: value
         });
-        console.log("멘토 정보 입력값", mentorInfo);
+        // console.log("멘토 정보 입력값", mentorInfo);
     };
 
     return (
@@ -212,6 +212,10 @@ const InputTag = styled.input`
 
     &::placeholder {
         color: #ADADAD;
+    }
+
+    &:hover {
+        border: 1px solid #5C9DFF;
     }
 
     &:focus {

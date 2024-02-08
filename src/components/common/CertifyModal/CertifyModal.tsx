@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import './CertifyModal.css';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,8 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
   
     const navigate = useNavigate();
 
-    const [certifyKey, setCertifyKey] = useState<{ password: string }>({
+    const [certifyKey, setCertifyKey] = useState<{ operateId: string, password: string }>({
+        operateId: "",
         password: ""
     });
 
@@ -23,6 +24,10 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
             [name]: value
         });
     };
+    
+    const onSubmitCertifyHandler = (e : FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
   
     return (
     <BackgroundContainer onClick={() => setSetting(false)}>
@@ -30,16 +35,23 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
             <TopLaneContainer>
                 운영자 KEY 인증
             </TopLaneContainer>
-            <ContentContainer>
+            <ContentContainer onSubmit={onSubmitCertifyHandler}>
                 <InputBar
                     type='text'
                     autoComplete="off"
+                    name='operateId'
+                    value={certifyKey.operateId}
+                    placeholder='Enter your ID'
+                    onChange={onChangePasswordHandler}/>
+                <InputBar
+                    type='password'
+                    autoComplete="off"
                     name='password'
                     value={certifyKey.password}
-                    placeholder='ex)  DE25QL4D8V29...'
-                    onChange={(e) => onChangePasswordHandler(e)}/>
+                    placeholder='Enter operator KEY ( ex: DE25QL4D8V29... )'
+                    onChange={onChangePasswordHandler}/>
                 <InformationContent>
-                    * 운영자 모드로 돌입하려면 정확한 인증 허가 Key를 입력해주십시오.
+                    * 운영자 모드로 돌입하려면 정확한 운영자 Key를 입력해주십시오.
                 </InformationContent>
                 <ButtonWrapper>
                     <Button color='#61a0ff' onClick={() => navigate("/upload")}>
@@ -104,18 +116,18 @@ const ContentContainer = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 10px;
 `;
 
 const InputBar = styled.input`
     width: 408px;
-    height: 46px;
+    height: 36px;
     background-color: #FCFCFC;
     border: 1px solid #ADADAD;
     padding: 0px 16px;
     border-radius: 3px;
     font-family: "Pretendard";
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     outline: none;
 
@@ -131,7 +143,7 @@ const InputBar = styled.input`
 const InformationContent = styled.div`
     width: 440px;
     font-family: "Pretendard";
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 100%;
     color: #ADADAD;
