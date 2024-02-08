@@ -105,7 +105,7 @@ const Upload = () => {
             ? <PrevNextButton onClick={() => prevNextMoveHandler(false)}>
               다음
             </PrevNextButton>
-            : <PrevNextButton onClick={uploadHandler}>
+            : <PrevNextButton style={{backgroundColor: "#5C9DFF"}} onClick={uploadHandler}>
               등록
             </PrevNextButton>}
         </PrevNextButtonWrapper>

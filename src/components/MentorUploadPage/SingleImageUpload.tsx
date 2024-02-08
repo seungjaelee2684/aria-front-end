@@ -61,7 +61,7 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
     };
   };
 
-  console.log("업로드", { banner_image, nickname_image, thumbnail_image }, "프리뷰", imageData);
+  // console.log("업로드", { banner_image, nickname_image, thumbnail_image }, "프리뷰", imageData);
 
   return (
     <BoxContainer>
