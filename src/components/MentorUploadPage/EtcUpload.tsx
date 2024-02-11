@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import styled from 'styled-components';
 import { BoxContainer } from './InformUpload';
 import { IoIosLink } from "react-icons/io";
@@ -16,8 +16,18 @@ interface EtcUploadProps {
 
 const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
   
+  const { home, youtube, twitter, instagram, artstation, pixiv } = snsLink;
   
-  
+  const onChangeLinkHandler = (e : ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSnsLink({
+      ...snsLink,
+      [name]: value
+    });
+  };
+
+  // console.log("링크", snsLink);
+
   return (
     <BoxContainer>
       <LayoutContainer>
@@ -27,7 +37,11 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
           </Icon>
           <Input 
             type='text'
-            placeholder='https://www.example.com/'/>
+            placeholder='https://www.example.com/'
+            autoComplete='off'
+            name='home'
+            value={home}
+            onChange={onChangeLinkHandler}/>
           <SocialBox>
             <IconImage src={Home} alt=''/>
             홈페이지
@@ -39,7 +53,11 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
           </Icon>
           <Input 
             type='text'
-            placeholder='https://www.example.com/'/>
+            placeholder='https://www.example.com/'
+            autoComplete='off'
+            name='youtube'
+            value={youtube}
+            onChange={onChangeLinkHandler}/>
           <SocialBox>
             <IconImage src={Youtube} alt=''/>
             유튜브
@@ -51,7 +69,11 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
           </Icon>
           <Input 
             type='text'
-            placeholder='https://www.example.com/'/>
+            placeholder='https://www.example.com/'
+            autoComplete='off'
+            name='twitter'
+            value={twitter}
+            onChange={onChangeLinkHandler}/>
           <SocialBox>
             <IconImage src={Twitter} alt=''/>
             트위터
@@ -63,7 +85,11 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
           </Icon>
           <Input 
             type='text'
-            placeholder='https://www.example.com/'/>
+            placeholder='https://www.example.com/'
+            autoComplete='off'
+            name='instagram'
+            value={instagram}
+            onChange={onChangeLinkHandler}/>
           <SocialBox>
             <IconImage src={Instagram} alt=''/>
             인스타그램
@@ -75,7 +101,11 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
           </Icon>
           <Input 
             type='text'
-            placeholder='https://www.example.com/'/>
+            placeholder='https://www.example.com/'
+            autoComplete='off'
+            name='artstation'
+            value={artstation}
+            onChange={onChangeLinkHandler}/>
           <SocialBox>
             <IconImage src={Artstation} alt=''/>
             아트스테이션
@@ -87,7 +117,11 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
           </Icon>
           <Input 
             type='text'
-            placeholder='https://www.example.com/'/>
+            placeholder='https://www.example.com/'
+            autoComplete='off'
+            name='pixiv'
+            value={pixiv}
+            onChange={onChangeLinkHandler}/>
           <SocialBox>
             <IconImage src={Pixiv} alt=''/>
             픽시브
@@ -107,7 +141,7 @@ const EtcUpload : React.FC<EtcUploadProps> = ({ snsLink, setSnsLink }) => {
 };
 
 const LayoutContainer = styled.div`
-  width: 96%;
+  width: 90%;
   height: 98%;
   display: flex;
   flex-direction: column;
@@ -158,10 +192,14 @@ const Input = styled.input`
   background-color: #FCFCFC;
 
   &::placeholder {
-    color: #ADADAD;
+    color: #c4c4c4;
   }
 
   &:hover {
+    border: 1px solid #5C9DFF;
+  }
+
+  &:focus {
     border: 1px solid #5C9DFF;
   }
 `;

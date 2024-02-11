@@ -51,7 +51,7 @@ const PortfolioUpload : React.FC<PortfolioUploadProps> = ({ mentorImage, setMent
     setImageList(newImageList);
   };
 
-  console.log("통신 데이터", portfolio_image, "URL", imageList);
+  // console.log("통신 데이터", portfolio_image, "URL", imageList);
 
   return (
     <BoxContainer>

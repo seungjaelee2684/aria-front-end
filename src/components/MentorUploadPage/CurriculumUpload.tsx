@@ -37,7 +37,7 @@ const CurriculumUpload : React.FC<CurriculumUploadProps> = ({ mentorImage, setMe
     setImageList(newImageList);
   };
 
-  console.log("통신 데이터", curriculum_image, "URL", imageList);
+  // console.log("통신 데이터", curriculum_image, "URL", imageList);
 
   return (
     <BoxContainer>
