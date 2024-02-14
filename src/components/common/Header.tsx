@@ -132,11 +132,11 @@ const Header = () => {
                             </MobileTranslateContainer> */}
                         </TranslateContainer>
                         {/* <BarContainer /> */}
-                        <SettingWrapper onClick={() => setSetting(!setting)}>
+                        {/* <SettingWrapper onClick={() => setSetting(!setting)}>
                             <Setting>
                                 <LuKeyRound />
                             </Setting>
-                        </SettingWrapper>
+                        </SettingWrapper> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>

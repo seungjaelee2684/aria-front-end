@@ -40,7 +40,8 @@ const NoticeDetail = React.lazy(() => import('./pages/NoticeDetail'));
 const Showcase = React.lazy(() => import('./pages/Showcase'));
 const Counseling = React.lazy(() => import('./pages/Counseling'));
 const Policy = React.lazy(() => import('./pages/Policy'));
-const Upload = React.lazy(() => import('./pages/MentorUpload'));
+const MentorUpload = React.lazy(() => import('./pages/MentorUpload'));
+const Update = React.lazy(() => import('./pages/Update'));
 
 
 const queryClient = new QueryClient();
@@ -58,7 +59,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} caseSensitive />
                 <Route element={<MainLayout />}>
-                  <Route path='/upload/mentor' element={<Upload />} caseSensitive />
+                  <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive />
                   <Route path='/check' element={<Check />} caseSensitive />
                   <Route path='/notice' element={<Notice />} caseSensitive />
                   <Route path='/mentor' element={<Mentor />} caseSensitive />
@@ -70,6 +71,7 @@ function App() {
                   <Route path='/notice/notification' element={<Notification />} caseSensitive />
                   <Route path='/notice/notification/detail/:id' element={<NotificationDetail />} caseSensitive />
                   <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
+                  <Route path='/update/:id' element={<Update />} caseSensitive />
                 </Route>
               </Routes>
               <ScrollTopButton />
