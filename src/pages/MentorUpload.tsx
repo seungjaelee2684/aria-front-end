@@ -6,33 +6,15 @@ import SingleImageUpload from '../components/MentorUploadPage/SingleImageUpload'
 import CurriculumUpload from '../components/MentorUploadPage/CurriculumUpload';
 import PortfolioUpload from '../components/MentorUploadPage/PortfolioUpload';
 import EtcUpload from '../components/MentorUploadPage/EtcUpload';
+import { useRecoilState } from 'recoil';
+import { mentorImageUpload, mentorInfoUpload, snsLinkUpload } from '../store/CreateOrUpload';
 
 const Upload = () => {
   
   const uploadRef = useRef<HTMLDivElement>(null);
-  const [mentorImage, setMentorImage] = useState<any>({
-    banner_image: null,
-    nickname_image: null,
-    thumbnail_image: null,
-    curriculum_image: [],
-    portfolio_image: [],
-  });
-  const [mentorInfo, setMentorInfo] = useState<any>({
-    englishname: "",
-    chinesename: "",
-    japanesename: "",
-    nickname: "",
-    nation: "America",
-    opendate: ""
-  }); 
-  const [snsLink, setSnsLink] = useState<any>({
-    home: "",
-    youtube: "",
-    twitter: "",
-    instagram: "",
-    artstation: "",
-    pixiv: ""
-  });
+  const [mentorImage, setMentorImage] = useRecoilState(mentorInfoUpload);
+  const [mentorInfo, setMentorInfo] = useRecoilState(mentorImageUpload);
+  const [snsLink, setSnsLink] = useRecoilState(snsLinkUpload);
 
   const slidePage : string[] = [
     "강사 정보 입력",

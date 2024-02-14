@@ -199,11 +199,12 @@ const SingleImageUpload : React.FC<SingleImageUploadProps> = ({ mentorImage, set
 
 const ContentContainer = styled.div`
   width: 96%;
-  height: 98%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px 0px;
 `;
 
 const LaneContainer = styled.div`
