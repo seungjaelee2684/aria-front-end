@@ -89,12 +89,13 @@ const CurriculumUpload : React.FC<CurriculumUploadProps> = ({ mentorImage, setMe
 
 export const ImageUploadContainer = styled.div`
   width: 96%;
-  height: 98%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  padding: 20px 0px;
 `;
 
 export const ExampleImage = styled.img`
