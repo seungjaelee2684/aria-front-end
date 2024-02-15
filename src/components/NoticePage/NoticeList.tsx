@@ -1,167 +1,325 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import NoticeCard from './NoticeCard';
-import { eventPosterData } from '../../data/EventPosterData';
+import { translate } from '../../store/Translation';
+import Notice from '../../assets/icons/notification.png';
+import { IoIosArrowForward } from "react-icons/io";
+import { noticeData } from '../../data/NoticeData';
+import { useNavigate } from 'react-router-dom';
+import { AiOutlineNotification } from "react-icons/ai";
+import { NoticeTrans } from '../../languages/NoticeTrans';
+import NotSearch from '../common/NotSearch';
 
 interface NoticeListProps {
-  language: string | null;
-  selectOption: {
-    pick: string,
-    japanesepick: string,
-    englishpick: string,
-    chinesepick: string
-  };
-  setSelectOption: React.Dispatch<React.SetStateAction<{
-      pick: string,
-      japanesepick: string,
-      englishpick: string,
-      chinesepick: string
-  }>>;
-  content: string;
-  setContent: React.Dispatch<React.SetStateAction<string>>;
-  setTotalNumber: React.Dispatch<React.SetStateAction<number>>;
-}
+    noticeFilter: string;
+};
 
-const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSelectOption, content, setContent, setTotalNumber }) => {
+const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
 
-  const ProceedingData = eventPosterData?.filter((item) => item?.status === selectOption?.englishpick);
-  const searchDataKR = eventPosterData?.filter((item) => {
-    return item?.title.toLowerCase().includes(content.toLowerCase());
-  });
-  const searchDataJP = eventPosterData?.filter((item) => {
-    return item?.japanesetitle.toLowerCase().includes(content.toLowerCase());
-  });
-  const searchDataEN = eventPosterData?.filter((item) => {
-    return item?.englishtitle.toLowerCase().includes(content.toLowerCase());
-  });
-  const searchDataCN = eventPosterData?.filter((item) => {
-    return item?.chinesetitle.toLowerCase().includes(content.toLowerCase());
-  });
-  console.log("검색", searchDataKR);
+    const language = localStorage.getItem("language");
+    const navigate = useNavigate();
 
-  const onFilterChange = () => {
-    if (content === "") {
-      if (selectOption?.englishpick === "All") {
-        return (
-          eventPosterData?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else {
-        return (
-          ProceedingData?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      };
-    } else {
-      if (language === "english") {
-        return (
-          searchDataEN?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else if (language === "chinese") {
-        return (
-          searchDataCN?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else if (language === "japanese") {
-        return (
-          searchDataJP?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else if (language === "korean") {
-        return (
-          searchDataKR?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else {
-        return (
-          searchDataEN?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      };
-    }; 
-  };
+    const filterNoticeData = noticeData.filter((item : any) => item?.status === noticeFilter);
 
-  useEffect(() => {
-    if (content === "") {
-      if (selectOption?.englishpick === "All") {
-        setTotalNumber(eventPosterData.length);
-      } else {
-        setTotalNumber(ProceedingData.length);
-      };
-    } else {
-      if (language === "english") {
-        setTotalNumber(searchDataEN.length);
-      } else if (language === "chinese") {
-        setTotalNumber(searchDataCN.length);
-      } else if (language === "japanese") {
-        setTotalNumber(searchDataJP.length);
-      } else {
-        setTotalNumber(searchDataKR.length);
-      };
+    const onClickNoticeHandler = ( item : any ) => {
+        navigate(`/notice/notification/detail/${item?.id}`);
     };
-  }, [selectOption, content]);
+
+    const textChange = ( Num : number ) => {
+        switch (language) {
+            case "japanese" :
+                return NoticeTrans[Num]?.japanesetext;
+            case "korean" :
+                return NoticeTrans[Num]?.text;
+            default :
+                return NoticeTrans[Num]?.englishtext;
+        };
+    };
+
+    const contentChange = ( item : any ) => {
+        switch (language) {
+            case "japanese" :
+                return item?.contents.japanesetitle;
+            case "korean" :
+                return item?.contents.title;
+            default :
+                return item?.contents.englishtitle;
+        };
+    };
 
   return (
     <ListContainer>
-      {onFilterChange()}
+        <TopLineContainer>
+            <TopLaneLeftText>
+                {textChange(4)}
+            </TopLaneLeftText>
+            <TopLaneCenterText>
+                {textChange(5)}
+            </TopLaneCenterText>
+            <TopLaneRightText>
+                {textChange(6)}
+            </TopLaneRightText>
+        </TopLineContainer>
+        {(noticeData?.length !== 0)
+            ? (noticeFilter === "All")
+                ? noticeData?.map((item : any) => {
+                    return (
+                        <LineContainer
+                            key={item.id}
+                            style={{
+                                borderBottom: (noticeData?.indexOf(item) === noticeData.length - 1) ? "none" : "1px solid #e9e9e9"
+                            }}>
+                            <ContentWrapper>
+                                <NoticeIcon
+                                    style={{
+                                        color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                    }}>
+                                    {(item?.status === "Notice")
+                                        ? textChange(1)
+                                        : textChange(2)}
+                                </NoticeIcon>
+                                <Text onClick={() => onClickNoticeHandler(item)}>
+                                    {contentChange(item)}
+                                </Text>
+                                {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                            </ContentWrapper>   
+                            <RightWrapper>        
+                                <RightText>
+                                    ARIA | {item?.contents.date}
+                                </RightText>
+                            </RightWrapper>
+                        </LineContainer>
+                    )
+                })
+                : (filterNoticeData?.length !== 0)
+                    ? filterNoticeData?.map((item : any) => {
+                        return (
+                            <LineContainer
+                                key={item.id}
+                                style={{
+                                    borderBottom: (noticeData?.indexOf(item) === noticeData.length - 1) ? "none" : "1px solid #e9e9e9"
+                                }}>
+                                <ContentWrapper>
+                                    <NoticeIcon
+                                        style={{
+                                            color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                        }}>
+                                        {(item?.status === "Notice")
+                                            ? textChange(1)
+                                            : textChange(2)}
+                                    </NoticeIcon>
+                                    <Text onClick={() => onClickNoticeHandler(item)}>
+                                        {contentChange(item)}
+                                    </Text>
+                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
+                                </ContentWrapper>   
+                                <RightWrapper>        
+                                    <RightText>
+                                        ARIA | {item?.contents.date}
+                                    </RightText>
+                                </RightWrapper>
+                            </LineContainer>
+                        ) 
+                    })
+                : <NotSearch />
+            : <NotSearch />
+        }
     </ListContainer>
   )
 };
 
+const ListLayoutContainer = styled.div`
+    width: 1320px;
+    margin: 60px auto;
+
+    @media screen and (max-width: 1320px) {
+        width: 96%;
+    }
+`;
+
+const OutWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @media screen and (max-width: 500px) {
+        gap: 8px;
+    }
+`;
+
 const ListContainer = styled.div`
-  width: 1320px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 30px 0px;
-  border-top: 2px solid #222020;
-  margin: 0px auto;
+    border-top: 2px solid #222020;
+    border-bottom: 2px solid #222020;
+`;
 
-  @media screen and (max-width: 1320px) {
-    width: 96%;
-    gap: 16px;
+export const LineContainer = styled.div`
+    font-family: "Pretendard";
+    line-height: normal;
+    height: 80px;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e9e9e9;
+
+    @media screen and (max-width: 500px) {
+        height: 20px;
+        padding: 14px 10px;
+    }
+`;
+
+const TopLineContainer = styled(LineContainer)`
+    height: 60px;
+
+    @media screen and (max-width: 500px) {
+        height: 20px;
+        padding: 14px 10px;
+    }
+`;
+
+const ContentWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 24px;
+
+    @media screen and (max-width: 500px) {
+        gap: 8px;
+    }
+`;
+
+const Text = styled.div`
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    /* color: #39373A; */
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
+    }
+`;
+
+const NoticeIcon = styled.div`
+    font-family: "Pretendard";
+    font-weight: 700;
+    line-height: normal;
+    font-size: 16px;
+    color: #db0e0e;
+    display: flex;
+    align-items: center;
+    min-width: 80px;
+    display: flex;
     justify-content: center;
-  }
+    align-items: center;
 
-  @media screen and (max-width: 500px) {
-    padding: 16px 0px;
-  }
+    @media screen and (max-width: 836px) {
+        font-size: 14px;
+        min-width: 50px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
+        min-width: 30px;
+    }
+`;
+
+const RightWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+        gap: 8px;
+    }
+`;
+
+const RightText = styled.div`
+    font-family: "Pretendard";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+   /* color: #222020; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+
+    @media screen and (max-width: 836px) {
+        font-size: 12px;
+        width: 100px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 8px;
+        width: 80px;
+    }
+`;
+
+const LaneImage = styled.img`
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    margin-left: 60px;
+
+    @media screen and (max-width: 836px) {
+        width: 38px;
+        height: 38px;
+        margin-left: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 26px;
+        height: 26px;
+        margin-left: 0px;
+    }
+`;
+
+export const TopLaneLeftText = styled.div`
+    font-size: 18px;
+    font-weight: 600;
+   /* color: #222020; */
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 836px) {
+        font-size: 16px;
+        min-width: 50px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+        min-width: 30px;
+    }
+`;
+
+const TopLaneCenterText = styled(TopLaneLeftText)`
+    display: flex;
+    justify-content: center;
+`;
+
+const TopLaneRightText = styled(TopLaneLeftText)`
+    width: 120px;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 836px) {
+        width: 100px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 80px;
+    }
 `;
 
 export default NoticeList;

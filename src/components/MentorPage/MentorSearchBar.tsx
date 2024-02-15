@@ -16,8 +16,6 @@ const MentorSearchBar = () => {
 
     const contentTranslate = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return etcTextTrans[Num]?.chinesetext
             case "japanese" :
                 return etcTextTrans[Num]?.japanesetext
             case "korean" :
@@ -37,7 +35,6 @@ const MentorSearchBar = () => {
         setSearchValue(mentorSearch);
         setMentorSearch("");
     };
-    console.log("강사 검색 -> ", searchValue, mentorSearch);
 
   return (
     <SearchBarOutContainer>

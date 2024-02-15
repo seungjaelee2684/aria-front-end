@@ -26,7 +26,6 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
             key: i
         });
     };
-    console.log("두번째 슬라이드 타이틀 -> ", titleArr);
 
     return (
         <ImageBoxWrapper>
@@ -136,10 +135,14 @@ const SecondPageTitle = styled.div`
 
 export const TitleText = styled.span`
     font-family: "LatinCondensed";
-    font-size: 70px;
+    font-size: 120px;
     font-weight: 400;
     line-height: normal;
     opacity: 0;
+
+    @media screen and (max-width: 1920px) {
+        font-size: 90px;
+    }
 
     @media screen and (max-width: 1320px) {
         font-size: 60px;
@@ -185,14 +188,19 @@ const SecondPageContentContainer = styled.div`
 
 const SecondPageContent = styled.div`
     font-family: "ZingRustDemo";
-    font-size: 30px;
+    font-size: 48px;
     font-weight: 400;
     line-height: normal;
     color: #FCFCFC;
     user-select: none;
     text-align: left;
     display: flex;
-    gap: 10px;
+    gap: 16px;
+
+    @media screen and (max-width: 1920px) {
+        font-size: 36px;
+        gap: 10px;
+    }
 
     @media screen and (max-width: 1320px) {
         font-size: 22px;
@@ -200,8 +208,9 @@ const SecondPageContent = styled.div`
     }
 
     @media screen and (max-width: 836px) {
-        font-size: 14px;
+        font-size: 16px;
         gap: 3px;
+        flex-direction: column;
     }
 `;
 

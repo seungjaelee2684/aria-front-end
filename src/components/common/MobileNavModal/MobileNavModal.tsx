@@ -46,8 +46,6 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
 
   const languageChange = () => {
     switch (language) {
-      case "chinese" :
-        return "中文";
       case "japanese" :
         return "日本語";
       case "korean" :
@@ -92,25 +90,6 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               </TranslateText> 
               <TiArrowSortedDown />
             </TranslateWrapper>
-            {/* <TranslateWrapper
-              style={{
-                color: `${(darkmode === "dark") ? "#FCFCFC" : "#222020"}`,
-                fontSize: "18px"
-              }}
-              onClick={() => {
-                if (darkmode === "dark") {
-                  localStorage.setItem("darkmode", "light");
-                  window.location.reload();
-                } else {
-                  localStorage.setItem("darkmode", "dark");
-                  window.location.reload();
-                };
-              }}>
-              <MdOutlineDarkMode />
-              <TranslateText style={{fontFamily: "Pretendard", fontWeight: "500"}}>
-                {(darkmode === "dark") ? "Light" : "Dark"}
-              </TranslateText> 
-            </TranslateWrapper> */}
           </TranslateContainer>
         </CloseBtnContainer>
         <TextWrapper>

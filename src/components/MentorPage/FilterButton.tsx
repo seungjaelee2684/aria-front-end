@@ -22,8 +22,6 @@ const FilterButton = () => {
 
     const filterTranslate = () => {
         switch (language) {
-            case "chinese" :
-                return nationkind?.chinesepick;
             case "japanese" :
                 return nationkind?.japanesepick;
             case "korean" :

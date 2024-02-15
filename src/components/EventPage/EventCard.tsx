@@ -5,11 +5,11 @@ import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import { useNavigate } from 'react-router-dom';
 
-interface NoticeCardProps {
+interface EventCardProps {
     item: any;
 }
 
-const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
+const EventCard : React.FC<EventCardProps> = ({ item }) => {
 
     const navigate = useNavigate();
     const language = localStorage.getItem("language");
@@ -17,10 +17,6 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
     const onTextHandler = ( Num : number ) => {
         if (Num === 0) {
           switch (language) {
-            case "english" :
-                return `Title : ${item?.englishtitle}`;
-            case "chinese" :
-                return `题目 : ${item?.chinesetitle}`;
             case "japanese" :
                 return `タイトル : ${item?.japanesetitle}`;
             case "korean" :
@@ -30,10 +26,6 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
           };
         } else if (Num === 1) {
             switch (language) {
-                case "english" :
-                    return "Period : ";
-                case "chinese" :
-                    return "时间 : ";
                 case "japanese" :
                     return "期間 : ";
                 case "korean" :
@@ -43,10 +35,6 @@ const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
             };
         } else {
           switch (language) {
-            case "english" :
-                return "Deadline";
-            case "chinese" :
-                return "结束";
             case "japanese" :
                 return "締め切り";
             case "korean" :
@@ -221,4 +209,4 @@ const StampInBox = styled.div`
     align-items: center;
 `;
 
-export default NoticeCard;
+export default EventCard;

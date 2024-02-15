@@ -5,7 +5,7 @@ import Notice from '../../../assets/icons/notification.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 import './Notification.css';
-import { NotificationData } from '../../../data/NotificationData';
+import { noticeData } from '../../../data/NoticeData';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
 
@@ -20,10 +20,6 @@ const Notification = () => {
     const onTitleHandler = ( Num : number ) => {
         if (Num === 0) {
           switch (language) {
-            case "english" :
-                return "Announcements";
-            case "chinese" :
-                return "公告事项";
             case "japanese" :
                 return "お知らせ";
             case "korean" :
@@ -33,10 +29,6 @@ const Notification = () => {
           };
         } else {
           switch (language) {
-            case "english" :
-                return "More";
-            case "chinese" :
-                return "查看更多";
             case "japanese" :
                 return "もっと見る";
             case "korean" :
@@ -49,20 +41,18 @@ const Notification = () => {
 
     const noticeText = ( item : any ) => {
         switch (language) {
-            case "chinese" :
-                return item?.chinesenotice.title;
             case "japanese" :
-                return item?.japanesenotice.title;
+                return item?.contents.japanesetitle;
             case "korean" :
-                return item?.notice.title;
+                return item?.contents.title;
             default :
-                return item?.englishnotice.title;
+                return item?.contents.englishtitle;
         };
     };
 
     useEffect(() => {
         const interVal = setInterval(() => {
-            setTextCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NotificationData.length));
+            setTextCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (noticeData.length));
             setPrevCuttent(textCurrent);
         }, 6000);
 
@@ -70,8 +60,6 @@ const Notification = () => {
             clearInterval(interVal);
         };
     }, [textCurrent, prevCuttent]);
-
-    // console.log("공지사항 번호", textCurrent, startPoint);
 
   return (
     <LineContainer>
@@ -87,13 +75,13 @@ const Notification = () => {
                 }>{onTitleHandler(0)}</Title>
             <BarContainer />
             <TextWrapper>
-                {NotificationData?.map((item : any) => {
+                {noticeData?.map((item : any) => {
                     return (
                         <Text
                             className={
-                                (textCurrent === NotificationData.indexOf(item))
+                                (textCurrent === noticeData.indexOf(item))
                                     ? "Text"
-                                    : (prevCuttent === NotificationData.indexOf(item))
+                                    : (prevCuttent === noticeData.indexOf(item))
                                         ? "PrevText"
                                         : ""
                             }

@@ -9,8 +9,6 @@ const NotSearch = () => {
 
     const textTranslate = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return etcTextTrans[Num]?.chinesetext;
             case "japanese" :
                 return etcTextTrans[Num]?.japanesetext;
             case "korean" :

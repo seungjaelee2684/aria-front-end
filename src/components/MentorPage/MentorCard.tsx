@@ -12,8 +12,6 @@ const MentorCard = ({ item, language } : any) => {
 
   const languageTrans = () => {
     switch (language) {
-      case "chinese" :
-        return item?.chinesename;
       case "japanese" :
         return item?.japanesename;
       case "korean" :
@@ -106,7 +104,7 @@ const CardImage = styled.div<{ src : string }>`
   }
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.p`
   display: grid;
   margin-top: 5px;
   gap: 0px;

@@ -18,6 +18,10 @@ const Update = () => {
     const [mentorInfo, setMentorInfo] = useRecoilState(mentorImageUpload);
     const [snsLink, setSnsLink] = useRecoilState(snsLinkUpload);
 
+    const onClickUpdateHandler = () => {
+        alert("아직 준비중입니다.");
+    };
+
     return (
         <LayoutContainer>
             <LayOutTitleContainer>
@@ -53,6 +57,11 @@ const Update = () => {
                         setSnsLink={setSnsLink} />
                 </LaneContainer>
             </ContentContainer>
+            <UpdateButtonWrapper>
+                <UpdateButton onClick={onClickUpdateHandler}>
+                    수정 완료
+                </UpdateButton>
+            </UpdateButtonWrapper>
         </LayoutContainer>
     )
 };
@@ -85,6 +94,28 @@ const LaneContainer = styled.div`
     width: 100%;
     padding: 10px 0px;
     border-bottom: 1px solid #222020;
+`;
+
+const UpdateButtonWrapper = styled.div`
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const UpdateButton = styled.button`
+    width: 120px;
+    height: 40px;
+    background-color: #5C9DFF;
+    color: #FFFFFF;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 100%;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 `;
 
 export default Update;

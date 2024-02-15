@@ -62,8 +62,6 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
 
     const headerTrans = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return mobileHeaderTrans[Num]?.chinesetext;
             case "japanese" :
                 return mobileHeaderTrans[Num]?.japanesetext;
             case "korean" :

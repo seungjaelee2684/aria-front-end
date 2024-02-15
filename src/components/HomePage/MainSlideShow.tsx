@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import SlideImg from '../../assets/images/mentorimage.webp';
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
 import { mentorListData } from '../../data/MentorData';
 
 interface MainSlideShowProps {
@@ -18,8 +15,6 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     const widthMove = mainSlideCurrent * 100
 
     const newSlideDataList = mentorListData?.filter((data) => data?.isready);
-
-    console.log("필터된 멘토 데이터", newSlideDataList);
 
     useEffect(() => {
         const mainSlideInterval = setInterval(() => {
@@ -91,13 +86,18 @@ const SlideImage = styled.div<{ src : string }>`
 `;
 
 const Nickname = styled.img`
-    width: 80%;
+    width: 50%;
     height: auto;
     object-fit: cover;
     position: absolute;
-    top: 35%;
+    top: 20%;
     left: 10%;
     user-select: none;
+
+    @media screen and (max-width: 1920px) {
+        width: 80%;
+        top: 35%;
+    }
 `;
 
 const SmallNicknameRight = styled.img`
