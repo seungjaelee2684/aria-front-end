@@ -62,6 +62,7 @@ const TitleContainer = styled.div`
   user-select: none;
   position: relative;
   margin: 0px auto;
+  overflow: hidden;
 
   @media screen and (max-width: 836px) {
     height: 200px;
@@ -97,32 +98,36 @@ const TextWrapper = styled.div`
   @media screen and (max-width: 1320px) {
     width: 96%;
   }
+
+  @media screen and (max-width: 500px) {
+    gap: 10px;
+  }
 `;
 
 const TextBox = styled.div`
   color: #FCFCFC;
-  font-family: "Pretendard";
-  font-size: 46px;
+  font-family: "ONE-Mobile-Title";
+  font-size: 60px;
   font-weight: 700;
   line-height: 150%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;
 
   @media screen and (max-width: 500px) {
-    font-size: 28px;
+    font-size: 40px;
   }
 `;
 
 const AnimationBar = styled.div`
   width: 4px;
-  height: 40px;
+  height: 60px;
   background-color: #FCFCFC;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;
 
   @media screen and (max-width: 500px) {
-    width: 60px;
-    height: 2px;
+    width: 4px;
+    height: 40px;
   }
 `;
 

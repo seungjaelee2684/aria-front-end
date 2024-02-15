@@ -1,4 +1,4 @@
-import Banner from '../assets/images/rapla2.png';
+import Banner from '../assets/images/notice_banner.webp';
 
 type InfoType = {
     image: string,

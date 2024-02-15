@@ -25,9 +25,6 @@ const FirstPageImage : React.FC<FirstPageImageProps> = ({ mainPageTextChange }) 
         className={
           (imageLoad)
             ? "background-close"
-            // ? (scrollIndex === 1)
-            //   ? "background-close"
-            //   : ""
             : ""}
         />
       <BackgroundImage src={FirstBG} alt='' onLoad={() => setImageLoad(true)}/>
@@ -130,7 +127,11 @@ export const BackgroundContainer = styled.div`
 const LogoImageContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
+
+  @media screen and (max-width: 1920px) {
+    gap: 30px;
+  }
 
   @media screen and (max-width: 1320px) {
     gap: 20px;
@@ -143,9 +144,13 @@ const LogoImageContainer = styled.div`
 
 const LogoImage = styled.img`
   width: auto;
-  height: 180px;
+  height: 350px;
   object-fit: cover;
   opacity: 0;
+
+  @media screen and (max-width: 1920px) {
+    height: 180px;
+  }
 
   @media screen and (max-width: 1320px) {
     height: 220px;
