@@ -5,7 +5,7 @@ import Notice from '../../../assets/icons/notification.png';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../../store/Translation';
 import './Notification.css';
-import { NotificationData } from '../../../data/NotificationData';
+import { noticeData } from '../../../data/NoticeData';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineNotification } from "react-icons/ai";
 
@@ -42,17 +42,17 @@ const Notification = () => {
     const noticeText = ( item : any ) => {
         switch (language) {
             case "japanese" :
-                return item?.japanesenotice.title;
+                return item?.contents.japanesetitle;
             case "korean" :
-                return item?.notice.title;
+                return item?.contents.title;
             default :
-                return item?.englishnotice.title;
+                return item?.contents.englishtitle;
         };
     };
 
     useEffect(() => {
         const interVal = setInterval(() => {
-            setTextCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NotificationData.length));
+            setTextCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (noticeData.length));
             setPrevCuttent(textCurrent);
         }, 6000);
 
@@ -75,13 +75,13 @@ const Notification = () => {
                 }>{onTitleHandler(0)}</Title>
             <BarContainer />
             <TextWrapper>
-                {NotificationData?.map((item : any) => {
+                {noticeData?.map((item : any) => {
                     return (
                         <Text
                             className={
-                                (textCurrent === NotificationData.indexOf(item))
+                                (textCurrent === noticeData.indexOf(item))
                                     ? "Text"
-                                    : (prevCuttent === NotificationData.indexOf(item))
+                                    : (prevCuttent === noticeData.indexOf(item))
                                         ? "PrevText"
                                         : ""
                             }

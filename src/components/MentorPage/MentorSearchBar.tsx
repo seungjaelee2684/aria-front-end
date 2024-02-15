@@ -35,7 +35,6 @@ const MentorSearchBar = () => {
         setSearchValue(mentorSearch);
         setMentorSearch("");
     };
-    console.log("강사 검색 -> ", searchValue, mentorSearch);
 
   return (
     <SearchBarOutContainer>

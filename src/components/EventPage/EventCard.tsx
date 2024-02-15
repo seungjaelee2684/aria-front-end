@@ -5,11 +5,11 @@ import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import { useNavigate } from 'react-router-dom';
 
-interface NoticeCardProps {
+interface EventCardProps {
     item: any;
 }
 
-const NoticeCard : React.FC<NoticeCardProps> = ({ item }) => {
+const EventCard : React.FC<EventCardProps> = ({ item }) => {
 
     const navigate = useNavigate();
     const language = localStorage.getItem("language");
@@ -209,4 +209,4 @@ const StampInBox = styled.div`
     align-items: center;
 `;
 
-export default NoticeCard;
+export default EventCard;

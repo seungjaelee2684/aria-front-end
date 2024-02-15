@@ -26,7 +26,6 @@ const SecondPageImage : React.FC<SecondPageImageProps> = ({ mainPageTextChange }
             key: i
         });
     };
-    console.log("두번째 슬라이드 타이틀 -> ", titleArr);
 
     return (
         <ImageBoxWrapper>

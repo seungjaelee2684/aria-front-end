@@ -2,8 +2,7 @@ import Image from '../assets/images/poster.png';
 import Image2 from '../assets/images/poster2.png';
 import Image3 from '../assets/images/poster3.png';
 
-
-export const NotificationData = [
+export const noticeData = [
     {
         id: "1",
         contents: {
