@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { NoticeTrans, filterState } from '../../languages/NoticeTrans';
-import { NotificationData } from '../../data/NotificationData';
+import { noticeData } from '../../data/NoticeData';
 import NoticeFilterModal from './NoticeFilterModal';
 import { TiArrowSortedDown } from "react-icons/ti";
 
-interface NotificationFilterProps {
+interface NoticeFilterProps {
     noticeFilter: string;
     setNoticeFilter: React.Dispatch<React.SetStateAction<string>>;
 };
@@ -16,7 +16,7 @@ type FilterType = {
     state: string
 };
 
-const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, setNoticeFilter }) => {
+const NoticeFilter : React.FC<NoticeFilterProps> = ({ noticeFilter, setNoticeFilter }) => {
   
     const language = localStorage.getItem("language");
     const filterRef = useRef<HTMLDivElement>(null);
@@ -96,4 +96,4 @@ const FilterOutWrapper = styled.div`
     }
 `;
 
-export default NotificationFilter;
+export default NoticeFilter;

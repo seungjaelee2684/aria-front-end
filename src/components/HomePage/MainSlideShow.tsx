@@ -16,8 +16,6 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
 
     const newSlideDataList = mentorListData?.filter((data) => data?.isready);
 
-    console.log("필터된 멘토 데이터", newSlideDataList);
-
     useEffect(() => {
         const mainSlideInterval = setInterval(() => {
             if (mainSlideCurrent === 0) {

@@ -15,9 +15,6 @@ const AlertModal = () => {
 
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
-  console.log("모달창 데이터", alertModal.whatAlert);
-  console.log("링크 데이터", alertModal.content);
-
   const language = localStorage.getItem("language");
 
   const alertTranslate = (Num: number) => {

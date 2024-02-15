@@ -20,7 +20,6 @@ const ScrollBar = () => {
       
         // 스크롤 위치를 표시하거나 다른 작업을 수행합니다.
     });
-    console.log("현재 스크롤 위치:", scrollPer);
 
   return (
     <ScrollBarContainer>

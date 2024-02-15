@@ -7,12 +7,10 @@
     from {
         display: none;
         opacity: 0;
-        /* transform: translateY(-35px); */
     }
     to {
         display: flex;
         opacity: 1;
-        /* transform: translateY(0); */
     }
 }
 
@@ -20,11 +18,9 @@
     from {
         display: flex;
         opacity: 1;
-        /* transform: translateY(0); */
     }
     to {
         display: none;
         opacity: 0;
-        /* transform: translateY(-35px); */
     }
 }

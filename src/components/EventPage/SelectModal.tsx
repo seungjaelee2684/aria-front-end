@@ -46,8 +46,6 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
       };
     };
 
-    console.log("test", selectOption?.englishpick);
-
   return (
     <ModalContainer>
       {modalOption.map((item : OptionType) => {

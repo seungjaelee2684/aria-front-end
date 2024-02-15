@@ -26,7 +26,6 @@ const MentorDetail = () => {
     });
     const { isopen } = isOpenPortfolio;
     const mentorInfo = mentorListData?.filter((item) => item.id === id);
-    console.log("mentor ->", mentorInfo)
 
     const ListTranslate = (Num : number) => {
         switch (language) {

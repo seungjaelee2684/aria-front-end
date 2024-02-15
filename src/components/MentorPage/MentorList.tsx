@@ -20,8 +20,6 @@ const MentorList = () => {
     const JPFilterData = mentorListData?.filter((data) => data.japanesename.includes(searchValue));
     const KRFilterData = mentorListData?.filter((data) => data.nickname.includes(searchValue));
 
-    console.log("검색 결과", filterData.length);
-
     const mentorChangeList = () => {
         if (searchValue === "") {
             if (nationkind?.englishpick === "All Country") {

@@ -40,7 +40,7 @@ const SlideShow = () => {
     setPrevCurrent(slideCurrent);
   };
 
-  // console.log("슬라이드 번호", slideCurrent);
+  // ("슬라이드 번호", slideCurrent);
 
   return (
     <ImageOutContainer>

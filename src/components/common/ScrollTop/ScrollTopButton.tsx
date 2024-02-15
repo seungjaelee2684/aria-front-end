@@ -15,7 +15,7 @@ const ScrollTopButton = () => {
     useEffect(() => {
         const scrollTopEvent = (e : any) => {
             let scrollValue = window.scrollY;
-            // console.log("스크롤", scrollValue);
+            // ("스크롤", scrollValue);
             if (scrollBtn.current) {
                 if (location.pathname === "/") {
                     scrollBtn.current.style.animation = "scroll_btn_close 0.2s ease-out forwards";
@@ -79,7 +79,7 @@ const ScrollTopButtonWrapper = styled.div`
     width: 40px;
     height: 40px;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
     cursor: pointer;
 
     @media screen and (max-width: 500px) {
