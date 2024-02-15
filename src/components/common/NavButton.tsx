@@ -17,36 +17,8 @@ const NavButton = () => {
     const [pageModal, setPageModal] = useState<string>("");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
-    // const underLine = useRef<HTMLDivElement>(null);
-    // let horizontalMenus = document.querySelectorAll("nav a");
-    
-    // horizontalMenus.forEach((menu) => {
-    //     menu.addEventListener("click", (e) => horizontalIndicator(e))
-    // })
-
-    // const horizontalIndicator = (e : any) => {
-    //     if (underLine.current) {
-    //         underLine.current.style.left = `${e.currentTarget.offsetLeft + "px"}`;
-    //         underLine.current.style.width = `${e.currentTarget.offsetWidth + "px"}`;
-    //         // underLine.current.style.top = `${(e.currentTarget.offsetTop + e.currentTarget.offsetHeight - 9) + "px"}`;
-    //     };
-    // };
-
     return (
         <TapOutContainer className='TapOutContainer'>
-            {/* <UnderBarContainer
-                ref={underLine}
-                style={{opacity: `${(location.pathname !== "/") ? "1" : "0"}`}}/> */}
-            {/* {(location.pathname !== "/")
-                && <TapContainer
-                    // href='#'
-                    onClick={() => {
-                        navigate("/");
-                        resetFilter();
-                        resetFlag();
-                    }}>
-                    HOME
-                </TapContainer>} */}
             <TapContainer
                 // href='#'
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
@@ -69,8 +41,8 @@ const NavButton = () => {
                 <TapContainer
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
-                        navigate("/notice/notification");
+                        setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                        // navigate("/notice/notification");
                     }}>
                     NOTICE
                 </TapContainer>
@@ -115,17 +87,6 @@ const TapOutContainer = styled.div`
     @media screen and (max-width: 650px) {
         gap: 14px;
     }
-`;
-
-const UnderBarContainer = styled.div`
-    position: absolute;
-    width: 0;
-    background: linear-gradient(to right, #3c3ad6, #530898);
-    /* background-color: #3c3ad6; */
-    top: 76px;
-    left: 0;
-    height: 4px;
-    transition: all 0.5s ease-out;
 `;
 
 const TapContainer = styled.div`

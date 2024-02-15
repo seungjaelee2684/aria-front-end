@@ -9,8 +9,6 @@ interface TranslateModalProps {
 
 const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) => {
 
-    // const [, setLanguage] = useRecoilState(translate);
-
   return (
     <div>
         <ModalBackgroundContainer onClick={() => setLanguageModal(false)} />
@@ -22,14 +20,6 @@ const TranslateModal : React.FC<TranslateModalProps> = ({ setLanguageModal }) =>
                     window.location.reload();
                 }}>
                 English
-            </ModalLineContainer>
-            <ModalLineContainer
-                onClick={() => {
-                    setLanguageModal(false);
-                    localStorage.setItem("language", "chinese");
-                    window.location.reload();
-                }}>
-                中文
             </ModalLineContainer>
             <ModalLineContainer
                 onClick={() => {

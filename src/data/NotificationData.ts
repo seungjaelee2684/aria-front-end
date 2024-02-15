@@ -8,7 +8,6 @@ export const NotificationData = [
         id: "1",
         contents: {
             englishtitle: "DetailDetailDetailDetailDetailDetailDetail1",
-            chinesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容1",
             japanesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容1",
             title: "내용내용내용내용내용내용내용내용내용내용내용내용1",
             period: "",
@@ -36,7 +35,6 @@ export const NotificationData = [
         id: "2",
         contents: {
             englishtitle: "DetailDetailDetailDetailDetailDetailDetail2",
-            chinesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容2",
             japanesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容2",
             title: "내용내용내용내용내용내용내용내용내용내용내용내용2",
             period: "",
@@ -64,7 +62,6 @@ export const NotificationData = [
         id: "3",
         contents: {
             englishtitle: "DetailDetailDetailDetailDetailDetailDetail3",
-            chinesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容3",
             japanesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容3",
             title: "내용내용내용내용내용내용내용내용내용내용내용내용3",
             period: "",
@@ -92,7 +89,6 @@ export const NotificationData = [
         id: "4",
         contents: {
             englishtitle: "DetailDetailDetailDetailDetailDetailDetail4",
-            chinesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容4",
             japanesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容4",
             title: "내용내용내용내용내용내용내용내용내용내용내용내용4",
             period: "",
@@ -120,7 +116,6 @@ export const NotificationData = [
         id: "5",
         contents: {
             englishtitle: "DetailDetailDetailDetailDetailDetailDetail5",
-            chinesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容5",
             japanesetitle: "内容内容内容内容内容内容内容内容内容内容内容内容5",
             title: "내용내용내용내용내용내용내용내용내용내용내용내용5",
             period: "",
@@ -148,7 +143,6 @@ export const NotificationData = [
     //     id: "6",
     //     contents: {
     //         englishtitle: "Slogan Contest",
-    //         chinesetitle: "标语征集活动",
     //         japanesetitle: "スローガンコンテスト",
     //         title: "슬로건 공모전",
     //         period: "2022.07.18 ~ 2022.08.19",
@@ -176,7 +170,6 @@ export const NotificationData = [
     //     id: "7",
     //     contents: {
     //         englishtitle: "Character Contest",
-    //         chinesetitle: "卡通征集活动",
     //         japanesetitle: "キャラクターコンテスト",
     //         title: "캐릭터 공모전",
     //         period: "2021.10.01 ~ 2021.10.29",
@@ -204,7 +197,6 @@ export const NotificationData = [
     //     id: "8",
     //     contents: {
     //         englishtitle: "Game Culture Creative Content Contest",
-    //         chinesetitle: "游戏文化创作内容征集活动",
     //         japanesetitle: "ゲーム文化創作コンテンツコンテスト",
     //         title: "게임문화 창작콘텐츠 공모전",
     //         period: "2020.07.06 ~ 2020.08.17",

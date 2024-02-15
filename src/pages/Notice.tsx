@@ -22,12 +22,10 @@ const Notice = () => {
     pick: string,
     japanesepick: string,
     englishpick: string,
-    chinesepick: string
   }>({
     pick: "전체",
     japanesepick: "全体",
     englishpick: "All",
-    chinesepick: "整个"
   });
 
   const onChangeContentHandler = ( e : React.ChangeEvent<HTMLInputElement>) => {
@@ -41,19 +39,11 @@ const Notice = () => {
       pick: "전체",
       japanesepick: "全体",
       englishpick: "All",
-      chinesepick: "整个"
     });
   };
 
-  // window.onload = () => {
-  //   console.log("로딩완료");
-  // };
-  console.log("검색창 입력값", content);
-
   const textChange = ( Num : number ) => {
     switch (language) {
-      case "chinese" :
-        return etcTextTrans[Num]?.chinesetext;
       case "japanese" :
         return etcTextTrans[Num]?.japanesetext;
       case "korean" :

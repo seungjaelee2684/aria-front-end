@@ -27,8 +27,6 @@ const Home = () => {
 
     const mainPageTextChange = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return homeTrans[Num]?.chinesetext;
             case "japanese" :
                 return homeTrans[Num]?.japanesetext;
             case "korean" :

@@ -9,13 +9,11 @@ interface NoticeListProps {
     pick: string,
     japanesepick: string,
     englishpick: string,
-    chinesepick: string
   };
   setSelectOption: React.Dispatch<React.SetStateAction<{
       pick: string,
       japanesepick: string,
       englishpick: string,
-      chinesepick: string
   }>>;
   content: string;
   setContent: React.Dispatch<React.SetStateAction<string>>;
@@ -34,10 +32,6 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
   const searchDataEN = eventPosterData?.filter((item) => {
     return item?.englishtitle.toLowerCase().includes(content.toLowerCase());
   });
-  const searchDataCN = eventPosterData?.filter((item) => {
-    return item?.chinesetitle.toLowerCase().includes(content.toLowerCase());
-  });
-  console.log("검색", searchDataKR);
 
   const onFilterChange = () => {
     if (content === "") {
@@ -63,27 +57,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
         )
       };
     } else {
-      if (language === "english") {
-        return (
-          searchDataEN?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else if (language === "chinese") {
-        return (
-          searchDataCN?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <NoticeCard item={item}/>
-              </div>
-            )
-          })
-        )
-      } else if (language === "japanese") {
+      if (language === "japanese") {
         return (
           searchDataJP?.map((item) => {
             return (
@@ -127,8 +101,6 @@ const NoticeList : React.FC<NoticeListProps> = ({ language, selectOption, setSel
     } else {
       if (language === "english") {
         setTotalNumber(searchDataEN.length);
-      } else if (language === "chinese") {
-        setTotalNumber(searchDataCN.length);
       } else if (language === "japanese") {
         setTotalNumber(searchDataJP.length);
       } else {

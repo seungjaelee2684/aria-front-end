@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import { englishPolicyData } from '../data/PolicyData/ENGPolicyData';
-import { chinesePolicyData } from '../data/PolicyData/CNPolicyData';
 import { japanesePolicyData } from '../data/PolicyData/JPPolicyData';
 import { policyData } from '../data/PolicyData/KRPolicyData';
 import Banner from '../components/common/Banner';
@@ -21,8 +20,6 @@ const Policy = () => {
 
   const subtitleTrans = (item : PolicyDataType) => {
     switch (language) {
-      case "chinese" :
-        return `第${item?.id}条`;
       case "japanese" :
         return `第${item?.id}条`;
       case "korean" :
@@ -33,33 +30,7 @@ const Policy = () => {
   };
 
   const policyTranslate = () => {
-    if (language === "chinese") {
-      return (
-          englishPolicyData?.map((item : PolicyDataType) => {
-            return (
-              <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
-                  {item?.title}
-                </PolicyTopContainer>
-                <PolicyContentContainer>
-                  <PolicySubTitleContainer>
-                    {subtitleTrans(item)}
-                  </PolicySubTitleContainer>
-                  <PolicyContentWrapper>
-                    {item?.content.map((text) => {
-                      return (
-                        <PolicyContentText>
-                          {text}
-                        </PolicyContentText>
-                      )
-                    })}
-                  </PolicyContentWrapper>
-                </PolicyContentContainer>
-              </ContentWrapper>
-            )
-          })
-      );
-    } else if (language === "japanese") {
+    if (language === "japanese") {
       return (
           japanesePolicyData?.map((item : PolicyDataType) => {
             return (

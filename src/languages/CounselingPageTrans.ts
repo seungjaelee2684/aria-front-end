@@ -4,7 +4,6 @@ import CounselingGuideImg3 from '../assets/images/discordcounseling_03.webp';
 
 type CounselingTextType = {
     englishtext: string,
-    chinesetext: string,
     japanesetext: string,
     text: string
 };
@@ -17,7 +16,6 @@ type CounselingContentType =  {
 type CounselingGuideType = {
     image: string,
     englishtext: CounselingContentType[],
-    chinesetext: CounselingContentType[],
     japanesetext: CounselingContentType[],
     text: CounselingContentType[]
 };
@@ -25,43 +23,36 @@ type CounselingGuideType = {
 export const CounselingText : CounselingTextType[] = [
     {
         englishtext: "Discord",
-        chinesetext: "Discord",
         japanesetext: "Discord",
         text: "디스코드"
     },
     {
         englishtext: "Counseling Guidance",
-        chinesetext: "咨询指南",
         japanesetext: "相談案内",
         text: "상담안내"
     },
     {
         englishtext: "Feel free to ask any questions regarding enrollment,class\nconsultations, or any other inquiries after joining our Discord server. We'll be happy to provide you with helpful and friendly responses.",
-        chinesetext: "在Discord中添加ARIA服务器后,请告知听课咨询\n授课相关问题等咨询事项,我们会亲切地回答。",
         japanesetext: "DiscordでARIAのサーバーを追加し、受講に関するお問い合わせ\nクラスに関するご相談など、お問い合わせいただければ親切にお答えします。",
         text: "디스코드에서 ARIA서버를 추가 후 수강문의, 클래스 상담 등\n문의사항을 말씀해 주시면 친절히 답변드리겠습니다."
     },
     {
         englishtext: "Counseling Hours: 9 AM to 11 PM",
-        chinesetext: "咨询时间：上午9点~下午11点",
         japanesetext: "相談時間: 午前9時 ～ 午後11時",
         text: "상담시간 : 오전 9시 ~ 오후 11시"
     },
     {
         englishtext: "Add account friend",
-        chinesetext: "添加账户好友",
         japanesetext: "アカウント 友達追加",
         text: "계정 친구추가"
     },
     {
         englishtext: "Go to ARIA discord server",
-        chinesetext: "移动到ARIA Discord服务器",
         japanesetext: "ARIAディスコードサーバーに移動",
         text: "ARIA 디스코드 서버로 이동"
     },
     {
         englishtext: "※ Please add our Discord server by pressing Go to ARIA discord server.",
-        chinesetext: "※ 请在Discord中添加ARIA服务器。",
         japanesetext: "※ ARIAサーバーをディスコードから追加してください。",
         text: "※ ARIA 서버를 디스코드에서 추가해주세요."
     },
@@ -90,12 +81,6 @@ export const counselingGuide : CounselingGuideType[] = [
             {
                 isred: false,
                 content: "The ticket will be created after a few second.",
-            },
-        ],
-        chinesetext: [
-            {
-                isred: false,
-                content: "去听课申请",
             },
         ],
         japanesetext: [
@@ -147,12 +132,6 @@ export const counselingGuide : CounselingGuideType[] = [
                 content: "we will answer your questions during business hours.",
             },
         ],
-        chinesetext: [
-            {
-                isred: false,
-                content: "去听课申请",
-            },
-        ],
         japanesetext: [
             {
                 isred: false,
@@ -188,12 +167,6 @@ export const counselingGuide : CounselingGuideType[] = [
             {
                 isred: true,
                 content: "Course registration will be conducted according to the guidance after consultation.",
-            },
-        ],
-        chinesetext: [
-            {
-                isred: false,
-                content: "去听课申请",
             },
         ],
         japanesetext: [

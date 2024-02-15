@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import '../style/font/font.css';
 
-export const LayOutTitleContainer = styled.div`
+export const LayOutTitleContainer = styled.h2`
     font-family: 'CinzelBold';
     font-size: 32px;
     font-weight: 700;
@@ -29,10 +29,11 @@ export const TitleBarContainer = styled.div`
     background-color: #222020;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 27.5%;
 
     @media screen and (max-width: 500px) {
         width: 35%;
         height: 3px;
+        right: 32.5%;
     }
 `;

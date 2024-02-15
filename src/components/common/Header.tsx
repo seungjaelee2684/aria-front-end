@@ -43,8 +43,6 @@ const Header = () => {
 
     const languageChange = () => {
         switch (language) {
-            case "chinese" :
-                return "中文";
             case "japanese" :
                 return "日本語";
             case "korean" :
@@ -144,7 +142,6 @@ const Header = () => {
                         </NavButtonContainer>
                         <SNSMenu />
                     </UnderLaneContainer>
-                    {/* {(location.pathname !== ("/")) && <BarContainer />} */}
                 {/* </RightWrapper> */}
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
@@ -159,7 +156,7 @@ const Header = () => {
   )
 };
 
-const HeaderLayoutContainer = styled.div`
+const HeaderLayoutContainer = styled.header`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   

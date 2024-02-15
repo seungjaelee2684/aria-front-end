@@ -26,12 +26,8 @@ const Footer = () => {
   const language = localStorage.getItem("language");
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
-  
-
   const translateText = (Num : number) => {
     switch (language) {
-      case "chinese" :
-        return footerContent[Num]?.chinesecontent;
       case "japanese" :
         return footerContent[Num]?.japanesecontent;
       case "korean" :
@@ -101,7 +97,6 @@ const Footer = () => {
               <IconTitle>
                 SNS
               </IconTitle>
-              {/* <LogoContainer src={FooterLogo} alt=''/> */}
             </IconTitleWrapper>
             <MenuIconContainer>
               <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
@@ -132,7 +127,7 @@ const Footer = () => {
   )
 };
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   width: 100%;
   height: 220px;
   background-color: #2a2c35;

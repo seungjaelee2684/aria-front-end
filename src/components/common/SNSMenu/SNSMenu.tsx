@@ -24,10 +24,6 @@ const SNSMenu = () => {
   const onTitleReadyHandler = ( Num : number ) => {
     if (Num === 0) {
       switch (language) {
-        case "english" :
-          return "Coming soon";
-        case "chinese" :
-          return "正在准备。";
         case "japanese" :
           return "準備中です。";
         case "korean" :
@@ -37,10 +33,8 @@ const SNSMenu = () => {
       };
     } else if (Num === 1) {
       switch (language) {
-        case "english" :
-          return "Visit Twitter account.";
-        case "chinese" :
-          return "查看推特";
+        case "japanese" :
+          return "Twitterを見に行く";
         case "korean" :
           return "트위터 보러가기";
         default :
@@ -48,10 +42,6 @@ const SNSMenu = () => {
       };
     } else {
       switch (language) {
-        case "english" :
-          return "Visit Discord account.";
-        case "chinese" :
-          return "查看 Discord";
         case "japanese" :
           return "Discordを見に行く";
         case "korean" :

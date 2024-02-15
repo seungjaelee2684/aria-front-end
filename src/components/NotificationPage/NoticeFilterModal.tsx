@@ -11,7 +11,6 @@ interface NoticeFilterModalProps {
 
 type FilterType = {
     englishstate: string,
-    chinesestate: string,
     japanesestate: string,
     state: string
 };
@@ -22,8 +21,6 @@ const NoticeFilterModal : React.FC<NoticeFilterModalProps> = ({ noticeFilter, se
 
     const filterModalTrans = (Num: number) => {
         switch (language) {
-            case "chinese":
-                return filterState[Num]?.chinesestate;
             case "japanese":
                 return filterState[Num]?.japanesestate;
             case "korean":

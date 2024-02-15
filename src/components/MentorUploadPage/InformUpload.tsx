@@ -8,7 +8,7 @@ interface InformUploadProps {
 
 const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }) => {
 
-    const { englishname, chinesename, japanesename, nickname, nation, opendate } = mentorInfo;
+    const { englishname, japanesename, nickname, nation, opendate } = mentorInfo;
 
     type nationKindType = {
         name: string,
@@ -16,7 +16,6 @@ const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }
     };
     const nationKind : nationKindType[] = [
         {name: "미국", status: "America"},
-        {name: "중국", status: "China"},
         {name: "일본", status: "Japan"},
         {name: "대한민국", status: "Korea"},
     ];
@@ -62,16 +61,6 @@ const InformUpload: React.FC<InformUploadProps> = ({ mentorInfo, setMentorInfo }
                             onChange={(e) => onChangeInputHanlder(e)}/>
                         <LanguageSortText>
                             : 영어
-                        </LanguageSortText>
-                        <InputTag
-                            placeholder='ex) 圣帕蒂'
-                            autoComplete='off'
-                            type='text'
-                            name='chinesename'
-                            value={chinesename}
-                            onChange={(e) => onChangeInputHanlder(e)}/>
-                        <LanguageSortText>
-                            : 중국어
                         </LanguageSortText>
                         <InputTag
                             placeholder='ex) さんぱち'

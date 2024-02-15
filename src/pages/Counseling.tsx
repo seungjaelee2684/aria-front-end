@@ -20,8 +20,6 @@ const Counseling = () => {
 
   const counseling = (Num : number) => {
     switch (language) {
-      case "chinese" :
-        return CounselingText[Num]?.chinesetext;
       case "japanese" :
         return CounselingText[Num]?.japanesetext;
       case "korean" :

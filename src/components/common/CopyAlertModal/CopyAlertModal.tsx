@@ -15,8 +15,6 @@ const CopyAlertModal = () => {
 
     const copyTextChange = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return copyAlertContent[Num]?.chinesetext;
             case "japanese" :
                 return copyAlertContent[Num]?.japanesetext;
             case "korean" :
