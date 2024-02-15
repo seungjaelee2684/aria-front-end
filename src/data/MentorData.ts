@@ -12,7 +12,7 @@ import CurriculumDefaultArtstation from '../assets/curriculums/curriculumdefault
 import CurriculumDefaultPixiv from '../assets/curriculums/curriculumdefaultpixiv.webp';
 import SanpatiThumbnail from '../assets/curriculums/sanpati/sanpati_thumbnail.webp';
 import SanpatiSlideBack from '../assets/curriculums/sanpati/banner_sanpati_01.webp';
-import SanpatiSlideNick from '../assets/curriculums/sanpati/banner_sanpati_02.webp';
+import SanpatiSlideNick from '../assets/curriculums/sanpati/sanpati_nickname.webp';
 import SanpatiCurriculumENG1 from '../assets/curriculums/sanpati/ENG/Sanpati_Curriculum1_ENG.webp';
 import SanpatiCurriculumENG2 from '../assets/curriculums/sanpati/ENG/Sanpati_Curriculum2_ENG.webp';
 import SanpatiCurriculumENG3 from '../assets/curriculums/sanpati/ENG/Sanpati_Curriculum3_ENG.webp';

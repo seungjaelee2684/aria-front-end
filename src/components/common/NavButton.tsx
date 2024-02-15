@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import '../../style/font/font.css';
 import styled from 'styled-components';
 import PageModal from './PageModal/PageModal';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -68,8 +69,8 @@ const NavButton = () => {
                 <TapContainer
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
-                        // navigate("/notice/notification");
+                        // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                        navigate("/notice/notification");
                     }}>
                     NOTICE
                 </TapContainer>

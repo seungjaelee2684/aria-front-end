@@ -4,41 +4,39 @@ import styled from 'styled-components';
 import { NewMentorListData } from '../../../data/NewMentorData';
 
 interface NewMentorListProps {
-    imageRef: React.RefObject<HTMLDivElement>;
-    slideCurrent: number;
-    prevCurrent: number | undefined;
-    setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
+  imageRef: React.RefObject<HTMLDivElement>;
+  slideCurrent: number;
+  prevCurrent: number | undefined;
+  setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-const NewMentorList : React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
+const NewMentorList: React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
 
-    return (
-        <ImageSlideContainer>
-            {/* <MentorWrapper> */}
-            {NewMentorListData?.map((item : any, index : number) => {
-                return (
-                    <div
-                        ref={imageRef}
-                        key={item?.id}
-                        className={(slideCurrent === index)
-                            ? "ImageSlideContainer"
-                            : (prevCurrent === index)
-                                ? "ImageContainer"
-                                : "NotActionImage"}>
-                        <ImageBox src={item?.slideimage.background}/>
-                        {(item?.status === "Left")
-                            ? <NicknameRightContainer
-                                src={item?.slideimage.nickname}
-                                alt=''/>
-                            : <NicknameContainer 
-                                src={item?.slideimage.nickname}
-                                alt=''/>}
-                    </div>
-                )
-            })}
-            {/* </MentorWrapper> */}
-        </ImageSlideContainer>
-    )
+  return (
+    <ImageSlideContainer>
+      {NewMentorListData?.map((item: any, index: number) => {
+        return (
+          <div
+            ref={imageRef}
+            key={item?.id}
+            className={(slideCurrent === index)
+              ? "ImageSlideContainer"
+              : (prevCurrent === index)
+                ? "ImageContainer"
+                : "NotActionImage"}>
+            <ImageBox src={item?.slideimage.background} />
+            {(item?.status === "Left")
+              ? <NicknameRightContainer
+                src={item?.slideimage.nickname}
+                alt='' />
+              : <NicknameContainer
+                src={item?.slideimage.nickname}
+                alt='' />}
+          </div>
+        )
+      })}
+    </ImageSlideContainer>
+  )
 };
 
 const ImageSlideContainer = styled.div`
@@ -67,35 +65,19 @@ const ImageBox = styled.div<{ src: string }>`
   }
 `;
 
-const BigNicknameContainer = styled.img`
-  width: 70%;
-  height: auto;
-  object-fit: cover;
-  user-select: none;
-  position: absolute;
-  left: 10%;
-  top: 35%;
-
-  @media screen and (max-width: 1320px) {
-    top: 40%;
-    width: 85%;
-  }
-
-  @media screen and (max-width: 500px) {
-    top: 50%;
-    width: 90%;
-    left: 8%;
-  }
-`;
-
 const NicknameContainer = styled.img`
-  width: 70%;
+  width: 50%;
   height: auto;
   object-fit: cover;
   user-select: none;
   position: absolute;
   left: 10%;
-  top: 40%;
+  top: 20%;
+
+  @media screen and (max-width: 1920px) {
+    top: 40%;
+    width: 70%;
+  }
 
   @media screen and (max-width: 1320px) {
     top: 50%;
@@ -114,37 +96,20 @@ const NicknameContainer = styled.img`
   }
 `;
 
-const BigNicknameRightContainer = styled.img`
-  width: 70%;
-  height: auto;
-  object-fit: cover;
-  user-select: none;
-  position: absolute;
-  right: 10%;
-  top: 35%;
-  user-select: none;
-
-  @media screen and (max-width: 1320px) {
-    top: 40%;
-    width: 48%;
-  }
-
-  @media screen and (max-width: 500px) {
-    top: 50%;
-    width: 50%;
-    right: 8%;
-  }
-`;
-
 const NicknameRightContainer = styled.img`
-  width: 70%;
+  width: 50%;
   height: auto;
   object-fit: cover;
   user-select: none;
   position: absolute;
   right: 10%;
-  top: 40%;
+  top: 20%;
   user-select: none;
+
+  @media screen and (max-width: 1920px) {
+    top: 40%;
+    width: 70%;
+  }
 
   @media screen and (max-width: 1320px) {
     top: 35%;
