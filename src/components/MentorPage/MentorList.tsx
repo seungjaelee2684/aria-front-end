@@ -17,7 +17,6 @@ const MentorList = () => {
 
     const filterData = mentorListData?.filter((data) => data.nation === nationkind?.englishpick);
     const ENFilterData = mentorListData?.filter((data) => data.englishname.includes(searchValue));
-    const CNFilterData = mentorListData?.filter((data) => data.chinesename.includes(searchValue));
     const JPFilterData = mentorListData?.filter((data) => data.japanesename.includes(searchValue));
     const KRFilterData = mentorListData?.filter((data) => data.nickname.includes(searchValue));
 
@@ -55,20 +54,7 @@ const MentorList = () => {
                 );
             };
         } else {
-            if (language === "chinese") {
-                return (
-                    CNFilterData?.map((item : any) => {
-                        return (
-                            <div key={item?.id}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div>
-                        )
-                    })
-                );
-            } else if (language === "japanese") {
+            if (language === "japanese") {
                 return (
                     JPFilterData?.map((item : any) => {
                         return (
@@ -122,7 +108,7 @@ const MentorList = () => {
   )
 };
 
-const LayoutContainer = styled.div`
+const LayoutContainer = styled.section`
     width: 100%;
     margin: 40px 0px;
 

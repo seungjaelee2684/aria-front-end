@@ -33,8 +33,6 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     const mobileTextTrans = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return etcTextTrans[Num]?.chinesetext;
             case "japanese" :
                 return etcTextTrans[Num]?.japanesetext;
             case "korean" :

@@ -14,8 +14,6 @@ const Notification = () => {
 
   const textChange = ( Num : number ) => {
     switch (language) {
-        case "chinese" :
-            return NoticeTrans[Num]?.chinesetext;
         case "japanese" :
             return NoticeTrans[Num]?.japanesetext;
         case "korean" :

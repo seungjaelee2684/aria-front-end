@@ -22,8 +22,6 @@ const AlertModal = () => {
 
   const alertTranslate = (Num: number) => {
     switch (language) {
-      case "chinese":
-        return alertInformation[(alertModal.whatAlert * 2) + Num]?.chinesealert;
       case "japanese":
         return alertInformation[(alertModal.whatAlert * 2) + Num]?.japanesealert;
       case "korean":

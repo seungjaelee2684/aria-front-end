@@ -27,8 +27,6 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
 
     const textChange = ( Num : number ) => {
         switch (language) {
-            case "chinese" :
-                return NoticeTrans[Num]?.chinesetext;
             case "japanese" :
                 return NoticeTrans[Num]?.japanesetext;
             case "korean" :
@@ -40,8 +38,6 @@ const NotificationList : React.FC<NotificationListProps> = ({ noticeFilter }) =>
 
     const contentChange = ( item : any ) => {
         switch (language) {
-            case "chinese" :
-                return item?.contents.chinesetitle;
             case "japanese" :
                 return item?.contents.japanesetitle;
             case "korean" :

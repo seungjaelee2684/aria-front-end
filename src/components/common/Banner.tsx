@@ -18,10 +18,6 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
 
     const textChange = () => {
       switch (language) {
-        case "english" :
-          return textInformation[page]?.englishtitle;
-        case "chinese" :
-          return textInformation[page]?.chinesetitle;
         case "japanese" :
           return textInformation[page]?.japanesetitle;
         case "korean" :

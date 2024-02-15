@@ -12,7 +12,6 @@ interface NotificationFilterProps {
 
 type FilterType = {
     englishstate: string,
-    chinesestate: string,
     japanesestate: string,
     state: string
 };
@@ -27,8 +26,6 @@ const NotificationFilter : React.FC<NotificationFilterProps> = ({ noticeFilter, 
 
     const filterTrans = () => {
         switch (language) {
-            case "chinese" :
-                return filterStateData[0]?.chinesestate;
             case "japanese" :
                 return filterStateData[0]?.japanesestate;
             case "korean" :

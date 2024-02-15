@@ -20,10 +20,6 @@ const Notification = () => {
     const onTitleHandler = ( Num : number ) => {
         if (Num === 0) {
           switch (language) {
-            case "english" :
-                return "Announcements";
-            case "chinese" :
-                return "公告事项";
             case "japanese" :
                 return "お知らせ";
             case "korean" :
@@ -33,10 +29,6 @@ const Notification = () => {
           };
         } else {
           switch (language) {
-            case "english" :
-                return "More";
-            case "chinese" :
-                return "查看更多";
             case "japanese" :
                 return "もっと見る";
             case "korean" :
@@ -49,8 +41,6 @@ const Notification = () => {
 
     const noticeText = ( item : any ) => {
         switch (language) {
-            case "chinese" :
-                return item?.chinesenotice.title;
             case "japanese" :
                 return item?.japanesenotice.title;
             case "korean" :
@@ -70,8 +60,6 @@ const Notification = () => {
             clearInterval(interVal);
         };
     }, [textCurrent, prevCuttent]);
-
-    // console.log("공지사항 번호", textCurrent, startPoint);
 
   return (
     <LineContainer>

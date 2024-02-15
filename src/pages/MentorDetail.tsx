@@ -30,8 +30,6 @@ const MentorDetail = () => {
 
     const ListTranslate = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return etcTextTrans[Num]?.chinesetext;
             case "japanese" :
                 return etcTextTrans[Num]?.japanesetext;
             case "korean" :
@@ -42,57 +40,7 @@ const MentorDetail = () => {
     };
 
     const curriculumTranslate = () => {
-        if (language === "chinese") {
-            return (
-                <InContainer>
-                    <CurriculumImg src={mentorInfo[0]?.content.chinesecontent[0]} alt=''/>
-                    <CurriculumSNS>
-                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
-                            return (
-                                <SNSIcons
-                                    key={item?.icon}
-                                    style={{
-                                        cursor: `${(item?.link === "") ? "default" : "pointer"}`
-                                    }}
-                                    src={item?.icon}
-                                    alt=''
-                                    onClick={() => {
-                                        if (item?.link !== "") {
-                                            window.open(item?.link)
-                                        }
-                                    }}/>
-                            )
-                        })}
-                    </CurriculumSNS>
-                    {mentorInfo[0]?.content.chinesecontent.map((item : string) => {
-                        return (
-                            (mentorInfo[0]?.content.chinesecontent.indexOf(item) !== 0)
-                                &&  <CurriculumImg
-                                    key={item}
-                                    src={item}
-                                    alt=''/>  
-                        )
-                    })}
-                    <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
-                            return (
-                                <PortfolioImage
-                                    key={index}
-                                    src={item}
-                                    alt=''
-                                    loading="lazy"
-                                    decoding="async"
-                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
-                            )
-                        })}
-                        {isopen
-                            && <PortfolioModal 
-                                isOpenPortfolio={isOpenPortfolio}
-                                setIsOpenPortfolio={setIsOpenPortfolio}/>}
-                    </PortfolioWrapper>
-                </InContainer>
-            );
-        } else if (language === "japanese") {
+        if (language === "japanese") {
             return (
                 <InContainer>
                     <CurriculumImg src={mentorInfo[0]?.content.japanesecontent[0]} alt=''/>

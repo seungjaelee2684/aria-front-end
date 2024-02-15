@@ -8,13 +8,11 @@ interface SelectModalProps {
         pick: string,
         japanesepick: string,
         englishpick: string,
-        chinesepick: string
     };
     setSelectOption: React.Dispatch<React.SetStateAction<{
         pick: string,
         japanesepick: string,
         englishpick: string,
-        chinesepick: string
     }>>;
     setContent: React.Dispatch<React.SetStateAction<string>>;
     setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -28,22 +26,17 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
       japaneseoption: string,
       option: string,
       englishoption: string,
-      chineseoption: string
     }
 
     const modalOption : OptionType[] = [
-      {japaneseoption: "全体", option: "전체", englishoption: "All", chineseoption: "整个"},
-      {japaneseoption: "進行中", option: "진행중", englishoption: "Proceeding", chineseoption: "进行中"},
-      {japaneseoption: "締め切り", option: "마감", englishoption: "Deadline", chineseoption: "结束"},
-      {japaneseoption: "開始予定", option: "시작예정", englishoption: "Upcoming", chineseoption: "预定开始"},
+      {japaneseoption: "全体", option: "전체", englishoption: "All"},
+      {japaneseoption: "進行中", option: "진행중", englishoption: "Proceeding"},
+      {japaneseoption: "締め切り", option: "마감", englishoption: "Deadline"},
+      {japaneseoption: "開始予定", option: "시작예정", englishoption: "Upcoming"},
     ];
 
     const filterOptions = ( item : OptionType ) => {
       switch (language) {
-        case "english" :
-          return item.englishoption;
-        case "chinese" :
-          return item.chineseoption;
         case "japanese" :
           return item.japaneseoption;
         case "korean" :
@@ -67,7 +60,6 @@ const SelectModal : React.FC<SelectModalProps> = (props) => {
                   pick: item?.option,
                   japanesepick: item?.japaneseoption,
                   englishpick: item?.englishoption,
-                  chinesepick: item?.chineseoption
                 })
                 setContent("");
                 setInputValue("");

@@ -2,7 +2,6 @@ import React from 'react'
 import Koreaflag from '../../assets/logos/koreaflag.webp';
 import Japanflag from '../../assets/logos/japanflag.webp';
 import Americaflag from '../../assets/logos/americaflag.webp'
-import Chinaflag from '../../assets/logos/chinaflag.webp'
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { nationFlag, nationKind } from '../../store/NationFilter';
@@ -11,7 +10,6 @@ import { mentorSearchInput } from '../../store/MentorSearchInput';
 
 type Nation = {
     englishnation: string,
-    chinesenation: string,
     japanesenation: string,
     nation: string,
     flag: string  
@@ -30,18 +28,15 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
     const flagValue = useRecoilValue(nationFlag);
 
     const nationFilter : Nation[]  = [
-        {englishnation: "All Country", chinesenation: "所有国家", japanesenation: "すべての国", nation: "모든 국가", flag: ""},
-        {englishnation: "U.S.A", chinesenation: "美国", japanesenation: "アメリカ", nation: "미국", flag: Americaflag},
-        {englishnation: "China", chinesenation: "中国", japanesenation: "中国", nation: "중국", flag: Chinaflag},
-        {englishnation: "Japan", chinesenation: "日本", japanesenation: "日本", nation: "일본", flag: Japanflag},
-        {englishnation: "Korea" , chinesenation: "韩国", japanesenation: "韓国", nation: "대한민국", flag: Koreaflag}
+        {englishnation: "All Country", japanesenation: "すべての国", nation: "모든 국가", flag: ""},
+        {englishnation: "U.S.A", japanesenation: "アメリカ", nation: "미국", flag: Americaflag},
+        {englishnation: "Japan", japanesenation: "日本", nation: "일본", flag: Japanflag},
+        {englishnation: "Korea", japanesenation: "韓国", nation: "대한민국", flag: Koreaflag}
     ];
 
     const filterTranslate = (item : any) => {
         if (item === null) {
             switch (language) {
-                case "chinese" :
-                    return nationkinds?.chinesepick;
                 case "japanese" :
                     return nationkinds?.japanesepick;
                 case "korean" :
@@ -51,8 +46,6 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
             };
         } else {
             switch (language) {
-                case "chinese" :
-                    return item?.chinesenation;
                 case "japanese" :
                     return item?.japanesenation;
                 case "korean" :
@@ -66,7 +59,6 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
     };
 
     const noneFilter = nationFilter.filter((item) => item.englishnation !== nationkinds.englishpick);
-    console.log("필터", noneFilter);
 
   return (
     <FilterModalContainer>
@@ -83,7 +75,6 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
                         setNationkinds({
                             ...nationkinds,
                             englishpick: item?.englishnation,
-                            chinesepick: item?.chinesenation,
                             japanesepick: item?.japanesenation,
                             pick: item?.nation,
 

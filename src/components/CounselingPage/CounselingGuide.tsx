@@ -15,15 +15,12 @@ const CounselingGuide = () => {
     type CounselingGuideType = {
         image: string,
         englishtext: CounselingContentType[],
-        chinesetext: CounselingContentType[],
         japanesetext: CounselingContentType[],
         text: CounselingContentType[]
     };
 
     const counselingEmphasisTrans = (item : any) => {
         switch (language) {
-            case "chinese" :
-                return item?.chinesetext.isred;
             case "japanese" :
                 return item?.japanesetext.isred;
             case "korean" :
@@ -34,19 +31,7 @@ const CounselingGuide = () => {
     };
 
     const counselingContentTrans = (item : any) => {
-        if (language === "chinese") {
-            return item?.chinesetext.map((text : CounselingContentType) => {
-                return (
-                    (text?.isred)
-                        ? <ColorGuideContent key={text?.content}>
-                            {text?.content}
-                        </ColorGuideContent>
-                        : <GuideContent key={text?.content}>
-                            {text?.content}
-                        </GuideContent>
-                )
-            })
-        } else if (language === "japanese") {
+        if (language === "japanese") {
             return item?.japanesetext.map((text : CounselingContentType) => {
                 return (
                     (text?.isred)
@@ -87,8 +72,6 @@ const CounselingGuide = () => {
 
     const counselingTitleTrans = (Num : number) => {
         switch (language) {
-            case "chinese" :
-                return CounselingText[Num]?.chinesetext;
             case "japanese" :
                 return CounselingText[Num]?.japanesetext;
             case "korean" :
