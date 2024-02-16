@@ -25,6 +25,7 @@ import Footer from './components/common/Footer';
 import LoadingSpinner from './components/common/LoadingSpinner';
 import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
+import WorldTime from './components/common/WorldTime';
 // import Counseling from './pages/Counseling';
 // import Policy from './pages/Policy';
 
@@ -75,6 +76,7 @@ function App() {
                 </Route>
               </Routes>
               <ScrollTopButton />
+              <WorldTime />
               <AlertContainer />
               <Footer />
             </Suspense>
