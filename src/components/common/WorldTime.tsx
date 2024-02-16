@@ -74,13 +74,13 @@ const WorldTime = () => {
             <StandardTime style={{color: "#cecece"}}>
                 {seoul.date}
             </StandardTime>
-            <StandardTime style={{marginTop: "8px"}}>
+            <StandardTime style={{marginTop: "16px"}}>
                 {tokyo.time} (JST)
             </StandardTime>
             <SubDateContent style={{color: "#c2c2c2"}}>
                 {tokyo.date}
             </SubDateContent>
-            <StandardTime style={{marginTop: "8px"}}>
+            <StandardTime style={{marginTop: "16px"}}>
                 {newyork.time} (EST)
             </StandardTime>
             <SubDateContent style={{color: "#c2c2c2"}}>
@@ -92,8 +92,8 @@ const WorldTime = () => {
 
 const TimeContainer = styled.section`
     position: fixed;
-    bottom: 4%;
-    right: 4%;
+    top: 40%;
+    right: 1%;
     z-index: 101;
     font-family: "Pretendard";
     user-select: none;
@@ -101,13 +101,13 @@ const TimeContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 2px;
+    gap: 5px;
     background-color: #202124ba;
-    padding: 8px;
+    padding: 16px 8px;
     border-radius: 2px;
     color: #FFFFFF;
 
-    @media screen and (max-width: 1920px) {
+    /* @media screen and (max-width: 1920px) {
         right: 5%;
     }
 
@@ -122,38 +122,38 @@ const TimeContainer = styled.section`
     @media screen and (max-width: 500px) {
         right: 56px;
         bottom: 60px;
-    }
+    } */
 `;
 
 const SeoulTimeContent = styled.div`
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     line-height: 100%;
     
     @media screen and (max-width: 1920px) {
-        font-size: 18px;
-        font-weight: 500;
+        font-size: 20px;
+        font-weight: 600;
     }
 `;
 
 const StandardTime = styled.div`
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 500;
     line-height: 100%;
 
     @media screen and (max-width: 1920px) {
-        font-size: 14px;
-        font-weight: 300;
+        font-size: 16px;
+        font-weight: 400;
     }
 `;
 
 const SubDateContent = styled.div`
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 100%;
 
     @media screen and (max-width: 1920px) {
-        font-size: 11px;
+        font-size: 13px;
     }
 `;
 
