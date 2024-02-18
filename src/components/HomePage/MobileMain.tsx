@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { CopyAlert } from '../../store/CopyAlert';
 import MentorEscape from '../../assets/curriculums/escape/portfolio/p04.webp';
-import { mentorListData } from '../../data/MentorData';
 import { MdKeyboardArrowRight, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { etcTextTrans } from '../../languages/ETCTrans';
 import { FaUserTie } from "react-icons/fa6";
