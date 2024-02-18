@@ -94,7 +94,7 @@ const TimeContainer = styled.section`
     position: fixed;
     top: 40%;
     right: 1%;
-    z-index: 101;
+    z-index: 99;
     font-family: "Pretendard";
     user-select: none;
     display: flex;
@@ -107,22 +107,9 @@ const TimeContainer = styled.section`
     border-radius: 2px;
     color: #FFFFFF;
 
-    /* @media screen and (max-width: 1920px) {
-        right: 5%;
-    }
-
-    @media screen and (max-width: 1320px) {
-        right: 9%;
-    }
-
     @media screen and (max-width: 836px) {
-        right: 11%;
+        top: 80px;
     }
-
-    @media screen and (max-width: 500px) {
-        right: 56px;
-        bottom: 60px;
-    } */
 `;
 
 const SeoulTimeContent = styled.div`
@@ -133,6 +120,14 @@ const SeoulTimeContent = styled.div`
     @media screen and (max-width: 1920px) {
         font-size: 20px;
         font-weight: 600;
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 16px;
     }
 `;
 
@@ -145,6 +140,14 @@ const StandardTime = styled.div`
         font-size: 16px;
         font-weight: 400;
     }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 12px;
+    }
 `;
 
 const SubDateContent = styled.div`
@@ -154,6 +157,14 @@ const SubDateContent = styled.div`
 
     @media screen and (max-width: 1920px) {
         font-size: 13px;
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 11px;
     }
 `;
 

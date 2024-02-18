@@ -7,10 +7,21 @@ import { translate } from '../store/Translation';
 import { RxHamburgerMenu } from "react-icons/rx";
 import PortfolioModal from '../components/MentorDetailPage/PortfolioModal/PortfolioModal';
 import { etcTextTrans } from '../languages/ETCTrans';
+import { useQuery } from 'react-query';
+import { getMentorDetailApi } from '../api/mentors';
+import { socialLinkData } from '../data/SocialLinkData';
 
 const MentorDetail = () => {
 
     const { id } = useParams();
+
+    const { isLoading, isError, error, data } = useQuery(["getMentorInfo", id], () => getMentorDetailApi(id), {
+        refetchOnWindowFocus: false
+    });
+    console.log("강사 상세정보", data);
+
+    const mentorInfo = data?.data.mentorDetailData;
+
     const language = localStorage.getItem("language");
     const navigate = useNavigate();
 
@@ -25,7 +36,6 @@ const MentorDetail = () => {
         image: ""
     });
     const { isopen } = isOpenPortfolio;
-    const mentorInfo = mentorListData?.filter((item) => item.id === id);
 
     const ListTranslate = (Num : number) => {
         switch (language) {
@@ -42,16 +52,16 @@ const MentorDetail = () => {
         if (language === "japanese") {
             return (
                 <InContainer>
-                    <CurriculumImg src={mentorInfo[0]?.content.japanesecontent[0]} alt=''/>
+                    <CurriculumImg src={mentorInfo?.mentorCurriculum.JPN[0].imageUrl} alt=''/>
                     <CurriculumSNS>
-                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                        {mentorInfo?.links.map((item : any, index : number) => {
                             return (
                                 <SNSIcons
-                                    key={item?.icon}
+                                    key={index}
                                     style={{
                                         cursor: `${(item?.link === "") ? "default" : "pointer"}`
                                     }}
-                                    src={item?.icon}
+                                    src={(item?.link === "") ? socialLinkData[index]?.default : socialLinkData[index]?.active}
                                     alt=''
                                     onClick={() => {
                                         if (item?.link !== "") {
@@ -61,17 +71,17 @@ const MentorDetail = () => {
                             )
                         })}
                     </CurriculumSNS>
-                    {mentorInfo[0]?.content.japanesecontent.map((item : string) => {
+                    {mentorInfo?.mentorCurriculum.JPN.map((item : any, index : number) => {
                         return (
-                            (mentorInfo[0]?.content.japanesecontent.indexOf(item) !== 0)
+                            (index !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={item}
+                                    src={item?.imageUrl}
                                     alt=''/>  
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
+                        {mentorInfo?.mentorPortfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
                                     key={index}
@@ -79,7 +89,7 @@ const MentorDetail = () => {
                                     alt=''
                                     loading="lazy"
                                     decoding="async"
-                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                                    onClick={() => window.open(item)}/>
                             )
                         })}
                         {isopen
@@ -92,16 +102,16 @@ const MentorDetail = () => {
         } else if (language === "korean") {
             return (
                 <InContainer>
-                    <CurriculumImg src={mentorInfo[0]?.content.koreancontent[0]} alt=''/>
+                    <CurriculumImg src={mentorInfo?.mentorCurriculum.KOR[0].imageUrl} alt=''/>
                     <CurriculumSNS>
-                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                        {mentorInfo?.links.map((item : any, index : number) => {
                             return (
                                 <SNSIcons
-                                    key={item?.icon}
+                                    key={index}
                                     style={{
                                         cursor: `${(item?.link === "") ? "default" : "pointer"}`
                                     }}
-                                    src={item?.icon}
+                                    src={(item?.link === "") ? socialLinkData[index]?.default : socialLinkData[index]?.active}
                                     alt=''
                                     onClick={() => {
                                         if (item?.link !== "") {
@@ -111,17 +121,17 @@ const MentorDetail = () => {
                             )
                         })}
                     </CurriculumSNS>
-                    {mentorInfo[0]?.content.koreancontent.map((item : string) => {
+                    {mentorInfo?.mentorCurriculum.KOR.map((item : any, index : number) => {
                         return (
-                            (mentorInfo[0]?.content.koreancontent.indexOf(item) !== 0)
+                            (index !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={item}
+                                    src={item.imageUrl}
                                     alt=''/>  
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
+                        {mentorInfo?.mentorPortfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
                                     key={index}
@@ -129,7 +139,7 @@ const MentorDetail = () => {
                                     alt=''
                                     loading="lazy"
                                     decoding="async"
-                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                                    onClick={() => window.open(item)}/>
                             )
                         })}
                         {isopen
@@ -142,16 +152,16 @@ const MentorDetail = () => {
         } else {
             return (
                 <InContainer>
-                    <CurriculumImg src={mentorInfo[0]?.content.englishcontent[0]} alt=''/>
+                    <CurriculumImg src={mentorInfo?.mentorCurriculum.ENG[0].imageUrl} alt=''/>
                     <CurriculumSNS>
-                        {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
+                        {mentorInfo?.links.map((item : any, index : number) => {
                             return (
                                 <SNSIcons
-                                    key={item?.icon}
+                                    key={index}
                                     style={{
                                         cursor: `${(item?.link === "") ? "default" : "pointer"}`
                                     }}
-                                    src={item?.icon}
+                                    src={(item?.link === "") ? socialLinkData[index]?.default : socialLinkData[index]?.active}
                                     alt=''
                                     onClick={() => {
                                         if (item?.link !== "") {
@@ -161,17 +171,17 @@ const MentorDetail = () => {
                             )
                         })}
                     </CurriculumSNS>
-                    {mentorInfo[0]?.content.englishcontent.map((item : string) => {
+                    {mentorInfo?.mentorCurriculum.ENG.map((item : any, index : number) => {
                         return (
-                            (mentorInfo[0]?.content.englishcontent.indexOf(item) !== 0)
+                            (index !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={item}
+                                    src={item.imageUrl}
                                     alt=''/>  
                         )
                     })}
                     <PortfolioWrapper>
-                        {mentorInfo[0]?.portfolio.map((item : string, index : number) => {
+                        {mentorInfo?.mentorPortfolio.map((item : string, index : number) => {
                             return (
                                 <PortfolioImage
                                     key={index}
@@ -179,7 +189,7 @@ const MentorDetail = () => {
                                     alt=''
                                     loading="lazy"
                                     decoding="async"
-                                    onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: true, image: item})}/>
+                                    onClick={() => window.open(item)}/>
                             )
                         })}
                         {isopen

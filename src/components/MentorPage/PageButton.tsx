@@ -5,17 +5,22 @@ import { pageNumber } from '../../store/Pages';
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
-const PageButton = () => {
+const PageButton = ({ data } : any) => {
+
+    const totalCount = data?.data.totalNumber;
+    const totalPage = Math.ceil(totalCount / 16)
 
     const [pageData, setPageData] = useRecoilState(pageNumber);
 
-    let pages : number[] = [1, 2, 3, 4, 5];
+    let pages : number[] = Array.from({ length: totalPage }, (_, i) => i + 1);
+
+    console.log(pages);
     
     const onClickPageMoveHandler = (isLeft : boolean) => {
         if (isLeft) {
             setPageData(1);
         } else {
-            setPageData(5);
+            setPageData(pages.length);
         };
     };
 
@@ -40,7 +45,7 @@ const PageButton = () => {
                         </DefaultPageButton>
                 )
             })}
-            {(pageData === 5)
+            {(pageData === pages.length)
                 ? <NotButton />
                 : <PageMoveButton
                     onClick={() => onClickPageMoveHandler(false)}>

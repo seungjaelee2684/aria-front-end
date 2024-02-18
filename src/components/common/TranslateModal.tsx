@@ -51,7 +51,7 @@ const ModalBackgroundContainer = styled.div`
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 102;
         background-color: #00000080;
         backdrop-filter: blur(5px);
         display: block;
@@ -72,7 +72,7 @@ const ModalContainer = styled.div`
     position: absolute;
     top: 26px;
     right: -5px;
-    z-index: 101;
+    z-index: 102;
 
     @media screen and (max-width: 500px) {
         position: fixed;

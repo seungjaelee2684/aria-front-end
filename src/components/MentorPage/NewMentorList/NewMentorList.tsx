@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import '../../../style/font/font.css';
 import styled from 'styled-components';
-import { NewMentorListData } from '../../../data/NewMentorData';
+// import { NewMentorListData } from '../../../data/NewMentorData';
 
 interface NewMentorListProps {
   imageRef: React.RefObject<HTMLDivElement>;
   slideCurrent: number;
   prevCurrent: number | undefined;
   setPrevCurrent: React.Dispatch<React.SetStateAction<number | undefined>>;
+  NewMentorListData: any;
 }
 
-const NewMentorList: React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, prevCurrent, setPrevCurrent }) => {
+const NewMentorList: React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, prevCurrent, setPrevCurrent, NewMentorListData }) => {
 
   return (
     <ImageSlideContainer>
@@ -18,19 +19,19 @@ const NewMentorList: React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, p
         return (
           <div
             ref={imageRef}
-            key={item?.id}
+            key={item?.mentorsId}
             className={(slideCurrent === index)
               ? "ImageSlideContainer"
               : (prevCurrent === index)
                 ? "ImageContainer"
                 : "NotActionImage"}>
-            <ImageBox src={item?.slideimage.background} />
+            <ImageBox src={item?.bannerImageUrl} />
             {(item?.status === "Left")
               ? <NicknameRightContainer
-                src={item?.slideimage.nickname}
+                src={item?.nicknameImageUrl}
                 alt='' />
               : <NicknameContainer
-                src={item?.slideimage.nickname}
+                src={item?.nicknameImageUrl}
                 alt='' />}
           </div>
         )

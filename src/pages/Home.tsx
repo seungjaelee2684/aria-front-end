@@ -17,8 +17,17 @@ import FourthPageImage from '../components/HomePage/FourthPageImage';
 import FifthPageImage from '../components/HomePage/FifthPageImage';
 import PageNumber from '../components/HomePage/PageNumber';
 import MobileMain from '../components/HomePage/MobileMain';
+import { useQuery } from 'react-query';
+import { getNewMentorBannerApi } from '../api/banner';
 
 const Home = () => {
+
+    const { isLoading, isError, error, data } = useQuery("getMentorBanner", () => getNewMentorBannerApi(), {
+        refetchOnWindowFocus: false,
+        refetchOnMount: false
+    });
+    console.log("메인페이지 배너", data);
+    const newSlideDataList = data?.data.bannerData;
 
     const language = localStorage.getItem("language");
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
@@ -178,13 +187,13 @@ const Home = () => {
         <SpaceBetweenContainer />
         <SecondPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
-        <ThirdPageImage mainPageTextChange={mainPageTextChange}/>
+        <ThirdPageImage mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
         <SpaceBetweenContainer />
         {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer /> */}
         <FifthPageImage mainPageTextChange={mainPageTextChange}/>
         <SpaceBetweenContainer />
-        <MobileMain mainPageTextChange={mainPageTextChange}/>
+        <MobileMain mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
         <PageNumber />
     </MainLayout>
   )

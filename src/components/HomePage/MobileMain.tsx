@@ -16,18 +16,18 @@ import { mentorListData } from '../../data/MentorData';
 import { MdKeyboardArrowRight, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { etcTextTrans } from '../../languages/ETCTrans';
 import { FaUserTie } from "react-icons/fa6";
+import { ThirdPageImageProps } from './ThirdPageImage';
 
-interface MobileMainProps {
-    mainPageTextChange: Function;
-};
+// interface MobileMainProps {
+//     mainPageTextChange: Function;
+//     newSlideDataList: any;
+// };
 
-const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
+const MobileMain: React.FC<ThirdPageImageProps> = ({ mainPageTextChange, newSlideDataList }) => {
 
     const navigate = useNavigate();
     const language = localStorage.getItem("language");
     const [, setCopyHandler] = useRecoilState(CopyAlert);
-
-    const newSlideDataList = mentorListData?.filter((data) => data?.isready);
     const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
     const [isLoop, setIsLoop] = useState<boolean>(false);
 
@@ -44,12 +44,12 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
 
     useEffect(() => {
         const slideShowInterval = setInterval(() => {
-            if (mainSlideCurrent === newSlideDataList.length) {
+            if (mainSlideCurrent === newSlideDataList?.length) {
                 setIsLoop(true);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList?.length + 2));
             } else {
                 setIsLoop(false);
-                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
+                setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList?.length + 2));
             };
         }, 5000);
 
@@ -89,17 +89,18 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     mainSlideCurrent={mainSlideCurrent}
                     setMainSlideCurrent={setMainSlideCurrent}
                     isLoop={isLoop}
-                    setIsLoop={setIsLoop} />
+                    setIsLoop={setIsLoop}
+                    newSlideDataList={newSlideDataList} />
                 <SlideNumberWrapper>
                     {newSlideDataList?.map((item: any, index: number) => {
                         return (
                             (mainSlideCurrent === (index + 1))
                                 ? <SlideNumber
-                                    key={item?.id}
+                                    key={item?.mentorsId}
                                     height='7px'
                                     color='#ffffffc0' />
                                 : <SlideNumber
-                                    key={item?.id}
+                                    key={item?.mentorsId}
                                     height='5px'
                                     color='#808080ae' />
                         )
@@ -124,12 +125,12 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                     {newSlideDataList?.map((item : any, index : number) => {
                         return (
                             <Card
-                                key={item?.id}
-                                onClick={() => navigate(`/mentor/detail/${item?.id}`)}>
-                                <MentorImage src={item?.portfolio[3]} alt=''/>
+                                key={item?.mentorsId}
+                                onClick={() => navigate(`/mentor/detail/${item?.mentorsId}`)}>
+                                <MentorImage src={item?.bannerImageUrl} alt=''/>
                                 <HoverContainer />
                                 <ButtonText>
-                                    {item?.englishname}
+                                    {item?.nickname}
                                     <ArrowContainer>
                                         <MdKeyboardDoubleArrowRight />
                                     </ArrowContainer>
@@ -138,70 +139,6 @@ const MobileMain: React.FC<MobileMainProps> = ({ mainPageTextChange }) => {
                         )
                     })}
                 </CardListContainer>
-                    {/* <IllustContainer>
-                        <CharactorImage src={Charactor} alt='' />
-                    </IllustContainer>
-                    <ScrollAniContainer>
-                        <InformLogoContainer>
-                            Aria
-                        </InformLogoContainer>
-                    </ScrollAniContainer>
-                    <ScrollAniContainer>
-                        <InformTitleContainer>
-                            <InformTitle>
-                                GLOBAL ART
-                            </InformTitle>
-                            <InformTitle>
-                                ACADEMY
-                            </InformTitle>
-                        </InformTitleContainer>
-                    </ScrollAniContainer>
-                    <ScrollAniContainer>
-                        <InformContentWrapper>
-                            <ContentText>
-                                {mainPageTextChange(8)}
-                            </ContentText>
-                            <ContentText>
-                                {mainPageTextChange(9)}
-                            </ContentText>
-                            <ContentText>
-                                {mainPageTextChange(10)}
-                            </ContentText>
-                        </InformContentWrapper>
-                    </ScrollAniContainer>
-                    <ScrollAniContainer>
-                        <InformContentWrapper>
-                            <ContentText>
-                                {mainPageTextChange(11)}
-                            </ContentText>
-                            <ContentText>
-                                {mainPageTextChange(12)}
-                            </ContentText>
-                            <ContentText>
-                                {mainPageTextChange(13)}
-                            </ContentText>
-                        </InformContentWrapper>
-                    </ScrollAniContainer>
-                    <ButtonWrapper>
-                        <ScrollAniContainer>
-                            <Button
-                                onClick={() => handleCopyClipBoard("aria.artacademy@gmail.com")}
-                                className='SeeMoreButton'>
-                                <span>
-                                    CLICK TO COPY EMAIL
-                                </span>
-                            </Button>
-                        </ScrollAniContainer>
-                        <ScrollAniContainer>
-                            <Button
-                                onClick={() => navigate("/support/counseling")}
-                                className='SeeMoreButton'>
-                                <span>
-                                    GO TO STUDENT COUNSELING PAGE
-                                </span>
-                            </Button>
-                        </ScrollAniContainer>
-                    </ButtonWrapper> */}
                 <GrayContainer />
             </InformContentContainer>
         </MobileMainLayout>

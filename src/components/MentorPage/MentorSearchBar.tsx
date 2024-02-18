@@ -7,7 +7,7 @@ import { mentorSearchInput } from '../../store/MentorSearchInput';
 import FilterButton from './FilterButton';
 import PageButton from './PageButton';
 
-const MentorSearchBar = () => {
+const MentorSearchBar = ({ data } : any) => {
 
     const language = localStorage.getItem("language");
 
@@ -56,7 +56,7 @@ const MentorSearchBar = () => {
                 <LuSearch />
             </IconBox>
         </SearchBarContainer>
-        {/* <PageButton /> */}
+        <PageButton data={data}/>
     </SearchBarOutContainer>
   )
 };

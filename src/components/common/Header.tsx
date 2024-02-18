@@ -21,7 +21,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { LuKeyRound } from "react-icons/lu";
-import CertifyModal from './CertifyModal/CertifyModal';
+import CertifyModal from '../../pages/Certify';
 
 const Header = () => {
 
@@ -39,7 +39,6 @@ const Header = () => {
     const modalRef = useRef<HTMLDivElement>(null);
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
-    const [setting, setSetting] = useState<boolean>(false);
 
     const languageChange = () => {
         switch (language) {
@@ -147,7 +146,6 @@ const Header = () => {
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
         {copyHandle && <CopyAlertModal />}
-        {setting && <CertifyModal setting={setting} setSetting={setSetting}/>}
         {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
