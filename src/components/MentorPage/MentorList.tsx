@@ -9,8 +9,13 @@ import { mentorSearchInput } from '../../store/MentorSearchInput';
 import NotSearch from '../common/NotSearch';
 import { IoSearchOutline } from "react-icons/io5";
 
-const MentorList = () => {
+interface MentorListProps {
+    data: any;
+};
 
+const MentorList : React.FC<MentorListProps> = ({ data }) => {
+
+    const mentorList = data?.data.mentorListData;
     const nationkind = useRecoilValue(nationKind);
     const language = localStorage.getItem("language");
     const searchValue = useRecoilValue(mentorSearchInput);
@@ -24,14 +29,14 @@ const MentorList = () => {
         if (searchValue === "") {
             if (nationkind?.englishpick === "All Country") {
                 return (
-                    mentorListData?.map((item : any) => {
+                    mentorListData?.map((item: any) => {
                         return (
                             <div key={item?.id}>
                                 <MentorCard
                                     item={item}
                                     language={language}
                                 />
-                            </div> 
+                            </div>
                         )
                     })
                 );
@@ -39,14 +44,14 @@ const MentorList = () => {
                 return (
                     (filterData.length === 0)
                         ? <NotSearch />
-                        : filterData?.map((item : any) => {    
+                        : filterData?.map((item: any) => {
                             return (
                                 <div key={item?.id}>
                                     <MentorCard
                                         item={item}
                                         language={language}
                                     />
-                                </div>   
+                                </div>
                             )
                         })
                 );
@@ -54,7 +59,7 @@ const MentorList = () => {
         } else {
             if (language === "japanese") {
                 return (
-                    JPFilterData?.map((item : any) => {
+                    JPFilterData?.map((item: any) => {
                         return (
                             <div key={item?.id}>
                                 <MentorCard
@@ -67,7 +72,7 @@ const MentorList = () => {
                 );
             } else if (language === "korean") {
                 return (
-                    KRFilterData?.map((item : any) => {
+                    KRFilterData?.map((item: any) => {
                         return (
                             <div key={item?.id}>
                                 <MentorCard
@@ -80,7 +85,7 @@ const MentorList = () => {
                 );
             } else {
                 return (
-                    ENFilterData?.map((item : any) => {
+                    ENFilterData?.map((item: any) => {
                         return (
                             <div key={item?.id}>
                                 <MentorCard
@@ -95,15 +100,24 @@ const MentorList = () => {
         };
     };
 
-  return (
-    <LayoutContainer>
-        <ListOutContainer>
-            <ListContainer>
-                {mentorChangeList()}
-            </ListContainer>
-        </ListOutContainer>
-    </LayoutContainer>
-  )
+    return (
+        <LayoutContainer>
+            <ListOutContainer>
+                <ListContainer>
+                    {mentorList?.map((item : any) => {
+                        return (
+                            <div key={item?.mentorsId}>
+                                <MentorCard
+                                    item={item}
+                                    language={language}
+                                />
+                            </div>
+                        )
+                    })}
+                </ListContainer>
+            </ListOutContainer>
+        </LayoutContainer>
+    )
 };
 
 const LayoutContainer = styled.section`

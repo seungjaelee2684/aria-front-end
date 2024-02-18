@@ -9,13 +9,28 @@ import FilterButton from '../components/MentorPage/FilterButton';
 import SlideShow from '../components/MentorPage/SlideShow';
 import MentorSearchBar from '../components/MentorPage/MentorSearchBar';
 import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../style/PageTitle';
+import { useQuery } from 'react-query';
+import { useRecoilValue } from 'recoil';
+import { pageNumber } from '../store/Pages';
+import { nationKind } from '../store/NationFilter';
+import { getMentorsApi } from '../api/mentors';
+import SlideWrapper from '../components/MentorPage/SlideWrapper';
 
 const Mentor = () => {
+
+  const page = useRecoilValue(pageNumber);
+  const nationFilter = useRecoilValue(nationKind);
+  const nation = nationFilter.englishpick
+
+  const { isLoading, isError, error, data } = useQuery(["getMentorsList", page, nation], () => getMentorsApi({page, nation}), {
+    refetchOnWindowFocus: false,
+  });
+  console.log("강사전체목록", data);
 
   return (
     <LayoutContainer>
       <LayoutInWrapper>
-        <SlideShow />
+        <SlideWrapper />
       </LayoutInWrapper>
       <MentorPageTitleContainer>
         A
@@ -23,8 +38,8 @@ const Mentor = () => {
         <TitleColorText color="#7769D0">R</TitleColorText>
         TIST
       </MentorPageTitleContainer>
-      <MentorList />
-      <MentorSearchBar />
+      <MentorList data={data}/>
+      <MentorSearchBar data={data}/>
     </LayoutContainer>
   )
 };

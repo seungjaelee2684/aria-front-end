@@ -55,7 +55,7 @@ const FilterButton = () => {
             ref={divRef}
             onClick={() => setIsOpenFilter(!isOpenFilter)}>
             <NationFilter>
-                {(nationkind.englishpick !== "All Country") && <NationFlag src={flag} alt=''/>}
+                {(nationkind.englishpick !== "All") && <NationFlag src={flag} alt=''/>}
                 {filterTranslate()}
                 <TiArrowSortedDown />
             </NationFilter>           

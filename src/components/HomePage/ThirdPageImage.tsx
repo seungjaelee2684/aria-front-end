@@ -10,16 +10,15 @@ import SlideBG from '../../assets/images/mainpage/Asset 94.webp';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { mentorListData } from '../../data/MentorData';
 
-interface ThirdPageImageProps {
+export interface ThirdPageImageProps {
   mainPageTextChange: Function;
+  newSlideDataList: any;
 };
 
-const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) => {
+const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange, newSlideDataList }) => {
 
   const [mainSlideCurrent, setMainSlideCurrent] = useState<number>(1);
   const [isLoop, setIsLoop] = useState<boolean>(false);
-
-  const newSlideDataList = mentorListData?.filter((data) => data?.isready);
 
   let timer : any;
   
@@ -28,12 +27,12 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
   useEffect(() => {
     const slideShowInterval = setInterval(() => {
       if (scrollIndex === 3) {
-        if (mainSlideCurrent === newSlideDataList.length) {
+        if (mainSlideCurrent === newSlideDataList?.length) {
           setIsLoop(true);
-          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
+          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList?.length + 2));
         } else {
           setIsLoop(false);
-          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
+          setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList?.length + 2));
         };
       };
     }, 5000);
@@ -56,7 +55,7 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
         } else {
           setIsLoop(false);
         };
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (newSlideDataList.length));
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent - 1) % (newSlideDataList?.length));
       };
     }, 500);
   };
@@ -65,12 +64,12 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
     clearTimeout(timer);
 
     timer = setTimeout(() => {
-      if (mainSlideCurrent === newSlideDataList.length) {
+      if (mainSlideCurrent === newSlideDataList?.length) {
         setIsLoop(true);
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList?.length + 2));
       } else {
         setIsLoop(false);
-        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList.length + 2));
+        setMainSlideCurrent((mainSlideCurrent) => (mainSlideCurrent + 1) % (newSlideDataList?.length + 2));
       };
     }, 500);
   };
@@ -85,7 +84,8 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange }) 
             mainSlideCurrent={mainSlideCurrent}
             setMainSlideCurrent={setMainSlideCurrent}
             isLoop={isLoop}
-            setIsLoop={setIsLoop}/>
+            setIsLoop={setIsLoop}
+            newSlideDataList={newSlideDataList}/>
             <PrevButton onClick={onClickMainPrevHandler}>
               <IoIosArrowRoundBack />
             </PrevButton>

@@ -28,8 +28,8 @@ const FilterModal : React.FC<FilterModalProps> = ({ setIsOpenFilter }) => {
     const flagValue = useRecoilValue(nationFlag);
 
     const nationFilter : Nation[]  = [
-        {englishnation: "All Country", japanesenation: "すべての国", nation: "모든 국가", flag: ""},
-        {englishnation: "U.S.A", japanesenation: "アメリカ", nation: "미국", flag: Americaflag},
+        {englishnation: "All", japanesenation: "すべての国", nation: "모든 국가", flag: ""},
+        {englishnation: "America", japanesenation: "アメリカ", nation: "미국", flag: Americaflag},
         {englishnation: "Japan", japanesenation: "日本", nation: "일본", flag: Japanflag},
         {englishnation: "Korea", japanesenation: "韓国", nation: "대한민국", flag: Koreaflag}
     ];

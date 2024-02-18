@@ -2,6 +2,7 @@ import instance from "./instance";
 
 // 운영자 인증 api
 interface postAuthorizationApiType {
+    operateId: string;
     password: string;
 };
 

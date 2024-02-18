@@ -22,16 +22,16 @@ const MentorCard = ({ item, language } : any) => {
   };
 
   const onClickMovePageHandler = () => {
-    if (item?.isready) {
-      navigate(`/mentor/detail/${item?.id}`)
+    if (item?.isopen) {
+      navigate(`/mentor/detail/${item?.mentorsId}`)
     } else {
-      setAlertModal({...alertModal, isOpen: true, whatAlert: 1, content: item?.sns[2].link});
+      setAlertModal({...alertModal, isOpen: true, whatAlert: 1, content: item?.twitter});
     };
   };
 
   return (
     <CardContainer onClick={onClickMovePageHandler}>
-      <CardImage src={item?.thumbnail}/>
+      <CardImage src={item?.thumbnailImage}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
         {languageTrans()}
@@ -104,7 +104,7 @@ const CardImage = styled.div<{ src : string }>`
   }
 `;
 
-const ContentContainer = styled.p`
+const ContentContainer = styled.div`
   display: grid;
   margin-top: 5px;
   gap: 0px;

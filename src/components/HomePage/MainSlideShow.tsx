@@ -7,14 +7,15 @@ interface MainSlideShowProps {
     setMainSlideCurrent: React.Dispatch<React.SetStateAction<number>>;
     isLoop: boolean;
     setIsLoop: React.Dispatch<React.SetStateAction<boolean>>;
+    newSlideDataList: any;
 };
 
-const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMainSlideCurrent, isLoop, setIsLoop }) => {
+const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMainSlideCurrent, isLoop, setIsLoop, newSlideDataList }) => {
 
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const widthMove = mainSlideCurrent * 100
 
-    const newSlideDataList = mentorListData?.filter((data) => data?.isready);
+    console.log("test", newSlideDataList);
 
     useEffect(() => {
         const mainSlideInterval = setInterval(() => {
@@ -42,18 +43,18 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            <SlideImage src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.background}>
-                <Nickname src={newSlideDataList[newSlideDataList?.length - 1]?.slideimage.nickname}/>
+            <SlideImage src={newSlideDataList[newSlideDataList?.length - 1]?.bannerImageUrl}>
+                <Nickname src={newSlideDataList[newSlideDataList?.length - 1]?.nicknameImageUrl}/>
             </SlideImage>
             {newSlideDataList?.map((item : any, index : number) => {
                 return (
-                    <SlideImage key={item?.id} src={item?.slideimage.background}>
-                        <Nickname src={item?.slideimage.nickname}/>
+                    <SlideImage key={item?.mentorsId} src={item?.bannerImageUrl}>
+                        <Nickname src={item?.nicknameImageUrl}/>
                     </SlideImage>
                 )
             })}
-            <SlideImage src={newSlideDataList[0]?.slideimage.background}>
-                <Nickname src={newSlideDataList[0]?.slideimage.nickname}/>
+            <SlideImage src={newSlideDataList[0]?.bannerImageUrl}>
+                <Nickname src={newSlideDataList[0]?.nicknameImageUrl}/>
             </SlideImage>
         </SlideWrapper>
     </SlideShowOutContainer>
@@ -98,26 +99,6 @@ const Nickname = styled.img`
         width: 80%;
         top: 35%;
     }
-`;
-
-const SmallNicknameRight = styled.img`
-    width: 42%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 40%;
-    left: 10%;
-    user-select: none;
-`;
-
-const BigNicknameRight = styled.img`
-    width: 70%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 40%;
-    left: 10%;
-    user-select: none;
 `;
 
 export default MainSlideShow;

@@ -5,10 +5,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useRecoilValue } from 'recoil';
 import { translate } from '../../store/Translation';
 import NewMentorList from './NewMentorList/NewMentorList';
-import { NewMentorListData } from '../../data/NewMentorData';
+// import { NewMentorListData } from '../../data/NewMentorData';
 import './NewMentorList/NewMentorList.css'
+import { useQuery } from 'react-query';
+import { getNewMentorBannerApi } from '../../api/banner';
 
-const SlideShow = () => {
+const SlideShow = ({ NewMentorListData } : any) => {
 
   const imageRef = useRef<HTMLDivElement>(null);
   const [slideCurrent, setSlideCurrent] = useState<number>(0);
@@ -16,7 +18,7 @@ const SlideShow = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData.length));
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData?.length));
       setPrevCurrent(slideCurrent);
     }, 5000);
 
@@ -27,16 +29,16 @@ const SlideShow = () => {
 
   const prevButton = () => {
     if (slideCurrent === 0) {
-      setSlideCurrent(NewMentorListData.length - 1);
+      setSlideCurrent(NewMentorListData?.length - 1);
       setPrevCurrent(0);
     } else {
-      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent - 1) % (NewMentorListData.length));
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent - 1) % (NewMentorListData?.length));
       setPrevCurrent(slideCurrent);
     };
   };
 
   const nextButton = () => {
-    setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData.length));
+    setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData?.length));
     setPrevCurrent(slideCurrent);
   };
 
@@ -58,6 +60,7 @@ const SlideShow = () => {
         slideCurrent={slideCurrent}
         prevCurrent={prevCurrent}
         setPrevCurrent={setPrevCurrent}
+        NewMentorListData={NewMentorListData}
         />
       <SlideNumberContainer>
         {NewMentorListData?.map((item : any, index: number) => {

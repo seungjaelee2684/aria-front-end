@@ -1,14 +1,8 @@
 import React, { FormEvent, useState } from 'react'
-import './CertifyModal.css';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-interface CertifyModalProps {
-    setting: boolean;
-    setSetting: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => {
+const Certify = () => {
   
     const navigate = useNavigate();
 
@@ -30,7 +24,7 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
     };
   
     return (
-    <BackgroundContainer onClick={() => setSetting(false)}>
+    <BackgroundContainer>
         <ModalContainer className='certifyModal' onClick={(e) => e.stopPropagation()}>
             <TopLaneContainer>
                 운영자 KEY 인증
@@ -57,7 +51,7 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
                     <Button color='#61a0ff' onClick={() => navigate("/upload/mentor")}>
                         ENTER
                     </Button>
-                    <Button color='#f5adad' onClick={() => setSetting(false)}>
+                    <Button color='#f5adad'>
                         CLOSE
                     </Button>
                 </ButtonWrapper>
@@ -69,16 +63,12 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
 
 const BackgroundContainer = styled.div`
     width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    height: 100vh;
     background-color: #00000080;
     backdrop-filter: blur(3px);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 105;
 `;
 
 const ModalContainer = styled.div`
@@ -173,4 +163,4 @@ const Button = styled.button<{ color : string }>`
     cursor: pointer;
 `;
 
-export default CertifyModal;
+export default Certify;
