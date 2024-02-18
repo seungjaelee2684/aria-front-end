@@ -1,9 +1,12 @@
 import React, { FormEvent, useState } from 'react'
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from 'react-query';
+import { postAuthorizationApi } from '../api/users';
 
 const Certify = () => {
   
+    const queryClient = useQueryClient;
     const navigate = useNavigate();
 
     const [certifyKey, setCertifyKey] = useState<{ operateId: string, password: string }>({
@@ -18,14 +21,22 @@ const Certify = () => {
             [name]: value
         });
     };
+    console.log("키 인증", certifyKey);
+
+    const mutation = useMutation(() => postAuthorizationApi(certifyKey), {
+        onSuccess: (res) => {
+            setCertifyKey({...certifyKey, operateId: "", password: ""});
+        }
+    });
     
     const onSubmitCertifyHandler = (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        mutation.mutate();
     };
   
     return (
     <BackgroundContainer>
-        <ModalContainer className='certifyModal' onClick={(e) => e.stopPropagation()}>
+        <ModalContainer>
             <TopLaneContainer>
                 운영자 KEY 인증
             </TopLaneContainer>
@@ -35,20 +46,23 @@ const Certify = () => {
                     autoComplete="off"
                     name='operateId'
                     value={certifyKey.operateId}
-                    placeholder='Enter your ID'
+                    placeholder='Type your ID'
                     onChange={onChangePasswordHandler}/>
                 <InputBar
                     type='password'
                     autoComplete="off"
                     name='password'
                     value={certifyKey.password}
-                    placeholder='Enter operator KEY ( ex: DE25QL4D8V29... )'
+                    placeholder='Type operator KEY ( ex: DE25QL4D8V29... )'
                     onChange={onChangePasswordHandler}/>
                 <InformationContent>
                     * 운영자 모드로 돌입하려면 정확한 운영자 Key를 입력해주십시오.
                 </InformationContent>
                 <ButtonWrapper>
-                    <Button color='#61a0ff' onClick={() => navigate("/upload/mentor")}>
+                    <Button
+                        type='submit'
+                        color='#61a0ff'
+                        onClick={() => mutation.mutate()}>
                         ENTER
                     </Button>
                     <Button color='#f5adad'>

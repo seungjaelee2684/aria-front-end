@@ -42,8 +42,6 @@ const SlideShow = ({ NewMentorListData } : any) => {
     setPrevCurrent(slideCurrent);
   };
 
-  // ("슬라이드 번호", slideCurrent);
-
   return (
     <ImageOutContainer>
       <SlideLeftButtonBox
