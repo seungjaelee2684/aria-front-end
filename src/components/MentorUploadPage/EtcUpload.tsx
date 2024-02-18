@@ -2,12 +2,12 @@ import React, { ChangeEvent } from 'react'
 import styled from 'styled-components';
 import { BoxContainer } from './InformUpload';
 import { IoIosLink } from "react-icons/io";
-import Home from '../../assets/curriculums/curriculumhome.webp';
-import Youtube from '../../assets/curriculums/curriculumyoutube.webp';
-import Twitter from '../../assets/curriculums/curriculumtwitter.webp';
-import Instagram from '../../assets/curriculums/curriculuminstagram.webp';
-import Artstation from '../../assets/curriculums/curriculumartstation.webp';
-import Pixiv from '../../assets/curriculums/curriculumpixiv.webp';
+import Home from '../../assets/images/sns/curriculumhome.webp';
+import Youtube from '../../assets/images/sns/curriculumyoutube.webp';
+import Twitter from '../../assets/images/sns/curriculumtwitter.webp';
+import Instagram from '../../assets/images/sns/curriculuminstagram.webp';
+import Artstation from '../../assets/images/sns/curriculumartstation.webp';
+import Pixiv from '../../assets/images/sns/curriculumpixiv.webp';
 
 interface EtcUploadProps {
   snsLink: any;

@@ -14,8 +14,6 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
     const mainSlideDivRef = useRef<HTMLDivElement>(null);
     const widthMove = mainSlideCurrent * 100
 
-    console.log("test", newSlideDataList);
-
     useEffect(() => {
         const mainSlideInterval = setInterval(() => {
             if (mainSlideCurrent === 0) {
