@@ -65,14 +65,14 @@ const SlideShow = ({ NewMentorListData } : any) => {
           return (
             (slideCurrent === index)
               ? <SlideNumber
-                key={item?.id}
+                key={index}
                 style={{
                   cursor: "default",
                   backgroundColor: "#FCFCFC",
                   minWidth: "40px",
                   borderRadius: "20px"}}/>
               : <SlideNumber
-                key={item?.id}
+                key={index}
                 onClick={() => {
                   setSlideCurrent(index);
                   setPrevCurrent(slideCurrent);

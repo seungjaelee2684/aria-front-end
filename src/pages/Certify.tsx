@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from 'react-query';
 import { postAuthorizationApi } from '../api/users';
+import axios from 'axios';
 
 const Certify = () => {
   
@@ -23,15 +24,35 @@ const Certify = () => {
     };
     console.log("키 인증", certifyKey);
 
-    const mutation = useMutation(() => postAuthorizationApi(certifyKey), {
-        onSuccess: (res) => {
-            setCertifyKey({...certifyKey, operateId: "", password: ""});
-        }
-    });
+    // const mutation = useMutation(() => 
+    // postAuthorizationApi(certifyKey), {
+    //     onSuccess: (res) => {
+    //         console.log("res", res);
+    //         let jwtToken = res.headers.authorization;
+    //         if (jwtToken) {
+    //             console.log(jwtToken);
+    //             localStorage.setItem("Authorization", jwtToken);
+    //         }
+    //         setCertifyKey({...certifyKey, operateId: "", password: ""});
+    //         navigate("/mentor");
+    //     }
+    // }
+    // );
     
     const onSubmitCertifyHandler = (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        mutation.mutate();
+        // mutation.mutate();
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/certification`, certifyKey)
+        .then(response => {
+            const jwtToken = response.headers.authorization;
+            if (jwtToken) {
+                console.log(jwtToken);
+                localStorage.setItem("Authorization", jwtToken);
+            };
+        })
+        .catch(error => {
+            console.error("error", error);
+        })
     };
   
     return (
@@ -62,7 +83,17 @@ const Certify = () => {
                     <Button
                         type='submit'
                         color='#61a0ff'
-                        onClick={() => mutation.mutate()}>
+                        onClick={() => axios.post(`${process.env.REACT_APP_SERVER_URL}/api/certification`, certifyKey)
+                        .then(response => {
+                            const jwtToken = response.headers;
+                            if (jwtToken) {
+                                console.log(jwtToken);
+                                // localStorage.setItem("Authorization", jwtToken);
+                            };
+                        })
+                        .catch(error => {
+                            console.error("error", error);
+                        })}>
                         ENTER
                     </Button>
                     <Button color='#f5adad'>

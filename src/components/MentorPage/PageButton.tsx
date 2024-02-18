@@ -13,8 +13,6 @@ const PageButton = ({ data } : any) => {
     const [pageData, setPageData] = useRecoilState(pageNumber);
 
     let pages : number[] = Array.from({ length: totalPage }, (_, i) => i + 1);
-
-    console.log(pages);
     
     const onClickPageMoveHandler = (isLeft : boolean) => {
         if (isLeft) {
