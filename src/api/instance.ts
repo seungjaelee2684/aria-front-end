@@ -4,10 +4,45 @@ const instance = axios.create({
     baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
-instance.interceptors.request.use((config) => {
-	const accessToken = document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*=\s*([^;]*).*$)|^.*$/, "$1");
-	accessToken && (config.headers.Authorization = accessToken);
-	return config;
-});
+instance.interceptors.response.use(
+    (response) => {
+        // if (response.headers.Authorization) {
+        //     console.log(response.headers.Authorization);
+        //     localStorage.setItem("Authorization", response.headers.Authorization);
+        // }
+
+        return response;
+    },
+    // accessToken 만료시 refreshToke으로 재발급 처리
+    // refreshToken api 나오면 수정될수도 있음
+    (error) => {
+        const {
+            response: { status },
+        } = error;
+        if (status === 401) {
+            localStorage.removeItem("Authorization");
+            alert("운영자 모드 제한시간이 만료되었습니다.");
+            window.location.replace("/");
+        }
+        return Promise.reject(error);
+    }
+);
+
+// // 인터셉터 리퀘스트 토큰 헤더에싣기
+instance.interceptors.request.use(
+    (config) => {
+        const accessToken = localStorage.getItem("Authorization");
+        console.log("토큰값 확인", accessToken);
+
+        if (accessToken) {
+            config.headers["Authorization"] = accessToken;
+        }
+
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 export default instance;
