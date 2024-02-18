@@ -6,10 +6,9 @@ import SlideShow from './SlideShow';
 const SlideWrapper = () => {
 
     const { isLoading, isError, error, data } = useQuery("getMentorBanner", () => getNewMentorBannerApi(), {
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: false,
+        refetchOnMount: false
     });
-
-    console.log("새로운 강사 배너", data);
 
     const NewMentorListData = data?.data.bannerData;
 

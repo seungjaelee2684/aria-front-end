@@ -36,10 +36,11 @@ const PageButton = ({ data } : any) => {
             {pages?.map((item : number, index : number) => {
                 return (
                     (pageData === index + 1)
-                        ? <SelectPageButton>
+                        ? <SelectPageButton key={index}>
                             {item}
                         </SelectPageButton>
                         : <DefaultPageButton
+                            key={index}
                             onClick={() => setPageData(item)}>
                             {item}
                         </DefaultPageButton>
@@ -98,6 +99,7 @@ const SelectPageButton = styled(DefaultPageButton)`
     background-color: #5C9DFF;
     color: #FFFFFF;
     font-weight: 600;
+    cursor: default;
 `;
 
 const PageMoveButton = styled.div`
