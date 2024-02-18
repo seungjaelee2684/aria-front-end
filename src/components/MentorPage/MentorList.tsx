@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
-import { mentorListData } from '../../data/MentorData';
 import MentorCard from './MentorCard';
 import { useRecoilValue } from 'recoil';
 import { nationKind } from '../../store/NationFilter';
@@ -19,86 +18,6 @@ const MentorList : React.FC<MentorListProps> = ({ data }) => {
     const nationkind = useRecoilValue(nationKind);
     const language = localStorage.getItem("language");
     const searchValue = useRecoilValue(mentorSearchInput);
-
-    const filterData = mentorListData?.filter((data) => data.nation === nationkind?.englishpick);
-    const ENFilterData = mentorListData?.filter((data) => data.englishname.includes(searchValue));
-    const JPFilterData = mentorListData?.filter((data) => data.japanesename.includes(searchValue));
-    const KRFilterData = mentorListData?.filter((data) => data.nickname.includes(searchValue));
-
-    const mentorChangeList = () => {
-        if (searchValue === "") {
-            if (nationkind?.englishpick === "All Country") {
-                return (
-                    mentorListData?.map((item: any) => {
-                        return (
-                            <div key={item?.id}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div>
-                        )
-                    })
-                );
-            } else {
-                return (
-                    (filterData.length === 0)
-                        ? <NotSearch />
-                        : filterData?.map((item: any) => {
-                            return (
-                                <div key={item?.id}>
-                                    <MentorCard
-                                        item={item}
-                                        language={language}
-                                    />
-                                </div>
-                            )
-                        })
-                );
-            };
-        } else {
-            if (language === "japanese") {
-                return (
-                    JPFilterData?.map((item: any) => {
-                        return (
-                            <div key={item?.id}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div>
-                        )
-                    })
-                );
-            } else if (language === "korean") {
-                return (
-                    KRFilterData?.map((item: any) => {
-                        return (
-                            <div key={item?.id}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div>
-                        )
-                    })
-                );
-            } else {
-                return (
-                    ENFilterData?.map((item: any) => {
-                        return (
-                            <div key={item?.id}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div>
-                        )
-                    })
-                );
-            };
-        };
-    };
 
     return (
         <LayoutContainer>

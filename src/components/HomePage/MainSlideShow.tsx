@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
-import { mentorListData } from '../../data/MentorData';
 
 interface MainSlideShowProps {
     mainSlideCurrent: number;
@@ -43,8 +42,8 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
   return (
     <SlideShowOutContainer>
         <SlideWrapper ref={mainSlideDivRef}>
-            <SlideImage src={newSlideDataList[newSlideDataList?.length - 1]?.bannerImageUrl}>
-                <Nickname src={newSlideDataList[newSlideDataList?.length - 1]?.nicknameImageUrl}/>
+            <SlideImage src={(newSlideDataList) ? newSlideDataList[newSlideDataList?.length - 1]?.bannerImageUrl : ""}>
+                <Nickname src={(newSlideDataList) ? newSlideDataList[newSlideDataList?.length - 1]?.nicknameImageUrl : ""}/>
             </SlideImage>
             {newSlideDataList?.map((item : any, index : number) => {
                 return (
@@ -53,8 +52,8 @@ const MainSlideShow : React.FC<MainSlideShowProps> = ({ mainSlideCurrent, setMai
                     </SlideImage>
                 )
             })}
-            <SlideImage src={newSlideDataList[0]?.bannerImageUrl}>
-                <Nickname src={newSlideDataList[0]?.nicknameImageUrl}/>
+            <SlideImage src={(newSlideDataList) ? newSlideDataList[0]?.bannerImageUrl : ""}>
+                <Nickname src={(newSlideDataList) ? newSlideDataList[0]?.nicknameImageUrl : ""}/>
             </SlideImage>
         </SlideWrapper>
     </SlideShowOutContainer>

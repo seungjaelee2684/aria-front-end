@@ -8,7 +8,6 @@ import { MainPageNumber } from '../../store/MainPageNumber';
 import MainSlideShow from './MainSlideShow';
 import SlideBG from '../../assets/images/mainpage/Asset 94.webp';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
-import { mentorListData } from '../../data/MentorData';
 
 export interface ThirdPageImageProps {
   mainPageTextChange: Function;

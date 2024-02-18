@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { mentorListData } from '../data/MentorData';
 import { useRecoilValue } from 'recoil';
 import { translate } from '../store/Translation';
 import { RxHamburgerMenu } from "react-icons/rx";
