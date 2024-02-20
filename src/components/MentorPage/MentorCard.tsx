@@ -23,8 +23,6 @@ const MentorCard : React.FC<MentorCardProps> = ({ item, language, loginState, up
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
   const { mentorsId } = updateModalOpen;
 
-  console.log(updateModalOpen);
-
   const languageTrans = () => {
     switch (language) {
       case "japanese" :

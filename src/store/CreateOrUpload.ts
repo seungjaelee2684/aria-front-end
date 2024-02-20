@@ -1,5 +1,13 @@
 import { atom } from "recoil";
 
+interface MentorImageType {
+    banner_image: string | null;
+    nickname_image: string | null;
+    thumbnail_image: string | null;
+    curriculum_image: string | null[];
+    portfolio_image: string | null[];
+}
+
 export const mentorInfoUpload = atom({
     key: "mentorInfo",
     default: {
@@ -12,7 +20,7 @@ export const mentorInfoUpload = atom({
     }
 });
 
-export const mentorImageUpload = atom({
+export const mentorImageUpload = atom<MentorImageType>({
     key: "mentorImage",
     default: {
         banner_image: null,

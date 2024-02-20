@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { LayOutTitleContainer, TitleBarContainer, TitleColorText } from '../style/PageTitle';
 import InformUpload from '../components/MentorUploadPage/InformUpload';
@@ -9,18 +9,60 @@ import EtcUpload from '../components/MentorUploadPage/EtcUpload';
 import { useRecoilState } from 'recoil';
 import { mentorImageUpload, mentorInfoUpload, snsLinkUpload } from '../store/CreateOrUpload';
 import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { getMentorInfoApi } from '../api/mentors';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const Update = () => {
 
     const { id } = useParams();
 
-    const [mentorImage, setMentorImage] = useRecoilState(mentorInfoUpload);
-    const [mentorInfo, setMentorInfo] = useRecoilState(mentorImageUpload);
+    const [mentorInfo, setMentorInfo] = useRecoilState(mentorInfoUpload);
+    const [mentorImage, setMentorImage] = useRecoilState(mentorImageUpload);
     const [snsLink, setSnsLink] = useRecoilState(snsLinkUpload);
+
+    const { isLoading, isError, error, data } = useQuery(["getMentorInformation", id], () => getMentorInfoApi(id), {
+        refetchOnWindowFocus: false,
+        onSuccess: (data) => {
+            const information = data?.data.mentorInfoDto.mentorInfomation;
+            const images = data?.data.mentorInfoDto.mentorImage;
+            const social = data?.data.mentorInfoDto.snsLinks;
+
+            setMentorImage({
+                ...mentorImage,
+                banner_image: images?.mentorSingle.bannerImage,
+                nickname_image: images?.mentorSingle.nicknameImage,
+                thumbnail_image: images?.mentorSingle.thumbnailImage
+            });
+            setMentorInfo({
+                ...mentorInfo,
+                englishname: information?.englishname,
+                japanesename: information?.japanesename,
+                nickname: information?.nickname,
+                nation: information?.nation,
+                opendate: information?.opendate,
+            });
+            setSnsLink({
+                ...snsLink,
+                home: social?.home,
+                youtube: social?.youtube,
+                twitter: social?.twitter,
+                instagram: social?.instagram,
+                artstation: social?.artstation,
+                pixiv: social?.pixiv,
+            });
+            console.log("강사 정보조회", data?.data);
+            console.log("test", mentorInfo, mentorImage, snsLink);
+        }
+    });
+
+    const informationData = data?.data.mentorInfoDto.mentorInfomation;
 
     const onClickUpdateHandler = () => {
         alert("아직 준비중입니다.");
     };
+
+    if (isLoading) { return <LoadingSpinner />};
 
     return (
         <LayoutContainer>
@@ -28,7 +70,7 @@ const Update = () => {
                 <TitleBarContainer />
                 UP
                 <TitleColorText color="#15b849">D</TitleColorText>
-                ATE MENTOR {id}
+                ATE {informationData?.nickname}
             </LayOutTitleContainer>
             <ContentContainer>
                 <LaneContainer>

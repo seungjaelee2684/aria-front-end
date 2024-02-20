@@ -1,14 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface UpdateModalProps {
     updateRef: React.RefObject<HTMLDivElement>;
+    updateModalOpen: {mentorsId: number | null};
+    setUpdateModalOpen: React.Dispatch<React.SetStateAction<{mentorsId: number | null}>>;
 };
 
-const UpdateModal : React.FC<UpdateModalProps> = ({ updateRef }) => {
+const UpdateModal : React.FC<UpdateModalProps> = ({ updateRef, updateModalOpen, setUpdateModalOpen }) => {
+    
+    const navigate = useNavigate();
+    const { mentorsId } = updateModalOpen;
+    
     return (
         <UpdateModalWrapper ref={updateRef}>
-            <UpdateButton>
+            <UpdateButton onClick={() => navigate(`/update/mentor/${mentorsId}`)}>
                 정보 수정하기
             </UpdateButton>
             <UpdateButton>
