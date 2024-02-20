@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import Image from '../../assets/images/surveimage.jpg';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
+import { isLogin } from '../../store/IsLogin';
+import { BiEditAlt } from "react-icons/bi";
+import UpdateModal from './UpdateModal';
 
-const MentorCard = ({ item, language } : any) => {
+interface MentorCardProps {
+  item: any;
+  language: string | null;
+  loginState: boolean;
+  updateRef: React.RefObject<HTMLDivElement>;
+  updateModalOpen: {mentorsId: number | null};
+  setUpdateModalOpen: React.Dispatch<React.SetStateAction<{mentorsId: number | null}>>;
+};
+
+const MentorCard : React.FC<MentorCardProps> = ({ item, language, loginState, updateRef, updateModalOpen, setUpdateModalOpen }) => {
 
   const navigate = useNavigate();
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
+  const { mentorsId } = updateModalOpen;
+
+  console.log(updateModalOpen);
 
   const languageTrans = () => {
     switch (language) {
@@ -21,6 +36,14 @@ const MentorCard = ({ item, language } : any) => {
     };
   };
 
+  const onClickModalOpen = () => {
+    if ((mentorsId === item?.mentorsId)) {
+      setUpdateModalOpen({...updateModalOpen, mentorsId: null});
+    } else {
+      setUpdateModalOpen({...updateModalOpen, mentorsId: item?.mentorsId});
+    };
+  };
+
   const onClickMovePageHandler = () => {
     if (item?.isopen) {
       navigate(`/mentor/detail/${item?.mentorsId}`)
@@ -29,8 +52,27 @@ const MentorCard = ({ item, language } : any) => {
     };
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (updateRef.current && !updateRef.current.contains(event.target)) {
+        setUpdateModalOpen({...updateModalOpen, mentorsId: null});
+      }
+    }
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <CardContainer onClick={onClickMovePageHandler}>
+      {(loginState)
+        && <UpdateButton onClick={(e) => e.stopPropagation()}>
+          <Update ref={updateRef} onClick={onClickModalOpen}>
+            <BiEditAlt />
+          </Update>
+        </UpdateButton>}
       <CardImage src={item?.thumbnailImage}/>
       <ContentContainer>
         <NicknameContainer>{item?.englishname}</NicknameContainer>
@@ -43,10 +85,8 @@ const MentorCard = ({ item, language } : any) => {
 const CardContainer = styled.div`
   width: 315px;
   height: 375px;
-  /* border: 1px solid; */
-  /* border-radius: 10px; */
-  /* background-color: #FFFFFF; */
   transition: all 0.2s ease-in-out;
+  position: relative;
 
   &:hover {
     transform: translateY(-5px) scale(1.01);
@@ -81,13 +121,8 @@ const CardImage = styled.div<{ src : string }>`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  /* border-radius: 10px; */
   border: 1px solid #e9e9e9;
-
-  /* @media screen and (max-width: 1320px) {
-    width: 180px;
-    height: 180px;
-  } */
+  
   @media screen and (max-width: 1320px) {
     width: 270px;
     height: 270px;
@@ -130,7 +165,6 @@ const ContentContainer = styled.div`
 const NicknameContainer = styled.div`
   font-family: "Pretendard";
   font-size: 18px;
- /* color: #222020; */
   font-weight: 600;
   line-height: 150%;
 
@@ -141,6 +175,34 @@ const NicknameContainer = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 14px;
     line-height: normal;
+  }
+`;
+
+const UpdateButton = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: absolute;
+  top: -2%;
+  right: -3%;
+  user-select: none;
+  cursor: pointer;
+`;
+
+const Update = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: #5C9DFF;
+  color: #FFFFFF;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #a8b2f0;
+
+  &:hover {
+    box-shadow: #2558a3 1px 1px 4px 1px;
   }
 `;
 

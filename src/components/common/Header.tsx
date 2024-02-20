@@ -22,13 +22,16 @@ import { MdOutlineArrowBack } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { LuKeyRound } from "react-icons/lu";
 import CertifyModal from '../../pages/Certify';
+import { isLogin } from '../../store/IsLogin';
 
 const Header = () => {
 
     const language = localStorage.getItem("language");
+    const accessToken = localStorage.getItem("Authorization");
     
     const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
+    const [loginState, setLoginState] = useRecoilState(isLogin);
     const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
     const scrollHeader = useRef<HTMLDivElement>(null);
     const mainScrollHeader = useRef<HTMLDivElement>(null);
@@ -52,6 +55,8 @@ const Header = () => {
     };
 
     useEffect(() => {
+        setLoginState(!!accessToken);
+
         if (mainScrollHeader.current) {
             mainScrollHeader.current.style.opacity = "1";
             mainScrollHeader.current.style.transition = "opacity 0.4s ease-in-out 2s";
@@ -87,7 +92,7 @@ const Header = () => {
             document.removeEventListener("click", handleClickOutside);
             window.removeEventListener('scroll', scrollHandler);
         };
-    }, [scrollData, mainScrollIndex, location.pathname]);
+    }, [scrollData, mainScrollIndex, location.pathname, accessToken]);
 
   return (
     <div>

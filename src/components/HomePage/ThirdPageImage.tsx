@@ -97,13 +97,13 @@ const ThirdPageImage : React.FC<ThirdPageImageProps> = ({ mainPageTextChange, ne
             return (
               (mainSlideCurrent === index + 1)
                 ? <SlideNumber
-                  key={item?.id}
+                  key={index}
                   style={{
                     backgroundColor: "#FCFCFC",
                     boxShadow: "#ffffff 0px 1px 4px 0px"
                   }}/>
                 : <SlideNumber
-                  key={item?.id}
+                  key={index}
                   onClick={() => setMainSlideCurrent(index)}/>
             )
           })}

@@ -60,9 +60,6 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
       if (subModalRef.current && !subModalRef.current.contains(event.target)) {
         setSubPage({...subPage, notice: false, support: false});
       };
-      if (subModalRef.current && !subModalRef.current.contains(event.target)) {
-        setSubPage({...subPage, notice: false, support: false});
-      };
     };
     document.addEventListener("click", handleClickOutside);
     return () => {

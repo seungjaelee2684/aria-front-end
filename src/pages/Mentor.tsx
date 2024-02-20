@@ -15,17 +15,20 @@ import { pageNumber } from '../store/Pages';
 import { nationKind } from '../store/NationFilter';
 import { getMentorsApi } from '../api/mentors';
 import SlideWrapper from '../components/MentorPage/SlideWrapper';
+import { isLogin } from '../store/IsLogin';
 
 const Mentor = () => {
 
   const page = useRecoilValue(pageNumber);
   const nationFilter = useRecoilValue(nationKind);
+  const loginState = useRecoilValue(isLogin);
   const nation = nationFilter.englishpick
 
   const { isLoading, isError, error, data } = useQuery(["getMentorsList", page, nation], () => getMentorsApi({page, nation}), {
     refetchOnWindowFocus: false,
   });
-  console.log("강사전체목록", data);
+
+  console.log("강사전체목록", data?.data);
 
   return (
     <LayoutContainer>
@@ -38,7 +41,7 @@ const Mentor = () => {
         <TitleColorText color="#7769D0">R</TitleColorText>
         TIST
       </MentorPageTitleContainer>
-      <MentorList data={data}/>
+      <MentorList data={data} loginState={loginState}/>
       <MentorSearchBar data={data}/>
     </LayoutContainer>
   )

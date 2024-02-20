@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, MouseEvent, useState } from 'react'
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from 'react-query';
@@ -23,31 +23,15 @@ const Certify = () => {
         });
     };
     console.log("키 인증", certifyKey);
-
-    // const mutation = useMutation(() => 
-    // postAuthorizationApi(certifyKey), {
-    //     onSuccess: (res) => {
-    //         console.log("res", res);
-    //         let jwtToken = res.headers.authorization;
-    //         if (jwtToken) {
-    //             console.log(jwtToken);
-    //             localStorage.setItem("Authorization", jwtToken);
-    //         }
-    //         setCertifyKey({...certifyKey, operateId: "", password: ""});
-    //         navigate("/mentor");
-    //     }
-    // }
-    // );
     
-    const onSubmitCertifyHandler = (e : FormEvent<HTMLFormElement>) => {
+    const onSubmitCertifyHandler = (e : FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        // mutation.mutate();
         axios.post(`${process.env.REACT_APP_SERVER_URL}/api/certification`, certifyKey)
         .then(response => {
             const jwtToken = response.headers.authorization;
             if (jwtToken) {
-                console.log(jwtToken);
                 localStorage.setItem("Authorization", jwtToken);
+                navigate("/mentor");
             };
         })
         .catch(error => {
@@ -83,17 +67,7 @@ const Certify = () => {
                     <Button
                         type='submit'
                         color='#61a0ff'
-                        onClick={() => axios.post(`${process.env.REACT_APP_SERVER_URL}/api/certification`, certifyKey)
-                        .then(response => {
-                            const jwtToken = response.headers;
-                            if (jwtToken) {
-                                console.log(jwtToken);
-                                // localStorage.setItem("Authorization", jwtToken);
-                            };
-                        })
-                        .catch(error => {
-                            console.error("error", error);
-                        })}>
+                        onClick={onSubmitCertifyHandler}>
                         ENTER
                     </Button>
                     <Button color='#f5adad'>

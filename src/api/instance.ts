@@ -6,19 +6,26 @@ const instance = axios.create({
 
 instance.interceptors.response.use(
     (response) => {
-        // if (response.headers.Authorization) {
-        //     console.log(response.headers.Authorization);
-        //     localStorage.setItem("Authorization", response.headers.Authorization);
-        // }
-
+        if (response.status === 201) {
+            localStorage.removeItem("Authorization");
+        }
+        if (response.status === 401) {
+            localStorage.removeItem("Authorization");
+            alert("운영자 모드 제한시간이 만료되었습니다.");
+            window.location.replace("/");
+        }
         return response;
     },
+
     // accessToken 만료시 refreshToke으로 재발급 처리
     // refreshToken api 나오면 수정될수도 있음
     (error) => {
         const {
             response: { status },
         } = error;
+        if (status === 201) {
+            localStorage.removeItem("Authorization");
+        }
         if (status === 401) {
             localStorage.removeItem("Authorization");
             alert("운영자 모드 제한시간이 만료되었습니다.");
@@ -32,7 +39,6 @@ instance.interceptors.response.use(
 instance.interceptors.request.use(
     (config) => {
         const accessToken = localStorage.getItem("Authorization");
-        console.log("토큰값 확인", accessToken);
 
         if (accessToken) {
             config.headers["Authorization"] = accessToken;

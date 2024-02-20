@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import MentorCard from './MentorCard';
 import { useRecoilValue } from 'recoil';
@@ -7,32 +7,47 @@ import { translate } from '../../store/Translation';
 import { mentorSearchInput } from '../../store/MentorSearchInput';
 import NotSearch from '../common/NotSearch';
 import { IoSearchOutline } from "react-icons/io5";
+import UpdateModal from './UpdateModal';
 
 interface MentorListProps {
     data: any;
+    loginState: boolean;
 };
 
-const MentorList : React.FC<MentorListProps> = ({ data }) => {
+const MentorList : React.FC<MentorListProps> = ({ data, loginState }) => {
 
     const mentorList = data?.data.mentorListData;
-    const nationkind = useRecoilValue(nationKind);
     const language = localStorage.getItem("language");
+    const updateRef = useRef<HTMLDivElement>(null);
     const searchValue = useRecoilValue(mentorSearchInput);
+    const [updateModalOpen, setUpdateModalOpen] = useState<{mentorsId: number | null}>({
+        mentorsId: null
+    });
+    const { mentorsId } = updateModalOpen;
 
     return (
         <LayoutContainer>
             <ListOutContainer>
                 <ListContainer>
-                    {mentorList?.map((item : any) => {
-                        return (
-                            <div key={item?.mentorsId}>
-                                <MentorCard
-                                    item={item}
-                                    language={language}
-                                />
-                            </div>
-                        )
-                    })}
+                    {(mentorList?.length > 0)
+                        ? mentorList?.map((item : any) => {
+                            return (
+                                <div key={item?.mentorsId} style={{position: "relative"}}>
+                                    {(mentorsId === item?.mentorsId)
+                                        && <UpdateModal updateRef={updateRef}/>}
+                                    <MentorCard
+                                        item={item}
+                                        language={language}
+                                        loginState={loginState}
+                                        updateRef={updateRef}
+                                        updateModalOpen={updateModalOpen}
+                                        setUpdateModalOpen={setUpdateModalOpen}
+                                    />
+                                </div>
+                            )
+                        })
+                        : <NotSearch />
+                    }
                 </ListContainer>
             </ListOutContainer>
         </LayoutContainer>
