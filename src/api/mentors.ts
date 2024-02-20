@@ -16,3 +16,9 @@ export const getMentorDetailApi = async (mentorsId : string | undefined) => {
     const res = await instance.get(`/api/mentors/${mentorsId}`);
     return res;
 };
+
+// 강사 정보조회 api
+export const getMentorInfoApi = async (mentorsId: string | undefined) => {
+    const res = await instance.get(`/api/update/mentor/${mentorsId}`);
+    return res;
+};

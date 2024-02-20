@@ -42,7 +42,7 @@ const Showcase = React.lazy(() => import('./pages/Showcase'));
 const Counseling = React.lazy(() => import('./pages/Counseling'));
 const Policy = React.lazy(() => import('./pages/Policy'));
 const MentorUpload = React.lazy(() => import('./pages/MentorUpload'));
-const Update = React.lazy(() => import('./pages/Update'));
+const MentorUpdate = React.lazy(() => import('./pages/MentorUpdate'));
 const Certify = React.lazy(() => import('./pages/Certify'));
 
 function App() {
@@ -69,7 +69,7 @@ function App() {
                 <Route path='/support/policy' element={<Policy />} caseSensitive />
                 <Route path='/event' element={<Event />} caseSensitive />
                 <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
-                <Route path='/update/:id' element={<Update />} caseSensitive />
+                <Route path='/update/mentor/:id' element={<MentorUpdate />} caseSensitive />
                 <Route path='/certify/aria' element={<Certify />} caseSensitive />
               </Route>
             </Routes>

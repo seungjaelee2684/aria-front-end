@@ -34,7 +34,10 @@ const MentorList : React.FC<MentorListProps> = ({ data, loginState }) => {
                             return (
                                 <div key={item?.mentorsId} style={{position: "relative"}}>
                                     {(mentorsId === item?.mentorsId)
-                                        && <UpdateModal updateRef={updateRef}/>}
+                                        && <UpdateModal
+                                            updateRef={updateRef}
+                                            updateModalOpen={updateModalOpen}
+                                            setUpdateModalOpen={setUpdateModalOpen}/>}
                                     <MentorCard
                                         item={item}
                                         language={language}
