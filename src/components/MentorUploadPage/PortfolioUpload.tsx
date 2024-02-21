@@ -33,14 +33,16 @@ const PortfolioUpload : React.FC<PortfolioUploadProps> = ({ mentorImage, setMent
   const onChangeFileAddHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const fileList = e?.target.files;
     if (fileList && fileList.length > 0) {
+      const newFileList : File[] = [];
+      const newImageList : string[] = [];
       for (let i = 0; i < fileList.length; i++) {
         const blobImage = fileList[i];
         const imageUrl = URL.createObjectURL(fileList[i]);
-        portfolio_image.push(blobImage);
-        imageList.push(imageUrl);
-        setMentorImage({ ...mentorImage, portfolio_image: portfolio_image });
-        setImageList(imageList);
+        newFileList.push(blobImage);
+        newImageList.push(imageUrl);
       };
+      setMentorImage({ ...mentorImage, portfolio_image: newFileList });
+      setImageList(newImageList);
     };
   };
 
