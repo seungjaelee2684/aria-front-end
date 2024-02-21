@@ -10,12 +10,15 @@ import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import { IoIosTimer } from "react-icons/io";
 import { translate } from '../../../store/Translation';
 import { IoIosInformationCircleOutline } from "react-icons/io";
+import { MonthEnum } from '../../../utils/MonthEnum';
 
 const AlertModal = () => {
 
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
   const language = localStorage.getItem("language");
+  const dateObject = new Date(alertModal?.opendate);
+  const month = dateObject.getMonth() + 1;
 
   const alertTranslate = (Num: number) => {
     switch (language) {
@@ -66,9 +69,13 @@ const AlertModal = () => {
             style={{margin:" 0px 0px 5px 0px"}}>
             <IoIosInformationCircleOutline />
           </ExclamationIcon>
-          <ModalTitle>
-            {alertTranslate(0)}
-          </ModalTitle>
+          {(language === "korean" || language === "japanese")
+              ? <ModalTitle>
+                {month}{alertTranslate(0)}
+              </ModalTitle>
+              : <ModalTitle>
+                {alertTranslate(0)}{MonthEnum[month - 1]}
+              </ModalTitle>}
           <ModalContent>
             {alertTranslate(1)}
           </ModalContent>
