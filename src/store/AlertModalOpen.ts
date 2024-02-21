@@ -5,6 +5,7 @@ export const AlertModalOpen = atom({
     default: {
         isOpen: false,
         whatAlert: 100,
-        content: ""
+        content: "",
+        opendate: ""
     }
 });

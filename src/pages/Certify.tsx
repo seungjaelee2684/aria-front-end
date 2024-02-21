@@ -7,11 +7,12 @@ import axios from 'axios';
 
 const Certify = () => {
   
-    const queryClient = useQueryClient;
+    const id = new URL(window.location.href).searchParams.get("operateid");
+    const operateId = id ? id : ""
     const navigate = useNavigate();
 
     const [certifyKey, setCertifyKey] = useState<{ operateId: string, password: string }>({
-        operateId: "",
+        operateId: operateId,
         password: ""
     });
 

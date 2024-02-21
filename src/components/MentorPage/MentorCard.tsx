@@ -46,7 +46,13 @@ const MentorCard : React.FC<MentorCardProps> = ({ item, language, loginState, up
     if (item?.isopen) {
       navigate(`/mentor/detail/${item?.mentorsId}`)
     } else {
-      setAlertModal({...alertModal, isOpen: true, whatAlert: 1, content: item?.twitter});
+      setAlertModal({
+        ...alertModal,
+        isOpen: true,
+        whatAlert: 1,
+        content: item?.twitter,
+        opendate: item?.opendate
+      });
     };
   };
 
