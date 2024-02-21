@@ -74,13 +74,13 @@ const WorldTime = () => {
             <StandardTime style={{color: "#cecece"}}>
                 {seoul.date}
             </StandardTime>
-            <StandardTime style={{marginTop: "16px"}}>
+            <StandardTime style={{marginTop: "8px"}}>
                 {tokyo.time} (JST)
             </StandardTime>
             <SubDateContent style={{color: "#c2c2c2"}}>
                 {tokyo.date}
             </SubDateContent>
-            <StandardTime style={{marginTop: "16px"}}>
+            <StandardTime style={{marginTop: "8px"}}>
                 {newyork.time} (EST)
             </StandardTime>
             <SubDateContent style={{color: "#c2c2c2"}}>
@@ -90,10 +90,28 @@ const WorldTime = () => {
     )
 };
 
+const SeoulTimeContent = styled.div`
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 100%;
+`;
+
+const StandardTime = styled.div`
+    font-size: 7px;
+    font-weight: 500;
+    line-height: 100%;
+`;
+
+const SubDateContent = styled.div`
+    font-size: 5px;
+    font-weight: 400;
+    line-height: 100%;
+`;
+
 const TimeContainer = styled.section`
     position: fixed;
-    top: 40%;
-    right: 1%;
+    top: 10%;
+    left: 1%;
     z-index: 99;
     font-family: "Pretendard";
     user-select: none;
@@ -101,70 +119,62 @@ const TimeContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 5px;
-    background-color: #202124ba;
-    padding: 16px 8px;
+    gap: 3px;
+    background-color: #2021247b;
+    padding: 10px 5px;
     border-radius: 2px;
     color: #FFFFFF;
 
-    @media screen and (max-width: 836px) {
-        top: 80px;
-    }
-`;
-
-const SeoulTimeContent = styled.div`
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 100%;
-    
-    @media screen and (max-width: 1920px) {
-        font-size: 20px;
-        font-weight: 600;
+    &:hover {
+        background-color: #202124ba;
     }
 
-    @media screen and (max-width: 1320px) {
+    &:hover ${SeoulTimeContent} {
+        font-size: 24px;
+    }
+    &:hover ${StandardTime} {
         font-size: 18px;
     }
-
-    @media screen and (max-width: 836px) {
-        font-size: 16px;
-    }
-`;
-
-const StandardTime = styled.div`
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 100%;
-
-    @media screen and (max-width: 1920px) {
-        font-size: 16px;
-        font-weight: 400;
-    }
-
-    @media screen and (max-width: 1320px) {
+    &:hover ${SubDateContent} {
         font-size: 14px;
     }
 
-    @media screen and (max-width: 836px) {
-        font-size: 12px;
-    }
-`;
-
-const SubDateContent = styled.div`
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 100%;
-
     @media screen and (max-width: 1920px) {
-        font-size: 13px;
+        &:hover ${SeoulTimeContent} {
+            font-size: 20px;
+        }
+        &:hover ${StandardTime} {
+            font-size: 16px;
+        }
+        &:hover ${SubDateContent} {
+            font-size: 13px;
+        }
     }
 
     @media screen and (max-width: 1320px) {
-        font-size: 12px;
+        &:hover ${SeoulTimeContent} {
+            font-size: 18px;
+        }
+        &:hover ${StandardTime} {
+            font-size: 14px;
+        }
+        &:hover ${SubDateContent} {
+            font-size: 12px;
+        }
     }
 
     @media screen and (max-width: 836px) {
-        font-size: 11px;
+        top: 80px;
+
+        &:hover ${SeoulTimeContent} {
+            font-size: 16px;
+        }
+        &:hover ${StandardTime} {
+            font-size: 12px;
+        }
+        &:hover ${SubDateContent} {
+            font-size: 11px;
+        }
     }
 `;
 
