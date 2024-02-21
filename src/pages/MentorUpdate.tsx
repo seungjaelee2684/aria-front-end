@@ -25,15 +25,8 @@ const Update = () => {
         refetchOnWindowFocus: false,
         onSuccess: (data) => {
             const information = data?.data.mentorInfoDto.mentorInfomation;
-            const images = data?.data.mentorInfoDto.mentorImage;
             const social = data?.data.mentorInfoDto.snsLinks;
 
-            setMentorImage({
-                ...mentorImage,
-                banner_image: images?.mentorSingle.bannerImage,
-                nickname_image: images?.mentorSingle.nicknameImage,
-                thumbnail_image: images?.mentorSingle.thumbnailImage
-            });
             setMentorInfo({
                 ...mentorInfo,
                 englishname: information?.englishname,
@@ -52,7 +45,7 @@ const Update = () => {
                 pixiv: social?.pixiv,
             });
             console.log("강사 정보조회", data?.data);
-            console.log("test", mentorInfo, mentorImage, snsLink);
+            console.log("test", mentorInfo, snsLink);
         }
     });
 

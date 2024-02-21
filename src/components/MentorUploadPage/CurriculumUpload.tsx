@@ -19,25 +19,27 @@ const CurriculumUpload : React.FC<CurriculumUploadProps> = ({ mentorImage, setMe
   const onChangeFileAddHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const fileList = e?.target.files;
     if (fileList && fileList.length > 0) {
+      const newFileList : File[] = [];
+      const newImageList : string[] = [];
       for (let i = 0; i < fileList.length; i++) {
         const blobImage = fileList[i];
         const imageUrl = URL.createObjectURL(fileList[i]);
-        curriculum_image.push(blobImage);
-        imageList.push(imageUrl);
-        setMentorImage({...mentorImage, curriculum_image: curriculum_image});
-        setImageList(imageList);
+        newFileList.push(blobImage);
+        newImageList.push(imageUrl);
       };
+      setMentorImage({...mentorImage, curriculum_image: newFileList});
+      setImageList(newImageList);
     };
   };
 
   const onClickRemoveHandler = (id : number) => {
     const newCurriculum = curriculum_image.filter((item : File, index : number) => index !== id);
-    const newImageList = imageList.filter((item, index) => index !== id);
+    const newImageList = imageList.filter((item : string, index : number) => index !== id);
     setMentorImage({...mentorImage, curriculum_image: newCurriculum});
     setImageList(newImageList);
   };
 
-  // console.log("통신 데이터", curriculum_image, "URL", imageList);
+  console.log("통신 데이터", curriculum_image, "URL", imageList);
 
   return (
     <BoxContainer>

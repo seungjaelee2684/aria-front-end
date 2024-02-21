@@ -4,8 +4,8 @@ interface MentorImageType {
     banner_image: string | null;
     nickname_image: string | null;
     thumbnail_image: string | null;
-    curriculum_image: string | null[];
-    portfolio_image: string | null[];
+    curriculum_image: File[];
+    portfolio_image: File[];
 }
 
 export const mentorInfoUpload = atom({
