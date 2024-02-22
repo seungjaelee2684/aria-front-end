@@ -19,7 +19,7 @@ import SanpatiCurriculumENG3 from '../assets/curriculums/sanpati/ENG/Sanpati_Cur
 import SanpatiCurriculumJPN1 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum1_JPN.webp';
 import SanpatiCurriculumJPN2 from '../assets/curriculums/sanpati/JPN/sanpati_curriculum_02_JPN.webp';
 import SanpatiCurriculumJPN3 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum3_JPN.webp';
-import SanpatiCurriculumKOR1 from '../assets/curriculums/sanpati/KOR/Sanpati_Curriculum1_KOR.webp';
+import SanpatiCurriculumKOR1 from '../assets/curriculums/sanpati/KOR/sanpati_curriculum_01_KOR.webp';
 import SanpatiCurriculumKOR2 from '../assets/curriculums/sanpati/KOR/sanpati_curriculum_02_KOR.webp';
 import SanpatiCurriculumKOR3 from '../assets/curriculums/sanpati/KOR/Sanpati_Curriculum3_KOR.webp';
 import SanpatiPortfolio1 from '../assets/curriculums/sanpati/portfolio/p01.webp';
@@ -46,7 +46,7 @@ import EscapeCurriculumENG3 from '../assets/curriculums/escape/ENG/Escape_Curric
 import EscapeCurriculumJPN1 from '../assets/curriculums/escape/JPN/Escape_Curriculum1_JPN.webp';
 import EscapeCurriculumJPN2 from '../assets/curriculums/escape/JPN/escape_curriculum_02_JPN.webp';
 import EscapeCurriculumJPN3 from '../assets/curriculums/escape/JPN/Escape_Curriculum3_JPN.webp';
-import EscapeCurriculumKOR1 from '../assets/curriculums/escape/KOR/Escape_Curriculum1_KOR.webp';
+import EscapeCurriculumKOR1 from '../assets/curriculums/escape/KOR/escape_curriculum_01_KOR.webp';
 import EscapeCurriculumKOR2 from '../assets/curriculums/escape/KOR/escape_curriculum_02_KOR.webp';
 import EscapeCurriculumKOR3 from '../assets/curriculums/escape/KOR/Escape_Curriculum3_KOR.webp';
 import EscapePortfolio1 from '../assets/curriculums/escape/portfolio/p01.webp';
@@ -187,6 +187,84 @@ export const mentorListData = [
         id: "3",
         isready: true,
         nation: "Japan",
+        englishname: "Escape",
+        japanesename: "エスケープ",
+        nickname: "이스케이프",
+        isnew: true,
+        slideimage: {
+            status: "Left",
+            bigger: false,
+            background: EscapeSlideBack,
+            nickname: EscapeSlideNick
+        },
+        portfolio: [
+            EscapePortfolio1,
+            EscapePortfolio2,
+            EscapePortfolio3,
+            EscapePortfolio4,
+            EscapePortfolio5,
+            EscapePortfolio6,
+            EscapePortfolio7,
+            EscapePortfolio8,
+            EscapePortfolio9,
+            EscapePortfolio10,
+            EscapePortfolio11,
+            EscapePortfolio12,
+        ],
+        content: {
+            englishcontent: [
+                EscapeCurriculumENG1,
+                EscapeCurriculumENG2,
+                EscapeCurriculumENG3
+            ],
+            chinesecontent: [
+                EscapeCurriculumENG1,
+                EscapeCurriculumENG2,
+                EscapeCurriculumENG3
+            ],
+            japanesecontent: [
+                EscapeCurriculumJPN1,
+                EscapeCurriculumJPN2,
+                EscapeCurriculumJPN3
+            ],
+            koreancontent: [
+                EscapeCurriculumKOR1,
+                EscapeCurriculumKOR2,
+                EscapeCurriculumKOR3
+            ],
+        },
+        sns: [
+            {
+                icon: CurriculumDefaultHome,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultYoutube,
+                link: ""
+            },
+            {
+                icon: CurriculumTwitter,
+                link: "https://twitter.com/esukeipu001"
+            },
+            {
+                icon: CurriculumDefaultInsta,
+                link: ""
+            },
+            {
+                icon: CurriculumDefaultArtstation,
+                link: ""
+            },
+            {
+                icon: CurriculumPixiv,
+                link: "https://www.pixiv.net/users/58851418"
+            }
+        ],
+        thumbnail: EscapeThumbnail
+    },
+    {
+        id: "4",
+        isready: true,
+        nation: "Japan",
         englishname: "Sanpati",
         japanesename: "さんぱち",
         nickname: "산파치",
@@ -263,83 +341,5 @@ export const mentorListData = [
             }
         ],
         thumbnail: SanpatiThumbnail
-    },
-    {
-        id: "4",
-        isready: true,
-        nation: "Japan",
-        englishname: "Escape",
-        japanesename: "エスケープ",
-        nickname: "이스케이프",
-        isnew: true,
-        slideimage: {
-            status: "Left",
-            bigger: false,
-            background: EscapeSlideBack,
-            nickname: EscapeSlideNick
-        },
-        portfolio: [
-            EscapePortfolio1,
-            EscapePortfolio2,
-            EscapePortfolio3,
-            EscapePortfolio4,
-            EscapePortfolio5,
-            EscapePortfolio6,
-            EscapePortfolio7,
-            EscapePortfolio8,
-            EscapePortfolio9,
-            EscapePortfolio10,
-            EscapePortfolio11,
-            EscapePortfolio12,
-        ],
-        content: {
-            englishcontent: [
-                EscapeCurriculumENG1,
-                EscapeCurriculumENG2,
-                EscapeCurriculumENG3
-            ],
-            chinesecontent: [
-                EscapeCurriculumENG1,
-                EscapeCurriculumENG2,
-                EscapeCurriculumENG3
-            ],
-            japanesecontent: [
-                EscapeCurriculumJPN1,
-                EscapeCurriculumJPN2,
-                EscapeCurriculumJPN3
-            ],
-            koreancontent: [
-                EscapeCurriculumKOR1,
-                EscapeCurriculumKOR2,
-                EscapeCurriculumKOR3
-            ],
-        },
-        sns: [
-            {
-                icon: CurriculumDefaultHome,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultYoutube,
-                link: ""
-            },
-            {
-                icon: CurriculumTwitter,
-                link: "https://twitter.com/esukeipu001"
-            },
-            {
-                icon: CurriculumDefaultInsta,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultArtstation,
-                link: ""
-            },
-            {
-                icon: CurriculumPixiv,
-                link: "https://www.pixiv.net/users/58851418"
-            }
-        ],
-        thumbnail: EscapeThumbnail
     },
 ];

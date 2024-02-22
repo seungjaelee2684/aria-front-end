@@ -282,7 +282,7 @@ const SNSIcons = styled.img`
 `;
 
 const PortfolioWrapper = styled.div`
-    width: 70%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -297,7 +297,7 @@ const PortfolioImage = styled.img`
 `;
 
 const ListBackMoveBtnContainer = styled.div`
-    width: 500px;
+    width: 700px;
     display: flex;
     justify-content: end;
     align-items: center;
