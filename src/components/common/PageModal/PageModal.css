@@ -1,8 +1,23 @@
-.ModalContainerDiv {
+/* .ModalContainerDiv {
     animation: modal_open 0.4s forwards;
 }
 
+.ModalContainerBig {
+    animation: modal_open_2 0.4s forwards;
+}
+
 @keyframes modal_open {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px) scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+@keyframes modal_open_2 {
     0% {
         opacity: 0;
         transform: translateY(-50px) scaleY(0);
@@ -11,4 +26,4 @@
         opacity: 1;
         transform: translateY(0) scaleY(1);
     }
-}
+} */

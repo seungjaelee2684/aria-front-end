@@ -1,0 +1,14 @@
+.mobile-SNS-modal {
+    animation: mobile_SNS_modal_open 0.3s forwards;
+}
+
+@keyframes mobile_SNS_modal_open {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

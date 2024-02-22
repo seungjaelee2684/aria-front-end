@@ -1,79 +1,183 @@
-.CharacterImage {
-    animation: character_image 1.5s forwards;
+.background-close {
+    animation: opacity_controll_close 1s ease-in forwards;
 }
 
-.CloudsImage1 {
-    animation-name: etc_image;
-    animation-delay: 0.5s;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-}
-
-.CloudsImage2 {
-    animation-name: etc_image;
+.first-frame-in {
+    animation: first_logo_appear_a 1.5s forwards;
     animation-delay: 0.7s;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
 }
 
-.CloudsImage3 {
-    animation-name: etc_image;
-    animation-delay: 0.9s;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
+.second-frame-in {
+    animation: first_logo_appear_r 1.5s forwards;
+    animation-delay: 0.7s;
 }
 
-.LogoImage {
-    animation-name: logo_image;
-    animation-delay: 2s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+.third-frame-in {
+    animation: first_logo_appear_i 1.5s forwards;
+    animation-delay: 0.7s;
 }
 
-.PageMoveButton {
-    animation-name: logo_image;
-    animation-delay: 2.5s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+.fourth-frame-in {
+    animation: first_logo_appear_a2 1.5s forwards;
+    animation-delay: 0.7s;
 }
 
-@keyframes character_image {
-    0% {
+.second-bar {
+    animation: second_bar_appear 1s forwards;
+    animation-delay: 0.3s;
+}
+
+.second-title {
+    animation: second_title_appear 0.6s forwards;
+}
+
+.second-content {
+    animation: opacity_controll 1.6s ease-out forwards;
+    animation-delay: 1.8s;
+}
+
+.second-color-content {
+    animation: second_content_appear 1.5s forwards;
+}
+
+.third-content {
+    animation: opacity_controll 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.fifth-title {
+    animation: opacity_controll 0.6s forwards;
+}
+
+.fifth-button {
+    animation: opacity_controll 1.2s forwards;
+    animation-delay: 1.6s;
+}
+
+@keyframes first_logo_appear_a {
+    from {
         opacity: 0;
-        transform: scale(0);
+        transform: scale(1.5) translateX(-100%);
     }
-    50% {
+    to {
         opacity: 1;
-        transform: scale(1.5);
+        transform: scale(1) translateX(0%);
     }
-    100% {
+}
+
+@keyframes first_logo_appear_r {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0%);
+    }
+}
+
+@keyframes first_logo_appear_i {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(50%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes first_logo_appear_a2 {
+    from {
+        opacity: 0;
+        transform: scale(1.5) translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0%);
+    }
+}
+
+@keyframes second_triangle_appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-@keyframes etc_image {
-    0% {
-        opacity: 0;
-        transform: scale(0);
+@keyframes second_bar_appear {
+    from {
+        opacity: 1;
+        transform: translateY(100%);
     }
-    50% {
-        opacity: 0.7;
-        transform: scale(1.3);
-    }
-    100% {
-        opacity: 0.7;
-        transform: scale(1);
+    to {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }
 
-@keyframes logo_image {
-    0% {
+@keyframes second_title_appear {
+    from {
         opacity: 0;
-        transform: translateY(-200px);
+        transform: translateX(-50%);
     }
-    100% {
+    to {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateX(0%);
+    }
+}
+
+@keyframes second_content_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes opacity_controll {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity_controll_close {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fifth_title_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes main_header_appear {
+    from {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }

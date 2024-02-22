@@ -1,0 +1,30 @@
+.TextBox {
+    animation: banner_text_up 1s forwards;
+}
+
+.AnimationBar {
+    animation: bar_appear 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes banner_text_up {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes bar_appear {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}

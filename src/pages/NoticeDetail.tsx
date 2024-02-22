@@ -1,20 +1,26 @@
 import React from 'react'
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { translate } from '../store/Translation';
-import { eventPosterData } from '../data/EventPosterData';
+import { noticeData } from '../data/NoticeData';
+import Banner from '../components/common/Banner';
 
 const NoticeDetail = () => {
 
   const { id } = useParams();
-  console.log("id ->", id);
-  const japanese = useRecoilValue(translate);
-  const eventList = eventPosterData?.filter((item) => item.id === id);
-  console.log("이벤트데이터", eventList);
+
+  const noticeDto = noticeData?.filter((item) => item.id === id);
 
   return (
-    <div>{id}</div>
+    <LayoutContainer>
+      <Banner page={1}/>
+      {noticeDto[0]?.contents.title}
+    </LayoutContainer>
   )
 };
+
+const LayoutContainer = styled.div`
+  width: 100%;
+  padding: 0px 0px 100px 0px;
+`;
 
 export default NoticeDetail;

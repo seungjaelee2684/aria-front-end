@@ -5,11 +5,11 @@
 } */
 
 .ImageSlideContainer {
-    animation: slide_show 2s forwards;
+    animation: slide_show 1.5s forwards;
 }
 
 .ImageContainer {
-    animation: slide_end 2s forwards;
+    animation: slide_end 1.5s forwards;
 }
 
 .NotActionImage {

@@ -1,167 +1,162 @@
 import React, { useEffect, useRef, useState } from 'react'
+import '../HomePage/MainImage/MainImage.css';
 import styled from 'styled-components';
-import logo from '../../assets/logos/logo.png';
+import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useResetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { translate } from '../../store/Translation';
-import { nationFlag, nationKind } from '../../store/NationFilter';
-import ScrollBar from './ScrollBar';
-import PageModal from './PageModal/PageModal';
-import SNSMenu from './SNSMenu';
-import ListIcon from '../../assets/icons/list.png';
+import SNSMenu from './SNSMenu/SNSMenu';
 import '../../style/font/font.css';
-import Translate from '../../assets/icons/translateicon.png';
+import TranslateModal from './TranslateModal';
+import NavButton from './NavButton';
+import MobileNavBtn from './MobileNavBtn';
+import { MainPageNumber } from '../../store/MainPageNumber';
+import { CopyAlert } from '../../store/CopyAlert';
+import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
+import { popUpOpen } from '../../store/PopUpOpen';
+import PopUp from './PopUp';
+import { IoMdHome } from "react-icons/io";
+import { BsGlobe2 } from "react-icons/bs";
+import { TiArrowSortedDown } from "react-icons/ti";
+import { MdOutlineArrowBack } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { LuKeyRound } from "react-icons/lu";
+import CertifyModal from './CertifyModal/CertifyModal';
 
 const Header = () => {
 
-    const [japanese, setJapanese] = useRecoilState(translate);
-    const resetFilter = useResetRecoilState(nationKind);
-    const resetFlag = useResetRecoilState(nationFlag);
+    const language = localStorage.getItem("language");
+    
+    const mainScrollIndex = useRecoilValue(MainPageNumber);
+    const copyHandle = useRecoilValue(CopyAlert);
+    const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
+    const scrollHeader = useRef<HTMLDivElement>(null);
+    const mainScrollHeader = useRef<HTMLDivElement>(null);
+    const [scrollData, setScrollData] = useState<number>(0);
 
     const navigate = useNavigate();
     const location = useLocation();
-    const hoverRef = useRef<HTMLDivElement>(null);
-    const [hoverEvent, setHoverEvent] = useState<boolean>(false);
-    const [pageModal, setPageModal] = useState<string>("");
-    const [snsModal, setSnsModal] = useState<boolean>(false);
+    const modalRef = useRef<HTMLDivElement>(null);
+    const mobileModalRef = useRef<HTMLDivElement>(null);
+    const [languageModal, setLanguageModal] = useState<boolean>(false);
+    const [setting, setSetting] = useState<boolean>(false);
 
-    // console.log("모달 번호 => ", pageModal);
-
-    // const getHeaderPage = () => {
-    //     if (location.pathname === "/") {
-    //         return;
-    //     } else {
-    //         return (
-                
-    //         )
-    //     };
-    // };
+    const languageChange = () => {
+        switch (language) {
+            case "japanese" :
+                return "日本語";
+            case "korean" :
+                return "한국어";
+            default :
+                return "ENG";
+        };
+    };
 
     useEffect(() => {
-        if (hoverRef.current) {
-            if (hoverEvent) {
-                hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "1"
-            } else {
-                hoverRef.current.style.transition = "all 0.2s ease-in-out"
-                hoverRef.current.style.opacity = "0.4"
-            };
-            
+        if (mainScrollHeader.current) {
+            mainScrollHeader.current.style.opacity = "1";
+            mainScrollHeader.current.style.transition = "opacity 0.4s ease-in-out 2s";
+            mainScrollHeader.current.style.transform = "translateY(0px)";
         };
-    }, [hoverEvent]);
+
+        const handleClickOutside = (event: any) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+              setLanguageModal(false);
+            }
+          };
+        document.addEventListener("click", handleClickOutside);
+
+        const scrollHandler = () => {
+            const currentScrollY = window.scrollY;
+            if (scrollHeader.current) {
+                if (currentScrollY > scrollData) {
+                    scrollHeader.current.style.opacity = "0";
+                    scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                    scrollHeader.current.style.transform = "translateY(-80px)";
+                } else {
+                    scrollHeader.current.style.opacity = "1";
+                    scrollHeader.current.style.transition = "all 0.4s ease-in-out";
+                    scrollHeader.current.style.transform = "translateY(0px)";
+                };
+            };
+            setScrollData(currentScrollY);
+        };    
+
+        window.addEventListener('scroll', scrollHandler);
+
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+            window.removeEventListener('scroll', scrollHandler);
+        };
+    }, [scrollData, mainScrollIndex, location.pathname]);
 
   return (
     <div>
-        {(location.pathname !== "/") && <HeaderHiddenContainer ref={hoverRef} />}
         <HeaderLayoutContainer
-            onMouseOver={() => setHoverEvent(true)}
-            onMouseOut={() => setHoverEvent(false)}
-        >
-            <HeaderOutWrapper
-                style={{justifyContent: `${(location.pathname !== "/") ? "" : "center"}`}}>
-                {(location.pathname !== "/")
-                    && <LogoContainer>
-                        <HeaderLogo
-                            src={logo}
-                            alt=""
-                            onClick={() => {
-                                navigate("/");
-                                resetFilter();
-                                resetFlag();
-                            }}/>
-                        <TranslateWrapper onClick={() => setJapanese(!japanese)}>
-                            <TranslateIcon src={Translate}/>
-                            <TranslateText>{japanese ? "한국어" : "日本語"}</TranslateText>
-                        </TranslateWrapper>
-                    </LogoContainer>}
-                <TapOutContainer>
-                    <TapContainer
-                        onClick={() => {
-                            navigate("/");
-                            resetFilter();
-                            resetFlag();
-                        }}>
-                        HOME
-                    </TapContainer>
-                    <TapContainer
-                        style={{color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}`}}
-                        onClick={() => {
-                            navigate("/mentor");
-                            resetFilter();
-                            resetFlag();
-                        }}>
-                        MENTOR
-                    </TapContainer>
-                    <div
-                        style={{position: "relative"}}
-                        onMouseOver={() => setPageModal("Notice")} 
-                        onMouseOut={() => setPageModal("")}>
-                        <TapContainer
-                            style={{color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}`}}
-                            onClick={() => {
-                                navigate("/notice");
-                                resetFilter();
-                                resetFlag();
-                            }}>
-                            NOTICE
-                            
-                        </TapContainer>
-                        {((pageModal === "Notice") && (location.pathname !== "/"))
-                            && <PageModal
-                            pageModal={pageModal}/>}
-                    </div>
-                    <TapContainer
-                        style={{color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}`}}
-                        onClick={() => {
-                            navigate("/showcase");
-                            resetFilter();
-                            resetFlag();
-                        }}>
-                        SHOWCASE
-                    </TapContainer>
-                    <div
-                        style={{position: "relative"}}
-                        onMouseOver={() => setPageModal("Support")} 
-                        onMouseOut={() => setPageModal("")}>
-                        <TapContainer
-                            style={{color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}`}}
-                            onClick={() => {
-                                navigate("/support");
-                                resetFilter();
-                                resetFlag();
-                            }}>
-                            SUPPORT
-                        </TapContainer>
-                        {((pageModal === "Support") && (location.pathname !== "/"))
-                            && <PageModal
-                            pageModal={pageModal}/>}
-                    </div>
-                </TapOutContainer>
-                {(location.pathname !== "/")
-                    && <SupportWrapper>
+            style={{opacity: `${(location.pathname === "/") ? "0" : "1"}`}}
+            ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
+            <HeaderOutWrapper>
+                <LogoContainer>
+                    <HeaderLogo
+                        src={logo}
+                        alt=""
+                        onClick={() => navigate("/")}/>
+                </LogoContainer>
+                {/* <RightWrapper> */}
+                <HeaderRightWrapper>
+                    <SmallButtonWrapper>
+                        <HomeBtnWrapper onClick={() => navigate("/")}>
+                            <IoMdHome />
+                            <TransText>
+                                HOME
+                            </TransText>
+                        </HomeBtnWrapper>
+                        <BarContainer />
+                        <TranslateContainer ref={modalRef}>
+                            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                                <BsGlobe2 />
+                                <TransText>
+                                    {languageChange()}
+                                </TransText>
+                                <TiArrowSortedDown />
+                            </TranslateWrapper>
+                            {languageModal
+                                && <TranslateModal
+                                setLanguageModal={setLanguageModal}/>}
+                            {/* <MobileTranslateContainer>
+                                {languageModal
+                                    && <TranslateModal
+                                    setLanguageModal={setLanguageModal}/>}
+                            </MobileTranslateContainer> */}
+                        </TranslateContainer>
+                        {/* <BarContainer /> */}
+                        {/* <SettingWrapper onClick={() => setSetting(!setting)}>
+                            <Setting>
+                                <LuKeyRound />
+                            </Setting>
+                        </SettingWrapper> */}
+                    </SmallButtonWrapper>
+                    <UnderLaneContainer>
+                        <NavButtonContainer>
+                            <NavButton />
+                        </NavButtonContainer>
                         <SNSMenu />
-                    </SupportWrapper>}
+                    </UnderLaneContainer>
+                {/* </RightWrapper> */}
+                </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        {/* <ScrollBarContainer> */}
-            {/* <ScrollBar /> */}
-        {/* </ScrollBarContainer> */}
+        {copyHandle && <CopyAlertModal />}
+        {setting && <CertifyModal setting={setting} setSetting={setSetting}/>}
+        {/* {isPopUp && <PopUp />} */}
+        <MobileNavButton>
+            <MobileNavBtn navigate={navigate}/>
+        </MobileNavButton>
     </div>
   )
 };
 
-const HeaderHiddenContainer = styled.div`
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    background-color: #FFFFFF;
-    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
-`;
-
-const HeaderLayoutContainer = styled.div`
+const HeaderLayoutContainer = styled.header`
     width: 100%;
     height: 80px;
     /* border-bottom: 1px solid gray; */   
@@ -169,7 +164,13 @@ const HeaderLayoutContainer = styled.div`
     top: 0;
     left: 0;
     z-index: 100;
-    /* opacity: 0.5; */
+    background-color: #FFFFFF;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
+    transition: all 0.4s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 const HeaderOutWrapper = styled.div`
@@ -179,6 +180,7 @@ const HeaderOutWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    user-select: none;
 
     @media screen and (max-width: 1320px) {
         width: 96%;
@@ -190,19 +192,18 @@ const LogoContainer = styled.div`
     display: flex;
     /* margin: auto 0px; */
     align-items: center;
-    gap: 16px;
     height: 80px;
 
-    @media screen and (max-width: 1320px) {
-        gap: 5px;
-        height: 70px;
+    @media screen and (max-width: 500px) {
+        /* height: 40px; */
+        display: none;
     }
 `;
 
 const HeaderLogo = styled.img`
     width: 120px;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
+    object-fit: cover;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -213,142 +214,196 @@ const HeaderLogo = styled.img`
     }
 
     @media screen and (max-width: 1320px) {
-        width: 100px;
+        width: 110px;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 90px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 80px;
+    }
+`;
+
+const HeaderRightWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* gap: 25px; */
+    width: 74%;
+    height: 100%;
+    gap: 0px;
+
+    @media screen and (max-width: 1320px) {
+        width: 80%;
+    }
+
+    @media screen and (max-width: 836px) {
+        width: 78%;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 8%;
+    }
+`;
+
+const SmallButtonWrapper = styled.div`
+    width: 90%;
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 12px;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
         height: 100%;
     }
 `;
 
-const TranslateWrapper = styled.div`
+export const TranslateWrapper = styled.div`
+    height: 100%;
     display: flex;
     align-items: center;
-    gap: 2px;
-    transition: all 0.2s ease-in-out;
+    color: #272525;
+    font-size: 14px;
+    gap: 4px;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
 
     &:hover {
-       opacity: 0.8;
+      /* color: #222020; */
     }
-`;
 
-const TranslateIcon = styled.img`
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-`;
-
-const TranslateText = styled.div`
-    font-family: "Pretendard";
-    font-size: 13px;
-    color: #222020;
-    font-weight: 600;
-
-    @media screen and (max-width: 1320px) {
-        font-size: 10px;
-    }
-`;
-
-const TapOutContainer = styled.nav`
-    display: flex;
-    align-items: center;
-    gap: 70px;
-    padding: 10px 5px;
-    height: 100%;
-
-    @media screen and (max-width: 1320px) {
-        gap: 25px;
-    }
     @media screen and (max-width: 500px) {
-        gap: 16px;
+        width: auto;
+        height: 100%;
+        border: none;
+        flex-direction: row;
+       /* color: #222020; */
+        gap: 3px;
+        font-size: 14px;
     }
 `;
 
-const TapContainer = styled.a`
-    padding: 5px 0px;
+const BarContainer = styled.div`
+    width: 1px;
+    height: 10px;
+    background-color: #e9e9e9;
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
+`;
+
+const HomeBtnWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    font-family: 'LINESeedKR-Bd';
-    /* font-family: "Pretendard"; */
-    /* font-family: "Roboto+Condensed"; */
-    font-size: 16px;
-    /* color: #999999; */
-    color: #222020;
-    font-weight: 400;
-    position: relative;
+    font-family: "Pretendard";
+    font-size: 14px;
+    gap: 2px;
+    color: #272525;
+    border: 1px solid #FFFFFF;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
-    transition: all 0.4s ease;
 
     &:hover {
-        color: #3c3ad6;
+       /* color: #222020; */
     }
 
-    @media screen and (max-width: 1320px) {
-        font-size: 16px;
-    }
-    @media screen and (max-width: 836px) {
-        font-size: 12px;
+    @media screen and (max-width: 500px) {
+        display: none;
     }
 `;
 
-const ScrollBarContainer = styled.div`
-    width: 100%;
-    
-    @media screen and (max-width: 958px) {
-        position: absolute;
-        top: 75px;
-        left: 0;
-    }
-`;
-
-const SupportWrapper = styled.div`
-    min-width: 5%;
-    height: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
+export const TranslateContainer = styled.div`
     position: relative;
 `;
 
-const SNSModalContainer = styled.div`
-    width: 36px;
-    min-width: 36px;
-    height: 36px;
-    display: grid;
+const MobileTranslateContainer = styled(TranslateContainer)`
+    display: none;
+
+    @media screen and (max-width: 500px) {
+        display: block;
+    }
+`;
+
+const NavButtonContainer = styled.div`
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
+`;
+
+const MobileNavButton = styled.div`
+    display: none;
+
+    @media screen and (max-width: 500px) {
+        display: block;
+    }
+`;
+
+const TransText = styled.div`
+    font-family: "Pretendard";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FCFCFC;
-    border: 1.5px solid #4a556830;
-    border-radius: 100%;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    z-index: 100;
-    cursor: pointer;
 
-    &:hover {
-        border: 1.5px solid #4a5568;
-    }
-
-    @media screen and (max-width: 1320px) {
-        width: 32px;
-        height: 32px;
+    @media screen and (max-width: 500px) {
+        /* width: auto;
+        height: auto;
+        font-weight: 600;
+        font-size: 14px; */
+        display: none;
     }
 `;
 
-const SNSModalListIcon = styled.img`
+const UnderLaneContainer = styled.div`
     width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 1320px) {
+        justify-content: center;
+        gap: 10%;
+    }
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
+`;
+
+const SettingWrapper = styled.div`
     height: 100%;
-    object-fit: contain;
-    opacity: 0.3;
-    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease-in-out;
+    
+`;
+
+const Setting = styled.div`
+    width: 14px;
+    height: 14px;
+    border: 1px solid #ADADAD;
+    border-radius: 3px;
+    color: #ADADAD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
     cursor: pointer;
 
     &:hover {
-        opacity: 1;
-    }
-
-    @media screen and (max-width: 1320px) {
-        width: 22px;
-        height: 22px;
+        color: #FFFFFF;
+        border: 1px solid #222020;
+        background-color: #222020;
     }
 `;
 
