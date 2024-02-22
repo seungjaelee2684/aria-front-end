@@ -1,32 +1,18 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from "react-query";
 import { RecoilRoot, useRecoilState } from 'recoil';
-// import Home from './pages/Home';
-// import Notice from './pages/Notice';
-// import Mentor from './pages/Mentor';
-// import Schedule from './pages/Schedule';
 import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
-// import MentorDetail from './pages/MentorDetail';
-import ScrollBar from './components/common/ScrollBar';
 import ScrollTop from './utils/ScrollTop';
-// import Notification from './pages/Notification';
-// import NotificationDetail from './pages/NotificationDetail';
-// import NoticeDetail from './pages/NoticeDetail';
 import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
-// import Showcase from './pages/Showcase';
-// import Check from './pages/Check';
-// import SNSMenu from './components/common/SNSMenu';
 import Footer from './components/common/Footer';
 import LoadingSpinner from './components/common/LoadingSpinner';
 import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
-// import Counseling from './pages/Counseling';
-// import Policy from './pages/Policy';
+import WorldTime from './components/common/WorldTime';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Check = React.lazy(() => import('./pages/Check'));
@@ -75,6 +61,7 @@ function App() {
                 </Route>
               </Routes>
               <ScrollTopButton />
+              <WorldTime />
               <AlertContainer />
               <Footer />
             </Suspense>

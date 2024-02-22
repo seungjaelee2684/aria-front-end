@@ -190,7 +190,7 @@ const Home = () => {
   )
 };
 
-const MainLayout = styled.div`
+const MainLayout = styled.main`
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
