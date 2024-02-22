@@ -44,6 +44,7 @@ const Policy = React.lazy(() => import('./pages/Policy'));
 const MentorUpload = React.lazy(() => import('./pages/MentorUpload'));
 const MentorUpdate = React.lazy(() => import('./pages/MentorUpdate'));
 const Certify = React.lazy(() => import('./pages/Certify'));
+const NoticeUpload = React.lazy(() => import('./pages/NoticeUpload'));
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
               <Route path='/' element={<Home />} caseSensitive />
               <Route element={<MainLayout />}>
                 <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive />
+                <Route path='/upload/notice' element={<NoticeUpload />} caseSensitive />
                 <Route path='/check' element={<Check />} caseSensitive />
                 <Route path='/mentor' element={<Mentor />} caseSensitive />
                 <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
