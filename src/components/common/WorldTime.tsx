@@ -91,21 +91,57 @@ const WorldTime = () => {
 };
 
 const SeoulTimeContent = styled.div`
-    font-size: 10px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 100%;
+
+    @media screen and (max-width: 1920px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 16px;
+    }
 `;
 
 const StandardTime = styled.div`
-    font-size: 7px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 100%;
+
+    @media screen and (max-width: 1920px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 12px;
+    }
 `;
 
 const SubDateContent = styled.div`
-    font-size: 5px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 100%;
+
+    @media screen and (max-width: 1920px) {
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 1320px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 11px;
+    }
 `;
 
 const TimeContainer = styled.section`
@@ -127,54 +163,6 @@ const TimeContainer = styled.section`
 
     &:hover {
         background-color: #202124ba;
-    }
-
-    &:hover ${SeoulTimeContent} {
-        font-size: 24px;
-    }
-    &:hover ${StandardTime} {
-        font-size: 18px;
-    }
-    &:hover ${SubDateContent} {
-        font-size: 14px;
-    }
-
-    @media screen and (max-width: 1920px) {
-        &:hover ${SeoulTimeContent} {
-            font-size: 20px;
-        }
-        &:hover ${StandardTime} {
-            font-size: 16px;
-        }
-        &:hover ${SubDateContent} {
-            font-size: 13px;
-        }
-    }
-
-    @media screen and (max-width: 1320px) {
-        &:hover ${SeoulTimeContent} {
-            font-size: 18px;
-        }
-        &:hover ${StandardTime} {
-            font-size: 14px;
-        }
-        &:hover ${SubDateContent} {
-            font-size: 12px;
-        }
-    }
-
-    @media screen and (max-width: 836px) {
-        top: 80px;
-
-        &:hover ${SeoulTimeContent} {
-            font-size: 16px;
-        }
-        &:hover ${StandardTime} {
-            font-size: 12px;
-        }
-        &:hover ${SubDateContent} {
-            font-size: 11px;
-        }
     }
 `;
 
