@@ -230,14 +230,14 @@ const LayoutContainer = styled.div`
 `;
 
 const InContainer = styled.div`
-    width: 1100px;
+    width: 700px;
     margin: 0px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0px;
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 700px) {
         width: 96%;
         gap: 60px;
     }
@@ -259,10 +259,10 @@ const CurriculumSNS = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 90px;
+    gap: 70px;
     padding: 100px 0px;
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 700px) {
         width: 96%;
         gap: 50px;
         padding: 80px 0px;
@@ -275,12 +275,11 @@ const CurriculumSNS = styled.div`
 `;
 
 const SNSIcons = styled.img`
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
-    /* cursor: pointer; */
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 700px) {
         width: 60px;
         height: 60px;
     }
@@ -292,7 +291,7 @@ const SNSIcons = styled.img`
 `;
 
 const PortfolioWrapper = styled.div`
-    width: 100%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -307,7 +306,7 @@ const PortfolioImage = styled.img`
 `;
 
 const ListBackMoveBtnContainer = styled.div`
-    width: 1100px;
+    width: 700px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -315,7 +314,7 @@ const ListBackMoveBtnContainer = styled.div`
     padding: 40px 0px 0px 0px;
     gap: 10px;
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 700px) {
         width: 96%;
         padding: 20px 0px 0px 0px;
     }
