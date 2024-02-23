@@ -41,8 +41,8 @@ const NavButton = () => {
                 <TapContainer
                     style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
                     onClick={() => {
-                        setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
-                        // navigate("/notice");
+                        // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                        navigate("/notice");
                     }}>
                     NOTICE
                 </TapContainer>

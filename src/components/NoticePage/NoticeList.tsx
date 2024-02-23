@@ -22,7 +22,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
     const filterNoticeData = noticeData.filter((item : any) => item?.status === noticeFilter);
 
     const onClickNoticeHandler = ( item : any ) => {
-        navigate(`/notice/notification/detail/${item?.id}`);
+        navigate(`/notice/detail/${item?.id}`);
     };
 
     const textChange = ( Num : number ) => {
@@ -81,9 +81,9 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
                                 <Text onClick={() => onClickNoticeHandler(item)}>
                                     {contentChange(item)}
                                 </Text>
-                                {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
                             </ContentWrapper>   
-                            <RightWrapper>        
+                            <RightWrapper>
+                                {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>}     
                                 <RightText>
                                     ARIA | {item?.contents.date}
                                 </RightText>
@@ -111,9 +111,9 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
                                     <Text onClick={() => onClickNoticeHandler(item)}>
                                         {contentChange(item)}
                                     </Text>
-                                    {(item?.contents.image) && <LaneImage src={item?.contents.image} alt=''/>}
                                 </ContentWrapper>   
-                                <RightWrapper>        
+                                <RightWrapper>
+                                    {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>}   
                                     <RightText>
                                         ARIA | {item?.contents.date}
                                     </RightText>

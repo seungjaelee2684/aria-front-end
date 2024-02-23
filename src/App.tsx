@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from 'react-query';
@@ -14,59 +14,52 @@ import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
 import WorldTime from './components/common/WorldTime';
 
-const Home = React.lazy(() => import('./pages/Home'));
-const Check = React.lazy(() => import('./pages/Check'));
-const Event = React.lazy(() => import('./pages/Event'));
-const EventDetail = React.lazy(() => import('./pages/EventDetail'));
-const Mentor = React.lazy(() => import('./pages/Mentor'));
-const Schedule = React.lazy(() => import('./pages/Schedule'));
-const MentorDetail = React.lazy(() => import('./pages/MentorDetail'));
-const Notice = React.lazy(() => import('./pages/Notice'));
-const NoticeDetail = React.lazy(() => import('./pages/NoticeDetail'));
-const Showcase = React.lazy(() => import('./pages/Showcase'));
-const Counseling = React.lazy(() => import('./pages/Counseling'));
-const Policy = React.lazy(() => import('./pages/Policy'));
-const MentorUpload = React.lazy(() => import('./pages/MentorUpload'));
-const Update = React.lazy(() => import('./pages/Update'));
-
-
-const queryClient = new QueryClient();
+const Home = lazy(() => import('./pages/Home'));
+const Check = lazy(() => import('./pages/Check'));
+const Event = lazy(() => import('./pages/Event'));
+const EventDetail = lazy(() => import('./pages/EventDetail'));
+const Mentor = lazy(() => import('./pages/Mentor'));
+const Schedule = lazy(() => import('./pages/Schedule'));
+const MentorDetail = lazy(() => import('./pages/MentorDetail'));
+const Notice = lazy(() => import('./pages/Notice'));
+const NoticeDetail = lazy(() => import('./pages/NoticeDetail'));
+const Showcase = lazy(() => import('./pages/Showcase'));
+const Counseling = lazy(() => import('./pages/Counseling'));
+const Policy = lazy(() => import('./pages/Policy'));
+const MentorUpload = lazy(() => import('./pages/MentorUpload'));
 
 function App() {
 
   return (
     <div className='App'>
       <RecoilRoot>
-        <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <Suspense fallback={<LoadingSpinner />}>
-              <ScrollTop />
-              <Header />
-              <Routes>
-                <Route path='/' element={<Home />} caseSensitive />
-                <Route element={<MainLayout />}>
-                  <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive />
-                  <Route path='/check' element={<Check />} caseSensitive />
-                  <Route path='/mentor' element={<Mentor />} caseSensitive />
-                  <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
-                  <Route path='/notice' element={<Notice />} caseSensitive />
-                  <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
-                  <Route path='/showcase' element={<Showcase />} caseSensitive />
-                  <Route path='/schedule' element={<Schedule />} caseSensitive />
-                  <Route path='/support/counseling' element={<Counseling />} caseSensitive />
-                  <Route path='/support/policy' element={<Policy />} caseSensitive />
-                  <Route path='/event' element={<Event />} caseSensitive />
-                  <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
-                  <Route path='/update/:id' element={<Update />} caseSensitive />
-                </Route>
-              </Routes>
-              <ScrollTopButton />
-              <WorldTime />
-              <AlertContainer />
-              <Footer />
-            </Suspense>
-          </BrowserRouter>
-        </QueryClientProvider>
+        <BrowserRouter>
+          <Suspense fallback={<LoadingSpinner />}>
+            <ScrollTop />
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} caseSensitive />
+              <Route element={<MainLayout />}>
+                <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive />
+                <Route path='/check' element={<Check />} caseSensitive />
+                <Route path='/mentor' element={<Mentor />} caseSensitive />
+                <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
+                <Route path='/notice' element={<Notice />} caseSensitive />
+                <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
+                <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
+                <Route path='/showcase' element={<Showcase />} caseSensitive />
+                <Route path='/schedule' element={<Schedule />} caseSensitive />
+                <Route path='/support/counseling' element={<Counseling />} caseSensitive />
+                <Route path='/support/policy' element={<Policy />} caseSensitive />
+                <Route path='/event' element={<Event />} caseSensitive />
+              </Route>
+            </Routes>
+            <ScrollTopButton />
+            <WorldTime />
+            <AlertContainer />
+            <Footer />
+          </Suspense>
+        </BrowserRouter>
       </RecoilRoot>
     </div>
   );
