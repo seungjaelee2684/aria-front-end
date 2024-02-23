@@ -72,7 +72,7 @@ const Certify = () => {
                         ENTER
                     </Button>
                     <Button color='#f5adad'>
-                        CLOSE
+                        BACK
                     </Button>
                 </ButtonWrapper>
             </ContentContainer>
