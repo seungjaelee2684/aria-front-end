@@ -8,12 +8,16 @@ import PortfolioUpload from '../components/MentorUploadPage/PortfolioUpload';
 import EtcUpload from '../components/MentorUploadPage/EtcUpload';
 import { useRecoilState } from 'recoil';
 import { mentorImageUpload, mentorInfoUpload, snsLinkUpload } from '../store/CreateOrUpload';
+import { useMutation } from 'react-query';
+import { postMentorUploadApi } from '../api/mentors';
+import { useNavigate } from 'react-router-dom';
 
 const Upload = () => {
   
+  const navigate = useNavigate();
   const uploadRef = useRef<HTMLDivElement>(null);
-  const [mentorImage, setMentorImage] = useRecoilState(mentorInfoUpload);
-  const [mentorInfo, setMentorInfo] = useRecoilState(mentorImageUpload);
+  const [mentorImage, setMentorImage] = useRecoilState(mentorImageUpload);
+  const [mentorInfo, setMentorInfo] = useRecoilState(mentorInfoUpload);
   const [snsLink, setSnsLink] = useRecoilState(snsLinkUpload);
 
   const slidePage : string[] = [
@@ -41,9 +45,59 @@ const Upload = () => {
     };
   };
 
-  const uploadHandler = () => {
+  let formData = new FormData();
 
+  const uploadHandler = async () => {
+    try {
+      mentorImage.curriculum_image.forEach(file => {
+        formData.append("curriculum_image", file);
+      });
+
+      mentorImage.portfolio_image.forEach(file => {
+        formData.append("portfolio_image", file);
+      });
+
+      if (mentorImage && mentorImage.banner_image) {
+        formData.append("banner_image", mentorImage.banner_image);
+      };
+
+      if (mentorImage && mentorImage.nickname_image) {
+        formData.append("nickname_image", mentorImage.nickname_image);
+      };
+
+      if (mentorImage && mentorImage.thumbnail_image) {
+        formData.append("thumbnail_image", mentorImage.thumbnail_image);
+      };
+
+      formData.append(
+        "mentorInfoData",
+        new Blob([JSON.stringify(mentorInfo)], {
+          type: "application/json",
+        })
+      );
+
+      formData.append(
+        "SNS",
+        new Blob([JSON.stringify(snsLink)], {
+          type: "application/json",
+        })
+      );
+
+      for (const pair of formData.entries()) {
+        console.log(pair[0]+ ': ' + pair[1]); 
+      }
+
+      const res = await postMentorUploadApi(formData);
+
+      if (res.status === 200) {
+        navigate("/mentor");
+      };
+    } catch (error) {
+      console.log("Error", error);
+    };
   };
+
+  console.log(mentorImage, mentorInfo, snsLink, formData);
 
   return (
     <AllContainer>

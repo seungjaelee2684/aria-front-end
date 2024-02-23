@@ -123,3 +123,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'GenEiPOPlePw_Bk';
+  src: url('./geneipoplepw-bk.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
