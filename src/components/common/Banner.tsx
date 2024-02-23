@@ -33,7 +33,9 @@ const Banner : React.FC<BannerProps> = ({ page }) => {
         <BannerBackgroundImg src={textInformation[page]?.image} alt=''/>
         <TextWrapper>
           <AnimationBar className='AnimationBar'/>
-          <TextBox className='TextBox'>
+          <TextBox
+            className='TextBox'
+            style={{fontFamily: `${(language === "japanese") ? "GenEiPOPlePw_Bk" : "ONE-Mobile-Title"}`}}>
             {textChange()}
           </TextBox>
         </TextWrapper>
@@ -102,7 +104,6 @@ const TextWrapper = styled.div`
 
 const TextBox = styled.div`
   color: #FCFCFC;
-  font-family: "ONE-Mobile-Title";
   font-size: 60px;
   font-weight: 700;
   line-height: 150%;

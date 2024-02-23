@@ -22,3 +22,11 @@ export const getMentorInfoApi = async (mentorsId: string | undefined) => {
     const res = await instance.get(`/api/update/mentor/${mentorsId}`);
     return res;
 };
+
+// 강사 업로드 api
+export const postMentorUploadApi = async (body: any) => {
+    const res = await instance.post(`api/mentors/upload`, body, {
+        headers: { "Content-Type": "multipart/form-data" }
+    });
+    return res;
+};

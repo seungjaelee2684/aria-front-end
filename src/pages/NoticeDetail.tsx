@@ -1,25 +1,43 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { noticeData } from '../data/NoticeData';
 import Banner from '../components/common/Banner';
+import MentorButtonENG from '../assets/images/notice/MENTOR_ENG_11zon.webp';
+import MentorButtonJPN from '../assets/images/notice/MENTOR_JAP_11zon.webp';
+import MentorButtonKOR from '../assets/images/notice/MENTOR_KOR_11zon.webp';
+import CounselingButtonENG from '../assets/images/notice/REGISTER_ENG_11zon.webp';
+import CounselingButtonJPN from '../assets/images/notice/REGISTER_JAP_11zon.webp';
+import CounselingButtonKOR from '../assets/images/notice/REGISTER_KOR_11zon.webp';
 
 const NoticeDetail = () => {
 
   const { id } = useParams();
-
+  const navigate = useNavigate();
   const language = localStorage.getItem("language");
   const noticeDto = noticeData?.filter((item) => item.id === id);
 
-  const textTranslate = () => {
-    switch (language) {
-      case "japanese" :
-        return noticeDto[0]?.contents.content.image.japanesecontent;
-      case "korean" :
-        return noticeDto[0]?.contents.content.image.content;
-      default :
-        return noticeDto[0]?.contents.content.image.englishcontent;
+  const ButtonTranslate = (isMentor: boolean) => {
+    if (isMentor) {
+      switch (language) {
+        case "japanese" :
+          return MentorButtonJPN;
+        case "korean" :
+          return MentorButtonKOR;
+        default :
+          return MentorButtonENG;
+      };
+    } else {
+      switch (language) {
+        case "japanese" :
+          return CounselingButtonJPN;
+        case "korean" :
+          return CounselingButtonKOR;
+        default :
+          return CounselingButtonENG;
+      };
     };
+    
   };
 
   const imageTranslate = () => {
@@ -98,6 +116,16 @@ const NoticeDetail = () => {
       <NoticeOutContainer>
         {imageTranslate()}
       </NoticeOutContainer>
+      <ButtonWrapper>
+        <Button
+          src={ButtonTranslate(true)}
+          alt=''
+          onClick={() => navigate("/mentor")}/>
+        <Button
+          src={ButtonTranslate(false)}
+          alt=''
+          onClick={() => navigate("/support/counseling")}/>
+      </ButtonWrapper>
     </LayoutContainer>
   )
 };
@@ -155,7 +183,6 @@ const NoticeContent = styled.div`
   font-weight: 500;
   line-height: 150%;
   white-space: pre-line;
-  text-align: center;
 
   @media screen and (max-width: 1920px) {
     font-size: 22px;
@@ -172,6 +199,29 @@ const NoticeContent = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 15px;
   }
+`;
+
+const ButtonWrapper = styled.div`
+  width: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  user-select: none;
+  gap: 60px;
+
+  @media screen and (max-width: 650px) {
+    width: 96%;
+    gap: 40px;
+  }
+`;
+
+const Button = styled.img`
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  user-select: none;
+  cursor: pointer;
 `;
 
 export default NoticeDetail;
