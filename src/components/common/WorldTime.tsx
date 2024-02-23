@@ -164,6 +164,10 @@ const TimeContainer = styled.section`
     &:hover {
         background-color: #202124ba;
     }
+
+    @media screen and (max-width: 500px) {
+        display: none;
+    }
 `;
 
 export default WorldTime;

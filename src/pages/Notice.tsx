@@ -30,7 +30,6 @@ const Notice = () => {
         <OutWrapper>
           <TitleOutContainer>
             <TitleContainer>
-              {textChange(1)}
               <TotalWrapper>
                 Total
                 <Total>

@@ -1,50 +1,36 @@
-import React, { Suspense, lazy, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from "react-query";
 import { RecoilRoot, useRecoilState } from 'recoil';
-// import Home from './pages/Home';
-// import Notice from './pages/Notice';
-// import Mentor from './pages/Mentor';
-// import Schedule from './pages/Schedule';
 import Header from './components/common/Header';
 import MainLayout from './components/common/MainLayout';
-// import MentorDetail from './pages/MentorDetail';
 import ScrollBar from './components/common/ScrollBar';
 import ScrollTop from './utils/ScrollTop';
-// import Notification from './pages/Notification';
-// import NotificationDetail from './pages/NotificationDetail';
-// import NoticeDetail from './pages/NoticeDetail';
 import ScrollTopButton from './components/common/ScrollTop/ScrollTopButton';
-// import Showcase from './pages/Showcase';
-// import Check from './pages/Check';
-// import SNSMenu from './components/common/SNSMenu';
 import Footer from './components/common/Footer';
 import LoadingSpinner from './components/common/LoadingSpinner';
 import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
 import WorldTime from './components/common/WorldTime';
-// import Counseling from './pages/Counseling';
-// import Policy from './pages/Policy';
 
-const Home = React.lazy(() => import('./pages/Home'));
-const Check = React.lazy(() => import('./pages/Check'));
-const Event = React.lazy(() => import('./pages/Event'));
-const EventDetail = React.lazy(() => import('./pages/EventDetail'));
-const Mentor = React.lazy(() => import('./pages/Mentor'));
-const Schedule = React.lazy(() => import('./pages/Schedule'));
-const MentorDetail = React.lazy(() => import('./pages/MentorDetail'));
-const Notice = React.lazy(() => import('./pages/Notice'));
-const NoticeDetail = React.lazy(() => import('./pages/NoticeDetail'));
-const Showcase = React.lazy(() => import('./pages/Showcase'));
-const Counseling = React.lazy(() => import('./pages/Counseling'));
-const Policy = React.lazy(() => import('./pages/Policy'));
-const MentorUpload = React.lazy(() => import('./pages/MentorUpload'));
-const MentorUpdate = React.lazy(() => import('./pages/MentorUpdate'));
-const Certify = React.lazy(() => import('./pages/Certify'));
-const NoticeUpload = React.lazy(() => import('./pages/NoticeUpload'));
+const Home = lazy(() => import('./pages/Home'));
+const Check = lazy(() => import('./pages/Check'));
+const Event = lazy(() => import('./pages/Event'));
+const EventDetail = lazy(() => import('./pages/EventDetail'));
+const Mentor = lazy(() => import('./pages/Mentor'));
+const Schedule = lazy(() => import('./pages/Schedule'));
+const MentorDetail = lazy(() => import('./pages/MentorDetail'));
+const Notice = lazy(() => import('./pages/Notice'));
+const NoticeDetail = lazy(() => import('./pages/NoticeDetail'));
+const Showcase = lazy(() => import('./pages/Showcase'));
+const Counseling = lazy(() => import('./pages/Counseling'));
+const Policy = lazy(() => import('./pages/Policy'));
+const MentorUpload = lazy(() => import('./pages/MentorUpload'));
+const MentorUpdate = lazy(() => import('./pages/MentorUpdate'));
+const Certify = lazy(() => import('./pages/Certify'));
+const NoticeUpload = lazy(() => import('./pages/NoticeUpload'));
 
 function App() {
 
@@ -65,12 +51,12 @@ function App() {
                 <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
                 <Route path='/notice' element={<Notice />} caseSensitive />
                 <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
+                <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
                 <Route path='/showcase' element={<Showcase />} caseSensitive />
                 <Route path='/schedule' element={<Schedule />} caseSensitive />
                 <Route path='/support/counseling' element={<Counseling />} caseSensitive />
                 <Route path='/support/policy' element={<Policy />} caseSensitive />
                 <Route path='/event' element={<Event />} caseSensitive />
-                <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
                 <Route path='/update/mentor/:id' element={<MentorUpdate />} caseSensitive />
                 <Route path='/certify/aria' element={<Certify />} caseSensitive />
               </Route>
