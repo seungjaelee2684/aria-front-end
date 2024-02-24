@@ -62,8 +62,8 @@ const ScrollTopButton = () => {
 const ScrollTopButtonWrapper = styled.div`
     position: fixed;
     z-index: 99;
-    bottom: 4%;
-    right: 2%;
+    bottom: 30px;
+    right: 10px;
     font-family: "Pretendard";
     font-size: 24px;
     font-weight: 400;
@@ -78,15 +78,20 @@ const ScrollTopButtonWrapper = styled.div`
     box-shadow: #50505080 0px 3px 8px 0px;
     width: 40px;
     height: 40px;
+    border-radius: 100%;
     opacity: 0;
     transition: all 0.4s ease-in-out;
     cursor: pointer;
 
+    @media screen and (max-width: 1320px) {
+        bottom: 10px;
+    }
+
     @media screen and (max-width: 500px) {
         bottom: 60px;
         right: 10px;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         font-size: 20px;
     }
 `;

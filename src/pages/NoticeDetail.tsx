@@ -212,7 +212,7 @@ const ButtonWrapper = styled.div`
 
   @media screen and (max-width: 650px) {
     width: 96%;
-    gap: 40px;
+    gap: 30px;
   }
 `;
 
@@ -222,6 +222,10 @@ const Button = styled.img`
   object-fit: cover;
   user-select: none;
   cursor: pointer;
+
+  @media screen and (max-width: 650px) {
+    width: 150px;
+  }
 `;
 
 export default NoticeDetail;

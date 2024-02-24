@@ -106,8 +106,8 @@ const MobileNavBtn : React.FC<MobileNavBtnProps> = ({ navigate }) => {
                 <ButtonBox
                     style={{color: (location.pathname.includes("/notice")) ? "#FFFFFF" : "#ADADAD"}}
                     onClick={() => {
-                        // navigate("/notice/notification")
-                        setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+                        navigate("/notice")
+                        // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
                     }}>
                     <ButtonWrapper>
                         <IoNotificationsOutline />
@@ -220,43 +220,6 @@ const ButtonBox = styled.div`
     font-size: 9px;
     font-weight: 500;
     color: #FFFFFF;
-`;
-
-const HomeButtonInWrapper = styled.div`
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFFF;
-    border-radius: 100%;
-`;
-
-const HomeButton = styled.div`
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    box-shadow: rgba(63, 71, 77, 0.2) 0px 0px 10px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3px;
-    font-family: "Pretendard";
-    font-size: 34px;
-    color: #797979;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to bottom, #FFFFFF, #cccccc);
-`;
-
-const HomeButtonContainer = styled.div`
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 `;
 
 export default MobileNavBtn;
