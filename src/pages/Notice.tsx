@@ -5,12 +5,22 @@ import Banner from '../components/common/Banner';
 import { NoticeTrans } from '../languages/NoticeTrans';
 import { noticeData } from '../data/NoticeData';
 import NotificationFilter from '../components/NoticePage/NoticeFilter';
+import { useRecoilState } from 'recoil';
+import { pageNumber } from '../store/Pages';
+import { useQuery } from 'react-query';
+import { getNoticeListApi } from '../api/notice';
 
 const Notice = () => {
 
   const language = localStorage.getItem("language");
-
+  const [listPage, setListPage] = useRecoilState(pageNumber);
   const [noticeFilter, setNoticeFilter] = useState<string>("All");
+
+  const { isLoading, isError, error, data } = useQuery(["getNoticeListApi", listPage, noticeFilter], () => getNoticeListApi(listPage, noticeFilter), {
+    refetchOnWindowFocus: false
+  });
+
+  console.log("공지사항 전체 목록", data);
 
   const textChange = ( Num : number ) => {
     switch (language) {
@@ -33,7 +43,7 @@ const Notice = () => {
               <TotalWrapper>
                 Total
                 <Total>
-                  {noticeData?.length}
+                  {data?.data.totalNumber}
                 </Total>
                 {textChange(3)}
               </TotalWrapper>
@@ -42,7 +52,9 @@ const Notice = () => {
               noticeFilter={noticeFilter}
               setNoticeFilter={setNoticeFilter}/>
           </TitleOutContainer>
-          <NotificationList noticeFilter={noticeFilter}/>
+          <NotificationList
+            data={data}
+            noticeFilter={noticeFilter}/>
         </OutWrapper>
       </ListLayoutContainer>
     </LayoutContainer>

@@ -11,18 +11,18 @@ import { NoticeTrans } from '../../languages/NoticeTrans';
 import NotSearch from '../common/NotSearch';
 
 interface NoticeListProps {
+    data: any;
     noticeFilter: string;
 };
 
-const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
+const NoticeList : React.FC<NoticeListProps> = ({ data, noticeFilter }) => {
 
     const language = localStorage.getItem("language");
     const navigate = useNavigate();
-
-    const filterNoticeData = noticeData.filter((item : any) => item?.status === noticeFilter);
+    const noticeData = data?.data.noticeListData;
 
     const onClickNoticeHandler = ( item : any ) => {
-        navigate(`/notice/detail/${item?.id}`);
+        navigate(`/notice/detail/${item?.noticeId}`);
     };
 
     const textChange = ( Num : number ) => {
@@ -39,11 +39,11 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
     const contentChange = ( item : any ) => {
         switch (language) {
             case "japanese" :
-                return item?.contents.japanesetitle;
+                return item?.japanesetitle;
             case "korean" :
-                return item?.contents.title;
+                return item?.title;
             default :
-                return item?.contents.englishtitle;
+                return item?.englishtitle;
         };
     };
 
@@ -61,20 +61,19 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
             </TopLaneRightText>
         </TopLineContainer>
         {(noticeData?.length !== 0)
-            ? (noticeFilter === "All")
-                ? noticeData?.map((item : any) => {
+            ? noticeData?.map((item : any, index : number) => {
                     return (
                         <LineContainer
-                            key={item.id}
+                            key={item.noticeId}
                             style={{
-                                borderBottom: (noticeData?.indexOf(item) === noticeData.length - 1) ? "none" : "1px solid #e9e9e9"
+                                borderBottom: (index === noticeData.length - 1) ? "none" : "1px solid #e9e9e9"
                             }}>
                             <ContentWrapper>
                                 <NoticeIcon
                                     style={{
-                                        color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
+                                        color: (item?.state === "Notice") ? "#db0e0e" : "#3c3ad6"
                                     }}>
-                                    {(item?.status === "Notice")
+                                    {(item?.state === "Notice")
                                         ? textChange(1)
                                         : textChange(2)}
                                 </NoticeIcon>
@@ -83,45 +82,14 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
                                 </Text>
                             </ContentWrapper>   
                             <RightWrapper>
-                                {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>}     
+                                {/* {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>} */}
                                 <RightText>
-                                    ARIA | {item?.contents.date}
+                                    {item?.writer} | {item?.createdAt}
                                 </RightText>
                             </RightWrapper>
                         </LineContainer>
                     )
                 })
-                : (filterNoticeData?.length !== 0)
-                    ? filterNoticeData?.map((item : any) => {
-                        return (
-                            <LineContainer
-                                key={item.id}
-                                style={{
-                                    borderBottom: (noticeData?.indexOf(item) === noticeData.length - 1) ? "none" : "1px solid #e9e9e9"
-                                }}>
-                                <ContentWrapper>
-                                    <NoticeIcon
-                                        style={{
-                                            color: (item?.status === "Notice") ? "#db0e0e" : "#3c3ad6"
-                                        }}>
-                                        {(item?.status === "Notice")
-                                            ? textChange(1)
-                                            : textChange(2)}
-                                    </NoticeIcon>
-                                    <Text onClick={() => onClickNoticeHandler(item)}>
-                                        {contentChange(item)}
-                                    </Text>
-                                </ContentWrapper>   
-                                <RightWrapper>
-                                    {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>}   
-                                    <RightText>
-                                        ARIA | {item?.contents.date}
-                                    </RightText>
-                                </RightWrapper>
-                            </LineContainer>
-                        ) 
-                    })
-                : <NotSearch />
             : <NotSearch />
         }
     </ListContainer>
