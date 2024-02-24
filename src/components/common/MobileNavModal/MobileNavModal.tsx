@@ -109,8 +109,8 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
           </Text>
           <Text
             onClick={() => {
-              setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
-              // navigate("/notice/notification");
+              // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
+              navigate("/notice");
               onClickHamburgCloseHandler()
               // setSubPage({...subPage, notice: !notice, support: false})
             }}>
@@ -121,8 +121,8 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
               <SubPageButton
                 style={{borderBottom: "1px dotted #e9e9e9"}}
                 onClick={() => {
-                  // setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
-                  navigate("/notice");
+                  setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
+                  // navigate("/notice");
                   onClickHamburgCloseHandler()
                 }}>
                 Event
