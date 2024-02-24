@@ -6,3 +6,8 @@ export const getNoticeListApi = async (page : number, noticeStatus : string) => 
     return res;
 };
 
+// 공지사항 상세 조회 api
+export const getNoticeInfoApi = async (noticeId : string | undefined) => {
+    const res = await instance.get(`/api/notice/${noticeId}`);
+    return res;
+};
