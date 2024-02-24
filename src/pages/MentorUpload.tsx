@@ -83,9 +83,9 @@ const Upload = () => {
         })
       );
 
-      for (const pair of formData.entries()) {
-        console.log(pair[0]+ ': ' + pair[1]); 
-      }
+      // for (const pair of formData.entries()) {
+      //   console.log(pair[0]+ ': ' + pair[1]); 
+      // }
 
       const res = await postMentorUploadApi(formData);
 
