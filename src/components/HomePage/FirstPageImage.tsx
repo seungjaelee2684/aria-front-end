@@ -146,7 +146,7 @@ const LogoImage = styled.img`
   width: auto;
   height: 350px;
   object-fit: cover;
-  opacity: 0;
+  /* opacity: 0; */
 
   @media screen and (max-width: 1920px) {
     height: 180px;

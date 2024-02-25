@@ -16,14 +16,16 @@ const PayPalComponent : React.FC<PayPalComponentProps> = ({ paypalModal, setPayp
 };
 
 const PayPalContainer = styled.div`
-  width: 200px;
-  padding: 20px 40px;
+  width: 240px;
+  max-height: 480px;
+  padding: 16px 20px;
   background-color: #FFFFFF;
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 30px;
+  right: 0;
   z-index: 100;
   box-shadow: #22202080 0px 0px 4px 0px;
+  overflow-y: auto;
 `;
 
 export default PayPalComponent;
