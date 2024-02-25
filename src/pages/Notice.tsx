@@ -12,6 +12,8 @@ const Notice = () => {
 
   const [noticeFilter, setNoticeFilter] = useState<string>("All");
 
+  const filterNoticeData = noticeData.filter((item : any) => item?.status === noticeFilter);
+
   const textChange = ( Num : number ) => {
     switch (language) {
         case "japanese" :
@@ -33,7 +35,7 @@ const Notice = () => {
               <TotalWrapper>
                 Total
                 <Total>
-                  {noticeData?.length}
+                  {(noticeFilter === "All") ? noticeData?.length : filterNoticeData?.length}
                 </Total>
                 {textChange(3)}
               </TotalWrapper>
