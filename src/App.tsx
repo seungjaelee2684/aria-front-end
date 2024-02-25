@@ -31,6 +31,7 @@ const MentorUpload = lazy(() => import('./pages/MentorUpload'));
 const MentorUpdate = lazy(() => import('./pages/MentorUpdate'));
 const Certify = lazy(() => import('./pages/Certify'));
 const NoticeUpload = lazy(() => import('./pages/NoticeUpload'));
+const Payment = lazy(() => import('./pages/Payment'));
 const Error = lazy(() => import('./pages/Error'));
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
                 <Route path='/event' element={<Event />} caseSensitive />
                 <Route path='/update/mentor/:id' element={<MentorUpdate />} caseSensitive />
                 <Route path='/certify/aria' element={<Certify />} caseSensitive />
+                <Route path='/payment' element={<Payment />} caseSensitive />
                 <Route path='*' element={<Error />} />
               </Route>
             </Routes>

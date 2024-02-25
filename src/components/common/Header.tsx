@@ -33,7 +33,7 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
-    const mobileModalRef = useRef<HTMLDivElement>(null);
+    const paypalModalRef = useRef<HTMLDivElement>(null);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
     const [paypalModal, setPaypalModal] = useState<boolean>(false);
 
@@ -59,7 +59,10 @@ const Header = () => {
 
         const handleClickOutside = (event: any) => {
             if (modalRef.current && !modalRef.current.contains(event.target)) {
-              setLanguageModal(false);
+                setLanguageModal(false);
+            }
+            if (paypalModalRef.current && !paypalModalRef.current.contains(event.target)) {
+                setPaypalModal(false);
             }
           };
         document.addEventListener("click", handleClickOutside);
@@ -122,8 +125,12 @@ const Header = () => {
                                 setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
                         <BarContainer />
-                        <PaypalWrapper onClick={() => setPaypalModal(!paypalModal)}>
-                            <PaypalImage src={PayPal} alt=''/>
+                        <PaypalWrapper ref={paypalModalRef}>
+                            <PaypalImage src={PayPal} alt='' onClick={() => setPaypalModal(!paypalModal)}/>
+                            {paypalModal
+                                && <PayPalComponent
+                                    paypalModal={paypalModal}
+                                    setPaypalModal={setPaypalModal}/>}
                         </PaypalWrapper>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
@@ -135,7 +142,6 @@ const Header = () => {
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
-        {paypalModal && <PayPalComponent paypalModal={paypalModal} setPaypalModal={setPaypalModal}/>}
         {copyHandle && <CopyAlertModal />}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
@@ -352,6 +358,25 @@ const PaypalWrapper = styled.div`
     font-weight: 300;
     line-height: 100%;
     cursor: pointer;
+    position: relative;
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #477bdb;
+        border-radius: 5px;
+            
+        &:hover {
+        background-color: #a2b7dd;
+        }
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #e2e2e2;
+        border-radius: 5px;
+    }
 `;
 
 const PaypalImage = styled.img`

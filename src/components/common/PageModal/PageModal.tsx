@@ -34,6 +34,9 @@ const PageModal = ({ pageModal } : any) => {
           <ModalText onClick={() => navigate("/support/counseling")}>
             Counseling
           </ModalText>
+          <ModalText onClick={() => navigate("/payment")}>
+            Payment
+          </ModalText>
           <ModalText onClick={() => navigate("/support/policy")}>
             Policy
           </ModalText>
