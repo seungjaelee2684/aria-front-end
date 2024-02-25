@@ -4,18 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const clientId = process.env.REACT_APP_PAYPAL_CLIENT_ID;
+
+const initialOptions = {
+  "clientId": "AfZAeKrvIUkuYe9kAzQuX9xeTZ9IajtoOi1dL9Hwl3jxK3zfOvMYDHZd2oLkUGRF314JA0mOsl6A-1uo",
+  currency: "USD",
+  intent: "capture",
+};
+
 const queryClient = new QueryClient();
 
 root.render(
   <QueryClientProvider client={queryClient}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <PayPalScriptProvider options={initialOptions}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </PayPalScriptProvider>
   </QueryClientProvider>
 );
 

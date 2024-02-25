@@ -33,7 +33,7 @@ const Mentor = () => {
 
   console.log("강사전체목록", data?.data);
 
-  if (isError) { navigate("/error") };
+  if (isError) { return <Error /> };
 
   return (
     <LayoutContainer>
