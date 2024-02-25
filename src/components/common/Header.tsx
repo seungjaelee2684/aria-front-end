@@ -23,6 +23,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { LuKeyRound } from "react-icons/lu";
 import CertifyModal from '../../pages/Certify';
 import { isLogin } from '../../store/IsLogin';
+import PayPal from '../../assets/images/image_readtop_2022_25539_16417734514912228.jpg';
 
 const Header = () => {
 
@@ -133,7 +134,10 @@ const Header = () => {
                                     setLanguageModal={setLanguageModal}/>}
                             </MobileTranslateContainer> */}
                         </TranslateContainer>
-                        {/* <BarContainer /> */}
+                        <BarContainer />
+                        <PaypalWrapper>
+                            <PaypalImage src={PayPal} alt=''/>
+                        </PaypalWrapper>
                         {/* <SettingWrapper onClick={() => setSetting(!setting)}>
                             <Setting>
                                 <LuKeyRound />
@@ -408,6 +412,27 @@ const Setting = styled.div`
         border: 1px solid #222020;
         background-color: #222020;
     }
+`;
+
+const PaypalWrapper = styled.div`
+    width: 60px;
+    height: 20px;
+    border: 1px solid #ADADAD;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard";
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 100%;
+    cursor: pointer;
+`;
+
+const PaypalImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 `;
 
 export default Header;
