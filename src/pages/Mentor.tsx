@@ -17,6 +17,7 @@ import { getMentorsApi } from '../api/mentors';
 import SlideWrapper from '../components/MentorPage/SlideWrapper';
 import { isLogin } from '../store/IsLogin';
 import { useNavigate } from 'react-router-dom';
+import Error from './Error';
 
 const Mentor = () => {
 
@@ -27,10 +28,12 @@ const Mentor = () => {
   const nation = nationFilter.englishpick
 
   const { isLoading, isError, error, data } = useQuery(["getMentorsList", page, nation], () => getMentorsApi({page, nation}), {
-    refetchOnWindowFocus: false,
+    refetchOnWindowFocus: false
   });
 
   console.log("강사전체목록", data?.data);
+
+  if (isError) { navigate("/error") };
 
   return (
     <LayoutContainer>
