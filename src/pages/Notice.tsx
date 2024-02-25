@@ -9,9 +9,12 @@ import { useRecoilState } from 'recoil';
 import { pageNumber } from '../store/Pages';
 import { useQuery } from 'react-query';
 import { getNoticeListApi } from '../api/notice';
+import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const Notice = () => {
 
+  const navigate = useNavigate();
   const language = localStorage.getItem("language");
   const [listPage, setListPage] = useRecoilState(pageNumber);
   const [noticeFilter, setNoticeFilter] = useState<string>("All");
@@ -21,6 +24,9 @@ const Notice = () => {
   });
 
   console.log("공지사항 전체 목록", data);
+
+  if (isLoading) { return <LoadingSpinner /> }
+  if (isError) { navigate("/error") };
 
   const textChange = ( Num : number ) => {
     switch (language) {
