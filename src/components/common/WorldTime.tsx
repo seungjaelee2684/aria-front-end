@@ -185,12 +185,13 @@ const TimeContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: start;
-    gap: 16px;
+    gap: 10px;
     background-color: #5c9dff;
     padding: 0px 16px;
     color: #FFFFFF;
     overflow: hidden;
     transition: all 0.3s ease-in;
+    box-shadow: #50505090 0px 3px 3px 0px;
     cursor: pointer;
 
     &:hover {
@@ -239,38 +240,20 @@ const SeoulTimeContent = styled.div`
     line-height: 100%;
 
     @media screen and (max-width: 1920px) {
-        font-size: 20px;
-    }
-
-    @media screen and (max-width: 1320px) {
         font-size: 18px;
     }
 
-    @media screen and (max-width: 836px) {
+    @media screen and (max-width: 1320px) {
         font-size: 16px;
+    }
+
+    @media screen and (max-width: 836px) {
+        font-size: 14px;
     }
 `;
 
 const StandardTime = styled.div`
     font-size: 16px;
-    font-weight: 300;
-    line-height: 100%;
-
-    @media screen and (max-width: 1920px) {
-        font-size: 14px;
-    }
-
-    @media screen and (max-width: 1320px) {
-        font-size: 12px;
-    }
-
-    @media screen and (max-width: 836px) {
-        font-size: 11px;
-    }
-`;
-
-const SubDateContent = styled.div`
-    font-size: 14px;
     font-weight: 300;
     line-height: 100%;
 
