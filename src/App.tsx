@@ -27,6 +27,7 @@ const Showcase = lazy(() => import('./pages/Showcase'));
 const Counseling = lazy(() => import('./pages/Counseling'));
 const Policy = lazy(() => import('./pages/Policy'));
 const MentorUpload = lazy(() => import('./pages/MentorUpload'));
+const Error = lazy(() => import('./pages/Error'));
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
                 <Route path='/support/counseling' element={<Counseling />} caseSensitive />
                 <Route path='/support/policy' element={<Policy />} caseSensitive />
                 <Route path='/event' element={<Event />} caseSensitive />
+                <Route path='*' element={<Error />} />
               </Route>
             </Routes>
             <ScrollTopButton />

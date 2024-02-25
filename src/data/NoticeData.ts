@@ -16,7 +16,7 @@ export const noticeData = [
             japanesetitle: "🌟 オープン記念スペシャル割引キャンペーン！ 🌟",
             title: "🌟 ARIA의 오픈 기념 특별 할인 이벤트! 🌟",
             period: "",
-            date: "2023.12.05",
+            date: "2024.02.23",
             status: "Proceeding",
             content: {
                 image: {
