@@ -21,7 +21,6 @@ export const englishPolicyData = [
         id: "3",
         title: "3. Tuition Policy",
         content: [
-            "The company's tuition fee is WON450,000(KRW/Korea) / $380(USD/US) / ¥45,000 (JPY/Japan) / 元2700 (CNY/China).\nTuition fees can be paid via PAYPAL(excluding Korea). If you are a Korean resident, please use Naver Store payment.",
             "Please pay the tuition fee when you notice the continuation of the class at the 3rd week or by the end of the 4th week class. When using PAYPAL, it may be difficult to confirm payment if the name of the depositor and the name of the student are different. Please make the payment in your own name or deliver the name of the depositor in advance.",
             "If you need any other inquiries about paying the tuition fee, please contact the company's Discord through Ticket tool."
         ]

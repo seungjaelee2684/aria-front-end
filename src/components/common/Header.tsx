@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import { translate } from '../../store/Translation';
 import SNSMenu from './SNSMenu/SNSMenu';
 import '../../style/font/font.css';
 import TranslateModal from './TranslateModal';
@@ -13,17 +12,12 @@ import MobileNavBtn from './MobileNavBtn';
 import { MainPageNumber } from '../../store/MainPageNumber';
 import { CopyAlert } from '../../store/CopyAlert';
 import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
-import { popUpOpen } from '../../store/PopUpOpen';
-import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { MdOutlineArrowBack } from "react-icons/md";
-import { MdOutlineDarkMode } from "react-icons/md";
-import { LuKeyRound } from "react-icons/lu";
-import CertifyModal from '../../pages/Certify';
 import { isLogin } from '../../store/IsLogin';
 import PayPal from '../../assets/images/image_readtop_2022_25539_16417734514912228.jpg';
+import PayPalComponent from './PayPalComponent';
 
 const Header = () => {
 
@@ -33,16 +27,15 @@ const Header = () => {
     const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
     const [loginState, setLoginState] = useRecoilState(isLogin);
-    const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
     const scrollHeader = useRef<HTMLDivElement>(null);
     const mainScrollHeader = useRef<HTMLDivElement>(null);
     const [scrollData, setScrollData] = useState<number>(0);
-
     const navigate = useNavigate();
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
     const mobileModalRef = useRef<HTMLDivElement>(null);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
+    const [paypalModal, setPaypalModal] = useState<boolean>(false);
 
     const languageChange = () => {
         switch (language) {
@@ -107,7 +100,6 @@ const Header = () => {
                         alt=""
                         onClick={() => navigate("/")}/>
                 </LogoContainer>
-                {/* <RightWrapper> */}
                 <HeaderRightWrapper>
                     <SmallButtonWrapper>
                         <HomeBtnWrapper onClick={() => navigate("/")}>
@@ -128,21 +120,11 @@ const Header = () => {
                             {languageModal
                                 && <TranslateModal
                                 setLanguageModal={setLanguageModal}/>}
-                            {/* <MobileTranslateContainer>
-                                {languageModal
-                                    && <TranslateModal
-                                    setLanguageModal={setLanguageModal}/>}
-                            </MobileTranslateContainer> */}
                         </TranslateContainer>
                         <BarContainer />
-                        <PaypalWrapper>
+                        <PaypalWrapper onClick={() => setPaypalModal(!paypalModal)}>
                             <PaypalImage src={PayPal} alt=''/>
                         </PaypalWrapper>
-                        {/* <SettingWrapper onClick={() => setSetting(!setting)}>
-                            <Setting>
-                                <LuKeyRound />
-                            </Setting>
-                        </SettingWrapper> */}
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
                         <NavButtonContainer>
@@ -150,12 +132,11 @@ const Header = () => {
                         </NavButtonContainer>
                         <SNSMenu />
                     </UnderLaneContainer>
-                {/* </RightWrapper> */}
                 </HeaderRightWrapper>
             </HeaderOutWrapper>
         </HeaderLayoutContainer>
+        {paypalModal && <PayPalComponent paypalModal={paypalModal} setPaypalModal={setPaypalModal}/>}
         {copyHandle && <CopyAlertModal />}
-        {/* {isPopUp && <PopUp />} */}
         <MobileNavButton>
             <MobileNavBtn navigate={navigate}/>
         </MobileNavButton>
@@ -166,7 +147,6 @@ const Header = () => {
 const HeaderLayoutContainer = styled.header`
     width: 100%;
     height: 80px;
-    /* border-bottom: 1px solid gray; */   
     position: fixed;
     top: 0;
     left: 0;
@@ -197,12 +177,10 @@ const HeaderOutWrapper = styled.div`
 
 const LogoContainer = styled.div`
     display: flex;
-    /* margin: auto 0px; */
     align-items: center;
     height: 80px;
 
     @media screen and (max-width: 500px) {
-        /* height: 40px; */
         display: none;
     }
 `;
@@ -215,8 +193,6 @@ const HeaderLogo = styled.img`
     cursor: pointer;
 
     &:hover {
-        /* width: 151px;
-        height: 81px; */
         opacity: 0.8;
     }
 
@@ -236,8 +212,6 @@ const HeaderLogo = styled.img`
 const HeaderRightWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* gap: 25px; */
     width: 74%;
     height: 100%;
     gap: 0px;
@@ -279,16 +253,11 @@ export const TranslateWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
-    &:hover {
-      /* color: #222020; */
-    }
-
     @media screen and (max-width: 500px) {
         width: auto;
         height: 100%;
         border: none;
         flex-direction: row;
-       /* color: #222020; */
         gap: 3px;
         font-size: 14px;
     }
@@ -316,10 +285,6 @@ const HomeBtnWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
-    &:hover {
-       /* color: #222020; */
-    }
-
     @media screen and (max-width: 500px) {
         display: none;
     }
@@ -327,14 +292,6 @@ const HomeBtnWrapper = styled.div`
 
 export const TranslateContainer = styled.div`
     position: relative;
-`;
-
-const MobileTranslateContainer = styled(TranslateContainer)`
-    display: none;
-
-    @media screen and (max-width: 500px) {
-        display: block;
-    }
 `;
 
 const NavButtonContainer = styled.div`
@@ -361,10 +318,6 @@ const TransText = styled.div`
     align-items: center;
 
     @media screen and (max-width: 500px) {
-        /* width: auto;
-        height: auto;
-        font-weight: 600;
-        font-size: 14px; */
         display: none;
     }
 `;
@@ -383,34 +336,6 @@ const UnderLaneContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         display: none;
-    }
-`;
-
-const SettingWrapper = styled.div`
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: all 0.2s ease-in-out;
-    
-`;
-
-const Setting = styled.div`
-    width: 14px;
-    height: 14px;
-    border: 1px solid #ADADAD;
-    border-radius: 3px;
-    color: #ADADAD;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-    cursor: pointer;
-
-    &:hover {
-        color: #FFFFFF;
-        border: 1px solid #222020;
-        background-color: #222020;
     }
 `;
 

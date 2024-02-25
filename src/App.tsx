@@ -14,7 +14,6 @@ import LoadingSpinner from './components/common/LoadingSpinner';
 import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
 import WorldTime from './components/common/WorldTime';
-import Error from './pages/Error';
 
 const Home = lazy(() => import('./pages/Home'));
 const Check = lazy(() => import('./pages/Check'));
@@ -32,6 +31,7 @@ const MentorUpload = lazy(() => import('./pages/MentorUpload'));
 const MentorUpdate = lazy(() => import('./pages/MentorUpdate'));
 const Certify = lazy(() => import('./pages/Certify'));
 const NoticeUpload = lazy(() => import('./pages/NoticeUpload'));
+const Error = lazy(() => import('./pages/Error'));
 
 function App() {
 
