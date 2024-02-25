@@ -14,6 +14,7 @@ import LoadingSpinner from './components/common/LoadingSpinner';
 import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
 import WorldTime from './components/common/WorldTime';
+import Error from './pages/Error';
 
 const Home = lazy(() => import('./pages/Home'));
 const Check = lazy(() => import('./pages/Check'));
@@ -59,6 +60,7 @@ function App() {
                 <Route path='/event' element={<Event />} caseSensitive />
                 <Route path='/update/mentor/:id' element={<MentorUpdate />} caseSensitive />
                 <Route path='/certify/aria' element={<Certify />} caseSensitive />
+                <Route path='*' element={<Error />} />
               </Route>
             </Routes>
             <ScrollTopButton />

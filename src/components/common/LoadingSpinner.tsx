@@ -14,12 +14,16 @@ const LoadingSpinner = () => {
 };
 
 const SpinnerContainer = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFFF;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 `;
 
 export default LoadingSpinner;
