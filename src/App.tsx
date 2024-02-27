@@ -20,7 +20,7 @@ const Check = lazy(() => import('./pages/Check'));
 const Event = lazy(() => import('./pages/Event'));
 const EventDetail = lazy(() => import('./pages/EventDetail'));
 const Mentor = lazy(() => import('./pages/Mentor'));
-const Schedule = lazy(() => import('./pages/Schedule'));
+const Translate = lazy(() => import('./pages/Translate'));
 const MentorDetail = lazy(() => import('./pages/MentorDetail'));
 const Notice = lazy(() => import('./pages/Notice'));
 const NoticeDetail = lazy(() => import('./pages/NoticeDetail'));
@@ -55,7 +55,7 @@ function App() {
                 <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
                 <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
                 <Route path='/showcase' element={<Showcase />} caseSensitive />
-                <Route path='/schedule' element={<Schedule />} caseSensitive />
+                <Route path='/translate' element={<Translate />} caseSensitive />
                 <Route path='/support/counseling' element={<Counseling />} caseSensitive />
                 <Route path='/support/policy' element={<Policy />} caseSensitive />
                 <Route path='/event' element={<Event />} caseSensitive />

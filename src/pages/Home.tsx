@@ -19,6 +19,7 @@ import PageNumber from '../components/HomePage/PageNumber';
 import MobileMain from '../components/HomePage/MobileMain';
 import { useQuery } from 'react-query';
 import { getNewMentorBannerApi } from '../api/banner';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
@@ -29,6 +30,7 @@ const Home = () => {
     console.log("메인페이지 배너", data);
     const newSlideDataList = data?.data.bannerData;
 
+    const navigate = useNavigate();
     const language = localStorage.getItem("language");
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
     const outerDivRef = useRef<HTMLDivElement>(null);
@@ -46,6 +48,10 @@ const Home = () => {
     };
 
     useEffect(() => {
+        if (!language) {
+            navigate("/translate");
+        };
+
         if (outerDivRef.current) {
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
