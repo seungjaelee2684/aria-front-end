@@ -8,6 +8,7 @@ interface PayPalComponentProps {
 };
 
 const PayPalComponent : React.FC<PayPalComponentProps> = ({ paypalModal, setPaypalModal }) => {
+  
   return (
     <PayPalContainer>
       <PayPalButtons />

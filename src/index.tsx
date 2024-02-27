@@ -10,10 +10,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const clientId = process.env.REACT_APP_PAYPAL_CLIENT_ID;
-
 const initialOptions = {
-  "clientId": "AfZAeKrvIUkuYe9kAzQuX9xeTZ9IajtoOi1dL9Hwl3jxK3zfOvMYDHZd2oLkUGRF314JA0mOsl6A-1uo",
+  "clientId": "AdDsMLWyOpe8ofHhFlrVOM12i8BQXej2M9cJ-R9CDvP07O_kOTZWv7rRrDdR6I651mgEI14toEtMO70I",
   currency: "USD",
   intent: "capture",
 };
