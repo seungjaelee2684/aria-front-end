@@ -29,6 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://www.aria-academy.com",
   "eslintConfig": {
     "extends": [
       "react-app",
