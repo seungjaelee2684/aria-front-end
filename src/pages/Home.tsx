@@ -188,20 +188,22 @@ const Home = () => {
   }, [scrollIndex]);
 
   return (
-    <MainLayout ref={outerDivRef}>
-        <FirstPageImage mainPageTextChange={mainPageTextChange}/>
-        <SpaceBetweenContainer />
-        <SecondPageImage mainPageTextChange={mainPageTextChange}/>
-        <SpaceBetweenContainer />
-        <ThirdPageImage mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
-        <SpaceBetweenContainer />
-        {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
-        <SpaceBetweenContainer /> */}
-        <FifthPageImage mainPageTextChange={mainPageTextChange}/>
-        <SpaceBetweenContainer />
-        <MobileMain mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
-        <PageNumber />
-    </MainLayout>
+    (language)
+        ? <MainLayout ref={outerDivRef}>
+            <FirstPageImage mainPageTextChange={mainPageTextChange}/>
+            <SpaceBetweenContainer />
+            <SecondPageImage mainPageTextChange={mainPageTextChange}/>
+            <SpaceBetweenContainer />
+            <ThirdPageImage mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
+            <SpaceBetweenContainer />
+            {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
+            <SpaceBetweenContainer /> */}
+            <FifthPageImage mainPageTextChange={mainPageTextChange}/>
+            <SpaceBetweenContainer />
+            <MobileMain mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
+            <PageNumber />
+        </MainLayout> 
+        : <div></div>
   )
 };
 
