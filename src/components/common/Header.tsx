@@ -51,7 +51,7 @@ const Header = () => {
 
         if (mainScrollHeader.current) {
             mainScrollHeader.current.style.opacity = "1";
-            mainScrollHeader.current.style.transition = "opacity 0.4s ease-in-out 2s";
+            mainScrollHeader.current.style.transition = "opacity 0.4s ease-in-out 1s";
             mainScrollHeader.current.style.transform = "translateY(0px)";
         };
 
