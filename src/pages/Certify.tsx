@@ -105,6 +105,10 @@ const ModalContainer = styled.div`
     font-family: "Pretendard";
     line-height: normal;
     color: #FFFFFF;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
 `;
 
 const TopLaneContainer = styled.div`
@@ -148,6 +152,10 @@ const InputBar = styled.input`
     &:focus {
         border: 1px solid #5C9DFF;
     }
+
+    @media screen and (max-width: 500px) {
+        width: 80%;
+    }
 `;
 
 const InformationContent = styled.div`
@@ -159,6 +167,11 @@ const InformationContent = styled.div`
     color: #ADADAD;
     text-align: start;
     user-select: none;
+
+    @media screen and (max-width: 500px) {
+        width: 90%;
+        font-size: 10px;
+    }
 `;
 
 const ButtonWrapper = styled.div`
@@ -181,6 +194,12 @@ const Button = styled.button<{ color : string }>`
     line-height: normal;
     border-radius: 3px;
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
 `;
 
 export default Certify;
