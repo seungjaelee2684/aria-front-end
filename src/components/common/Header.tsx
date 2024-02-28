@@ -17,7 +17,7 @@ import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { isLogin } from '../../store/IsLogin';
 import PayPal from '../../assets/images/image_readtop_2022_25539_16417734514912228.jpg';
-import PayPalComponent from './PayPalComponent';
+import { FaCcPaypal } from "react-icons/fa6";
 
 const Header = () => {
 
@@ -33,9 +33,7 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const modalRef = useRef<HTMLDivElement>(null);
-    const paypalModalRef = useRef<HTMLDivElement>(null);
     const [languageModal, setLanguageModal] = useState<boolean>(false);
-    const [paypalModal, setPaypalModal] = useState<boolean>(false);
 
     const languageChange = () => {
         switch (language) {
@@ -60,9 +58,6 @@ const Header = () => {
         const handleClickOutside = (event: any) => {
             if (modalRef.current && !modalRef.current.contains(event.target)) {
                 setLanguageModal(false);
-            }
-            if (paypalModalRef.current && !paypalModalRef.current.contains(event.target)) {
-                setPaypalModal(false);
             }
           };
         document.addEventListener("click", handleClickOutside);
@@ -125,12 +120,13 @@ const Header = () => {
                                 setLanguageModal={setLanguageModal}/>}
                         </TranslateContainer>
                         <BarContainer />
-                        <PaypalWrapper ref={paypalModalRef}>
-                            <PaypalImage src={PayPal} alt='' onClick={() => setPaypalModal(!paypalModal)}/>
-                            {paypalModal
-                                && <PayPalComponent
-                                    paypalModal={paypalModal}
-                                    setPaypalModal={setPaypalModal}/>}
+                        <PaypalWrapper onClick={() => window.open("https://www.paypal.com/kr/webapps/mpp/home")}>
+                            <Paypal color="#013088">
+                                PAY
+                            </Paypal>
+                            <Paypal color="#019cde">
+                                PAL
+                            </Paypal>
                         </PaypalWrapper>
                     </SmallButtonWrapper>
                     <UnderLaneContainer>
@@ -348,41 +344,24 @@ const UnderLaneContainer = styled.div`
 const PaypalWrapper = styled.div`
     width: 60px;
     height: 20px;
-    border: 1px solid #ADADAD;
-    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Pretendard";
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 100%;
+    border: 1px solid #ADADAD;
+    border-radius: 20px;
     cursor: pointer;
-    position: relative;
 
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #477bdb;
-        border-radius: 5px;
-            
-        &:hover {
-        background-color: #a2b7dd;
-        }
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: #e2e2e2;
-        border-radius: 5px;
+    &:hover {
+        background-color: #e3ecee;
     }
 `;
 
-const PaypalImage = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+const Paypal = styled.div<{ color : string }>`
+    font-family: "ZingRustDemo";
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 100%;
+    color: ${(props) => props.color};
 `;
 
 export default Header;
