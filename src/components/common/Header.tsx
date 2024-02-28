@@ -342,7 +342,7 @@ const UnderLaneContainer = styled.div`
 `;
 
 const PaypalWrapper = styled.div`
-    width: 60px;
+    width: 50px;
     height: 20px;
     display: flex;
     justify-content: center;
@@ -358,7 +358,7 @@ const PaypalWrapper = styled.div`
 
 const Paypal = styled.div<{ color : string }>`
     font-family: "ZingRustDemo";
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     line-height: 100%;
     color: ${(props) => props.color};
