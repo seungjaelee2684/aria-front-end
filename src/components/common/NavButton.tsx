@@ -69,7 +69,7 @@ const NavButton = () => {
     )
 };
 
-const TapOutContainer = styled.div`
+const TapOutContainer = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +89,7 @@ const TapOutContainer = styled.div`
     }
 `;
 
-const TapContainer = styled.div`
+const TapContainer = styled.a`
     height: 100%;
     display: flex;
     align-items: center;

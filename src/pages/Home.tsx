@@ -20,6 +20,7 @@ import MobileMain from '../components/HomePage/MobileMain';
 import { useQuery } from 'react-query';
 import { getNewMentorBannerApi } from '../api/banner';
 import { useNavigate } from 'react-router-dom';
+import TransModal from '../components/HomePage/TransModal';
 
 const Home = () => {
 
@@ -33,6 +34,7 @@ const Home = () => {
     const navigate = useNavigate();
     const language = localStorage.getItem("language");
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
+    const [transModalOpen, setTransModalOpen] = useState<boolean>(false);
     const outerDivRef = useRef<HTMLDivElement>(null);
     const DIVIDER_HEIGHT = 5;
 
@@ -49,8 +51,8 @@ const Home = () => {
 
     useEffect(() => {
         if (!language) {
-            navigate("/translate");
-        };
+            setTransModalOpen(true);
+        }; 
 
         if (outerDivRef.current) {
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
@@ -188,22 +190,21 @@ const Home = () => {
   }, [scrollIndex]);
 
   return (
-    (language)
-        ? <MainLayout ref={outerDivRef}>
-            <FirstPageImage mainPageTextChange={mainPageTextChange}/>
-            <SpaceBetweenContainer />
-            <SecondPageImage mainPageTextChange={mainPageTextChange}/>
-            <SpaceBetweenContainer />
-            <ThirdPageImage mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
-            <SpaceBetweenContainer />
-            {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
-            <SpaceBetweenContainer /> */}
-            <FifthPageImage mainPageTextChange={mainPageTextChange}/>
-            <SpaceBetweenContainer />
-            <MobileMain mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
-            <PageNumber />
-        </MainLayout> 
-        : <div></div>
+    <MainLayout ref={outerDivRef}>
+        <FirstPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
+        <SecondPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
+        <ThirdPageImage mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
+        <SpaceBetweenContainer />
+        {/* <FourthPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer /> */}
+        <FifthPageImage mainPageTextChange={mainPageTextChange}/>
+        <SpaceBetweenContainer />
+        <MobileMain mainPageTextChange={mainPageTextChange} newSlideDataList={newSlideDataList}/>
+        <PageNumber />
+        {(transModalOpen) && <TransModal transModalOpen={transModalOpen} setTransModalOpen={setTransModalOpen}/>}
+    </MainLayout>
   )
 };
 
@@ -211,7 +212,7 @@ const MainLayout = styled.div`
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     z-index: 97;
