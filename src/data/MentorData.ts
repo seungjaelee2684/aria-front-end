@@ -62,70 +62,10 @@ import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/p10.webp';
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/p11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/p12.webp';
 import HaruriThumbnail from '../assets/curriculums/haruri/haruri_thumbnail.webp';
-import ShimanunThumbnail from '../assets/curriculums/shimanun/shimanun_thumbnail.webp';
 
 export const mentorListData = [
     {
         id: "1",
-        isready: false,
-        nation: "Japan",
-        englishname: "Shimanun",
-        japanesename: "しまぬん",
-        nickname: "시마눈",
-        isnew: false,
-        slideimage: {
-            status: "Left",
-            bigger: false,
-            background: "",
-            nickname: ""
-        },
-        portfolio: [
-            
-        ],
-        content: {
-            englishcontent: [
-                
-            ],
-            chinesecontent: [
-                
-            ],
-            japanesecontent: [
-                
-            ],
-            koreancontent: [
-                
-            ],
-        },
-        sns: [
-            {
-                icon: CurriculumDefaultHome,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultYoutube,
-                link: ""
-            },
-            {
-                icon: CurriculumTwitter,
-                link: "https://x.com/shimanunEO?s=20"
-            },
-            {
-                icon: CurriculumDefaultInsta,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultArtstation,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultPixiv,
-                link: ""
-            }
-        ],
-        thumbnail: ShimanunThumbnail
-    },
-    {
-        id: "2",
         isready: false,
         nation: "Korea",
         englishname: "Haruri",
@@ -184,7 +124,7 @@ export const mentorListData = [
         thumbnail: HaruriThumbnail
     },
     {
-        id: "3",
+        id: "2",
         isready: true,
         nation: "Japan",
         englishname: "Escape",
@@ -262,7 +202,7 @@ export const mentorListData = [
         thumbnail: EscapeThumbnail
     },
     {
-        id: "4",
+        id: "3",
         isready: true,
         nation: "Japan",
         englishname: "Sanpati",

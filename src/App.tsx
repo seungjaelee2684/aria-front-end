@@ -19,14 +19,13 @@ const Check = lazy(() => import('./pages/Check'));
 const Event = lazy(() => import('./pages/Event'));
 const EventDetail = lazy(() => import('./pages/EventDetail'));
 const Mentor = lazy(() => import('./pages/Mentor'));
-const Schedule = lazy(() => import('./pages/Schedule'));
 const MentorDetail = lazy(() => import('./pages/MentorDetail'));
 const Notice = lazy(() => import('./pages/Notice'));
 const NoticeDetail = lazy(() => import('./pages/NoticeDetail'));
 const Showcase = lazy(() => import('./pages/Showcase'));
 const Counseling = lazy(() => import('./pages/Counseling'));
 const Policy = lazy(() => import('./pages/Policy'));
-const MentorUpload = lazy(() => import('./pages/MentorUpload'));
+// const MentorUpload = lazy(() => import('./pages/MentorUpload'));
 const Error = lazy(() => import('./pages/Error'));
 
 function App() {
@@ -41,7 +40,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} caseSensitive />
               <Route element={<MainLayout />}>
-                <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive />
+                {/* <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive /> */}
                 <Route path='/check' element={<Check />} caseSensitive />
                 <Route path='/mentor' element={<Mentor />} caseSensitive />
                 <Route path='/mentor/detail/:id' element={<MentorDetail />} caseSensitive />
@@ -49,7 +48,6 @@ function App() {
                 <Route path='/notice/detail/:id' element={<NoticeDetail />} caseSensitive />
                 <Route path='/event/detail/:id' element={<EventDetail />} caseSensitive />
                 <Route path='/showcase' element={<Showcase />} caseSensitive />
-                <Route path='/schedule' element={<Schedule />} caseSensitive />
                 <Route path='/support/counseling' element={<Counseling />} caseSensitive />
                 <Route path='/support/policy' element={<Policy />} caseSensitive />
                 <Route path='/event' element={<Event />} caseSensitive />

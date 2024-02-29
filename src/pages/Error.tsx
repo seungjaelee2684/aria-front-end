@@ -63,6 +63,11 @@ const ErrorContainer = styled.div`
     gap: 30px;
     user-select: none;
     padding: 150px 0px;
+
+    @media screen and (max-width: 500px) {
+        padding: 100px 0px;
+        gap: 20px;
+    }
 `;
 
 const ErrorTitle = styled.div`
@@ -72,6 +77,10 @@ const ErrorTitle = styled.div`
     line-height: 100%;
     letter-spacing: 16px;
     color: #3c3ad6;
+
+    @media screen and (max-width: 500px) {
+        font-size: 100px;
+    }
 `;
 
 const TextWrapper = styled.div`
@@ -87,6 +96,10 @@ const Subtitle = styled.div`
     font-size: 22px;
     font-weight: 500;
     line-height: 100%;
+
+    @media screen and (max-width: 500px) {
+        font-size: 16px;
+    }
 `;
 
 const Content = styled.div`
@@ -95,6 +108,10 @@ const Content = styled.div`
     font-weight: 400;
     line-height: 100%;
     color: #ADADAD;
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
+    }
 `;
 
 const ButtonWrapper = styled.div`
@@ -102,6 +119,10 @@ const ButtonWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 40px;
+
+    @media screen and (max-width: 500px) {
+        gap: 30px;
+    }
 `;
 
 const Button = styled.div`
@@ -110,6 +131,11 @@ const Button = styled.div`
     border-radius: 40px;
     background-color: #b4d8ee;
     transition: all 0.3s;
+
+    @media screen and (max-width: 500px) {
+        width: 40px;
+        height: 30px;
+    }
 `;
 
 const ButtonText = styled.div`
@@ -127,6 +153,10 @@ const ButtonText = styled.div`
     align-items: center;
     gap: 5px;
     transition: all 0.3s;
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
+    }
 `;
 
 const ButtonContainer = styled.div`
@@ -147,11 +177,20 @@ const ButtonContainer = styled.div`
             gap: 16px;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        width: 100px;
+        height: 30px;
+    }
 `;
 
 const Icon = styled.div`
     font-size: 16px;
     color: #222020;
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    }
 `;
 
 export default Error;
