@@ -27,14 +27,8 @@ interface MobileNavModalProps {
 const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, setHamburg, mobileModalRef, backgroundRef }) => {
 
   const language = localStorage.getItem("language");
-  const subModalRef = useRef<HTMLDivElement>(null);
   const [languageModal, setLanguageModal] = useState<boolean>(false);
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
-  const [subPage, setSubPage] = useState<{ notice: boolean, support: boolean }>({
-    notice: false,
-    support: false
-  });
-  const { notice, support } = subPage;
 
   const onClickHamburgCloseHandler = () => {
     if (mobileModalRef.current && backgroundRef.current) {
@@ -54,21 +48,6 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
         return "ENG";
     };
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (subModalRef.current && !subModalRef.current.contains(event.target)) {
-        setSubPage({...subPage, notice: false, support: false});
-      };
-      if (subModalRef.current && !subModalRef.current.contains(event.target)) {
-        setSubPage({...subPage, notice: false, support: false});
-      };
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
   
   return (
     <div>
@@ -116,52 +95,20 @@ const MobileNavModal : React.FC<MobileNavModalProps> = ({ navigate, hamburg, set
             }}>
             Notice
           </Text>
-          {(notice)
-            && <SubPageButtonWrapper>
-              <SubPageButton
-                style={{borderBottom: "1px dotted #e9e9e9"}}
-                onClick={() => {
-                  setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
-                  // navigate("/notice");
-                  onClickHamburgCloseHandler()
-                }}>
-                Event
-              </SubPageButton>
-              <SubPageButton
-                onClick={() => {
-                  setAlertModal({...alertModal, isOpen: true, whatAlert: 0})
-                  onClickHamburgCloseHandler()
-                }}>
-                Announcements
-              </SubPageButton>
-            </SubPageButtonWrapper>}
           <Text
-            ref={subModalRef}
             onClick={() => {
-              setSubPage({...subPage, notice: false, support: !support})
+              navigate("/support/counseling");
+              onClickHamburgCloseHandler()
             }}>
-            Support
-            {(support)
-              ? <TiArrowSortedUp style={{marginRight: "30px"}}/>
-              : <TiArrowSortedDown style={{marginRight: "30px"}}/>}
+            Counseling
           </Text>
-          {(support)
-            && <SubPageButtonWrapper>
-              <SubPageButton
-                onClick={() => {
-                  navigate("/support/counseling")
-                  onClickHamburgCloseHandler()
-                }}>
-                Counseling
-              </SubPageButton>
-              <SubPageButton
-                onClick={() => {
-                  navigate("/support/policy")
-                  onClickHamburgCloseHandler()
-                }}>
-                Policy
-              </SubPageButton>
-            </SubPageButtonWrapper>}
+          <Text
+            onClick={() => {
+              navigate("/support/policy");
+              onClickHamburgCloseHandler()
+            }}>
+            Policy
+          </Text>
         </TextWrapper>
       </ModalContainer>
       {languageModal

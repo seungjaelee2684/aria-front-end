@@ -34,7 +34,10 @@ const MobileSNS : React.FC<MobileSNSProps> = ({ snsModal, setSnsModal }) => {
         </ModalTitleContainer>
         <IconWrapper>
             <InstaIconBox
-                onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+                onClick={() => {
+                    window.open("https://www.instagram.com/aria.artacademy/")
+                    setSnsModal(false);
+                }}>
                 <Icon>
                     <BsInstagram />
                     <Text>

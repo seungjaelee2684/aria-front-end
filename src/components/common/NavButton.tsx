@@ -20,7 +20,6 @@ const NavButton = () => {
     return (
         <TapOutContainer className='TapOutContainer'>
             <TapContainer
-                // href='#'
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
                 onClick={() => {
                     navigate("/mentor");
@@ -28,43 +27,31 @@ const NavButton = () => {
                 MENTOR
             </TapContainer>
             <TapContainer
-                // href='#'
                 style={{ color: `${(location.pathname.includes("/showcase")) ? "#3c3ad6" : ""}` }}
                 onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
                 SHOWCASE
             </TapContainer>
-            <HoverTapContainer
-                // href='#'
-                // onMouseOver={() => setPageModal("Notice")}
-                // onMouseOut={() => setPageModal("")}
-                >
-                <TapContainer
-                    style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
-                    onClick={() => {
-                        // setAlertModal({...alertModal, isOpen: true, whatAlert: 0});
-                        navigate("/notice");
-                    }}>
-                    NOTICE
-                </TapContainer>
-                {(pageModal === "Notice")
-                    && <PageModal
-                        pageModal={pageModal} />}
-            </HoverTapContainer>
-            <HoverTapContainer
-                // href='#'
-                onMouseOver={() => setPageModal("Support")}
-                onMouseOut={() => setPageModal("")}>
-                <TapContainer
-                    style={{ color: `${(location.pathname.includes("/support")) ? "#3c3ad6" : ""}` }}
-                    onClick={() => {
-                        navigate("/support/counseling");
-                    }}>
-                    SUPPORT
-                </TapContainer>
-                {(pageModal === "Support")
-                    && <PageModal
-                        pageModal={pageModal} />}
-            </HoverTapContainer>
+            <TapContainer
+                style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
+                onClick={() => {
+                    navigate("/notice");
+                }}>
+                NOTICE
+            </TapContainer>
+            <TapContainer
+                style={{ color: `${(location.pathname.includes("/counseling")) ? "#3c3ad6" : ""}` }}
+                onClick={() => {
+                    navigate("/support/counseling");
+                }}>
+                COUNSELING
+            </TapContainer>
+            <TapContainer
+                style={{ color: `${(location.pathname.includes("/policy")) ? "#3c3ad6" : ""}` }}
+                onClick={() => {
+                    navigate("/support/policy");
+                }}>
+                POLICY
+            </TapContainer>
         </TapOutContainer>
     )
 };
@@ -73,19 +60,19 @@ const TapOutContainer = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 110px;
+    gap: 80px;
     height: 50px;
 
     @media screen and (max-width: 1320px) {
-        gap: 70px;
+        gap: 50px;
     }
 
     @media screen and (max-width: 836px) {
-        gap: 30px;
+        gap: 20px;
     }
 
     @media screen and (max-width: 650px) {
-        gap: 14px;
+        gap: 8px;
     }
 `;
 
