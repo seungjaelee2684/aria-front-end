@@ -54,7 +54,7 @@ const HeaderNotice = () => {
                 <NoticeIcon>
                     <AiFillNotification />
                 </NoticeIcon>
-                <NoticeRightWrapper onClick={() => navigate("/notice")}>
+                <NoticeRightWrapper onClick={() => navigate(`/notice/detail/${nextContent + 1}`)}>
                     {noticeData?.map((item: any) => {
                         return (
                             <NoticeLane
