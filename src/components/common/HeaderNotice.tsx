@@ -4,12 +4,13 @@ import '../../style/HeaderNotice.css';
 import { noticeData } from '../../data/NoticeData';
 import { AiFillNotification } from "react-icons/ai";
 import { filterState } from '../../languages/NoticeTrans';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const HeaderNotice = () => {
 
     const language = localStorage.getItem("language");
     const location = useLocation();
+    const navigate = useNavigate();
 
     const [nextContent, setNextContent] = useState<number>(0);
     const [prevContent, setPrevContent] = useState<number | undefined>();
@@ -53,7 +54,7 @@ const HeaderNotice = () => {
                 <NoticeIcon>
                     <AiFillNotification />
                 </NoticeIcon>
-                <NoticeRightWrapper>
+                <NoticeRightWrapper onClick={() => navigate("/notice")}>
                     {noticeData?.map((item: any) => {
                         return (
                             <NoticeLane

@@ -313,6 +313,21 @@ const ButtonAllWrapper = styled.div`
   }
 `;
 
+const ButtonText = styled.div`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  color: #222020;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+`;
+
 const ButtonContainer = styled.div<{ color : string }>`
   width: 140px;
   height: 36px;
@@ -332,6 +347,10 @@ const ButtonContainer = styled.div<{ color : string }>`
     color: ${(props) => props.color};
   }
 
+  &:hover ${ButtonText} {
+    color: ${(props) => props.color};
+  }
+
   @media screen and (max-width: 1320px) {
     font-size: 26px;
     width: 160px;
@@ -342,21 +361,6 @@ const ButtonContainer = styled.div<{ color : string }>`
     font-size: 18px;
     width: 100px;
     height: 32px;
-  }
-`;
-
-const ButtonText = styled.div`
-  font-size: 14px;
-  font-weight: 600;
-  line-height: normal;
-  color: #222020;
-
-  @media screen and (max-width: 1320px) {
-    font-size: 16px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 10px;
   }
 `;
 

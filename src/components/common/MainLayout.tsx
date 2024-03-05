@@ -17,6 +17,11 @@ const MainLayoutContainer = styled.main`
   transition: all 0.3s;
   background-color: #FFFFFF;
   color: #222020;
+  padding-top: 30px;
+  
+  @media screen and (max-width: 500px) {
+    padding-top: 0px;
+  }
 `;
 
 export default MainLayout;
