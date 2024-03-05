@@ -18,18 +18,16 @@ import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { MdOutlineArrowBack } from "react-icons/md";
-import { MdOutlineDarkMode } from "react-icons/md";
-import { LuKeyRound } from "react-icons/lu";
 import CertifyModal from './CertifyModal/CertifyModal';
+import HeaderNotice from './HeaderNotice';
 
 const Header = () => {
 
     const language = localStorage.getItem("language");
-    
+
     const mainScrollIndex = useRecoilValue(MainPageNumber);
     const copyHandle = useRecoilValue(CopyAlert);
-    const [isPopUp, setIsPopUp]= useRecoilState(popUpOpen);
+    const [isPopUp, setIsPopUp] = useRecoilState(popUpOpen);
     const scrollHeader = useRef<HTMLDivElement>(null);
     const mainScrollHeader = useRef<HTMLDivElement>(null);
     const [scrollData, setScrollData] = useState<number>(0);
@@ -43,11 +41,11 @@ const Header = () => {
 
     const languageChange = () => {
         switch (language) {
-            case "japanese" :
+            case "japanese":
                 return "日本語";
-            case "korean" :
+            case "korean":
                 return "한국어";
-            default :
+            default:
                 return "ENG";
         };
     };
@@ -61,9 +59,9 @@ const Header = () => {
 
         const handleClickOutside = (event: any) => {
             if (modalRef.current && !modalRef.current.contains(event.target)) {
-              setLanguageModal(false);
+                setLanguageModal(false);
             }
-          };
+        };
         document.addEventListener("click", handleClickOutside);
 
         const scrollHandler = () => {
@@ -80,7 +78,7 @@ const Header = () => {
                 };
             };
             setScrollData(currentScrollY);
-        };    
+        };
 
         window.addEventListener('scroll', scrollHandler);
 
@@ -90,76 +88,77 @@ const Header = () => {
         };
     }, [scrollData, mainScrollIndex, location.pathname]);
 
-  return (
-    <div>
-        <HeaderLayoutContainer
-            style={{opacity: `${(location.pathname === "/") ? "0" : "1"}`}}
-            ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}>
-            <HeaderOutWrapper>
-                <LogoContainer>
-                    <HeaderLogo
-                        src={logo}
-                        alt=""
-                        onClick={() => navigate("/")}/>
-                </LogoContainer>
-                {/* <RightWrapper> */}
-                <HeaderRightWrapper>
-                    <SmallButtonWrapper>
-                        <HomeBtnWrapper onClick={() => navigate("/")}>
-                            <IoMdHome />
-                            <TransText>
-                                HOME
-                            </TransText>
-                        </HomeBtnWrapper>
-                        <BarContainer />
-                        <TranslateContainer ref={modalRef}>
-                            <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
-                                <BsGlobe2 />
-                                <TransText>
-                                    {languageChange()}
-                                </TransText>
-                                <TiArrowSortedDown />
-                            </TranslateWrapper>
-                            {languageModal
-                                && <TranslateModal
-                                setLanguageModal={setLanguageModal}/>}
-                            {/* <MobileTranslateContainer>
+    return (
+        <div>
+            <HeaderBox
+                ref={(location.pathname === "/") ? mainScrollHeader : scrollHeader}
+                style={{ opacity: `${(location.pathname === "/") ? "0" : "1"}` }}>
+                <HeaderLayoutContainer>
+                    <HeaderOutWrapper>
+                        <LogoContainer>
+                            <HeaderLogo
+                                src={logo}
+                                alt=""
+                                onClick={() => navigate("/")} />
+                        </LogoContainer>
+                        {/* <RightWrapper> */}
+                        <HeaderRightWrapper>
+                            <SmallButtonWrapper>
+                                <HomeBtnWrapper onClick={() => navigate("/")}>
+                                    <IoMdHome />
+                                    <TransText>
+                                        HOME
+                                    </TransText>
+                                </HomeBtnWrapper>
+                                <BarContainer />
+                                <TranslateContainer ref={modalRef}>
+                                    <TranslateWrapper onClick={() => setLanguageModal(!languageModal)}>
+                                        <BsGlobe2 />
+                                        <TransText>
+                                            {languageChange()}
+                                        </TransText>
+                                        <TiArrowSortedDown />
+                                    </TranslateWrapper>
+                                    {languageModal
+                                        && <TranslateModal
+                                            setLanguageModal={setLanguageModal} />}
+                                    {/* <MobileTranslateContainer>
                                 {languageModal
                                     && <TranslateModal
                                     setLanguageModal={setLanguageModal}/>}
                             </MobileTranslateContainer> */}
-                        </TranslateContainer>
-                        {/* <BarContainer /> */}
-                        {/* <SettingWrapper onClick={() => setSetting(!setting)}>
+                                </TranslateContainer>
+                                {/* <BarContainer /> */}
+                                {/* <SettingWrapper onClick={() => setSetting(!setting)}>
                             <Setting>
                                 <LuKeyRound />
                             </Setting>
                         </SettingWrapper> */}
-                    </SmallButtonWrapper>
-                    <UnderLaneContainer>
-                        <NavButtonContainer>
-                            <NavButton />
-                        </NavButtonContainer>
-                        <SNSMenu />
-                    </UnderLaneContainer>
-                {/* </RightWrapper> */}
-                </HeaderRightWrapper>
-            </HeaderOutWrapper>
-        </HeaderLayoutContainer>
-        {copyHandle && <CopyAlertModal />}
-        {setting && <CertifyModal setting={setting} setSetting={setSetting}/>}
-        {/* {isPopUp && <PopUp />} */}
-        <MobileNavButton>
-            <MobileNavBtn navigate={navigate}/>
-        </MobileNavButton>
-    </div>
-  )
+                            </SmallButtonWrapper>
+                            <UnderLaneContainer>
+                                <NavButtonContainer>
+                                    <NavButton />
+                                </NavButtonContainer>
+                                <SNSMenu />
+                            </UnderLaneContainer>
+                            {/* </RightWrapper> */}
+                        </HeaderRightWrapper>
+                    </HeaderOutWrapper>
+                </HeaderLayoutContainer>
+                <HeaderNotice />
+                {copyHandle && <CopyAlertModal />}
+                {setting && <CertifyModal setting={setting} setSetting={setSetting} />}
+                {/* {isPopUp && <PopUp />} */}
+            </HeaderBox>
+            <MobileNavButton>
+                <MobileNavBtn navigate={navigate} />
+            </MobileNavButton>
+        </div>
+    )
 };
 
-const HeaderLayoutContainer = styled.header`
+const HeaderBox = styled.header`
     width: 100%;
-    height: 80px;
-    /* border-bottom: 1px solid gray; */   
     position: fixed;
     top: 0;
     left: 0;
@@ -173,6 +172,12 @@ const HeaderLayoutContainer = styled.header`
     }
 `;
 
+const HeaderLayoutContainer = styled.div`
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #e9e9e9;     
+`;
+
 const HeaderOutWrapper = styled.div`
     width: 1320px;
     margin: 0px auto;
@@ -184,7 +189,6 @@ const HeaderOutWrapper = styled.div`
 
     @media screen and (max-width: 1320px) {
         width: 96%;
-        margin: 0px auto;
     }
 `;
 

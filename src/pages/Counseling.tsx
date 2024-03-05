@@ -65,21 +65,30 @@ const Counseling = () => {
                 {counseling(3)}
               </TimeCheckContainer>
               <ButtonAllWrapper>
-                  <ButtonText
+                  <ButtonContainer
                     color='#7489da'
                     onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                     <BsDiscord />
-                  </ButtonText>
-                  <ButtonText
+                    <ButtonText>
+                      Discode
+                    </ButtonText>
+                  </ButtonContainer>
+                  <ButtonContainer
                     color='#eb4655'
                     onClick={() => window.open("https://www.instagram.com/aria.artacademy/")}>
                     <BsInstagram />
-                  </ButtonText>
-                  <ButtonText
+                    <ButtonText>
+                      Instagram
+                    </ButtonText>
+                  </ButtonContainer>
+                  <ButtonContainer
                     color='#000000'
                     onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
                     <BsTwitterX />
-                  </ButtonText>
+                    <ButtonText>
+                      X (Twitter)
+                    </ButtonText>
+                  </ButtonContainer>
               </ButtonAllWrapper>
             </ContentWrapper>
           </ContentContainer>
@@ -291,62 +300,63 @@ const ButtonAllWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 16px;
   margin-top: 20px;
 
   @media screen and (max-width: 1320px) {
-    gap: 80px;
+    gap: 20px;
   }
 
   @media screen and (max-width: 500px) {
-    gap: 40px;
+    gap: 18px;
     margin-top: 10px;
   }
 `;
 
-const ButtonContainer = styled.div`
-  width: 360px;
-  height: 60px;
+const ButtonContainer = styled.div<{ color : string }>`
+  width: 140px;
+  height: 36px;
+  font-size: 22px;
+  color: #222020;
   display: flex;
+  justify-content: center;
   align-items: center;
-  text-indent: 30px;
-  border-radius: 3px;
-  font-family: "Pretendard";
-  font-size: 16px;
-  font-weight: 600;
-  line-height: normal;
-  position: relative;
-  gap: 20px;
-  background-color: #7489da;
-  color: #FCFCFC;
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-  user-select: none;
+  gap: 8px;
+  border: 1px solid #e9e9e9;
+  border-radius: 30px;
+  transition: all 0.2s;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0px 0px 8px #8ba0f1b7;
+    border: 1px solid ${(props) => props.color};
+    color: ${(props) => props.color};
+  }
+
+  @media screen and (max-width: 1320px) {
+    font-size: 26px;
+    width: 160px;
+    height: 40px;
   }
 
   @media screen and (max-width: 500px) {
-    width: 260px;
-    height: 36px;
-    text-indent: 18px;
-    font-size: 12px;
+    font-size: 18px;
+    width: 100px;
+    height: 32px;
   }
 `;
 
-const ButtonText = styled.div<{ color : string }>`
-  font-size: 50px;
-  color: ${(props) => props.color};
-  cursor: pointer;
+const ButtonText = styled.div`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  color: #222020;
 
   @media screen and (max-width: 1320px) {
-    font-size: 60px;
+    font-size: 16px;
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 36px;
+    font-size: 10px;
   }
 `;
 
