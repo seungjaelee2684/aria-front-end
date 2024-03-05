@@ -18,6 +18,7 @@ import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
 import { MdOutlineSupervisorAccount } from "react-icons/md";
 import { BsInstagram, BsDiscord, BsYoutube, BsTwitterX } from "react-icons/bs";
+import { CopyAlert } from '../../store/CopyAlert';
 
 const Footer = () => {
 
@@ -25,6 +26,16 @@ const Footer = () => {
   const navigate = useNavigate();
   const language = localStorage.getItem("language");
   const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
+  const [, setCopyHandler] = useRecoilState(CopyAlert);
+
+  const handleCopyClipBoard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopyHandler(true);
+    } catch (e) {
+      alert('복사에 실패하였습니다');
+    }
+  };
 
   const translateText = (Num : number) => {
     switch (language) {
@@ -56,7 +67,7 @@ const Footer = () => {
              {translateText(0)}
             </Text>
             |
-            <Text onClick={() => navigate("/support/policy")}>
+            <Text onClick={() => handleCopyClipBoard("aria.academy@gmail.com")}>
              CONTACT
             </Text>
           </LeftTopLaneContainer>
@@ -109,7 +120,7 @@ const Footer = () => {
                   <BsTwitterX />
                 </MenuIcon>
               </IconBoxWrapper>
-              <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+              <IconBoxWrapper onClick={() => window.open("https://www.instagram.com/aria.artacademy/")}>
                 <MenuIcon>
                   <BsInstagram />
                 </MenuIcon>

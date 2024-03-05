@@ -40,6 +40,15 @@ const SNSMenu = () => {
         default :
           return "Visit Twitter account.";
       };
+    } else if (Num === 2) {
+      switch (language) {
+        case "japanese" :
+          return "Instagramを見に行く";
+        case "korean" :
+          return "인스타그램 보러가기";
+        default :
+          return "Visit Instagram account.";
+      };
     } else {
       switch (language) {
         case "japanese" :
@@ -54,38 +63,26 @@ const SNSMenu = () => {
   
   return (
     <MenuIconContainer>
-      {/* <SocialIcon>
-        <IoShareSocial />
-      </SocialIcon> */}
-      {/* <DiscordIcon> */}
       <MenuIcon
-        title={onTitleReadyHandler(2)}
+        title={onTitleReadyHandler(3)}
         onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
         <BsDiscord />
       </MenuIcon>
-      {/* </DiscordIcon> */}
-      {/* <TwitterIcon> */}
       <MenuIcon
         title={onTitleReadyHandler(1)}
         onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
         <BsTwitterX />
       </MenuIcon>
-      {/* </TwitterIcon> */}
-      {/* <InstaIcon> */}
       <MenuIcon
-        // className='MenuIcon'
-        title={onTitleReadyHandler(0)}
-        onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+        title={onTitleReadyHandler(2)}
+        onClick={() => window.open("https://www.instagram.com/aria.artacademy/")}>
         <BsInstagram />
       </MenuIcon>
-      {/* </InstaIcon> */}
-      {/* <YoutubeIcon> */}
       <MenuIcon
         title={onTitleReadyHandler(0)}
         onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
         <BsYoutube />
       </MenuIcon>
-      {/* </YoutubeIcon> */}
     </MenuIconContainer>
   )
 };

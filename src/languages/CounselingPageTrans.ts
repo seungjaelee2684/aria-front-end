@@ -8,9 +8,15 @@ type CounselingTextType = {
     text: string
 };
 
-type CounselingContentType =  {
+type CounselingContentType = {
     isred: boolean,
     content: string
+};
+
+type CounselingSubType = {
+    englishtext: CounselingContentType[],
+    japanesetext: CounselingContentType[],
+    text: CounselingContentType[]
 };
 
 type CounselingGuideType = {
@@ -29,7 +35,7 @@ export const CounselingText : CounselingTextType[] = [
     {
         englishtext: "Counseling Guidance",
         japanesetext: "相談案内",
-        text: "상담안내"
+        text: "상담 안내"
     },
     {
         englishtext: "Feel free to ask any questions regarding enrollment,class\nconsultations, or any other inquiries after joining our Discord server. We'll be happy to provide you with helpful and friendly responses.",
@@ -52,11 +58,93 @@ export const CounselingText : CounselingTextType[] = [
         text: "ARIA 디스코드 서버로 이동"
     },
     {
-        englishtext: "※ Please add our Discord server by pressing Go to ARIA discord server.",
-        japanesetext: "※ ARIAサーバーをディスコードから追加してください。",
-        text: "※ ARIA 서버를 디스코드에서 추가해주세요."
+        englishtext: "Please add our Discord server by pressing Go to ARIA discord server.",
+        japanesetext: "ARIAサーバーをディスコードから追加してください。",
+        text: "ARIA 서버를 디스코드에서 추가해주세요."
+    },
+    {
+        englishtext: "※ Discord counseling method",
+        japanesetext: "※ Discordの相談方法です",
+        text: "※ 디스코드 상담 방법"
     },
 ];
+
+export const counselingSub : CounselingSubType = {
+        englishtext: [
+            {
+                isred: false,
+                content: "Feel free to question via"
+            },
+            {
+                isred: true,
+                content: "Discord Ticket,"
+            },
+            {
+                isred: true,
+                content: "Instagram DM,"
+            },
+            {
+                isred: false,
+                content: "or"
+            },
+            {
+                isred: true,
+                content: "X(Twitter) DM"
+            },
+            {
+                isred: false,
+                content: "and we kindly response to your questions."
+            },
+        ],
+        japanesetext: [
+            {
+                isred: true,
+                content: "ディスコードチケット"
+            },
+            {
+                isred: false,
+                content: "または"
+            },
+            {
+                isred: true,
+                content: "インスタグラム、"
+            },
+            {
+                isred: true,
+                content: "X(旧ツイッター)の"
+            },
+            {
+                isred: false,
+                content: "DMでお問い合わせいただければ、"
+            },
+            {
+                isred: false,
+                content: "親切にお答えします。"
+            },
+        ],
+        text: [
+            {
+                isred: true,
+                content: "디스코드 티켓"
+            },
+            {
+                isred: false,
+                content: "또는"
+            },
+            {
+                isred: true,
+                content: "인스타그램, X(트위터)"
+            },
+            {
+                isred: false,
+                content: "DM으로 문의사항을 말씀해 주시면"
+            },
+            {
+                isred: false,
+                content: "친절히 답변드리겠습니다."
+            },
+        ]
+};
 
 export const counselingGuide : CounselingGuideType[] = [
     {
