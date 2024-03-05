@@ -187,14 +187,10 @@ const NoticeContentWrapper = styled.div`
 const NoticeContent = styled.div`
   width: 100%;
   font-family: "Pretendard";
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   line-height: 150%;
   white-space: pre-line;
-
-  @media screen and (max-width: 1920px) {
-    font-size: 22px;
-  }
 
   @media screen and (max-width: 1320px) {
     font-size: 20px;

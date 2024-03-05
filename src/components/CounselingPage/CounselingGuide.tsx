@@ -84,6 +84,9 @@ const CounselingGuide = () => {
   return (
     <CounselingOutContainer>
         <GuideTitleContainer>
+            {counselingTitleTrans(7)}
+        </GuideTitleContainer>
+        <GuideTitleContainer>
             {counselingTitleTrans(6)}
         </GuideTitleContainer>
         <CounselingContainer>
@@ -105,7 +108,7 @@ const CounselingGuide = () => {
   )
 };
 
-const CounselingOutContainer = styled.div`
+const CounselingOutContainer = styled.section`
     width: 900px;
     margin: 0px auto;
     display: flex;

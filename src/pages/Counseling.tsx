@@ -1,22 +1,26 @@
 import React, { useRef, useState } from 'react'
 import '../style/font/font.css';
 import styled from 'styled-components';
-import { IoLogoDiscord, IoPersonAddOutline } from 'react-icons/io5';
-import { CounselingText } from '../languages/CounselingPageTrans';
-import { BsDiscord } from 'react-icons/bs';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { MdKeyboardArrowRight } from 'react-icons/md';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { CopyAlert } from '../store/CopyAlert';
-import { translate } from '../store/Translation';
+import { IoLogoDiscord } from 'react-icons/io5';
+import { CounselingText, counselingSub } from '../languages/CounselingPageTrans';
 import Monitor from '../assets/images/monitorcapture.webp';
-import Capture from '../assets/icons/search.png';
-import PopUp from '../components/common/PopUp';
 import CounselingGuide from '../components/CounselingPage/CounselingGuide';
+import { BsInstagram, BsDiscord, BsTwitterX } from "react-icons/bs";
 
 const Counseling = () => {
 
   const language = localStorage.getItem("language");
+
+  const counselingTextChange = () => {
+    switch (language) {
+      case "japanese" :
+        return counselingSub?.japanesetext;
+      case "korean" :
+        return counselingSub?.text;
+      default :
+        return counselingSub?.englishtext;
+    }
+  };
 
   const counseling = (Num : number) => {
     switch (language) {
@@ -38,25 +42,53 @@ const Counseling = () => {
         <InContainer>
           <ContentContainer>
             <TitleContainer>
-              <Title>
-                <IoLogoDiscord />
-                {counseling(0)}
-              </Title>
+              {/* <Title>
+                <FaLightbulb />
+              </Title> */}
               {counseling(1)}
             </TitleContainer>
             <ContentWrapper>
-              {counseling(2)}
+              <ContentBox>
+                {counselingTextChange()?.map((item: any, index: number) => {
+                  return (
+                    (item?.isred)
+                      ? <RedContent>
+                        {item?.content}
+                      </RedContent>
+                      : <DefaultContent>
+                        {item?.content}
+                      </DefaultContent>
+                  )
+                })}
+              </ContentBox>
               <TimeCheckContainer>
                 {counseling(3)}
               </TimeCheckContainer>
               <ButtonAllWrapper>
-                <ButtonContainer
-                  onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
-                  {counseling(5)}
-                  <ButtonText>
+                  <ButtonContainer
+                    color='#7489da'
+                    onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
                     <BsDiscord />
-                  </ButtonText>
-                </ButtonContainer>
+                    <ButtonText>
+                      Discode
+                    </ButtonText>
+                  </ButtonContainer>
+                  <ButtonContainer
+                    color='#eb4655'
+                    onClick={() => window.open("https://www.instagram.com/aria.artacademy/")}>
+                    <BsInstagram />
+                    <ButtonText>
+                      Instagram
+                    </ButtonText>
+                  </ButtonContainer>
+                  <ButtonContainer
+                    color='#000000'
+                    onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
+                    <BsTwitterX />
+                    <ButtonText>
+                      X (Twitter)
+                    </ButtonText>
+                  </ButtonContainer>
               </ButtonAllWrapper>
             </ContentWrapper>
           </ContentContainer>
@@ -67,7 +99,7 @@ const Counseling = () => {
   )
 };
 
-const LayOutContainer = styled.div`
+const LayOutContainer = styled.article`
   width: 100%;
   padding: 130px 0px 100px 0px;
   display: flex;
@@ -81,13 +113,12 @@ const LayOutContainer = styled.div`
   }
 `;
 
-const OutContainer = styled.div`
+const OutContainer = styled.section`
   width: 1320px;
   display: flex;
   border-bottom: 2px solid #e9e9e9;
   padding: 0px 0px 20px 0px;
   transition: all 0.3s;
-  /* flex-direction: column; */
 
   @media screen and (max-width: 1320px) {
     width: 96%;
@@ -136,15 +167,6 @@ const MonitorImage = styled.img`
   }
 `;
 
-// const MonitorCaptureImg = styled.img`
-//   width: 99%;
-//   height: 70%;
-//   object-fit: cover;
-//   position: absolute;
-//   top: 1px;
-//   left: 2px;
-// `;
-
 const InContainer = styled.div`
   width: 100%;
   display: flex;
@@ -160,7 +182,6 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
- /* color: #222020; */
   gap: 16px;
 
   @media screen and (max-width: 836px) {
@@ -175,7 +196,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.div`
-  color: #7489da;
+  color: #e7e700;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -187,6 +208,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Pretendard";
   font-size: 18px;
   font-weight: 500;
   gap: 30px;
@@ -205,13 +227,58 @@ const ContentWrapper = styled.div`
   align-items: center;
   font-family: "Pretendard";
   white-space: pre-line;
- /* color: #222020; */
   gap: 24px;
   margin-bottom: 50px;
 
   @media screen and (max-width: 500px) {
     margin-bottom: 20px;
     gap: 16px;
+  }
+`;
+
+const ContentBox = styled.div`
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 5px;
+
+  @media screen and (max-width: 1320px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 836px) {
+    width: 80%;
+  }
+`;
+
+const DefaultContent = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  white-space: pre-line;
+
+  @media screen and (max-width: 836px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+  }
+`;
+
+const RedContent = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff3ea3;
+  white-space: pre-line;
+
+  @media screen and (max-width: 836px) {
+    font-size: 17px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
   }
 `;
 
@@ -233,62 +300,67 @@ const ButtonAllWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   margin-top: 20px;
 
+  @media screen and (max-width: 1320px) {
+    gap: 20px;
+  }
+
   @media screen and (max-width: 500px) {
-    gap: 16px;
+    gap: 18px;
     margin-top: 10px;
   }
 `;
 
-const ButtonContainer = styled.div`
-  width: 360px;
-  height: 60px;
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  text-indent: 30px;
-  /* border: 1px solid #ADADAD; */
-  border-radius: 3px;
-  font-family: "Pretendard";
-  font-size: 16px;
+const ButtonText = styled.div`
+  font-size: 14px;
   font-weight: 600;
   line-height: normal;
-  position: relative;
-  gap: 20px;
-  background-color: #7489da;
-  color: #FCFCFC;
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-  user-select: none;
-  cursor: pointer;
+  color: #222020;
 
-  &:hover {
-    box-shadow: 0px 0px 8px #8ba0f1b7;
-    /* box-shadow: #7489da 0px 0px 3px 1px; */
+  @media screen and (max-width: 1320px) {
+    font-size: 16px;
   }
 
   @media screen and (max-width: 500px) {
-    width: 260px;
-    height: 36px;
-    text-indent: 18px;
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
-const ButtonText = styled.div`
-  font-size: 70px;
-  color: #FCFCFC;
-  position: absolute;
-  top: -10px;
-  right: 6%;
-  transform: rotate(25deg);
+const ButtonContainer = styled.div<{ color : string }>`
+  width: 140px;
+  height: 36px;
+  font-size: 22px;
+  color: #222020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e9e9e9;
+  border-radius: 30px;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid ${(props) => props.color};
+    color: ${(props) => props.color};
+  }
+
+  &:hover ${ButtonText} {
+    color: ${(props) => props.color};
+  }
+
+  @media screen and (max-width: 1320px) {
+    font-size: 26px;
+    width: 160px;
+    height: 40px;
+  }
 
   @media screen and (max-width: 500px) {
-    font-size: 40px;
-    right: 5%;
-    top: -5px;
+    font-size: 18px;
+    width: 100px;
+    height: 32px;
   }
 `;
 
