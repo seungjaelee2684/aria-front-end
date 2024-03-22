@@ -40,16 +40,12 @@ const Home = () => {
     };
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            if (language) {
-                navigate("/mentor");
-            } else {
-                setTransModalOpen(true);
-            };
-        }, (language) ? 3000 : 1000);
-
-        return () => clearTimeout(timeout);
-  }, [scrollIndex]);
+        if (language) {
+            navigate("/mentor");
+        } else {
+            setTransModalOpen(true);
+        };
+    }, []);
 
   return (
     <MainLayout ref={outerDivRef}>

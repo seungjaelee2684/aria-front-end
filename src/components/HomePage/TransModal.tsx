@@ -6,6 +6,7 @@ import { RiEnglishInput } from "react-icons/ri";
 import { GiEarthAmerica } from "react-icons/gi";
 import { GiJapan } from "react-icons/gi";
 import { GiSouthKorea } from "react-icons/gi";
+import { useNavigate } from 'react-router-dom';
 
 interface TransModalProps {
     transModalOpen: boolean;
@@ -13,7 +14,10 @@ interface TransModalProps {
 };
 
 const TransModal : React.FC<TransModalProps> = ({ transModalOpen, setTransModalOpen }) => {
-  return (
+  
+    const navigate = useNavigate();
+  
+    return (
     <ModalBackground>
         <ModalContainer className='main_modal_container'>
             <TitleLaneContainer>
@@ -22,6 +26,7 @@ const TransModal : React.FC<TransModalProps> = ({ transModalOpen, setTransModalO
                     onClick={() => {
                         localStorage.setItem("language", "english");
                         setTransModalOpen(false);
+                        navigate("/mentor");
                     }}>
                     <IoCloseOutline />
                 </Icon>
@@ -31,6 +36,7 @@ const TransModal : React.FC<TransModalProps> = ({ transModalOpen, setTransModalO
                 onClick={() => {
                     localStorage.setItem("language", "english");
                     setTransModalOpen(false);
+                    navigate("/mentor");
                 }}>
                 English
                 <RightIcon>
@@ -40,7 +46,8 @@ const TransModal : React.FC<TransModalProps> = ({ transModalOpen, setTransModalO
             <ButtonContainer
                 onClick={() => {
                     localStorage.setItem("language", "japanese");
-                    window.location.reload();
+                    setTransModalOpen(false);
+                    navigate("/mentor");
                 }}>
                 日本語
                 <RightIcon>
@@ -50,7 +57,8 @@ const TransModal : React.FC<TransModalProps> = ({ transModalOpen, setTransModalO
             <ButtonContainer
                 onClick={() => {
                     localStorage.setItem("language", "korean");
-                    window.location.reload();
+                    setTransModalOpen(false);
+                    navigate("/mentor");
                 }}>
                 한국어
                 <RightIcon>

@@ -120,7 +120,7 @@ const Footer = () => {
                   <BsTwitterX />
                 </MenuIcon>
               </IconBoxWrapper>
-              <IconBoxWrapper onClick={() => setAlertModal({...alertModal, isOpen: true, whatAlert: 0})}>
+              <IconBoxWrapper onClick={() => window.open("https://www.instagram.com/aria.artacademy/")}>
                 <MenuIcon>
                   <BsInstagram />
                 </MenuIcon>

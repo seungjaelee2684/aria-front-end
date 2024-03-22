@@ -38,7 +38,7 @@ function App() {
             <ScrollTop />
             <Header />
             <Routes>
-              <Route path='/' element={<Home />} caseSensitive />
+              <Route path='/' element={<Mentor />} caseSensitive />
               <Route element={<MainLayout />}>
                 {/* <Route path='/upload/mentor' element={<MentorUpload />} caseSensitive /> */}
                 <Route path='/check' element={<Check />} caseSensitive />

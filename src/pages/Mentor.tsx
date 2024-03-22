@@ -9,11 +9,26 @@ import FilterButton from '../components/MentorPage/FilterButton';
 import SlideShow from '../components/MentorPage/SlideShow';
 import MentorSearchBar from '../components/MentorPage/MentorSearchBar';
 import { LayOutTitleContainer, TitleColorText, TitleBarContainer } from '../style/PageTitle';
+import { useRecoilState } from 'recoil';
+import TransModal from '../components/HomePage/TransModal';
+import { useNavigate } from 'react-router-dom';
 
 const Mentor = () => {
 
+  const navigate = useNavigate();
+  const language = localStorage.getItem("language");
+  const [transModalOpen, setTransModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!language) {
+      setTransModalOpen(true)
+    };
+    navigate("/mentor");
+  }, [language]);
+
   return (
     <LayoutContainer>
+      {(transModalOpen) && <TransModal transModalOpen={transModalOpen} setTransModalOpen={setTransModalOpen}/>}
       <LayoutInWrapper>
         <SlideShow />
       </LayoutInWrapper>

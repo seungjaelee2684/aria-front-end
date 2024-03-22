@@ -146,13 +146,12 @@ const Header = () => {
                     </HeaderOutWrapper>
                 </HeaderLayoutContainer>
                 <HeaderNotice />
-                {copyHandle && <CopyAlertModal />}
-                {setting && <CertifyModal setting={setting} setSetting={setSetting} />}
                 {/* {isPopUp && <PopUp />} */}
             </HeaderBox>
             <MobileNavButton>
                 <MobileNavBtn navigate={navigate} />
             </MobileNavButton>
+            {copyHandle && <CopyAlertModal />}
         </div>
     )
 };

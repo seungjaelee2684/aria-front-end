@@ -18,13 +18,13 @@ const Policy = () => {
     content: string[]
   };
 
-  const subtitleTrans = (item : PolicyDataType) => {
+  const subtitleTrans = (item: PolicyDataType) => {
     switch (language) {
-      case "japanese" :
+      case "japanese":
         return `第${item?.id}条`;
-      case "korean" :
+      case "korean":
         return `제 ${item?.id}조`;
-      default :
+      default:
         return `Article ${item?.id}`;
     };
   };
@@ -32,81 +32,87 @@ const Policy = () => {
   const policyTranslate = () => {
     if (language === "japanese") {
       return (
-          japanesePolicyData?.map((item : PolicyDataType) => {
-            return (
-              <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
-                  {item?.title}
-                </PolicyTopContainer>
-                <PolicyContentContainer>
-                  <PolicySubTitleContainer>
-                    {subtitleTrans(item)}
-                  </PolicySubTitleContainer>
-                  <PolicyContentWrapper>
-                    {item?.content.map((text) => {
-                      return (
+        japanesePolicyData?.map((item: PolicyDataType) => {
+          return (
+            <ContentWrapper key={item.id}>
+              <PolicyTopContainer>
+                {item?.title}
+              </PolicyTopContainer>
+              <PolicyContentContainer>
+                {item?.content.map((text: any, index: number) => {
+                  return (
+                    <PolicyWrapper key={index}>
+                      <PolicySubTitleContainer>
+                        ({index + 1})
+                      </PolicySubTitleContainer>
+                      <PolicyContentWrapper>
                         <PolicyContentText>
                           {text}
                         </PolicyContentText>
-                      )
-                    })}
-                  </PolicyContentWrapper>
-                </PolicyContentContainer>
-              </ContentWrapper>
-            )
-          })
+                      </PolicyContentWrapper>
+                    </PolicyWrapper>
+                  )
+                })}
+              </PolicyContentContainer>
+            </ContentWrapper>
+          )
+        })
       );
     } else if (language === "korean") {
       return (
-          policyData?.map((item : PolicyDataType) => {
-            return (
-              <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
-                  {item?.title}
-                </PolicyTopContainer>
-                <PolicyContentContainer>
-                  <PolicySubTitleContainer>
-                    {subtitleTrans(item)}
-                  </PolicySubTitleContainer>
-                  <PolicyContentWrapper>
-                    {item?.content.map((text) => {
-                      return (
+        policyData?.map((item: PolicyDataType) => {
+          return (
+            <ContentWrapper key={item.id}>
+              <PolicyTopContainer>
+                {item?.title}
+              </PolicyTopContainer>
+              <PolicyContentContainer>
+                {item?.content.map((text: any, index: number) => {
+                  return (
+                    <PolicyWrapper key={index}>
+                      <PolicySubTitleContainer>
+                        ({index + 1})
+                      </PolicySubTitleContainer>
+                      <PolicyContentWrapper>
                         <PolicyContentText>
                           {text}
                         </PolicyContentText>
-                      )
-                    })}
-                  </PolicyContentWrapper>
-                </PolicyContentContainer>
-              </ContentWrapper>
-            )
-          })
+                      </PolicyContentWrapper>
+                    </PolicyWrapper>
+                  )
+                })}
+              </PolicyContentContainer>
+            </ContentWrapper>
+          )
+        })
       );
     } else {
       return (
-          englishPolicyData?.map((item : PolicyDataType) => {
-            return (
-              <ContentWrapper key={item.id}>
-                <PolicyTopContainer>
-                  {item?.title}
-                </PolicyTopContainer>
-                <PolicyContentContainer>
-                  <PolicySubTitleContainer>
-                    {subtitleTrans(item)}
-                  </PolicySubTitleContainer>
-                  <PolicyContentWrapper>
-                    {item?.content.map((text) => {
-                      return (
+        englishPolicyData?.map((item: PolicyDataType) => {
+          return (
+            <ContentWrapper key={item.id}>
+              <PolicyTopContainer>
+                {item?.title}
+              </PolicyTopContainer>
+              <PolicyContentContainer>
+                {item?.content.map((text: any, index: number) => {
+                  return (
+                    <PolicyWrapper key={index}>
+                      <PolicySubTitleContainer>
+                        ({index + 1})
+                      </PolicySubTitleContainer>
+                      <PolicyContentWrapper>
                         <PolicyContentText>
                           {text}
                         </PolicyContentText>
-                      )
-                    })}
-                  </PolicyContentWrapper>
-                </PolicyContentContainer>
-              </ContentWrapper>
-            )
-          })
+                      </PolicyContentWrapper>
+                    </PolicyWrapper>
+                  )
+                })}
+              </PolicyContentContainer>
+            </ContentWrapper>
+          )
+        })
       );
     };
   };
@@ -133,21 +139,6 @@ const LayOutContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     padding: 60px 0px 80px 0px;
-  }
-`;
-
-const PolicyHeader = styled.div`
-  width: 1320px;
-  display: flex;
-  justify-content: start;
-  margin: 120px auto 20px auto;
-
-  @media screen and (max-width: 1320px) {
-    width: 96%;
-  }
-
-  @media screen and (max-width: 500px) {
-    margin: 70px auto 20px auto;
   }
 `;
 
@@ -179,27 +170,6 @@ const PolicyOutContainer = styled.div`
   }
 `;
 
-const PolicyInContainer = styled.div`
-  width: 90%;
-  height: 100%;
-  border-radius: 10px;
-  border: 1px solid #e9e9e9;
-  display: flex;
-  flex-direction: column;
-  gap: 70px;
-  background-color: #FFFFFF;
-  padding: 20px;
-
-  @media screen and (max-width: 1320px) {
-    width: 90%;
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 86%;
-    gap: 30px;
-  }
-`;
-
 const ContentWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -208,19 +178,6 @@ const ContentWrapper = styled.div`
 
   @media screen and (max-width: 500px) {
     gap: 16px;
-  }
-`;
-
-const PolicyTitle = styled.div`
-  width: 100%;
-  font-weight: 600;
-  font-size: 20px;
-  display: flex;
-  text-align: left;
-  margin-bottom: 10px;
-
-  @media screen and (max-width: 500px) {
-    font-size: 16px;
   }
 `;
 
@@ -239,13 +196,9 @@ export const PolicyFirstContent = styled.div`
   }
 `;
 
-const PolicyOtherContent = styled(PolicyFirstContent)`
-  text-indent: 0px;
-`;
-
 const PolicyTopContainer = styled.div`
   width: 100%;
-  height: 30px;
+  height: 24px;
   display: flex;
   align-items: center;
   background-color: #cacaca;
@@ -262,7 +215,7 @@ const PolicyTopContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 10px;
-    height: 20px;
+    height: 18px;
     text-indent: 10px;
   }
 `;
@@ -270,7 +223,10 @@ const PolicyTopContainer = styled.div`
 const PolicyContentContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   font-family: "Pretendard";
   line-height: 150%;
 
@@ -279,22 +235,29 @@ const PolicyContentContainer = styled.div`
   }
 `;
 
+const PolicyWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+`;
+
 const PolicySubTitleContainer = styled.div`
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 400;
   color: #ADADAD;
-  text-indent: 20px;
+  text-indent: 40px;
 
   @media screen and (max-width: 500px) {
-    font-size: 12px;
-    text-indent: 10px;
+    font-size: 10px;
+    text-indent: 20px;
   }
 `;
 
 const PolicyContentWrapper = styled.div`
-  width: 80%;
+  width: 92%;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
  /* color: #222020; */
   display: flex;
   flex-direction: column;
@@ -306,9 +269,9 @@ const PolicyContentWrapper = styled.div`
   }
 `;
 
-const PolicyContentText = styled.div`
+const PolicyContentText = styled.span`
   text-align: left;
-  white-space: pre-line;
+  white-space: pre-wrap;
 `;
 
 export default Policy;

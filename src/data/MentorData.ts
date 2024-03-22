@@ -203,12 +203,12 @@ export const mentorListData = [
     },
     {
         id: "3",
-        isready: true,
+        isready: false,
         nation: "Japan",
         englishname: "Sanpati",
         japanesename: "さんぱち",
         nickname: "산파치",
-        isnew: true,
+        isnew: false,
         slideimage: {
             status: "Left",
             bigger: true,
