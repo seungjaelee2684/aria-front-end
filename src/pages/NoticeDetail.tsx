@@ -9,20 +9,12 @@ import MentorButtonKOR from '../assets/images/notice/MENTOR_KOR_11zon.webp';
 import CounselingButtonENG from '../assets/images/notice/REGISTER_ENG_11zon.webp';
 import CounselingButtonJPN from '../assets/images/notice/REGISTER_JAP_11zon.webp';
 import CounselingButtonKOR from '../assets/images/notice/REGISTER_KOR_11zon.webp';
-import { useQuery } from 'react-query';
-import { getNoticeInfoApi } from '../api/notice';
 
 const NoticeDetail = () => {
 
   const { id } = useParams();
   const navigate = useNavigate();
   const language = localStorage.getItem("language");
-
-  const { isLoading, isError, error, data } = useQuery(["getNoticeInfoApi", id], () => getNoticeInfoApi(id), {
-    refetchOnWindowFocus: false
-  });
-
-  console.log("공지사항 상세 조회", data);
   const noticeDto = noticeData?.filter((item) => item.id === id);
 
   const ButtonTranslate = (isMentor: boolean) => {
@@ -62,12 +54,13 @@ const NoticeDetail = () => {
               )
             })}
           </NoticeContentWrapper>
-          {noticeDto[0]?.contents.content.image.japanesecontent.map((item : any, index : number) => {
-            return (
-              (index !== 0)
-                && <NoticeImage key={index} src={item} alt=''/>
-            )
-          })}
+          {(noticeDto[0])
+            && noticeDto[0]?.contents.content.image.japanesecontent.map((item : any, index : number) => {
+              return (
+                (index !== 0)
+                  && <NoticeImage key={index} src={item} alt=''/>
+              )
+            })}
           <NoticeImage src='' alt=''/>
         </ContentContainer>
       )
@@ -84,12 +77,13 @@ const NoticeDetail = () => {
               )
             })}
           </NoticeContentWrapper>
-          {noticeDto[0]?.contents.content.image.content.map((item : any, index : number) => {
-            return (
-              (index !== 0)
-                && <NoticeImage key={index} src={item} alt=''/>
-            )
-          })}
+          {(noticeDto[0])
+            && noticeDto[0]?.contents.content.image.content.map((item : any, index : number) => {
+              return (
+                (index !== 0)
+                  && <NoticeImage key={index} src={item} alt=''/>
+              )
+            })}
           <NoticeImage src='' alt=''/>
         </ContentContainer>
       )
@@ -106,12 +100,13 @@ const NoticeDetail = () => {
               )
             })}
           </NoticeContentWrapper>
-          {noticeDto[0]?.contents.content.image.englishcontent.map((item : any, index : number) => {
-            return (
-              (index !== 0)
-                && <NoticeImage key={index} src={item} alt=''/>
-            )
-          })}
+          {(noticeDto[0])
+            && noticeDto[0]?.contents.content.image.englishcontent.map((item : any, index : number) => {
+              return (
+                (index !== 0)
+                  && <NoticeImage key={index} src={item} alt=''/>
+              )
+            })}
           <NoticeImage src='' alt=''/>
         </ContentContainer>
       )
@@ -162,12 +157,12 @@ const ContentContainer = styled.div`
 `;
 
 const NoticeImage = styled.img`
-  width: 650px;
+  width: 600px;
   height: auto;
   object-fit: cover;
 
   @media screen and (max-width: 650px) {
-    width: 96%;
+    width: 80%;
   }
 `;
 
@@ -176,6 +171,7 @@ const NoticeContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: start;
   gap: 50px;
   margin: 60px 0px;
 
@@ -187,21 +183,22 @@ const NoticeContentWrapper = styled.div`
 const NoticeContent = styled.div`
   width: 100%;
   font-family: "Pretendard";
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 150%;
+  text-align: center;
   white-space: pre-line;
 
   @media screen and (max-width: 1320px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   @media screen and (max-width: 836px) {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 15px;
+    font-size: 11px;
   }
 `;
 
@@ -227,12 +224,8 @@ const Button = styled.img`
   user-select: none;
   cursor: pointer;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   @media screen and (max-width: 650px) {
-    width: 150px;
+    width: 120px;
   }
 `;
 
