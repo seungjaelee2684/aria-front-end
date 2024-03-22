@@ -1,15 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
 <url>
   <loc>https://www.aria-academy.com/</loc>
-  <lastmod>2024-02-06T14:39:24+00:00</lastmod>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>1.0</priority>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/mentor</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>1.0</priority>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/mentor/detail/{id}</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>1.0</priority>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/notice</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>1.0</priority>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/notice/detail/{id}</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>1.0</priority>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/support/counseling</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>0.7</priority>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/support/policy</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>0.6</priority>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/support/counseling</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>0.7</priority>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://www.aria-academy.com/custom-page</loc>
+  <lastmod>2024-03-18T12:59:00+00:00</lastmod>
+  <priority>0.8</priority>
+  <changefreq>weekly</changefreq>
 </url>
 
 
