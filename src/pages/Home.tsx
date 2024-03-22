@@ -36,7 +36,6 @@ const Home = () => {
     const [scrollIndex, setScrollIndex] = useRecoilState(MainPageNumber);
     const [transModalOpen, setTransModalOpen] = useState<boolean>(false);
     const outerDivRef = useRef<HTMLDivElement>(null);
-    const DIVIDER_HEIGHT = 5;
 
     const mainPageTextChange = (Num : number) => {
         switch (language) {
@@ -50,12 +49,12 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if (!language) {
+        if (language) {
+            navigate("/mentor");
+        } else {
             setTransModalOpen(true);
-        }; 
-
-
-  }, [scrollIndex]);
+        };
+    }, []);
 
   return (
     <MainLayout ref={outerDivRef}>

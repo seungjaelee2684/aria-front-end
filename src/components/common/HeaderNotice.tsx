@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import '../../style/HeaderNotice.css';
 import { noticeData } from '../../data/NoticeData';
+import { newNoticeData } from '../../data/NewNoticeData';
 import { AiFillNotification } from "react-icons/ai";
 import { filterState } from '../../languages/NoticeTrans';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -14,6 +15,8 @@ const HeaderNotice = () => {
 
     const [nextContent, setNextContent] = useState<number>(0);
     const [prevContent, setPrevContent] = useState<number | undefined>();
+
+    const path = newNoticeData[0] ? `/notice/detail/${newNoticeData[nextContent]?.id}` : "error";
 
     const titleTrans = (Num: number) => {
         switch (language) {
@@ -54,8 +57,12 @@ const HeaderNotice = () => {
                 <NoticeIcon>
                     <AiFillNotification />
                 </NoticeIcon>
-                <NoticeRightWrapper onClick={() => navigate(`/notice/detail/${nextContent + 1}`)}>
-                    {noticeData?.map((item: any) => {
+                <NoticeRightWrapper onClick={() => {
+                    if (newNoticeData[0]) {
+                        navigate(path)
+                    };
+                }}>
+                    {newNoticeData?.map((item: any) => {
                         return (
                             <NoticeLane
                                 className={
@@ -118,7 +125,7 @@ const NoticeIcon = styled.div`
 `;
 
 const NoticeTitle = styled.div<{ color : string }>`
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 150%;
     width: 90px;
@@ -173,17 +180,17 @@ const Text = styled.div`
     height: 100%;
     align-items: center;
     min-height: 30px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 150%;
 
     @media screen and (max-width: 836px) {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 400;
     }
 
     @media screen and (max-width: 500px) {
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 400;
         min-height: 20px;
     }

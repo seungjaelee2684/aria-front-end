@@ -80,14 +80,17 @@ const TapContainer = styled.a`
     align-items: center;
     font-family: 'LINESeedKR-Bd';
     font-size: 16px;
+    /* color: #999999; */
     color: #3b3a3a;
     font-weight: normal;
     text-decoration: none;
     position: relative;
+    /* text-shadow: 1px 1px 4px #FFFFFF; */
     cursor: pointer;
     transition: all 0.4s ease;
 
     &:hover {
+        /* border-bottom: 4px solid #3c3ad6; */
         color: #3c3ad6;
     }
 
@@ -97,6 +100,11 @@ const TapContainer = styled.a`
     @media screen and (max-width: 836px) {
         font-size: 12px;
     }
+`;
+
+const HoverTapContainer = styled.div`
+    height: 100%;
+    position: relative;
 `;
 
 export default NavButton;

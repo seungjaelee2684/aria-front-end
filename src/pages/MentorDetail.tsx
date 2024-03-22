@@ -9,6 +9,8 @@ import { etcTextTrans } from '../languages/ETCTrans';
 import { useQuery } from 'react-query';
 import { getMentorDetailApi } from '../api/mentors';
 import { socialLinkData } from '../data/SocialLinkData';
+import { TbArrowBigDownLineFilled } from 'react-icons/tb';
+import { noticeData } from '../data/NoticeData';
 
 const MentorDetail = () => {
 
@@ -24,8 +26,8 @@ const MentorDetail = () => {
     const language = localStorage.getItem("language");
     const navigate = useNavigate();
 
-    const prevId = Number(id) - 1
-    const nextId = Number(id) + 1
+    const seasonPassList = noticeData?.filter((item: any) => item?.contents.status === "season pass");
+    const seasonPass = seasonPassList[0] ? seasonPassList[0] : undefined;
 
     const [isOpenPortfolio, setIsOpenPortfolio] = useState<{
         isopen: boolean,
@@ -203,14 +205,18 @@ const MentorDetail = () => {
 
   return (
     <LayoutContainer>
+        <ClickNaviArrowWrapper>
+            <ClickNaviArrow className="ClickArrow">
+                <TbArrowBigDownLineFilled />
+            </ClickNaviArrow>
+            <PassTicketButton
+                className="PassTicketBtn"
+                onClick={() => navigate(`/notice/detail/${seasonPass?.id}`)}>
+                SEASON PASS
+            </PassTicketButton>
+        </ClickNaviArrowWrapper>
         {curriculumTranslate()}
         <ListBackMoveBtnContainer>
-            {/* <ListBackMoveButton onClick={() => navigate(`/mentor/detail/${prevId.toString()}`)}>
-                UP
-            </ListBackMoveButton>
-            <ListBackMoveButton onClick={() => navigate(`/mentor/detail/${nextId.toString()}`)}>
-                DOWN
-            </ListBackMoveButton> */}
             <ListBackMoveButton onClick={() => navigate("/mentor")}>
                 <RxHamburgerMenu />
                 {ListTranslate(7)}
@@ -339,6 +345,66 @@ const ListBackMoveButton = styled.div`
         width: 50px;
         height: 30px;
         font-size: 12px;
+    }
+`;
+
+const ClickNaviArrowWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    position: fixed;
+    bottom: 30px;
+    right: 265px;
+    z-index: 100;
+
+    @media screen and (max-width: 1320px) {
+        bottom: 10px;
+        right: 250px;
+    }
+
+    @media screen and (max-width: 500px) {
+        bottom: 60px;
+        right: 50px;
+        font-size: 20px;
+    }
+`;
+
+const ClickNaviArrow = styled.div`
+    font-size: 30px;
+    color: #222020;
+
+    @media screen and (max-width: 500px) {
+        font-size: 20px;
+    }
+`;
+
+const PassTicketButton = styled.div`
+    width: 40px;
+    height: 40px;
+    font-family: "Pretendard";
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 100%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #274cf1;
+    box-shadow: #222020a9 0px 2px 3px 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    &:hover {
+        font-size: 8px;
+        background-color: #5570e9;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 30px;
+        height: 30px;
+        font-size: 6px;
     }
 `;
 

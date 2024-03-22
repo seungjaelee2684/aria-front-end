@@ -10,9 +10,11 @@ import { AlertModalOpen } from '../../../store/AlertModalOpen';
 import Logo from '../../../assets/logos/logosimple.webp';
 import WhiteLogo from '../../../assets/logos/whitelogo.webp';
 import { TiArrowSortedDown } from "react-icons/ti";
+import { TiArrowSortedUp } from "react-icons/ti";
 import { BsGlobe2 } from "react-icons/bs";
 import { TranslateWrapper } from '../Header';
 import TranslateModal from '../TranslateModal';
+import { MdOutlineDarkMode } from "react-icons/md";
 
 interface MobileNavModalProps {
   navigate: NavigateFunction;
