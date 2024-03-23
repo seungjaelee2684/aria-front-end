@@ -91,6 +91,42 @@ const AlertModal = () => {
           </ButtonContainer>
         </ModalContainer>
       )
+    } else if (alertModal.whatAlert === 2) {
+      return (
+        <ModalContainer
+          onClick={(e) => e.stopPropagation()}
+          className='AlertModalContainer'>
+          <ExclamationIcon
+            className='InformationIcon'
+            color="#abdff3"
+            style={{margin:" 0px 0px 5px 0px"}}>
+            <IoIosInformationCircleOutline />
+          </ExclamationIcon>
+          <ModalTitle>
+            {alertTranslate(0)}
+          </ModalTitle>
+          <ModalContent>
+            {alertTranslate(1)}
+          </ModalContent>
+          <ButtonContainer>
+            <CloseButton
+              bgcolor='#6de290'
+              border='2px solid #d0f0da'
+              onClick={() => {
+                setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 });
+                window.open(alertModal.content);
+              }}>
+              Yes
+            </CloseButton>
+            <CloseButton
+              bgcolor='#f55a89'
+              border='2px solid #f3d1db'
+              onClick={() => setAlertModal({ ...alertModal, isOpen: false, whatAlert: 100 })}>
+              No
+            </CloseButton>
+          </ButtonContainer>
+        </ModalContainer>
+      )
     } else {
       return (
         <ModalContainer

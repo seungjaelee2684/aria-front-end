@@ -22,6 +22,7 @@ const MentorCard = ({ item, language } : any) => {
   };
 
   const onClickMovePageHandler = () => {
+    if (item?.id === "3") {return setAlertModal({...alertModal, isOpen: true, whatAlert: 2, content: item?.sns[2].link});};
     if (item?.isready) {
       navigate(`/mentor/detail/${item?.id}`)
     } else {

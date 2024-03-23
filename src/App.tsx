@@ -51,7 +51,7 @@ function App() {
                 <Route path='/support/counseling' element={<Counseling />} caseSensitive />
                 <Route path='/support/policy' element={<Policy />} caseSensitive />
                 <Route path='/event' element={<Event />} caseSensitive />
-                <Route path='*' element={<Error />} />
+                {/* <Route path='*' element={<Error />} /> */}
               </Route>
             </Routes>
             <ScrollTopButton />

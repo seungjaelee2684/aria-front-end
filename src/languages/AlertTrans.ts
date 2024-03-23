@@ -25,4 +25,14 @@ export const alertInformation: AlertType[] = [
     japanesealert: "講師のツイッターアカウントを\n訪問してみませんか？",
     alert: "곧 수업이 시작되는 강사님의 트위터 계정을\n방문하시겠습니까?"
   },
+  {
+    englishalert: "Coming soon",
+    japanesealert: "準備中です。",
+    alert: "준비중이에요!"
+  },
+  {
+    englishalert: "Would you like to visit your instructor's Twitter account?",
+    japanesealert: "講師のツイッターアカウントを\n訪問してみませんか？",
+    alert: "곧 수업이 시작되는 강사님의 트위터 계정을\n방문하시겠습니까?"
+  },
 ];
