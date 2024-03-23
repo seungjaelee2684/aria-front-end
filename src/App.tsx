@@ -60,7 +60,7 @@ function App() {
                 <Route path='/update/mentor/:id' element={<MentorUpdate />} caseSensitive />
                 <Route path='/certify/aria' element={<Certify />} caseSensitive />
                 <Route path='/payment' element={<Payment />} caseSensitive />
-                <Route path='*' element={<Error />} />
+                {/* <Route path='*' element={<Error />} /> */}
               </Route>
             </Routes>
             <ScrollTopButton />
