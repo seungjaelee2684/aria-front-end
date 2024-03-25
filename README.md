@@ -59,3 +59,14 @@ ARIA는 다양한 그림 스타일과 강사들을 통해 학습을 제공하는
 ## 3. 화면 구성 및 주요 기능
 
 [🔗 화면 구성 및 주요 기능](https://github.com/seungjaelee2684/aria-front-end/wiki/%ED%99%94%EB%A9%B4-%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5)
+
+<br />
+
+## 4. 기술적 의사결정
+
+[🔗 기술적 의사결정](https://github.com/seungjaelee2684/aria-front-end/wiki/%EA%B8%B0%EC%88%A0%EC%A0%81-%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95)
+
+<br />
+
+## 5. 트러블 슈팅
+
