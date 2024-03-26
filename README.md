@@ -1,5 +1,3 @@
-![ARIA](https://github.com/seungjaelee2684/aria-front-end/assets/135948012/69ca83d8-8666-4649-a5a8-f635a8b3110d)
-
 # ARIA (아리아)
 [https://www.aria-academy.com/](https://www.aria-academy.com/)
 
@@ -21,15 +19,18 @@
 
 ## 1. 사이트 소개
 
+![ARIA](https://github.com/seungjaelee2684/aria-front-end/assets/135948012/69ca83d8-8666-4649-a5a8-f635a8b3110d)
+
 그림 실력이 늘지 않아 답답하고 힘드셨나요?
 <br />
 다양한 그림 스타일을 접해보고 싶으셨나요?
 <br />
-그렇다면 ARIA로 오세요!
+그렇다면 **ARIA**로 오세요!
 
-ARIA는 다양한 그림 스타일과 강사들을 통해 학습을 제공하는 다국적 학원 플랫폼입니다.
+**ARIA**는 다양한 그림 스타일과 강사들을 통해 학습을 제공하는 **다국적 학원 플랫폼**입니다.
 
 국적에 구애받지 않고 전세계 다양한 작가님들에게 배움을 얻을 수 있는 공간이 마련되어 있습니다.
+
 <br />
 
 ### 📆 제작 날짜
