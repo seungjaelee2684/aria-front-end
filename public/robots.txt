@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow:/
+Allow: /
 Sitemap: https://www.aria-academy.com/sitemap.xml
