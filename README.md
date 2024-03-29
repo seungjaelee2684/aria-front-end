@@ -106,3 +106,36 @@
 
 ## 6. 트러블 슈팅
 
+**1. 컴포넌트 요소 언마운트 이벤트**
+
+**💣 문제 발생**
+
+`이미지 슬라이드 구현 중 현재 이미지가 fade-out되는 애니메이션 효과가 나타나지 않고 갑자기 사라지는 문제가 발생`
+
+**🎯 개선 방향**
+
+`원인은 상태값에 따른 조건부 렌더링 시 렌더링이 애니메이션 효과를 보여주기도 전에 빠르게 일어난다는 것.
+이를 해결하기 위해 state를 한 개가 아니라 현재 이미지와 이전 이미지, 이 두 가지로 저장하고 관리하기로 결정.`
+
+**✅ 개선 결과**
+
+`현재 등장해야하는 이미지와 이전에 등장했던 이미지를 담아 관리하는 state를 만들어 계획한 대로 이미지들을 useEffect()와 setTimeout() 을 이용해 fade-in, fade-out 효과를 나눠서 보이도록 설정.
+원하는 형태로 잘 구동하는 것을 확인.`
+
+**코드**
+
+```
+const [slideCurrent, setSlideCurrent] = useState<number>(0); // 현재 이미지
+const [prevCurrent, setPrevCurrent] = useState<number | undefined>(); // 이전 이미지
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSlideCurrent((prevSlideCurrent) => (prevSlideCurrent + 1) % (NewMentorListData?.length));
+      setPrevCurrent(slideCurrent);
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [slideCurrent]);
+```
