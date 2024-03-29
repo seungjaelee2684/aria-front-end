@@ -112,7 +112,8 @@
   <summary>
     클릭해서 열기
   </summary>
-
+<br />
+	
 **💣 문제 발생**
 
 `이미지 슬라이드 구현 중 현재 이미지가 fade-out되는 애니메이션 효과가 나타나지 않고 갑자기 사라지는 문제가 발생`
@@ -152,8 +153,9 @@ const [prevCurrent, setPrevCurrent] = useState<number | undefined>(); // 이전 
   <summary>
     클릭해서 열기
   </summary>
-
-  **💣 문제 발생**
+<br />
+	
+**💣 문제 발생**
 
 `일러스트 학원이라는 특성 상, 이미지 자료가 많다 보니 처음 사이트를 입장할 때 첫 페이지 로딩 시간이 길어지는 문제가 발생`
 
