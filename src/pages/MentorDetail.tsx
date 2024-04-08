@@ -355,8 +355,12 @@ const ClickNaviArrowWrapper = styled.div`
     gap: 0px;
     position: fixed;
     bottom: 30px;
-    right: 265px;
+    right: 310px;
     z-index: 100;
+
+    @media screen and (max-width: 1920px) {
+        right: 265px;
+    }
 
     @media screen and (max-width: 1320px) {
         bottom: 10px;
@@ -380,8 +384,8 @@ const ClickNaviArrow = styled.div`
 `;
 
 const PassTicketButton = styled.div`
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     font-family: "Pretendard";
     font-size: 9px;
     font-weight: 400;
@@ -398,6 +402,11 @@ const PassTicketButton = styled.div`
     &:hover {
         font-size: 8px;
         background-color: #5570e9;
+    }
+
+    @media screen and (max-width: 1920px) {
+        width: 40px;
+        height: 40px;
     }
 
     @media screen and (max-width: 500px) {

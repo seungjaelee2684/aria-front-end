@@ -26,7 +26,7 @@ const NewMentorList: React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, p
                 : "NotActionImage"}>
             <ImageBox src={item?.slideimage.background} />
             {(item?.status === "Left")
-              ? <NicknameRightContainer
+              ? <NicknameLeftContainer
                 src={item?.slideimage.nickname}
                 alt='' />
               : <NicknameContainer
@@ -71,32 +71,31 @@ const NicknameContainer = styled.img`
   object-fit: cover;
   user-select: none;
   position: absolute;
-  left: 10%;
-  top: 20%;
+  left: 5%;
+  top: 8%;
 
   @media screen and (max-width: 1920px) {
-    top: 40%;
-    width: 70%;
+    left: 8%;
+    width: 65%;
   }
 
   @media screen and (max-width: 1320px) {
-    top: 50%;
+    top: 20%;
     width: 80%;
   }
 
   @media screen and (max-width: 836px) {
-    top: 35%;
-    width: 70%;
+    top: 10%;
+    width: 60%;
   }
 
   @media screen and (max-width: 500px) {
-    top: 45%;
+    top: 30%;
     width: 90%;
-    left: 8%;
   }
 `;
 
-const NicknameRightContainer = styled.img`
+const NicknameLeftContainer = styled.img`
   width: 50%;
   height: auto;
   object-fit: cover;

@@ -1,17 +1,66 @@
-import EventImageENG1 from '../assets/images/notice/event1_page1_ENG.png';
-import EventImageENG2 from '../assets/images/notice/event1_page2_ENG.png';
-import EventImageENG3 from '../assets/images/notice/event1_page3_ENG.png';
-import EventImageJPN1 from '../assets/images/notice/event1_page1_2_JAP.png';
-import EventImageJPN2 from '../assets/images/notice/event1_page2_2_JAP.png';
-import EventImageJPN3 from '../assets/images/notice/event1_page3_2_JAP.png';
-import EventImageKOR1 from '../assets/images/notice/event1_page1_1_KOR.png';
-import EventImageKOR2 from '../assets/images/notice/event1_page2_1_KOR.png';
-import EventImageKOR3 from '../assets/images/notice/event1_page3_1_KOR.png';
-import NoticeImageKOR1 from '../assets/images/notice/notice_image_01.webp';
+import Notice1ImageKOR1 from '../assets/images/notice/notice_image_01.webp';
+import Notice2ImageKOR1 from '../assets/images/notice/notice2_image_01.webp';
+import Notice2ImageKOR2 from '../assets/images/notice/notice2_image_02.webp';
+import Notice2ImageKOR3 from '../assets/images/notice/notice2_image_03.webp';
 
 export const noticeData = [
     {
         id: "1",
+        isnew: true,
+        contents: {
+            englishtitle: "🌟 Special Open Anniversary Discount Event! 🌟",
+            japanesetitle: "🎨ARIAだけの特別なフィードバック権を通じて、\n専門家の助けを借りて皆さんの絵をより魅力的に完成させましょう！🎨",
+            title: "🎨 ARIA 일러스트 학원만의 특별한 피드백권을 통해 전문가의 도움으로 여러분들의 그림을 더욱더 매력적이게 완성하세요!🎨",
+            period: "",
+            date: "2024.04.08",
+            status: "",
+            content: {
+                image: {
+                    englishcontent: [
+                        Notice2ImageKOR1,
+                        Notice2ImageKOR2,
+                        Notice2ImageKOR3
+                    ],
+                    japanesecontent: [
+                        Notice2ImageKOR1,
+                        Notice2ImageKOR2,
+                        Notice2ImageKOR3
+                    ],
+                    content: [
+                        Notice2ImageKOR1,
+                        Notice2ImageKOR2,
+                        Notice2ImageKOR3
+                    ],
+                },
+                text: {
+                    englishcontent: [
+                        "🎨 Complete your artworks more attractively with the help of professional\ninstructor's feedbacks at ARIA Illustration Academy! 🎨",
+                        `This is your chance to receive expert's delicate feedback\non your work with the "feedback ticket"`,
+                        `💡 What can you do with the "feedback ticket"?\n\n1. Expert Advice: Receive one-on-one, real-time feedback\nwithin an hour from ARIA Academy's professional\ninstructors on your artwork.\n2. Flexible Learning: A flexible time setting for those\nwho find it difficult to participate in classes due to\na busy schedule or those who want to experience a class.\n3. Personalized Instruction: Receive substantial advice from instructors\nthat can elevate your artwork to the next level,\nincluding aspects of composition, color, and technique.`,
+                        "🚀 How to Use\n\n1. After viewing the instructors' curriculum on the ARIA website,\nplease contact us through the following methods :\nTwitter, Instagram, or Discord ticketing.\n(Please check the counseling guide on the website)\n2. After consulting with the academy for your desired time,\nplease purchase the feedback ticket.\n3. Get your one-time hourly feeback of your artwork with the help\nof your chosen instructor!",
+                        "※Please note that the number of feedback tickets may be limited\ndue to the instructors' circumstances,\nand the period may be postponed depending on the schedule."
+                    ],
+                    japanesecontent: [
+                        "🎨ARIAだけの特別なフィードバック権を通じて、\n専門家の助けを借りて皆さんの絵をより魅力的に完成させましょう！🎨",
+                        "忙しい日常の中で、ARIAだけの特別なフィードバック権を使って、\n皆さんの作品に専門家の細やかなフィードバックを受けるチャンスです！",
+                        "💡 フィードバック権とは？\n\n１．専門家のアドバイス: ARIAの専門講師陣から、皆さんの作品に対して\n1対1で1時間以内のリアルタイムフィードバックを受けることができます。\n2．柔軟な学習: 忙しいスケジュールで授業参加が難しい方や、\n授業を体験してみたい方のための学習ソリューションです。\n３．個人に合わせた指導: 絵の構成、色彩、技法など、\n皆さんの作品を一段階引き上げることができる\n講師の実質的なアドバイスを提供します。",
+                        "🚀 利用方法\n\n１．ARIAホームページで講師のカリキュラムを見た後、\nTwitter、Instagram、Discordチケットなど、\n様々な方法で相談してください。\n（ホームページの相談案内をご確認ください）\n２．希望の時間を相談した後、フィードバック権を購入してください。\n３．皆さんの絵が専門家の助けを借りて完成されるプロセスを\n体験してください！",
+                        "※講師の事情により、フィードバック権の数量に限りがある場合があり、\nスケジュールによっては期間が延期されることがあります。"
+                    ],
+                    content: [
+                        "🎨 ARIA 일러스트 학원만의 특별한 피드백권을 통해\n전문가의 도움으로 여러분들의 그림을 더욱더 매력적이게 완성하세요! 🎨",
+                        "바쁜 일상 속에서 수업을 체험 해볼수 있는 ARIA 학원만의 특별한 피드백권으로\n여러분의 작품에 전문가의 섬세한 피드백을 받아 볼 수 있는 기회입니다!",
+                        "💡 피드백권으로 무엇을 할 수 있나요?\n\n1.전문가의 조언: ARIA 학원의 전문 강사진에게 여러분의 작품에 대한 1:1 로\n1시간 이내의 실시간 피드백을 받으실 수 있습니다.\n2.유연한 학습: 바쁜 일정으로 수업 참여가 어렵거나 수업을 체험해 보고 싶으신 분들을 위한\n맞춤형 학습 솔루션입니다.\n3.개인 맞춤형 지도: 그림의 구성, 색감, 기법 등 여러분의 작품을 한 단계 끌어올릴 수 있는\n강사님의 실질적인 조언을 드립니다.",
+                        "🚀 이용 방법\n\n1.ARIA 홈페이지의 강사님들의 커리큘럼을 보신 후\n트위터,인스타, 디스코드 티켓팅 다양한 방법으로 상담 연락 주세요.\n(홈페이지 상담 안내를 확인해주세요)\n2.원하는 시간을 학원과 상담후 피드백권을 구매해주세요.\n3.여러분의 그림이 전문가의 도음을 통해 완성되는 과정을 경험하세요!",
+                        "※강사님의 사정에 따라 피드백권 수량이 한정될수 있으며\n일정에 따라 기간이 미뤄질수 있습니다.",
+                    ],
+                }
+            },
+        },
+        status: "Notice",
+    },
+    {
+        id: "2",
         isnew: true,
         contents: {
             englishtitle: "🌟 Special Open Anniversary Discount Event! 🌟",
@@ -23,13 +72,13 @@ export const noticeData = [
             content: {
                 image: {
                     englishcontent: [
-                        NoticeImageKOR1,
+                        Notice1ImageKOR1,
                     ],
                     japanesecontent: [
-                        NoticeImageKOR1,
+                        Notice1ImageKOR1,
                     ],
                     content: [
-                        NoticeImageKOR1,
+                        Notice1ImageKOR1,
                     ],
                 },
                 text: {

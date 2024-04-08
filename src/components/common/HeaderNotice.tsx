@@ -79,7 +79,9 @@ const HeaderNotice = () => {
                                         : titleTrans(2)}
                                 </NoticeTitle>
                                 <Text>
-                                    {noticeText(item)}
+                                    <InText>
+                                        {noticeText(item)}
+                                    </InText>
                                 </Text>
                             </NoticeLane>
                         )
@@ -149,7 +151,7 @@ const NoticeTitle = styled.div<{ color : string }>`
 `;
 
 const NoticeRightWrapper = styled.div`
-    width: 600px;
+    width: 836px;
     height: 100%;
     position: relative;
     cursor: pointer;
@@ -159,7 +161,7 @@ const NoticeRightWrapper = styled.div`
     }
 
     @media screen and (max-width: 836px) {
-        width: 450px;
+        width: 100%;
     }
 `;
 
@@ -194,6 +196,17 @@ const Text = styled.div`
         font-weight: 400;
         min-height: 20px;
     }
+`;
+
+const InText = styled.div`
+    width: 100%;
+    height: 20px;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 `;
 
 export default HeaderNotice;

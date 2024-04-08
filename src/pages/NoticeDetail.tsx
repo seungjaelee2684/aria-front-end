@@ -61,7 +61,6 @@ const NoticeDetail = () => {
                   && <NoticeImage key={index} src={item} alt=''/>
               )
             })}
-          <NoticeImage src='' alt=''/>
         </ContentContainer>
       )
     } else if (language === "korean") {
@@ -84,7 +83,6 @@ const NoticeDetail = () => {
                   && <NoticeImage key={index} src={item} alt=''/>
               )
             })}
-          <NoticeImage src='' alt=''/>
         </ContentContainer>
       )
     } else {
@@ -107,7 +105,6 @@ const NoticeDetail = () => {
                   && <NoticeImage key={index} src={item} alt=''/>
               )
             })}
-          <NoticeImage src='' alt=''/>
         </ContentContainer>
       )
     };
@@ -154,6 +151,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 16px;
 `;
 
 const NoticeImage = styled.img`
@@ -173,7 +171,7 @@ const NoticeContentWrapper = styled.div`
   justify-content: center;
   align-items: start;
   gap: 50px;
-  margin: 60px 0px;
+  margin: 44px 0px;
 
   @media screen and (max-width: 650px) {
     width: 96%;
@@ -198,7 +196,7 @@ const NoticeContent = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 11px;
+    font-size: 10px;
   }
 `;
 

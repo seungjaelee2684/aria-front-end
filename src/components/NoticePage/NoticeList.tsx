@@ -186,6 +186,7 @@ const ContentWrapper = styled.div`
 
     @media screen and (max-width: 500px) {
         gap: 8px;
+        margin-right: 5px;
     }
 `;
 
@@ -195,6 +196,13 @@ const Text = styled.div`
     font-weight: 500;
     line-height: normal;
     /* color: #39373A; */
+    height: 20px;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     cursor: pointer;
 
     &:hover {
@@ -203,6 +211,7 @@ const Text = styled.div`
 
     @media screen and (max-width: 500px) {
         font-size: 10px;
+        height: 14px;
     }
 `;
 
@@ -260,7 +269,7 @@ const RightText = styled.div`
 
     @media screen and (max-width: 500px) {
         font-size: 8px;
-        width: 80px;
+        width: 76px;
     }
 `;
 

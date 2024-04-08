@@ -38,17 +38,17 @@ import SanpatiPortfolio13 from '../assets/curriculums/sanpati/portfolio/sanpati_
 import SanpatiPortfolio14 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_14.webp';
 import SanpatiPortfolio15 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_15.webp';
 import EscapeThumbnail from '../assets/curriculums/escape/Thumbnail_escape.webp';
-import EscapeSlideBack from '../assets/curriculums/escape/banner_escape_01.webp';
-import EscapeSlideNick from '../assets/curriculums/escape/banner_escape_02.webp';
-import EscapeCurriculumENG1 from '../assets/curriculums/escape/ENG/Escape_Curriculum1_ENG.webp';
+import EscapeSlideBack from '../assets/curriculums/escape/escape_banner.webp';
+import EscapeSlideNick from '../assets/curriculums/escape/escape_nickname.webp';
+import EscapeCurriculumENG1 from '../assets/curriculums/escape/ENG/escape_curriculum_01_ENG.webp';
 import EscapeCurriculumENG2 from '../assets/curriculums/escape/ENG/escape_curriculum_02_ENG.webp';
-import EscapeCurriculumENG3 from '../assets/curriculums/escape/ENG/Escape_Curriculum3_ENG.webp';
-import EscapeCurriculumJPN1 from '../assets/curriculums/escape/JPN/Escape_Curriculum1_JPN.webp';
+import EscapeCurriculumENG3 from '../assets/curriculums/escape/ENG/escape_curriculum_03_ENG.webp';
+import EscapeCurriculumJPN1 from '../assets/curriculums/escape/JPN/escape_curriculum_01_JPN.webp';
 import EscapeCurriculumJPN2 from '../assets/curriculums/escape/JPN/escape_curriculum_02_JPN.webp';
-import EscapeCurriculumJPN3 from '../assets/curriculums/escape/JPN/Escape_Curriculum3_JPN.webp';
+import EscapeCurriculumJPN3 from '../assets/curriculums/escape/JPN/escape_curriculum_03_JPN.webp';
 import EscapeCurriculumKOR1 from '../assets/curriculums/escape/KOR/escape_curriculum_01_KOR.webp';
 import EscapeCurriculumKOR2 from '../assets/curriculums/escape/KOR/escape_curriculum_02_KOR.webp';
-import EscapeCurriculumKOR3 from '../assets/curriculums/escape/KOR/Escape_Curriculum3_KOR.webp';
+import EscapeCurriculumKOR3 from '../assets/curriculums/escape/KOR/escape_curriculum_03_KOR.webp';
 import EscapePortfolio1 from '../assets/curriculums/escape/portfolio/escape_portfolio_01.webp';
 import EscapePortfolio2 from '../assets/curriculums/escape/portfolio/escape_portfolio_02.webp';
 import EscapePortfolio3 from '../assets/curriculums/escape/portfolio/escape_portfolio_03.webp';
@@ -62,37 +62,86 @@ import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/escape_por
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/escape_portfolio_11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/escape_portfolio_12.webp';
 import HaruriThumbnail from '../assets/curriculums/haruri/haruri_thumbnail.webp';
+import HaruriSlideBack from '../assets/curriculums/haruri/haruri_banner.webp';
+import HaruriSlideNick from '../assets/curriculums/haruri/haruri_nickname.webp';
+import HaruriCurriculumENG1 from '../assets/curriculums/haruri/ENG/haruri_curriculum_01_ENG.webp';
+import HaruriCurriculumENG2 from '../assets/curriculums/haruri/ENG/haruri_curriculum_02_ENG.webp';
+import HaruriCurriculumENG3 from '../assets/curriculums/haruri/ENG/haruri_curriculum_03_ENG.webp';
+import HaruriCurriculumENG4 from '../assets/curriculums/haruri/ENG/haruri_curriculum_04_ENG.webp';
+import HaruriCurriculumJPN1 from '../assets/curriculums/haruri/JPN/haruri_curriculum_01_JPN.webp';
+import HaruriCurriculumJPN2 from '../assets/curriculums/haruri/JPN/haruri_curriculum_02_JPN.webp';
+import HaruriCurriculumJPN3 from '../assets/curriculums/haruri/JPN/haruri_curriculum_03_JPN.webp';
+import HaruriCurriculumJPN4 from '../assets/curriculums/haruri/JPN/haruri_curriculum_04_JPN.webp';
+import HaruriCurriculumKOR1 from '../assets/curriculums/haruri/KOR/haruri_curriculum_01_KOR.webp';
+import HaruriCurriculumKOR2 from '../assets/curriculums/haruri/KOR/haruri_curriculum_02_KOR.webp';
+import HaruriCurriculumKOR3 from '../assets/curriculums/haruri/KOR/haruri_curriculum_03_KOR.webp';
+import HaruriCurriculumKOR4 from '../assets/curriculums/haruri/KOR/haruri_curriculum_04_KOR.webp';
+import HaruriPortfolio1 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_01.webp';
+import HaruriPortfolio2 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_02.webp';
+import HaruriPortfolio3 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_03.webp';
+import HaruriPortfolio4 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_04.webp';
+import HaruriPortfolio5 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_05.webp';
+import HaruriPortfolio6 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_06.webp';
+import HaruriPortfolio7 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_07.webp';
+import HaruriPortfolio8 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_08.webp';
+import HaruriPortfolio9 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_09.webp';
+import HaruriPortfolio10 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_10.webp';
+import HaruriPortfolio11 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_11.webp';
+import HaruriPortfolio12 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_12.webp';
+import HaruriPortfolio13 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_13.webp';
+import HaruriPortfolio14 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_14.webp';
+import HaruriPortfolio15 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_15.webp';
 
 export const mentorListData = [
     {
         id: "1",
-        isready: false,
+        isready: true,
         nation: "Korea",
         englishname: "Haruri",
         japanesename: "ハルリ",
         nickname: "하루리",
-        isnew: false,
+        isnew: true,
         slideimage: {
             status: "Left",
             bigger: false,
-            background: "",
-            nickname: ""
+            background: HaruriSlideBack,
+            nickname: HaruriSlideNick
         },
         portfolio: [
-            
+            HaruriPortfolio1,
+            HaruriPortfolio2,
+            HaruriPortfolio3,
+            HaruriPortfolio4,
+            HaruriPortfolio5,
+            HaruriPortfolio6,
+            HaruriPortfolio7,
+            HaruriPortfolio8,
+            HaruriPortfolio9,
+            HaruriPortfolio10,
+            HaruriPortfolio11,
+            HaruriPortfolio12,
+            HaruriPortfolio13,
+            HaruriPortfolio14,
+            HaruriPortfolio15,
         ],
         content: {
             englishcontent: [
-                
-            ],
-            chinesecontent: [
-                
+                HaruriCurriculumENG1,
+                HaruriCurriculumENG2,
+                HaruriCurriculumENG3,
+                HaruriCurriculumENG4
             ],
             japanesecontent: [
-                
+                HaruriCurriculumJPN1,
+                HaruriCurriculumJPN2,
+                HaruriCurriculumJPN3,
+                HaruriCurriculumJPN4
             ],
             koreancontent: [
-                
+                HaruriCurriculumKOR1,
+                HaruriCurriculumKOR2,
+                HaruriCurriculumKOR3,
+                HaruriCurriculumKOR4
             ],
         },
         sns: [
@@ -153,11 +202,6 @@ export const mentorListData = [
         ],
         content: {
             englishcontent: [
-                EscapeCurriculumENG1,
-                EscapeCurriculumENG2,
-                EscapeCurriculumENG3
-            ],
-            chinesecontent: [
                 EscapeCurriculumENG1,
                 EscapeCurriculumENG2,
                 EscapeCurriculumENG3
@@ -234,11 +278,6 @@ export const mentorListData = [
         ],
         content: {
             englishcontent: [
-                SanpatiCurriculumENG1,
-                SanpatiCurriculumENG2,
-                SanpatiCurriculumENG3,
-            ],
-            chinesecontent: [
                 SanpatiCurriculumENG1,
                 SanpatiCurriculumENG2,
                 SanpatiCurriculumENG3,
