@@ -18,7 +18,6 @@ import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
-import CertifyModal from './CertifyModal/CertifyModal';
 import HeaderNotice from './HeaderNotice';
 
 const Header = () => {
