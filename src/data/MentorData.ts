@@ -10,34 +10,7 @@ import CurriculumDefaultTwitter from '../assets/curriculums/curriculumdefaulttwi
 import CurriculumDefaultInsta from '../assets/curriculums/curriculumdefaultinstagram.webp';
 import CurriculumDefaultArtstation from '../assets/curriculums/curriculumdefaultartstation.webp';
 import CurriculumDefaultPixiv from '../assets/curriculums/curriculumdefaultpixiv.webp';
-import SanpatiThumbnail from '../assets/curriculums/sanpati/sanpati_thumbnail.webp';
-import SanpatiSlideBack from '../assets/curriculums/sanpati/banner_sanpati_01.webp';
-import SanpatiSlideNick from '../assets/curriculums/sanpati/sanpati_nickname.webp';
-import SanpatiCurriculumENG1 from '../assets/curriculums/sanpati/ENG/Sanpati_Curriculum1_ENG.webp';
-import SanpatiCurriculumENG2 from '../assets/curriculums/sanpati/ENG/sanpati_curriculum_02_ENG.webp';
-import SanpatiCurriculumENG3 from '../assets/curriculums/sanpati/ENG/Sanpati_Curriculum3_ENG.webp';
-import SanpatiCurriculumJPN1 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum1_JPN.webp';
-import SanpatiCurriculumJPN2 from '../assets/curriculums/sanpati/JPN/sanpati_curriculum_02_JPN.webp';
-import SanpatiCurriculumJPN3 from '../assets/curriculums/sanpati/JPN/Sanpati_Curriculum3_JPN.webp';
-import SanpatiCurriculumKOR1 from '../assets/curriculums/sanpati/KOR/sanpati_curriculum_01_KOR.webp';
-import SanpatiCurriculumKOR2 from '../assets/curriculums/sanpati/KOR/sanpati_curriculum_02_KOR.webp';
-import SanpatiCurriculumKOR3 from '../assets/curriculums/sanpati/KOR/Sanpati_Curriculum3_KOR.webp';
-import SanpatiPortfolio1 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_01.webp';
-import SanpatiPortfolio2 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_02.webp';
-import SanpatiPortfolio3 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_03.webp';
-import SanpatiPortfolio4 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_04.webp';
-import SanpatiPortfolio5 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_05.webp';
-import SanpatiPortfolio6 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_06.webp';
-import SanpatiPortfolio7 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_07.webp';
-import SanpatiPortfolio8 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_08.webp';
-import SanpatiPortfolio9 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_09.webp';
-import SanpatiPortfolio10 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_10.webp';
-import SanpatiPortfolio11 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_11.webp';
-import SanpatiPortfolio12 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_12.webp';
-import SanpatiPortfolio13 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_13.webp';
-import SanpatiPortfolio14 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_14.webp';
-import SanpatiPortfolio15 from '../assets/curriculums/sanpati/portfolio/sanpati_portfolio_15.webp';
-import EscapeThumbnail from '../assets/curriculums/escape/Thumbnail_escape.webp';
+import EscapeThumbnail from '../assets/curriculums/escape/portfolio/escape_portfolio_04.webp';
 import EscapeSlideBack from '../assets/curriculums/escape/escape_banner.webp';
 import EscapeSlideNick from '../assets/curriculums/escape/escape_nickname.webp';
 import EscapeCurriculumENG1 from '../assets/curriculums/escape/ENG/escape_curriculum_01_ENG.webp';
@@ -61,7 +34,7 @@ import EscapePortfolio9 from '../assets/curriculums/escape/portfolio/escape_port
 import EscapePortfolio10 from '../assets/curriculums/escape/portfolio/escape_portfolio_10.webp';
 import EscapePortfolio11 from '../assets/curriculums/escape/portfolio/escape_portfolio_11.webp';
 import EscapePortfolio12 from '../assets/curriculums/escape/portfolio/escape_portfolio_12.webp';
-import HaruriThumbnail from '../assets/curriculums/haruri/haruri_thumbnail.webp';
+import HaruriThumbnail from '../assets/curriculums/haruri/portfolio/haruri_portfolio_02.webp';
 import HaruriSlideBack from '../assets/curriculums/haruri/haruri_banner.webp';
 import HaruriSlideNick from '../assets/curriculums/haruri/haruri_nickname.webp';
 import HaruriCurriculumENG1 from '../assets/curriculums/haruri/ENG/haruri_curriculum_01_ENG.webp';
@@ -244,81 +217,5 @@ export const mentorListData = [
             }
         ],
         thumbnail: EscapeThumbnail
-    },
-    {
-        id: "3",
-        isready: false,
-        nation: "Japan",
-        englishname: "Sanpati",
-        japanesename: "さんぱち",
-        nickname: "산파치",
-        isnew: false,
-        slideimage: {
-            status: "Left",
-            bigger: true,
-            background: SanpatiSlideBack,
-            nickname: SanpatiSlideNick
-        },
-        portfolio: [
-            SanpatiPortfolio1,
-            SanpatiPortfolio2,
-            SanpatiPortfolio3,
-            SanpatiPortfolio4,
-            SanpatiPortfolio5,
-            SanpatiPortfolio6,
-            SanpatiPortfolio7,
-            SanpatiPortfolio8,
-            SanpatiPortfolio9,
-            SanpatiPortfolio10,
-            SanpatiPortfolio11,
-            SanpatiPortfolio12,
-            SanpatiPortfolio13,
-            SanpatiPortfolio14,
-            SanpatiPortfolio15
-        ],
-        content: {
-            englishcontent: [
-                SanpatiCurriculumENG1,
-                SanpatiCurriculumENG2,
-                SanpatiCurriculumENG3,
-            ],
-            japanesecontent: [
-                SanpatiCurriculumJPN1,
-                SanpatiCurriculumJPN2,
-                SanpatiCurriculumJPN3,
-            ],
-            koreancontent: [
-                SanpatiCurriculumKOR1,
-                SanpatiCurriculumKOR2,
-                SanpatiCurriculumKOR3,
-            ],
-        },
-        sns: [
-            {
-                icon: CurriculumDefaultHome,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultYoutube,
-                link: ""
-            },
-            {
-                icon: CurriculumTwitter,
-                link: "https://twitter.com/hatizyuusan"
-            },
-            {
-                icon: CurriculumDefaultInsta,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultArtstation,
-                link: ""
-            },
-            {
-                icon: CurriculumDefaultPixiv,
-                link: ""
-            }
-        ],
-        thumbnail: SanpatiThumbnail
     },
 ];

@@ -44,44 +44,56 @@ const ImageSlideContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: #FCFCFC;
   position: relative;
+
+  @media screen and (max-width: 1920px) {
+    background-color: #FCFCFC;
+  }
 `;
 
 const ImageBox = styled.div<{ src: string }>`
-  width: 100%;
-  height: 700px;
+  width: 80%;
+  height: 900px;
   background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   /* opacity: 0; */
 
+  @media screen and (max-width: 1920px) {
+    width: 100%;
+    height: 700px;
+  }
+
+  @media screen and (max-width: 1320px) {
+    height: 400px;
+  }
+
   @media screen and (max-width: 836px) {
-    height: 300px;
+    height: 260px;
   }
 `;
 
 const NicknameContainer = styled.img`
-  width: 50%;
+  width: 60%;
   height: auto;
   object-fit: cover;
   user-select: none;
   position: absolute;
   left: 5%;
-  top: 8%;
+  top: 0%;
 
   @media screen and (max-width: 1920px) {
     left: 8%;
+    top: 8%;
     width: 65%;
   }
 
   @media screen and (max-width: 1320px) {
-    top: 20%;
-    width: 80%;
+    top: 0%;
   }
 
   @media screen and (max-width: 836px) {
@@ -90,7 +102,7 @@ const NicknameContainer = styled.img`
   }
 
   @media screen and (max-width: 500px) {
-    top: 30%;
+    top: 20%;
     width: 90%;
   }
 `;

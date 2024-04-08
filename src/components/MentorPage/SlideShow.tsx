@@ -85,9 +85,17 @@ const SlideShow = () => {
 
 const ImageOutContainer = styled.div`
   width: 100%;
-  height: 700px;
+  height: 900px;
   overflow: hidden;
   position: relative;
+
+  @media screen and (max-width: 1920px) {
+    height: 700px;
+  }
+
+  @media screen and (max-width: 1320px) {
+    height: 400px;
+  }
 
   @media screen and (max-width: 836px) {
     height: 260px;
