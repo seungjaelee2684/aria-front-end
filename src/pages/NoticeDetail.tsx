@@ -44,67 +44,61 @@ const NoticeDetail = () => {
     if (language === "japanese") {
       return (
         <ContentContainer>
-          <NoticeImage src={noticeDto[0]?.contents.content.image.japanesecontent[0]} alt=''/>
           <NoticeContentWrapper>
-            {noticeDto[0]?.contents.content.text.japanesecontent.map((item : any, index : number) => {
+            {noticeDto[0]?.contents.content.japanesecontent.map((item : any, index : number) => {
               return (
-                <NoticeContent key={index}>
-                  {item}
-                </NoticeContent>
+                (item?.image)
+                  ? <NoticeImage key={index} src={item?.content} alt=''/>
+                  : item?.content.map((text: string, index: string) => {
+                    return (
+                      <NoticeContent key={index}>
+                        {text}
+                      </NoticeContent>
+                    )
+                  })
               )
             })}
           </NoticeContentWrapper>
-          {(noticeDto[0])
-            && noticeDto[0]?.contents.content.image.japanesecontent.map((item : any, index : number) => {
-              return (
-                (index !== 0)
-                  && <NoticeImage key={index} src={item} alt=''/>
-              )
-            })}
         </ContentContainer>
       )
     } else if (language === "korean") {
       return (
         <ContentContainer>
-          <NoticeImage src={noticeDto[0]?.contents.content.image.content[0]} alt=''/>
           <NoticeContentWrapper>
-            {noticeDto[0]?.contents.content.text.content.map((item : any, index : number) => {
+            {noticeDto[0]?.contents.content.content.map((item : any, index : number) => {
               return (
-                <NoticeContent key={index}>
-                  {item}
-                </NoticeContent>
+                (item?.image)
+                  ? <NoticeImage key={index} src={item?.content} alt=''/>
+                  : item?.content.map((text: string, index: string) => {
+                    return (
+                      <NoticeContent key={index}>
+                        {text}
+                      </NoticeContent>
+                    )
+                  })
               )
             })}
           </NoticeContentWrapper>
-          {(noticeDto[0])
-            && noticeDto[0]?.contents.content.image.content.map((item : any, index : number) => {
-              return (
-                (index !== 0)
-                  && <NoticeImage key={index} src={item} alt=''/>
-              )
-            })}
         </ContentContainer>
       )
     } else {
       return (
         <ContentContainer>
-          <NoticeImage src={noticeDto[0]?.contents.content.image.englishcontent[0]} alt=''/>
           <NoticeContentWrapper>
-            {noticeDto[0]?.contents.content.text.englishcontent.map((item : any, index : number) => {
+            {noticeDto[0]?.contents.content.englishcontent.map((item : any, index : number) => {
               return (
-                <NoticeContent key={index}>
-                  {item}
-                </NoticeContent>
+                (item?.image)
+                  ? <NoticeImage key={index} src={item?.content} alt=''/>
+                  : item?.content.map((text: string, index: string) => {
+                    return (
+                      <NoticeContent key={index}>
+                        {text}
+                      </NoticeContent>
+                    )
+                  })
               )
             })}
           </NoticeContentWrapper>
-          {(noticeDto[0])
-            && noticeDto[0]?.contents.content.image.englishcontent.map((item : any, index : number) => {
-              return (
-                (index !== 0)
-                  && <NoticeImage key={index} src={item} alt=''/>
-              )
-            })}
         </ContentContainer>
       )
     };
@@ -158,6 +152,7 @@ const NoticeImage = styled.img`
   width: 600px;
   height: auto;
   object-fit: cover;
+  user-select: none;
 
   @media screen and (max-width: 650px) {
     width: 80%;

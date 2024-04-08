@@ -83,7 +83,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
                                 </Text>
                             </ContentWrapper>   
                             <RightWrapper>
-                                {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>}     
+                                {(item?.contents.content.content[0].content) && <LaneImage src={item?.contents.content.content[0].content} alt='notice'/>}     
                                 <RightText>
                                     ARIA | {item?.contents.date}
                                 </RightText>
@@ -113,7 +113,7 @@ const NoticeList : React.FC<NoticeListProps> = ({ noticeFilter }) => {
                                     </Text>
                                 </ContentWrapper>   
                                 <RightWrapper>
-                                    {(item?.contents.content.image.content[0]) && <LaneImage src={item?.contents.content.image.content[0]} alt=''/>}   
+                                    {(item?.contents.content.content[0].content) && <LaneImage src={item?.contents.content.content[0].content} alt='notice'/>}   
                                     <RightText>
                                         ARIA | {item?.contents.date}
                                     </RightText>
