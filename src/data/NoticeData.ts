@@ -8,7 +8,7 @@ export const noticeData = [
         id: "1",
         isnew: true,
         contents: {
-            englishtitle: "🌟 Special Open Anniversary Discount Event! 🌟",
+            englishtitle: "🎨 Complete your artworks more attractively with the help of professional\ninstructor's feedbacks at ARIA Illustration Academy! 🎨",
             japanesetitle: "🎨ARIAだけの特別なフィードバック権を通じて、\n専門家の助けを借りて皆さんの絵をより魅力的に完成させましょう！🎨",
             title: "🎨 ARIA 일러스트 학원만의 특별한 피드백권을 통해 전문가의 도움으로 여러분들의 그림을 더욱더 매력적이게 완성하세요!🎨",
             period: "",
