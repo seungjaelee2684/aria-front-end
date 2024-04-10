@@ -164,7 +164,7 @@ const NoticeContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: 50px;
   margin: 44px 0px;
 

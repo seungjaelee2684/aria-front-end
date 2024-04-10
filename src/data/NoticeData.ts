@@ -10,7 +10,7 @@ export const noticeData = [
         contents: {
             englishtitle: "🎨 Complete your artworks more attractively with the help of professional instructor's feedbacks at ARIA Illustration Academy! 🎨",
             japanesetitle: "🎨ARIAだけの特別なフィードバック権を通じて、専門家の助けを借りて皆さんの絵をより魅力的に完成させましょう！🎨",
-            title: "🎨 ARIA 일러스트 학원만의 특별한 피드백권을 통해 전문가의 도움으로 여러분들의 그림을 더욱더 매력적이게 완성하세요! 🎨",
+            title: "새로운 기회! 피드백권 오픈 안내",
             period: "",
             date: "2024.04.08",
             status: "",
@@ -112,7 +112,7 @@ export const noticeData = [
         contents: {
             englishtitle: "🌟 Special Open Anniversary Discount Event! 🌟",
             japanesetitle: "🌟 オープン記念スペシャル割引キャンペーン！ 🌟",
-            title: "🌟 새롭게 선보이는 시즌패스(6개월권)와 함께 새로운 배움을 시작하세요! 🌟",
+            title: "새로운 시즌패스(6개월권) 출시 안내",
             period: "",
             date: "2024.03.17",
             status: "season pass",

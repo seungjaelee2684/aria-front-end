@@ -211,7 +211,7 @@ const Text = styled.div`
 
     @media screen and (max-width: 500px) {
         font-size: 10px;
-        height: 14px;
+        height: 11px;
     }
 `;
 
