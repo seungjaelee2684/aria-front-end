@@ -48,7 +48,8 @@ import HaruriCurriculumJPN4 from '../assets/curriculums/haruri/JPN/haruri_curric
 import HaruriCurriculumKOR1 from '../assets/curriculums/haruri/KOR/haruri_curriculum_01_KOR.webp';
 import HaruriCurriculumKOR2 from '../assets/curriculums/haruri/KOR/haruri_curriculum_02_KOR.webp';
 import HaruriCurriculumKOR3 from '../assets/curriculums/haruri/KOR/haruri_curriculum_03_KOR.webp';
-import HaruriCurriculumKOR4 from '../assets/curriculums/haruri/KOR/haruri_curriculum_04_KOR.webp';
+import HaruriCurriculumKOR4 from '../assets/curriculums/haruri/KOR/haruri_curriculum_04_KOR.gif';
+import HaruriCurriculumKOR5 from '../assets/curriculums/haruri/KOR/haruri_curriculum_05_KOR.webp';
 import HaruriPortfolio1 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_01.webp';
 import HaruriPortfolio2 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_02.webp';
 import HaruriPortfolio3 from '../assets/curriculums/haruri/portfolio/haruri_portfolio_03.webp';
@@ -102,19 +103,22 @@ export const mentorListData = [
                 HaruriCurriculumENG1,
                 HaruriCurriculumENG2,
                 HaruriCurriculumENG3,
+                HaruriCurriculumKOR4,
                 HaruriCurriculumENG4
             ],
             japanesecontent: [
                 HaruriCurriculumJPN1,
                 HaruriCurriculumJPN2,
                 HaruriCurriculumJPN3,
+                HaruriCurriculumKOR4,
                 HaruriCurriculumJPN4
             ],
             koreancontent: [
                 HaruriCurriculumKOR1,
                 HaruriCurriculumKOR2,
                 HaruriCurriculumKOR3,
-                HaruriCurriculumKOR4
+                HaruriCurriculumKOR4,
+                HaruriCurriculumKOR5
             ],
         },
         sns: [
