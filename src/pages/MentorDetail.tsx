@@ -53,7 +53,7 @@ const MentorDetail = () => {
         if (language === "japanese") {
             return (
                 <InContainer>
-                    <CurriculumImg src={mentorInfo?.mentorCurriculum.JPN[0].imageUrl} alt=''/>
+                    <CurriculumImg src={mentorInfo?.mentorCurriculum.JPN[0]} alt=''/>
                     <CurriculumSNS>
                         {mentorInfo?.links.map((item : any, index : number) => {
                             return (
@@ -77,7 +77,7 @@ const MentorDetail = () => {
                             (index !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={item?.imageUrl}
+                                    src={item}
                                     alt=''/>  
                         )
                     })}
@@ -103,7 +103,7 @@ const MentorDetail = () => {
         } else if (language === "korean") {
             return (
                 <InContainer>
-                    <CurriculumImg src={mentorInfo?.mentorCurriculum.KOR[0].imageUrl} alt=''/>
+                    <CurriculumImg src={mentorInfo?.mentorCurriculum.KOR[0]} alt=''/>
                     <CurriculumSNS>
                         {mentorInfo?.links.map((item : any, index : number) => {
                             return (
@@ -127,7 +127,7 @@ const MentorDetail = () => {
                             (index !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={item.imageUrl}
+                                    src={item}
                                     alt=''/>  
                         )
                     })}
@@ -153,7 +153,7 @@ const MentorDetail = () => {
         } else {
             return (
                 <InContainer>
-                    <CurriculumImg src={mentorInfo?.mentorCurriculum.ENG[0].imageUrl} alt=''/>
+                    <CurriculumImg src={mentorInfo?.mentorCurriculum.ENG[0]} alt=''/>
                     <CurriculumSNS>
                         {mentorInfo?.links.map((item : any, index : number) => {
                             return (
@@ -177,7 +177,7 @@ const MentorDetail = () => {
                             (index !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={item.imageUrl}
+                                    src={item}
                                     alt=''/>  
                         )
                     })}

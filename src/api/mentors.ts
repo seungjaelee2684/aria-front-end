@@ -4,10 +4,11 @@ import instance from "./instance";
 interface getMentorsApiType {
     page: number;
     nation: string;
+    search: string | null;
 };
 
-export const getMentorsApi = async ({ page, nation } : getMentorsApiType) => {
-    const res = await instance.get(`/api/mentors?page=${page}&size=16&nationstatus=${nation}`);
+export const getMentorsApi = async ({ page, nation, search } : getMentorsApiType) => {
+    const res = await instance.get(`/api/mentors?page=${page}&size=16&nationstatus=${nation}${search}`);
     return res;
 };
 

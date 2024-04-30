@@ -18,6 +18,7 @@ import SlideWrapper from '../components/MentorPage/SlideWrapper';
 import { isLogin } from '../store/IsLogin';
 import { useNavigate } from 'react-router-dom';
 import Error from './Error';
+import { mentorSearchInput } from '../store/MentorSearchInput';
 
 const Mentor = () => {
 
@@ -25,9 +26,11 @@ const Mentor = () => {
   const page = useRecoilValue(pageNumber);
   const nationFilter = useRecoilValue(nationKind);
   const loginState = useRecoilValue(isLogin);
+  const mentorSearch = useRecoilValue(mentorSearchInput);
   const nation = nationFilter.englishpick
+  const search = mentorSearch && `&search=${mentorSearch}`;
 
-  const { isLoading, isError, error, data } = useQuery(["getMentorsList", page, nation], () => getMentorsApi({page, nation}), {
+  const { isLoading, isError, error, data } = useQuery(["getMentorsList", page, nation, search], () => getMentorsApi({page, nation, search}), {
     refetchOnWindowFocus: false
   });
 
