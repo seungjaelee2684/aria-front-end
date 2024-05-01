@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { LuSearch } from "react-icons/lu";
 import { etcTextTrans } from '../../languages/ETCTrans';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import { mentorSearchInput } from '../../store/MentorSearchInput';
 import FilterButton from './FilterButton';
 import PageButton from './PageButton';
+import { nationFlag, nationKind } from '../../store/NationFilter';
 
 const MentorSearchBar = ({ data } : any) => {
 
@@ -13,6 +14,8 @@ const MentorSearchBar = ({ data } : any) => {
 
     const [mentorSearch, setMentorSearch] = useState<string>("");
     const [searchValue, setSearchValue] = useRecoilState(mentorSearchInput);
+    const resetNationKind = useResetRecoilState(nationKind);
+    const resetNationFlag = useResetRecoilState(nationFlag);
 
     const contentTranslate = (Num : number) => {
         switch (language) {
@@ -32,6 +35,8 @@ const MentorSearchBar = ({ data } : any) => {
 
     const onSubmitMentorSearchHandler = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        resetNationKind();
+        resetNationFlag();
         setSearchValue(mentorSearch);
         setMentorSearch("");
     };

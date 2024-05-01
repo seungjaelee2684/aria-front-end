@@ -86,9 +86,17 @@ const SlideShow = ({ NewMentorListData } : any) => {
 
 const ImageOutContainer = styled.div`
   width: 100%;
-  height: 700px;
+  height: 900px;
   overflow: hidden;
   position: relative;
+
+  @media screen and (max-width: 1920px) {
+    height: 700px;
+  }
+
+  @media screen and (max-width: 1320px) {
+    height: 400px;
+  }
 
   @media screen and (max-width: 836px) {
     height: 260px;
@@ -105,7 +113,7 @@ const SlideLeftButtonBox = styled.div`
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 325px;
+  top: 425px;
   left: 70px;
   color: #FFFFFF;
   border: 2px solid #FFFFFF;
@@ -123,8 +131,14 @@ const SlideLeftButtonBox = styled.div`
     opacity: 0.8;
   }
 
+  @media screen and (max-width: 1920px) {
+    left: 70px;
+    top: 325px;
+  }
+
   @media screen and (max-width: 1320px) {
     left: 50px;
+    top: 175px;
   }
 
   @media screen and (max-width: 836px) {
@@ -144,7 +158,7 @@ const SlideRightButtonBox = styled.div`
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 325px;
+  top: 425px;
   right: 70px;
   color: #FFFFFF;
   border: 2px solid #FFFFFF;
@@ -162,8 +176,14 @@ const SlideRightButtonBox = styled.div`
     opacity: 0.8;
   }
 
+  @media screen and (max-width: 1920px) {
+    right: 70px;
+    top: 325px;
+  }
+
   @media screen and (max-width: 1320px) {
     right: 50px;
+    top: 175px;
   }
 
   @media screen and (max-width: 836px) {
