@@ -1,9 +1,9 @@
 import { atom } from "recoil";
 
 interface MentorImageType {
-    banner_image: string | undefined;
-    nickname_image: string | undefined;
-    thumbnail_image: string | undefined;
+    banner_image: File | undefined;
+    nickname_image: File | undefined;
+    thumbnail_image: File | undefined;
     curriculum_image: File[];
     portfolio_image: File[];
 }

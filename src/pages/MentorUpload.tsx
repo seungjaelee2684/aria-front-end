@@ -49,47 +49,40 @@ const Upload = () => {
 
   const uploadHandler = async () => {
     try {
-      mentorImage.curriculum_image.forEach(file => {
-        formData.append("curriculum_image", file);
+      const imageArr: (File | undefined)[] = [
+        mentorImage.banner_image,
+        mentorImage.nickname_image,
+        mentorImage.thumbnail_image,
+        ...mentorImage.curriculum_image,
+        ...mentorImage.portfolio_image
+      ]
+
+      console.log(imageArr);
+
+      imageArr.forEach(file => {
+        if (file) {
+          formData.append("images", file);
+        };
       });
-
-      mentorImage.portfolio_image.forEach(file => {
-        formData.append("portfolio_image", file);
-      });
-
-      if (mentorImage && mentorImage.banner_image) {
-        formData.append("banner_image", mentorImage.banner_image);
-      };
-
-      if (mentorImage && mentorImage.nickname_image) {
-        formData.append("nickname_image", mentorImage.nickname_image);
-      };
-
-      if (mentorImage && mentorImage.thumbnail_image) {
-        formData.append("thumbnail_image", mentorImage.thumbnail_image);
-      };
 
       formData.append(
         "mentorInfoData",
-        new Blob([JSON.stringify(mentorInfo)], {
-          type: "application/json",
-        })
+        JSON.stringify(mentorInfo)
       );
 
       formData.append(
         "SNS",
-        new Blob([JSON.stringify(snsLink)], {
-          type: "application/json",
-        })
+        JSON.stringify(snsLink)
       );
 
-      // for (const pair of formData.entries()) {
-      //   console.log(pair[0]+ ': ' + pair[1]); 
-      // }
+      for (const pair of formData.entries()) {
+        console.log(pair[0]+ ': ' + pair[1]); 
+      }
 
       const res = await postMentorUploadApi(formData);
 
       if (res.status === 200) {
+        alert("강사 등록이 완료되었습니다.");
         navigate("/mentor");
       };
     } catch (error) {
