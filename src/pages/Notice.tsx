@@ -11,6 +11,7 @@ import { useQuery } from 'react-query';
 import { getNoticeListApi } from '../api/notice';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../components/common/LoadingSpinner';
+import Error from './Error';
 
 const Notice = () => {
 
@@ -26,7 +27,7 @@ const Notice = () => {
   console.log("공지사항 전체 목록", data);
 
   if (isLoading) { return <LoadingSpinner /> }
-  if (isError) { navigate("/error") };
+  if (isError) { return <Error /> };
 
   const textChange = ( Num : number ) => {
     switch (language) {
