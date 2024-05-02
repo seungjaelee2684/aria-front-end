@@ -12,6 +12,7 @@ import { getNoticeListApi } from '../api/notice';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import Error from './Error';
+import { HiPencilAlt } from "react-icons/hi";
 
 const Notice = () => {
 
@@ -24,6 +25,8 @@ const Notice = () => {
     refetchOnWindowFocus: false
   });
 
+
+  const noticeDto = data?.data.noticeData;
   console.log("공지사항 전체 목록", data);
 
   if (isLoading) { return <LoadingSpinner /> }
@@ -62,6 +65,15 @@ const Notice = () => {
           <NotificationList
             data={data}
             noticeFilter={noticeFilter}/>
+          {(data?.data.isOperator)
+            && <UploadButtonWrapper>
+              <ButtonText onClick={() => navigate("/upload/notice")}>
+                <ButtonIcon>
+                  <HiPencilAlt />
+                </ButtonIcon>
+                글쓰기
+              </ButtonText>
+            </UploadButtonWrapper>}
         </OutWrapper>
       </ListLayoutContainer>
     </LayoutContainer>
@@ -144,6 +156,36 @@ const Total = styled.div`
   @media screen and (max-width: 500px) {
     font-size: 16px;
   }
+`;
+
+const UploadButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
+
+const ButtonText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 110%;
+  cursor: pointer;
+
+  &:hover {
+    color: #ADADAD;
+  }
+`;
+
+const ButtonIcon = styled.div`
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Notice;
