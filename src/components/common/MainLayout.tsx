@@ -11,7 +11,7 @@ const MainLayout = () => {
   )
 };
 
-const MainLayoutContainer = styled.main`
+const MainLayoutContainer = styled.article`
   width: 100%;
   height: 100%;
   transition: all 0.3s;

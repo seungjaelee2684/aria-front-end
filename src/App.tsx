@@ -36,7 +36,7 @@ const Error = lazy(() => import('./pages/Error'));
 function App() {
 
   return (
-    <div className='App'>
+    <main className='App'>
       <RecoilRoot>
         <BrowserRouter>
           <Suspense fallback={<LoadingSpinner />}>
@@ -70,7 +70,7 @@ function App() {
           </Suspense>
         </BrowserRouter>
       </RecoilRoot>
-    </div>
+    </main>
   );
 }
 
