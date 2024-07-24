@@ -13,6 +13,7 @@ import LoadingSpinner from './components/common/LoadingSpinner';
 import { AlertModalOpen } from './store/AlertModalOpen';
 import AlertContainer from './components/common/AlertContainer';
 import WorldTime from './components/common/WorldTime';
+import GlobalStyle from './style/GlobalStyle';
 
 const Home = lazy(() => import('./pages/Home'));
 const Check = lazy(() => import('./pages/Check'));
@@ -35,6 +36,7 @@ function App() {
       <RecoilRoot>
         <BrowserRouter>
           <Suspense fallback={<LoadingSpinner />}>
+            <GlobalStyle />
             <ScrollTop />
             <Header />
             <Routes>

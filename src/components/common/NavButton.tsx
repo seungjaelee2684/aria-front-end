@@ -11,19 +11,14 @@ import AlertModal from './AlertModal/AlertModal';
 
 const NavButton = () => {
 
-    const navigate = useNavigate();
-    const language = localStorage.getItem("language");
     const location = useLocation();
-    const [pageModal, setPageModal] = useState<string>("");
     const [alertModal, setAlertModal] = useRecoilState(AlertModalOpen);
 
     return (
         <TapOutContainer className='TapOutContainer'>
             <TapContainer
                 style={{ color: `${(location.pathname.includes("/mentor")) ? "#3c3ad6" : ""}` }}
-                onClick={() => {
-                    navigate("/mentor");
-                }}>
+                href="/mentor">
                 MENTOR
             </TapContainer>
             <TapContainer
@@ -33,23 +28,17 @@ const NavButton = () => {
             </TapContainer>
             <TapContainer
                 style={{ color: `${(location.pathname.includes("/notice")) ? "#3c3ad6" : ""}` }}
-                onClick={() => {
-                    navigate("/notice");
-                }}>
+                href="/notice">
                 NOTICE
             </TapContainer>
             <TapContainer
                 style={{ color: `${(location.pathname.includes("/counseling")) ? "#3c3ad6" : ""}` }}
-                onClick={() => {
-                    navigate("/support/counseling");
-                }}>
+                href="/support/counseling">
                 COUNSELING
             </TapContainer>
             <TapContainer
                 style={{ color: `${(location.pathname.includes("/policy")) ? "#3c3ad6" : ""}` }}
-                onClick={() => {
-                    navigate("/support/policy");
-                }}>
+                href="/support/policy">
                 POLICY
             </TapContainer>
         </TapOutContainer>

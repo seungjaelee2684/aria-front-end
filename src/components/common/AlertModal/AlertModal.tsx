@@ -262,15 +262,4 @@ const CloseButton = styled.button<{ bgcolor : string, border : string }>`
   }
 `;
 
-const CloseTimer = styled.div<{ width: number }>`
-  width: ${(props) => props.width}%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #3c3ad6;
-  border-radius: 0px 0px 2px 2px;
-  transition: all 0.1s;
-`;
-
 export default AlertModal;

@@ -1,18 +1,7 @@
-import React, { useState } from 'react'
 import '../../style/font/font.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { translate } from '../../store/Translation';
-import FooterLogo from '../../assets/logos/graylogo.webp';
-import Instagram from '../../assets/icons/insta.png';
-import Twitter from '../../assets/icons/twitter.png';
-import Discord from '../../assets/icons/discord.png';
-import Youtube from '../../assets/icons/youtube.png';
-import InstagramDefault from '../../assets/icons/instadefault.webp';
-import TwitterDefault from '../../assets/icons/twitterdefault.webp';
-import DiscordDefault from '../../assets/icons/discorddefault.webp';
-import YoutubeDefault from '../../assets/icons/youtubedefault.webp';
 import { AiFillHome } from 'react-icons/ai';
 import { AlertModalOpen } from '../../store/AlertModalOpen';
 import { footerContent } from '../../languages/FooterTrans';
@@ -63,7 +52,7 @@ const Footer = () => {
               <AiFillHome />
             </HomeButton>
             |
-            <Text onClick={() => navigate("/support/policy")}>
+            <Text href="/support/policy">
              {translateText(0)}
             </Text>
             |
@@ -110,17 +99,17 @@ const Footer = () => {
               </IconTitle>
             </IconTitleWrapper>
             <MenuIconContainer>
-              <IconBoxWrapper onClick={() => window.open("https://discord.gg/N7SEvBds4F")}>
+              <IconBoxWrapper href="https://discord.gg/N7SEvBds4F" target="_blank" rel="noopener noreferrer">
                 <MenuIcon>
                   <BsDiscord />
                 </MenuIcon>
               </IconBoxWrapper>
-              <IconBoxWrapper onClick={() => window.open("https://twitter.com/ARIA_Academy")}>
+              <IconBoxWrapper href="https://twitter.com/ARIA_Academy" target="_blank" rel="noopener noreferrer">
                 <MenuIcon>
                   <BsTwitterX />
                 </MenuIcon>
               </IconBoxWrapper>
-              <IconBoxWrapper onClick={() => window.open("https://www.instagram.com/aria.artacademy/")}>
+              <IconBoxWrapper href="https://www.instagram.com/aria.artacademy/" target="_blank" rel="noopener noreferrer">
                 <MenuIcon>
                   <BsInstagram />
                 </MenuIcon>
@@ -190,7 +179,7 @@ const TopLaneHeader = styled.div`
   }
 `;
 
-const LeftTopLaneContainer = styled.div`
+const LeftTopLaneContainer = styled.nav`
   display: flex;
   align-items: center;
   gap: 5px;
@@ -218,8 +207,10 @@ const HomeButton = styled.div`
   }
 `;
 
-const Text = styled.div`
+const Text = styled.a`
   font-size: 14px;
+  text-decoration: none;
+  color: #e9e9e9;
   cursor: pointer;
 
   &:hover {
@@ -280,7 +271,7 @@ const IconTitle = styled.div`
   }
 `;
 
-const MenuIconContainer = styled.div`
+const MenuIconContainer = styled.nav`
   display: flex;
   align-items: start;
   gap: 16px;
@@ -296,19 +287,17 @@ const MenuIconContainer = styled.div`
   }
 `;
 
-const IconBoxWrapper = styled.div`
+const IconBoxWrapper = styled.a`
   width: 42px;
   height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #ADADAD; */
   border-radius: 100%;
   border: 1px solid #ADADAD;
   cursor: pointer;
   
   &:hover {
-    /* background-color: #e9e9e9; */
     opacity: 0.8;
   }
 

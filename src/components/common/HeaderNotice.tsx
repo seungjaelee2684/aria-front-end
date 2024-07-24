@@ -57,11 +57,7 @@ const HeaderNotice = () => {
                 <NoticeIcon>
                     <AiFillNotification />
                 </NoticeIcon>
-                <NoticeRightWrapper onClick={() => {
-                    if (newNoticeData[0]) {
-                        navigate(path)
-                    };
-                }}>
+                <NoticeRightWrapper href={(newNoticeData[0]) ? path : ''}>
                     {newNoticeData?.map((item: any) => {
                         return (
                             <NoticeLane
@@ -150,7 +146,7 @@ const NoticeTitle = styled.div<{ color : string }>`
     }
 `;
 
-const NoticeRightWrapper = styled.div`
+const NoticeRightWrapper = styled.a`
     width: 836px;
     height: 100%;
     position: relative;

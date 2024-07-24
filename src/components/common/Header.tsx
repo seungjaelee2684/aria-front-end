@@ -3,8 +3,7 @@ import '../HomePage/MainImage/MainImage.css';
 import styled from 'styled-components';
 import logo from '../../assets/logos/logosimple.webp';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import { translate } from '../../store/Translation';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import SNSMenu from './SNSMenu/SNSMenu';
 import '../../style/font/font.css';
 import TranslateModal from './TranslateModal';
@@ -14,7 +13,6 @@ import { MainPageNumber } from '../../store/MainPageNumber';
 import { CopyAlert } from '../../store/CopyAlert';
 import CopyAlertModal from './CopyAlertModal/CopyAlertModal';
 import { popUpOpen } from '../../store/PopUpOpen';
-import PopUp from './PopUp';
 import { IoMdHome } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -95,10 +93,11 @@ const Header = () => {
                 <HeaderLayoutContainer>
                     <HeaderOutWrapper>
                         <LogoContainer>
-                            <HeaderLogo
-                                src={logo}
-                                alt=""
-                                onClick={() => navigate("/")} />
+                            <HeaderLogoLink href='/'>
+                                <HeaderLogo
+                                    src={logo}
+                                    alt="헤더 로고" />
+                            </HeaderLogoLink>
                         </LogoContainer>
                         {/* <RightWrapper> */}
                         <HeaderRightWrapper>
@@ -192,14 +191,16 @@ const HeaderOutWrapper = styled.div`
 
 const LogoContainer = styled.div`
     display: flex;
-    /* margin: auto 0px; */
     align-items: center;
     height: 80px;
 
     @media screen and (max-width: 500px) {
-        /* height: 40px; */
         display: none;
     }
+`;
+
+const HeaderLogoLink = styled.a`
+    cursor: pointer;
 `;
 
 const HeaderLogo = styled.img`
@@ -207,11 +208,8 @@ const HeaderLogo = styled.img`
     height: auto;
     object-fit: cover;
     transition: all 0.3s ease-in-out;
-    cursor: pointer;
 
     &:hover {
-        /* width: 151px;
-        height: 81px; */
         opacity: 0.8;
     }
 
@@ -231,8 +229,6 @@ const HeaderLogo = styled.img`
 const HeaderRightWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* gap: 25px; */
     width: 74%;
     height: 100%;
     gap: 0px;

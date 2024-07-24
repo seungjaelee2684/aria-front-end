@@ -54,7 +54,7 @@ const CertifyModal : React.FC<CertifyModalProps> = ({ setting, setSetting }) => 
                     * 운영자 모드로 돌입하려면 정확한 운영자 Key를 입력해주십시오.
                 </InformationContent>
                 <ButtonWrapper>
-                    <Button color='#61a0ff' onClick={() => navigate("/upload/mentor")}>
+                    <Button color='#61a0ff' href="/upload/mentor">
                         ENTER
                     </Button>
                     <Button color='#f5adad' onClick={() => setSetting(false)}>
@@ -159,7 +159,7 @@ const ButtonWrapper = styled.div`
     gap: 40px;
 `;
 
-const Button = styled.button<{ color : string }>`
+const Button = styled.a<{ color : string }>`
     width: 130px;
     height: 36px;
     border: none;
