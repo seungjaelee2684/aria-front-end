@@ -23,7 +23,7 @@ const PortfolioModal : React.FC<PortfolioModalProps> = ({ isOpenPortfolio, setIs
           onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: false, image: ""})}/>
       </CloseButton>
       <PortfolioImage
-        src={isOpenPortfolio.image}
+        src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${isOpenPortfolio.image}`}
         alt=''
         onClick={(e) => e.stopPropagation()}/>
     </ModalContainer>
@@ -53,15 +53,6 @@ const CloseButton = styled.div`
   right: 10px;
   z-index: 102;
 `;
-
-// const ModalContainer = styled.div`
-//   width: 100%;
-//   height: 90%;
-//   background-color: #222020;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
 
 const PortfolioImage = styled.img`
   width: 96%;

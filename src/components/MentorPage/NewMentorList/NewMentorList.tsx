@@ -24,14 +24,14 @@ const NewMentorList: React.FC<NewMentorListProps> = ({ imageRef, slideCurrent, p
               : (prevCurrent === index)
                 ? "ImageContainer"
                 : "NotActionImage"}>
-            <ImageBox src={item?.slideimage.background} />
+            <ImageBox src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item?.slideimage.background}`} />
             {(item?.status === "Left")
               ? <NicknameLeftContainer
-                src={item?.slideimage.nickname}
-                alt='' />
+                src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item?.slideimage.nickname}`}
+                alt='강사 닉네임 이미지' />
               : <NicknameContainer
-                src={item?.slideimage.nickname}
-                alt='' />}
+                src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item?.slideimage.nickname}`}
+                alt='강사 닉네임 이미지' />}
           </div>
         )
       })}
