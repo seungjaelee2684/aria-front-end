@@ -46,7 +46,7 @@ const MentorDetail = () => {
         if (language === "japanese") {
             return (
                 <InContainer>
-                    <CurriculumImg src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${mentorInfo[0]?.content.japanesecontent[0]}`} alt=''/>
+                    <CurriculumImg src={mentorInfo[0]?.content.japanesecontent[0]} alt=''/>
                     <CurriculumSNS>
                         {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
                             return (
@@ -70,7 +70,7 @@ const MentorDetail = () => {
                             (mentorInfo[0]?.content.japanesecontent.indexOf(item) !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item}`}
+                                    src={item}
                                     alt=''/>  
                         )
                     })}
@@ -79,7 +79,7 @@ const MentorDetail = () => {
                             return (
                                 <PortfolioImage
                                     key={index}
-                                    src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item}`}
+                                    src={item}
                                     alt=''
                                     loading="lazy"
                                     decoding="async"
@@ -96,7 +96,7 @@ const MentorDetail = () => {
         } else if (language === "korean") {
             return (
                 <InContainer>
-                    <CurriculumImg src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${mentorInfo[0]?.content.koreancontent[0]}`} alt=''/>
+                    <CurriculumImg src={mentorInfo[0]?.content.koreancontent[0]} alt=''/>
                     <CurriculumSNS>
                         {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
                             return (
@@ -120,7 +120,7 @@ const MentorDetail = () => {
                             (mentorInfo[0]?.content.koreancontent.indexOf(item) !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item}`}
+                                    src={item}
                                     alt=''/>  
                         )
                     })}
@@ -129,7 +129,7 @@ const MentorDetail = () => {
                             return (
                                 <PortfolioImage
                                     key={index}
-                                    src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item}`}
+                                    src={item}
                                     alt=''
                                     loading="lazy"
                                     decoding="async"
@@ -146,7 +146,7 @@ const MentorDetail = () => {
         } else {
             return (
                 <InContainer>
-                    <CurriculumImg src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${mentorInfo[0]?.content.englishcontent[0]}`} alt=''/>
+                    <CurriculumImg src={mentorInfo[0]?.content.englishcontent[0]} alt=''/>
                     <CurriculumSNS>
                         {mentorInfo[0]?.sns.map((item : {icon: string, link: string}) => {
                             return (
@@ -170,7 +170,7 @@ const MentorDetail = () => {
                             (mentorInfo[0]?.content.englishcontent.indexOf(item) !== 0)
                                 &&  <CurriculumImg
                                     key={item}
-                                    src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item}`}
+                                    src={item}
                                     alt=''/>  
                         )
                     })}
@@ -179,7 +179,7 @@ const MentorDetail = () => {
                             return (
                                 <PortfolioImage
                                     key={index}
-                                    src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${item}`}
+                                    src={item}
                                     alt=''
                                     loading="lazy"
                                     decoding="async"

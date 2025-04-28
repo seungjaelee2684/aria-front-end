@@ -23,7 +23,7 @@ const PortfolioModal : React.FC<PortfolioModalProps> = ({ isOpenPortfolio, setIs
           onClick={() => setIsOpenPortfolio({...isOpenPortfolio, isopen: false, image: ""})}/>
       </CloseButton>
       <PortfolioImage
-        src={`https://aria-academy.s3.ap-northeast-2.amazonaws.com//${isOpenPortfolio.image}`}
+        src={isOpenPortfolio.image}
         alt=''
         onClick={(e) => e.stopPropagation()}/>
     </ModalContainer>
